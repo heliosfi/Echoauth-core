@@ -1,0 +1,128 @@
+version: 1.1.0
+contract: recovery_eligibility
+source: specs/runtime-recovery.md
+effect: evidence_only
+
+schemas:
+  request: schemas/recovery-request.schema.json
+  result: schemas/recovery-result.schema.json
+  review_protocol: schemas/recovery-review-protocol.schema.json
+  hold_runtime_proposal: schemas/governance-runtime-proposal.schema.json
+
+entry_states:
+  - execution_blocked
+  - halted
+
+outcomes:
+  - revalidation_required
+  - rejected
+  - new_request_required
+
+failure_code_policy:
+  required_fields: [source_state, failure_code, default_outcome, required_guard_fields, review_protocol_required, required_validations]
+  execution_blocked:
+    missing_evidence:
+      default_outcome: revalidation_required
+      required_guard_fields: [missing_evidence_refs, audit_chain_id, original_failure_event_hash, halt_audit_event_id]
+      review_protocol_required: false
+      required_validations: [identity, authority, delegation_if_applicable, policy, invariants, audit_path]
+    dependency_unavailable:
+      default_outcome: revalidation_required
+      required_guard_fields: [dependency_id, dependency_status, dependency_evidence_hash, audit_chain_id, original_failure_event_hash, halt_audit_event_id]
+      review_protocol_required: false
+      required_validations: [identity, authority, delegation_if_applicable, policy, invariants, audit_path]
+    audit_path_degraded:
+      default_outcome: revalidation_required
+      required_guard_fields: [audit_path_status, audit_path_evidence_hash, audit_chain_id, original_failure_event_hash, halt_audit_event_id]
+      review_protocol_required: false
+      required_validations: [identity, authority, delegation_if_applicable, policy, invariants, audit_path]
+    coordination_interrupted:
+      default_outcome: revalidation_required
+      required_guard_fields: [coordination_context_hash, audit_chain_id, original_failure_event_hash, halt_audit_event_id]
+      review_protocol_required: false
+      required_validations: [identity, authority, delegation_if_applicable, policy, invariants, audit_path]
+  halted:
+    critical_invariant_failure:
+      default_outcome: new_request_required
+      eligible_outcome: revalidation_required
+      required_guard_fields: [invariant_result_id, invariant_state, invariant_facts_hash, audit_chain_id, original_failure_event_hash, halt_audit_event_id]
+      review_protocol_required: true
+      required_validations: [identity, authority, delegation_if_applicable, policy, invariants, audit_path]
+    invalid_state:
+      default_outcome: new_request_required
+      required_guard_fields: [runtime_transition_decision_id, runtime_transition_evidence_hash, audit_chain_id, original_failure_event_hash, halt_audit_event_id]
+      review_protocol_required: false
+      required_validations: []
+    unsafe_execution:
+      default_outcome: new_request_required
+      required_guard_fields: [execution_decision_id, execution_outcome, execution_evidence_hash, audit_chain_id, original_failure_event_hash, halt_audit_event_id]
+      review_protocol_required: false
+      required_validations: []
+    evidence_integrity_failure:
+      default_outcome: new_request_required
+      required_guard_fields: [audit_chain_id, original_failure_event_hash, halt_audit_event_id]
+      review_protocol_required: false
+      required_validations: []
+    audit_chain_failure:
+      default_outcome: rejected
+      required_guard_fields: [audit_chain_id, original_failure_event_hash, halt_audit_event_id]
+      review_protocol_required: false
+      required_validations: []
+
+compatibility:
+  recovery_allowed:
+    status: deprecated
+    source_of_truth: false
+    grants_authorization: false
+    rule: consumers must use outcome and ignore recovery_allowed
+
+hold_runtime_proposal:
+  governance_outcome: hold
+  proposed_runtime_state: execution_blocked
+  effect: proposal_only
+  state_mutation: prohibited
+  transition_logic: prohibited
+
+recovery_review_protocol:
+  contract: schemas/recovery-review-protocol.schema.json
+  classification: separate_recovery_protocol
+  general_review_outcome: false
+  rule: an active and in-scope protocol may permit eligibility evaluation but cannot authorize the original action
+
+required_traceability_links:
+  - specs/runtime-recovery.md
+  - specs/runtime-state-machine.md
+  - specs/runtime-halt-model.md
+  - specs/authority-resolution.md
+  - specs/audit-record.md
+  - specs/audit-chain.md
+  - schemas/recovery-request.schema.json
+  - schemas/recovery-result.schema.json
+  - schemas/recovery-review-protocol.schema.json
+  - schemas/governance-runtime-proposal.schema.json
+  - runtime/traceability-matrix.md
+  - contracts/decision-log.md#ADR-0007
+
+required_audit_records:
+  requested:
+    event_type: recovery.eligibility.requested
+    required_details: [recovery_id, request_id, source_state, failure_code, requested_recovery_path, recovery_actor_id, recovery_authority_reference, authority_resolution_id, halt_decision_id, original_failure_evidence_hash, original_failure_audit_event_id, changed_evidence_hash, recovery_policy_version, requested_at]
+  decided:
+    event_type: recovery.eligibility.decided
+    required_details: [recovery_decision_id, recovery_id, request_id, source_state, failure_code, outcome, reason, required_validations, evidence_hash, decided_at]
+  rules:
+    - preserve original failure and halt audit records unchanged
+    - do not emit runtime.recovered from an eligibility decision
+    - do not record raw credentials, secrets, or executable payloads
+
+prohibitions:
+  - authorization
+  - execution
+  - orchestration
+  - adapters
+  - external_integration
+  - runtime_state_mutation
+  - runtime_transition_logic
+  - token_issuance
+  - envelope_generation
+  - destination_state_creation

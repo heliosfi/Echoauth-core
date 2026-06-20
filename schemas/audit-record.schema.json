@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/audit-record.schema.json",
+  "title": "Audit Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_type", "actor_id", "reason", "details", "occurred_at"],
+  "properties": {
+    "event_type": { "type": "string" },
+    "actor_id": { "type": "string" },
+    "request_id": { "type": "string" },
+    "envelope_id": { "type": "string" },
+    "authority_verdict_id": { "type": "string" },
+    "execution_token_id": { "type": "string" },
+    "state_before": { "type": "string" },
+    "state_after": { "type": "string" },
+    "reason": { "type": "string" },
+    "details": { "$ref": "common.schema.json#/$defs/CanonicalJsonObject" },
+    "occurred_at": { "$ref": "common.schema.json#/$defs/Timestamp" }
+  }
+}

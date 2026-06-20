@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/echoauth-request.schema.json",
+  "title": "EchoAuth Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "requester_id", "subject_id", "action", "resource", "payload", "context", "correlation_id", "idempotency_key"],
+  "properties": {
+    "request_id": { "type": "string" },
+    "requester_id": { "type": "string" },
+    "subject_id": { "type": "string" },
+    "action": { "type": "string" },
+    "resource": { "type": "string" },
+    "payload": { "$ref": "common.schema.json#/$defs/CanonicalJsonObject" },
+    "context": { "$ref": "common.schema.json#/$defs/CanonicalJsonObject" },
+    "session_id": { "type": "string" },
+    "correlation_id": { "type": "string" },
+    "idempotency_key": { "type": "string" }
+  }
+}

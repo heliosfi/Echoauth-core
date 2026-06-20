@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/events/event-envelope.schema.json",
+  "title": "EchoAuth Event Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_id", "event_type", "producer_id", "correlation_id", "payload", "occurred_at"],
+  "properties": {
+    "event_id": { "type": "string" },
+    "event_type": { "type": "string" },
+    "producer_id": { "type": "string" },
+    "request_id": { "type": "string" },
+    "correlation_id": { "type": "string" },
+    "causation_id": { "type": "string" },
+    "payload": {
+      "type": "object",
+      "description": "Canonical JSON object whose nested schema is selected by event_type and events/event-catalog.yaml.",
+      "additionalProperties": true
+    },
+    "occurred_at": { "type": "string", "format": "date-time" }
+  }
+}

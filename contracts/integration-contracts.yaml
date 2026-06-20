@@ -1,0 +1,44 @@
+version: 1.0.0
+integration_boundaries:
+  api:
+    contract: api/openapi.yaml
+    required_controls:
+      - authentication
+      - authorization
+      - idempotency_key
+      - payload_hash
+      - audit_event
+  event_bus:
+    contract: events/event-envelope.schema.json
+    catalog: events/event-catalog.yaml
+    required_controls:
+      - producer_authentication
+      - subscriber_authorization
+      - correlation_id
+      - schema_validation
+  persistence:
+    contract: database/schema.sql
+    required_controls:
+      - append_only_audit_events
+      - unique_idempotency_key
+      - unique_nonce
+      - immutable_terminal_records
+  protobuf:
+    contract: contracts/protobuf/echoauth.proto
+    required_controls:
+      - canonical_enum_mapping
+      - timestamp_utc
+      - struct_for_canonical_json_object_fields
+canonical_data_contracts:
+  canonical_json_object:
+    json_schema: schemas/common.schema.json#/$defs/CanonicalJsonObject
+    protobuf_type: google.protobuf.Struct
+    database_encoding: canonical_json_text
+  string_reference_list:
+    json_schema: schemas/common.schema.json#/$defs/StringReferenceList
+  validation_error_list:
+    json_schema: schemas/common.schema.json#/$defs/ValidationErrorList
+ambiguity_policy:
+  source: contracts/ambiguities.md
+  status: resolved
+  rule: do_not_generate_nested_business_behavior_without a future specification change

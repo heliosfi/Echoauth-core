@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/governance-runtime-proposal.schema.json",
+  "title": "Governance-to-Runtime Proposal",
+  "description": "Evidence-only proposal mapping governance HOLD to the existing EXECUTION_BLOCKED runtime state. It is not a transition request and performs no state mutation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "proposal_id",
+    "request_id",
+    "governance_outcome",
+    "proposed_runtime_state",
+    "proposal_effect",
+    "reason",
+    "evidence_hash",
+    "proposed_at",
+    "audit_event_id"
+  ],
+  "properties": {
+    "proposal_id": { "type": "string", "minLength": 1 },
+    "request_id": { "type": "string", "minLength": 1 },
+    "governance_outcome": { "const": "hold" },
+    "proposed_runtime_state": { "const": "execution_blocked" },
+    "proposal_effect": { "const": "proposal_only" },
+    "reason": { "type": "string", "minLength": 1 },
+    "evidence_hash": { "type": "string", "minLength": 1 },
+    "proposed_at": { "type": "string", "format": "date-time" },
+    "audit_event_id": { "type": "string", "minLength": 1 }
+  }
+}

@@ -1,0 +1,196 @@
+syntax = "proto3";
+
+package echoauth.v1;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+// Canonical JSON object fields use google.protobuf.Struct. Nested field
+// structures are domain-specific and must follow the deterministic
+// serialization and hashing rules in the originating specification.
+
+message EchoAuthRequest {
+  string request_id = 1;
+  string requester_id = 2;
+  string subject_id = 3;
+  string action = 4;
+  string resource = 5;
+  google.protobuf.Struct payload = 6; // Canonical JSON object.
+  google.protobuf.Struct context = 7; // Canonical JSON object.
+  string session_id = 8;
+  string correlation_id = 9;
+  string idempotency_key = 10;
+}
+
+message EchoAuthResult {
+  RuntimeState request_state = 1;
+  string identity_verdict_id = 2;
+  string authority_verdict_id = 3;
+  string policy_decision_id = 4;
+  string invariant_result_id = 5;
+  string envelope_id = 6;
+  string execution_token_id = 7;
+  string audit_chain_id = 8;
+  string reason = 9;
+}
+
+message IdentityResolutionRequest {
+  string identity_request_id = 1;
+  string actor_id = 2;
+  ActorType actor_type = 3;
+  string subject_id = 4;
+  google.protobuf.Struct credential_set = 5; // Canonical JSON object.
+  google.protobuf.Struct context = 6; // Canonical JSON object.
+  AssuranceLevel required_assurance = 7;
+  string session_id = 8;
+}
+
+message IdentityVerdict {
+  string identity_verdict_id = 1;
+  IdentityState state = 2;
+  string resolved_actor_id = 3;
+  AssuranceLevel assurance_level = 4;
+  string evidence_hash = 5;
+  google.protobuf.Timestamp expires_at = 6;
+  string reason = 7;
+}
+
+message AuthorityResolutionRequest {
+  string request_id = 1;
+  string subject_id = 2;
+  string requester_id = 3;
+  string action = 4;
+  string resource = 5;
+  google.protobuf.Struct context = 6; // Canonical JSON object.
+  string identity_verdict_id = 7;
+  repeated google.protobuf.Struct authority_records = 8; // Canonical JSON objects.
+  repeated google.protobuf.Struct delegation_records = 9; // Canonical JSON objects.
+  repeated google.protobuf.Struct revocation_records = 10; // Canonical JSON objects.
+  string policy_version = 11;
+}
+
+message AuthorityVerdict {
+  string authority_verdict_id = 1;
+  string request_id = 2;
+  AuthorityState state = 3;
+  string authority_source_id = 4;
+  AuthorityType authority_type = 5;
+  google.protobuf.Struct scope = 6; // Canonical JSON object.
+  string reason = 7;
+  string evidence_hash = 8;
+  google.protobuf.Timestamp expires_at = 9;
+}
+
+message RuntimeEnvelope {
+  string envelope_id = 1;
+  string request_id = 2;
+  string subject_id = 3;
+  string requester_id = 4;
+  string authority_verdict_id = 5;
+  string delegation_id = 6;
+  string action = 7;
+  string resource = 8;
+  string payload_hash = 9;
+  string policy_version = 10;
+  string invariant_version = 11;
+  string channel_id = 12;
+  string nonce = 13;
+  google.protobuf.Timestamp expires_at = 14;
+  string audit_sink_id = 15;
+}
+
+message ExecutionToken {
+  string execution_token_id = 1;
+  string envelope_id = 2;
+  string request_id = 3;
+  string authority_verdict_id = 4;
+  string action = 5;
+  string resource = 6;
+  string payload_hash = 7;
+  string nonce = 8;
+  google.protobuf.Timestamp issued_at = 9;
+  google.protobuf.Timestamp expires_at = 10;
+  string issuer_id = 11;
+}
+
+message AuditRecord {
+  string event_type = 1;
+  string actor_id = 2;
+  string request_id = 3;
+  string envelope_id = 4;
+  string authority_verdict_id = 5;
+  string execution_token_id = 6;
+  string state_before = 7;
+  string state_after = 8;
+  string reason = 9;
+  google.protobuf.Struct details = 10; // Canonical JSON object.
+  google.protobuf.Timestamp occurred_at = 11;
+}
+
+enum RuntimeState {
+  RUNTIME_STATE_UNSPECIFIED = 0;
+  RUNTIME_STATE_NEW = 1;
+  RUNTIME_STATE_PROPOSED = 2;
+  RUNTIME_STATE_UNDER_GOVERNANCE = 3;
+  RUNTIME_STATE_RESOLVING_AUTHORITY = 4;
+  RUNTIME_STATE_VALIDATING_DELEGATION = 5;
+  RUNTIME_STATE_EVALUATING_POLICY = 6;
+  RUNTIME_STATE_VALIDATING_INVARIANTS = 7;
+  RUNTIME_STATE_CREATING_ENVELOPE = 8;
+  RUNTIME_STATE_AUTHORIZED = 9;
+  RUNTIME_STATE_TOKEN_ISSUED = 10;
+  RUNTIME_STATE_EXECUTING = 11;
+  RUNTIME_STATE_COMPLETED = 12;
+  RUNTIME_STATE_REFUSED = 13;
+  RUNTIME_STATE_HOLD = 14;
+  RUNTIME_STATE_HALTED = 15;
+  RUNTIME_STATE_REVOKED = 16;
+  RUNTIME_STATE_EXPIRED = 17;
+  RUNTIME_STATE_ESCALATED = 18;
+}
+
+enum ActorType {
+  ACTOR_TYPE_UNSPECIFIED = 0;
+  ACTOR_TYPE_HUMAN = 1;
+  ACTOR_TYPE_DELEGATE = 2;
+  ACTOR_TYPE_INSTITUTION = 3;
+  ACTOR_TYPE_SERVICE = 4;
+  ACTOR_TYPE_EXECUTOR = 5;
+  ACTOR_TYPE_AUDITOR = 6;
+}
+
+enum AssuranceLevel {
+  ASSURANCE_LEVEL_UNSPECIFIED = 0;
+  ASSURANCE_LEVEL_LOW = 1;
+  ASSURANCE_LEVEL_STANDARD = 2;
+  ASSURANCE_LEVEL_HIGH = 3;
+  ASSURANCE_LEVEL_CRITICAL = 4;
+}
+
+enum IdentityState {
+  IDENTITY_STATE_UNSPECIFIED = 0;
+  IDENTITY_STATE_VERIFIED = 1;
+  IDENTITY_STATE_REFUSED = 2;
+  IDENTITY_STATE_HOLD = 3;
+  IDENTITY_STATE_EXPIRED = 4;
+  IDENTITY_STATE_CONFLICT = 5;
+}
+
+enum AuthorityState {
+  AUTHORITY_STATE_UNSPECIFIED = 0;
+  AUTHORITY_STATE_VALID = 1;
+  AUTHORITY_STATE_REFUSED = 2;
+  AUTHORITY_STATE_HOLD = 3;
+  AUTHORITY_STATE_CONFLICT = 4;
+  AUTHORITY_STATE_ESCALATE = 5;
+}
+
+enum AuthorityType {
+  AUTHORITY_TYPE_UNSPECIFIED = 0;
+  AUTHORITY_TYPE_PARENT = 1;
+  AUTHORITY_TYPE_CAREGIVER = 2;
+  AUTHORITY_TYPE_INSTITUTION = 3;
+  AUTHORITY_TYPE_DELEGATE = 4;
+  AUTHORITY_TYPE_SYSTEM = 5;
+  AUTHORITY_TYPE_EMERGENCY = 6;
+}

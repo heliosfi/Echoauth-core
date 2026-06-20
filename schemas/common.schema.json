@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/common.schema.json",
+  "title": "EchoAuth Common Contract Types",
+  "type": "object",
+  "$defs": {
+    "CanonicalJsonObject": {
+      "type": "object",
+      "description": "Canonical JSON object. Nested keys are domain-specific; serialization and hashing must follow the deterministic rules in the originating specification.",
+      "additionalProperties": true
+    },
+    "OpenObject": {
+      "type": "object",
+      "description": "Deprecated compatibility alias for CanonicalJsonObject.",
+      "additionalProperties": true
+    },
+    "StringReferenceList": {
+      "type": "array",
+      "description": "Ordered list of stable repository or verifier references.",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "ValidationErrorList": {
+      "type": "array",
+      "description": "Ordered list of validation failure codes or messages.",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "RuntimeState": {
+      "type": "string",
+      "enum": ["new", "proposed", "under_governance", "resolving_authority", "validating_delegation", "evaluating_policy", "validating_invariants", "creating_envelope", "authorized", "token_issued", "executing", "completed", "refused", "hold", "halted", "revoked", "expired", "escalated"]
+    },
+    "ActorType": {
+      "type": "string",
+      "enum": ["human", "delegate", "institution", "service", "executor", "auditor"]
+    },
+    "AuthorityType": {
+      "type": "string",
+      "enum": ["parent", "caregiver", "institution", "delegate", "system", "emergency"]
+    },
+    "Timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/authority-resolution.schema.json",
+  "title": "Authority Resolution",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "subject_id", "requester_id", "action", "resource", "context", "identity_verdict_id", "authority_records", "policy_version"],
+  "properties": {
+    "request_id": { "type": "string" },
+    "subject_id": { "type": "string" },
+    "requester_id": { "type": "string" },
+    "action": { "type": "string" },
+    "resource": { "type": "string" },
+    "context": { "$ref": "common.schema.json#/$defs/CanonicalJsonObject" },
+    "identity_verdict_id": { "type": "string" },
+    "authority_records": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/CanonicalJsonObject" } },
+    "delegation_records": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/CanonicalJsonObject" } },
+    "revocation_records": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/CanonicalJsonObject" } },
+    "policy_version": { "type": "string" }
+  }
+}

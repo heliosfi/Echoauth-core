@@ -1,0 +1,67 @@
+version: 1.0.0
+source_specs:
+  - specs/echoauth-spec.md
+  - specs/identity-resolution.md
+  - specs/authority-resolution.md
+  - specs/delegation-validation.md
+  - specs/policy-evaluation.md
+  - specs/invariant-validator.md
+  - specs/runtime-envelope.md
+  - specs/execution-token.md
+  - specs/execution-claims.md
+  - specs/audit-record.md
+  - specs/event-bus.md
+  - specs/notification-contracts.md
+data_contracts:
+  canonical_json_object:
+    json_schema: schemas/common.schema.json#/$defs/CanonicalJsonObject
+    protobuf_type: google.protobuf.Struct
+    database_encoding: canonical_json_text
+    deterministic_rule: Originating specification controls canonical serialization and hashing.
+  string_reference_list:
+    json_schema: schemas/common.schema.json#/$defs/StringReferenceList
+    deterministic_rule: Preserve supplied order unless the originating specification defines a canonical sort order.
+  validation_error_list:
+    json_schema: schemas/common.schema.json#/$defs/ValidationErrorList
+    deterministic_rule: Preserve evaluation order from the originating validator.
+services:
+  echoauth_runtime:
+    input: EchoAuthRequest
+    output: EchoAuthResult
+    dependencies: [identity_service, authority_service, delegation_service, policy_service, invariant_service, envelope_service, token_service, claim_service, audit_service]
+  identity_service:
+    input: IdentityResolutionRequest
+    output: IdentityVerdict
+    terminal_states: [verified, refused, expired, conflict]
+  authority_service:
+    input: AuthorityResolutionRequest
+    output: AuthorityVerdict
+    terminal_states: [valid, refused, escalate]
+  delegation_service:
+    input: DelegationValidationRequest
+    output: DelegationValidationResult
+    terminal_states: [valid, invalid, expired, revoked, out_of_scope]
+  policy_service:
+    input: PolicyEvaluationRequest
+    output: PolicyDecision
+    terminal_states: [permit, refuse, hold, escalate]
+  invariant_service:
+    input: InvariantValidationRequest
+    output: InvariantResult
+    terminal_states: [valid, invalid, hold, halt]
+  envelope_service:
+    input: RuntimeEnvelope
+    output: RuntimeEnvelopeResult
+    terminal_states: [completed, refused, halted, revoked, expired]
+  token_service:
+    input: ExecutionToken
+    output: ExecutionTokenResult
+    terminal_states: [used, expired, revoked, invalid]
+  claim_service:
+    input: ExecutionClaim
+    output: ExecutionClaimResult
+    terminal_states: [rejected, expired, released, consumed]
+  audit_service:
+    input: AuditRecord
+    output: AuditRecordResult
+    terminal_states: [accepted, rejected, degraded]

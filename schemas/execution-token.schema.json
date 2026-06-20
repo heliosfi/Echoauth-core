@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/execution-token.schema.json",
+  "title": "Execution Token",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["execution_token_id", "envelope_id", "request_id", "authority_verdict_id", "action", "resource", "payload_hash", "nonce", "issued_at", "expires_at", "issuer_id"],
+  "properties": {
+    "execution_token_id": { "type": "string" },
+    "envelope_id": { "type": "string" },
+    "request_id": { "type": "string" },
+    "authority_verdict_id": { "type": "string" },
+    "action": { "type": "string" },
+    "resource": { "type": "string" },
+    "payload_hash": { "type": "string" },
+    "nonce": { "type": "string" },
+    "issued_at": { "$ref": "common.schema.json#/$defs/Timestamp" },
+    "expires_at": { "$ref": "common.schema.json#/$defs/Timestamp" },
+    "issuer_id": { "type": "string" }
+  }
+}

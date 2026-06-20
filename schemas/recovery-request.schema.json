@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/recovery-request.schema.json",
+  "title": "Recovery Eligibility Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "recovery_id",
+    "request_id",
+    "source_state",
+    "failure_code",
+    "requested_recovery_path",
+    "recovery_actor_id",
+    "recovery_authority_reference",
+    "authority_resolution_id",
+    "authority_evidence_hash",
+    "halt_decision_id",
+    "halt_decision_evidence_hash",
+    "original_failure_evidence_hash",
+    "original_failure_audit_event_id",
+    "changed_evidence_reference",
+    "changed_evidence_hash",
+    "recovery_policy_version",
+    "guard_evidence",
+    "invalidated_token_refs",
+    "requested_at"
+  ],
+  "properties": {
+    "recovery_id": { "type": "string", "minLength": 1 },
+    "request_id": { "type": "string", "minLength": 1 },
+    "source_state": { "type": "string", "enum": ["execution_blocked", "halted"] },
+    "failure_code": {
+      "type": "string",
+      "enum": [
+        "missing_evidence",
+        "dependency_unavailable",
+        "audit_path_degraded",
+        "coordination_interrupted",
+        "critical_invariant_failure",
+        "invalid_state",
+        "unsafe_execution",
+        "evidence_integrity_failure",
+        "audit_chain_failure"
+      ]
+    },
+    "requested_recovery_path": { "type": "string", "enum": ["revalidate_request", "create_new_request"] },
+    "recovery_actor_id": { "type": "string", "minLength": 1 },
+    "recovery_authority_reference": { "type": "string", "minLength": 1 },
+    "authority_resolution_id": { "type": "string", "minLength": 1 },
+    "authority_evidence_hash": { "type": "string", "minLength": 1 },
+    "halt_decision_id": { "type": "string", "minLength": 1 },
+    "halt_decision_evidence_hash": { "type": "string", "minLength": 1 },
+    "original_failure_evidence_hash": { "type": "string", "minLength": 1 },
+    "original_failure_audit_event_id": { "type": "string", "minLength": 1 },
+    "changed_evidence_reference": { "type": "string", "minLength": 1 },
+    "changed_evidence_hash": { "type": "string", "minLength": 1 },
+    "recovery_policy_version": { "type": "string", "minLength": 1 },
+    "guard_evidence": { "$ref": "#/$defs/GuardEvidence" },
+    "recovery_review_protocol": { "$ref": "recovery-review-protocol.schema.json" },
+    "invalidated_token_refs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "requested_at": { "type": "string", "format": "date-time" }
+  },
+  "$defs": {
+    "GuardEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["audit_chain_id", "original_failure_event_hash", "halt_audit_event_id"],
+      "properties": {
+        "audit_chain_id": { "type": "string", "minLength": 1 },
+        "original_failure_event_hash": { "type": "string", "minLength": 1 },
+        "halt_audit_event_id": { "type": "string", "minLength": 1 },
+        "missing_evidence_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true,
+          "minItems": 1
+        },
+        "dependency_id": { "type": "string", "minLength": 1 },
+        "dependency_status": { "type": "string", "enum": ["available", "unavailable", "expired", "revoked", "invalid", "conflict"] },
+        "dependency_evidence_hash": { "type": "string", "minLength": 1 },
+        "audit_path_status": { "type": "string", "enum": ["restored", "degraded", "broken"] },
+        "audit_path_evidence_hash": { "type": "string", "minLength": 1 },
+        "coordination_context_hash": { "type": "string", "minLength": 1 },
+        "invariant_result_id": { "type": "string", "minLength": 1 },
+        "invariant_state": { "type": "string", "enum": ["valid", "invalid", "hold", "halt"] },
+        "invariant_facts_hash": { "type": "string", "minLength": 1 },
+        "runtime_transition_decision_id": { "type": "string", "minLength": 1 },
+        "runtime_transition_evidence_hash": { "type": "string", "minLength": 1 },
+        "execution_decision_id": { "type": "string", "minLength": 1 },
+        "execution_outcome": { "type": "string", "enum": ["blocked", "invalid_state", "missing_authority", "missing_evidence", "expired", "halted"] },
+        "execution_evidence_hash": { "type": "string", "minLength": 1 }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "source_state": { "const": "execution_blocked" } }, "required": ["source_state"] },
+      "then": { "properties": { "failure_code": { "enum": ["missing_evidence", "dependency_unavailable", "audit_path_degraded", "coordination_interrupted"] } } }
+    },
+    {
+      "if": { "properties": { "source_state": { "const": "halted" } }, "required": ["source_state"] },
+      "then": { "properties": { "failure_code": { "enum": ["critical_invariant_failure", "invalid_state", "unsafe_execution", "evidence_integrity_failure", "audit_chain_failure"] } } }
+    },
+    {
+      "if": {
+        "properties": {
+          "source_state": { "const": "halted" },
+          "requested_recovery_path": { "const": "revalidate_request" }
+        },
+        "required": ["source_state", "requested_recovery_path"]
+      },
+      "then": { "required": ["recovery_review_protocol"] }
+    }
+  ]
+}

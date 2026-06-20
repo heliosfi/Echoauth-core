@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/recovery-result.schema.json",
+  "title": "Recovery Eligibility Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "recovery_decision_id",
+    "recovery_id",
+    "request_id",
+    "source_state",
+    "outcome",
+    "reason",
+    "required_validations",
+    "evidence_hash",
+    "decided_at",
+    "audit_event_id"
+  ],
+  "properties": {
+    "recovery_decision_id": { "type": "string", "minLength": 1 },
+    "recovery_id": { "type": "string", "minLength": 1 },
+    "request_id": { "type": "string", "minLength": 1 },
+    "source_state": { "type": "string", "enum": ["execution_blocked", "halted"] },
+    "outcome": { "type": "string", "enum": ["revalidation_required", "rejected", "new_request_required"] },
+    "reason": { "type": "string", "minLength": 1 },
+    "required_validations": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["identity", "authority", "delegation_if_applicable", "policy", "invariants", "audit_path"] },
+      "uniqueItems": true
+    },
+    "evidence_hash": { "type": "string", "minLength": 1 },
+    "decided_at": { "type": "string", "format": "date-time" },
+    "audit_event_id": { "type": "string", "minLength": 1 },
+    "recovery_allowed": {
+      "type": "boolean",
+      "deprecated": true,
+      "description": "Compatibility-only field. Consumers must ignore it and use outcome; it grants no authorization or runtime permission."
+    }
+  }
+}

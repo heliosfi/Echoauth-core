@@ -1,0 +1,426 @@
+openapi: 3.1.0
+info:
+  title: EchoAuth Runtime API
+  version: 1.0.0
+  summary: Implementation contracts generated from the approved EchoAuth specifications.
+servers:
+  - url: https://echoauth.example.invalid
+paths:
+  /requests:
+    post:
+      operationId: submitEchoAuthRequest
+      summary: Submit an EchoAuth runtime request.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EchoAuthRequest'
+      responses:
+        '202':
+          description: Request accepted or resolved to a non-execution state.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EchoAuthResult'
+  /identity/resolve:
+    post:
+      operationId: resolveIdentity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityResolutionRequest'
+      responses:
+        '200':
+          description: Identity verdict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityVerdict'
+  /authority/resolve:
+    post:
+      operationId: resolveAuthority
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthorityResolutionRequest'
+      responses:
+        '200':
+          description: Authority verdict.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthorityVerdict'
+  /delegations/validate:
+    post:
+      operationId: validateDelegation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DelegationValidationRequest'
+      responses:
+        '200':
+          description: Delegation validation result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DelegationValidationResult'
+  /policies/evaluate:
+    post:
+      operationId: evaluatePolicy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PolicyEvaluationRequest'
+      responses:
+        '200':
+          description: Policy decision.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PolicyDecision'
+  /invariants/validate:
+    post:
+      operationId: validateInvariants
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvariantValidationRequest'
+      responses:
+        '200':
+          description: Invariant result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvariantResult'
+  /envelopes:
+    post:
+      operationId: createRuntimeEnvelope
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RuntimeEnvelope'
+      responses:
+        '201':
+          description: Runtime envelope.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuntimeEnvelopeResult'
+  /execution-tokens:
+    post:
+      operationId: issueExecutionToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExecutionToken'
+      responses:
+        '201':
+          description: Execution token state.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExecutionTokenResult'
+  /execution-claims:
+    post:
+      operationId: claimExecutionToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExecutionClaim'
+      responses:
+        '200':
+          description: Execution claim state.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExecutionClaimResult'
+  /audit-events:
+    post:
+      operationId: appendAuditEvent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuditRecord'
+      responses:
+        '201':
+          description: Audit append result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditRecordResult'
+components:
+  schemas:
+    OpenObject:
+      type: object
+      description: Deprecated compatibility alias for CanonicalJsonObject.
+      additionalProperties: true
+    CanonicalJsonObject:
+      type: object
+      description: Canonical JSON object. Nested keys are domain-specific; serialization and hashing must follow the deterministic rules in the originating specification.
+      additionalProperties: true
+    StringReferenceList:
+      type: array
+      description: Ordered list of stable repository or verifier references.
+      items: { type: string, minLength: 1 }
+    ValidationErrorList:
+      type: array
+      description: Ordered list of validation failure codes or messages.
+      items: { type: string, minLength: 1 }
+    EchoAuthRequest:
+      type: object
+      additionalProperties: false
+      required: [request_id, requester_id, subject_id, action, resource, payload, context, correlation_id, idempotency_key]
+      properties:
+        request_id: { type: string }
+        requester_id: { type: string }
+        subject_id: { type: string }
+        action: { type: string }
+        resource: { type: string }
+        payload: { $ref: '#/components/schemas/CanonicalJsonObject' }
+        context: { $ref: '#/components/schemas/CanonicalJsonObject' }
+        session_id: { type: string }
+        correlation_id: { type: string }
+        idempotency_key: { type: string }
+    EchoAuthResult:
+      type: object
+      additionalProperties: false
+      required: [request_state, reason]
+      properties:
+        request_state: { $ref: '#/components/schemas/RuntimeState' }
+        identity_verdict_id: { type: string }
+        authority_verdict_id: { type: string }
+        policy_decision_id: { type: string }
+        invariant_result_id: { type: string }
+        envelope_id: { type: string }
+        execution_token_id: { type: string }
+        audit_chain_id: { type: string }
+        reason: { type: string }
+    IdentityResolutionRequest:
+      type: object
+      required: [identity_request_id, actor_id, actor_type, credential_set, context, required_assurance]
+      additionalProperties: false
+      properties:
+        identity_request_id: { type: string }
+        actor_id: { type: string }
+        actor_type: { $ref: '#/components/schemas/ActorType' }
+        subject_id: { type: string }
+        credential_set: { $ref: '#/components/schemas/CanonicalJsonObject' }
+        context: { $ref: '#/components/schemas/CanonicalJsonObject' }
+        required_assurance: { enum: [low, standard, high, critical] }
+        session_id: { type: string }
+    IdentityVerdict:
+      type: object
+      required: [identity_verdict_id, state, resolved_actor_id, assurance_level, evidence_hash, expires_at, reason]
+      properties:
+        identity_verdict_id: { type: string }
+        state: { enum: [verified, refused, hold, expired, conflict] }
+        resolved_actor_id: { type: string }
+        assurance_level: { enum: [low, standard, high, critical] }
+        evidence_hash: { type: string }
+        expires_at: { type: string, format: date-time }
+        reason: { type: string }
+    AuthorityResolutionRequest:
+      type: object
+      required: [request_id, subject_id, requester_id, action, resource, context, identity_verdict_id, authority_records, policy_version]
+      properties:
+        request_id: { type: string }
+        subject_id: { type: string }
+        requester_id: { type: string }
+        action: { type: string }
+        resource: { type: string }
+        context: { $ref: '#/components/schemas/CanonicalJsonObject' }
+        identity_verdict_id: { type: string }
+        authority_records: { type: array, items: { $ref: '#/components/schemas/CanonicalJsonObject' } }
+        delegation_records: { type: array, items: { $ref: '#/components/schemas/CanonicalJsonObject' } }
+        revocation_records: { type: array, items: { $ref: '#/components/schemas/CanonicalJsonObject' } }
+        policy_version: { type: string }
+    AuthorityVerdict:
+      type: object
+      required: [authority_verdict_id, request_id, state, reason, evidence_hash, expires_at]
+      properties:
+        authority_verdict_id: { type: string }
+        request_id: { type: string }
+        state: { enum: [valid, refused, hold, conflict, escalate] }
+        authority_source_id: { type: string }
+        authority_type: { enum: [parent, caregiver, institution, delegate, system, emergency] }
+        scope: { $ref: '#/components/schemas/CanonicalJsonObject' }
+        reason: { type: string }
+        evidence_hash: { type: string }
+        expires_at: { type: string, format: date-time }
+    DelegationValidationRequest:
+      type: object
+      required: [validation_id, delegation_id, requester_id, subject_id, action, resource, context, authority_verdict_id]
+      properties:
+        validation_id: { type: string }
+        delegation_id: { type: string }
+        requester_id: { type: string }
+        subject_id: { type: string }
+        action: { type: string }
+        resource: { type: string }
+        context: { $ref: '#/components/schemas/CanonicalJsonObject' }
+        authority_verdict_id: { type: string }
+    DelegationValidationResult:
+      type: object
+      required: [delegation_validation_state, reason, evidence_hash]
+      properties:
+        delegation_validation_state: { enum: [valid, invalid, expired, revoked, out_of_scope, hold] }
+        effective_scope: { $ref: '#/components/schemas/CanonicalJsonObject' }
+        reason: { type: string }
+        evidence_hash: { type: string }
+    PolicyEvaluationRequest:
+      type: object
+      required: [policy_evaluation_id, request_id, subject_id, requester_id, authority_verdict_id, action, resource, context, policy_version]
+      properties:
+        policy_evaluation_id: { type: string }
+        request_id: { type: string }
+        subject_id: { type: string }
+        requester_id: { type: string }
+        authority_verdict_id: { type: string }
+        delegation_id: { type: string }
+        action: { type: string }
+        resource: { type: string }
+        context: { $ref: '#/components/schemas/CanonicalJsonObject' }
+        policy_version: { type: string }
+    PolicyDecision:
+      type: object
+      required: [policy_decision_id, decision, reason, evidence_hash]
+      properties:
+        policy_decision_id: { type: string }
+        decision: { enum: [permit, refuse, hold, escalate] }
+        reason: { type: string }
+        matched_policies: { type: array, items: { type: string } }
+        failed_policies: { type: array, items: { type: string } }
+        evidence_hash: { type: string }
+    InvariantValidationRequest:
+      type: object
+      required: [validation_id, request_id, invariant_version, runtime_state, facts]
+      properties:
+        validation_id: { type: string }
+        request_id: { type: string }
+        envelope_id: { type: string }
+        invariant_version: { type: string }
+        runtime_state: { type: string }
+        facts: { $ref: '#/components/schemas/CanonicalJsonObject' }
+    InvariantResult:
+      type: object
+      required: [invariant_result_id, state, reason, facts_hash]
+      properties:
+        invariant_result_id: { type: string }
+        state: { enum: [valid, invalid, hold, halt] }
+        failed_invariants: { type: array, items: { type: string } }
+        reason: { type: string }
+        facts_hash: { type: string }
+    RuntimeEnvelope:
+      type: object
+      required: [envelope_id, request_id, subject_id, requester_id, authority_verdict_id, action, resource, payload_hash, policy_version, invariant_version, channel_id, nonce, expires_at, audit_sink_id]
+      properties:
+        envelope_id: { type: string }
+        request_id: { type: string }
+        subject_id: { type: string }
+        requester_id: { type: string }
+        authority_verdict_id: { type: string }
+        delegation_id: { type: string }
+        action: { type: string }
+        resource: { type: string }
+        payload_hash: { type: string }
+        policy_version: { type: string }
+        invariant_version: { type: string }
+        channel_id: { type: string }
+        nonce: { type: string }
+        expires_at: { type: string, format: date-time }
+        audit_sink_id: { type: string }
+    RuntimeEnvelopeResult:
+      type: object
+      required: [envelope_state, reason]
+      properties:
+        envelope_state: { $ref: '#/components/schemas/RuntimeState' }
+        execution_token_id: { type: string }
+        reason: { type: string }
+        validation_errors: { $ref: '#/components/schemas/ValidationErrorList' }
+        audit_event_ids: { type: array, items: { type: string } }
+    ExecutionToken:
+      type: object
+      required: [execution_token_id, envelope_id, request_id, authority_verdict_id, action, resource, payload_hash, nonce, issued_at, expires_at, issuer_id]
+      properties:
+        execution_token_id: { type: string }
+        envelope_id: { type: string }
+        request_id: { type: string }
+        authority_verdict_id: { type: string }
+        action: { type: string }
+        resource: { type: string }
+        payload_hash: { type: string }
+        nonce: { type: string }
+        issued_at: { type: string, format: date-time }
+        expires_at: { type: string, format: date-time }
+        issuer_id: { type: string }
+    ExecutionTokenResult:
+      type: object
+      required: [token_state, reason]
+      properties:
+        token_state: { enum: [issued, claimed, used, expired, revoked, invalid] }
+        claim_id: { type: string }
+        reason: { type: string }
+        audit_event_id: { type: string }
+    ExecutionClaim:
+      type: object
+      required: [claim_id, execution_token_id, executor_id, envelope_id, payload_hash, claimed_at]
+      properties:
+        claim_id: { type: string }
+        execution_token_id: { type: string }
+        executor_id: { type: string }
+        envelope_id: { type: string }
+        payload_hash: { type: string }
+        claimed_at: { type: string, format: date-time }
+    ExecutionClaimResult:
+      type: object
+      required: [claim_state, reason]
+      properties:
+        claim_state: { enum: [accepted, rejected, expired, released, consumed] }
+        lease_expires_at: { type: string, format: date-time }
+        reason: { type: string }
+    AuditRecord:
+      type: object
+      required: [event_type, actor_id, reason, details, occurred_at]
+      properties:
+        event_type: { type: string }
+        actor_id: { type: string }
+        request_id: { type: string }
+        envelope_id: { type: string }
+        authority_verdict_id: { type: string }
+        execution_token_id: { type: string }
+        state_before: { type: string }
+        state_after: { type: string }
+        reason: { type: string }
+        details: { $ref: '#/components/schemas/CanonicalJsonObject' }
+        occurred_at: { type: string, format: date-time }
+    AuditRecordResult:
+      type: object
+      required: [audit_event_id, event_hash, storage_state]
+      properties:
+        audit_event_id: { type: string }
+        event_hash: { type: string }
+        previous_hash: { type: string }
+        storage_state: { enum: [accepted, rejected, degraded] }
+    RuntimeState:
+      enum: [new, proposed, under_governance, resolving_authority, validating_delegation, evaluating_policy, validating_invariants, creating_envelope, authorized, token_issued, executing, completed, refused, hold, halted, revoked, expired, escalated]
+    ActorType:
+      enum: [human, delegate, institution, service, executor, auditor]

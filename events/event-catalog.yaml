@@ -1,0 +1,44 @@
+version: 1.0.0
+source: specs/event-bus.md
+payload_contract:
+  type: canonical_json_object
+  schema: ../schemas/common.schema.json#/$defs/CanonicalJsonObject
+  selection_rule: event_type selects the event-specific payload_schema.
+events:
+  - event_type: request.submitted
+    payload_schema: ../schemas/echoauth-request.schema.json
+  - event_type: identity.verdict
+    payload_schema: ../schemas/common.schema.json
+  - event_type: authority.verdict
+    payload_schema: ../schemas/authority-resolution.schema.json
+  - event_type: delegation.validation
+    payload_schema: ../schemas/common.schema.json
+  - event_type: policy.decision
+    payload_schema: ../schemas/common.schema.json
+  - event_type: invariant.result
+    payload_schema: ../schemas/common.schema.json
+  - event_type: envelope.created
+    payload_schema: ../schemas/runtime-envelope.schema.json
+  - event_type: execution_token.issued
+    payload_schema: ../schemas/execution-token.schema.json
+  - event_type: execution_claim.accepted
+    payload_schema: ../schemas/common.schema.json
+  - event_type: runtime.halted
+    payload_schema: ../schemas/common.schema.json
+  - event_type: runtime.recovered
+    payload_schema: ../schemas/common.schema.json
+  - event_type: audit.record
+    payload_schema: ../schemas/audit-record.schema.json
+delivery_contract:
+  required_fields:
+    - event_id
+    - event_type
+    - producer_id
+    - correlation_id
+    - payload
+    - occurred_at
+  delivery_states:
+    - accepted
+    - published
+    - rejected
+    - dead_lettered
