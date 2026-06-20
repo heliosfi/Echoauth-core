@@ -4,11 +4,14 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 from dataclasses import asdict, is_dataclass
+from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from echoauth.canonical import CanonicalDataError, canonical_json_text
-from echoauth.events import EventEnvelope
+
+if TYPE_CHECKING:
+    from echoauth.events import EventEnvelope
 
 
 class EventValidationError(ValueError):
@@ -23,19 +26,39 @@ REQUIRED_EVENT_FIELDS = (
     "payload",
     "occurred_at",
 )
+EVENT_FIELDS = frozenset(REQUIRED_EVENT_FIELDS + ("request_id", "causation_id"))
 
 
-def validate_event_envelope(event: EventEnvelope | Mapping[str, Any]) -> dict[str, Any]:
+def validate_event_envelope(
+    event: "EventEnvelope" | Mapping[str, Any],
+) -> dict[str, Any]:
     """Validate required event envelope fields and canonical payload shape."""
 
     data = _event_to_mapping(event)
-    missing = [field for field in REQUIRED_EVENT_FIELDS if not data.get(field)]
+    unknown = sorted(set(data) - EVENT_FIELDS)
+    if unknown:
+        raise EventValidationError(
+            f"unknown event fields: {', '.join(unknown)}"
+        )
+    missing = [field for field in REQUIRED_EVENT_FIELDS if field not in data]
     if missing:
         raise EventValidationError(f"missing event fields: {', '.join(missing)}")
+    for field in ("event_id", "event_type", "producer_id", "correlation_id"):
+        if not isinstance(data[field], str) or not data[field]:
+            raise EventValidationError(f"{field} must be a non-empty string")
+    for field in ("request_id", "causation_id"):
+        value = data.get(field)
+        if value is not None and (not isinstance(value, str) or not value):
+            raise EventValidationError(
+                f"{field} must be a non-empty string when present"
+            )
+    if not isinstance(data["payload"], Mapping):
+        raise EventValidationError("invalid event payload: payload must be an object")
     try:
         canonical_json_text(data["payload"])
-    except CanonicalDataError as exc:
+    except (CanonicalDataError, TypeError, ValueError) as exc:
         raise EventValidationError(f"invalid event payload: {exc}") from exc
+    _validate_utc_timestamp(data["occurred_at"])
     return data
 
 
@@ -53,6 +76,10 @@ def load_event_catalog(path: str | Path = "events/event-catalog.yaml") -> dict[s
             current_event_type = line.split(":", 1)[1].strip()
             if not current_event_type:
                 raise EventValidationError("event_type entry is empty")
+            if current_event_type in events:
+                raise EventValidationError(
+                    f"duplicate event_type: {current_event_type}"
+                )
             continue
         if line.startswith("payload_schema:"):
             if current_event_type is None:
@@ -80,9 +107,39 @@ def payload_schema_for_event(
         raise EventValidationError(f"unknown event type: {event_type}") from exc
 
 
-def _event_to_mapping(event: EventEnvelope | Mapping[str, Any]) -> dict[str, Any]:
+def resolve_payload_schema_path(
+    event_type: str,
+    catalog_path: str | Path = "events/event-catalog.yaml",
+) -> Path:
+    """Resolve a catalog payload schema reference relative to its catalog."""
+
+    resolved_catalog = Path(catalog_path).resolve()
+    schema_reference = payload_schema_for_event(event_type, resolved_catalog)
+    schema_path = Path(schema_reference)
+    if schema_path.is_absolute():
+        raise EventValidationError("payload schema path must be relative")
+    return (resolved_catalog.parent / schema_path).resolve()
+
+
+def _event_to_mapping(
+    event: "EventEnvelope" | Mapping[str, Any],
+) -> dict[str, Any]:
     if isinstance(event, Mapping):
         return dict(event)
     if is_dataclass(event):
         return asdict(event)
     raise EventValidationError("event must be an EventEnvelope or mapping")
+
+
+def _validate_utc_timestamp(value: object) -> None:
+    if not isinstance(value, str) or not value:
+        raise EventValidationError("occurred_at must be a non-empty UTC timestamp")
+    normalized = value[:-1] + "+00:00" if value.endswith("Z") else value
+    try:
+        parsed = datetime.fromisoformat(normalized)
+    except ValueError as exc:
+        raise EventValidationError("occurred_at must be ISO 8601") from exc
+    if parsed.tzinfo is None or parsed.utcoffset() is None:
+        raise EventValidationError("occurred_at must be timezone-aware")
+    if parsed.astimezone(timezone.utc).utcoffset() != parsed.utcoffset():
+        raise EventValidationError("occurred_at must be UTC")

@@ -1,0 +1,241 @@
+warning: in the working copy of 'src/echoauth/events.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/echoauth/events_validation.py', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/src/echoauth/events.py b/src/echoauth/events.py[m
+[1mindex 7e64141..453fd7f 100644[m
+[1m--- a/src/echoauth/events.py[m
+[1m+++ b/src/echoauth/events.py[m
+[36m@@ -4,7 +4,16 @@[m [mfrom __future__ import annotations[m
+ [m
+ from abc import ABC, abstractmethod[m
+ from dataclasses import dataclass[m
+[32m+[m[32mfrom enum import Enum[m
+[32m+[m[32mfrom pathlib import Path[m
+[32m+[m[32mfrom threading import RLock[m
+ [m
+[32m+[m[32mfrom echoauth.canonical import canonical_sha256[m
+[32m+[m[32mfrom echoauth.events_validation import ([m
+[32m+[m[32m    EventValidationError,[m
+[32m+[m[32m    load_event_catalog,[m
+[32m+[m[32m    validate_event_envelope,[m
+[32m+[m[32m)[m
+ from echoauth.models import CanonicalJsonObject[m
+ [m
+ [m
+[36m@@ -22,6 +31,71 @@[m [mclass EventEnvelope:[m
+     causation_id: str | None = None[m
+ [m
+ [m
+[32m+[m[32mclass EventDeliveryState(str, Enum):[m
+[32m+[m[32m    """Event-bus states; Sprint 2Q emits only accepted or rejected."""[m
+[32m+[m
+[32m+[m[32m    ACCEPTED = "accepted"[m
+[32m+[m[32m    PUBLISHED = "published"[m
+[32m+[m[32m    REJECTED = "rejected"[m
+[32m+[m[32m    DEAD_LETTERED = "dead_lettered"[m
+[32m+[m
+[32m+[m
+[32m+[m[32m@dataclass(frozen=True)[m
+[32m+[m[32mclass EventAcceptanceResult:[m
+[32m+[m[32m    """Validation evidence that grants no delivery or execution semantics."""[m
+[32m+[m
+[32m+[m[32m    event_id: str | None[m
+[32m+[m[32m    event_type: str | None[m
+[32m+[m[32m    delivery_state: EventDeliveryState[m
+[32m+[m[32m    subscribers_notified: tuple[str, ...][m
+[32m+[m[32m    reason: str[m
+[32m+[m[32m    payload_hash: str | None = None[m
+[32m+[m
+[32m+[m
+[32m+[m[32mclass InProcessEventAcceptance:[m
+[32m+[m[32m    """Validate event envelopes without publishing, persisting, or delivering."""[m
+[32m+[m
+[32m+[m[32m    def __init__([m
+[32m+[m[32m        self,[m
+[32m+[m[32m        catalog_path: str | Path = "events/event-catalog.yaml",[m
+[32m+[m[32m    ) -> None:[m
+[32m+[m[32m        self._catalog = load_event_catalog(catalog_path)[m
+[32m+[m[32m        self._accepted_event_ids: set[str] = set()[m
+[32m+[m[32m        self._lock = RLock()[m
+[32m+[m
+[32m+[m[32m    def accept([m
+[32m+[m[32m        self,[m
+[32m+[m[32m        event: EventEnvelope | CanonicalJsonObject,[m
+[32m+[m[32m    ) -> EventAcceptanceResult:[m
+[32m+[m[32m        """Return accepted or fail-closed rejected validation evidence."""[m
+[32m+[m
+[32m+[m[32m        try:[m
+[32m+[m[32m            data = validate_event_envelope(event)[m
+[32m+[m[32m        except EventValidationError:[m
+[32m+[m[32m            return _rejected(event, "invalid_event_envelope")[m
+[32m+[m
+[32m+[m[32m        event_id = data["event_id"][m
+[32m+[m[32m        event_type = data["event_type"][m
+[32m+[m[32m        if event_type not in self._catalog:[m
+[32m+[m[32m            return _rejected(data, "unknown_event_type")[m
+[32m+[m[32m        if event_type in _CATALOG_ONLY_EVENT_TYPES:[m
+[32m+[m[32m            return _rejected(data, "catalog_only_event_type")[m
+[32m+[m
+[32m+[m[32m        with self._lock:[m
+[32m+[m[32m            if event_id in self._accepted_event_ids:[m
+[32m+[m[32m                return _rejected(data, "duplicate_event_id")[m
+[32m+[m[32m            self._accepted_event_ids.add(event_id)[m
+[32m+[m
+[32m+[m[32m        return EventAcceptanceResult([m
+[32m+[m[32m            event_id=event_id,[m
+[32m+[m[32m            event_type=event_type,[m
+[32m+[m[32m            delivery_state=EventDeliveryState.ACCEPTED,[m
+[32m+[m[32m            subscribers_notified=(),[m
+[32m+[m[32m            reason="accepted",[m
+[32m+[m[32m            payload_hash=canonical_sha256(data["payload"]),[m
+[32m+[m[32m        )[m
+[32m+[m
+[32m+[m
+ class EventBus(ABC):[m
+     """Specification: specs/event-bus.md.[m
+ [m
+[36m@@ -35,3 +109,29 @@[m [mclass EventBus(ABC):[m
+     @abstractmethod[m
+     def subscribe(self, event_type: str, subscriber_id: str) -> object:[m
+         """Register a subscriber for an event type."""[m
+[32m+[m
+[32m+[m
+[32m+[m[32m_CATALOG_ONLY_EVENT_TYPES = frozenset({"runtime.recovered"})[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef _rejected([m
+[32m+[m[32m    event: EventEnvelope | CanonicalJsonObject,[m
+[32m+[m[32m    reason: str,[m
+[32m+[m[32m) -> EventAcceptanceResult:[m
+[32m+[m[32m    event_id: str | None = None[m
+[32m+[m[32m    event_type: str | None = None[m
+[32m+[m[32m    if isinstance(event, EventEnvelope):[m
+[32m+[m[32m        event_id = event.event_id if isinstance(event.event_id, str) else None[m
+[32m+[m[32m        event_type = event.event_type if isinstance(event.event_type, str) else None[m
+[32m+[m[32m    elif isinstance(event, dict):[m
+[32m+[m[32m        raw_event_id = event.get("event_id")[m
+[32m+[m[32m        raw_event_type = event.get("event_type")[m
+[32m+[m[32m        event_id = raw_event_id if isinstance(raw_event_id, str) else None[m
+[32m+[m[32m        event_type = raw_event_type if isinstance(raw_event_type, str) else None[m
+[32m+[m[32m    return EventAcceptanceResult([m
+[32m+[m[32m        event_id=event_id,[m
+[32m+[m[32m        event_type=event_type,[m
+[32m+[m[32m        delivery_state=EventDeliveryState.REJECTED,[m
+[32m+[m[32m        subscribers_notified=(),[m
+[32m+[m[32m        reason=reason,[m
+[32m+[m[32m    )[m
+[1mdiff --git a/src/echoauth/events_validation.py b/src/echoauth/events_validation.py[m
+[1mindex 264807b..46e9de9 100644[m
+[1m--- a/src/echoauth/events_validation.py[m
+[1m+++ b/src/echoauth/events_validation.py[m
+[36m@@ -4,11 +4,14 @@[m [mfrom __future__ import annotations[m
+ [m
+ from collections.abc import Mapping[m
+ from dataclasses import asdict, is_dataclass[m
+[32m+[m[32mfrom datetime import datetime, timezone[m
+ from pathlib import Path[m
+[31m-from typing import Any[m
+[32m+[m[32mfrom typing import TYPE_CHECKING, Any[m
+ [m
+ from echoauth.canonical import CanonicalDataError, canonical_json_text[m
+[31m-from echoauth.events import EventEnvelope[m
+[32m+[m
+[32m+[m[32mif TYPE_CHECKING:[m
+[32m+[m[32m    from echoauth.events import EventEnvelope[m
+ [m
+ [m
+ class EventValidationError(ValueError):[m
+[36m@@ -23,19 +26,39 @@[m [mREQUIRED_EVENT_FIELDS = ([m
+     "payload",[m
+     "occurred_at",[m
+ )[m
+[32m+[m[32mEVENT_FIELDS = frozenset(REQUIRED_EVENT_FIELDS + ("request_id", "causation_id"))[m
+ [m
+ [m
+[31m-def validate_event_envelope(event: EventEnvelope | Mapping[str, Any]) -> dict[str, Any]:[m
+[32m+[m[32mdef validate_event_envelope([m
+[32m+[m[32m    event: "EventEnvelope" | Mapping[str, Any],[m
+[32m+[m[32m) -> dict[str, Any]:[m
+     """Validate required event envelope fields and canonical payload shape."""[m
+ [m
+     data = _event_to_mapping(event)[m
+[31m-    missing = [field for field in REQUIRED_EVENT_FIELDS if not data.get(field)][m
+[32m+[m[32m    unknown = sorted(set(data) - EVENT_FIELDS)[m
+[32m+[m[32m    if unknown:[m
+[32m+[m[32m        raise EventValidationError([m
+[32m+[m[32m            f"unknown event fields: {', '.join(unknown)}"[m
+[32m+[m[32m        )[m
+[32m+[m[32m    missing = [field for field in REQUIRED_EVENT_FIELDS if field not in data][m
+     if missing:[m
+         raise EventValidationError(f"missing event fields: {', '.join(missing)}")[m
+[32m+[m[32m    for field in ("event_id", "event_type", "producer_id", "correlation_id"):[m
+[32m+[m[32m        if not isinstance(data[field], str) or not data[field]:[m
+[32m+[m[32m            raise EventValidationError(f"{field} must be a non-empty string")[m
+[32m+[m[32m    for field in ("request_id", "causation_id"):[m
+[32m+[m[32m        value = data.get(field)[m
+[32m+[m[32m        if value is not None and (not isinstance(value, str) or not value):[m
+[32m+[m[32m            raise EventValidationError([m
+[32m+[m[32m                f"{field} must be a non-empty string when present"[m
+[32m+[m[32m            )[m
+[32m+[m[32m    if not isinstance(data["payload"], Mapping):[m
+[32m+[m[32m        raise EventValidationError("invalid event payload: payload must be an object")[m
+     try:[m
+         canonical_json_text(data["payload"])[m
+[31m-    except CanonicalDataError as exc:[m
+[32m+[m[32m    except (CanonicalDataError, TypeError, ValueError) as exc:[m
+         raise EventValidationError(f"invalid event payload: {exc}") from exc[m
+[32m+[m[32m    _validate_utc_timestamp(data["occurred_at"])[m
+     return data[m
+ [m
+ [m
+[36m@@ -53,6 +76,10 @@[m [mdef load_event_catalog(path: str | Path = "events/event-catalog.yaml") -> dict[s[m
+             current_event_type = line.split(":", 1)[1].strip()[m
+             if not current_event_type:[m
+                 raise EventValidationError("event_type entry is empty")[m
+[32m+[m[32m            if current_event_type in events:[m
+[32m+[m[32m                raise EventValidationError([m
+[32m+[m[32m                    f"duplicate event_type: {current_event_type}"[m
+[32m+[m[32m                )[m
+             continue[m
+         if line.startswith("payload_schema:"):[m
+             if current_event_type is None:[m
+[36m@@ -80,9 +107,39 @@[m [mdef payload_schema_for_event([m
+         raise EventValidationError(f"unknown event type: {event_type}") from exc[m
+ [m
+ [m
+[31m-def _event_to_mapping(event: EventEnvelope | Mapping[str, Any]) -> dict[str, Any]:[m
+[32m+[m[32mdef resolve_payload_schema_path([m
+[32m+[m[32m    event_type: str,[m
+[32m+[m[32m    catalog_path: str | Path = "events/event-catalog.yaml",[m
+[32m+[m[32m) -> Path:[m
+[32m+[m[32m    """Resolve a catalog payload schema reference relative to its catalog."""[m
+[32m+[m
+[32m+[m[32m    resolved_catalog = Path(catalog_path).resolve()[m
+[32m+[m[32m    schema_reference = payload_schema_for_event(event_type, resolved_catalog)[m
+[32m+[m[32m    schema_path = Path(schema_reference)[m
+[32m+[m[32m    if schema_path.is_absolute():[m
+[32m+[m[32m        raise EventValidationError("payload schema path must be relative")[m
+[32m+[m[32m    return (resolved_catalog.parent / schema_path).resolve()[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef _event_to_mapping([m
+[32m+[m[32m    event: "EventEnvelope" | Mapping[str, Any],[m
+[32m+[m[32m) -> dict[str, Any]:[m
+     if isinstance(event, Mapping):[m
+         return dict(event)[m
+     if is_dataclass(event):[m
+         return asdict(event)[m
+     raise EventValidationError("event must be an EventEnvelope or mapping")[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef _validate_utc_timestamp(value: object) -> None:[m
+[32m+[m[32m    if not isinstance(value, str) or not value:[m
+[32m+[m[32m        raise EventValidationError("occurred_at must be a non-empty UTC timestamp")[m
+[32m+[m[32m    normalized = value[:-1] + "+00:00" if value.endswith("Z") else value[m
+[32m+[m[32m    try:[m
+[32m+[m[32m        parsed = datetime.fromisoformat(normalized)[m
+[32m+[m[32m    except ValueError as exc:[m
+[32m+[m[32m        raise EventValidationError("occurred_at must be ISO 8601") from exc[m
+[32m+[m[32m    if parsed.tzinfo is None or parsed.utcoffset() is None:[m
+[32m+[m[32m        raise EventValidationError("occurred_at must be timezone-aware")[m
+[32m+[m[32m    if parsed.astimezone(timezone.utc).utcoffset() != parsed.utcoffset():[m
+[32m+[m[32m        raise EventValidationError("occurred_at must be UTC")[m
