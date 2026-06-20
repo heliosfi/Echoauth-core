@@ -1,6 +1,6 @@
-from src.authority.models import AuthorityRecord
-from src.authority.registry import AuthorityRegistry
-from src.authority.revocation import AuthorityRevocation
+from echoauth.authority.models import AuthorityRecord
+from echoauth.authority.registry import AuthorityRegistry
+from echoauth.authority.revocation import AuthorityRevocation
 
 
 def test_authority_revocation():

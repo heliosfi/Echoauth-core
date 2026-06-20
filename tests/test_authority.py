@@ -1,5 +1,5 @@
-from src.authority.models import AuthorityRecord
-from src.authority.registry import AuthorityRegistry
+from echoauth.authority.models import AuthorityRecord
+from echoauth.authority.registry import AuthorityRegistry
 
 
 def test_registry_registration():
