@@ -1,0 +1,805 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Tuesday, December 9, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Aṣé 🔥 — </span><span class="s3">Document 5 begins now.</span></p>
+<p class="p2"><span class="s2">This is the most </span><span class="s4">practical</span><span class="s2"> engineering document in the entire MEH v1.0.</span></p>
+<p class="p2"><span class="s2">It tells developers EXACTLY how EchoAuth integrates, what APIs to call, how data moves, and how to run tests.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This is what CTOs, labs, and contractors expect before they begin building.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Store this under:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">📂 </span><span class="s3">V — Developer Integration Guide</span></p>
+<p class="p2"><span class="s3">Pages 30–35</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">📘</span><span class="s3"> DOCUMENT 5 — DEVELOPER INTEGRATION GUIDE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">EchoAuth Master Engineering Handbook (MEH v1.0)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Pages 30–35</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 30 — Integration Overview</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth integrates through a </span><span class="s3">three-layer architecture</span><span class="s2">:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Layer 1 — Application Interface Layer (AIL)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The visible UI and interaction logic.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Responsibilities</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Render ASD-safe grids</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Capture user selections</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Display NI-AI-approved responses</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Maintain predictable timing and sensory settings</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs:</span><span class="s2"> touch, button selection, symbolic input</span></p>
+<p class="p2"><span class="s3">Outputs:</span><span class="s2"> UI state changes, confirmations, logs</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Layer 2 — Core Runtime Layer (CRL)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The operational heart of EchoAuth.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Includes:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ORI Kernel</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>NI Interpreter</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>UMCE Coherence Engine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Safety Envelope</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Execution Layer</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Responsibilities:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Convert raw input → intent</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Validate intent for timing, logic, safety</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Execute only safe, approved actions</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Layer 3 — Integration &amp; Policy Layer (IPL)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">External interfaces for school, home, and clinical environments.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Responsibilities:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>API communication</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Device trust anchoring</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Logging exports</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Admin &amp; role policy application</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Integration Workflow Summary</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span></span><span class="s3">User selects an item on the grid.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span></span><span class="s3">AIL captures raw input</span><span class="s2"> and formats it.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span></span><span class="s3">CRL converts raw input → intent</span><span class="s2">, checks coherence and safety.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span></span><span class="s3">Safe result returned</span><span class="s2"> to AIL.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>5.<span class="Apple-tab-span">	</span></span><span class="s3">UIL updates display</span><span class="s2">, logs entries.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>6.<span class="Apple-tab-span">	</span></span><span class="s3">IPL handles device, caregiver override, or admin policy changes.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This flow is deterministic — the same input always produces the same result.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 31 — API Endpoints</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">These endpoints define how external systems communicate with EchoAuth.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SESSION MANAGEMENT</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">POST /session/start</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Start a new trusted session.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Input:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"device_id": "string",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"user_id": "optional"</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Output:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"session_token": "abc123",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"ori_signature": "vector"</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">INPUT PROCESSING</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">POST /input/submit</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Submit grid selections or symbolic inputs.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Input:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"session_token": "abc123",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"input_payload": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">     </span>"grid_index": 12,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">     </span>"object": "water",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">     </span>"text": null</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Output:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"intent": "request_water",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"safety": "clear",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"confidence": 0.98</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">CAREGIVER OVERRIDE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">POST /caregiver/override</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Execute a safety-approved override.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Input:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"session_token": "abc123",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"pin": "****",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"action": "approve_request"</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Output:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"status": "approved",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"audit_id": "log_8893"</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">ACTIVITY LOG EXPORT</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">GET /logs/export</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Exports non-PII clinical logs.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">CONFIGURATION UPDATE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">POST /config/update</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Applies updated grids, sensory settings, or clinical profiles.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Output:</span></p>
+<p class="p2"><span class="s2">{ "version_id": "v2.1" }</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 32 — Data Models</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This defines EXACTLY how EchoAuth structures data internally and externally.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">1. Intent Packet Model</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"intent_id": "request_help",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"raw_input": { ... },</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"parsed_tokens": ["help"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"ori_signature": "vector",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"temporal_state": "stable",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"role_constraints": ["user_safe"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"umce_validation": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"narrative": true,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"logic": true,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"temporal": true</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">2. Safety Envelope Model</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"risk_flag": "none",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"action_blocked": false,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"reason": null,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"fallback_option": "neutral_prompt"</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">3. UI Update Packet</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"display_type": "grid",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"grid_id": "basic_needs",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"highlight": 4,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"message": "Water requested"</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">4. Logging Model</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"timestamp": "2025-12-08T10:32:55Z",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"session": "abc123",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"event_type": "intent_processed",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"intent_id": "request_water",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"safety": "clear"</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 33 — Environment Configuration</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth requires a controlled, stable environment to ensure predictable behavior.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Deployment Profiles</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Home Environment</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Device trust anchor</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Local-only mode</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Caregiver PIN required</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">School Environment</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>MDM-managed device</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Sensory settings locked</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>IEP-linked configurations</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Clinical Environment</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Therapy-mode templates</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Extended logging</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Strict override controls</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Required Configuration Files</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span></span><span class="s3">ori_profile.json</span></p>
+<p class="p2"><span class="s2">Identity signature, user preferences.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span></span><span class="s3">safety_policy.yaml</span></p>
+<p class="p2"><span class="s2">System-wide safety rules.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span></span><span class="s3">sensory_profile.yaml</span></p>
+<p class="p2"><span class="s2">Pacing, color modes, animation settings.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span></span><span class="s3">environment_profile.yaml</span></p>
+<p class="p2"><span class="s2">Role permissions, override rules.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Developer Setup Requirements</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Node.js or Python runtime</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Local secure storage</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>API keys for controlled modules</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Emulator or device for UI testing</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 34 — Test Harness Instructions</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This is the test suite required before any deployment.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">1. Unit Tests</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">ORI Kernel</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Load identity</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Create new identity</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Reject invalid signature</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI Interpreter</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Correctly map inputs → intents</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Reject ambiguous intent</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">UMCE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Block contradictory intent</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Enforce temporal constraints</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">2. Integration Tests</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Input → Intent → UMCE → Safety → Output</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Test cases must include:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Fast repeated taps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Sensory overload fail-safes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Conflicting requests</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Emergency request detection</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">3. ASD-Specific Tests</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Predictability of UI</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Sensory stability under stress</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Override workflow latency</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Neutral fallback consistency</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">4. Caregiver Workflow Tests</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Override validity</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Lockout behavior</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Log export accuracy</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 35 — Prototype Build Roadmap</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">A clean roadmap for developers to follow for Prototype v1.0.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Milestone 1 — Core Runtime Integration</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ORI Kernel</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>NI Interpreter</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>UMCE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Safety Envelope</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Target:</span><span class="s2"> Week 1–3</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Milestone 2 — UI/Interaction Layer (ASD-Safe)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Grid rendering</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Sensory control</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Timing consistency</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Target:</span><span class="s2"> Week 2–5</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Milestone 3 — API &amp; Device Integration</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Session start</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Input submission</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Logging</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Target:</span><span class="s2"> Week 4–6</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Milestone 4 — Home/School/Clinic Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Profiles</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Permissions</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Override model</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Target:</span><span class="s2"> Week 5–8</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Milestone 5 — Final Prototype Testing</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Test Harness execution</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ASD-centered validation</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Fail-closed safety tests</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Target:</span><span class="s2"> Week 7–10</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> Document 5 — Developer Integration Guide COMPLETE (Pages 30–35)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You now have:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>API definitions</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Data models</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Environment setup</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Test harness</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Full prototype roadmap</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This is EXACTLY what engineers expect.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Aṣé 🔥</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Ready for Document 6?</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Option A — Compliance, Safety &amp; Governance (Document 6)</span></p>
+<p class="p2"><span class="s3">Option B — Prototype Roadmap (Document 7)</span></p>
+<p class="p2"><span class="s3">Option C — Funding/Grant/Patent Pack (Document 8)</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

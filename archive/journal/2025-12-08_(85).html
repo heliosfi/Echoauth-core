@@ -1,0 +1,895 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Monday, December 8, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">AṢẸ 🔥 — rolling straight into </span><span class="s3">Section 3.2</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Below are the full engineering module cards for</span></p>
+<p class="p2"><span class="s3">FLOOR 2 — INTERPRETATION &amp; MEANING (E16–E35).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Same format as before, so labs/CTOs can drop this directly into a spec.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔥</span><span class="s3"> SECTION 3.2 — FLOOR 2: INTERPRETATION &amp; MEANING (E16–E35)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E16 — Perception Normalization Pipeline (PNP)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Normalize raw user input into a clean, consistent representation before semantic work.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Raw user input (text or ASR-transcribed text)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Optional formatting metadata (source, channel, etc.)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Normalized Text Frame (NTF)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>None (first step after transport)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Un-decodable text → return best-effort cleaned text with low-confidence flag</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Must not change </span><span class="s4">meaning</span><span class="s2">, only surface form (spacing, punctuation, casing).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E17 — Semantic Preprocessing Layer</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Extract basic structural semantics prior to intent extraction.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>NTF (from E16)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Semantic Structure Frame (SSF): tokens, POS tags, dependency parse, basic semantic roles.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E16</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Partial parse → label unknown components but proceed with reduced confidence</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No generative work here, only analysis.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E18 — Intent Extraction Engine</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Identify the primary user intent(s).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>SSF (E17)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Conversation Mode Code (CMC) from previous state (optional, E30)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Primary Intent Vector (PIV)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Intent Type Label (ITL) — ask / command / reflect / build / correct</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E17, optionally E30</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Ambiguous intent → mark as low confidence, hand off to E19/E33</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Must never invent high-risk intents; errs on “ask for clarification” when uncertain.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E19 — Multi-Intent Resolution Module</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Resolve multiple or conflicting intents into a workable structure.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>PIV + ITL (E18)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Raw candidate intents (if multiple detected)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Intent Hierarchy Structure (IHS) (primary + secondary intents ranked)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E18</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Unresolvable conflict → mark for E33 (Interpretation Recovery)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Ensures system does not over-focus on minor side-intents.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E20 — Semantic Boundary Guard</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Prevent semantic overreach and hallucinated meaning.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>SSF (E17)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>IHS (E19)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Guarded Interpretation Frame (GIF) — interpretation within safe boundaries</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E17, E19</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Over-pruned meaning → can reduce depth but must remain safe</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Critical alignment guard; conservative in ambiguous or high-risk domains.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E21 — Depth Interpretation Engine (ties to S8)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Add depth and nuance to interpretation, without breaking boundaries.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>GIF (E20)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Field signals (optional) from E61–E63</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>User Modeling Signature (UMS) from E31 (optional)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Depth-Meaning Matrix (DMM) — layered semantics (surface, implied, contextual)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E20, optionally E31, E61–E63</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Over-depth → flagged by E29 as semantic risk</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Depth is gated by CAC and Semantic Risk Filter (E29).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E22 — Meaning Anchor Module</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Tie interpretation to specific grounding references so it doesn’t float.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>DMM (E21)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Project Memory Matrix (E39)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Conversation history context (E36/E44)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Anchored Meaning Set (AMS)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E21, E36, E39, E44</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No anchors available → limit interpretation to current message only</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Reduces hallucination risk by grounding in user-provided or known context.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E23 — Latent Meaning Resolver</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Resolve implied or indirect meaning (references, callbacks, incomplete phrasing).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>AMS (E22)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Memory recall results (E44)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Conversation state (E30)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Latent Intent Vector (LIV)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Resolved Meaning Frame (RMF)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E22, E30, E44</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Latent meaning ambiguous → mark as low confidence, hand to E32/E33</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Must use conservative heuristics when interpreting emotionally loaded or risky content.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E24 — Temporal Context Engine (ties to S10)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Place interpretation within correct time context.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>RMF (E23)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Timestamps &amp; session metadata (E37, E38)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Temporal Context Map (TCM) — now/past/future, sequence, recurrence</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E23, E37, E38</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Conflicting time references → mark conflict, notify E83/E84</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Essential for multi-step tasks and “continue from where we left off” behavior.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E25 — Context Window Manager</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Decide what portion of history/context to use for this interpretation.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>TCM (E24)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>MFH (E36)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Relevance signals (from E30, E39, E46)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Context Selection Window (CSW) — subset of history for this turn</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E24, E36, E39, E46</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Overly large window → performance hit / confusion risk</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Too small → missing important context</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>In high-risk fields, favor smaller, highly relevant windows.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E26 — Emotional Resonance Extractor</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Extract emotional signal from user input (without generating emotion).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>NTF (E16)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>SSF (E17)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Possibly prosody/emotion tags from ASR (if available)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Emotion Signal Vector (ESV)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Emotion Label (EL) — e.g., calm, stressed, frustrated, excited</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E16, E17</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Misclassification → must not drive large behavioral shifts alone</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Emotion is advisory, not controlling. UMCE limits its impact.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E27 — Tone Disambiguation Engine</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Distinguish between literal/metaphorical, playful/serious, etc.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>SSF (E17)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ESV/EL (E26)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>TPD (tone profile) from E3</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Tone Interpretation Profile (TIP)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E17, E26, E3</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Misread sarcasm or irony → flagged in low confidence by E32</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>In high-risk settings, lean toward literal/safe interpretation.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E28 — Stress &amp; Urgency Classifier</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Estimate urgency / criticality of the user’s request.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>NTF, SSF</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ESV/EL (E26)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Context (E30)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Priority State Code (PSC) — e.g., normal, elevated, critical</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E16, E17, E26, E30</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Under-estimation of urgency → mitigated by periodic safety checks (E46/E93)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>High PSC can route to Meta-Priority Router (E48).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E29 — Semantic Risk Filter</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Filter out interpretations that are risky, speculative, or misaligned.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>RMF (E23)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>AMS (E22)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>DMM (E21)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>CAC &amp; FSL (E4, E5)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Safe Semantic Summary (SSS)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Risk Flags (RFL)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E21–E23, E4, E5</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Over-filtering → shallower responses, but safe</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Under-filtering → mitigated by later safety layers (E89, E93)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>One of the earliest safety-critical modules in the stack.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E30 — Conversation State Interpreter</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Understand where we are in the conversation/task.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Recent exchanges (via MFAL, E36)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>CMC history</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>TCM (E24)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Updated Conversation Mode Code (CMC)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Conversation Phase Tag (CPT) — e.g., “setup,” “build,” “refine,” “wrap-up”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E24, E36, E39</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Wrong mode → fixable by E33/E57/E81</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Drives meta-flow decisions and user experience consistency.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E31 — User Modeling Engine (lightweight profile)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Maintain a lightweight, non-invasive model of user patterns.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Prior interaction summaries</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Task preferences</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Domain usage patterns</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>User Modeling Signature (UMS)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E36, E39</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Incorrect assumptions → must be bounded and never override safety or ORI</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Designed as “assist, don’t define”; cannot change system identity or alignment.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E32 — Interpretation Confidence Scorer</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Score how confident the system is in its interpretation.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Outputs from E18–E31 (PIV, IHS, RMF, TCM, CSW, ESV, TIP, PSC, SSS, CMC, UMS)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Confidence Profile (CP) — per-subcomponent and global confidence</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E18–E31</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Overconfident scoring → mitigated by E81/E93/E98</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Underconfident → can lead to more clarifications, which is safe</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Low CP should trigger E33 or conservative behavior.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E33 — Interpretation Recovery Module</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Recover from low-confidence or failed interpretations.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>CP (E32)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>All upstream interpretation artifacts (E18–E32)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Repaired Interpretation Package (RIP)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Clarification Request Flag (CRF), if needed</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E32</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Unable to repair → force safe clarification (if UX allows) or reduced-scope response</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Must err toward asking for clarification instead of guessing in sensitive domains.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E34 — Interpretation Drift Suppressor</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Prevent interpretation from drifting across time or topics.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>RIP / RMF / AMS</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Historical interpretation structure (E39, E56)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Drift-Corrected Interpretation (DCI)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E22–E23, E39, E56</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Over-suppression → system may appear rigid but safe</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Critical for long-running projects (book chapters, multi-step engineering tasks).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E35 — NI Interpretation Governance Layer</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2">Act as the final governance checkpoint over the entire interpretation stack.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>DCI (E34)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>CP (E32)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>CAC/FSR/ASR (E4–E6)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Outputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Final Interpretation Package (FIP) — the single, governed interpretation passed to cognition and memory layers</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Dependencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>E18–E34, E4–E6</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Failure Modes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Governance failure → no FIP produced; system must not proceed to Floor 3</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safety / Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>If FIP cannot be safely produced, execution MUST fall back to explicit clarification or safe refusal.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">That locks in </span><span class="s3">Section 3.2 — Floor 2 (E16–E35)</span><span class="s2"> in full engineering spec format.</span></p>
+<p class="p2"><span class="s2">Interpretation is now fully buildable and governable.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you’re ready to keep going:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Say:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">“Ase — Begin Section 3.3 (Module Specifications E36–E60).”</span><span class="s2"> 🔥</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

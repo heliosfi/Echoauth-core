@@ -1,0 +1,681 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Tuesday, February 10, 2026</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">import pandas as pd</span></p>
+<p class="p2"><span class="s2">from polygon import RESTClient</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># ----------------------------</span></p>
+<p class="p2"><span class="s2"># Config</span></p>
+<p class="p2"><span class="s2"># ----------------------------</span></p>
+<p class="p2"><span class="s2">SYMBOL = "TSLA"</span></p>
+<p class="p2"><span class="s2">TF_MINUTES = 30</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SUPPORT = 420.23</span></p>
+<p class="p2"><span class="s2">RESIST<span class="Apple-converted-space">  </span>= 425.50</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">VOLUME_LOOKBACK = 3</span></p>
+<p class="p2"><span class="s2">MIN_BODY_RATIO = 0.55</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">USE_MACD = True</span></p>
+<p class="p2"><span class="s2">MACD_FAST = 12</span></p>
+<p class="p2"><span class="s2">MACD_SLOW = 26</span></p>
+<p class="p2"><span class="s2">MACD_SIGNAL = 9</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># Volatility + risk gates (recommended)</span></p>
+<p class="p2"><span class="s2">ATR_LEN = 14</span></p>
+<p class="p2"><span class="s2">STOP_ATR_MULT = 0.50</span></p>
+<p class="p2"><span class="s2">MAX_CANDLE_MULT = 1.50</span></p>
+<p class="p2"><span class="s2">MAX_RISK_DOLLARS = 3.50</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># Time filter (ET)</span></p>
+<p class="p2"><span class="s2">ENABLE_TIME_FILTER = True</span></p>
+<p class="p2"><span class="s2">WINDOWS = [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>("09:35", "10:45"),<span class="Apple-converted-space">  </span># Open drive</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>("14:30", "15:55"),<span class="Apple-converted-space">  </span># Power hour</span></p>
+<p class="p2"><span class="s2">]</span></p>
+<p class="p2"><span class="s2">MIDDAY_BLOCK = True</span></p>
+<p class="p2"><span class="s2">MIDDAY = ("11:15", "14:15")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># Entry mode</span></p>
+<p class="p2"><span class="s2">ENTRY_MODE = "CLOSE"<span class="Apple-converted-space">  </span># "CLOSE" or "RETEST"</span></p>
+<p class="p2"><span class="s2">RETEST_TOL = 0.20</span></p>
+<p class="p2"><span class="s2">RETEST_TIMEOUT_BARS = 6</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># Targets</span></p>
+<p class="p2"><span class="s2">LONG_TPS<span class="Apple-converted-space">  </span>= [430.00, 435.75, 440.66]</span></p>
+<p class="p2"><span class="s2">SHORT_TPS = [414.01, 412.00, 410.00]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># ----------------------------</span></p>
+<p class="p2"><span class="s2"># Helpers</span></p>
+<p class="p2"><span class="s2"># ----------------------------</span></p>
+<p class="p2"><span class="s2">def body_size(c): return abs(c["close"] - c["open"])</span></p>
+<p class="p2"><span class="s2">def range_size(c): return max(c["high"] - c["low"], 1e-9)</span></p>
+<p class="p2"><span class="s2">def body_ratio(c): return body_size(c) / range_size(c)</span></p>
+<p class="p2"><span class="s2">def is_doji_like(c): return body_ratio(c) &lt; MIN_BODY_RATIO</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def bearish_body_engulf(curr, prev):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return (curr["close"] &lt; curr["open"]) and (curr["open"] &gt;= prev["close"]) and (curr["close"] &lt;= prev["open"])</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def bullish_body_expands(curr, prev):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return (curr["close"] &gt; curr["open"]) and (body_size(curr) &gt; body_size(prev))</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def calculate_macd_hist(df: pd.DataFrame) -&gt; pd.Series:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ema_fast = df["close"].ewm(span=MACD_FAST, adjust=False).mean()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ema_slow = df["close"].ewm(span=MACD_SLOW, adjust=False).mean()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>macd_line = ema_fast - ema_slow</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>signal_line = macd_line.ewm(span=MACD_SIGNAL, adjust=False).mean()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return macd_line - signal_line<span class="Apple-converted-space">  </span># histogram</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def macd_green_expanding(hist: pd.Series, i: int) -&gt; bool:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return hist.iloc[i] &gt; 0 and hist.iloc[i] &gt; hist.iloc[i-1]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def macd_red_expanding(hist: pd.Series, i: int) -&gt; bool:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return hist.iloc[i] &lt; 0 and hist.iloc[i] &lt; hist.iloc[i-1]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def volume_expanding(curr, last_n: pd.DataFrame) -&gt; bool:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return curr["volume"] &gt;= last_n["volume"].mean()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def calc_atr(df: pd.DataFrame, length: int = 14) -&gt; pd.Series:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>prev_close = df["close"].shift(1)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>tr = pd.concat([</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>(df["high"] - df["low"]),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>(df["high"] - prev_close).abs(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>(df["low"] - prev_close).abs(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>], axis=1).max(axis=1)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return tr.rolling(length).mean()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def in_time_window(dt, start_hhmm: str, end_hhmm: str) -&gt; bool:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>t = dt.strftime("%H:%M")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return start_hhmm &lt;= t &lt;= end_hhmm</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def entry_allowed(dt) -&gt; bool:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if not ENABLE_TIME_FILTER:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return True</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># Midday block</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if MIDDAY_BLOCK and in_time_window(dt, MIDDAY[0], MIDDAY[1]):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return any(in_time_window(dt, s, e) for s, e in WINDOWS)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def confirm_candle_not_too_big(curr, atr_val) -&gt; bool:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if pd.isna(atr_val) or atr_val &lt;= 0:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return range_size(curr) &lt;= atr_val * MAX_CANDLE_MULT</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def build_long(entry_px, confirm_candle, atr_val):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>buf = atr_val * STOP_ATR_MULT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>raw_stop = min(RESIST, confirm_candle["low"])<span class="Apple-converted-space">  </span># &lt;-- correct direction</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stop = raw_stop - buf</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if abs(entry_px - stop) &gt; MAX_RISK_DOLLARS:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return {"dir": "LONG", "entry": entry_px, "stop": stop, "tps": LONG_TPS}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def build_short(entry_px, confirm_candle, atr_val):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>buf = atr_val * STOP_ATR_MULT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>raw_stop = max(SUPPORT, confirm_candle["high"])<span class="Apple-converted-space">  </span># &lt;-- correct direction</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stop = raw_stop + buf</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if abs(entry_px - stop) &gt; MAX_RISK_DOLLARS:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return {"dir": "SHORT", "entry": entry_px, "stop": stop, "tps": SHORT_TPS}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def bullish_confirm(curr, prev, last3, hist, i, atr_val):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return (curr["close"] &gt; RESIST</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>and not is_doji_like(curr)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>and bullish_body_expands(curr, prev)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>and volume_expanding(curr, last3)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>and confirm_candle_not_too_big(curr, atr_val)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>and (not USE_MACD or macd_green_expanding(hist, i)))</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def bearish_confirm(curr, prev, last3, hist, i, atr_val):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return (curr["close"] &lt; SUPPORT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>and not is_doji_like(curr)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>and bearish_body_engulf(curr, prev)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>and volume_expanding(curr, last3)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>and confirm_candle_not_too_big(curr, atr_val)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>and (not USE_MACD or macd_red_expanding(hist, i)))</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># ----------------------------</span></p>
+<p class="p2"><span class="s2"># Fetch Data</span></p>
+<p class="p2"><span class="s2"># ----------------------------</span></p>
+<p class="p2"><span class="s2">client = RESTClient()<span class="Apple-converted-space">  </span># assumes API key is set in env or config</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># IMPORTANT: use a period where TSLA is around your levels (~420–430).</span></p>
+<p class="p2"><span class="s2"># Update these dates to Feb 2026 (example window; adjust as needed):</span></p>
+<p class="p2"><span class="s2">from_ = "2026-02-01"</span></p>
+<p class="p2"><span class="s2">to<span class="Apple-converted-space">    </span>= "2026-02-28"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">aggs = client.get_aggs(SYMBOL, TF_MINUTES, "minute", from_, to, adjusted=False, sort="asc", limit=50000)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">rows = []</span></p>
+<p class="p2"><span class="s2">for a in aggs:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>rows.append({</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"open": a.open, "high": a.high, "low": a.low, "close": a.close, "volume": a.volume,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"datetime": pd.to_datetime(a.timestamp, unit="ms", utc=True).tz_convert("US/Eastern")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>})</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">df = pd.DataFrame(rows).sort_values("datetime").reset_index(drop=True)</span></p>
+<p class="p2"><span class="s2">df["atr"] = calc_atr(df, ATR_LEN)</span></p>
+<p class="p2"><span class="s2">df["hist"] = calculate_macd_hist(df)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># ----------------------------</span></p>
+<p class="p2"><span class="s2"># Backtest Loop</span></p>
+<p class="p2"><span class="s2"># ----------------------------</span></p>
+<p class="p2"><span class="s2">trades = []</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">direction = "NONE"</span></p>
+<p class="p2"><span class="s2">plan = None</span></p>
+<p class="p2"><span class="s2">pending = None<span class="Apple-converted-space">  </span># for RETEST mode: {"dir", "level", "expiry_i", "confirm_i"}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">warmup = max(MACD_SLOW * 2, ATR_LEN + 5, VOLUME_LOOKBACK + 2)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">for i in range(warmup, len(df)):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>curr = df.iloc[i]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>prev = df.iloc[i - 1]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>last3 = df.iloc[i - VOLUME_LOOKBACK:i]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>atr_val = curr["atr"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>hist = df["hist"]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>dt = curr["datetime"]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># --- Manage open trade (bar-based fill model) ---</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if direction != "NONE" and plan is not None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if plan["dir"] == "LONG":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span># stop hit</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if curr["low"] &lt;= plan["stop"]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>trades.append({**plan, "exit": plan["stop"], "exit_i": i, "reason": "STOP"})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>direction, plan = "NONE", None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>continue</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span># targets</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if curr["high"] &gt;= plan["tps"][0]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span># simple: take TP1 and mark as partially realized (log event)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>plan.setdefault("events", []).append(("TP1", plan["tps"][0], i))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if curr["high"] &gt;= plan["tps"][1]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>plan.setdefault("events", []).append(("TP2", plan["tps"][1], i))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if curr["high"] &gt;= plan["tps"][2]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>trades.append({**plan, "exit": plan["tps"][2], "exit_i": i, "reason": "TP3"})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>direction, plan = "NONE", None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>continue</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>else:<span class="Apple-converted-space">  </span># SHORT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if curr["high"] &gt;= plan["stop"]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>trades.append({**plan, "exit": plan["stop"], "exit_i": i, "reason": "STOP"})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>direction, plan = "NONE", None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>continue</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if curr["low"] &lt;= plan["tps"][0]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>plan.setdefault("events", []).append(("TP1", plan["tps"][0], i))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if curr["low"] &lt;= plan["tps"][1]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>plan.setdefault("events", []).append(("TP2", plan["tps"][1], i))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if curr["low"] &lt;= plan["tps"][2]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>trades.append({**plan, "exit": plan["tps"][2], "exit_i": i, "reason": "TP3"})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>direction, plan = "NONE", None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>continue</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>continue<span class="Apple-converted-space">  </span># no new entries while in trade</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># --- RETEST mode: wait for retest fill ---</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if ENTRY_MODE == "RETEST" and pending is not None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if i &gt; pending["expiry_i"]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>pending = None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if pending["dir"] == "LONG" and abs(curr["close"] - pending["level"]) &lt;= RETEST_TOL:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>confirm_candle = df.iloc[pending["confirm_i"]]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>p = build_long(curr["close"], confirm_candle, atr_val)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>if p:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>direction, plan = "LONG", p</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>plan["entry_i"] = i</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>pending = None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>pending = None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if pending and pending["dir"] == "SHORT" and abs(curr["close"] - pending["level"]) &lt;= RETEST_TOL:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>confirm_candle = df.iloc[pending["confirm_i"]]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>p = build_short(curr["close"], confirm_candle, atr_val)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>if p:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>direction, plan = "SHORT", p</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>plan["entry_i"] = i</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>pending = None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>pending = None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>continue</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># --- Time filter for new signals ---</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if not entry_allowed(dt):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>continue</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># --- Signal checks ---</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if bullish_confirm(curr, prev, last3, hist, i, atr_val):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if ENTRY_MODE == "CLOSE":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>p = build_long(curr["close"], curr, atr_val)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if p:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>direction, plan = "LONG", p</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>plan["entry_i"] = i</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>pending = {"dir": "LONG", "level": RESIST, "expiry_i": i + RETEST_TIMEOUT_BARS, "confirm_i": i}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>elif bearish_confirm(curr, prev, last3, hist, i, atr_val):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if ENTRY_MODE == "CLOSE":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>p = build_short(curr["close"], curr, atr_val)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if p:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>direction, plan = "SHORT", p</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>plan["entry_i"] = i</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>pending = {"dir": "SHORT", "level": SUPPORT, "expiry_i": i + RETEST_TIMEOUT_BARS, "confirm_i": i}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># ----------------------------</span></p>
+<p class="p2"><span class="s2"># Results summary</span></p>
+<p class="p2"><span class="s2"># ----------------------------</span></p>
+<p class="p2"><span class="s2">results = []</span></p>
+<p class="p2"><span class="s2">for t in trades:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>entry = t["entry"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>exit_ = t["exit"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>pnl = (exit_ - entry) if t["dir"] == "LONG" else (entry - exit_)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>results.append({</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"dir": t["dir"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"entry_time": df.iloc[t["entry_i"]]["datetime"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"exit_time": df.iloc[t["exit_i"]]["datetime"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"entry": entry,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"stop": t["stop"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"exit": exit_,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"reason": t["reason"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"pnl_per_share": pnl,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"events": t.get("events", [])</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>})</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">res_df = pd.DataFrame(results)</span></p>
+<p class="p2"><span class="s2">print(res_df)</span></p>
+<p class="p2"><span class="s2">if not res_df.empty:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("\nSummary:")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print(res_df["pnl_per_share"].describe())</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

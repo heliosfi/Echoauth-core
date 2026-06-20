@@ -1,0 +1,695 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Thursday, December 25, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Understood.</span></p>
+<p class="p2"><span class="s2">What you’re asking for is </span><span class="s3">not a reply</span><span class="s2"> — it’s a </span><span class="s3">document</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Below is </span><span class="s3">SniperBot — Canonical Architecture Pack (Paged Edition)</span><span class="s2">.</span></p>
+<p class="p2"><span class="s2">Each section is written as a </span><span class="s3">standalone page</span><span class="s2"> you can later PDF, store, or expand without rewriting anything.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">No hype. No drift. This is build-grade.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 1 — SYSTEM IDENTITY</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SniperBot (Canonical Definition)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SniperBot is a </span><span class="s3">rule-governed trade execution and risk management system</span><span class="s2">.</span></p>
+<p class="p2"><span class="s2">It does not predict markets. It enforces discipline.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SniperBot exists to:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Execute trades only when predefined </span><span class="s3">structural, risk, and context conditions</span><span class="s2"> are satisfied</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Manage exits automatically</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Preserve capital through restraint and governance</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Default state is </span><span class="s3">NO TRADE</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SniperBot is </span><span class="s3">human-authorized</span><span class="s2">, </span><span class="s3">context-aware</span><span class="s2">, and </span><span class="s3">bounded by governance</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 2 — CORE PRINCIPLES</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span></span><span class="s3">Discipline over intelligence</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span></span><span class="s3">Execution over prediction</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span></span><span class="s3">Governance over autonomy</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span></span><span class="s3">No-trade is a valid outcome</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>5.<span class="Apple-tab-span">	</span></span><span class="s3">Automation handles execution, not judgment</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Any system violating these principles is </span><span class="s3">not SniperBot</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 3 — OPERATOR FLOW (END-TO-END)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Step 0 — Boot</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Load configuration</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Initialize governance</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Set state = PAUSE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Step 1 — Day Classification</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SniperBot classifies (read-only):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Market regime: Trend / Range / Expansion / Transition</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Volatility bucket: ~3.5% or ≥6%</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>News status: Green / Yellow / Red</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If regime ≠ allowed OR news = Red → remain PAUSE.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Step 2 — Setup Detection</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SniperBot watches only </span><span class="s3">whitelisted entries</span><span class="s2">.</span></p>
+<p class="p2"><span class="s2">No discretionary scanning.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Step 3 — Trade Card Generation</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">When setup qualifies:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Entry trigger</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Structure stop</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>TP ladder</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Position size (risk % based)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">No trade exists without a card.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Step 4 — Arm Window</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Human selects:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ARM MANUAL (alerts only)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ARM AUTO (1 trade max)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If auto conditions fail → manual only.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Step 5 — Execution</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Entry + stop + TP placed simultaneously</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>All actions logged</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Step 6 — Exit Management</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>TP ladder executes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Runner optional</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Time stop enforced</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Step 7 — Shutdown</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Auto shuts down on:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Daily loss hit</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Regime invalidation</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Feed issues</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Kill switch</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 4 — ENTRY WHITELIST</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Allowed entries:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Break &amp; retest (confirmed)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>VWAP flip + hold</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Key level reclaim with structure</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Not allowed:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Counter-trend</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Mean reversion</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>News reaction</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Impulse entries</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>“Looks strong” logic</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Indicators confirm — </span><span class="s3">they never trigger</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 5 — RISK MANAGEMENT ENGINE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Risk Authority</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Risk is the </span><span class="s3">primary authority</span><span class="s2">, above signal strength.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Rules:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Fixed % risk per trade</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Position size calculated from stop distance</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>If stop too wide → trade rejected</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Typical ranges:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Manual: 0.5%–1%</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Auto: 0.25%–0.5%</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Max trades/day:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Auto: 1 (2 only if first is partial win)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 6 — STOP LOSS LOGIC</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Stop loss must:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Invalidate the thesis</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Be defined </span><span class="s3">before entry</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Never widen</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Optional:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Time stop</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Break-even after TP1</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Session cutoff stop</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If stop logic cannot validate → no execution.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 7 — TAKE PROFIT STRUCTURE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Mandatory ladder:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>TP1: logical structure target</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>TP2: extension (ATR / measured move)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Runner: optional trailing stop</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">No chasing.</span></p>
+<p class="p2"><span class="s2">No adding size.</span></p>
+<p class="p2"><span class="s2">No emotional overrides.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 8 — VOLATILITY ADAPTATION</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">~3.5% Range Days</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Smaller targets</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Faster exits</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Reduced trade frequency</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">≥6% Expansion Days</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Wider structure-valid stops</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Larger targets</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Scaling logic allowed</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If volatility regime changes mid-trade → manage exits only, no new entries.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 9 — AUTO-MODE CONDITIONS (LOCKED)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Auto-Mode is allowed </span><span class="s3">only if ALL are true</span><span class="s2">:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Human arms auto for the session</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Regime = pre-approved</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Entry type = whitelisted</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Risk ≤ 0.5%</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Max trades/day enforced</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Kill switch active</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Auto-Mode expires:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>End of session</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>On loss cap</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>On regime uncertainty</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Auto-Mode ≠ autonomy.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 10 — GOVERNANCE (MCG ALIGNMENT)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Default = </span><span class="s3">PAUSE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">On uncertainty:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>HALT</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">On conflict:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>NO TRADE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">On violation:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>LOCKOUT</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Human authority:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Absolute</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Immediate</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Unrevokable</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SniperBot never overrides governance.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 11 — RULE OBJECTS (LOGIC LAYER)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">States</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>PAUSE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ARMED_MANUAL</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ARMED_AUTO</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>IN_TRADE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>LOCKOUT</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Gates</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>RegimeGate</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>NewsGate</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>VolatilityGate</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>LiquidityGate</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>EntryWhitelistGate</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>RiskGate</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>StopValidationGate</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>LoggingGate</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 12 — CONFIG TEMPLATE (DAILY)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Tickers allowed</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Session times</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Risk %</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Daily loss cap</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Entry whitelist</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Auto-mode toggle</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>News blackout windows</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This page is filled </span><span class="s3">before market open</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 13 — TRADE CARD TEMPLATE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Every trade must contain:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Ticker</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Regime</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Entry trigger</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Stop level</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>TP ladder</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Risk %</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Size</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Time validity</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">No card → no trade.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 14 — LOGGING &amp; AUDIT</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Each trade logs:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Regime</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Entry type</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Risk %</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Execution time</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Exit result</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Reason for shutdown (if any)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If logging fails → system halts.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 15 — FINAL LOCK</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SniperBot is disciplined execution under governance — not intelligence under autonomy.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This is the system.</span></p>
+<p class="p2"><span class="s2">Everything else is interface.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Next possible pages (you choose):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Page 16–20:</span><span class="s2"> Python code skeleton (state machine)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Page 16–18:</span><span class="s2"> UI/UX operator panels</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Page 16–19:</span><span class="s2"> Funding / IP description</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Page 16–22:</span><span class="s2"> Options-specific extension</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Say the word and the next pages get built.</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

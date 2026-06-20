@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Thursday, December 25, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Below is the </span><span class="s3">FULL, LOCKED SPEC for STAGE C</span><span class="s2"> with </span><span class="s3">EchoAuth Typed Login fully integrated</span><span class="s2">.</span></p>
+<p class="p2"><span class="s2">This </span><span class="s3">replaces</span><span class="s2"> the earlier Stage C and is now the </span><span class="s3">authoritative version</span><span class="s2"> you should store.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Nothing else in v1.0–v1.1 is changed.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">**STAGE C — OPERATOR PANEL (FULL SPEC)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">WITH ECHOAUTH TYPED LOGIN</span></p>
+<p class="p2"><span class="s2">CANONICAL v1.0**</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose:</span></p>
+<p class="p2"><span class="s2">Ensure that </span><span class="s3">only a present, authenticated human</span><span class="s2"> can access SniperBot controls, while </span><span class="s3">governance and execution rules remain unchanged</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth confirms </span><span class="s3">identity + intent</span><span class="s2">.</span></p>
+<p class="p2"><span class="s2">SniperBot controls </span><span class="s3">permission + action</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">0) ENTRY BOUNDARY — ECHOAUTH TYPED LOGIN</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Position in the system</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth sits </span><span class="s3">before</span><span class="s2"> the Operator Panel.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">No EchoAuth session → </span><span class="s3">Operator Panel is inaccessible</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">1) ECHOAUTH TYPED LOGIN (SESSION GATE)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Required Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Operator ID</span><span class="s2"> (username or identifier)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Typed passphrase</span><span class="s2"> (not autofilled)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Typed intent phrase</span><span class="s2"> (example below)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Example intent phrases (configurable):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>“HYBRID MODE CONFIRMED”</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>“MANUAL CONTROL — AUTO OFF”</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>“SESSION START — GOVERNED”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Typing is mandatory.</span></p>
+<p class="p2"><span class="s2">Paste / autofill is rejected.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Validation Rules</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth must confirm:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Operator identity is valid</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Input is typed (keystroke cadence allowed but optional)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Intent phrase matches allowed list</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Session timestamp is recorded</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">On Successful Login</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Session token issued</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">System enters PAUSE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Operator Panel becomes visible</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No arming flags set</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Auto remains OFF</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">On Failed / Expired Login</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Operator Panel hidden</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>System remains in PAUSE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No execution possible</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">EchoAuth Output (to SniperBot)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">AUTH_SESSION = VALID / INVALID</span></p>
+<p class="p2"><span class="s2">OPERATOR_ID = &lt;string&gt;</span></p>
+<p class="p2"><span class="s2">SESSION_START_TIME = &lt;timestamp&gt;</span></p>
+<p class="p2"><span class="s2">INTENT_CONFIRMED = TRUE / FALSE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If AUTH_SESSION != VALID → SniperBot forces </span><span class="s3">PAUSE</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">2) TOP BAR — SYSTEM STATUS (ALWAYS VISIBLE)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SYSTEM POWER:</span><span class="s2"> ON / OFF</span></p>
+<p class="p2"><span class="s3">MODE:</span><span class="s2"> PAPER | </span><span class="s3">HYBRID</span><span class="s2"> | AUTO</span></p>
+<p class="p2"><span class="s3">STATE:</span><span class="s2"> PAUSE | READY | ARMED_MANUAL | ARMED_AUTO | IN_TRADE | LOCKOUT</span></p>
+<p class="p2"><span class="s3">ECHOAUTH SESSION:</span><span class="s2"> ✅ ACTIVE / ❌ INACTIVE</span></p>
+<p class="p2"><span class="s3">KILL SWITCH:</span><span class="s2"> ⛔ OFF / ⛔ ON</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Live Indicators</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Data Feed: ✅ / ❌</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Logging: ✅ / ❌</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>News: 🟢 / 🟡 / 🔴</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Regime: Trend / Expansion / Range / Transition</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Hard Invariants</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>EchoAuth ❌ → </span><span class="s3">STATE = PAUSE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Kill Switch ON → </span><span class="s3">STATE = LOCKOUT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>News 🔴 → </span><span class="s3">STATE = PAUSE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">3) LEFT COLUMN — GRAIN STATUS (READ-ONLY)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Displays advisory outputs from </span><span class="s3">mandatory grains</span><span class="s2">:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>INTEG-DATA</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>GOV-AUTH</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>STRUCT-REGIME</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>NEWS-RISK</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>VOL-RANGE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>SETUP-WHITELIST</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>RISK-SIZE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>STOPS-VALIDATE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>EXEC-LIQUIDITY</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>AUDIT-LOGGING</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Display only. No interaction.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If any safety grain FAILS → automatic PAUSE or LOCKOUT.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">4) CENTER PANEL — ACTIVE TRADE CARD (SINGLE INSTANCE)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Trade Card Display (Read-only once valid)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Ticker</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Setup Type</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Regime / Volatility</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Entry Trigger (exact text)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Stop Level (thesis invalidation)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>TP1 / TP2 / Runner Rules</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Risk % / Position Size</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Expiration Countdown</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Auto Eligible: Yes / No</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Visual State</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>🟩 Green = VALID</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>🟨 Yellow = EXPIRING</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>🟥 Red = INVALID / REJECTED</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">No card visible → NO TRADE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">5) RIGHT COLUMN — OPERATOR ACTIONS (HARD-GATED)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Buttons (Context-Aware)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">ARM MANUAL</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Requires: EchoAuth ✅, STATE = READY, Card VALID</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">ARM AUTO</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Requires: MODE = AUTO, EchoAuth ✅, Card auto-eligible</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">DISARM</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Always allowed</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">END SESSION</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Forces PAUSE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">EMERGENCY LOCKOUT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Immediate LOCKOUT</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Buttons are disabled (greyed) when conditions are not met.</span></p>
+<p class="p2"><span class="s2">No override buttons exist.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6) BOTTOM PANEL — LIVE SESSION LOG</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Automatically Logged</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>EchoAuth login / logout</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>State transitions</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Card creation / rejection</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Arming actions</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Execution events</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Lockouts</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Logging failure → immediate LOCKOUT</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">7) SESSION TIMEOUT &amp; RE-AUTH</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>EchoAuth session expires after configurable inactivity</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>On expiration:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Operator Panel locks</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>STATE → PAUSE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Re-login required</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">No silent continuation.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">8) SECURITY &amp; GOVERNANCE RULES</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>EchoAuth cannot:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Execute trades</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Override gates</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Enable Auto alone</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>SniperBot cannot:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Bypass EchoAuth</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Persist arming across sessions</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Identity ≠ Authority</span></p>
+<p class="p2"><span class="s2">Authority still lives in </span><span class="s3">governance + state machine</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔒</span><span class="s3"> STAGE C FINAL LOCK SENTENCE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">EchoAuth verifies the human is present and intentional.</span></p>
+<p class="p2"><span class="s3">SniperBot decides if action is permitted.</span></p>
+<p class="p2"><span class="s3">Execution only occurs under governance.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">STATUS</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅ Stage C fully specified</span></p>
+<p class="p2"><span class="s2">✅ EchoAuth integrated safely</span></p>
+<p class="p2"><span class="s2">✅ v1.0 remains sealed</span></p>
+<p class="p2"><span class="s2">✅ v1.1 compatible (identity &amp; audit enhancement only)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You can now </span><span class="s3">store this spec</span><span class="s2"> with confidence.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If/when you return, the next logical step would be:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Stage D — Mode Toggle Map</span><span class="s2">, or</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">EchoAuth typed phrase registry</span><span class="s2">, or</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">No further expansion (also valid)</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

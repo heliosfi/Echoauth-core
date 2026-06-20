@@ -1,0 +1,972 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Sunday, April 5, 2026</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Use this exact stack:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Frontend:</span><span class="s2"> simple HTML + JS</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Backend:</span><span class="s2"> </span><span class="s3">Python Flask</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Storage:</span><span class="s2"> in-memory for v0.1</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Goal:</span><span class="s2"> prove </span><span class="s3">request → hold → approve/deny → single execution</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This is the fastest clean path.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">What you need right now</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Create a folder called echoauth_demo with these files:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">echoauth_demo/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>app.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>templates/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>child.html</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>parent.html</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">1) app.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from flask import Flask, render_template, request, jsonify</span></p>
+<p class="p2"><span class="s2">from uuid import uuid4</span></p>
+<p class="p2"><span class="s2">from datetime import datetime, timedelta, timezone</span></p>
+<p class="p2"><span class="s2">from threading import Lock</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">app = Flask(__name__)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># In-memory store for prototype only</span></p>
+<p class="p2"><span class="s2">REQUESTS = {}</span></p>
+<p class="p2"><span class="s2">TOKENS = {}</span></p>
+<p class="p2"><span class="s2">AUDIT_LOG = []</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">store_lock = Lock()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">TOKEN_TTL_SECONDS = 30</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def now_utc():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return datetime.now(timezone.utc)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def ts():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return now_utc().isoformat()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def log_event(request_id, event, detail=None):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>entry = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"timestamp": ts(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"request_id": request_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"event": event,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"detail": detail or {}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>AUDIT_LOG.append(entry)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.route("/")</span></p>
+<p class="p2"><span class="s2">def home():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return jsonify({</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"message": "EchoAuth demo running",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"routes": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"child_ui": "/child",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"parent_ui": "/parent",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"logs": "/logs"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>})</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.route("/child")</span></p>
+<p class="p2"><span class="s2">def child_ui():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return render_template("child.html")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.route("/parent")</span></p>
+<p class="p2"><span class="s2">def parent_ui():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return render_template("parent.html")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.route("/request_action", methods=["POST"])</span></p>
+<p class="p2"><span class="s2">def request_action():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>data = request.get_json(force=True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>action = data.get("action", "unlock_door")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>request_id = str(uuid4())</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>with store_lock:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>REQUESTS[request_id] = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"id": request_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"action": action,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"created_at": ts(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"status": "pending",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"executed": False</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>log_event(request_id, "REQUEST_CREATED", {"action": action})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>log_event(request_id, "AWAITING_AUTHORITY")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return jsonify({</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"ok": True,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"request": REQUESTS[request_id]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>})</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.route("/pending_requests", methods=["GET"])</span></p>
+<p class="p2"><span class="s2">def pending_requests():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>with store_lock:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>pending = [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>r for r in REQUESTS.values()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if r["status"] == "pending"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return jsonify({"pending_requests": pending})</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.route("/approve/&lt;request_id&gt;", methods=["POST"])</span></p>
+<p class="p2"><span class="s2">def approve(request_id):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>with store_lock:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>req = REQUESTS.get(request_id)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if not req:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return jsonify({"ok": False, "error": "Request not found"}), 404</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if req["status"] != "pending":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return jsonify({"ok": False, "error": f"Request already {req['status']}"}), 400</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>issued_at = now_utc()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>expires_at = issued_at + timedelta(seconds=TOKEN_TTL_SECONDS)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>token = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"request_id": request_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"approved_by": "parent_demo",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"issued_at": issued_at.isoformat(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"expires_at": expires_at.isoformat(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"used": False</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>TOKENS[request_id] = token</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>req["status"] = "approved"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>log_event(request_id, "APPROVED", {"approved_by": "parent_demo"})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return jsonify({"ok": True, "token": token})</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.route("/deny/&lt;request_id&gt;", methods=["POST"])</span></p>
+<p class="p2"><span class="s2">def deny(request_id):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>with store_lock:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>req = REQUESTS.get(request_id)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if not req:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return jsonify({"ok": False, "error": "Request not found"}), 404</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if req["status"] != "pending":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return jsonify({"ok": False, "error": f"Request already {req['status']}"}), 400</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>req["status"] = "denied"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>log_event(request_id, "DENIED", {"denied_by": "parent_demo"})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>log_event(request_id, "EXECUTION_BLOCKED", {"reason": "Denied by parent"})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return jsonify({"ok": True})</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.route("/execute/&lt;request_id&gt;", methods=["POST"])</span></p>
+<p class="p2"><span class="s2">def execute(request_id):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>with store_lock:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>req = REQUESTS.get(request_id)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if not req:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return jsonify({"ok": False, "result": "DENY", "reason": "Request not found"}), 404</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>token = TOKENS.get(request_id)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># No token = HOLD</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if token is None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>log_event(request_id, "EXECUTION_HELD", {"reason": "No valid approval token"})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return jsonify({</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"ok": False,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"result": "HOLD",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"reason": "Awaiting authority"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>}), 200</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># Already used = DENY</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if token["used"]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>log_event(request_id, "EXECUTION_BLOCKED", {"reason": "Token already used"})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return jsonify({</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"ok": False,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"result": "DENY",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"reason": "Token already used"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>}), 400</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># Request mismatch = DENY</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if token["request_id"] != request_id:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>log_event(request_id, "EXECUTION_BLOCKED", {"reason": "Token request mismatch"})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return jsonify({</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"ok": False,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"result": "DENY",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"reason": "Token mismatch"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>}), 400</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># Expired = DENY</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if now_utc() &gt; datetime.fromisoformat(token["expires_at"]):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>req["status"] = "expired"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>log_event(request_id, "EXPIRED", {"reason": "Approval token expired"})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>log_event(request_id, "EXECUTION_BLOCKED", {"reason": "Expired token"})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return jsonify({</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"ok": False,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"result": "DENY",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"reason": "Approval expired"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>}), 400</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># Single-use enforcement</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>token["used"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>req["executed"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>req["status"] = "executed"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>log_event(request_id, "EXECUTION_ALLOWED", {"action": req["action"]})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return jsonify({</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"ok": True,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"result": "EXECUTE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"message": f"Action executed: {req['action']}"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>})</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.route("/status/&lt;request_id&gt;", methods=["GET"])</span></p>
+<p class="p2"><span class="s2">def status(request_id):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>req = REQUESTS.get(request_id)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if not req:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return jsonify({"ok": False, "error": "Request not found"}), 404</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>related_logs = [x for x in AUDIT_LOG if x["request_id"] == request_id]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>token = TOKENS.get(request_id)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return jsonify({</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"ok": True,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"request": req,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"token": token,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"audit_log": related_logs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>})</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.route("/logs", methods=["GET"])</span></p>
+<p class="p2"><span class="s2">def logs():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return jsonify({"audit_log": AUDIT_LOG})</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">if __name__ == "__main__":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>app.run(debug=True)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">2) templates/child.html</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p2"><span class="s2">&lt;html lang="en"&gt;</span></p>
+<p class="p2"><span class="s2">&lt;head&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;title&gt;EchoAuth Child Interface&lt;/title&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>body { font-family: Arial, sans-serif; max-width: 700px; margin: 40px auto; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>button { padding: 12px 20px; font-size: 16px; cursor: pointer; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>.box { border: 1px solid #ccc; padding: 16px; margin-top: 16px; border-radius: 8px; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>pre { white-space: pre-wrap; word-wrap: break-word; background: #f6f6f6; padding: 12px; border-radius: 8px; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p2"><span class="s2">&lt;/head&gt;</span></p>
+<p class="p2"><span class="s2">&lt;body&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;h1&gt;EchoAuth Demo — Child Side&lt;/h1&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;p&gt;Press the button to request a protected action.&lt;/p&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;button onclick="requestAction()"&gt;Request Unlock Door&lt;/button&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;button onclick="tryExecute()" id="executeBtn" disabled&gt;Try Execute&lt;/button&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;button onclick="refreshStatus()" id="statusBtn" disabled&gt;Refresh Status&lt;/button&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;div class="box"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;strong&gt;Current Request ID:&lt;/strong&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;div id="requestId"&gt;None&lt;/div&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;div class="box"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;strong&gt;Status:&lt;/strong&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;pre id="statusBox"&gt;No request yet.&lt;/pre&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>let currentRequestId = null;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>async function requestAction() {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>const res = await fetch("/request_action", {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>method: "POST",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>headers: {"Content-Type": "application/json"},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>body: JSON.stringify({ action: "unlock_door" })</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>});</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>const data = await res.json();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>currentRequestId = data.request.id;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>document.getElementById("requestId").textContent = currentRequestId;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>document.getElementById("statusBox").textContent =</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"Request created.\nSystem state: HOLD until parent acts.";</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>document.getElementById("executeBtn").disabled = false;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>document.getElementById("statusBtn").disabled = false;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>async function tryExecute() {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if (!currentRequestId) return;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>const res = await fetch(`/execute/${currentRequestId}`, {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>method: "POST"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>});</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>const data = await res.json();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>document.getElementById("statusBox").textContent =</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>JSON.stringify(data, null, 2);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>async function refreshStatus() {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if (!currentRequestId) return;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>const res = await fetch(`/status/${currentRequestId}`);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>const data = await res.json();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>document.getElementById("statusBox").textContent =</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>JSON.stringify(data, null, 2);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
+<p class="p2"><span class="s2">&lt;/body&gt;</span></p>
+<p class="p2"><span class="s2">&lt;/html&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">3) templates/parent.html</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p2"><span class="s2">&lt;html lang="en"&gt;</span></p>
+<p class="p2"><span class="s2">&lt;head&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;title&gt;EchoAuth Parent Interface&lt;/title&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>.request-card {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>border: 1px solid #ccc;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>padding: 16px;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>margin-bottom: 12px;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>border-radius: 8px;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>button {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>padding: 10px 16px;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>margin-right: 8px;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>pre {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>white-space: pre-wrap;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>word-wrap: break-word;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>background: #f6f6f6;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>padding: 12px;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>border-radius: 8px;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p2"><span class="s2">&lt;/head&gt;</span></p>
+<p class="p2"><span class="s2">&lt;body&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;h1&gt;EchoAuth Demo — Parent Side&lt;/h1&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;p&gt;Approve or deny pending requests.&lt;/p&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;button onclick="loadPending()"&gt;Refresh Pending Requests&lt;/button&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;div id="pendingContainer" style="margin-top: 20px;"&gt;&lt;/div&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>async function loadPending() {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>const res = await fetch("/pending_requests");</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>const data = await res.json();</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>const container = document.getElementById("pendingContainer");</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>container.innerHTML = "";</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if (!data.pending_requests.length) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>container.innerHTML = "&lt;p&gt;No pending requests.&lt;/p&gt;";</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>data.pending_requests.forEach(req =&gt; {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>const div = document.createElement("div");</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>div.className = "request-card";</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>div.innerHTML = `</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>&lt;p&gt;&lt;strong&gt;Request ID:&lt;/strong&gt; ${req.id}&lt;/p&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt; ${req.action}&lt;/p&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>&lt;p&gt;&lt;strong&gt;Created:&lt;/strong&gt; ${req.created_at}&lt;/p&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>&lt;button onclick="approveRequest('${req.id}')"&gt;Approve&lt;/button&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>&lt;button onclick="denyRequest('${req.id}')"&gt;Deny&lt;/button&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>&lt;pre id="result-${req.id}"&gt;Awaiting action.&lt;/pre&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>`;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>container.appendChild(div);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>});</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>async function approveRequest(id) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>const res = await fetch(`/approve/${id}`, { method: "POST" });</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>const data = await res.json();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>document.getElementById(`result-${id}`).textContent =</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>JSON.stringify(data, null, 2);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>loadPending();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>async function denyRequest(id) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>const res = await fetch(`/deny/${id}`, { method: "POST" });</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>const data = await res.json();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>document.getElementById(`result-${id}`).textContent =</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>JSON.stringify(data, null, 2);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>loadPending();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>loadPending();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
+<p class="p2"><span class="s2">&lt;/body&gt;</span></p>
+<p class="p2"><span class="s2">&lt;/html&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">4) install and run</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">In terminal:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">pip install flask</span></p>
+<p class="p2"><span class="s2">python app.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Then open:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">http://127.0.0.1:5000/child</span></p>
+<p class="p2"><span class="s2">http://127.0.0.1:5000/parent</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">5) how to test it</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Test 1 — HOLD works</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Open /child</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Press </span><span class="s3">Request Unlock Door</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Press </span><span class="s3">Try Execute</span><span class="s2"> before parent approves</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Expected result:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"ok": false,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"result": "HOLD",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"reason": "Awaiting authority"</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">That proves:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>no approval</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>no execution</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>safe hold state</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Test 2 — DENY works</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Create request from child side</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Open /parent</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Press </span><span class="s3">Deny</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span>Back on child side, press </span><span class="s3">Try Execute</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Expected:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>blocked</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>no execution</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Test 3 — APPROVE works</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Create request</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Parent presses </span><span class="s3">Approve</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Child presses </span><span class="s3">Try Execute</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Expected result:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"ok": true,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"result": "EXECUTE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"message": "Action executed: unlock_door"</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Test 4 — single-use works</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">After successful execute, press </span><span class="s3">Try Execute</span><span class="s2"> again.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Expected:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>denied</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>token already used</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">That proves:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>no replay</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>no duplicate authority use</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Test 5 — expiration works</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Request action</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Parent approves</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Wait over 30 seconds</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span>Try execute</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Expected:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>denied</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>approval expired</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">That proves:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>no stale authority</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>no zombie permission</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6) what this prototype proves</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This demo proves all of your core claims in small form:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">no execution without live authority</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">hold is valid</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">approval is time-bound</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">approval is single-use</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">execution is mechanically gated</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">denial blocks action</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">That is enough for a first prototype.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">7) what not to add yet</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Do </span><span class="s3">not</span><span class="s2"> add:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>biometric auth</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>AI model</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>caregiver role hierarchy</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>complex UI</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>cloud hosting</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>database optimization</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>notifications</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>multiple actions</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Keep it brutally small.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">8) what to say when demoing it</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Use this script:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“This prototype demonstrates that a requested action does not execute by default. It enters a hold state until live authority is provided. Approval is single-use and expires. Denial blocks execution. The point is not app functionality — the point is deterministic runtime enforcement.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">9) next thing after this</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">After this works, your next upgrade should be:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>replace in-memory store with SQLite</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>add parent PIN or passkey</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>add a second protected action</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span>record a demo video</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>5.<span class="Apple-tab-span">	</span>turn logs into a simple audit panel</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">That is the right order.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">10) success check</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you can honestly say:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“There is no path where the action executes without approval”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">then you have a real EchoAuth prototype.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you want, next I’ll give you the </span><span class="s3">v0.2 upgrade pack</span><span class="s2"> with:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>SQLite version</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>cleaner UI</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>parent PIN protection</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>audit dashboard</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

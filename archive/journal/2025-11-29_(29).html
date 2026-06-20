@@ -1,0 +1,808 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Saturday, November 29, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Ase’ 🔥</span></p>
+<p class="p2"><span class="s2">Here is a clean, minimal MVP code scaffold that matches the launcher spec.</span></p>
+<p class="p2"><span class="s2">All text is plain ASCII so you will not get dark boxes when you save as PDF or DOCX.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">1. Folder layout</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Create a folder, for example echoauth_mvp/, with this structure:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">echoauth_mvp/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>run_local_demo.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>requirements.txt</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>api/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>__init__.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>main.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>core/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>__init__.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ori.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>lrm.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>her.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>pnre.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>dahe.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>nia_engine.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>db/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>__init__.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>init_db.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>repository.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">2. requirements.txt</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">fastapi</span></p>
+<p class="p2"><span class="s2">uvicorn</span></p>
+<p class="p2"><span class="s2">pydantic</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">(Standard library sqlite3 is used for the DB, so no extra package.)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">3. Database layer</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">db/init_db.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">import sqlite3</span></p>
+<p class="p2"><span class="s2">from pathlib import Path</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">DB_PATH = Path("echoauth_demo.db")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def get_connection():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return sqlite3.connect(DB_PATH)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def init_db():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>conn = get_connection()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>cur = conn.cursor()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>cur.execute(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>CREATE TABLE IF NOT EXISTS caregivers (</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>id INTEGER PRIMARY KEY AUTOINCREMENT,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>email TEXT UNIQUE NOT NULL,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>password TEXT NOT NULL</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>cur.execute(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>CREATE TABLE IF NOT EXISTS children (</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>id INTEGER PRIMARY KEY AUTOINCREMENT,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>caregiver_id INTEGER NOT NULL,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>name TEXT NOT NULL,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>age INTEGER,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>notes TEXT,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>FOREIGN KEY (caregiver_id) REFERENCES caregivers(id)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>cur.execute(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>CREATE TABLE IF NOT EXISTS checkins (</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>id INTEGER PRIMARY KEY AUTOINCREMENT,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>caregiver_id INTEGER NOT NULL,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>child_id INTEGER NOT NULL,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>stress_score INTEGER NOT NULL,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>mode TEXT NOT NULL,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>label TEXT NOT NULL,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>created_at TEXT NOT NULL,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>FOREIGN KEY (caregiver_id) REFERENCES caregivers(id),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>FOREIGN KEY (child_id) REFERENCES children(id)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>conn.commit()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>conn.close()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">db/repository.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">import datetime</span></p>
+<p class="p2"><span class="s2">from .init_db import get_connection</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def seed_demo_data():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>conn = get_connection()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>cur = conn.cursor()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># insert caregiver if not exists</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>cur.execute(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"SELECT id FROM caregivers WHERE email = ?",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>("demo_caregiver@example.com",),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>row = cur.fetchone()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if row is None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>cur.execute(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"INSERT INTO caregivers (email, password) VALUES (?, ?)",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>("demo_caregiver@example.com", "demo_password"),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>caregiver_id = cur.lastrowid</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>cur.execute(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"INSERT INTO children (caregiver_id, name, age, notes) VALUES (?, ?, ?, ?)",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>(caregiver_id, "Demo Child", 8, "Noise sensitive"),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>conn.commit()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>conn.close()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def insert_checkin(caregiver_id, child_id, stress_score, mode, label):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>conn = get_connection()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>cur = conn.cursor()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>cur.execute(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>INSERT INTO checkins (</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>caregiver_id, child_id, stress_score, mode, label, created_at</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>VALUES (?, ?, ?, ?, ?, ?)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>""",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>caregiver_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>child_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>stress_score,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>mode,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>label,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>datetime.datetime.utcnow().isoformat(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>conn.commit()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>conn.close()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">4. Core NI AI modules</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">core/ori.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from dataclasses import dataclass</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@dataclass</span></p>
+<p class="p2"><span class="s2">class IdentityCapsule:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>caregiver_id: int</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>child_id: int</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>role: str = "caregiver"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>system_name: str = "EchoAuth MVP"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">core/lrm.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def compute_stress_score(cues: dict) -&gt; int:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Very simple demo mapping.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Returns an integer from 0 to 5.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>score = 0</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>body = str(cues.get("body", "")).lower()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>env = str(cues.get("environment", "")).lower()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if "stimming" in body or "cry" in body:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>score += 2</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if "agitated" in body or "meltdown" in body:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>score += 3</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if "loud" in env or "crowd" in env:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>score += 1</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if "very loud" in env or "chaos" in env:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>score += 2</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># clamp between 0 and 5</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>score = max(0, min(5, score))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return score</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">core/her.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def select_mode(stress_score: int) -&gt; str:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Map stress score to runtime mode.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if stress_score &lt;= 1:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return "NORMAL"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if 2 &lt;= stress_score &lt;= 3:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return "SAFE"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return "DEGRADED"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">core/pnre.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def select_label(stress_score: int, mode: str) -&gt; str:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Very small demo policy:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- low stress -&gt; SAFE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- medium or high stress -&gt; NEEDS_ATTENTION</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if stress_score &lt;= 1 and mode == "NORMAL":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return "SAFE"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return "NEEDS_ATTENTION"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">core/dahe.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from . import nia_engine<span class="Apple-converted-space">  </span></span><span class="s4"># for type hints only, no heavy logic here</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def append_history(repository, caregiver_id, child_id, stress_score, mode, label):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>History writer that delegates to the db.repository module.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>repository.insert_checkin(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>caregiver_id=caregiver_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>child_id=child_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>stress_score=stress_score,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>mode=mode,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>label=label,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">core/nia_engine.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from .ori import IdentityCapsule</span></p>
+<p class="p2"><span class="s2">from . import lrm, her, pnre, dahe</span></p>
+<p class="p2"><span class="s2">from db import repository</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def process_checkin(caregiver_id: int, child_id: int, cues: dict) -&gt; dict:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Glue function that runs the NI AI pipeline for a single check in.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># 1. ORI: bind identity</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>identity = IdentityCapsule(caregiver_id=caregiver_id, child_id=child_id)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># 2. LRM: compute stress score</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stress_score = lrm.compute_stress_score(cues)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># 3. HER: choose runtime mode</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>mode = her.select_mode(stress_score)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># 4. PNRE: pick one external label</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>label = pnre.select_label(stress_score, mode)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># 5. DAHE: write history</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>dahe.append_history(repository, identity.caregiver_id, identity.child_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span>stress_score, mode, label)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># 6. Return minimal response</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"caregiver_id": identity.caregiver_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"child_id": identity.child_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"stress_score": stress_score,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"mode": mode,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"label": label,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">5. API layer</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">api/main.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from fastapi import FastAPI, HTTPException</span></p>
+<p class="p2"><span class="s2">from pydantic import BaseModel</span></p>
+<p class="p2"><span class="s2">from core import nia_engine</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">app = FastAPI(title="EchoAuth MVP API")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class CheckInRequest(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>caregiver_id: int</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>child_id: int</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>cues: dict</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class CheckInResponse(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>label: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stress_score: int</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>mode: str</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.get("/health")</span></p>
+<p class="p2"><span class="s2">def health():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return {"status": "ok"}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.post("/checkins/create", response_model=CheckInResponse)</span></p>
+<p class="p2"><span class="s2">def create_checkin(payload: CheckInRequest):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># In a real system we would validate caregiver/child relationship here.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>try:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>result = nia_engine.process_checkin(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>caregiver_id=payload.caregiver_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>child_id=payload.child_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>cues=payload.cues,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>except Exception as exc:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># Failsafe: log internally, return safe default</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>raise HTTPException(status_code=500, detail="Internal error") from exc</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return CheckInResponse(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>label=result["label"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>stress_score=result["stress_score"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>mode=result["mode"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6. Local launcher</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">run_local_demo.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p2"><span class="s2">EchoAuth local demo launcher.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Usage:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>python run_local_demo.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Then open:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>http://127.0.0.1:8000/docs</span></p>
+<p class="p2"><span class="s2">and try POST /checkins/create.</span></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">import uvicorn</span></p>
+<p class="p2"><span class="s2">from db import init_db, repository</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def main():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># 1. Initialize database and tables</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>init_db.init_db()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># 2. Seed demo caregiver and child</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>repository.seed_demo_data()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># 3. Start API server</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>uvicorn.run(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"api.main:app",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>host="127.0.0.1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>port=8000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>reload=False,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">if __name__ == "__main__":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>main()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">7. How to run (later, when you are ready)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">On a machine where you can run Python:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">cd echoauth_mvp</span></p>
+<p class="p2"><span class="s2">python -m venv venv</span></p>
+<p class="p2"><span class="s2">source venv/bin/activate<span class="Apple-converted-space">  </span></span><span class="s4"># or venv\Scripts\activate on Windows</span></p>
+<p class="p2"><span class="s2">pip install -r requirements.txt</span></p>
+<p class="p2"><span class="s2">python run_local_demo.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Then open your browser at:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">http://127.0.0.1:8000/docs</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Use the /checkins/create endpoint with a body like:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"caregiver_id": 1,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"child_id": 1,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"cues": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"body": "stimming, agitated",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"environment": "loud cafeteria"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You should get a single label:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"label": "NEEDS_ATTENTION",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"stress_score": 4,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"mode": "DEGRADED"</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you want, next step we can do a short, attorney friendly paragraph that says:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>“The attached code scaffold in run_local_demo.py and /api/core/db is one concrete implementation of the claimed architecture…”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You can drop that directly into the non-provisional or grant pack.</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

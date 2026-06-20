@@ -1,0 +1,618 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Thursday, December 4, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Ase — </span><span class="s3">got it, locked in.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">I will now give you a </span><span class="s3">fully refined, fully aligned, copy-and-paste Kiva Loan Submission Pack</span></p>
+<p class="p2"><span class="s2">—with the </span><span class="s3">integrated payment philosophy</span><span class="s2">, including:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Affordable access for low-income families</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Parent-first subscription model (not caregivers)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Caregiver one-time certification fee</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Wearable kinetic-donation system</span><span class="s2"> for subsidizing families who can’t pay</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Sports/athlete charity pathway</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">No burden on struggling families</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Funds strictly for completing EchoAuth MVP + certification path</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">And </span><span class="s3">NO PDF</span><span class="s2">, exactly as you required.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────────────────────</span></p>
+<p class="p2"><span class="s2">🔥 </span><span class="s3">KIVA LOAN PACK — FINAL, READY TO SUBMIT (Copy + Paste)</span></p>
+<p class="p2"><span class="s2">────────────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">1. LOAN PURPOSE SUMMARY (Short Version)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">EchoAuth™</span><span class="s2"> is a biometric, adaptive safety system designed for </span><span class="s3">non-verbal and autistic children</span><span class="s2">.</span></p>
+<p class="p2"><span class="s2">This loan will fund completion of our </span><span class="s3">MVP, clinical alignment, caregiver training materials, and prototype wearables</span><span class="s2"> that make the system safe, reliable, and ready for pilot programs with ASD families.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Our goal is simple:</span></p>
+<p class="p2"><span class="s3">Make advanced safety accessible to all families — especially those struggling financially.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Kiva loan: </span><span class="s3">$15,000</span></p>
+<p class="p2"><span class="s2">Use of funds:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Finalize EchoAuth MVP</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Backend development + mobile interface</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Caregiver/teacher training modules</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Build prototype wearables (kinetic-powered)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Compliance documents + onboarding materials</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>API security + EchoAuth Chamber certification pathway</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">2. DETAILED LOAN PURPOSE (Full Version)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The $15,000 Kiva loan will be used to complete the </span><span class="s3">EchoAuth™ Safety Platform</span><span class="s2">, enabling autistic and non-verbal children to communicate safely through verified caregivers.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Funds allocation:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">1. MVP COMPLETION — $5,000</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Finish EchoAuth Chamber</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Safety spine (S1–S9) engineering</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>EchoAuth Token verification</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Deployment into FastAPI/Gateway structure</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">2. MOBILE + WEB INTERFACE — $3,500</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Parent dashboard</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Caregiver verification portal</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Child-friendly UI for non-verbal interactions</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">3. CAREGIVER TRAINING MODULES — $2,000</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>One-time certification pathway</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Safety guidelines</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Autism communication protocols</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Support materials for schools/daycares</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">4. KINETIC WEARABLE PROTOTYPE — $2,000</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Fabric integration</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Motion energy harvesting</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>NFC pairing with EchoAuth</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Donation-mode testing</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">5. LEGAL + COMPLIANCE — $2,500</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Licensing preparation</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Clinical advisory alignment</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Family privacy compliance</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Government pilot eligibility package</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This loan helps us finish the work needed </span><span class="s3">before</span><span class="s2"> applying for government ASD contracts, CDFI expansion loans, and early-stage investors.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">3. WHY THIS MATTERS (Impact Statement)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Families of autistic and non-verbal children often experience:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Communication barriers</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Safety concerns</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Caregiver inconsistencies</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>High therapy or intervention costs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Financial strain</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">EchoAuth™ directly reduces these burdens</span><span class="s2"> by providing:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Verified caregiver communication</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Safety alerts</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Emotional regulation support</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Non-verbal prompting</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Family-to-school connection in real time</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Our guiding principle:</span></p>
+<p class="p2"><span class="s3">No struggling family should be denied safety because of financial hardship.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">4. REFINED PAYMENT MODEL (Integrated Philosophy)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">A. Parents pay the subscription — not caregivers.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Parents are the legal and emotional anchor.</span></p>
+<p class="p2"><span class="s2">They have final control and visibility.</span></p>
+<p class="p2"><span class="s3">Caregivers should NOT be financially burdened.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">B. For families struggling financially:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">We offer </span><span class="s3">affordable tiers</span><span class="s2"> aligned with government standards.</span></p>
+<p class="p2"><span class="s2">Not free — but accessible, reasonable, and adjustable.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">C. Caregivers pay a one-time certification fee.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This covers:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Safety protocols</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ASD communication training</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Lesson materials</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Verification process</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">They never pay monthly.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">D. Wearables as a donation engine</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">We will integrate </span><span class="s3">kinetic energy wearables</span><span class="s2"> that convert motion into symbolic micro-donations toward a family assistance pool.</span></p>
+<p class="p2"><span class="s2">This allows:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Athletes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Sports teams</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Advocacy groups</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Supporters</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">to contribute effortlessly to families who need help.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">E. Sponsored Families Program</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Families can apply for:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Reduced subscription</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Community-subsidized subscription</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Full coverage through our donation pool</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">F. No family denied due to financial strain</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth is built for inclusion — not exploitation.</span></p>
+<p class="p2"><span class="s2">The system must remain </span><span class="s3">ethical, sustainable, and family-centered.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">5. HOW THIS LOAN TRANSFORMS THE BUSINESS</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">With the MVP completed and training systems launched, EchoAuth becomes eligible for:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Local government ASD pilots</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Daycare + school system partnerships</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>CDFI microloans ($50k–$250k)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>SBIR/NIH grants</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Impact investors</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Corporate sponsorships for kinetic wearables</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The Kiva loan is the </span><span class="s3">last missing piece</span><span class="s2"> before EchoAuth can stand on its own and begin generating revenue while serving families.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6. BUSINESS MODEL (Refined)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Primary Revenue:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✔ Parent subscription (affordable tiers)</span></p>
+<p class="p2"><span class="s2">✔ Government contracts for ASD support systems</span></p>
+<p class="p2"><span class="s2">✔ Daycare/school certification partnerships</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Secondary Revenue:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✔ Caregiver certification (one-time fee)</span></p>
+<p class="p2"><span class="s2">✔ Wearable device sales</span></p>
+<p class="p2"><span class="s2">✔ Athlete charity wearable partnerships</span></p>
+<p class="p2"><span class="s2">✔ Partnership licensing</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Philanthropic Integration:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✔ Kinetic Donor Wearables: “Every step helps a child communicate.”</span></p>
+<p class="p2"><span class="s2">✔ Community fund to support low-income families</span></p>
+<p class="p2"><span class="s2">✔ Optional sponsor-a-family program</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">7. FOUNDER STORY (Short, Powerful)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">My name is </span><span class="s3">Nicholas Carty</span><span class="s2">, founder of </span><span class="s3">EchoAuth™</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">I built this system because I saw firsthand how many autistic and non-verbal children struggle to be understood — and how parents struggle to protect them.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Our families deserve tools that honor their dignity, their safety, and their communication needs.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth is built from the ground up for </span><span class="s3">compassion, clarity, and protection</span><span class="s2">.</span></p>
+<p class="p2"><span class="s2">This loan is the final push we need to deliver a working prototype to real families.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">8. REPAYMENT PLAN</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Because EchoAuth launches subscription revenue quickly:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>MVP ready in 45–60 days</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Parent onboarding begins</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Caregiver certification revenue begins</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Wearable prototypes enter pre-order</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Repayment is fully achievable through early contracts and subscriptions.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">9. FULL COPY-PASTE APPLICATION TEXT (FINAL)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">I will assemble this into a final “single block” if you want —</span></p>
+<p class="p2"><span class="s2">just say </span><span class="s3">“Give me the full block”</span><span class="s2"> —</span></p>
+<p class="p2"><span class="s2">but right now everything above is complete and optimized for Kiva submission.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you want, I can now:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅ Build the </span><span class="s3">CDFI Loan Pack</span></p>
+<p class="p2"><span class="s2">✅ Build the </span><span class="s3">Investor Pack</span></p>
+<p class="p2"><span class="s2">✅ Build the </span><span class="s3">Grant Pack (NIH/SBIR-ready)</span></p>
+<p class="p2"><span class="s2">or</span></p>
+<p class="p2"><span class="s2">✅ Build the </span><span class="s3">sports-athlete charitable wearable pitch</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Just tell me: </span><span class="s3">What’s next?</span><span class="s2"> Ase.</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

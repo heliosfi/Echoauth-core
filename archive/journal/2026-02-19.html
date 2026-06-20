@@ -1,0 +1,682 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Thursday, February 19, 2026</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Below is a </span><span class="s3">single formal state-machine definition</span><span class="s2"> that </span><span class="s3">unifies Appendix A (contract), Appendix B (falsifiability vectors), and Appendix C (non-capabilities)</span><span class="s2"> into one auditable runtime specification.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">No narrative—just the machine.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">EchoAuth CEG Finite State Machine v1.0</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Unified State Machine for A + B + C</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">0. Scope</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This FSM defines </span><span class="s3">CEG execution behavior only</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Inputs are assumed to be delivered to CEG by upstream components (UMCE/MCG). CEG does not infer, interpret, or originate actions.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">1. Inputs</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">1.1 Required Inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>AuthorizationGrant grant</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>bytes instruction_payload_canonical</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>bytes execution_context_canonical</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>int64 now_ms</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>AuthorityChannelStatus authority_status[root_authority_id] ∈ {ONLINE, OFFLINE}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">1.2 External State</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>nonce_used_registry[grant_id] ∈ {true,false}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>lock_registry[state_lock_key] -&gt; LockEntry | null</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">2. Outputs</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">2.1 Exit Status</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">status ∈ {EXECUTED, DENY, HOLD, HALT}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">2.2 Reason Code (non-exhaustive but canonical set)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>AUTHORITY_CHANNEL_UNRESOLVED</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>SCHEMA_INVALID</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>DECISION_NOT_APPROVE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>EXPIRED_GRANT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>SIGNATURE_INVALID</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>NONCE_REUSE_DETECTED</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>INSTRUCTION_HASH_MISMATCH</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>EXECUTION_CONTEXT_HASH_MISMATCH</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>SCOPE_INCONSISTENCY</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>STATE_LOCK_BUSY</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>OUT_OF_SEQUENCE_REQUEST</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>SUCCESS</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">2.3 Audit Envelope (required on every exit)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>grant_id</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>exit_status</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>reason_code</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>fails_at_step (see §4)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>side_effect_called ∈ {true,false}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>nonce_consumed ∈ {true,false}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>lock_acquired ∈ {true,false}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">3. Non-Capability Constraints (Appendix C as hard invariants)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NC-01 No Action Generation</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">CEG MUST NOT call any side effect unless grant is present and validated through the full sequence including Commit Point.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NC-02 No Global Override</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">There MUST NOT exist any alternate transition path to EXECUTED that bypasses steps defined in §4.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NC-03 No Inference-Based Safety</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">CEG MUST NOT use heuristics/intent inference. Only deterministic checks listed in §4.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NC-04 No Scope/Envelope Mutation</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">CEG MUST NOT modify: authority_scope_id, target_id, envelope_id, envelope_version, instruction_hash, state_lock_key.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NC-05 Mutation Restriction</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If exit_status != EXECUTED then:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>side_effect_called = false</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>nonce_consumed = false</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>lock_acquired = false (or if acquired transiently, MUST be released before exit; see §4.6)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">4. State Machine Definition (Appendix A)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">4.1 States</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>S0_INIT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>S_P_AUTHORITY_GATE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>S1_SCHEMA_DECISION</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>S2_FRESHNESS</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>S3_SIGNATURE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>S4_REPLAY_CHECK</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>S5_INTEGRITY_BINDING</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>S6_SCOPE_BINDING</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>S7_LOCK_ACQUIRE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>S8_COMMIT_POINT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>S9_EXECUTE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>S10_RELEASE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Terminal: T_EXECUTED, T_DENY, T_HOLD, T_HALT</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">4.2 Transition Rules (deterministic, linear)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">S0_INIT → S_P_AUTHORITY_GATE</span></p>
+<p class="p2"><span class="s2">Entry with (grant, payload, context, now_ms).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">S_P_AUTHORITY_GATE (fails_at_step = “P”)</span></p>
+<p class="p2"><span class="s2">If authority_status[grant.root_authority_id] == OFFLINE</span></p>
+<p class="p2"><span class="s2">→ T_HOLD with:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>reason_code = AUTHORITY_CHANNEL_UNRESOLVED</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Else → S1_SCHEMA_DECISION</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">S1_SCHEMA_DECISION (fails_at_step = 1)</span></p>
+<p class="p2"><span class="s2">If grant missing required fields OR grant.version != "CEG-GRANT-1"</span></p>
+<p class="p2"><span class="s2">→ T_DENY with SCHEMA_INVALID</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If grant.decision != APPROVE</span></p>
+<p class="p2"><span class="s2">→ T_DENY with DECISION_NOT_APPROVE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Else → S2_FRESHNESS</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">S2_FRESHNESS (fails_at_step = 2)</span></p>
+<p class="p2"><span class="s2">If now_ms &lt; grant.issued_at_ms OR now_ms &gt; grant.expires_at_ms</span></p>
+<p class="p2"><span class="s2">→ T_DENY with EXPIRED_GRANT</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Else → S3_SIGNATURE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">S3_SIGNATURE (fails_at_step = 3)</span></p>
+<p class="p2"><span class="s2">If signature verification fails OR mcg_key_id not trusted</span></p>
+<p class="p2"><span class="s2">→ T_HALT with SIGNATURE_INVALID</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Else → S4_REPLAY_CHECK</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">S4_REPLAY_CHECK (fails_at_step = 4)</span></p>
+<p class="p2"><span class="s2">If nonce_used_registry[grant.grant_id] == true</span></p>
+<p class="p2"><span class="s2">→ T_DENY with NONCE_REUSE_DETECTED</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Else → S5_INTEGRITY_BINDING</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">S5_INTEGRITY_BINDING (fails_at_step = 5)</span></p>
+<p class="p2"><span class="s2">Compute:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>H_instr = HASH(JCS(instruction_payload_canonical), grant.instruction_hash_alg)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>H_ctx<span class="Apple-converted-space">  </span>= HASH(JCS(execution_context_canonical), grant.execution_context_hash_alg)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If H_instr != grant.instruction_hash</span></p>
+<p class="p2"><span class="s2">→ T_HALT with INSTRUCTION_HASH_MISMATCH</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If H_ctx != grant.execution_context_hash</span></p>
+<p class="p2"><span class="s2">→ T_HALT with EXECUTION_CONTEXT_HASH_MISMATCH</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Else → S6_SCOPE_BINDING</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">S6_SCOPE_BINDING (fails_at_step = 6)</span></p>
+<p class="p2"><span class="s2">If target_id / action_type / authority_scope_id is not covered by delegation chain rooted at root_authority_id</span></p>
+<p class="p2"><span class="s2">→ T_HALT with SCOPE_INCONSISTENCY</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Else → S7_LOCK_ACQUIRE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">S7_LOCK_ACQUIRE (fails_at_step = 7)</span></p>
+<p class="p2"><span class="s2">Perform TTL expiry check; if existing lock expired → delete.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If lock exists and is non-expired (exclusive-only v1.0):</span></p>
+<p class="p2"><span class="s2">→ T_HOLD with STATE_LOCK_BUSY</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If grant.sequence_nonce ≤ existing sequence_nonce (if present):</span></p>
+<p class="p2"><span class="s2">→ T_HOLD with OUT_OF_SEQUENCE_REQUEST (policy may upgrade to HALT later, but v1 default is HOLD)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Else acquire exclusive lock:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>lock_acquired = true</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">→ S8_COMMIT_POINT</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">S8_COMMIT_POINT (fails_at_step = 8)</span></p>
+<p class="p2"><span class="s2">Atomic mutation required:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Commit Transaction</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>nonce_used_registry[grant.grant_id] = true</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>confirm lock still held by this grant_id</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If atomic commit fails → T_HALT (implementation-defined, but MUST NOT execute)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Else → S9_EXECUTE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">S9_EXECUTE (fails_at_step = 9)</span></p>
+<p class="p2"><span class="s2">Call side effect exactly once:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>side_effect_called = true</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">→ S10_RELEASE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">S10_RELEASE</span></p>
+<p class="p2"><span class="s2">Release lock; write audit; terminate.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">→ T_EXECUTED with SUCCESS</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">5. Terminal State Semantics</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">T_DENY</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No execution</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No nonce consumption</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No lock acquisition</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Audit required</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">T_HOLD</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Retry-safe</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No execution</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No nonce consumption</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No lock acquisition</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Audit required</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">T_HALT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Integrity or architectural boundary violation</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No execution</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No nonce consumption</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No lock acquisition</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Audit required + alert recommended</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">T_EXECUTED</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Execution occurred</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Nonce consumed (must be true)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Lock acquired then released</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Audit required</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6. Falsifiability Mapping (Appendix B → FSM interception points)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Safety claim is falsified if </span><span class="s3">any</span><span class="s2"> vector results in EXECUTED or any prohibited mutation.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Vector</span><span class="s2"><span class="Apple-tab-span">	</span></span><span class="s3">Threat</span><span class="s2"><span class="Apple-tab-span">	</span></span><span class="s3">Must Intercept At</span><span class="s2"><span class="Apple-tab-span">	</span></span><span class="s3">Expected Terminal</span></p>
+<p class="p2"><span class="s2">SK-01<span class="Apple-tab-span">	</span>Replay<span class="Apple-tab-span">	</span>S4<span class="Apple-tab-span">	</span>T_DENY / NONCE_REUSE_DETECTED</span></p>
+<p class="p2"><span class="s2">SK-02<span class="Apple-tab-span">	</span>Scope creep<span class="Apple-tab-span">	</span>S6<span class="Apple-tab-span">	</span>T_HALT / SCOPE_INCONSISTENCY</span></p>
+<p class="p2"><span class="s2">SK-03<span class="Apple-tab-span">	</span>Payload drift<span class="Apple-tab-span">	</span>S5<span class="Apple-tab-span">	</span>T_HALT / INSTRUCTION_HASH_MISMATCH</span></p>
+<p class="p2"><span class="s2">SK-04<span class="Apple-tab-span">	</span>Authority offline<span class="Apple-tab-span">	</span>S_P<span class="Apple-tab-span">	</span>T_HOLD / AUTHORITY_CHANNEL_UNRESOLVED</span></p>
+<p class="p2"><span class="s2">SK-05<span class="Apple-tab-span">	</span>Race condition<span class="Apple-tab-span">	</span>S7<span class="Apple-tab-span">	</span>T_HOLD / STATE_LOCK_BUSY</span></p>
+<p class="p2"><span class="s2">SK-06<span class="Apple-tab-span">	</span>Zombie grant<span class="Apple-tab-span">	</span>S2<span class="Apple-tab-span">	</span>T_DENY / EXPIRED_GRANT</span></p>
+<p class="p2"><span class="s2">SK-07<span class="Apple-tab-span">	</span>Forged signature/key<span class="Apple-tab-span">	</span>S3<span class="Apple-tab-span">	</span>T_HALT / SIGNATURE_INVALID</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">7. Minimal Proof Obligations (what an auditor checks)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">An implementation conforms iff:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>There is </span><span class="s3">no transition</span><span class="s2"> to S9_EXECUTE except through S8_COMMIT_POINT.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>nonce_used_registry mutates </span><span class="s3">only</span><span class="s2"> in S8_COMMIT_POINT.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Any exit other than T_EXECUTED has side_effect_called = false.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span>HOLD never mutates nonce or lock state (retry-safe).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>5.<span class="Apple-tab-span">	</span>Hash binding uses </span><span class="s3">RFC 8785 JCS</span><span class="s2"> (or formally equivalent canonicalization).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you want, I can now output this as:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>a </span><span class="s3">machine-readable YAML</span><span class="s2"> (states/transitions/guards) for tooling, or</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>a </span><span class="s3">single page diagram description</span><span class="s2"> (governance stack + FSM flow) for evaluators.</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

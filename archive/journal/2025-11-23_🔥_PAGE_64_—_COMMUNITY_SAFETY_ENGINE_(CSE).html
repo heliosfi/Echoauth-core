@@ -1,0 +1,661 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Saturday, November 22, 2025</div>    <div class="assetGrid"></div><div class='title'>🔥 PAGE 64 — COMMUNITY SAFETY ENGINE (CSE)</div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">✔️</span><span class="s3"> We can continue normally with your architecture.</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">Ase — let’s proceed.</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">🔥</span><span class="s3"> PAGE 64 — COMMUNITY SAFETY ENGINE (CSE)</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s3">“How EchoAuth protects autistic children from danger, wandering, exploitation, and unsafe interactions in public and semi-public spaces.”</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">This page is POWERFUL because ASD children are statistically:</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>more vulnerable</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>more trusting</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>more overwhelmed</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>more easily manipulated</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>more prone to wandering</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>more sensitive to distress</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>more likely to freeze in danger</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>less likely to recognize threats</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">EchoAuth becomes a </span><span class="s3">safety shield</span><span class="s2">,</span></p>
+<p class="p3"><span class="s2">a </span><span class="s3">guide</span><span class="s2">, and</span></p>
+<p class="p3"><span class="s2">a </span><span class="s3">prevention system</span><span class="s2">.</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">Copy + paste ready.</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 64.1 — CORE PRINCIPLE:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s3">“Safety must be proactive, not reactive.”</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">EchoAuth prevents safety risks BEFORE they escalate:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">✔ wandering</span></p>
+<p class="p3"><span class="s2">✔ running</span></p>
+<p class="p3"><span class="s2">✔ freezing</span></p>
+<p class="p3"><span class="s2">✔ sensory panic</span></p>
+<p class="p3"><span class="s2">✔ unsafe interactions</span></p>
+<p class="p3"><span class="s2">✔ social manipulation</span></p>
+<p class="p3"><span class="s2">✔ separation</span></p>
+<p class="p3"><span class="s2">✔ confusion</span></p>
+<p class="p3"><span class="s2">✔ environmental hazards</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">Safety starts with prediction — not reaction.</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 64.2 — THE SAFETY SPECTRUM MODEL (SSM-4)</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">EchoAuth monitors FOUR safety categories:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 1 — Physical Safety</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">traffic • heights • sharp items • hot surfaces • water</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 2 — Social Safety</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">strangers • manipulation • bullying • peer pressure</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 3 — Sensory Safety</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">overload • panic • sudden noises • visual chaos</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 4 — Emotional Safety</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">shame • overwhelm • fear • shutdown triggers</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">This covers the entire holistic ASD safety landscape.</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 64.3 — LOCATION AWARENESS ENGINE (LAE)</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">EchoAuth helps caregivers by reminding:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">✔ “Hold hands here.”</span></p>
+<p class="p3"><span class="s2">✔ “Busy area — stay close.”</span></p>
+<p class="p3"><span class="s2">✔ “Noise rising ahead.”</span></p>
+<p class="p3"><span class="s2">✔ “Exit is to your left.”</span></p>
+<p class="p3"><span class="s2">✔ “This area is overwhelming — reduce time.”</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">It builds a </span><span class="s3">spatial safety map.</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 64.4 — WANDERING PREVENTION LOOP (WPL)</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">ASD wandering is common and dangerous.</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">EchoAuth detects wandering signals:</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>stepping away</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>scanning the room</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>walking toward exits</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>slowing down near doors</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>distraction spikes</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>fixation on objects in the distance</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">Then advises:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">✔ “Stay close.”</span></p>
+<p class="p3"><span class="s2">✔ “Let’s walk together.”</span></p>
+<p class="p3"><span class="s2">✔ “Safe zone is here.”</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 64.5 — STRANGER INTERACTION SAFETY (SIS)</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">EchoAuth identifies risky social cues:</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>overly friendly strangers</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>confusing questions</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>strangers touching objects</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>someone offering gifts</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>someone asking personal info</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>manipulative tone</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">EchoAuth provides:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">✔ safe scripts</span></p>
+<p class="p3"><span class="s2">✔ exit cues</span></p>
+<p class="p3"><span class="s2">✔ guidance prompts</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">Example:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">“You can stay with your caregiver.”</span></p>
+<p class="p3"><span class="s2">“Just wave, you don’t need to talk.”</span></p>
+<p class="p3"><span class="s2">“Let’s step away.”</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 64.6 — BULLYING &amp; MICRO-HARM DETECTION (BMHD)</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">Children often miss bullying cues.</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">EchoAuth detects:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">✔ teasing</span></p>
+<p class="p3"><span class="s2">✔ mocking</span></p>
+<p class="p3"><span class="s2">✔ staring</span></p>
+<p class="p3"><span class="s2">✔ exclusion</span></p>
+<p class="p3"><span class="s2">✔ sarcastic tones</span></p>
+<p class="p3"><span class="s2">✔ physical intimidation</span></p>
+<p class="p3"><span class="s2">✔ imitation of movements or speech</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">Then:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">✔ alerts the caregiver</span></p>
+<p class="p3"><span class="s2">✔ supports the child</span></p>
+<p class="p3"><span class="s2">✔ offers immediate scripts</span></p>
+<p class="p3"><span class="s2">✔ removes the child from danger</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 64.7 — SENSORY-TRIGGER SAFETY INTERVENTION (STSI)</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">When sensory overload threatens safety:</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>loud alarms</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>bright lights</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>crowded spaces</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>echo chambers</span></p>
+<p class="p3"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>chaotic noise</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">EchoAuth responds instantly:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">✔ grounding cue</span></p>
+<p class="p3"><span class="s2">✔ exit direction</span></p>
+<p class="p3"><span class="s2">✔ “cover ears” prompt</span></p>
+<p class="p3"><span class="s2">✔ “look here” focus point</span></p>
+<p class="p3"><span class="s2">✔ deep pressure guidance</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 64.8 — RUNNING &amp; FREEZE RESPONSE ENGINE (RFRE)</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">Autistic children respond to danger uniquely:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s3">Running Response</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">EchoAuth guides:</span></p>
+<p class="p3"><span class="s2">✔ “Slow down.”</span></p>
+<p class="p3"><span class="s2">✔ “Stop here.”</span></p>
+<p class="p3"><span class="s2">✔ “Hold hands.”</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s3">Freeze Response</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">EchoAuth guides the caregiver to:</span></p>
+<p class="p3"><span class="s2">✔ lower demands</span></p>
+<p class="p3"><span class="s2">✔ kneel down</span></p>
+<p class="p3"><span class="s2">✔ avoid pulling</span></p>
+<p class="p3"><span class="s2">✔ reduce sensory load</span></p>
+<p class="p3"><span class="s2">✔ use grounding touch (if allowed)</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">This respects neurological safety patterns.</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 64.9 — SAFETY COMMUNICATION PACKAGE (SCP)</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">EchoAuth equips the child with phrases:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">✔ “I need help.”</span></p>
+<p class="p3"><span class="s2">✔ “Too loud.”</span></p>
+<p class="p3"><span class="s2">✔ “I’m lost.”</span></p>
+<p class="p3"><span class="s2">✔ “This is scary.”</span></p>
+<p class="p3"><span class="s2">✔ “I need my parent.”</span></p>
+<p class="p3"><span class="s2">✔ “Stop.”</span></p>
+<p class="p3"><span class="s2">✔ “No.”</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">Short, powerful, protective.</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 64.10 — THE SAFE EXIT PROTOCOL (SEP)</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">When an environment becomes unsafe:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">✔ EchoAuth recommends leaving</span></p>
+<p class="p3"><span class="s2">✔ gives a step-by-step exit</span></p>
+<p class="p3"><span class="s2">✔ keeps the child calm</span></p>
+<p class="p3"><span class="s2">✔ guides movement</span></p>
+<p class="p3"><span class="s2">✔ stabilizes emotions</span></p>
+<p class="p3"><span class="s2">✔ protects dignity</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 64.11 — CAREGIVER SAFETY TRAINING (CST)</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">EchoAuth trains caregivers to:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">✔ predict risk</span></p>
+<p class="p3"><span class="s2">✔ watch for wandering</span></p>
+<p class="p3"><span class="s2">✔ recognize overload</span></p>
+<p class="p3"><span class="s2">✔ avoid shaming</span></p>
+<p class="p3"><span class="s2">✔ respond gently</span></p>
+<p class="p3"><span class="s2">✔ stay present</span></p>
+<p class="p3"><span class="s2">✔ remove pressure</span></p>
+<p class="p3"><span class="s2">✔ maintain calm energy</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> 64.12 — BUILDER SUMMARY (Short Form)</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">The Community Safety Engine includes:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">✔ environment scanning</span></p>
+<p class="p3"><span class="s2">✔ stranger-risk detection</span></p>
+<p class="p3"><span class="s2">✔ bullying micro-cue detection</span></p>
+<p class="p3"><span class="s2">✔ running/freezing support</span></p>
+<p class="p3"><span class="s2">✔ sensory-trigger safety</span></p>
+<p class="p3"><span class="s2">✔ wandering prevention</span></p>
+<p class="p3"><span class="s2">✔ emergency exit guidance</span></p>
+<p class="p3"><span class="s2">✔ safety scripts</span></p>
+<p class="p3"><span class="s2">✔ caregiver training</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">EchoAuth becomes the FIRST AI that protects ASD children</span></p>
+<p class="p3"><span class="s3">physically, socially, emotionally, and neurologically.</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">⭐</span><span class="s3"> PAGE 64 COMPLETE</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">If aligned:</span></p>
+<p class="p2"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2">🔥 </span><span class="s3">Proceed Page 65.</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

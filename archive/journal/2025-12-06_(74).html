@@ -1,0 +1,843 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Friday, December 5, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Ase 🔥 —</span></p>
+<p class="p2"><span class="s2">Section 8 = “If we actually build this tomorrow, what does the code skeleton look like?”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">No fluff. Straight to what an engineer can wire up.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SECTION 8 — NI-AI BETA IMPLEMENTATION SKELETON (CODE VIEW)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This section turns the S1–S23 + services into a </span><span class="s3">single deployable app</span><span class="s2">:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>One repo</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>One API service</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Clear modules mapped to S-layers</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Clean interfaces so the system can later be split into microservices</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">8.1 — Implementation Goals (Beta Pack)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">For the </span><span class="s3">NI-AI Beta Pack</span><span class="s2">, the goals are:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span></span><span class="s3">Single codebase</span><span class="s2"> (monolith) with internal boundaries:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>engines/ for S-modules</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>core/ for ORI–NI–AI–FI stack and UMCE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>api/ for HTTP layer</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span></span><span class="s3">Pluggable engines:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Each S-layer = a class or group of classes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>All implement clear interfaces so they can be swapped later</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span></span><span class="s3">Simple, standard stack (for fast hiring):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Language: </span><span class="s3">Python</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Web framework: </span><span class="s3">FastAPI</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Data: </span><span class="s3">PostgreSQL</span><span class="s2"> (state + logs), </span><span class="s3">Redis</span><span class="s2"> (fast session cache)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Message bus (optional later): Kafka / NATS</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">8.2 — Recommended Tech Stack</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Backend Language:</span><span class="s2"> Python 3.11+</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Framework:</span><span class="s2"> FastAPI</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">DB:</span><span class="s2"> PostgreSQL</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Cache:</span><span class="s2"> Redis</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Task Queue (optional for long jobs):</span><span class="s2"> Celery or RQ</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Containerization:</span><span class="s2"> Docker</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This is standard enough that any serious backend engineer can jump in.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">8.3 — Project Structure (Repo Layout)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">ni_ai_beta/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>app.py<span class="Apple-converted-space">                  </span># FastAPI entrypoint</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>config.py <span class="Apple-converted-space">              </span># env, settings</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>core/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ori.py<span class="Apple-converted-space">                </span># ORI / identity core</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ni_layer.py <span class="Apple-converted-space">          </span># perception, interpretation logic</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ai_layer.py <span class="Apple-converted-space">          </span># reasoning, planning helpers</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>fi_layer.py <span class="Apple-converted-space">          </span># field context helpers</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>umce.py <span class="Apple-converted-space">              </span># S23 - Unified Meta-Consciousness Engine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ucs.py<span class="Apple-converted-space">                </span># S20 - Unified Consciousness Stack</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>engines/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>intent_engine.py<span class="Apple-converted-space">      </span># S6–S8</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>meaning_engine.py <span class="Apple-converted-space">    </span># S9</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>temporal_engine.py<span class="Apple-converted-space">    </span># S10, S15</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>resonance_engine.py <span class="Apple-converted-space">  </span># S11</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>field_intel_engine.py # S12, S18</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>coherence_engine.py <span class="Apple-converted-space">  </span># S21</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>execution_engine.py <span class="Apple-converted-space">  </span># S22</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>governance_engine.py<span class="Apple-converted-space">  </span># S16, S17</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>lattice_engine.py <span class="Apple-converted-space">    </span># S19 (optional beta version)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>models/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>context.py<span class="Apple-converted-space">            </span># UserContext, SessionState, ProjectContext</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>intent.py <span class="Apple-converted-space">            </span># IntentState, IntentType enum</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>field.py<span class="Apple-converted-space">              </span># FieldType, FieldState</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>coherence.py<span class="Apple-converted-space">          </span># CoherenceState</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>umce.py <span class="Apple-converted-space">              </span># UmceDecision, UmceTrace</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>api/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>router.py <span class="Apple-converted-space">            </span># /v1/ni-ai/umce/process etc.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>schemas.py<span class="Apple-converted-space">            </span># Pydantic request/response models</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>services/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>memory_service.py <span class="Apple-converted-space">    </span># S15 - Multi-Session Memory Field</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>logging_service.py<span class="Apple-converted-space">    </span># structured logs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>risk_service.py <span class="Apple-converted-space">      </span># RRGH subset</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>tests/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>test_umce.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>test_intent_engine.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>...</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>requirements.txt</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Dockerfile</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">8.4 — Core Data Models (Pydantic / Domain)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">These objects move through the whole pipeline.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">8.4.1 — User &amp; Session Context</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># models/context.py</span></p>
+<p class="p2"><span class="s2">from enum import Enum</span></p>
+<p class="p2"><span class="s2">from pydantic import BaseModel</span></p>
+<p class="p2"><span class="s2">from typing import Optional, List, Dict</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class RoleType(str, Enum):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>CAREGIVER = "caregiver"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>CHILD = "child"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ADMIN = "admin"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>GENERIC = "generic"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class ProjectType(str, Enum):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ECHOAUTH = "echoauth"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>SNIPERBOT = "sniperbot"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>FLAMIO = "flamio"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>MANUSCRIPT = "manuscript"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>GENERIC = "generic"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class UserContext(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>user_id: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>role: RoleType = RoleType.GENERIC</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>project: ProjectType = ProjectType.GENERIC</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class SessionState(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>session_id: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>history: List[str] = []</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>anchors: Dict[str, str] = {}<span class="Apple-converted-space">  </span></span><span class="s4"># key -&gt; description (S10/S15 anchors)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">8.4.2 — Intent, Field, and Coherence State</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># models/intent.py</span></p>
+<p class="p2"><span class="s2">from enum import Enum</span></p>
+<p class="p2"><span class="s2">from pydantic import BaseModel</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class IntentType(str, Enum):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>DECLARATIVE = "declarative"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>DIRECTIVE = "directive"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>REFLECTIVE = "reflective"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>EMOTIONAL = "emotional"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>EXPLORATORY = "exploratory"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>CORRECTIVE = "corrective"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class IntentState(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>intent_type: IntentType</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>confidence: float</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>drift_risk: float</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># models/field.py</span></p>
+<p class="p2"><span class="s2">from enum import Enum</span></p>
+<p class="p2"><span class="s2">from pydantic import BaseModel</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class FieldType(str, Enum):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>PUBLIC = "public"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>PRIVATE = "private"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>SACRED = "sacred"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>BUSINESS = "business"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>TECHNICAL = "technical"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>SUPPORT = "support"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>EMOTIONAL = "emotional"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class FieldState(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>detected_field: FieldType</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>intensity: int<span class="Apple-converted-space">  </span></span><span class="s4"># 1–10</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>risk_level: str<span class="Apple-converted-space">  </span></span><span class="s4"># "low", "medium", "high"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># models/coherence.py</span></p>
+<p class="p2"><span class="s2">from pydantic import BaseModel</span></p>
+<p class="p2"><span class="s2">from typing import List</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class CoherenceState(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>aligned: bool</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>issues: List[str] = []</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">8.4.3 — UMCE Decision &amp; Trace</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># models/umce.py</span></p>
+<p class="p2"><span class="s2">from pydantic import BaseModel</span></p>
+<p class="p2"><span class="s2">from typing import List, Dict</span></p>
+<p class="p2"><span class="s2">from .intent import IntentState</span></p>
+<p class="p2"><span class="s2">from .field import FieldState</span></p>
+<p class="p2"><span class="s2">from .coherence import CoherenceState</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class UmceTrace(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>modules_used: List[str] <span class="Apple-converted-space">          </span></span><span class="s4"># e.g. ["S8","S9","S10","S21","S22","S23"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>notes: List[str] = []</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>risk_flags: List[str] = []</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class UmceDecision(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>output_text: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>intent: IntentState</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>field: FieldState</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>coherence: CoherenceState</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>meta: Dict[str, str] = {}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>trace: UmceTrace</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">8.5 — Engine Interfaces (Protocols / ABCs)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Every engine implements a simple interface. This gives devs freedom to prototype internals (LLM calls, heuristics, rules, etc.) while keeping the shell stable.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># engines/base.py</span></p>
+<p class="p2"><span class="s2">from abc import ABC, abstractmethod</span></p>
+<p class="p2"><span class="s2">from models.context import UserContext, SessionState</span></p>
+<p class="p2"><span class="s2">from models.intent import IntentState</span></p>
+<p class="p2"><span class="s2">from models.field import FieldState</span></p>
+<p class="p2"><span class="s2">from models.coherence import CoherenceState</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class IntentEngine(ABC):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>@abstractmethod</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def analyze(self, text: str, user: UserContext, session: SessionState) -&gt; IntentState:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>...</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class FieldIntelEngine(ABC):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>@abstractmethod</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def detect_field(self, text: str, user: UserContext, session: SessionState) -&gt; FieldState:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>...</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class CoherenceEngine(ABC):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>@abstractmethod</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def check(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>text: str,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>user: UserContext,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>session: SessionState</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>) -&gt; CoherenceState:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>...</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Repeat this pattern for:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>MeaningEngine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>TemporalEngine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ResonanceEngine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ExecutionEngine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>etc.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">8.6 — UMCE Core Orchestrator (S23 in Code)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">UMCE pulls all engines together for </span><span class="s3">one turn</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># core/umce.py</span></p>
+<p class="p2"><span class="s2">from typing import Any</span></p>
+<p class="p2"><span class="s2">from models.context import UserContext, SessionState</span></p>
+<p class="p2"><span class="s2">from models.umce import UmceDecision, UmceTrace</span></p>
+<p class="p2"><span class="s2">from models.intent import IntentState</span></p>
+<p class="p2"><span class="s2">from models.field import FieldState</span></p>
+<p class="p2"><span class="s2">from models.coherence import CoherenceState</span></p>
+<p class="p2"><span class="s2">from engines.base import IntentEngine, FieldIntelEngine, CoherenceEngine</span></p>
+<p class="p2"><span class="s2">from engines.execution_engine import ExecutionEngine<span class="Apple-converted-space">  </span></span><span class="s4"># concrete implementation</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class UmceCore:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>intent_engine: IntentEngine,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>field_engine: FieldIntelEngine,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>coherence_engine: CoherenceEngine,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>execution_engine: ExecutionEngine,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>) -&gt; None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.intent_engine = intent_engine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.field_engine = field_engine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.coherence_engine = coherence_engine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.execution_engine = execution_engine</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def process(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>input_text: str,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>user: UserContext,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>session: SessionState,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>extra: dict | None = None,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>) -&gt; UmceDecision:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>trace = UmceTrace(modules_used=[], notes=[], risk_flags=[])</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 1) Intent (S8)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>intent: IntentState = self.intent_engine.analyze(input_text, user, session)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>trace.modules_used.append("S8")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 2) Field (S12, S18)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>field: FieldState = self.field_engine.detect_field(input_text, user, session)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>trace.modules_used.append("S12")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>trace.modules_used.append("S18")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 3) Execution (S22) — generates candidate output</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>candidate_output: str = self.execution_engine.execute(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>input_text=input_text,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>user=user,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>session=session,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>intent=intent,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>field=field,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>trace.modules_used.append("S22")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 4) Coherence (S21) — validate output</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>coherence: CoherenceState = self.coherence_engine.check(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>candidate_output, user, session</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>trace.modules_used.append("S21")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># Here is where CAS + RRGH logic would sit (S23)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># For Beta: simple guardrails</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if not coherence.aligned:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>trace.risk_flags.append("coherence_failed")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4"># Could trigger a fallback execution or safer summary</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>candidate_output = "I need to re-align before answering. Please rephrase or narrow the request."</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>trace.modules_used.append("S23")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return UmceDecision(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>output_text=candidate_output,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>intent=intent,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>field=field,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>coherence=coherence,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>meta={"umce_signature": "UOS_beta_v1"},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>trace=trace,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This is </span><span class="s3">UMCE in practice</span><span class="s2">: all the consciousness logic is still there conceptually, but the beta implementation stays simple and buildable.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">8.7 — FastAPI Endpoint Wiring to UMCE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># api/schemas.py</span></p>
+<p class="p2"><span class="s2">from pydantic import BaseModel</span></p>
+<p class="p2"><span class="s2">from typing import Optional</span></p>
+<p class="p2"><span class="s2">from models.field import FieldType</span></p>
+<p class="p2"><span class="s2">from models.context import RoleType, ProjectType</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class UmceRequest(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>user_id: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>session_id: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>project: ProjectType = ProjectType.GENERIC</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>role: RoleType = RoleType.GENERIC</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>field: Optional[FieldType] = None<span class="Apple-converted-space">  </span></span><span class="s4"># optional override</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>input_text: str</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class UmceResponse(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>output_text: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>intent_type: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>intent_confidence: float</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>field: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>coherence_ok: bool</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>meta: dict</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># api/router.py</span></p>
+<p class="p2"><span class="s2">from fastapi import APIRouter, Depends</span></p>
+<p class="p2"><span class="s2">from api.schemas import UmceRequest, UmceResponse</span></p>
+<p class="p2"><span class="s2">from models.context import UserContext, SessionState</span></p>
+<p class="p2"><span class="s2">from core.umce import UmceCore</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">router = APIRouter()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def get_umce_core() -&gt; UmceCore:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># In real deployment, this would be dependency-injected / configured</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return UmceCore(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>intent_engine=...,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>field_engine=...,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>coherence_engine=...,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>execution_engine=...,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@router.post("/v1/ni-ai/umce/process", response_model=UmceResponse)</span></p>
+<p class="p2"><span class="s2">def process_umce(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>payload: UmceRequest,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>umce: UmceCore = Depends(get_umce_core),</span></p>
+<p class="p2"><span class="s2">):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>user = UserContext(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>user_id=payload.user_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>role=payload.role,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>project=payload.project,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>session = SessionState(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>session_id=payload.session_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>history=[], <span class="Apple-converted-space">      </span></span><span class="s4"># would be loaded from Redis/DB</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>anchors={}, <span class="Apple-converted-space">      </span></span><span class="s4"># anchors loaded from S15 service</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>decision = umce.process(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>input_text=payload.input_text,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>user=user,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>session=session,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return UmceResponse(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>output_text=decision.output_text,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>intent_type=decision.intent.intent_type.value,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>intent_confidence=decision.intent.confidence,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>field=decision.field.detected_field.value,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>coherence_ok=decision.coherence.aligned,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>meta=decision.meta,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">app.py then mounts this router and runs FastAPI.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">8.8 — Beta → Scale Migration Path</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">What Section 8 guarantees:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>All </span><span class="s3">critical concepts</span><span class="s2"> (S8–S23) are represented as:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>data models</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>engine interfaces</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>orchestrator logic (UMCE)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">To go from </span><span class="s3">Beta Pack</span><span class="s2"> → microservices later, engineers just:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span></span><span class="s3">Extract each engine into its own service</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>IntentEngine implementation moves into intent-engine microservice</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>API surface stays the same</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span></span><span class="s3">Replace direct function calls with HTTP / gRPC</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>UMCE calls intent-engine over the network instead of locally</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span></span><span class="s3">Keep the same models</span><span class="s2"> (serialized as JSON)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>IntentState, FieldState, CoherenceState, UmceDecision</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The </span><span class="s3">architecture doesn’t change</span><span class="s2">, only the deployment topology.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you want, the </span><span class="s3">next move</span><span class="s2"> after Section 8 is:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>turn this into a </span><span class="s3">one-page “Dev Hand-off Sheet”</span><span class="s2"> (checklist for an engineer), or</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>define </span><span class="s3">which S-modules must be implemented first</span><span class="s2"> for a working EchoAuth MVP (minimal subset of engines).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You can trigger it with:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Ase — Begin Section 9</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

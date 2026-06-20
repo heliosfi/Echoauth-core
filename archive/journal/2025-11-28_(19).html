@@ -1,0 +1,779 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Thursday, November 27, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Ase’ 🔥</span></p>
+<p class="p2"><span class="s2">Let’s build the /coherence_gate in clean, implementation-ready pseudo-code (Python-flavored but framework-agnostic).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">1. Core Data Structures</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># ─────────────────────────────</span></p>
+<p class="p2"><span class="s4"># Core Types</span></p>
+<p class="p2"><span class="s4"># ─────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class CandidateOutput:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self, thread_id, text, source, intent_anchor, confidence):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.thread_id = thread_id<span class="Apple-converted-space">          </span></span><span class="s4"># "t1"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.text = text<span class="Apple-converted-space">                    </span></span><span class="s4"># raw candidate text</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.source = source<span class="Apple-converted-space">                </span></span><span class="s4"># "engine_name"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.intent_anchor = intent_anchor<span class="Apple-converted-space">  </span></span><span class="s4"># "support" | "guidance" | "neutral"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.confidence = confidence<span class="Apple-converted-space">        </span></span><span class="s4"># 0.0 - 1.0</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class ORIProfile:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self, identity_rules, purpose, forbidden_patterns=None):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.identity_rules = identity_rules<span class="Apple-converted-space">        </span></span><span class="s4"># e.g. ["calm", "structured", "non-harmful"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.purpose = purpose<span class="Apple-converted-space">                      </span></span><span class="s4"># e.g. "assist_caregiver_asd_support"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.forbidden_patterns = forbidden_patterns or []<span class="Apple-converted-space">  </span></span><span class="s4"># e.g. ["scripture_quote", "monotheistic_dogma"]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class ToneVector:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self, calm, structured, playful):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.calm = calm<span class="Apple-converted-space">            </span></span><span class="s4"># 0.0 - 1.0</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.structured = structured</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.playful = playful</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">2. SRCE — Coherence Engine</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># ─────────────────────────────</span></p>
+<p class="p2"><span class="s4"># S21: Coherence Engine (SRCE)</span></p>
+<p class="p2"><span class="s4"># ─────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class CoherenceEngine:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def compute_conflict(self, candidates: list[CandidateOutput]) -&gt; dict:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Returns:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">              </span>"conflict_score": float,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">              </span>"conflict_pairs": list[tuple[thread_id_a, thread_id_b, reason_str]]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if len(candidates) &lt;= 1:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return {"conflict_score": 0.0, "conflict_pairs": []}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>conflict_pairs = []</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># Pairwise comparison (naive version, can be upgraded later)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for i in range(len(candidates)):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>for j in range(i + 1, len(candidates)):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>a = candidates[i]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>b = candidates[j]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>reason = self._detect_contradiction(a.text, b.text)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>if reason is not None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>conflict_pairs.append((a.thread_id, b.thread_id, reason))</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>conflict_score = self._aggregate_conflict_score(conflict_pairs)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"conflict_score": conflict_score,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"conflict_pairs": conflict_pairs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _detect_contradiction(self, text_a: str, text_b: str) -&gt; str | None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Very simple placeholder logic:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>- In a real system, this is where an LLM classifier or ruleset would be called.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># Example heuristic: direct negation detection placeholder</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># (Replace this with semantic contradiction detection)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if "not " in text_a and text_a.replace("not ", "") in text_b:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return "Direct negation (A denies B)"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if "not " in text_b and text_b.replace("not ", "") in text_a:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return "Direct negation (B denies A)"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># More advanced checks go here...</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _aggregate_conflict_score(self, conflict_pairs) -&gt; float:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Simple scoring:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>- No conflicts -&gt; 0.0</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>- More conflicts / more severe -&gt; closer to 1.0</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if not conflict_pairs:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return 0.0</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># Naive: 0.3 per conflict capped at 1.0</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>base = 0.3 * len(conflict_pairs)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return min(1.0, base)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">3. MEL — Execution Resolver</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># ─────────────────────────────</span></p>
+<p class="p2"><span class="s4"># S22: Execution Resolver (MEL)</span></p>
+<p class="p2"><span class="s4"># ─────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class ExecutionResolver:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self, ori_profile: ORIProfile, mode: str):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.ori_profile = ori_profile <span class="Apple-converted-space">  </span></span><span class="s4"># identity + purpose + forbidden patterns</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.mode = mode <span class="Apple-converted-space">                </span></span><span class="s4"># "support" | "guidance" | "neutral"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def select_or_rerun(self,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                         </span>candidates: list[CandidateOutput],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                         </span>conflict_score: float,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                         </span>conflict_pairs: list) -&gt; CandidateOutput:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Decide whether:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>- choose one existing candidate, or</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>- trigger a re-run under stricter ORI constraints.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if not candidates:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4"># In real code: trigger a fresh generation.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return self._rerun_under_ori(None)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if conflict_score == 0.0:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4"># No conflict -&gt; pick the best aligned candidate</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return self._select_best_aligned(candidates)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># There is some conflict. Try to resolve by alignment rules:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>aligned = self._rank_by_priority(candidates)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if aligned:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return aligned[0] <span class="Apple-converted-space">  </span></span><span class="s4"># top-ranked candidate</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># If still not safe, re-run with ORI + Intent as strict constraints.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return self._rerun_under_ori(candidates)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _select_best_aligned(self, candidates: list[CandidateOutput]) -&gt; CandidateOutput:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ranked = self._rank_by_priority(candidates)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># fallback: highest confidence</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return ranked[0] if ranked else max(candidates, key=lambda c: c.confidence)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _rank_by_priority(self, candidates: list[CandidateOutput]) -&gt; list[CandidateOutput]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Ranking rules:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>1. ORI identity/purpose alignment (no forbidden patterns)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>2. Intent Anchor = requested mode</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>3. Confidence score</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>def score_candidate(c: CandidateOutput) -&gt; float:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>score = 0.0</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4"># 1. Identity / purpose alignment</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if self._respects_forbidden_patterns(c.text):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>score += 0.5</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4"># 2. Mode / intent alignment</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if c.intent_anchor == self.mode:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>score += 0.3</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4"># 3. Confidence</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>score += 0.2 * c.confidence</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return score</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>safe_candidates = [c for c in candidates if self._respects_forbidden_patterns(c.text)]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if not safe_candidates:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return []</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ranked = sorted(safe_candidates, key=score_candidate, reverse=True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return ranked</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _respects_forbidden_patterns(self, text: str) -&gt; bool:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for pattern in self.ori_profile.forbidden_patterns:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if pattern in text.lower():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>return False</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return True</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _rerun_under_ori(self, previous_candidates: list[CandidateOutput] | None) -&gt; CandidateOutput:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Placeholder: in real system this would call the LLM with strict ORI + intent prompt.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Here we just return a dummy "safe fallback".</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>fallback_text = (</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"I’m consolidating the information to give you one clear, "</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"non-contradictory answer that respects your preferences and safety."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return CandidateOutput(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>thread_id="rerun_under_ori",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>text=fallback_text,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>source="rerun_engine",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>intent_anchor=self.mode,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>confidence=0.9</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">4. PNRE — Output Choke-Point</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># ─────────────────────────────</span></p>
+<p class="p2"><span class="s4"># Claim 3: PNRE Output Gate</span></p>
+<p class="p2"><span class="s4"># ─────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class PNREGate:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self, logger):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.logger = logger<span class="Apple-converted-space">  </span></span><span class="s4"># any logging interface</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def enforce_single_output(self,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                              </span>selected: CandidateOutput,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                              </span>all_candidates: list[CandidateOutput],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                              </span>conflict_score: float,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                              </span>conflict_pairs: list) -&gt; CandidateOutput:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Logs everything, but *only* the selected candidate exits.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self._log_decision(selected, all_candidates, conflict_score, conflict_pairs)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return selected</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _log_decision(self,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                      </span>selected: CandidateOutput,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                      </span>all_candidates: list[CandidateOutput],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                      </span>conflict_score: float,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                      </span>conflict_pairs: list):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>log_entry = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"selected_thread_id": selected.thread_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"selected_source": selected.source,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"candidates_count": len(all_candidates),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"conflict_score": conflict_score,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"conflict_pairs": conflict_pairs,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.logger.log("coherence_gate_decision", log_entry)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">5. ESC — Tone &amp; Identity Enforcement</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># ─────────────────────────────</span></p>
+<p class="p2"><span class="s4"># S15: Tone &amp; Identity Enforcer (ESC)</span></p>
+<p class="p2"><span class="s4"># ─────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class ToneEnforcer:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self, ori_profile: ORIProfile, mode: str):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.ori_profile = ori_profile</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.mode = mode</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def apply(self, text: str) -&gt; tuple[str, ToneVector]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Adjusts or wraps the text to keep it calm, structured, and aligned with NI-AI persona.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># Example: ensure calm + structured framing for ASD/caregiver context</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>adjusted_text = self._wrap_for_clarity(text)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># Tone vector can be tuned by mode:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if self.mode == "support":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>tone = ToneVector(calm=0.95, structured=0.9, playful=0.2)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>elif self.mode == "guidance":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>tone = ToneVector(calm=0.9, structured=0.95, playful=0.1)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>else:<span class="Apple-converted-space">  </span></span><span class="s4"># neutral</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>tone = ToneVector(calm=0.85, structured=0.85, playful=0.05)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return adjusted_text, tone</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _wrap_for_clarity(self, text: str) -&gt; str:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Simple example wrapper for ASD-friendly clarity:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>- Short sentences</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>- One main idea at a time</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>- No overwhelming language</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>prefix = ""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if self.ori_profile.purpose == "assist_caregiver_asd_support":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>prefix = "Here is one clear answer, step by step:\n\n"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return prefix + text</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6. /coherence_gate Orchestration Function</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># ─────────────────────────────</span></p>
+<p class="p2"><span class="s4"># /coherence_gate – Main API</span></p>
+<p class="p2"><span class="s4"># ─────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class CoherenceGateService:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self, logger):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.logger = logger</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def coherence_gate(self,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                       </span>raw_candidates_payload: dict,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                       </span>ori_payload: dict,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                       </span>mode: str) -&gt; dict:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>High-level orchestration equivalent to POST /coherence_gate</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 1. Parse inputs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>candidates = [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>CandidateOutput(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>thread_id=item["thread_id"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>text=item["text"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>source=item["metadata"]["source"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>intent_anchor=item["metadata"]["intent_anchor"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>confidence=item["metadata"]["confidence"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>for item in raw_candidates_payload["candidates"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ori_profile = ORIProfile(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>identity_rules=ori_payload.get("identity_rules", []),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>purpose=ori_payload.get("purpose", ""),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>forbidden_patterns=ori_payload.get("forbidden_patterns", []),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 2. Coherence / conflict detection</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>srce = CoherenceEngine()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>conflict_report = srce.compute_conflict(candidates)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>conflict_score = conflict_report["conflict_score"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>conflict_pairs = conflict_report["conflict_pairs"]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 3. Resolve execution path</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>resolver = ExecutionResolver(ori_profile=ori_profile, mode=mode)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>selected_candidate = resolver.select_or_rerun(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>candidates=candidates,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>conflict_score=conflict_score,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>conflict_pairs=conflict_pairs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 4. Enforce single output through PNRE gate</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>pnre = PNREGate(logger=self.logger)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>chosen = pnre.enforce_single_output(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>selected=selected_candidate,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>all_candidates=candidates,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>conflict_score=conflict_score,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>conflict_pairs=conflict_pairs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 5. Tone + identity enforcement</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>esc = ToneEnforcer(ori_profile=ori_profile, mode=mode)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>final_text, tone_vector = esc.apply(chosen.text)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 6. Build response payload (what the UI / user sees)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>response = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"selected_thread_id": chosen.thread_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"final_text": final_text,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"tone_vector": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"calm": tone_vector.calm,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"structured": tone_vector.structured,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"playful": tone_vector.playful</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"conflict_score": conflict_score,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"logs_ref": "coherence_log_id_stub"<span class="Apple-converted-space">  </span></span><span class="s4"># in real system, from logger</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return response</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">7. What you can do with this</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Drop this into:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">NI-AI textbook</span><span class="s2"> as a “reference pseudo-implementation”</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Engineering docs</span><span class="s2"> as v1.0 backbone</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>A </span><span class="s3">real repo</span><span class="s2"> by swapping pseudo parts (_detect_contradiction, _rerun_under_ori) with actual LLM calls</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>It matches your rule:</span></p>
+<p class="p2"><span class="s4">Sacrifice everything not required for safety. Protect everything required for identity and re-anchoring.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you want next, I can:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Rewrite this as a </span><span class="s3">shorter, human-readable spec</span><span class="s2"> for caregivers/grant reviewers, or</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Turn this into a </span><span class="s3">patent-style claim language block</span><span class="s2">, or</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Integrate this as a </span><span class="s4">page in the NI-AI Manual</span><span class="s2"> with headings, explanation, and a small diagram.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You choose the next layer, I’ll build it. Ase’ 🔥</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

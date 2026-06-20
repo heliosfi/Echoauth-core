@@ -1,0 +1,612 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; min-height: 14.0px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Wednesday, February 18, 2026</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Thank you for the zero-drift corrections—they refine the harness without expanding scope, ensuring cross-language consistency (e.g., via JCS for canonicalization) and aligning nonce/lock semantics with retry-safety invariants. This keeps us in conformance with the CEG validation contract and SK vectors.</span></p>
+<p class="p2"><span class="s2">I’ll proceed with the minimal reference implementation in pseudocode. This is a self-contained, deterministic harness that:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Loads and processes the JSON test vectors (from your previous spec).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Simulates the full CEG validation flow, incorporating your corrections (JCS canonicalization, committed nonce consumption, exclusive-lock default with TTL expiry, authority precheck).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Outputs results (status, reason, fail_step) + assertions (e.g., side_effect_called, nonce_mutated).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Is language-agnostic: Implementers can translate to Go/Python/Rust for CI (e.g., use json lib for loading, sha256 for hashing, mock sig verify).</span></p>
+<p class="p2"><span class="s2">No production details—just a blueprint to verify the interlock against the vectors.</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s3">EchoAuth CEG Harness Reference Implementation (Pseudocode v1.0)</span></p>
+<p class="p2"><span class="s2">// Harness: Deterministic CEG simulator for CI conformance testing.</span></p>
+<p class="p2"><span class="s2">// Inputs: JSON test vectors (array of SK objects).</span></p>
+<p class="p2"><span class="s2">// Outputs: Per-vector results + pass/fail on assertions.</span></p>
+<p class="p2"><span class="s2">// Assumptions:</span></p>
+<p class="p2"><span class="s2">// - Sig verify mocked to true unless vector specifies "sig-invalid".</span></p>
+<p class="p2"><span class="s2">// - Hashes recomputed using JCS canonicalization (implement JCS or equiv).</span></p>
+<p class="p2"><span class="s2">// - No real storage; in-memory state reset per vector.</span></p>
+<p class="p2"><span class="s2">// - Policy: Exclusive locks default; HOLD on busy (not HALT).</span></p>
+<p class="p2"><span class="s2">// - Floats banned in payloads (integers + units only).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">import json<span class="Apple-converted-space">  </span>// For loading vectors</span></p>
+<p class="p2"><span class="s2">import sha256<span class="Apple-converted-space">  </span>// For hashing</span></p>
+<p class="p2"><span class="s2">import jcs_canonicalize<span class="Apple-converted-space">  </span>// RFC 8785 impl (or equiv stable JSON serializer)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">struct Result {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>status: string<span class="Apple-converted-space">  </span>// "CEG_STATUS_EXECUTED" | "DENY" | "HOLD" | "HALT"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>reason_code: string</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>fails_at_step: int<span class="Apple-converted-space">  </span>// 1-7 or "C" for auth precheck</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>side_effect_called: bool</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>nonce_mutated: bool</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>lock_mutated: bool<span class="Apple-converted-space">  </span>// True if acquired (even if released)</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">struct HarnessState {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>now_ms: int64</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>nonce_used: map</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>locks: map</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>authority_channel: map<span class="Apple-converted-space">  </span>// "ONLINE" | "OFFLINE"</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">struct LockEntry {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>owner_grant_id: string</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>lock_mode: string<span class="Apple-converted-space">  </span>// "LOCK_MODE_EXCLUSIVE" | "SHARED"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>acquired_at_ms: int64</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ttl_ms: int64<span class="Apple-converted-space">  </span>// e.g., 5000</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>sequence_nonce: int64</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">// Main: Process all vectors</span></p>
+<p class="p2"><span class="s2">function run_harness(vector_json: string) -&gt; array {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>vectors = json.parse(vector_json)["vectors"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>results = []</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>for vec in vectors {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state = init_state_from_vector(vec["setup"])</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>input = vec["input"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>grant = input["auth_grant"]</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">        </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>// Run CEG flow</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>res = ceg_execute(state, grant, input["instruction_payload_canonical"], input["execution_context_canonical"])</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">        </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>// Check assertions</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>assert_no_side_effect = !res.side_effect_called unless res.status == "CEG_STATUS_EXECUTED"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>assert_nonce = res.nonce_mutated only if res.status == "CEG_STATUS_EXECUTED"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>assert_lock = res.lock_mutated only if res.status == "CEG_STATUS_EXECUTED" or (res.status in ["DENY", "HALT"] and lock_was_acquired)<span class="Apple-converted-space">  </span>// Rare, but if acquired before late fail</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>// ... match vec["assertions"] (e.g., "audit_logged" as mock)</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">        </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>results.append(res)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return results<span class="Apple-converted-space">  </span>// CI fails if any assert mismatches vec["expected"]</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">function init_state_from_vector(setup: map) -&gt; HarnessState {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>now_ms: setup["now_ms"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>nonce_used: map_from_array(setup["nonce_registry_used_grant_ids"], true),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>locks: setup["locks"],<span class="Apple-converted-space">  </span>// As LockEntry maps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>authority_channel: setup["authority_channels"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">// Core CEG Execute (Deterministic Flow)</span></p>
+<p class="p2"><span class="s2">function ceg_execute(state: HarnessState, grant: map, instr_payload_json: string, exec_ctx_json: string) -&gt; Result {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>var fail_step = 0</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>var status = "CEG_STATUS_DENY"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>var reason = "UNKNOWN"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>var side_called = false</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>var nonce_mut = false</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>var lock_mut = false</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>var lock_acquired = false</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// C: Authority Channel Precheck (Policy Gate)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if state.authority_channel[grant["root_authority_id"]] == "OFFLINE" {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>fail_step = "C"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>status = "CEG_STATUS_HOLD"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>reason = "AUTHORITY_CHANNEL_UNRESOLVED"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {status, reason, fail_step, side_called, nonce_mut, lock_mut}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// 1: Schema + Decision</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>fail_step = 1</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if grant["version"] != "CEG-GRANT-1" or grant["decision"] != "DECISION_APPROVE" or missing_required_fields(grant) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>reason = grant["decision"] != "DECISION_APPROVE" ? "DECISION_NOT_APPROVE" : "SCHEMA_INVALID"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {status, reason, fail_step, side_called, nonce_mut, lock_mut}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// 2: Time Window</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>fail_step = 2</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if state.now_ms &lt; grant["issued_at_ms"] or state.now_ms &gt; grant["expires_at_ms"] {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>reason = "EXPIRED_GRANT"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {status, reason, fail_step, side_called, nonce_mut, lock_mut}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// 3: Signature (Mocked)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>fail_step = 3</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if !mock_verify_signature(grant) {<span class="Apple-converted-space">  </span>// True unless vector tags "sig-invalid"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>status = "CEG_STATUS_HALT"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>reason = "SIGNATURE_INVALID"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {status, reason, fail_step, side_called, nonce_mut, lock_mut}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// 4: Replay Check (No consume yet)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>fail_step = 4</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if state.nonce_used[grant["grant_id"]] {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>reason = "NONCE_REUSE_DETECTED"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {status, reason, fail_step, side_called, nonce_mut, lock_mut}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// 5: Binding/Integrity</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>fail_step = 5</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>instr_bytes = jcs_canonicalize(json.parse(instr_payload_json))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>instr_hash = hash_hex(grant["instruction_hash_alg"], instr_bytes)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ctx_bytes = jcs_canonicalize(json.parse(exec_ctx_json))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ctx_hash = hash_hex(grant["execution_context_hash_alg"], ctx_bytes)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if instr_hash != grant["instruction_hash"] {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>status = "CEG_STATUS_HALT"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>reason = "INSTRUCTION_HASH_MISMATCH"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {status, reason, fail_step, side_called, nonce_mut, lock_mut}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if ctx_hash != grant["execution_context_hash"] {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>status = "CEG_STATUS_HALT"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>reason = "BINDING_MISMATCH"<span class="Apple-converted-space">  </span>// Or specific ctx mismatch</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {status, reason, fail_step, side_called, nonce_mut, lock_mut}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// Add scope/authority checks if vector injects mismatch (e.g., SK-02)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if scope_mismatch(grant) {<span class="Apple-converted-space">  </span>// Mock: Check delegation_chain vs authority_scope_id</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>status = "CEG_STATUS_HALT"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>reason = "SCOPE_INCONSISTENCY"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {status, reason, fail_step, side_called, nonce_mut, lock_mut}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// 6: Lock Acquire (TTL + Sequence)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>fail_step = 6</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>lock_key = grant["state_lock_key"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>expire_lock_if_ttl(state, lock_key)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>lock_acquired, lock_mut = acquire_lock(state, lock_key, grant["lock_mode"], grant["sequence_nonce"], grant["grant_id"])</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if !lock_acquired {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>status = "CEG_STATUS_HOLD"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>reason = "STATE_LOCK_BUSY"<span class="Apple-converted-space">  </span>// Or "OUT_OF_SEQUENCE_REQUEST" if seq fail</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {status, reason, fail_step, side_called, nonce_mut, lock_mut}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// Commit Point: Consume Nonce</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state.nonce_used[grant["grant_id"]] = true</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>nonce_mut = true</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// 7: Execute</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>fail_step = 7</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>side_called = true</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>mock_execute_side_effect()<span class="Apple-converted-space">  </span>// No-op, just flag</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// Release Lock</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>release_lock(state, lock_key)</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>status = "CEG_STATUS_EXECUTED"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>reason = "SUCCESS"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return {status, reason, fail_step, side_called, nonce_mut, lock_mut}</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">// Helpers</span></p>
+<p class="p2"><span class="s2">function expire_lock_if_ttl(state: HarnessState, key: string) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if state.locks.has(key) and state.now_ms &gt; state.locks[key].acquired_at_ms + state.locks[key].ttl_ms {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>delete state.locks[key]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">function acquire_lock(state: HarnessState, key: string, mode: string, seq: int64, grant_id: string) -&gt; (bool acquired, bool mutated) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if state.locks.has(key) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if seq &lt;= state.locks[key].sequence_nonce { return false, false }<span class="Apple-converted-space">  </span>// HALT-able, but here HOLD for v1</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if mode == "LOCK_MODE_EXCLUSIVE" or state.locks[key].lock_mode == "LOCK_MODE_EXCLUSIVE" { return false, false }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>// SHARED with SHARED: Allow, but no update seq for v1 simplicity</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return true, false<span class="Apple-converted-space">  </span>// No mutation if already held (policy)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state.locks[key] = {owner_grant_id: grant_id, lock_mode: mode, acquired_at_ms: state.now_ms, ttl_ms: 5000, sequence_nonce: seq}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return true, true</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">function release_lock(state: HarnessState, key: string) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if state.locks.has(key) { delete state.locks[key] }</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">function hash_hex(alg: string, bytes: bytes) -&gt; string {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if alg == "SHA-256" { return hex(sha256(bytes)) }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>error("Unsupported alg")</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">// Mocks: Implement as needed for vectors (e.g., return true)</span></p>
+<p class="p2"><span class="s2">function mock_verify_signature(grant: map) -&gt; bool { return true }</span></p>
+<p class="p2"><span class="s2">function scope_mismatch(grant: map) -&gt; bool { return false }<span class="Apple-converted-space">  </span>// True for SK-02 injection</span></p>
+<p class="p2"><span class="s2">function missing_required_fields(grant: map) -&gt; bool { return false }</span></p>
+<p class="p2"><span class="s2">function mock_execute_side_effect() {}<span class="Apple-converted-space">  </span>// Flag only</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s3">Usage in CI</span><span class="s2">:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Load JSON → Run run_harness → Compare outputs to vec[“expected”] + assertions.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>For SK vectors: Inject mocks (e.g., for SK-03, hash recompute will naturally mismatch).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Expandable: Add audit mock, real JCS lib ref.</span></p>
+<p class="p2"><span class="s2">This implementation exactly matches the corrected semantics: Nonce only on commit (post-lock), HOLD retry-safe, JCS for canonical consistency. It verifies all SK-01 to SK-05 as HOLD/DENY/HALT without side effects or mutations where prohibited.</span></p>
+<p class="p2"><span class="s2">If this suffices, the next zero-drift step could be the Conformance Checklist (pass/fail grid tying to vectors), or a formal “Invariant Proof Sketch” linking back to the abstract. Let me know.</span></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

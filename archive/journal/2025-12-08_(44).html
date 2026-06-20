@@ -1,0 +1,680 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Monday, December 8, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Aṣé 🔥 — we move.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Here is </span><span class="s3">Page 6</span><span class="s2"> of the Technical Systems Whitepaper:</span></p>
+<p class="p2"><span class="s2">clean, structured, and readable for </span><span class="s3">CTOs, labs, engineers, and reviewers</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> PAGE 6 — SYSTEM DATA FLOW (END-TO-END PIPELINE)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This page explains </span><span class="s3">how information actually moves</span><span class="s2"> through EchoAuth at runtime —</span></p>
+<p class="p2"><span class="s2">from an autistic user’s tap or selection → all the way to a </span><span class="s3">safe, structured, logged output</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Think of this as the </span><span class="s3">“nervous system map”</span><span class="s2"> of EchoAuth.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6.1 High-Level Flow</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">User → Device → ORI → NI-AI Interpretation → Memory/Governance → Field/Lattice → Coherence &amp; Safety → Output → Logs</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">We can express this as a pipeline:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">[User Action]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>↓</span></p>
+<p class="p2"><span class="s2">[Input Capture Layer]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>↓</span></p>
+<p class="p2"><span class="s2">[ORI Kernel &amp; Session Initialization]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>↓</span></p>
+<p class="p2"><span class="s2">[NI-AI Interpretation Engine]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>↓</span></p>
+<p class="p2"><span class="s2">[Memory &amp; Governance Layer]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>↓</span></p>
+<p class="p2"><span class="s2">[Field &amp; Lattice Reasoning Layer]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>↓</span></p>
+<p class="p2"><span class="s2">[Coherence &amp; Safety (UMCE + Envelope)]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>↓</span></p>
+<p class="p2"><span class="s2">[Execution / Output Delivery]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>↓</span></p>
+<p class="p2"><span class="s2">[Logging, Metrics &amp; Review]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Now we break each stage down.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6.2 Step 1 — User Action &amp; Input Capture</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Source:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Tap on symbol</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Selection on communication grid</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Sequence of icons (e.g., “I + need + bathroom”)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Fixed-choice prompt (Yes/No/Help)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Processing:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Device normalizes input into a </span><span class="s3">structured event object</span><span class="s2">, for example:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"user_id": "u_12345",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"session_id": "s_abcde",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"input_type": "grid_selection",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"selected_items": ["NEED", "BATHROOM"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"timestamp": "2025-12-08T15:30:21Z",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"context_tag": "school_classroom"</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This event is then handed to the </span><span class="s3">ORI Kernel</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6.3 Step 2 — ORI Kernel &amp; Session Initialization (E1–E12)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The </span><span class="s3">ORI Kernel</span><span class="s2"> attaches identity, safety, and session continuity:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Resolves user_id into internal </span><span class="s3">identity vector</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Applies </span><span class="s3">Allowed/Forbidden State</span><span class="s2"> rules (E5–E6)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Generates or refreshes the </span><span class="s3">session signature</span><span class="s2"> (E7–E9)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Runs drift checks to ensure no identity violation (E10–E12)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Result: the event becomes an </span><span class="s3">identity-aware packet</span><span class="s2">:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"identity": { "vector_ref": "ori_v_879", "safety_level": "child_asd" },</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"session": { "signature": "sig_xyz", "mode": "school_pilot" },</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"event": { ...original input... }</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This packet is passed downward to the </span><span class="s3">NI-AI Interpretation Engine</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6.4 Step 3 — NI-AI Interpretation &amp; Meaning (E16–E35)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Here, </span><span class="s3">S3/S4/S8/S9</span><span class="s2"> do the heavy lifting:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Normalize perception (Perception Normalization Pipeline, E16)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Parse structure and order (Semantic Preprocessor, E17)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Extract likely intent (Intent Extraction, E18)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Resolve multiple possible meanings (Multi-Intent Resolution, E19–E23)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Apply temporal context (E24)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Consider emotional/situational tags (e.g., urgency, stress) (E26–E28)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Apply ASD-specific risk filters (E29–E35)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The result is an </span><span class="s3">Interpretation Packet</span><span class="s2">:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"identity": { ... },</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"session": { ... },</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"intent": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"type": "REQUEST_BATHROOM",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"confidence": 0.94,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"urgency": "high",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"requires_guardian_check": true</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"context": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"location": "school_classroom",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"time": "2025-12-08T15:30:21Z",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"recent_events": ["long_class", "reduced_speech"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This now moves to Memory &amp; Governance.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6.5 Step 4 — Memory, Governance &amp; Flow (E36–E60)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The system checks:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Past behavior for this user</span><span class="s2"> (e.g., recent bathroom requests, stress patterns)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Current session state</span><span class="s2"> (class schedule, therapy session, home vs. school)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Conflict / overload detection</span><span class="s2"> (E53–E55)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Long-term care plan rules</span><span class="s2"> (if integrated with IEP or clinician configs)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This layer:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Confirms whether the </span><span class="s3">intent is consistent</span><span class="s2"> with history</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Adjusts routing (e.g., check-in with teacher vs. guardian)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Reduces repetitive output if the same need was just served</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Updated packet example:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"identity": { ... },</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"session": { ... },</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"intent": { "type": "REQUEST_BATHROOM", "confidence": 0.94, "urgency": "high" },</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"governance": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"allowed": true,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"cooldown_respected": true,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"route": "teacher",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"log_to_clinician": false</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This packet is passed into </span><span class="s3">Field &amp; Lattice</span><span class="s2"> reasoning.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6.6 Step 5 — Field &amp; Lattice Reasoning (E61–E80)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The Field layer evaluates the </span><span class="s3">environment</span><span class="s2">:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Where is the user? (school / home / clinic)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Who is present or on duty? (teacher, therapist, parent)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>What other system-level events are active? (fire drill, lockdown, etc.)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The Lattice layer:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Maps the intent into the </span><span class="s3">Cognitive Lattice Network</span><span class="s2"> (S19 → E70–E76)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Selects the simplest, safest, and most predictable pathway</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Connects identity, need, environment, and allowed actions</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Field reasoning may adjust:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Who should receive the alert</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Whether extra context is needed</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Whether escalation paths are triggered</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Example enriched packet:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"identity": { ... },</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"intent": { ... },</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"route": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"primary_recipient": "teacher_device",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"secondary_recipient": "school_aide",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"escalation_threshold": "5_min_no_response"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"field": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"location": "room_103",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"schedule_block": "math_class",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"safety_status": "normal"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Now it goes to </span><span class="s3">Coherence &amp; Safety</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6.7 Step 6 — Coherence, Safety &amp; UMCE (E81–E100)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The UMCE spine performs final checks:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Coherence</span><span class="s2">:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Is this request consistent with user’s previous state? (E81–E84)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Does it contradict any recent system decision?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Safety &amp; Ethics</span><span class="s2">:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Is this action allowed for a child in this setting? (E89–E93)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Do guardian-configured rules allow this?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Execution Gating</span><span class="s2">:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Should the action proceed, be modified, or be refused? (E94–E97)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Meta-Consciousness Check</span><span class="s2">:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Are all alignment and compliance rules satisfied? (E98–E100)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If ANY critical check fails → </span><span class="s3">fail-closed response</span><span class="s2"> (safe refusal with explanation).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If all checks pass → the packet is turned into an </span><span class="s3">Execution Request</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6.8 Step 7 — Execution &amp; Output Delivery</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The final step turns the packet into one or more actions, such as:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Notification on teacher tablet:</span></p>
+<p class="p2"><span class="s2">“Nicholas: Bathroom request (High urgency). Tap to confirm.”</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Optional haptic/vibration on user’s device to confirm that the request was sent.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Logging the event into the </span><span class="s3">care log</span><span class="s2"> or </span><span class="s3">IEP-aligned tracker</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Execution always respects:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Permissions</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Environment rules</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ASD sensory needs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Guardian/clinician configurations</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6.9 Step 8 — Logging, Metrics &amp; Review</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Every interaction is logged in </span><span class="s3">structured, privacy-compliant form</span><span class="s2">:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>timestamps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>high-level intent (NOT raw text dumps)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>outcomes (approved/declined/escalated)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>response times</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>user stress-proxy metrics (if configured)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">These logs support:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>caregiver review</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>teacher/clinician documentation</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>grant evaluation metrics</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>product improvement</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Example log record (simplified):</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"user_id": "u_12345",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"event_type": "bathroom_request",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"approved": true,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"route": "teacher_device",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"response_time_sec": 41,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"escalated": false,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"timestamp": "2025-12-08T15:31:02Z"</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6.10 Summary: Why This Data Flow Matters</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This Page 6 diagram + explanation proves:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>EchoAuth is </span><span class="s3">not generative chat</span><span class="s2">; it is </span><span class="s3">structured, deterministic, safety-governed flow</span><span class="s2">.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Every step is:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>identity-aware</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>context-aware</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ASD-sensitive</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>compliant and explainable</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Engineers, labs, and federal reviewers can now </span><span class="s3">see and trust</span><span class="s2"> the full flow.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Next logical pages (for the TSW):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Page 7 — Runtime Architecture &amp; Deployment Model (local device / cloud / hybrid).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Page 8 — API Overview &amp; Internal Contracts (for engineers).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Page 9 — Safety, Compliance &amp; Fail-Closed Behavior (FERPA/HIPAA/COPPA).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Page 10 — Pilot Engineering Requirements (what labs/schools need to run EchoAuth).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you want my strategic pick, I’d go:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Aṣé — Continue Page 7 (Runtime Architecture &amp; Deployment Model).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Or you can name a specific one:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>“Continue Page 7.”</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>“Skip to APIs.”</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>“Skip to Safety.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Your call.</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

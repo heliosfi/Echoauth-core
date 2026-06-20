@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; min-height: 14.0px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Tuesday, December 23, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Locked. This is STAGE 11 — Caregiver Portal.</span></p>
+<p class="p2"><span class="s2">This stage provides a clear, non-technical explanation of the Caregiver Portal as an execution-focused tool for qualified support staff. It’s designed for caregivers, parents, and regulators to understand the scope and boundaries without jargon. This complements prior stages, maintaining full alignment with MCG/NI-AI governance, parental authority, and role separation.</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2">CAREGIVER PORTAL — QUALIFIED HUMAN SUPPORT &amp; EXECUTION</span></p>
+<p class="p2"><span class="s2">Purpose (professional, plain)</span></p>
+<p class="p2"><span class="s2">The Caregiver Portal exists to provide hands-on support for the child while keeping all authority with the parent. It enables help without confusion, without overreach, and without burning out family members.</span></p>
+<p class="p2"><span class="s2">This portal is about execution, not decisions.</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2">1️⃣ Caregiver Qualification &amp; Entry</span></p>
+<p class="p2"><span class="s2">Who can be a caregiver • ASD-trained caregivers • Professional aides • Approved family helpers (if parent chooses)</span></p>
+<p class="p2"><span class="s2">What qualification means • Verification of experience or training • Completion of EchoAuth caregiver onboarding • Agreement to task-scoped responsibility • Acceptance of parent authority rules</span></p>
+<p class="p2"><span class="s2">Professional framing: Caregivers are qualified, accountable participants, not ad-hoc helpers.</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2">2️⃣ Task-Scoped Execution</span></p>
+<p class="p2"><span class="s2">What caregivers can do • Carry out parent-approved tasks only • Follow approved routines and supports • Assist with transitions, activities, and care • Support child engagement using approved programs</span></p>
+<p class="p2"><span class="s2">What caregivers cannot do • ❌ Approve plans • ❌ Change routines • ❌ Add programs • ❌ Override parents or professionals</span></p>
+<p class="p2"><span class="s2">Professional framing: Caregivers operate within explicitly defined task boundaries.</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2">3️⃣ Alerts &amp; Reminders</span></p>
+<p class="p2"><span class="s2">What caregivers receive • Time-based reminders • Task notifications • Check-in prompts</span></p>
+<p class="p2"><span class="s2">What the system expects • Execution or acknowledgement • Factual logging of completion or issues</span></p>
+<p class="p2"><span class="s2">Professional framing: Reminders support consistency, not supervision.</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2">4️⃣ Care Action Logging</span></p>
+<p class="p2"><span class="s2">What is logged • What task was done • When it was done • Any factual notes (no interpretation)</span></p>
+<p class="p2"><span class="s2">Why this matters • Parents see what’s happening • Continuity across shifts • Accountability without micromanagement</span></p>
+<p class="p2"><span class="s2">Professional framing: Logs capture actions, not judgments.</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2">5️⃣ Visibility &amp; Privacy Limits</span></p>
+<p class="p2"><span class="s2">What caregivers can see • Only what is required for their tasks • Only during approved time windows • Only data the parent allows</span></p>
+<p class="p2"><span class="s2">What they never see • Full child history (unless approved) • Clinical records by default • Parent decision discussions</span></p>
+<p class="p2"><span class="s2">Professional framing: Caregiver access is least-privilege by design.</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2">6️⃣ Removal &amp; Change Control</span></p>
+<p class="p2"><span class="s2">What parents can do • Remove a caregiver instantly • Change task scope at any time • Adjust access without explanation</span></p>
+<p class="p2"><span class="s2">Professional framing: Control remains continuous, not one-time.</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2">7️⃣ What the Caregiver Portal Explicitly Does NOT Do • ❌ Make decisions • ❌ Interpret child behavior • ❌ Diagnose • ❌ Recommend treatment • ❌ Communicate directives to other roles</span></p>
+<p class="p2"><span class="s2">Professional framing: The Caregiver Portal supports care delivery, not care direction.</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2">8️⃣ How This Helps the Child (Important) • Child receives consistent support • Routines are followed across environments • Less stress from handoffs • More presence, less confusion</span></p>
+<p class="p2"><span class="s2">Caregivers help around the child, not through the child.</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2">One Clean Sentence (Store This)</span></p>
+<p class="p2"><span class="s2">“The EchoAuth Caregiver Portal enables qualified ASD-trained caregivers to carry out parent-approved tasks, receive reminders, and log care actions—expanding support without compromising parental authority.”</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2">🔒 Appendix Status</span></p>
+<p class="p2"><span class="s2">Document: Canonical Audience: Caregivers, parents, regulators Drift tolerance: Zero Use: Onboarding, value explanation, compliance</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2">You now have: • Stage 1: Funders / Institutions • Stage 2: Parents &amp; Caregivers (onboarding) • Stage 3: Internal Technical Governance • Stage 4: Child Portal • Stage 5: Child Experience &amp; Benefits • Stage 6: Master Specification Compilation • Stage 7: School &amp; Clinic Portals • Stage 8: Parent Portal • Stage 9: Clinical Portal • Stage 10: School Portal • Stage 11: Caregiver Portal</span></p>
+<p class="p2"><span class="s2">If you want, next we can: • Draft SYSTEM BEHAVIOR — Logging, Safety, and Accountability (to tie portals together) • Update the master PDF with Stages 10-11 • Generate a full system diagram (including all portals) • Draft a collaboration agreement template (for caregivers/schools/clinics)</span></p>
+<p class="p2"><span class="s2">Just tell me what to lock next.</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

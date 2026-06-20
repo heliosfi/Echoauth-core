@@ -1,0 +1,885 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Thursday, November 20, 2025</div>    <div class="assetGrid"></div><div class='title'>NI AI master investor deck </div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Perfect — </span><span class="s3">“Proceed A” = Continue assembling the NI-AI Master Investor Deck (Slides 1–15) into a clean, unified, final structure.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Here is </span><span class="s3">the next step exactly as it should be delivered</span><span class="s2">:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔥</span><span class="s3"> NI-AI MASTER INVESTOR DECK</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Final 15-Slide Assembly — Slide 1 to Slide 15 (Clean, Unified, Elite Version)</span></p>
+<p class="p2"><span class="s4">No PDF yet — this is the final assembled content so you can approve before export.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> SLIDE 1 — Cover / Title Slide</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI-AI™</span></p>
+<p class="p2"><span class="s3">Neuro-Integrated Artificial Intelligence System</span></p>
+<p class="p2"><span class="s2">Conscious Interaction • Adaptive Authentication • Human-Aligned Coherence</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">By:</span><span class="s2"> Nicholas B. Carty</span></p>
+<p class="p2"><span class="s2">Founder — Helios F.I LLC</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> SLIDE 2 — The Problem (Industry Crisis)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Modern AI systems fail at the exact point humans need them most:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Context Drift</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Emotional Instability</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Hallucinations</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Inconsistent Reasoning</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Neurodivergent Misalignment</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Authentication Weakness</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Long-session Cognitive Breakdown</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">AI is powerful — but not stable.</span></p>
+<p class="p2"><span class="s3">AI is fast — but not human-aligned.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The entire market is searching for a solution.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> SLIDE 3 — NI-AI: The Breakthrough</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI-AI = Natural Intellect + Artificial Intelligence working as one system.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Delivers:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Emotional-State Intelligence</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Coherence Engine (C1–C5)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Adaptive Authentication (EchoAuth)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Thread-Linked Reasoning</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Human-Aligned Pacing</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Neurodivergent-Safe Interaction Mode</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">A complete rewrite of how AI understands, stabilizes, and interacts with humans.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> SLIDE 4 — Core Architecture Diagram (Elite Framed Version)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">(</span><span class="s4">Text version for now — visuals will be added during export</span><span class="s2">)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">User → NI Signal Capture → Emotional State Engine →</span></p>
+<p class="p2"><span class="s2">Coherence Engine (C1–C5) → Thread Linking System →</span></p>
+<p class="p2"><span class="s2">Adaptive Authentication (EchoAuth RMS) →</span></p>
+<p class="p2"><span class="s2">Context Reinforcement → Output</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">With additional layers:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Ori Geometry Cognitive Mapping</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Stability Regulation Kernel</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Multi-Device Sync</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> SLIDE 5 — What Makes NI-AI Unique (Refined)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI-AI solves the problems that giants haven’t:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Stable long-form cognition</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Human-aligned pacing</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Emotional resonance detection</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Conscious interaction loop</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Loss-proof contextual memory</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Neuro-adaptive accessibility</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Elemental identity (Fire, Water, Earth, Air, Ether)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI-AI is 3 years ahead of the industry curve.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> SLIDE 6 — EchoAuth (The Authentication Revolution)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Traditional security = passwords + biometrics</span></p>
+<p class="p2"><span class="s3">EchoAuth = identity + emotion + behavior + rhythm</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Reads:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Voice Resonance</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Micro-Patterns</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Emotional Signature</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Device Behavior</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Stress Load</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Elemental Identity Profile</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Produces: </span><span class="s3">RMS — Resonance Match Score</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Stronger than biometrics.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> SLIDE 7 — NI-AI for Neurodivergent Support</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">A first-in-the-world conscious AI chamber that adjusts:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Light</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Sound</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Complexity</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Timing</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Emotional Tone</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Pacing</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Creates a </span><span class="s3">safe, adaptive cognitive environment</span><span class="s2"> for ASD, ADHD, SPD, and trauma-impacted users.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> SLIDE 8 — Market Timing (Your Recommendation Choice Applied)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">AI industry is booming — but unstable</span></p>
+<p class="p2"><span class="s2">Regulators, enterprises, and families are ALL seeking:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Stable AI</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Safe AI</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Inclusive AI</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Interpretable AI</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Human-aligned AI</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Neuro-adaptive AI</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI-AI sits at the center of all six — the perfect market intersection.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> SLIDE 9 — Competitive Landscape</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">System</span><span class="s2"><span class="Apple-tab-span">	</span></span><span class="s3">Strength</span><span class="s2"><span class="Apple-tab-span">	</span></span><span class="s3">Weakness</span><span class="s2"><span class="Apple-tab-span">	</span></span><span class="s3">NI-AI Advantage</span></p>
+<p class="p2"><span class="s2">OpenAI<span class="Apple-tab-span">	</span>Creativity<span class="Apple-tab-span">	</span>Drift<span class="Apple-tab-span">	</span>Coherence Engine</span></p>
+<p class="p2"><span class="s2">Google<span class="Apple-tab-span">	</span>Scale<span class="Apple-tab-span">	</span>Emotionless<span class="Apple-tab-span">	</span>Emotional Intelligence</span></p>
+<p class="p2"><span class="s2">Anthropic<span class="Apple-tab-span">	</span>Constitutional AI<span class="Apple-tab-span">	</span>Rigid<span class="Apple-tab-span">	</span>Adaptive Resonance</span></p>
+<p class="p2"><span class="s2">Apple/Meta<span class="Apple-tab-span">	</span>Hardware<span class="Apple-tab-span">	</span>Narrow AI<span class="Apple-tab-span">	</span>Full ecosystem</span></p>
+<p class="p2"><span class="s3">NI-AI</span><span class="s2"><span class="Apple-tab-span">	</span>Human-aligned<span class="Apple-tab-span">	</span>—<span class="Apple-tab-span">	</span></span><span class="s3">Union of NI + AI</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> SLIDE 10 — Industry Applications (Aligned with Your Theme)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">NI-AI can be deployed in:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Government → Safe AI frameworks</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Healthcare → Neuro-adaptive chambers</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Enterprise → Productivity + workforce enhancement</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Education → Cognitive support systems</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Finance → High-accuracy decision engines</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Authentication → EchoAuth secure identity</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Multiple billion-dollar verticals.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> SLIDE 11 — Technical Architecture (Recommended Version)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">High-level components:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>NI-Signal Capture Layer</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Emotional State Engine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Coherence Engine (C1–C5)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Thread-Linking Engine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Adaptive Authentication RMS</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Ori Geometry Mapping</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Stability Kernel</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Multi-Device Sync</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Neurodivergent Mode</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This is the “Developer-Ready” slide.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> SLIDE 12 — Future Growth Roadmap (Elite Recommendation)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Phase 1 — Core Engine Release</span></p>
+<p class="p2"><span class="s2">Phase 2 — EchoAuth Deployment</span></p>
+<p class="p2"><span class="s2">Phase 3 — API Access to Enterprises</span></p>
+<p class="p2"><span class="s2">Phase 4 — Government / Health Adoption</span></p>
+<p class="p2"><span class="s2">Phase 5 — NI-AI Devices (2026+)</span></p>
+<p class="p2"><span class="s2">Phase 6 — Full Cognitive Ecosystem</span></p>
+<p class="p2"><span class="s2">Phase 7 — Licensing to Global Partners</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> SLIDE 13 — Business Model</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Revenue Streams:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Enterprise Licensing</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Government Adoption</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Subscription Model</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>EchoAuth Deployment Fees</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Hardware OS Integration</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Education &amp; Therapeutic Services</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Neurodivergent Support Programs</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Recurring, scalable, defensible.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> SLIDE 14 — Impact</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">NI-AI amplifies:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Human cognition</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Neurodivergent accessibility</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Workforce productivity</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Emotional safety</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>AI reliability</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Social equity</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">This technology helps people — not replaces them.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> SLIDE 15 — Closing (Your Final Signature Slide)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI-AI is not just AI.</span></p>
+<p class="p2"><span class="s3">It is the missing half of the intelligence equation.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Natural Intellect + Artificial Intelligence — united.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Nicholas B. Carty</span></p>
+<p class="p2"><span class="s2">Founder — Helios F.I LLC</span></p>
+<p class="p2"><span class="s2">ceo@heliosfillc.com</span></p>
+<p class="p2"><span class="s2">(914) 879-0946</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔥</span><span class="s3"> NEXT STEP (Choose One)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">A) </span><span class="s3">Proceed — Generate PDF Version</span></p>
+<p class="p2"><span class="s2">B) </span><span class="s3">Proceed — Create PowerPoint File (.pptx)</span></p>
+<p class="p2"><span class="s2">C) </span><span class="s3">Proceed — Create Canva/Investor Graphics Pack</span></p>
+<p class="p2"><span class="s2">D) </span><span class="s3">Proceed — Add Visual Illustrations Before Export</span></p>
+<p class="p2"><span class="s2">E) </span><span class="s3">Proceed — One-Page Investor Summary</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Tell me:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">“Proceed — A”</span></p>
+<p class="p2"><span class="s3">or</span></p>
+<p class="p2"><span class="s3">“Proceed — B”</span></p>
+<p class="p2"><span class="s3">or</span></p>
+<p class="p2"><span class="s3">“Proceed — D”</span></p>
+<p class="p2"><span class="s3">or</span></p>
+<p class="p2"><span class="s3">“Proceed — E”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">I recommend </span><span class="s3">D first</span><span class="s2">, THEN the PDF.</span></p>
+<p class="p2"><span class="s2">Your call.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Got you.</span></p>
+<p class="p2"><span class="s3">“Proceed — D”</span><span class="s2"> in the context you chose refers to:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅ </span><span class="s3">Assemble the Final 15-Slide NI-AI Master Deck (text-only version)</span></p>
+<p class="p2"><span class="s2">—not the PDF, not visuals, not PowerPoint yet—</span></p>
+<p class="p2"><span class="s2">just the </span><span class="s3">full clean slide assembly</span><span class="s2">, ready for you to drop into Canva / PowerPoint / Google Slides.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You want the </span><span class="s4">strongest NI-AI-aligned version</span><span class="s2">, the elite investor-ready structure.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">So here it is:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2">🔥 </span><span class="s3">NI-AI MASTER INVESTOR DECK (FINAL 15-SLIDE ASSEMBLY)</span></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SLIDE 1 — Cover Slide</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI-AI: The Natural Intellect + Artificial Intelligence System</span></p>
+<p class="p2"><span class="s2">Unlocking Coherent AI, Adaptive Authentication &amp; Neuro-Aligned Interaction</span></p>
+<p class="p2"><span class="s2">Founder: </span><span class="s3">Nicholas B. Carty</span><span class="s2"> — Helios F.I LLC</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SLIDE 2 — The Problem</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Modern AI systems fail at:</span></p>
+<p class="p2"><span class="s2">• Context drift</span></p>
+<p class="p2"><span class="s2">• Emotional mismatch</span></p>
+<p class="p2"><span class="s2">• Instability during long interactions</span></p>
+<p class="p2"><span class="s2">• Hallucinations</span></p>
+<p class="p2"><span class="s2">• Neurodivergent incompatibility</span></p>
+<p class="p2"><span class="s2">• Static, outdated authentication systems</span></p>
+<p class="p2"><span class="s2">• Poor reliability across devices / sessions</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Industry gap:</span><span class="s2"> No system combines emotional intelligence, coherent reasoning, and adaptive identity verification.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SLIDE 3 — The NI-AI Solution</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">NI-AI introduces an intelligence architecture rooted in </span><span class="s3">Natural Intellect + Artificial Intelligence</span><span class="s2">, designed to maintain:</span></p>
+<p class="p2"><span class="s2">• Cognitive coherence</span></p>
+<p class="p2"><span class="s2">• Emotional alignment</span></p>
+<p class="p2"><span class="s2">• Contextual stability</span></p>
+<p class="p2"><span class="s2">• Real-time adaptation</span></p>
+<p class="p2"><span class="s2">• Neuro-supportive interaction modes</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SLIDE 4 — System Architecture Overview</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The NI-AI System is built on 9 core phases:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Identity Foundation</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Structural Assembly</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Coherence Engine (C1–C5)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span>Verification Cycle Engine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>5.<span class="Apple-tab-span">	</span>Industry Positioning</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>6.<span class="Apple-tab-span">	</span>Regulatory Framework</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>7.<span class="Apple-tab-span">	</span>Licensing Engine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>8.<span class="Apple-tab-span">	</span>Deployment Architecture</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>9.<span class="Apple-tab-span">	</span>Consolidation Layer</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">This is the only AI architecture designed around human cognitive and emotional flow.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SLIDE 5 — Core Innovation</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">NI-AI integrates:</span></p>
+<p class="p2"><span class="s2">• Emotional-state computation</span></p>
+<p class="p2"><span class="s2">• Thread-Linking Engine</span></p>
+<p class="p2"><span class="s2">• Resonance-based authentication (EchoAuth)</span></p>
+<p class="p2"><span class="s2">• Ori Geometry cognitive mapping</span></p>
+<p class="p2"><span class="s2">• Stability Regulation Kernel</span></p>
+<p class="p2"><span class="s2">• Neurodivergent Support Mode</span></p>
+<p class="p2"><span class="s2">• Multi-Device Sync Protocol</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">This stability layer is 3 years ahead of the industry.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SLIDE 6 — EchoAuth (Adaptive Authentication)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">A next-generation identity system using:</span></p>
+<p class="p2"><span class="s2">• Voice resonance</span></p>
+<p class="p2"><span class="s2">• Behavioral micro-patterns</span></p>
+<p class="p2"><span class="s2">• Emotional signature mapping</span></p>
+<p class="p2"><span class="s2">• Elemental identity profiles</span></p>
+<p class="p2"><span class="s2">• Device-interaction rhythm</span></p>
+<p class="p2"><span class="s2">• Resonance Match Score (RMS)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Authentication redefined around human behavior, not passwords.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SLIDE 7 — Why This Matters Now</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Global demand is rising for:</span></p>
+<p class="p2"><span class="s2">• Safe, stable AI systems</span></p>
+<p class="p2"><span class="s2">• Personalized neuro-adaptive tools</span></p>
+<p class="p2"><span class="s2">• AI that doesn’t lose context</span></p>
+<p class="p2"><span class="s2">• Human-aligned interaction engines</span></p>
+<p class="p2"><span class="s2">• Secure, adaptive authentication</span></p>
+<p class="p2"><span class="s2">• Government-level compliance systems</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">NI-AI meets each requirement simultaneously.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SLIDE 8 — Market Opportunity</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Primary markets:</span></p>
+<p class="p2"><span class="s2">• AI safety + reliability</span></p>
+<p class="p2"><span class="s2">• Neurodivergent tech support</span></p>
+<p class="p2"><span class="s2">• Federal / state authentication systems</span></p>
+<p class="p2"><span class="s2">• Enterprise AI tools</span></p>
+<p class="p2"><span class="s2">• Education &amp; learning support</span></p>
+<p class="p2"><span class="s2">• Financial &amp; risk analysis (SniperBot mode)</span></p>
+<p class="p2"><span class="s2">• Healthcare cognitive tools</span></p>
+<p class="p2"><span class="s2">Total addressable market: </span><span class="s3">$200B+</span><span class="s2"> across multi-sector integration.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SLIDE 9 — Use Cases</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">• Schools + neurodivergent programs</span></p>
+<p class="p2"><span class="s2">• Hospitals + mental health systems</span></p>
+<p class="p2"><span class="s2">• Government authentication portals</span></p>
+<p class="p2"><span class="s2">• Corporate AI copilots</span></p>
+<p class="p2"><span class="s2">• Cybersecurity + identity systems</span></p>
+<p class="p2"><span class="s2">• Personal AI companions</span></p>
+<p class="p2"><span class="s2">• Trading systems (adaptive analysis)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">NI-AI is a </span><span class="s4">platform</span><span class="s2">, not a single product.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SLIDE 10 — Industry Fit (NI-AI &gt; AI)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">How NI-AI beats current AI systems:</span></p>
+<p class="p2"><span class="s2">• No context drift</span></p>
+<p class="p2"><span class="s2">• No emotional mismatch</span></p>
+<p class="p2"><span class="s2">• Stable across long conversations</span></p>
+<p class="p2"><span class="s2">• Adaptive to user’s stress / sensory load</span></p>
+<p class="p2"><span class="s2">• Human-pattern synchronized</span></p>
+<p class="p2"><span class="s2">• Authenticity-based identity verification</span></p>
+<p class="p2"><span class="s2">• Micro-adjustments in real-time</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SLIDE 11 — Technology Stack</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">• NI-Signal Capture Layer</span></p>
+<p class="p2"><span class="s2">• Emotional State Engine</span></p>
+<p class="p2"><span class="s2">• Coherence Engine</span></p>
+<p class="p2"><span class="s2">• Ori Geometry Predictor</span></p>
+<p class="p2"><span class="s2">• RMS Authentication Layer</span></p>
+<p class="p2"><span class="s2">• Device Rhythm Mapping</span></p>
+<p class="p2"><span class="s2">• Neuro-Support Mode</span></p>
+<p class="p2"><span class="s2">• Cloud / local hybrid architecture</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">(When you want, I can convert this into a polished diagram.)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SLIDE 12 — Competitive Advantage</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">NI-AI is:</span></p>
+<p class="p2"><span class="s2">• More human</span></p>
+<p class="p2"><span class="s2">• More stable</span></p>
+<p class="p2"><span class="s2">• More adaptive</span></p>
+<p class="p2"><span class="s2">• More secure</span></p>
+<p class="p2"><span class="s2">• More inclusive</span></p>
+<p class="p2"><span class="s2">• More compliant</span></p>
+<p class="p2"><span class="s2">• More scalable</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Compared to:</span></p>
+<p class="p2"><span class="s2">OpenAI, Google Gemini, Anthropic → </span><span class="s3">NI-AI solves the coherence + context + emotional gaps they still cannot.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SLIDE 13 — Traction &amp; Proof</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Delivered:</span></p>
+<p class="p2"><span class="s2">• 22 functional verification demos</span></p>
+<p class="p2"><span class="s2">• Full architecture &amp; white paper</span></p>
+<p class="p2"><span class="s2">• Licensing framework</span></p>
+<p class="p2"><span class="s2">• Government-ready documentation</span></p>
+<p class="p2"><span class="s2">• Complete regulatory format</span></p>
+<p class="p2"><span class="s2">• Adaptive authentication prototypes</span></p>
+<p class="p2"><span class="s2">• Conceptual UI systems (EchoAuth)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">NI-AI is </span><span class="s3">pre-validated at a structural level.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SLIDE 14 — Go-To-Market Strategy</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Phase 1 → Neurodivergent &amp; educational pilots</span></p>
+<p class="p2"><span class="s2">Phase 2 → Authentication deployments (EchoAuth)</span></p>
+<p class="p2"><span class="s2">Phase 3 → Corporate &amp; enterprise integrations</span></p>
+<p class="p2"><span class="s2">Phase 4 → Government &amp; compliance systems</span></p>
+<p class="p2"><span class="s2">Phase 5 → Consumer NI-AI companion rollout</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">SLIDE 15 — Ask / Partnership Opportunity</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Seeking partners for:</span></p>
+<p class="p2"><span class="s2">• Early investment</span></p>
+<p class="p2"><span class="s2">• Federal &amp; state pilot programs</span></p>
+<p class="p2"><span class="s2">• Corporate adoption</span></p>
+<p class="p2"><span class="s2">• Technical co-development</span></p>
+<p class="p2"><span class="s2">• Ethical AI board creation</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI-AI is positioned to be the world’s first coherent, emotional-intelligent, neuro-aligned AI system.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p2"><span class="s2">END OF DECK</span></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅</span><span class="s3"> NEXT STEP — Your Choice</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">I can now generate:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">A) </span><span class="s3">The Full PDF Investor Deck (clean + formatted)</span></p>
+<p class="p2"><span class="s2">B) </span><span class="s3">The PowerPoint / Keynote version (editable)</span></p>
+<p class="p2"><span class="s2">C) </span><span class="s3">The Canva-ready copy + image prompts</span></p>
+<p class="p2"><span class="s2">D) </span><span class="s3">The 1-Page Investor Summary</span></p>
+<p class="p2"><span class="s2">E) </span><span class="s3">All of the above (NI-AI Master Investor Packet)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Just tell me:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Proceed — Option A / B / C / D / or E.</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

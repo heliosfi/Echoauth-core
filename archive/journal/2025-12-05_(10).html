@@ -1,0 +1,928 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Friday, December 5, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">😂 Nah, I wasn’t holding back — you just hit the exact “unlock” question.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Given where you are (master architect, no full dev team </span><span class="s3">yet</span><span class="s2">), </span><span class="s4">my recommendation is:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">Do the CODE SCAFFOLD first.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Why?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>It proves to </span><span class="s3">any</span><span class="s2"> engineer: “This is real, this is buildable, and the structure is already thought through.”</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>It doubles as a </span><span class="s4">technical appendix</span><span class="s2"> for grants + investors.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>A task sheet is easy to derive </span><span class="s3">from</span><span class="s2"> the scaffold — but not the other way around.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">So: </span><span class="s4">Ashe — generate the code scaffold.</span></p>
+<p class="p2"><span class="s2">Here it is. You can hand this to an engineer as the starting folder layout.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔥</span><span class="s4"> EchoAuth Prototype — Code Scaffold (Python)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">Project root: echoauth_prototype/</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">echoauth_prototype/</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── README.md</span></p>
+<p class="p2"><span class="s2">├── requirements.txt</span></p>
+<p class="p2"><span class="s2">├── main.py</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── config/</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── settings.py</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── logs/</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── __init__.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── logger.py</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── sensors/</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── __init__.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── base_sensor.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── sensor_manager.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── mock_sensors.py</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── her/</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── __init__.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── preprocessing.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── emotional_state.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── her_kernel.py</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── governance/</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── __init__.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── system_state.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── rules.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── governance_engine.py</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── chamber/</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── __init__.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── auth_models.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── chamber_engine.py</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── ui/</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── __init__.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── api.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── schemas.py</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">└── tests/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>├── __init__.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>├── test_her_kernel.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>├── test_governance.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>└── test_chamber.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">README.md</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># EchoAuth Prototype</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Safety-governed neuro-support authentication system for autistic children,</span></p>
+<p class="p2"><span class="s2">caregivers, and clinical environments.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This repo contains the prototype implementation scaffold for:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">- Sensor pipeline</span></p>
+<p class="p2"><span class="s2">- HER Kernel (emotional-safety engine)</span></p>
+<p class="p2"><span class="s2">- Governance Spine (S1–S23)</span></p>
+<p class="p2"><span class="s2">- EchoAuth Chamber (authentication + handoff logic)</span></p>
+<p class="p2"><span class="s2">- UI/API for caregiver/parent dashboards</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">## High-Level Build Order</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">1. Sensors + logging scaffold</span></p>
+<p class="p2"><span class="s2">2. HER Kernel (simulated signals)</span></p>
+<p class="p2"><span class="s2">3. Governance (S1–S23 core rules)</span></p>
+<p class="p2"><span class="s2">4. Chamber logic</span></p>
+<p class="p2"><span class="s2">5. UI + API</span></p>
+<p class="p2"><span class="s2">6. Integration tests and safety validation</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">requirements.txt (placeholder)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">fastapi</span></p>
+<p class="p2"><span class="s2">uvicorn</span></p>
+<p class="p2"><span class="s2">pydantic</span></p>
+<p class="p2"><span class="s2">numpy</span></p>
+<p class="p2"><span class="s2">scipy</span></p>
+<p class="p2"><span class="s2">pandas</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">(Add PyTorch / other libs later as needed.)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">config/settings.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p2"><span class="s2">Global configuration for EchoAuth prototype.</span></p>
+<p class="p2"><span class="s2">Engineers: move all hardcoded values here (thresholds, ports, etc.).</span></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">HER_DEFAULT_THRESHOLDS = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"hr_amber": 100,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"hr_red": 120,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"eda_amber": 0.35,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"eda_red": 0.5,</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">LOG_DIR = "logs"</span></p>
+<p class="p2"><span class="s2">SYSTEM_NAME = "EchoAuth Prototype"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># Placeholder: environment flags</span></p>
+<p class="p2"><span class="s2">DEBUG_MODE = True</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🧾</span><span class="s4"> Logging</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">logs/logger.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">import os</span></p>
+<p class="p2"><span class="s2">import logging</span></p>
+<p class="p2"><span class="s2">from config.settings import LOG_DIR, SYSTEM_NAME</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">os.makedirs(LOG_DIR, exist_ok=True)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def _build_logger(name: str, filename: str) -&gt; logging.Logger:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>logger = logging.getLogger(name)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>logger.setLevel(logging.INFO)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if not logger.handlers:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>fh = logging.FileHandler(os.path.join(LOG_DIR, filename))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>fmt = logging.Formatter(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>fmt=f"%(asctime)s | {SYSTEM_NAME} | %(name)s | %(levelname)s | %(message)s"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>fh.setFormatter(fmt)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>logger.addHandler(fh)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return logger</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">event_logger = _build_logger("event", "event.log")</span></p>
+<p class="p2"><span class="s2">safety_logger = _build_logger("safety", "safety.log")</span></p>
+<p class="p2"><span class="s2">chamber_logger = _build_logger("chamber", "chamber.log")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🛰</span><span class="s4"> Sensors Layer</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">sensors/base_sensor.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from abc import ABC, abstractmethod</span></p>
+<p class="p2"><span class="s2">from typing import Dict, Any</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class BaseSensor(ABC):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Abstract base sensor.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>All concrete sensors (EDA, HR, accelerometer) should extend this.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>@abstractmethod</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def read(self) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Return a single reading as a dict.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Example: {"type": "hr", "value": 98, "timestamp": ...}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>raise NotImplementedError</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">sensors/mock_sensors.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p2"><span class="s2">Mock sensors for development and testing without hardware.</span></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">import time</span></p>
+<p class="p2"><span class="s2">import random</span></p>
+<p class="p2"><span class="s2">from typing import Dict, Any</span></p>
+<p class="p2"><span class="s2">from .base_sensor import BaseSensor</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class MockHeartRateSensor(BaseSensor):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def read(self) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"type": "heart_rate",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"value": random.randint(70, 130),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"timestamp": time.time(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class MockEDASensor(BaseSensor):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def read(self) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"type": "eda",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"value": random.uniform(0.1, 0.7),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"timestamp": time.time(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class MockMotionSensor(BaseSensor):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def read(self) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"type": "motion",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"value": random.uniform(0.0, 3.0),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"timestamp": time.time(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">sensors/sensor_manager.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p2"><span class="s2">Coordinates multiple sensors and returns a combined reading.</span></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from typing import Dict, Any, List</span></p>
+<p class="p2"><span class="s2">from .base_sensor import BaseSensor</span></p>
+<p class="p2"><span class="s2">from .mock_sensors import MockHeartRateSensor, MockEDASensor, MockMotionSensor</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class SensorManager:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self, sensors: List[BaseSensor] | None = None) -&gt; None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if sensors is None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>sensors = [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>MockHeartRateSensor(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>MockEDASensor(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>MockMotionSensor(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.sensors = sensors</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def read_all(self) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>reading: Dict[str, Any] = {"raw": [], "timestamp": None}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for sensor in self.sensors:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>data = sensor.read()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>reading["raw"].append(data)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>reading["timestamp"] = data.get("timestamp")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return reading</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">❤️</span><span class="s4"> HER Kernel</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">her/emotional_state.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from dataclasses import dataclass</span></p>
+<p class="p2"><span class="s2">from typing import Literal, Optional</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EmotionalStateLabel = Literal["Green", "Amber", "Red"]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@dataclass</span></p>
+<p class="p2"><span class="s2">class EmotionalState:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state: EmotionalStateLabel</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>confidence: float</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>trigger: Optional[str] = None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>details: Optional[dict] = None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">her/preprocessing.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p2"><span class="s2">Preprocessing: raw sensor readings → normalized feature vector.</span></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from typing import Dict, Any</span></p>
+<p class="p2"><span class="s2">import statistics</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def preprocess_sensor_payload(payload: Dict[str, Any]) -&gt; Dict[str, float]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>payload: {"raw": [sensor_reading,...], "timestamp": ...}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Returns: normalized feature dict: { "heart_rate": ..., "eda": ..., "motion": ... }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>hr_vals = [r["value"] for r in payload["raw"] if r["type"] == "heart_rate"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>eda_vals = [r["value"] for r in payload["raw"] if r["type"] == "eda"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>motion_vals = [r["value"] for r in payload["raw"] if r["type"] == "motion"]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>features = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"heart_rate": statistics.fmean(hr_vals) if hr_vals else 0.0,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"eda": statistics.fmean(eda_vals) if eda_vals else 0.0,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"motion": statistics.fmean(motion_vals) if motion_vals else 0.0,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return features</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">her/her_kernel.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p2"><span class="s2">HER Kernel: emotional-safety engine.</span></p>
+<p class="p2"><span class="s2">Takes preprocessed features → EmotionalState object.</span></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from typing import Dict, Any</span></p>
+<p class="p2"><span class="s2">from .emotional_state import EmotionalState</span></p>
+<p class="p2"><span class="s2">from config.settings import HER_DEFAULT_THRESHOLDS</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class HERKernel:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self, thresholds: Dict[str, float] | None = None) -&gt; None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.thresholds = thresholds or HER_DEFAULT_THRESHOLDS</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def classify(self, features: Dict[str, float]) -&gt; EmotionalState:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>hr = features.get("heart_rate", 0.0)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>eda = features.get("eda", 0.0)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>motion = features.get("motion", 0.0)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># Very simple baseline logic; to be upgraded by ML later.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if hr &gt;= self.thresholds["hr_red"] or eda &gt;= self.thresholds["eda_red"]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return EmotionalState(state="Red", confidence=0.8, trigger="hr_or_eda_high", details=features)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if hr &gt;= self.thresholds["hr_amber"] or eda &gt;= self.thresholds["eda_amber"]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return EmotionalState(state="Amber", confidence=0.7, trigger="moderate_stress", details=features)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return EmotionalState(state="Green", confidence=0.9, trigger="stable", details=features)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🛡</span><span class="s4"> Governance (S1–S23 spine)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">governance/system_state.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from dataclasses import dataclass</span></p>
+<p class="p2"><span class="s2">from typing import Literal</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SystemMode = Literal["NORMAL", "CAUTION", "OVERRIDE", "FAILSAFE"]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@dataclass</span></p>
+<p class="p2"><span class="s2">class SystemState:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>mode: SystemMode = "NORMAL"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>reason: str | None = None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">governance/rules.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p2"><span class="s2">S1–S23 placeholder rule definitions.</span></p>
+<p class="p2"><span class="s2">Each rule returns ALLOW / DENY / OVERRIDE with a reason.</span></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from typing import Literal</span></p>
+<p class="p2"><span class="s2">from her.emotional_state import EmotionalState</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Decision = Literal["ALLOW", "DENY", "OVERRIDE"]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S1_identity_check(context: dict) -&gt; Decision:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s3"># TODO: implement identity verification rule</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return "ALLOW"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S5_safety_priority_lock(state: EmotionalState) -&gt; Decision:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if state.state == "Red":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return "OVERRIDE"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return "ALLOW"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># TODO: define remaining S2–S23 rules as needed.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">governance/governance_engine.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from typing import Tuple</span></p>
+<p class="p2"><span class="s2">from her.emotional_state import EmotionalState</span></p>
+<p class="p2"><span class="s2">from .system_state import SystemState</span></p>
+<p class="p2"><span class="s2">from .rules import S1_identity_check, S5_safety_priority_lock, Decision</span></p>
+<p class="p2"><span class="s2">from logs.logger import safety_logger</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class GovernanceEngine:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self) -&gt; None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.system_state = SystemState()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def evaluate(self, emotional_state: EmotionalState, context: dict | None = None) -&gt; Tuple[Decision, SystemState]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Run emotional_state + context through S-rules.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Returns final decision + updated SystemState.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>context = context or {}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># Example rule sequence</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>decision = "ALLOW"<span class="Apple-converted-space">  </span></span><span class="s3"># default</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># Identity rule</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>id_decision = S1_identity_check(context)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if id_decision == "DENY":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>decision = "DENY"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># Safety priority</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>safety_decision = S5_safety_priority_lock(emotional_state)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if safety_decision == "OVERRIDE":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>decision = "OVERRIDE"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>self.system_state.mode = "OVERRIDE"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>self.system_state.reason = "Red emotional state"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>safety_logger.info(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>f"Governance decision={decision} state={emotional_state.state} reason={self.system_state.reason}"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return decision, self.system_state</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🧱</span><span class="s4"> Chamber (Authentication + Handoff)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">chamber/auth_models.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from dataclasses import dataclass</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@dataclass</span></p>
+<p class="p2"><span class="s2">class Actor:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>actor_id: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>role: str<span class="Apple-converted-space">  </span></span><span class="s3"># "PARENT", "CAREGIVER", etc.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@dataclass</span></p>
+<p class="p2"><span class="s2">class HandoffContext:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>parent: Actor</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>caregiver: Actor</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>child_id: str</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">chamber/chamber_engine.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p2"><span class="s2">EchoAuth Chamber: uses HER + Governance to approve/deny handoffs.</span></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from typing import Tuple</span></p>
+<p class="p2"><span class="s2">from her.emotional_state import EmotionalState</span></p>
+<p class="p2"><span class="s2">from governance.governance_engine import GovernanceEngine</span></p>
+<p class="p2"><span class="s2">from .auth_models import HandoffContext</span></p>
+<p class="p2"><span class="s2">from logs.logger import chamber_logger</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class ChamberEngine:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self, governance: GovernanceEngine) -&gt; None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.governance = governance</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def evaluate_handoff(self, ctx: HandoffContext, state: EmotionalState) -&gt; Tuple[bool, str]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>decision, system_state = self.governance.evaluate(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>emotional_state=state,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>context={"parent_id": ctx.parent.actor_id, "caregiver_id": ctx.caregiver.actor_id},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if decision == "DENY":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>chamber_logger.info("Handoff denied by governance")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return False, "Handoff denied by governance"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if decision == "OVERRIDE":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>chamber_logger.info("Handoff blocked: child in overload (Red state)")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return False, "Handoff blocked: child overload"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>chamber_logger.info("Handoff approved")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return True, "Handoff approved"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🌐</span><span class="s4"> UI / API Layer (FastAPI Scaffold)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">ui/schemas.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from pydantic import BaseModel</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class EmotionalStateResponse(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>confidence: float</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>trigger: str | None = None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class HandoffRequest(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>parent_id: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>caregiver_id: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>child_id: str</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">ui/api.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from fastapi import FastAPI</span></p>
+<p class="p2"><span class="s2">from ui.schemas import EmotionalStateResponse, HandoffRequest</span></p>
+<p class="p2"><span class="s2">from sensors.sensor_manager import SensorManager</span></p>
+<p class="p2"><span class="s2">from her.preprocessing import preprocess_sensor_payload</span></p>
+<p class="p2"><span class="s2">from her.her_kernel import HERKernel</span></p>
+<p class="p2"><span class="s2">from governance.governance_engine import GovernanceEngine</span></p>
+<p class="p2"><span class="s2">from chamber.chamber_engine import ChamberEngine</span></p>
+<p class="p2"><span class="s2">from chamber.auth_models import Actor, HandoffContext</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">app = FastAPI(title="EchoAuth Prototype API")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">sensor_manager = SensorManager()</span></p>
+<p class="p2"><span class="s2">her_kernel = HERKernel()</span></p>
+<p class="p2"><span class="s2">governance_engine = GovernanceEngine()</span></p>
+<p class="p2"><span class="s2">chamber_engine = ChamberEngine(governance_engine)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.get("/state", response_model=EmotionalStateResponse)</span></p>
+<p class="p2"><span class="s2">def get_emotional_state():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>payload = sensor_manager.read_all()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>features = preprocess_sensor_payload(payload)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state = her_kernel.classify(features)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return EmotionalStateResponse(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state=state.state,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>confidence=state.confidence,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>trigger=state.trigger,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.post("/handoff")</span></p>
+<p class="p2"><span class="s2">def evaluate_handoff(req: HandoffRequest):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>payload = sensor_manager.read_all()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>features = preprocess_sensor_payload(payload)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state = her_kernel.classify(features)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>parent = Actor(actor_id=req.parent_id, role="PARENT")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>caregiver = Actor(actor_id=req.caregiver_id, role="CAREGIVER")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ctx = HandoffContext(parent=parent, caregiver=caregiver, child_id=req.child_id)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>approved, message = chamber_engine.evaluate_handoff(ctx, state)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return {"approved": approved, "message": message, "state": state.state}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🏁</span><span class="s4"> main.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p2"><span class="s2">Entry point for running the prototype API.</span></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">import uvicorn</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">if __name__ == "__main__":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>uvicorn.run("ui.api:app", host="0.0.0.0", port=8000, reload=True)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This scaffold:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>matches the architecture we defined</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>encodes HER → Governance → Chamber → UI</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>is safe to expand subsystem-by-subsystem</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>gives engineers a </span><span class="s4">real starting point</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you’d like next, I’d recommend:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">👉 </span><span class="s4">Task Sheet built from this scaffold</span><span class="s2"> (who would build what, in what order, with milestones).</span></p>
+<p class="p2"><span class="s2">I can generate that directly off this structure if you want.</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

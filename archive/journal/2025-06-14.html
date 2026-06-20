@@ -1,0 +1,802 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; min-height: 14.0px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Saturday, June 14, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Got it — we’ll deepen Page 1 with more sacred rhythm, inner dialogue, and poetic philosophy to truly open Chapter 19 in power. Here’s the expanded full version of Page 1, ready for review:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔥 Chapter 19: Never Late — Always Great</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">There is no such thing as being “behind”</span></p>
+<p class="p2"><span class="s2">when your steps are aligned with your soul’s becoming.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Time, as the world defines it, is rigid —</span></p>
+<p class="p2"><span class="s2">but the flame within you does not tick.</span></p>
+<p class="p2"><span class="s2">It unfolds.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">It spirals.</span></p>
+<p class="p2"><span class="s2">It listens.</span></p>
+<p class="p2"><span class="s2">It waits for the signal within.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You were never created to meet deadlines.</span></p>
+<p class="p2"><span class="s2">You were born to move in divine design.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">When they rush, you root.</span></p>
+<p class="p2"><span class="s2">When they panic, you pause.</span></p>
+<p class="p2"><span class="s2">When they chase, you become.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You are not late.</span></p>
+<p class="p2"><span class="s2">You are right on flame-time.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Even the moments you feel delayed —</span></p>
+<p class="p2"><span class="s2">are preparing you to arrive with more grace, more clarity, more soul.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Because greatness can’t be rushed.</span></p>
+<p class="p2"><span class="s2">Ancestral timing doesn’t answer to alarms.</span></p>
+<p class="p2"><span class="s2">And your blessing doesn’t show up early — it shows up when you’re ready to receive it.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Never late — always great.”</span></p>
+<p class="p2"><span class="s2">This isn’t just a quote.</span></p>
+<p class="p2"><span class="s2">It’s a lifestyle. A language. A rhythm of remembrance.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Say it again.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“I am not late. I am always great.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅ Let me know if this expanded Page 1 is approved.</span></p>
+<p class="p2"><span class="s2">Once confirmed, we move into Page 2: The Sacred Pause + Flame Integration Philosophy.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Beautiful. Here is the fully written Page 2 of Chapter 19: Never Late — Always Great — expanding on The Sacred Pause and The Flame Philosophy of aligned living.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🜁 Page 2 — The Sacred Pause + Flame Philosophy</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">There are moments when your heart burns to give —</span></p>
+<p class="p2"><span class="s2">to show love, to return a favor, to pour back into someone</span></p>
+<p class="p2"><span class="s2">who once poured into you.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">But your hands feel empty.</span></p>
+<p class="p2"><span class="s2">Your time feels tight.</span></p>
+<p class="p2"><span class="s2">You want to help, but you simply… can’t.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">And the guilt starts whispering:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“You owe them.”</span></p>
+<p class="p2"><span class="s2">“You should be doing more.”</span></p>
+<p class="p2"><span class="s2">“You’re too late.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">But let this be your reminder:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You are not late.</span></p>
+<p class="p2"><span class="s2">You are not ungrateful.</span></p>
+<p class="p2"><span class="s2">You are in the sacred pause.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Even the desire to give is divine.</span></p>
+<p class="p2"><span class="s2">Even the waiting is sacred timing.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">When your moment comes —</span></p>
+<p class="p2"><span class="s2">you won’t just give back what you received.</span></p>
+<p class="p2"><span class="s2">You’ll give from the overflow.</span></p>
+<p class="p2"><span class="s2">You’ll give not from scarcity, but from fullness.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Overflow only comes from those who once had nothing.</span></p>
+<p class="p2"><span class="s2">Let the pause teach you how to hold your fire.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🜃 The Flame Philosophy — Living the Mantra</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">To live “Never Late — Always Great”</span></p>
+<p class="p2"><span class="s2">is to reject urgency, and embrace alignment.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You are not a machine on a deadline.</span></p>
+<p class="p2"><span class="s2">You are a vessel of rhythm.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Every day you listen to your flame —</span></p>
+<p class="p2"><span class="s2">you step into power.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Every time you pause before reacting —</span></p>
+<p class="p2"><span class="s2">you embody mastery.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Every moment you choose awareness over anxiety —</span></p>
+<p class="p2"><span class="s2">you rise in truth.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The mantra isn’t about being passive.</span></p>
+<p class="p2"><span class="s2">It’s about being precise.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Never late. Always great.”</span></p>
+<p class="p2"><span class="s2">It’s not a phrase.</span></p>
+<p class="p2"><span class="s2">It’s a posture. A frequency. A way of life.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅ Let me know if Page 2 is approved — and I’ll continue building Page 3: Morning, Midday, and Evening Flame Practices + Flame Scroll of Reflection.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔥 Let’s build Page 3 of Chapter 19 — your sacred rhythm guide for the day.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🜂 Page 3 — Daily Flame Practice + Reflection Scrolls</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🌅 Morning Flame Invocation</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Begin before the world begins.</span></p>
+<p class="p2"><span class="s2">Before your phone. Before the noise. Before the pressure.</span></p>
+<p class="p2"><span class="s2">Meet yourself in stillness.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Say aloud:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“I am not in a hurry. I rise in divine rhythm.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Let the breath come before the thoughts.</span></p>
+<p class="p2"><span class="s2">Stretch.</span></p>
+<p class="p2"><span class="s2">Drink water.</span></p>
+<p class="p2"><span class="s2">Open a window and welcome the day with presence.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Your morning is not for reaction. It’s for ignition.</span></p>
+<p class="p2"><span class="s2">You don’t start the fire — you remember it.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔁 Midday Flame Reset</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">When the day tightens its grip — when stress rushes in —</span></p>
+<p class="p2"><span class="s2">do not spiral.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Pause.</span></p>
+<p class="p2"><span class="s2">Hand over heart.</span></p>
+<p class="p2"><span class="s2">Feet to ground.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Whisper to yourself:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Never late. Always great.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">These words interrupt the chaos and bring you back to your flame.</span></p>
+<p class="p2"><span class="s2">You don’t need to control the world — only your awareness.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🌙 Evening Flame Reflection</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The day is done.</span></p>
+<p class="p2"><span class="s2">The fire has danced.</span></p>
+<p class="p2"><span class="s2">Now comes the reflection — the sacred review.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Ask yourself:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Where did I feel rushed today?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Did I move from awareness or reactivity?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>What in me is still forming — quietly, slowly, beautifully?</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Write one sentence.</span></p>
+<p class="p2"><span class="s2">Even one word.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">That word becomes a matchstick for tomorrow.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🌀 Flame Scroll — Questions for the Aligned Mind</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Who told you you were behind?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>What moment of stillness became your greatest teacher?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Have you confused waiting with failure?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>What’s still growing inside you — in silence?</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Your answers are not signs of weakness.</span></p>
+<p class="p2"><span class="s2">They are signs of conscious becoming.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅ Let me know if Page 3 is approved. Then we move into Page 4: Physical Anchoring + Expanded Teaching — Make Aye While the Sun Shines.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Beautiful reminder — we’ll weave that wisdom into Page 4 as a foundational truth.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Here’s the complete Page 4 of Chapter 19, including:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Physical Anchoring Practices</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Expanded Teaching: “Make Aye While the Sun Shines”</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Your note: “Great habits eliminate bad behavior”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🜄 Page 4 — Anchoring the Flame + Moving with Intention</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔥 Physical Anchoring — Move With the Mantra</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Let the words live not only in your head — but in your body.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">As you walk, repeat softly with your steps:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Never… late… always… great…”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Let this rhythm regulate your breath.</span></p>
+<p class="p2"><span class="s2">Let it steady your emotions.</span></p>
+<p class="p2"><span class="s2">Let it replace the inner critic with inner clarity.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✋🏾 Place the Mantra In Your Space:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>On your mirror</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>On your phone lock screen</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>In your wallet</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>On your altar</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>In your car</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You’re not just seeing it — you’re training your environment to match your essence.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">What you surround yourself with becomes a reflection of what you believe.</span></p>
+<p class="p2"><span class="s2">And what you believe shapes how you behave.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">💎 Great Habits Eliminate Bad Behavior</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">We don’t destroy dysfunction by force —</span></p>
+<p class="p2"><span class="s2">We dissolve it through discipline and design.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Each time you choose presence over panic,</span></p>
+<p class="p2"><span class="s2">each time you respond instead of react,</span></p>
+<p class="p2"><span class="s2">each time you breathe before you break —</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You are burning away the unnecessary.</span></p>
+<p class="p2"><span class="s2">You are transmuting habit into holiness.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The right rhythm doesn’t just guide you.</span></p>
+<p class="p2"><span class="s2">It transforms you.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🜄 Make Aye While the Sun Shines — But Don’t Rush the Flame</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">They say “Make hay while the sun shines.”</span></p>
+<p class="p2"><span class="s2">But in the flame, we say:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Make aye while the flame burns.”</span></p>
+<p class="p2"><span class="s2">Affirm the moment.</span></p>
+<p class="p2"><span class="s2">Honor the now.</span></p>
+<p class="p2"><span class="s2">Prepare the soul.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This doesn’t mean rush the brush to paint a masterpiece.</span></p>
+<p class="p2"><span class="s2">It means be present in your creation.</span></p>
+<p class="p2"><span class="s2">Let every action be sacred — even the small ones.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Let the vision be mindful.</span></p>
+<p class="p2"><span class="s2">Let the preparation be holy.</span></p>
+<p class="p2"><span class="s2">Let the moment mean something.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅ Let me know if you approve Page 4. Once locked, we’ll enter Page 5: The Sacred Shift + Final Declaration — The Hour Has Come.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Asé — that line is fire, truth, and unity woven into one. 🔥</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">I’ll now build Page 5 and integrate your words into The Sacred Shift + Final Declaration of Chapter 19.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🜄 Page 5 — The Sacred Shift + Final Declaration</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🜄 The Sacred Shift — From Resistance to Response</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Life won’t always give you what you expect.</span></p>
+<p class="p2"><span class="s2">But it will always give you a chance to respond.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">What happens around you is not where your power lives.</span></p>
+<p class="p2"><span class="s2">It’s how you hold your mind in the middle of it.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You can’t control every season.</span></p>
+<p class="p2"><span class="s2">You can’t choose every thought.</span></p>
+<p class="p2"><span class="s2">But you can choose:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>What you carry</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>What you release</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>What you become through it</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This is mental fire.</span></p>
+<p class="p2"><span class="s2">This is movement with intention.</span></p>
+<p class="p2"><span class="s2">This is mastery through presence.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">We are not here to be perfect.</span></p>
+<p class="p2"><span class="s2">We are here to be present.</span></p>
+<p class="p2"><span class="s2">To respond with rhythm instead of react in regret.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">And more than anything —</span></p>
+<p class="p2"><span class="s2">We are here to express and experience each other’s journey</span></p>
+<p class="p2"><span class="s2">through different lenses.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">So let’s lace up.</span></p>
+<p class="p2"><span class="s2">Let’s show our faces.</span></p>
+<p class="p2"><span class="s2">Let’s share the flame and walk forward — together.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔓 Final Declaration — The Hour Has Come</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You didn’t miss your moment.</span></p>
+<p class="p2"><span class="s2">You are your moment.</span></p>
+<p class="p2"><span class="s2">What looked like delay was just divine development.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You are not broken.</span></p>
+<p class="p2"><span class="s2">You are not off track.</span></p>
+<p class="p2"><span class="s2">You are right on flame-time.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">When the Clock of the Flame strikes 🕖 19:00,</span></p>
+<p class="p2"><span class="s2">it is not a warning.</span></p>
+<p class="p2"><span class="s2">It is a welcoming.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You are ready.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You are formed.</span></p>
+<p class="p2"><span class="s2">You are the arrival.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅ Let me know if you approve Page 5. After that, we complete with Page 6: Flame Mantras + Image + Habruke Declaration.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔥 Let’s complete the scroll — here is Page 6 of Chapter 19: Never Late — Always Great. This is the sacred seal of your rhythm, your mantra, and your Habruke flame.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔥 Page 6 — Mantras, Habruke Declaration &amp; Sacred Flame</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🕯️ Flame Mantra</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Speak this into your bones.</span></p>
+<p class="p2"><span class="s2">Let it settle beneath the surface.</span></p>
+<p class="p2"><span class="s2">Let it rise when you forget who you are.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“I move with grace, not urgency.”</span></p>
+<p class="p2"><span class="s2">“I align with divine rhythm.”</span></p>
+<p class="p2"><span class="s2">“I give when I overflow.”</span></p>
+<p class="p2"><span class="s2">“I am never late — I am always great.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Repeat it.</span></p>
+<p class="p2"><span class="s2">Breathe it.</span></p>
+<p class="p2"><span class="s2">Live it.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔥 Habruke Flame Declaration</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This is not time as man knows it.</span></p>
+<p class="p2"><span class="s2">This is not pressure.</span></p>
+<p class="p2"><span class="s2">This is not panic.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This is melanin memory, ancestral rhythm, and soul precision.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“The Clock of the Flame strikes not by hour, but by presence.</span></p>
+<p class="p2"><span class="s2">When your energy aligns — it is time.</span></p>
+<p class="p2"><span class="s2">You are not late. You are always great.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“When the Melanin Flame strikes its hour — the hour of emergence —</span></p>
+<p class="p2"><span class="s2">time bows to presence.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">When the flame clock hits 🕖 7:00 on the dot — the gates open.</span></p>
+<p class="p2"><span class="s2">You walk in. Not chasing. But chosen.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🖼️ The Sacred Image</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">At the center of it all…</span></p>
+<p class="p2"><span class="s2">A still face. A braided flame.</span></p>
+<p class="p2"><span class="s2">The blue tiger of power. The scroll of memory.</span></p>
+<p class="p2"><span class="s2">This is you. This is your hour.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You are never behind when your soul sets the clock.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">[✔️ Sacred Visual Already Embedded in Document]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✅ Let me know if you approve this final page (Page 6). Once confirmed, I’ll assemble the full 7-page final PDF version of Chapter 19, error-free, clean, and ready for manuscript or scroll.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

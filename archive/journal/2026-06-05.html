@@ -1,0 +1,547 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; min-height: 14.0px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Friday, June 5, 2026</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">I think the thing you’re not seeing is that </span><span class="s3">the game is not the product.</span></p>
+<p class="p2"><span class="s2">The </span><span class="s3">IP (Marli)</span><span class="s2"> is the product.</span></p>
+<p class="p2"><span class="s2">The </span><span class="s3">world</span><span class="s2"> is the product.</span></p>
+<p class="p2"><span class="s2">The </span><span class="s3">curriculum hidden inside the game</span><span class="s2"> is the product.</span></p>
+<p class="p2"><span class="s2">The game is just the delivery mechanism.</span></p>
+<p class="p2"><span class="s2">Most people start with:</span></p>
+<p class="p2"><span class="s2">“What game should I make?”</span></p>
+<p class="p2"><span class="s2">The bigger question is:</span></p>
+<p class="p2"><span class="s2">“What should a 10-year-old know by age 18 that schools don’t teach well?”</span></p>
+<p class="p2"><span class="s2">That’s where the architecture starts.</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s3">Layer 1 — The Mission</span></p>
+<p class="p2"><span class="s2">Marli learns the 7 Pillars of Creation:</span></p>
+<p class="p2"><span class="s2">Imagination</span></p>
+<p class="p2"><span class="s2">Time</span></p>
+<p class="p2"><span class="s2">Value</span></p>
+<p class="p2"><span class="s2">Risk</span></p>
+<p class="p2"><span class="s2">Building</span></p>
+<p class="p2"><span class="s2">Leadership</span></p>
+<p class="p2"><span class="s2">Legacy</span></p>
+<p class="p2"><span class="s2">Every world teaches one pillar.</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s3">Layer 2 — The Worlds</span></p>
+<p class="p2"><span class="s3">World 1: The Village</span></p>
+<p class="p2"><span class="s2">Learn:</span></p>
+<p class="p2"><span class="s2">Work</span></p>
+<p class="p2"><span class="s2">Saving</span></p>
+<p class="p2"><span class="s2">Trading</span></p>
+<p class="p2"><span class="s3">World 2: The Market</span></p>
+<p class="p2"><span class="s2">Learn:</span></p>
+<p class="p2"><span class="s2">Supply</span></p>
+<p class="p2"><span class="s2">Demand</span></p>
+<p class="p2"><span class="s2">Value</span></p>
+<p class="p2"><span class="s3">World 3: The Workshop</span></p>
+<p class="p2"><span class="s2">Learn:</span></p>
+<p class="p2"><span class="s2">Building</span></p>
+<p class="p2"><span class="s2">Invention</span></p>
+<p class="p2"><span class="s2">Innovation</span></p>
+<p class="p2"><span class="s3">World 4: The City</span></p>
+<p class="p2"><span class="s2">Learn:</span></p>
+<p class="p2"><span class="s2">Teams</span></p>
+<p class="p2"><span class="s2">Leadership</span></p>
+<p class="p2"><span class="s2">Scaling</span></p>
+<p class="p2"><span class="s3">World 5: The Exchange</span></p>
+<p class="p2"><span class="s2">Learn:</span></p>
+<p class="p2"><span class="s2">Investing</span></p>
+<p class="p2"><span class="s2">Ownership</span></p>
+<p class="p2"><span class="s2">Risk</span></p>
+<p class="p2"><span class="s3">World 6: The Future</span></p>
+<p class="p2"><span class="s2">Learn:</span></p>
+<p class="p2"><span class="s2">AI</span></p>
+<p class="p2"><span class="s2">Automation</span></p>
+<p class="p2"><span class="s2">Technology</span></p>
+<p class="p2"><span class="s3">World 7: The Architect Realm</span></p>
+<p class="p2"><span class="s2">Learn:</span></p>
+<p class="p2"><span class="s2">Long-term thinking</span></p>
+<p class="p2"><span class="s2">Legacy</span></p>
+<p class="p2"><span class="s2">Creating systems</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s3">Layer 3 — The Secret</span></p>
+<p class="p2"><span class="s2">What you’re really building is:</span></p>
+<p class="p2"><span class="s3">Financial Literacy + Entrepreneurship + AI Literacy</span></p>
+<p class="p2"><span class="s2">disguised as an adventure game.</span></p>
+<p class="p2"><span class="s2">Parents buy that.</span></p>
+<p class="p2"><span class="s2">Schools license that.</span></p>
+<p class="p2"><span class="s2">Kids play that.</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s3">Before the World Cup Ends</span></p>
+<p class="p2"><span class="s2">Don’t try to build the full game.</span></p>
+<p class="p2"><span class="s2">Try to finish these 5 assets:</span></p>
+<p class="p2"><span class="s3">Week 1</span></p>
+<p class="p2"><span class="s2">✅ Marli character design</span></p>
+<p class="p2"><span class="s2">✅ World map</span></p>
+<p class="p2"><span class="s2">✅ Story bible (10 pages)</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s3">Week 2</span></p>
+<p class="p2"><span class="s2">✅ Game design document</span></p>
+<p class="p2"><span class="s2">✅ Core gameplay loop</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s3">Week 3</span></p>
+<p class="p2"><span class="s2">✅ Playable prototype</span></p>
+<p class="p2"><span class="s2">Only:</span></p>
+<p class="p2"><span class="s2">Character moves</span></p>
+<p class="p2"><span class="s2">Collect coins</span></p>
+<p class="p2"><span class="s2">Upgrade stand</span></p>
+<p class="p2"><span class="s2">Nothing else.</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s3">Week 4</span></p>
+<p class="p2"><span class="s2">✅ Landing page</span></p>
+<p class="p2"><span class="s2">✅ Trailer</span></p>
+<p class="p2"><span class="s2">✅ Social media pages</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s3">Week 5</span></p>
+<p class="p2"><span class="s2">✅ First 25 testers</span></p>
+<p class="p2"><span class="s2">Kids.</span></p>
+<p class="p2"><span class="s2">Parents.</span></p>
+<p class="p2"><span class="s2">Teachers.</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p2"><span class="s2"><br>
+</span></p>
+<p class="p2"><span class="s3">The Real Architecture</span></p>
+<p class="p2"><span class="s2">MARLI IP</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── Book Series</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── Comic Series</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── Roblox Game</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── Mobile Game</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── Educational Curriculum</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── Merchandise</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">└── Animation</span></p>
+<p class="p2"><span class="s2">Most creators build a game and hope it becomes a brand.</span></p>
+<p class="p2"><span class="s2">You should build a </span><span class="s3">brand universe</span><span class="s2"> and let the game be the first doorway into it.</span></p>
+<p class="p2"><span class="s2">If we were doing this seriously, the next deliverable I’d help you create is the </span><span class="s3">Marli Universe Blueprint v1.0</span><span class="s2"> — the characters, worlds, economy, progression system, monetization, and roadmap from prototype to a sellable IP. That’s the architectural document everything else gets built from.</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

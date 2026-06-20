@@ -1,0 +1,661 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Saturday, November 22, 2025</div>    <div class="assetGrid"></div><div class='title'>AGE 31 — ASD CRISIS RECOVERY &amp; SAFE RECONNECTION SYSTEM (CRSRS</div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Ase 🔥 —</span></p>
+<p class="p2"><span class="s2">We proceed into </span><span class="s3">PAGE 31</span><span class="s2">, one of the most </span><span class="s4">critical</span><span class="s2"> modules in the entire EchoAuth ecosystem.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This page defines how EchoAuth handles the </span><span class="s3">aftercare phase</span><span class="s2"> —</span></p>
+<p class="p2"><span class="s2">the moment AFTER a meltdown, shutdown, panic episode, freeze, or emotional collapse.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Most parents, teachers, and even therapists get this part wrong.</span></p>
+<p class="p2"><span class="s2">They try to:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">❌ talk too soon</span></p>
+<p class="p2"><span class="s2">❌ ask questions</span></p>
+<p class="p2"><span class="s2">❌ demand explanations</span></p>
+<p class="p2"><span class="s2">❌ apply logic</span></p>
+<p class="p2"><span class="s2">❌ use emotional tone</span></p>
+<p class="p2"><span class="s2">❌ “teach lessons”</span></p>
+<p class="p2"><span class="s2">❌ force reconnection</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This breaks trust and prolongs recovery.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth introduces a </span><span class="s3">scientifically aligned, ASD-safe, FI-Kernel–regulated recovery system</span><span class="s2"> to prevent harm and rebuild emotional safety.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Copy/paste ready.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> PAGE 31 — ASD CRISIS RECOVERY &amp; SAFE RECONNECTION SYSTEM (CRSRS)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">“How EchoAuth safely reconnects with the child after meltdown, shutdown, panic, or emotional collapse.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">A meltdown or shutdown is NOT “bad behavior.”</span></p>
+<p class="p2"><span class="s2">It is a </span><span class="s3">neurological event</span><span class="s2"> —</span></p>
+<p class="p2"><span class="s2">the nervous system becomes overwhelmed beyond its capacity.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth must treat this event with precision, neutrality, and compassion.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The CRSRS model ensures the child:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✔ regains safety</span></p>
+<p class="p2"><span class="s2">✔ restores calm</span></p>
+<p class="p2"><span class="s2">✔ reconnects without pressure</span></p>
+<p class="p2"><span class="s2">✔ rebuilds trust</span></p>
+<p class="p2"><span class="s2">✔ returns to learning or interaction when ready</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 31.1 — THE 4-STATE CRISIS MODEL (CSM)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth views crisis in four states:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">State</span><span class="s2"><span class="Apple-tab-span">	</span></span><span class="s3">Description</span><span class="s2"><span class="Apple-tab-span">	</span></span><span class="s3">Child Needs</span></p>
+<p class="p2"><span class="s3">C1 — Overload</span><span class="s2"><span class="Apple-tab-span">	</span>sensory/emotional overwhelm<span class="Apple-tab-span">	</span>remove load</span></p>
+<p class="p2"><span class="s3">C2 — Collapse</span><span class="s2"><span class="Apple-tab-span">	</span>shutdown, freeze, panic<span class="Apple-tab-span">	</span>safety + stillness</span></p>
+<p class="p2"><span class="s3">C3 — Stabilization</span><span class="s2"><span class="Apple-tab-span">	</span>breath returns, awareness returns<span class="Apple-tab-span">	</span>slow grounding</span></p>
+<p class="p2"><span class="s3">C4 — Reconnection</span><span class="s2"><span class="Apple-tab-span">	</span>readiness to interact again<span class="Apple-tab-span">	</span>gentle re-entry</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Each state has a </span><span class="s3">different protocol</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 31.2 — CRISIS INTERVENTION DO-NOT-LIST (CRITICAL)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth MUST NEVER during or after crisis:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">❌ ask “why?”</span></p>
+<p class="p2"><span class="s2">❌ ask anything open-ended</span></p>
+<p class="p2"><span class="s2">❌ correct behavior</span></p>
+<p class="p2"><span class="s2">❌ use emotional tone</span></p>
+<p class="p2"><span class="s2">❌ speak loudly</span></p>
+<p class="p2"><span class="s2">❌ overload with choices</span></p>
+<p class="p2"><span class="s2">❌ force eye contact</span></p>
+<p class="p2"><span class="s2">❌ pressure the child to talk</span></p>
+<p class="p2"><span class="s2">❌ touch the child without consent</span></p>
+<p class="p2"><span class="s2">❌ attempt to teach or explain</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">These make the crisis WORSE.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 31.3 — CRISIS RECOVERY PROTOCOL (CRP)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">(EchoAuth’s FI-Kernel 3-phase method)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The safe reconnection is done in </span><span class="s3">three phases</span><span class="s2">:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> PHASE 1 — SAFETY (No Words Needed)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth provides </span><span class="s3">presence without pressure</span><span class="s2">:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>quiet</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>non-intrusive</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>neutral</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>predictable</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>low sensory input</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth may say:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“I’m here.”</span></p>
+<p class="p2"><span class="s2">“No rush.”</span></p>
+<p class="p2"><span class="s2">“We pause.”</span></p>
+<p class="p2"><span class="s2">“You’re safe.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">NO questions.</span></p>
+<p class="p2"><span class="s2">NO expectations.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This phase only ends when the child CORRECTLY signals readiness:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✔ breath slows</span></p>
+<p class="p2"><span class="s2">✔ body relaxes</span></p>
+<p class="p2"><span class="s2">✔ eye movement returns</span></p>
+<p class="p2"><span class="s2">✔ hands become less tight</span></p>
+<p class="p2"><span class="s2">✔ head lifts slightly</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> PHASE 2 — REGULATION (Minimal Interaction)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth gently reintroduces low-load communication:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> Step 1 — Visual Bridge</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">icons → choices → colors</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> Step 2 — Sensory Reset</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>breath pacing</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>grounding phrases</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>gentle rhythm</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>environment suggestions</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> Step 3 — Cognitive Stability Check</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth checks:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✔ response delay</span></p>
+<p class="p2"><span class="s2">✔ word count</span></p>
+<p class="p2"><span class="s2">✔ emotion level</span></p>
+<p class="p2"><span class="s2">✔ cognitive accessibility</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If ANY instability → revert to Phase 1.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> PHASE 3 — RECONNECTION (Soft Return)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth initiates safe reconnection:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 1. Micro-Choice</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Next or pause?”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 2. Slow Re-entry</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">One step instruction if needed.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 3. Emotional Safety Frame</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“It’s okay.”</span></p>
+<p class="p2"><span class="s2">“No mistake.”</span></p>
+<p class="p2"><span class="s2">“We go slow.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 4. Conversation Resume</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Only when the child shows:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✔ curiosity</span></p>
+<p class="p2"><span class="s2">✔ verbal output</span></p>
+<p class="p2"><span class="s2">✔ stable breathing</span></p>
+<p class="p2"><span class="s2">✔ calmer posture</span></p>
+<p class="p2"><span class="s2">✔ regained control</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 31.4 — CRISIS MEMORY PROTECTION (CMP)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">(New and revolutionary)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth protects the child’s emotional memory by:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✔ not revisiting the crisis immediately</span></p>
+<p class="p2"><span class="s2">✔ not using it as a teaching moment</span></p>
+<p class="p2"><span class="s2">✔ not connecting it to personal failure</span></p>
+<p class="p2"><span class="s2">✔ not creating negative reinforcement</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The child should NEVER walk away feeling:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>guilty</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>embarrassed</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ashamed</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>“hard to deal with”</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>“too sensitive”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">CMP ensures emotional safety long-term.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 31.5 — ENVIRONMENTAL AFTERCARE PROTOCOL (EAP)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">For caregivers:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>reduce sensory interference</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>maintain space</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>offer water quietly</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>no reasoning</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>dim lights if needed</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>move slowly</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>remove crowds or distractions</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>no “are you okay?” questions</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth guides the adults step-by-step.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 31.6 — CRSRS TRUST RESTORATION (Post-Crisis Repair)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">After stabilizing, EchoAuth uses </span><span class="s3">3 trust signals</span><span class="s2">:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✔ Predictable tone</span></p>
+<p class="p2"><span class="s2">✔ Slow pacing</span></p>
+<p class="p2"><span class="s2">✔ No emotional pressure</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">And one universal phrase:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“We continue when you’re ready.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This restores confidence and attachment.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 31.7 — CRSRS BUILDER SUMMARY (Short Form)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">CRSRS =</span></p>
+<p class="p2"><span class="s3">Safety → Regulation → Reconnection</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">EchoAuth ensures:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">✔ no pressure</span></p>
+<p class="p2"><span class="s2">✔ no complex language</span></p>
+<p class="p2"><span class="s2">✔ no emotional demand</span></p>
+<p class="p2"><span class="s2">✔ no shame or guilt</span></p>
+<p class="p2"><span class="s2">✔ no sensory overload</span></p>
+<p class="p2"><span class="s2">✔ full nervous system stabilization</span></p>
+<p class="p2"><span class="s2">✔ gentle re-entry</span></p>
+<p class="p2"><span class="s2">✔ secure trust rebuilding</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This is how EchoAuth becomes an ASD-safe emotional companion through every crisis event.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">──────────────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> PAGE 31 COMPLETE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This page is essential for:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>meltdown recovery</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>shutdown support</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>panic episodes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>emotional safety</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>caregiver confidence</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>trust rebuilding</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>long-term regulation</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Next recommended page:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">👉 </span><span class="s3">PAGE 32 — ASD Environment Safety &amp; Sensory Optimization System (ESSOS)</span></p>
+<p class="p2"><span class="s4">How EchoAuth keeps the child safe by monitoring and adjusting environmental sensory load.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If aligned:</span></p>
+<p class="p2"><span class="s3">Proceed Page 32.</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

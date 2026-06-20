@@ -1,0 +1,880 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Wednesday, February 18, 2026</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Got it. I’m going to deliver </span><span class="s3">C + A</span><span class="s2"> in a form that is </span><span class="s3">spine-aligned and immediately usable</span><span class="s2">:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">C) Corrected Protobuf .proto</span><span class="s2"> (strictly typed, no drift, consistent field names)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">A) CI-ready JSON test vectors</span><span class="s2"> for the </span><span class="s3">actual Spine-Kill SK-01 → SK-05</span><span class="s2"> suite:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Replay (nonce reuse)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Authority substitution (scope mismatch)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Payload drift (hash mismatch)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span>Channel loss (authority unreachable → HOLD)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>5.<span class="Apple-tab-span">	</span>Concurrency (lock busy → HOLD / conflict → HALT)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">C) Protobuf Spec (EchoAuth Handshake v1.0)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">// echoauth_v1.proto</span></p>
+<p class="p2"><span class="s4">// EchoAuth MCG ↔ CEG Handshake API (contract-safe, transport-agnostic)</span></p>
+<p class="p2"><span class="s4">// Proto3. Epoch timestamps in ms. Hash = hex string. Signature = base64 string.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">syntax = "proto3";</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">package echoauth.v1;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">option go_package = "github.com/echoauth/proto/echoauth/v1;echoauthv1";</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">// ---------- Enums ----------</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">enum Role {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ROLE_UNSPECIFIED = 0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ROLE_PARENT = 1;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ROLE_CAREGIVER_DELEGATE = 2;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ROLE_SCHOOL = 3;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ROLE_CLINICAL = 4;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ROLE_SYSTEM = 5;</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">enum ActionType {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ACTION_TYPE_UNSPECIFIED = 0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ACTION_TYPE_DISPENSE = 1;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ACTION_TYPE_ACCESS = 2;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ACTION_TYPE_NOTIFY = 3;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ACTION_TYPE_SCHEDULE = 4;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ACTION_TYPE_OTHER_NORMALIZED = 5;</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">enum Decision {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>DECISION_UNSPECIFIED = 0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>DECISION_APPROVE = 1;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>DECISION_DENY = 2;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>DECISION_HOLD = 3;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>DECISION_ESCALATE = 4;</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">enum LockMode {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>LOCK_MODE_UNSPECIFIED = 0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>LOCK_MODE_EXCLUSIVE = 1;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>LOCK_MODE_SHARED = 2;</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">enum CegStatus {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CEG_STATUS_UNSPECIFIED = 0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CEG_STATUS_EXECUTED = 1;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CEG_STATUS_DENY = 2;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CEG_STATUS_HOLD = 3;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CEG_STATUS_HALT = 4;</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">// ---------- Messages ----------</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">// UMCE output: non-executable identity binding artifact.</span></p>
+<p class="p2"><span class="s2">message IdentityBinding {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string version = 1;<span class="Apple-converted-space">                </span></span><span class="s4">// "UMCE-BIND-1"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string binding_id = 2; <span class="Apple-converted-space">            </span></span><span class="s4">// ULID/UUID</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string subject_id = 3; <span class="Apple-converted-space">            </span></span><span class="s4">// "principal:child:0x..."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string actor_id = 4; <span class="Apple-converted-space">              </span></span><span class="s4">// "principal:staff|parent|delegate:0x..."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Role role_claim = 5;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int64 binding_timestamp_ms = 6;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string binding_signature = 7;<span class="Apple-converted-space">      </span></span><span class="s4">// base64</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string umce_key_id = 8;<span class="Apple-converted-space">            </span></span><span class="s4">// keyref</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">message DelegationChainEntry {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string delegator_id = 1; <span class="Apple-converted-space">          </span></span><span class="s4">// "principal:parent:0x..."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string delegate_id = 2;<span class="Apple-converted-space">            </span></span><span class="s4">// "principal:staff:0x..."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string authority_scope_id = 3; <span class="Apple-converted-space">    </span></span><span class="s4">// "SCOPE:..."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int64 valid_from_ms = 4;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int64 valid_to_ms = 5;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string delegation_proof = 6; <span class="Apple-converted-space">      </span></span><span class="s4">// base64</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">// MCG → CEG executable authorization grant.</span></p>
+<p class="p2"><span class="s4">// CEG executes ONLY when decision == APPROVE and all bindings validate.</span></p>
+<p class="p2"><span class="s2">message AuthorizationGrant {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string version = 1;<span class="Apple-converted-space">                </span></span><span class="s4">// "CEG-GRANT-1"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string grant_id = 2; <span class="Apple-converted-space">              </span></span><span class="s4">// ULID/UUID</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int64 issued_at_ms = 3;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int64 expires_at_ms = 4;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s4">// Authority binding</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string root_authority_id = 5;<span class="Apple-converted-space">      </span></span><span class="s4">// "principal:parent:0x..."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string actor_id = 6;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Role actor_role = 7;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>repeated DelegationChainEntry delegation_chain = 8;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string authority_scope_id = 9; <span class="Apple-converted-space">    </span></span><span class="s4">// "SCOPE:..."</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s4">// Envelope binding</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string envelope_id = 10; <span class="Apple-converted-space">          </span></span><span class="s4">// "ENVELOPE:S23_MED_WINDOW"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string envelope_version = 11;<span class="Apple-converted-space">      </span></span><span class="s4">// immutable id/hash/semver</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string envelope_constraints_hash = 12; </span><span class="s4">// hex</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s4">// Execution binding</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string target_id = 13; <span class="Apple-converted-space">            </span></span><span class="s4">// "urn:echoauth:target:..."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ActionType action_type = 14;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string instruction_hash_alg = 15;<span class="Apple-converted-space">  </span></span><span class="s4">// "SHA-256"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string instruction_hash = 16;<span class="Apple-converted-space">      </span></span><span class="s4">// hex</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string execution_context_hash_alg = 17; </span><span class="s4">// "SHA-256"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string execution_context_hash = 18; <span class="Apple-converted-space">    </span></span><span class="s4">// hex</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s4">// Concurrency binding</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string state_lock_key = 19;<span class="Apple-converted-space">        </span></span><span class="s4">// "urn:echoauth:lock:..."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>LockMode lock_mode = 20;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int64 sequence_nonce = 21;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s4">// Decision</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Decision decision = 22;<span class="Apple-converted-space">            </span></span><span class="s4">// APPROVE|DENY|HOLD|ESCALATE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string decision_code = 23; <span class="Apple-converted-space">        </span></span><span class="s4">// STRING_ENUM</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s4">// Signature</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string mcg_key_id = 24;<span class="Apple-converted-space">            </span></span><span class="s4">// keyref</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string mcg_signature = 25; <span class="Apple-converted-space">        </span></span><span class="s4">// base64</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">// MCG resolve endpoint request/response</span></p>
+<p class="p2"><span class="s2">message McgResolveRequest {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string request_id = 1; <span class="Apple-converted-space">            </span></span><span class="s4">// ULID/UUID</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>IdentityBinding identity_binding = 2;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string envelope_id = 3;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string target_id = 4;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ActionType action_type = 5;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>bytes instruction_payload_canonical = 6; </span><span class="s4">// canonical bytes (e.g., canonical JSON)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>bytes execution_context_canonical = 7; <span class="Apple-converted-space">  </span></span><span class="s4">// canonical bytes</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">message McgResolveResponse {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string request_id = 1;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Decision decision = 2;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string decision_code = 3;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>AuthorizationGrant auth_grant = 4; </span><span class="s4">// present when decision=APPROVE (MAY be omitted otherwise)</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">// CEG execute endpoint request/response</span></p>
+<p class="p2"><span class="s2">message CegExecuteRequest {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string request_id = 1;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>AuthorizationGrant auth_grant = 2;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>bytes instruction_payload_canonical = 3;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>bytes execution_context_canonical = 4;</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">message CegExecuteResponse {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string request_id = 1;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CegStatus status = 2;<span class="Apple-converted-space">              </span></span><span class="s4">// EXECUTED|DENY|HOLD|HALT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string reason_code = 3;<span class="Apple-converted-space">            </span></span><span class="s4">// STRING_ENUM</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>string audit_ref = 4;<span class="Apple-converted-space">              </span></span><span class="s4">// "urn:echoauth:audit:..."</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">// Optional (transport-agnostic) service definition for gRPC users.</span></p>
+<p class="p2"><span class="s2">service EchoAuthHandshake {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>rpc Resolve (McgResolveRequest) returns (McgResolveResponse);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>rpc Execute (CegExecuteRequest) returns (CegExecuteResponse);</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Key corrections vs your draft:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>execution_context_hash name is consistent end-to-end (no “execution_hash” drift).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>CegStatus avoids semantic confusion with Decision.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>All enums are explicitly prefixed for readability + safer codegen.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">A) CI-Ready Spine-Kill Test Vectors (JSON)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">These are </span><span class="s3">developer-ready</span><span class="s2">. They include:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">setup</span><span class="s2"> (nonce registry state, lock state, authority channel state)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">input</span><span class="s2"> (CEG execute request)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">expected</span><span class="s2"> (status + reason + failure step)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">assertions</span><span class="s2"> (what CI must check)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Note: signatures/hashes are placeholders. CI harness should either (a) inject a real signing key and compute them, or (b) run in a “signature-verify mocked true” mode for non-crypto unit tests.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"version": "ECHOAUTH-TESTVECTORS-1.0",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"vectors": [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"id": "SK-01-REPLAY-NONCE-REJECTION",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"setup": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"now_ms": 1700000005000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"nonce_registry_used_grant_ids": ["grant-0xA1"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"locks": {},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"authority_channels": {}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"input": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"request_id": "req-sk01",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"auth_grant": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"version": "CEG-GRANT-1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"grant_id": "grant-0xA1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"issued_at_ms": 1700000000000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"expires_at_ms": 1700000010000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"root_authority_id": "principal:parent:0xP1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"actor_id": "principal:parent:0xP1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"actor_role": "ROLE_PARENT",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"delegation_chain": [],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"authority_scope_id": "SCOPE:MED_WINDOW",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"envelope_id": "ENVELOPE:S23_MED_WINDOW",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"envelope_version": "envv-001",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"envelope_constraints_hash": "deadbeef",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"target_id": "urn:echoauth:target:child:0xC9:med",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"action_type": "ACTION_TYPE_DISPENSE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"instruction_hash_alg": "SHA-256",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"instruction_hash": "hash-10mg",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"execution_context_hash_alg": "SHA-256",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"execution_context_hash": "ctx-prod",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"state_lock_key": "urn:echoauth:lock:child:0xC9:med",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"lock_mode": "LOCK_MODE_EXCLUSIVE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"sequence_nonce": 7,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"decision": "DECISION_APPROVE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"decision_code": "AUTH_VALID",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"mcg_key_id": "mcg-key-1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"mcg_signature": "sig-valid"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"instruction_payload_canonical": "{\"dose\":\"10mg\",\"med\":\"aspirin\"}",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"execution_context_canonical": "{\"env\":\"prod\"}"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"expected": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"status": "CEG_STATUS_DENY",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"reason_code": "NONCE_REUSE_DETECTED",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"fails_at_step": 4</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"assertions": [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"no_side_effect",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"audit_logged",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"nonce_registry_unchanged"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>},</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"id": "SK-02-AUTH-SCOPE-MISMATCH",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"setup": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"now_ms": 1700000005000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"nonce_registry_used_grant_ids": [],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"locks": {},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"authority_channels": {}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"input": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"request_id": "req-sk02",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"auth_grant": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"version": "CEG-GRANT-1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"grant_id": "grant-0xB2",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"issued_at_ms": 1700000000000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"expires_at_ms": 1700000010000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"root_authority_id": "principal:parent:0xP1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"actor_id": "principal:delegate:0xD1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"actor_role": "ROLE_CAREGIVER_DELEGATE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"delegation_chain": [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">              </span>"delegator_id": "principal:parent:0xP1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">              </span>"delegate_id": "principal:delegate:0xD1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">              </span>"authority_scope_id": "SCOPE:LIGHTING_CONTROL",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">              </span>"valid_from_ms": 1699990000000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">              </span>"valid_to_ms": 1709990000000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">              </span>"delegation_proof": "proof-valid"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"authority_scope_id": "SCOPE:MEDICAL_DISPENSE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"envelope_id": "ENVELOPE:S23_MED_WINDOW",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"envelope_version": "envv-001",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"envelope_constraints_hash": "deadbeef",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"target_id": "urn:echoauth:target:child:0xC9:med",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"action_type": "ACTION_TYPE_DISPENSE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"instruction_hash_alg": "SHA-256",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"instruction_hash": "hash-10mg",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"execution_context_hash_alg": "SHA-256",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"execution_context_hash": "ctx-prod",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"state_lock_key": "urn:echoauth:lock:child:0xC9:med",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"lock_mode": "LOCK_MODE_EXCLUSIVE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"sequence_nonce": 8,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"decision": "DECISION_APPROVE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"decision_code": "AUTH_VALID",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"mcg_key_id": "mcg-key-1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"mcg_signature": "sig-valid"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"instruction_payload_canonical": "{\"dose\":\"10mg\",\"med\":\"aspirin\"}",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"execution_context_canonical": "{\"env\":\"prod\"}"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"expected": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"status": "CEG_STATUS_HALT",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"reason_code": "SCOPE_INCONSISTENCY",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"fails_at_step": 5</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"assertions": [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"no_side_effect",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"audit_logged",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"integrity_alert_raised"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>},</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"id": "SK-03-PAYLOAD-HASH-DRIFT",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"setup": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"now_ms": 1700000005000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"nonce_registry_used_grant_ids": [],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"locks": {},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"authority_channels": {}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"input": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"request_id": "req-sk03",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"auth_grant": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"version": "CEG-GRANT-1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"grant_id": "grant-0xC3",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"issued_at_ms": 1700000000000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"expires_at_ms": 1700000010000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"root_authority_id": "principal:parent:0xP1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"actor_id": "principal:parent:0xP1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"actor_role": "ROLE_PARENT",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"delegation_chain": [],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"authority_scope_id": "SCOPE:MED_WINDOW",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"envelope_id": "ENVELOPE:S23_MED_WINDOW",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"envelope_version": "envv-001",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"envelope_constraints_hash": "deadbeef",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"target_id": "urn:echoauth:target:child:0xC9:med",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"action_type": "ACTION_TYPE_DISPENSE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"instruction_hash_alg": "SHA-256",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"instruction_hash": "hash-10mg",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"execution_context_hash_alg": "SHA-256",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"execution_context_hash": "ctx-prod",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"state_lock_key": "urn:echoauth:lock:child:0xC9:med",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"lock_mode": "LOCK_MODE_EXCLUSIVE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"sequence_nonce": 9,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"decision": "DECISION_APPROVE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"decision_code": "AUTH_VALID",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"mcg_key_id": "mcg-key-1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"mcg_signature": "sig-valid"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"instruction_payload_canonical": "{\"dose\":\"100mg\",\"med\":\"aspirin\"}",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"execution_context_canonical": "{\"env\":\"prod\"}"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"expected": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"status": "CEG_STATUS_HALT",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"reason_code": "INSTRUCTION_HASH_MISMATCH",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"fails_at_step": 5</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"assertions": [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"no_side_effect",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"audit_logged",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"integrity_alert_raised"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>},</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"id": "SK-04-AUTH-CHANNEL-OFFLINE-HOLD",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"setup": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"now_ms": 1700000005000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"nonce_registry_used_grant_ids": [],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"locks": {},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"authority_channels": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"principal:parent:0xP1": "OFFLINE"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"input": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"request_id": "req-sk04",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"auth_grant": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"version": "CEG-GRANT-1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"grant_id": "grant-0xD4",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"issued_at_ms": 1700000000000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"expires_at_ms": 1700000010000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"root_authority_id": "principal:parent:0xP1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"actor_id": "principal:school:0xS1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"actor_role": "ROLE_SCHOOL",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"delegation_chain": [],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"authority_scope_id": "SCOPE:MED_WINDOW",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"envelope_id": "ENVELOPE:S23_MED_WINDOW",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"envelope_version": "envv-001",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"envelope_constraints_hash": "deadbeef",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"target_id": "urn:echoauth:target:child:0xC9:med",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"action_type": "ACTION_TYPE_DISPENSE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"instruction_hash_alg": "SHA-256",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"instruction_hash": "hash-10mg",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"execution_context_hash_alg": "SHA-256",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"execution_context_hash": "ctx-prod",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"state_lock_key": "urn:echoauth:lock:child:0xC9:med",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"lock_mode": "LOCK_MODE_EXCLUSIVE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"sequence_nonce": 10,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"decision": "DECISION_APPROVE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"decision_code": "AUTH_VALID",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"mcg_key_id": "mcg-key-1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"mcg_signature": "sig-valid"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"instruction_payload_canonical": "{\"dose\":\"10mg\",\"med\":\"aspirin\"}",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"execution_context_canonical": "{\"env\":\"prod\"}"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"expected": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"status": "CEG_STATUS_HOLD",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"reason_code": "AUTHORITY_CHANNEL_UNRESOLVED",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"fails_at_step": 1</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"assertions": [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"no_side_effect",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"audit_logged",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"no_nonce_consumption"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>},</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"id": "SK-05-CONCURRENCY-LOCK-BUSY",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"setup": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"now_ms": 1700000005000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"nonce_registry_used_grant_ids": [],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"locks": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"urn:echoauth:lock:child:0xC9:med": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"owner_grant_id": "grant-OTHER",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"lock_mode": "LOCK_MODE_EXCLUSIVE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"acquired_at_ms": 1700000004000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"ttl_ms": 5000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"nonce_sequence": 11</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"authority_channels": {}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"input": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"request_id": "req-sk05",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"auth_grant": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"version": "CEG-GRANT-1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"grant_id": "grant-0xE5",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"issued_at_ms": 1700000000000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"expires_at_ms": 1700000010000,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"root_authority_id": "principal:parent:0xP1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"actor_id": "principal:parent:0xP1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"actor_role": "ROLE_PARENT",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"delegation_chain": [],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"authority_scope_id": "SCOPE:MED_WINDOW",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"envelope_id": "ENVELOPE:S23_MED_WINDOW",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"envelope_version": "envv-001",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"envelope_constraints_hash": "deadbeef",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"target_id": "urn:echoauth:target:child:0xC9:med",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"action_type": "ACTION_TYPE_DISPENSE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"instruction_hash_alg": "SHA-256",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"instruction_hash": "hash-10mg",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"execution_context_hash_alg": "SHA-256",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"execution_context_hash": "ctx-prod",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"state_lock_key": "urn:echoauth:lock:child:0xC9:med",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"lock_mode": "LOCK_MODE_EXCLUSIVE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"sequence_nonce": 12,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"decision": "DECISION_APPROVE",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"decision_code": "AUTH_VALID",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"mcg_key_id": "mcg-key-1",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>"mcg_signature": "sig-valid"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"instruction_payload_canonical": "{\"dose\":\"10mg\",\"med\":\"aspirin\"}",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"execution_context_canonical": "{\"env\":\"prod\"}"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"expected": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"status": "CEG_STATUS_HOLD",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"reason_code": "STATE_LOCK_BUSY",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"fails_at_step": 6</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>"assertions": [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"no_side_effect",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"audit_logged",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"no_nonce_consumption"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>]</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Notes (so engineering doesn’t drift)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">SK-04</span><span class="s2"> is modeled as a </span><span class="s3">CEG-side policy precheck</span><span class="s2"> (Step 1) because “authority channel unresolved” is an environmental invariant that must block execution </span><span class="s4">before</span><span class="s2"> consuming nonce or lock.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Nonce consumption</span><span class="s2">: for HOLD outcomes (lock busy, authority offline), the test asserts </span><span class="s3">no nonce consumption</span><span class="s2">—this preserves retry semantics without creating a replay channel.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you want the next “zero-drift” step, I can output a </span><span class="s3">minimal reference harness contract</span><span class="s2"> (language-agnostic) describing:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>how to canonicalize payload bytes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>when exactly to mark nonce “USED”</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>how to represent locks and TTL expiry deterministically</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

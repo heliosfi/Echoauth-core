@@ -1,0 +1,638 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Tuesday, February 10, 2026</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2"># ============================================================</span></p>
+<p class="p2"><span class="s2"># SNIPER BOT — TSLA Breakout Confirm + Risk Gates (30m)</span></p>
+<p class="p2"><span class="s2"># Adds:</span></p>
+<p class="p2"><span class="s2"># <span class="Apple-converted-space">  </span>- ATR-based buffers (instead of fixed $0.15)</span></p>
+<p class="p2"><span class="s2"># <span class="Apple-converted-space">  </span>- MAX_CANDLE_MULT gate (don’t chase oversized confirm candles)</span></p>
+<p class="p2"><span class="s2"># <span class="Apple-converted-space">  </span>- MAX_RISK_DOLLARS gate (don’t take trades with too-wide stop)</span></p>
+<p class="p2"><span class="s2"># <span class="Apple-converted-space">  </span>- RETEST_ENTRY mode (optional): enter on retest instead of breakout close</span></p>
+<p class="p2"><span class="s2"># ============================================================</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">CONFIG:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>SYMBOL = "TSLA"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>TF = "30m"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>SUPPORT = 420.23</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>RESIST<span class="Apple-converted-space">  </span>= 425.50</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>VOLUME_LOOKBACK = 3</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>MIN_BODY_RATIO = 0.55</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>USE_MACD = true</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span># --- Risk gates ---</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ATR_LEN = 14</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>STOP_ATR_MULT = 0.35 <span class="Apple-converted-space">                </span># buffer size = ATR * 0.35 (tune 0.25–0.60)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>MAX_CANDLE_MULT = 1.50 <span class="Apple-converted-space">              </span># reject confirm candle if range &gt; ATR * 1.50</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>MAX_RISK_DOLLARS = 2.50<span class="Apple-converted-space">              </span># max distance entry-&gt;stop (shares); options use underlying proxy</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>MIN_RR_TP1 = 1.0 <span class="Apple-converted-space">                    </span># require at least 1R to TP1</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span># --- Entry mode ---</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ENTRY_MODE = "RETEST"<span class="Apple-converted-space">                </span># "CLOSE" or "RETEST"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>RETEST_TOL = 0.20<span class="Apple-converted-space">                    </span># acceptable proximity to level on retest (dollars)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>RETEST_TIMEOUT_BARS = 6<span class="Apple-converted-space">              </span># how many 30m bars we wait for a retest</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">STATE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>direction = "NONE" <span class="Apple-converted-space">                  </span># NONE | LONG | SHORT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>entry_price = null</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>stop_price = null</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>targets = []</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>pending_signal = "NONE"<span class="Apple-converted-space">              </span># NONE | LONG | SHORT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>pending_level = null</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>pending_expiry_bar = null</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># -----------------------------</span></p>
+<p class="p2"><span class="s2"># Helpers</span></p>
+<p class="p2"><span class="s2"># -----------------------------</span></p>
+<p class="p2"><span class="s2">function body_size(c): return abs(c.close - c.open)</span></p>
+<p class="p2"><span class="s2">function range_size(c): return max(c.high - c.low, 0.0001)</span></p>
+<p class="p2"><span class="s2">function body_ratio(c): return body_size(c) / range_size(c)</span></p>
+<p class="p2"><span class="s2">function is_doji_like(c): return body_ratio(c) &lt; MIN_BODY_RATIO</span></p>
+<p class="p2"><span class="s2">function mean_volume(candles): return mean([c.volume for c in candles])</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">function volume_expanding(curr, last3):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>return curr.volume &gt;= mean_volume(last3)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">function bullish_body_expands(curr, prev):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>return (curr.close &gt; curr.open) AND (body_size(curr) &gt; body_size(prev))</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">function bearish_body_engulf(curr, prev):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>return (curr.close &lt; curr.open) AND</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">         </span>(curr.open &gt;= prev.close) AND</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">         </span>(curr.close &lt;= prev.open)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># MACD histogram expansion checks (closed candles)</span></p>
+<p class="p2"><span class="s2">function macd_hist(i): return MACD_HIST_AT(i)</span></p>
+<p class="p2"><span class="s2">function macd_green_expanding(i): return macd_hist(i) &gt; 0 AND macd_hist(i) &gt; macd_hist(i-1)</span></p>
+<p class="p2"><span class="s2">function macd_red_expanding(i): return macd_hist(i) &lt; 0 AND macd_hist(i) &lt; macd_hist(i-1)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">function ATR(i, len): return ATR_AT(i, len) <span class="Apple-converted-space">  </span># ATR value at candle i (closed)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># Size / chase gates</span></p>
+<p class="p2"><span class="s2">function confirm_candle_not_too_big(curr, atr):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>return range_size(curr) &lt;= atr * MAX_CANDLE_MULT</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">function calc_stop_buffer(atr):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>return atr * STOP_ATR_MULT</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">function risk_dollars(entry, stop):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>return abs(entry - stop)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">function rr_ok(entry, stop, tp1):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>r = risk_dollars(entry, stop)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if r &lt;= 0: return false</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>return abs(tp1 - entry) / r &gt;= MIN_RR_TP1</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># -----------------------------</span></p>
+<p class="p2"><span class="s2"># Confirm Candle Detection (unchanged logic + size gate)</span></p>
+<p class="p2"><span class="s2"># -----------------------------</span></p>
+<p class="p2"><span class="s2">function bullish_confirm(curr, prev, last3, i, atr):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>return (curr.close &gt; RESIST) AND</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">         </span>(NOT is_doji_like(curr)) AND</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">         </span>bullish_body_expands(curr, prev) AND</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">         </span>volume_expanding(curr, last3) AND</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">         </span>confirm_candle_not_too_big(curr, atr) AND</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">         </span>(NOT USE_MACD OR macd_green_expanding(i))</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">function bearish_confirm(curr, prev, last3, i, atr):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>return (curr.close &lt; SUPPORT) AND</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">         </span>(NOT is_doji_like(curr)) AND</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">         </span>bearish_body_engulf(curr, prev) AND</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">         </span>volume_expanding(curr, last3) AND</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">         </span>confirm_candle_not_too_big(curr, atr) AND</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">         </span>(NOT USE_MACD OR macd_red_expanding(i))</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># -----------------------------</span></p>
+<p class="p2"><span class="s2"># Plan Builders (ATR stops + risk gates)</span></p>
+<p class="p2"><span class="s2"># -----------------------------</span></p>
+<p class="p2"><span class="s2">function build_long_plan(entry_basis_price, confirm_candle, atr):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>buf = calc_stop_buffer(atr)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span># stop: below broken level OR below confirm low, choose the lower (safer) then subtract buffer</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>raw_stop = min(RESIST, confirm_candle.low)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>stop = raw_stop - buf</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span># targets</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>tp1 = 430.00</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>tp2 = 435.75</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>tp3 = 440.66</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span># max risk gate</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if risk_dollars(entry_basis_price, stop) &gt; MAX_RISK_DOLLARS:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return null</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span># R:R gate</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if NOT rr_ok(entry_basis_price, stop, tp1):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return null</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>return {dir:"LONG", entry:entry_basis_price, stop:stop, targets:[tp1,tp2,tp3]}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">function build_short_plan(entry_basis_price, confirm_candle, atr):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>buf = calc_stop_buffer(atr)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>raw_stop = max(SUPPORT, confirm_candle.high)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>stop = raw_stop + buf</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>tp1 = 414.01</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>tp2 = 412.00</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>tp3 = 410.00</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if risk_dollars(entry_basis_price, stop) &gt; MAX_RISK_DOLLARS:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return null</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if NOT rr_ok(entry_basis_price, stop, tp1):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return null</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>return {dir:"SHORT", entry:entry_basis_price, stop:stop, targets:[tp1,tp2,tp3]}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># -----------------------------</span></p>
+<p class="p2"><span class="s2"># Entry Modes</span></p>
+<p class="p2"><span class="s2"># -----------------------------</span></p>
+<p class="p2"><span class="s2">function arm_retest(dir, level, current_bar_index):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>pending_signal = dir</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>pending_level = level</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>pending_expiry_bar = current_bar_index + RETEST_TIMEOUT_BARS</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">function retest_hit(price, level):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>return abs(price - level) &lt;= RETEST_TOL</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># -----------------------------</span></p>
+<p class="p2"><span class="s2"># Main — runs on 30m candle close</span></p>
+<p class="p2"><span class="s2"># -----------------------------</span></p>
+<p class="p2"><span class="s2">ON_CANDLE_CLOSE(symbol=SYMBOL, tf=TF):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if direction != "NONE":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>curr = GET_CANDLE(0) <span class="Apple-converted-space">                </span># closed</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>prev = GET_CANDLE(1)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>last3 = [GET_CANDLE(1), GET_CANDLE(2), GET_CANDLE(3)]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>i = CURRENT_CANDLE_INDEX()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>atr = ATR(i, ATR_LEN)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span># 1) If waiting on a retest, keep waiting or expire</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if pending_signal != "NONE":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if i &gt; pending_expiry_bar:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>pending_signal = "NONE"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>pending_level = null</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>pending_expiry_bar = null</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>ALERT("RETEST EXPIRED: no entry.")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span># 2) Check for confirm candle</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if bullish_confirm(curr, prev, last3, i, atr):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if ENTRY_MODE == "CLOSE":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>plan = build_long_plan(curr.close, curr, atr)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if plan != null:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>APPLY_PLAN(plan)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ALERT("LONG CONFIRM + RISK OK: entered on close.")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ALERT("LONG CONFIRM but FAILED risk gates (too big / too wide / RR).")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>arm_retest("LONG", RESIST, i)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>ALERT("LONG CONFIRM: armed RETEST entry at ~425.50.")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>else if bearish_confirm(curr, prev, last3, i, atr):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if ENTRY_MODE == "CLOSE":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>plan = build_short_plan(curr.close, curr, atr)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if plan != null:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>APPLY_PLAN(plan)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ALERT("SHORT CONFIRM + RISK OK: entered on close.")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ALERT("SHORT CONFIRM but FAILED risk gates (too big / too wide / RR).")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>arm_retest("SHORT", SUPPORT, i)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>ALERT("SHORT CONFIRM: armed RETEST entry at ~420.23.")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ALERT("NO CONFIRM: inside 420.23–425.50 box. Stand down.")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># -----------------------------</span></p>
+<p class="p2"><span class="s2"># Live Price — handles RETEST entries + trade management</span></p>
+<p class="p2"><span class="s2"># -----------------------------</span></p>
+<p class="p2"><span class="s2">ON_PRICE_UPDATE(symbol=SYMBOL):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>px = LAST_PRICE()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>i = CURRENT_CANDLE_INDEX()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>atr = ATR(i-1, ATR_LEN)<span class="Apple-converted-space">              </span># last closed ATR (safer for live)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span># RETEST entry logic</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if direction == "NONE" AND pending_signal != "NONE":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if pending_signal == "LONG" AND retest_hit(px, RESIST):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>confirm_candle = GET_CANDLE(1) <span class="Apple-converted-space">  </span># last closed confirm candle</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>plan = build_long_plan(px, confirm_candle, atr)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if plan != null:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>APPLY_PLAN(plan)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>pending_signal = "NONE"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>pending_level = null</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>pending_expiry_bar = null</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ALERT("LONG RETEST FILL: entered near 425.50.")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ALERT("RETEST HIT but FAILED risk gates. No trade.")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>pending_signal = "NONE"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if pending_signal == "SHORT" AND retest_hit(px, SUPPORT):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>confirm_candle = GET_CANDLE(1)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>plan = build_short_plan(px, confirm_candle, atr)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if plan != null:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>APPLY_PLAN(plan)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>pending_signal = "NONE"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>pending_level = null</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>pending_expiry_bar = null</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ALERT("SHORT RETEST FILL: entered near 420.23.")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ALERT("RETEST HIT but FAILED risk gates. No trade.")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>pending_signal = "NONE"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span># trade management (same as before; recommend stop orders server-side)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if direction != "NONE":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>manage_trade(px)</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

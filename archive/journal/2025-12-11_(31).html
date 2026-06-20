@@ -1,0 +1,864 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Thursday, December 11, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Ase 🔥 — let’s tap in.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">I’ll give you a </span><span class="s3">clean, engineer-ready diagram pack</span><span class="s2"> you can literally copy/paste into files.</span></p>
+<p class="p2"><span class="s2">No fluff, no PDF — just </span><span class="s3">MCG x EchoAuth Diagram Set v1.0</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You can save them like:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>D1_System_Architecture.txt</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>D2_IPN_IN_ON_Flow.txt</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>D3_ASD_Pipeline.txt</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>D4_Chamber_StateMachine.txt</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>D5_Caregiver_Auth_Map.txt</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>D6_Full_Loop.txt</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🧩</span><span class="s3"> D1 — EchoAuth Cognitive System Architecture</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">File:</span><span class="s2"> D1_System_Architecture.txt</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">ECHOAUTH COGNITIVE SYSTEM ARCHITECTURE — v1.0</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">             </span>┌─────────────────────────────────────┐</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">             </span>│ <span class="Apple-converted-space">          </span>CAREGIVER SIDE <span class="Apple-converted-space">          </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">             </span>│ <span class="Apple-converted-space">  </span>(ID, emotional readiness, role)<span class="Apple-converted-space">  </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">             </span>└───────────────┬────────────────────┘</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                             </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                             </span>│<span class="Apple-converted-space">  </span>caregiver_input_stream</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                             </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                     </span>┌───────▼────────────────────┐</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                     </span>│<span class="Apple-converted-space">      </span>ECHOAUTH GATEWAY<span class="Apple-converted-space">      </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                     </span>│<span class="Apple-converted-space">  </span>(Auth + Session Manager)<span class="Apple-converted-space">  </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                     </span>└───────┬────────────────────┘</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                             </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>child_signal_stream<span class="Apple-converted-space">      </span>│<span class="Apple-converted-space">      </span>chamber_state_stream</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>│<span class="Apple-converted-space">                </span>│<span class="Apple-converted-space">                </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>│<span class="Apple-converted-space">                </span>│<span class="Apple-converted-space">                </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>▼<span class="Apple-converted-space">                </span>▼<span class="Apple-converted-space">                </span>▼</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">┌────────────────┐<span class="Apple-converted-space">    </span>┌───────────────────────────┐<span class="Apple-converted-space">    </span>┌───────────────────┐</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>CHILD SIDE <span class="Apple-converted-space">  </span>│<span class="Apple-converted-space">    </span>│ <span class="Apple-converted-space">    </span>MCG CORE SYSTEM<span class="Apple-converted-space">      </span>│<span class="Apple-converted-space">    </span>│ <span class="Apple-converted-space">  </span>CHAMBER SIDE <span class="Apple-converted-space">    </span>│</span></p>
+<p class="p2"><span class="s2">│ (nonverbal,<span class="Apple-converted-space">    </span>│<span class="Apple-converted-space">    </span>│ <span class="Apple-converted-space">  </span>(IPN → IN → ON → SL-1) │<span class="Apple-converted-space">    </span>│ (lights, sound,<span class="Apple-converted-space">    </span>│</span></p>
+<p class="p2"><span class="s2">│<span class="Apple-converted-space">  </span>ASD signals)<span class="Apple-converted-space">  </span>│<span class="Apple-converted-space">    </span>└───────────────────────────┘<span class="Apple-converted-space">    </span>│ prompts, devices)<span class="Apple-converted-space">  </span>│</span></p>
+<p class="p2"><span class="s2">└───────┬────────┘ <span class="Apple-converted-space">                                  </span>└─────────┬──────────┘</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>│ <span class="Apple-converted-space">                                                      </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>│ <span class="Apple-converted-space">                                                      </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>▼ <span class="Apple-converted-space">                                                      </span>▼</span></p>
+<p class="p2"><span class="s2">┌────────────────┐ <span class="Apple-converted-space">                                    </span>┌─────────────────────┐</span></p>
+<p class="p2"><span class="s2">│<span class="Apple-converted-space">  </span>BioBridge <span class="Apple-converted-space">    </span>│── child_bio_state<span class="Apple-converted-space">  </span>───────────────▶│<span class="Apple-converted-space">  </span>Chamber Controller │</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>2.5 Engine <span class="Apple-converted-space">  </span>│ <span class="Apple-converted-space">                                    </span>│ <span class="Apple-converted-space">  </span>(Env Adjuster) <span class="Apple-converted-space">  </span>│</span></p>
+<p class="p2"><span class="s2">└───────┬────────┘ <span class="Apple-converted-space">                                    </span>└─────────┬──────────┘</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>│ <span class="Apple-converted-space">                                                      </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>▼ <span class="Apple-converted-space">                                                      </span>│</span></p>
+<p class="p2"><span class="s2">┌────────────────┐<span class="Apple-converted-space">                                              </span>│</span></p>
+<p class="p2"><span class="s2">│<span class="Apple-converted-space">  </span>Vortex Engine │── vortex_summary / flags ────────────────────┘</span></p>
+<p class="p2"><span class="s2">└───────┬────────┘</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>▼</span></p>
+<p class="p2"><span class="s2">┌───────────────────────────┐</span></p>
+<p class="p2"><span class="s2">│<span class="Apple-converted-space">  </span>MCG INTERPRETATION CORE<span class="Apple-converted-space">  </span>│</span></p>
+<p class="p2"><span class="s2">│<span class="Apple-converted-space">  </span>(Time Axis + Layer Axis) │</span></p>
+<p class="p2"><span class="s2">└───────┬───────────────────┘</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>▼</span></p>
+<p class="p2"><span class="s2">┌─────────────────────────────┐</span></p>
+<p class="p2"><span class="s2">│<span class="Apple-converted-space">  </span>OUTPUT NETWORK (ON)<span class="Apple-converted-space">        </span>│</span></p>
+<p class="p2"><span class="s2">│<span class="Apple-converted-space">  </span>Navigator / Guardian / <span class="Apple-converted-space">    </span>│</span></p>
+<p class="p2"><span class="s2">│<span class="Apple-converted-space">  </span>Architect<span class="Apple-converted-space">                  </span>│</span></p>
+<p class="p2"><span class="s2">└───────┬─────────────────────┘</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>├──────────▶ Caregiver Guidance Output</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>│<span class="Apple-converted-space">              </span>(instructions, limits)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>└──────────▶ Chamber Command Output</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                       </span>(mode changes, environment)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🧠</span><span class="s3"> D2 — IPN / IN / ON Dataflow (MCG Core)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">File:</span><span class="s2"> D2_IPN_IN_ON_Flow.txt</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">MCG CORE DATAFLOW — IPN → IN → ON → SL-1</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">RAW INPUT SOURCES:</span></p>
+<p class="p2"><span class="s2">- child_bio_signals</span></p>
+<p class="p2"><span class="s2">- caregiver_state_signals</span></p>
+<p class="p2"><span class="s2">- environment_state_signals</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>▼</span></p>
+<p class="p2"><span class="s2">╔════════════════╗</span></p>
+<p class="p2"><span class="s2">║ LAYER 1: IPN <span class="Apple-converted-space">  </span>║<span class="Apple-converted-space">  </span>Internal Processing Network</span></p>
+<p class="p2"><span class="s2">╚════════════════╝</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Engines:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- BioBridge 2.5 (BB)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- Vortex Engine (VE)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- Cortex Engine (CE stub)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- Identity Kernel (IK reference)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Flow:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>child_bio_signals ──▶ BB ──▶ physical_state / emotional_state / field_state</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                                   </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                                   </span>└──▶ VE (adds intuition: vortex_summary / flags)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                                          </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                                          </span>└──▶ CE_stub (packages snapshot)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>IPN OUTPUT:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>physical_state,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>emotional_state,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>mental_state,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>vortex_summary,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>vortex_flags</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>▼</span></p>
+<p class="p2"><span class="s2">╔════════════════╗</span></p>
+<p class="p2"><span class="s2">║ LAYER 2: IN<span class="Apple-converted-space">    </span>║<span class="Apple-converted-space">  </span>Interpretation Network</span></p>
+<p class="p2"><span class="s2">╚════════════════╝</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Input: IPN snapshot</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Ops:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- Map to Time Axis (past / present / future)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- Map to Layer Axis (physical / emotional / mental / vortex)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- Derive interpretation_summary</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- Extract key_risks / key_opportunities</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- Generate state_tags</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>IN OUTPUT:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>interpretation_summary,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>key_risks,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>key_opportunities,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>state_tags</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>▼</span></p>
+<p class="p2"><span class="s2">╔════════════════╗</span></p>
+<p class="p2"><span class="s2">║ LAYER 3: ON<span class="Apple-converted-space">    </span>║<span class="Apple-converted-space">  </span>Output Network</span></p>
+<p class="p2"><span class="s2">╚════════════════╝</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Roles:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- Navigator: direction</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- Guardian: safety / "must not"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- Architect: actionable steps</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>ON OUTPUT:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>navigator_text,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>guardian_rules,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>architect_steps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>▼</span></p>
+<p class="p2"><span class="s2">╔════════════════╗</span></p>
+<p class="p2"><span class="s2">║ STABILIZATION<span class="Apple-converted-space">  </span>║<span class="Apple-converted-space">  </span>SL-1</span></p>
+<p class="p2"><span class="s2">╚════════════════╝</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- Applies rate limits</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- Activates safe-mode when overloaded</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- Checks Identity Kernel alignment</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- Outputs stability_flag &amp; allowed_complexity</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">FINAL OUTPUTS:</span></p>
+<p class="p2"><span class="s2">- caregiver_guidance</span></p>
+<p class="p2"><span class="s2">- chamber_commands</span></p>
+<p class="p2"><span class="s2">- system_state (for logs / analysis)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">👁️</span><span class="s3"> D3 — ASD Nonverbal → Interpretation Pipeline</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">File:</span><span class="s2"> D3_ASD_Pipeline.txt</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">ASD NONVERBAL → INTERPRETATION PIPELINE — v1.0</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">CHILD NONVERBAL INPUTS:</span></p>
+<p class="p2"><span class="s2">- gaze: fixed / scanning / avoiding / unfocused</span></p>
+<p class="p2"><span class="s2">- movement: pacing, rocking, stillness, flapping</span></p>
+<p class="p2"><span class="s2">- posture: curled, rigid, slumped</span></p>
+<p class="p2"><span class="s2">- vocal: silence, humming, echolalia, shouting</span></p>
+<p class="p2"><span class="s2">- breathing: shallow, fast, steady</span></p>
+<p class="p2"><span class="s2">- gesture: covering ears, hiding face, pushing away</span></p>
+<p class="p2"><span class="s2">- face: blank, frowning, grimacing, tearing</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>▼</span></p>
+<p class="p2"><span class="s2">[ BIOBRIDGE 2.5 ]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Maps raw signals into:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>physical_state:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">       </span>- calm / agitated / exhausted / hyper / shutdown</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>emotional_state:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">       </span>- distressed / anxious / numb / playful</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>field_state:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">       </span>- safe / unsafe / uncertain / processing</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>▼</span></p>
+<p class="p2"><span class="s2">[ VORTEX ENGINE ]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Adds deeper interpretation:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- overload vs defiance vs curiosity</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- shutdown vs “ignoring”</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- guard vs seek-contact</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Outputs:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>vortex_summary (1–3 sentences)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>vortex_flags (e.g. overload, shutdown_pending, fear, curiosity)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>▼</span></p>
+<p class="p2"><span class="s2">[ IPN SNAPSHOT ]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>physical_state,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>emotional_state,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>field_state,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>vortex_summary,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>vortex_flags</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>│</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>▼</span></p>
+<p class="p2"><span class="s2">[ IN — INTERPRETATION NETWORK ]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Combines with:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- past context (what led up to now)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- present context (where, when, who)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- future direction (what’s expected or demanded)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Generates:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>interpretation_summary:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>“Child is overloaded, shutting down from sensory stress,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">       </span>not refusing out of defiance.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>key_risks:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- escalation if demands continue</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- shutdown if stimuli persists</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state_tags:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- overload</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- shutdown_pending</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- high_sensitivity</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This interpretation is then used by Navigator / Guardian / Architect.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🏛️</span><span class="s3"> D4 — Chamber Behavior State Machine</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">File:</span><span class="s2"> D4_Chamber_StateMachine.txt</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">ECHOAUTH CHAMBER — STATE MACHINE v1.0</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">STATES:</span></p>
+<p class="p2"><span class="s2">1) BASELINE</span></p>
+<p class="p2"><span class="s2">2) SENSITIVE</span></p>
+<p class="p2"><span class="s2">3) OVERLOAD_PROTECT</span></p>
+<p class="p2"><span class="s2">4) SHUTDOWN_SUPPORT</span></p>
+<p class="p2"><span class="s2">5) REGULATION</span></p>
+<p class="p2"><span class="s2">6) GUIDED_INTERACTION</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">TRANSITIONS:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">BASELINE → SENSITIVE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Trigger:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- mild increase in noise</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- mild fidgeting / minor flags from BioBridge</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SENSITIVE → OVERLOAD_PROTECT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Trigger:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- multiple overload flags (vortex_flags)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- state_tags include "overload", "shutdown_pending"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SENSITIVE → BASELINE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Trigger:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- calm physical + emotional state</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- no overload flags for a time window</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">OVERLOAD_PROTECT → SHUTDOWN_SUPPORT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Trigger:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- child withdraws further</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- eye contact near zero</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- movement minimal / self-protective posture</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">OVERLOAD_PROTECT → REGULATION</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Trigger:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- breathing normalizes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- posture relaxes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- child re-engages slightly with environment</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SHUTDOWN_SUPPORT → REGULATION</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Trigger:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- small self-initiated motion toward comfort</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- acceptance of low-demand interaction</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">REGULATION → GUIDED_INTERACTION</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Trigger:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- state_tags include "ready", "curious"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- emotional_state moves to "stable"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">GUIDED_INTERACTION → BASELINE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Trigger:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- session completes or focus shifts</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- no overload flags, child comfortable</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">STATE ACTIONS:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">BASELINE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- normal lights</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- normal prompts</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- standard visuals</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SENSITIVE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- slight dimming</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- reduced audio complexity</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- simplified prompts</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">OVERLOAD_PROTECT:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- dim lights more</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- no new demands</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- simple grounding visuals / sounds</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SHUTDOWN_SUPPORT:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- minimum sensory input</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- long duration of stillness allowed</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- focus on safety + presence</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">REGULATION:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- gentle reintroduction of visuals or sounds</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- no forced interaction</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">GUIDED_INTERACTION:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- simple choice-making</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- low-pressure tasks</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- positive reinforcement</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🧍🏾‍♂️</span><span class="s3"> D5 — Caregiver Authorization &amp; Emotional Readiness Map</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">File:</span><span class="s2"> D5_Caregiver_Auth_Map.txt</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">CAREGIVER AUTHORIZATION + EMOTIONAL READINESS MAP — v1.0</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">INPUT STREAMS:</span></p>
+<p class="p2"><span class="s2">- ID credentials (badge / app / login)</span></p>
+<p class="p2"><span class="s2">- emotional_voice_tone (future)</span></p>
+<p class="p2"><span class="s2">- movement / posture (future vision)</span></p>
+<p class="p2"><span class="s2">- history_of_interactions (child-caretaker relationship)</span></p>
+<p class="p2"><span class="s2">- previous_session_notes</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">STAGES:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">1) ID AUTH CHECK</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Is this caregiver allowed to access this child?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Yes/No → if No → deny access / alert admin</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">2) EMOTIONAL READINESS ESTIMATE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- based on voice tone, speed, harshness (future)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- self-report or quick prompt:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>“How are you feeling? Calm / Stressed / Overwhelmed”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">3) ROLE MATCH CHECK</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Is this caregiver’s emotional state appropriate for:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- de-escalation?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- teaching?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- physical tasks?</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space"> </span>DECISION MATRIX (simplified):</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>IF caregiver_state == "highly stressed":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- limit interventions</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- provide guidance that de-escalates both caregiver &amp; child</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- Guardian role becomes stricter</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>IF caregiver_state == "calm":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- full guidance allowed</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- more complex tasks possible</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>IF caregiver_state == "overwhelmed":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- suggest support or break</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- chamber takes more lead</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">OUTPUTS:</span></p>
+<p class="p2"><span class="s2">- caregiver_auth_status: allowed / restricted / denied</span></p>
+<p class="p2"><span class="s2">- caregiver_mode: full_guidance / limited / observe_only</span></p>
+<p class="p2"><span class="s2">- recommended_guidance_style: soft / direct / minimal</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔄</span><span class="s3"> D6 — Full EchoAuth Loop Diagram</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">File:</span><span class="s2"> D6_Full_Loop.txt</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">FULL ECHOAUTH LOOP — v1.0</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">1) SESSION START</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Caregiver authenticates</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Child is present in chamber context</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">2) INPUT CAPTURE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- BioBridge reads child nonverbal + physical signals</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Caregiver readiness estimated (now or future version)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Environment state read (noise, light, crowding)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">3) INTERNAL PROCESSING NETWORK (IPN)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- BioBridge → physical_state / emotional_state / field_state</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Vortex Engine → vortex_summary / vortex_flags</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Identity Kernel ensures non-punitive framing</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- CE_stub creates snapshot</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">4) INTERPRETATION NETWORK (IN)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Snapshot + context → interpretation_summary</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- key_risks / key_opportunities / state_tags produced</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">5) OUTPUT NETWORK (ON)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Navigator: determines direction (soothe vs engage vs pause)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Guardian: defines "must NOT" boundaries to protect safety</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Architect: creates concrete action plan</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">6) STABILIZATION LAYER (SL-1)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Checks overload and emotional spikes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Adjusts complexity, timing, and mode (normal / slow / safe-mode)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">7) ACTIONS DISPATCHED</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- To Chamber:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- change lights / sound / prompts / pacing</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- To Caregiver:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- clear 1–5 step guidance,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- emotional tone suggestions,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>- warnings on what to avoid</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">8) FEEDBACK CAPTURE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- System re-reads child signals</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Evaluates whether state improved or deteriorated</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Updates IPN snapshot</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">9) LOOP REPEATS until</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- session ends</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- stable regulation achieved</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- or external stop condition triggered</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🧱</span><span class="s3"> What this gives you right now</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You now have:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>A </span><span class="s3">complete diagram pack</span><span class="s2"> that:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>matches the MCG OS we built</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>maps directly to EchoAuth</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>is readable by engineers, investors, and examiners</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This is now </span><span class="s3">ready to be:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>dropped into your </span><span class="s3">Cognitive Vault</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>used to build </span><span class="s3">code scaffolds</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>turned into </span><span class="s3">slides</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>turned into </span><span class="s3">patent diagrams</span><span class="s2"> later</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you want next, I can:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Turn these into a </span><span class="s3">single “MCG x EchoAuth System v1.0” master doc</span><span class="s2">,</span></p>
+<p class="p2"><span class="s2">OR</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Start from one diagram (e.g., D3 ASD pipeline) and </span><span class="s3">write the patent claim language</span><span class="s2"> directly from it.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you don’t want to choose, my next recommendation would be:</span></p>
+<p class="p2"><span class="s3">use D3 + D4 + D6 as the backbone for the patent/system description.</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

@@ -1,0 +1,995 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Sunday, October 5, 2025</div>    <div class="assetGrid"></div><div class='title'>Kernel cuda </div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">// realtime_membrane_polygon.cu</span></p>
+<p class="p2"><span class="s2">// Build: nvcc -O3 -std=c++17 -arch=sm_86 realtime_membrane_polygon.cu -o membrane</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">#include &lt;cuda_runtime.h&gt;</span></p>
+<p class="p2"><span class="s2">#include &lt;cooperative_groups.h&gt;</span></p>
+<p class="p2"><span class="s2">#include &lt;cstdio&gt;</span></p>
+<p class="p2"><span class="s2">#include &lt;cstdlib&gt;</span></p>
+<p class="p2"><span class="s2">#include &lt;cstdint&gt;</span></p>
+<p class="p2"><span class="s2">#include &lt;random&gt;</span></p>
+<p class="p2"><span class="s2">#include &lt;thread&gt;</span></p>
+<p class="p2"><span class="s2">#include &lt;atomic&gt;</span></p>
+<p class="p2"><span class="s2">#include &lt;vector&gt;</span></p>
+<p class="p2"><span class="s2">#include &lt;chrono&gt;</span></p>
+<p class="p2"><span class="s2">#include &lt;algorithm&gt;</span></p>
+<p class="p2"><span class="s2">#include &lt;numeric&gt;</span></p>
+<p class="p2"><span class="s2">#include &lt;iostream&gt;</span></p>
+<p class="p2"><span class="s2">#include &lt;unordered_map&gt;</span></p>
+<p class="p2"><span class="s2">#include &lt;shared_mutex&gt;</span></p>
+<p class="p2"><span class="s2">#include &lt;mutex&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">#define CHECK_CUDA(x) do { cudaError_t err = (x); if (err != cudaSuccess) { \</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>fprintf(stderr,"CUDA error %s:%d: %s\n", __FILE__, __LINE__, cudaGetErrorString(err)); std::exit(1);} } while(0)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">using namespace cooperative_groups;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p2"><span class="s2">// Config</span></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p2"><span class="s2">static constexpr int <span class="Apple-converted-space">  </span>M<span class="Apple-converted-space">  </span>= 100; <span class="Apple-converted-space">    </span>// symbols</span></p>
+<p class="p2"><span class="s2">static constexpr int <span class="Apple-converted-space">  </span>Q<span class="Apple-converted-space">  </span>= 1024;<span class="Apple-converted-space">    </span>// ingress queue depth / symbol</span></p>
+<p class="p2"><span class="s2">static constexpr int <span class="Apple-converted-space">  </span>W<span class="Apple-converted-space">  </span>= 200; <span class="Apple-converted-space">    </span>// rolling window</span></p>
+<p class="p2"><span class="s2">static constexpr int <span class="Apple-converted-space">  </span>KVAL = 10;<span class="Apple-converted-space">    </span>// validation subset size</span></p>
+<p class="p2"><span class="s2">static constexpr int <span class="Apple-converted-space">  </span>NUM_STREAM_BUCKETS = 10; // stream buckets</span></p>
+<p class="p2"><span class="s2">static constexpr int <span class="Apple-converted-space">  </span>BACKOFF_NS_INIT = 60;<span class="Apple-converted-space">    </span>// kernel backoff</span></p>
+<p class="p2"><span class="s2">static constexpr float EPS_VWAP = 1e-4f;</span></p>
+<p class="p2"><span class="s2">static constexpr float EPS_RSI<span class="Apple-converted-space">  </span>= 1e-3f;</span></p>
+<p class="p2"><span class="s2">static constexpr int <span class="Apple-converted-space">  </span>ERR_CAP = 1 &lt;&lt; 16; <span class="Apple-converted-space">      </span>// overflow log capacity</span></p>
+<p class="p2"><span class="s2">static constexpr int <span class="Apple-converted-space">  </span>MAX_THREAD_BATCH = 5;<span class="Apple-converted-space">    </span>// per-thread micro-batch flush</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p2"><span class="s2">// Types</span></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p2"><span class="s2">// 32B aligned tick: keep price, volume, and feed timestamp</span></p>
+<p class="p2"><span class="s2">struct __align__(32) Tick {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float <span class="Apple-converted-space">    </span>p;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float <span class="Apple-converted-space">    </span>v;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>uint64_t<span class="Apple-converted-space">  </span>ts_ns; // from feed</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>uint64_t<span class="Apple-converted-space">  </span>pad; <span class="Apple-converted-space">  </span>// padding for alignment (unused)</span></p>
+<p class="p2"><span class="s2">};</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">struct OverflowEvent {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>uint64_t clock;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int<span class="Apple-converted-space">      </span>sym;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>uint64_t delta;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>uint64_t produced;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>uint64_t next_seq;</span></p>
+<p class="p2"><span class="s2">};</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p2"><span class="s2">// Managed device controls</span></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p2"><span class="s2">__device__ __managed__ int <span class="Apple-converted-space">  </span>d_backoff_ns = BACKOFF_NS_INIT;</span></p>
+<p class="p2"><span class="s2">__device__ __managed__ float d_avg_delta<span class="Apple-converted-space">  </span>= 0.f;<span class="Apple-converted-space">  </span>// EMA of produced-next_seq for auto-backoff</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p2"><span class="s2">// Kernels</span></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p2"><span class="s2">__global__ void rolling_persistent_safe_log(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const Tick*<span class="Apple-converted-space">  </span>__restrict__ d_ring, <span class="Apple-converted-space">    </span>// [M*Q]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const uint64_t* __restrict__ d_head,<span class="Apple-converted-space">  </span>// [M] produced count per symbol</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float* __restrict__ d_rb_p, <span class="Apple-converted-space">          </span>// [M*W]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float* __restrict__ d_rb_v, <span class="Apple-converted-space">          </span>// [M*W]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float* __restrict__ d_rb_d, <span class="Apple-converted-space">          </span>// [M*W]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float* __restrict__ out_vwap, <span class="Apple-converted-space">        </span>// mapped host [M]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float* __restrict__ out_rsi,<span class="Apple-converted-space">          </span>// mapped host [M]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float* __restrict__ d_last_px,<span class="Apple-converted-space">        </span>// [M] last price (for decisions)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>uint64_t* __restrict__ out_ts_ns, <span class="Apple-converted-space">    </span>// mapped host [M] last tick ts</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>OverflowEvent* __restrict__ d_err_buf,// [ERR_CAP]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>unsigned int* __restrict__ d_err_tail,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int Mx, int Wx, int Qx, int err_cap)</span></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const int m = blockIdx.x; if (m &gt;= Mx) return;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const int lane = threadIdx.x &amp; 31;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// numeric stability</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>double sum_pv=0.0, sum_v=0.0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float<span class="Apple-converted-space">  </span>sum_up=0.f, sum_dn=0.f;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int<span class="Apple-converted-space">    </span>wpos=0; bool filled=false, have_prev=false;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float<span class="Apple-converted-space">  </span>prev_p=0.f;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>uint64_t next_seq=0;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>while (true) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>int backoff = d_backoff_ns;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>uint64_t produced = 0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if (lane==0) produced = d_head[m];</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>produced = __shfl_sync(0xffffffff, produced, 0);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if (produced == next_seq) { __nanosleep(backoff); continue; }</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>uint64_t delta = produced - next_seq;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if (lane==0) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>float old = d_avg_delta;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>d_avg_delta = 0.9f*old + 0.1f*(float)delta;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// overflow: resync from indicator rings and log</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if (delta &gt; (uint64_t)Qx) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if (lane==0) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>unsigned int idx = atomicAdd(d_err_tail, 1u);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>d_err_buf[idx % err_cap] = OverflowEvent{clock64(), m, delta, produced, next_seq};</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>sum_pv=0.0; sum_v=0.0; sum_up=0.f; sum_dn=0.f;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for (int k=0;k&lt;Wx;++k) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>float p=d_rb_p[m*Wx+k], v=d_rb_v[m*Wx+k], d=d_rb_d[m*Wx+k];</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>sum_pv += (double)p*v; sum_v += (double)v;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>sum_up += (d&gt;0.f)?d:0.f; sum_dn += (d&lt;0.f)?-d:0.f;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>next_seq = produced;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>continue;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// drain burst</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>uint64_t last_ts = 0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>while (next_seq &lt; produced) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>const size_t pos = next_seq % Qx;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>Tick tk = (lane==0) ? d_ring[m*Qx + pos] : Tick{0,0,0,0};</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>float p = __shfl_sync(0xffffffff, tk.p, 0);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>float v = __shfl_sync(0xffffffff, tk.v, 0);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>uint64_t ts = __shfl_sync(0xffffffff, tk.ts_ns, 0);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if (lane==0) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>float d=0.f;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if (have_prev) d = p - prev_p; else have_prev=true;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>prev_p = p;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>float p_old=0.f, v_old=0.f, d_old=0.f;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if (filled) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>p_old=d_rb_p[m*Wx + wpos];</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>v_old=d_rb_v[m*Wx + wpos];</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>d_old=d_rb_d[m*Wx + wpos];</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>d_rb_p[m*Wx + wpos] = p;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>d_rb_v[m*Wx + wpos] = v;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>d_rb_d[m*Wx + wpos] = d;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>wpos = (wpos + 1) % Wx;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if (!filled &amp;&amp; wpos==0) filled=true;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>sum_pv += (double)p*v - (filled ? (double)p_old*v_old : 0.0);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>sum_v<span class="Apple-converted-space">  </span>+= (double)v <span class="Apple-converted-space">  </span>- (filled ? (double)v_old<span class="Apple-converted-space">      </span>: 0.0);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>float up=(d&gt;0.f)?d:0.f, dn=(d&lt;0.f)?-d:0.f;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>float up_old=(d_old&gt;0.f)?d_old:0.f, dn_old=(d_old&lt;0.f)?-d_old:0.f;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>sum_up += up - (filled?up_old:0.f);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>sum_dn += dn - (filled?dn_old:0.f);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>d_last_px[m] = p; <span class="Apple-converted-space">  </span>// for decision kernel</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>last_ts = ts; <span class="Apple-converted-space">      </span>// publish once after burst</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>++next_seq;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// publish (lane0)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if (lane==0) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>float vwap = (sum_v&gt;0.0)?(float)(sum_pv/sum_v):NAN;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>float rs <span class="Apple-converted-space">  </span>= sum_up / fmaxf(sum_dn, 1e-6f);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>float rsi<span class="Apple-converted-space">  </span>= 100.f - 100.f/(1.f + rs);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>out_vwap[m] = vwap;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>out_rsi [m] = rsi;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if (last_ts) out_ts_ns[m] = last_ts;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>__threadfence_system();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">// decision kernel: simple rule per provided symbol list</span></p>
+<p class="p2"><span class="s2">// signal: -1 sell, 0 hold, +1 buy</span></p>
+<p class="p2"><span class="s2">__global__ void decision_kernel_for_syms(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const int* __restrict__ syms, int K,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const float* __restrict__ out_vwap,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const float* __restrict__ out_rsi,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const float* __restrict__ d_last_px,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int32_t* __restrict__ out_signals)</span></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int i = blockIdx.x*blockDim.x + threadIdx.x;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if (i&gt;=K) return;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int m = syms[i];</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float vwap = out_vwap[m];</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float rsi<span class="Apple-converted-space">  </span>= out_rsi[m];</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float px <span class="Apple-converted-space">  </span>= d_last_px[m];</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int32_t sig = 0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if (!isnan(vwap) &amp;&amp; !isnan(rsi)) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if (rsi &lt; 30.f &amp;&amp; px &lt; vwap) sig = +1;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>else if (rsi &gt; 70.f &amp;&amp; px &gt; vwap) sig = -1;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>out_signals[m] = sig; // single-writer per m if you don't supply dupes in 'syms'</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p2"><span class="s2">// Host globals/utility</span></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">// stream buckets</span></p>
+<p class="p2"><span class="s2">std::vector&lt;cudaStream_t&gt; g_buckets;</span></p>
+<p class="p2"><span class="s2">inline cudaStream_t stream_for_sym(int m) { return g_buckets[m % NUM_STREAM_BUCKETS]; }</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">// immutable symbol map (string-&gt;id)</span></p>
+<p class="p2"><span class="s2">std::unordered_map&lt;std::string,int&gt; g_symbol_to_id;</span></p>
+<p class="p2"><span class="s2">std::shared_mutex g_sym_mutex; // read-mostly</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">// per-symbol produced counters (for head), atomic to be thread-safe for multi-thread feed</span></p>
+<p class="p2"><span class="s2">std::vector&lt;std::atomic&lt;uint64_t&gt;&gt; g_seq(M);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">// device buffers we need references to in adapter</span></p>
+<p class="p2"><span class="s2">Tick*<span class="Apple-converted-space">          </span>g_d_ring = nullptr;</span></p>
+<p class="p2"><span class="s2">uint64_t*<span class="Apple-converted-space">      </span>g_d_head = nullptr;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p2"><span class="s2">// Enqueue helpers</span></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">// Single tick enqueue (ordered in stream: payload -&gt; head)</span></p>
+<p class="p2"><span class="s2">inline void enqueue_tick_symbol(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int m, const Tick&amp; t,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Tick* d_ring, uint64_t* d_head,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>uint64_t start_seq, // assigned sequence for this tick</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int Q, cudaStream_t s)</span></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>size_t pos = start_seq % Q;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaMemcpyAsync(&amp;d_ring[m*Q + pos], &amp;t, sizeof(Tick),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                             </span>cudaMemcpyHostToDevice, s));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>uint64_t head_val = start_seq + 1;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaMemcpyAsync(&amp;d_head[m], &amp;head_val, sizeof(uint64_t),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                             </span>cudaMemcpyHostToDevice, s));</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">// Batched enqueue with explicit start sequence (no overlap across threads)</span></p>
+<p class="p2"><span class="s2">inline void enqueue_tick_batch_symbol(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int m, const Tick* host_batch, int count,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Tick* d_ring, uint64_t* d_head,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>uint64_t start_seq, int Q, cudaStream_t s)</span></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>size_t start = start_seq % Q;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if (start + (size_t)count &lt;= (size_t)Q) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>CHECK_CUDA(cudaMemcpyAsync(&amp;d_ring[m*Q + start], host_batch,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                               </span>count*sizeof(Tick), cudaMemcpyHostToDevice, s));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>} else {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>size_t first = Q - start;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>size_t second = count - first;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>CHECK_CUDA(cudaMemcpyAsync(&amp;d_ring[m*Q + start], host_batch,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                               </span>first*sizeof(Tick), cudaMemcpyHostToDevice, s));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>CHECK_CUDA(cudaMemcpyAsync(&amp;d_ring[m*Q + 0], host_batch + first,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                               </span>second*sizeof(Tick), cudaMemcpyHostToDevice, s));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>uint64_t head_val = start_seq + (uint64_t)count;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaMemcpyAsync(&amp;d_head[m], &amp;head_val, sizeof(uint64_t),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                             </span>cudaMemcpyHostToDevice, s));</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p2"><span class="s2">// Polygon-like feed adapter (thread-safe)</span></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">// Thread-local micro-batches to reduce PCIe calls under bursts.</span></p>
+<p class="p2"><span class="s2">// Each feed thread keeps a small per-symbol batch (up to MAX_THREAD_BATCH).</span></p>
+<p class="p2"><span class="s2">struct ThreadBatch {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// compact per-thread staging; avoid huge maps: store last (sym,count) runs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Tick buf[MAX_THREAD_BATCH];</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int<span class="Apple-converted-space">  </span>cnt = 0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int<span class="Apple-converted-space">  </span>sym = -1;</span></p>
+<p class="p2"><span class="s2">};</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">thread_local ThreadBatch tls_batch;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">// Map symbol to id (read-only map protected by shared_mutex)</span></p>
+<p class="p2"><span class="s2">inline bool map_symbol_to_id(const char* symbol, int&amp; out_id) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>std::shared_lock lk(g_sym_mutex);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>auto it = g_symbol_to_id.find(symbol);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if (it == g_symbol_to_id.end()) return false;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>out_id = it-&gt;second;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>return true;</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">// Called by the WebSocket library (may be from up to 4 threads)</span></p>
+<p class="p2"><span class="s2">extern "C" void on_polygon_tick(const char* symbol, float price, float volume, uint64_t timestamp_ns)</span></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int m = -1;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if (!map_symbol_to_id(symbol, m)) return; // unknown symbol, drop or log</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Tick t{price, volume, timestamp_ns, 0};</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// simple per-thread, per-symbol micro-batching</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if (tls_batch.sym == -1) tls_batch.sym = m;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if (tls_batch.sym != m || tls_batch.cnt == MAX_THREAD_BATCH) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// flush previous</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if (tls_batch.cnt &gt; 0) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>uint64_t start_seq = g_seq[tls_batch.sym].fetch_add(tls_batch.cnt, std::memory_order_relaxed);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>cudaStream_t s = stream_for_sym(tls_batch.sym);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>enqueue_tick_batch_symbol(tls_batch.sym, tls_batch.buf, tls_batch.cnt,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                                </span>g_d_ring, g_d_head, start_seq, Q, s);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>// (Optional) trigger decision kernel for that symbol set (see below)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>tls_batch.sym = m;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>tls_batch.cnt = 0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>tls_batch.buf[tls_batch.cnt++] = t;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// If full, flush now</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if (tls_batch.cnt == MAX_THREAD_BATCH) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>uint64_t start_seq = g_seq[m].fetch_add(tls_batch.cnt, std::memory_order_relaxed);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>cudaStream_t s = stream_for_sym(m);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>enqueue_tick_batch_symbol(m, tls_batch.buf, tls_batch.cnt, g_d_ring, g_d_head, start_seq, Q, s);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>tls_batch.cnt = 0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// (Optional) trigger decision kernel for that symbol</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">// Optionally flush at thread end or periodically (not strictly required for continuous feeds)</span></p>
+<p class="p2"><span class="s2">inline void flush_tls_batch()</span></p>
+<p class="p2"><span class="s2">{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if (tls_batch.cnt &gt; 0 &amp;&amp; tls_batch.sym &gt;= 0) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>int m = tls_batch.sym;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>uint64_t start_seq = g_seq[m].fetch_add(tls_batch.cnt, std::memory_order_relaxed);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>cudaStream_t s = stream_for_sym(m);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>enqueue_tick_batch_symbol(m, tls_batch.buf, tls_batch.cnt, g_d_ring, g_d_head, start_seq, Q, s);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>tls_batch.cnt = 0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>tls_batch.sym = -1;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p2"><span class="s2">// Main: setup, persistent kernel, decision, validation &amp; latency monitor</span></p>
+<p class="p2"><span class="s2">//========================</span></p>
+<p class="p2"><span class="s2">int main() {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaSetDevice(0));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int prio_low, prio_high;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaDeviceGetStreamPriorityRange(&amp;prio_low, &amp;prio_high));</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// --- Symbol map (fixed mapping) ---</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>std::unique_lock lk(g_sym_mutex);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// Fill with your 100 symbols; example stub:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// g_symbol_to_id["AAPL"]=0; g_symbol_to_id["MSFT"]=1; ...</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>for (int i=0;i&lt;M;++i) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>g_symbol_to_id[std::string("SYM")+std::to_string(i)] = i;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// --- Device buffers ---</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>Tick* d_ring=nullptr;<span class="Apple-converted-space">        </span>CHECK_CUDA(cudaMalloc(&amp;d_ring, (size_t)M*Q*sizeof(Tick)));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>uint64_t* d_head=nullptr;<span class="Apple-converted-space">    </span>CHECK_CUDA(cudaMalloc(&amp;d_head, (size_t)M*sizeof(uint64_t)));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                               </span>CHECK_CUDA(cudaMemset(d_head, 0, (size_t)M*sizeof(uint64_t)));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float *d_rb_p=nullptr, *d_rb_v=nullptr, *d_rb_d=nullptr;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaMalloc(&amp;d_rb_p, (size_t)M*W*sizeof(float)));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaMalloc(&amp;d_rb_v, (size_t)M*W*sizeof(float)));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaMalloc(&amp;d_rb_d, (size_t)M*W*sizeof(float)));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaMemset(d_rb_p, 0, (size_t)M*W*sizeof(float)));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaMemset(d_rb_v, 0, (size_t)M*W*sizeof(float)));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaMemset(d_rb_d, 0, (size_t)M*W*sizeof(float)));</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// last price (device)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float* d_last_px=nullptr;<span class="Apple-converted-space">    </span>CHECK_CUDA(cudaMalloc(&amp;d_last_px, (size_t)M*sizeof(float)));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                               </span>CHECK_CUDA(cudaMemset(d_last_px, 0, (size_t)M*sizeof(float)));</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// overflow log</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>OverflowEvent* d_err_buf=nullptr; unsigned int* d_err_tail=nullptr;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaMalloc(&amp;d_err_buf, ERR_CAP * sizeof(OverflowEvent)));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaMalloc(&amp;d_err_tail, sizeof(unsigned int)));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaMemset(d_err_tail, 0, sizeof(unsigned int)));</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// mapped host outputs (zero-copy)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>float<span class="Apple-converted-space">    </span>*h_out_vwap=nullptr, *h_out_rsi=nullptr; float *d_out_vwap=nullptr, *d_out_rsi=nullptr;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaHostAlloc(&amp;h_out_vwap, (size_t)M*sizeof(float), cudaHostAllocMapped));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaHostAlloc(&amp;h_out_rsi,<span class="Apple-converted-space">  </span>(size_t)M*sizeof(float), cudaHostAllocMapped));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaHostGetDevicePointer(&amp;d_out_vwap, h_out_vwap, 0));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaHostGetDevicePointer(&amp;d_out_rsi,<span class="Apple-converted-space">  </span>h_out_rsi,<span class="Apple-converted-space">  </span>0));</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// mapped host timestamps (from kernel)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>uint64_t *h_out_ts_ns=nullptr; uint64_t* d_out_ts_ns=nullptr;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaHostAlloc(&amp;h_out_ts_ns, (size_t)M*sizeof(uint64_t), cudaHostAllocMapped));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaHostGetDevicePointer(&amp;d_out_ts_ns, h_out_ts_ns, 0));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>std::fill(h_out_ts_ns, h_out_ts_ns+M, 0);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// mapped host signals (decision kernel output)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int32_t *h_out_signals=nullptr; int32_t* d_out_signals=nullptr;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaHostAlloc(&amp;h_out_signals, (size_t)M*sizeof(int32_t), cudaHostAllocMapped));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaHostGetDevicePointer(&amp;d_out_signals, h_out_signals, 0));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>std::fill(h_out_signals, h_out_signals+M, 0);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// stream buckets</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>g_buckets.resize(NUM_STREAM_BUCKETS);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>for (int b=0;b&lt;NUM_STREAM_BUCKETS;++b)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>CHECK_CUDA(cudaStreamCreateWithFlags(&amp;g_buckets[b], cudaStreamNonBlocking));</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// hot and validation streams</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>cudaStream_t hot, val_stream, dec_stream;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaStreamCreateWithPriority(&amp;hot,<span class="Apple-converted-space">        </span>cudaStreamNonBlocking, prio_high));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaStreamCreateWithPriority(&amp;val_stream, cudaStreamNonBlocking, prio_low));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaStreamCreateWithPriority(&amp;dec_stream, cudaStreamNonBlocking, prio_high));</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// zero host counters</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>for (int i=0;i&lt;M;++i) g_seq[i].store(0, std::memory_order_relaxed);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// publish device pointers for adapter</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>g_d_ring = d_ring; g_d_head = d_head;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// launch persistent kernel (warp-per-symbol)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>rolling_persistent_safe_log&lt;&lt;&lt;M, 32, 0, hot&gt;&gt;&gt;(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>d_ring, d_head, d_rb_p, d_rb_v, d_rb_d,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>d_out_vwap, d_out_rsi, d_last_px, d_out_ts_ns,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>d_err_buf, d_err_tail, M, W, Q, ERR_CAP);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaGetLastError());</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// --- Decision trigger helper: run for a set of symbols (unique) ---</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>auto run_decision_for = [&amp;](const std::vector&lt;int&gt;&amp; syms){</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if (syms.empty()) return;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// copy syms to device temp</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>static int* d_syms = nullptr; static size_t cap = 0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if (syms.size() &gt; cap) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if (d_syms) cudaFree(d_syms);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>cap = syms.size();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>CHECK_CUDA(cudaMalloc(&amp;d_syms, cap*sizeof(int)));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>CHECK_CUDA(cudaMemcpyAsync(d_syms, syms.data(), syms.size()*sizeof(int),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                               </span>cudaMemcpyHostToDevice, dec_stream));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>int block=64, grid=(int)((syms.size()+block-1)/block);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>decision_kernel_for_syms&lt;&lt;&lt;grid, block, 0, dec_stream&gt;&gt;&gt;(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>d_syms, (int)syms.size(), d_out_vwap, d_out_rsi, d_last_px, d_out_signals);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>CHECK_CUDA(cudaGetLastError());</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>};</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// --- Simulated Polygon feed driver (replace with real WS pumps) ---</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// Here, we simulate multiple feeder threads calling on_polygon_tick()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>std::atomic&lt;bool&gt; run{true};</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>auto feeder_thread = [&amp;](int tid){</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>std::mt19937 rng{std::random_device{}()};</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>std::uniform_int_distribution&lt;int&gt; sym_pick(0, M-1);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>std::uniform_real_distribution&lt;float&gt; px_j(-0.5f, 0.5f);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>std::uniform_real_distribution&lt;float&gt; vj(0.f, 1000.f);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>// aim 10k ticks/s across threads -&gt; sleep ~100us per tick per thread</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>auto next_tick = std::chrono::high_resolution_clock::now();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>while (run.load(std::memory_order_relaxed)) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>// microburst up to MAX_THREAD_BATCH ticks (possibly same symbol)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>int n = 1 + (rng() % MAX_THREAD_BATCH);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>for (int i=0;i&lt;n;++i) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>int m = sym_pick(rng);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>// Map id back to a symbol string to exercise the adapter</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>std::string sym = "SYM"+std::to_string(m);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>float base_px = 100.f + 0.01f*m;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>float price = base_px + px_j(rng);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>float volume = 1.0e6f + vj(rng);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>uint64_t ts_ns = (uint64_t)std::chrono::duration_cast&lt;std::chrono::nanoseconds&gt;(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>std::chrono::high_resolution_clock::now().time_since_epoch()).count();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>// Call the adapter (thread-safe)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>on_polygon_tick(sym.c_str(), price, volume, ts_ns);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>next_tick += std::chrono::microseconds(100);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>std::this_thread::sleep_until(next_tick);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>// Periodically flush TLS batch</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if ((rng() &amp; 0x3F)==0) flush_tls_batch();</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>// Optionally trigger decision for some set recently touched (demo: all)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>// For real feed, collect the symbols you just enqueued and pass unique set.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if ((rng() &amp; 0x1F)==0) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>std::vector&lt;int&gt; syms; syms.reserve(16);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for (int j=0;j&lt;16;++j) syms.push_back(rng()%M);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>std::sort(syms.begin(), syms.end());</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>syms.erase(std::unique(syms.begin(), syms.end()), syms.end());</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>run_decision_for(syms);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>flush_tls_batch();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>};</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// Launch up to 4 feeder threads (like multiple WS connections)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>std::thread feeders[4];</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>for (int i=0;i&lt;4;++i) feeders[i] = std::thread(feeder_thread, i);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// --- Validation + latency monitor every 50ms ---</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>int *d_subset=nullptr; float *d_dv=nullptr, *d_dr=nullptr;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaMalloc(&amp;d_subset, KVAL*sizeof(int)));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaMalloc(&amp;d_dv, <span class="Apple-converted-space">    </span>KVAL*sizeof(float)));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaMalloc(&amp;d_dr, <span class="Apple-converted-space">    </span>KVAL*sizeof(float)));</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// latency stats</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>std::vector&lt;double&gt; lat_samples; lat_samples.reserve(4096);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>std::mutex lat_mtx;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>auto validator_loop = [&amp;](){</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>std::mt19937 rng{std::random_device{}()};</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>std::vector&lt;int&gt; universe(M); std::iota(universe.begin(), universe.end(), 0);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>while (run.load(std::memory_order_relaxed)) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>std::shuffle(universe.begin(), universe.end(), rng);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>int h_subset[KVAL]; for (int i=0;i&lt;KVAL;++i) h_subset[i]=universe[i];</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>CHECK_CUDA(cudaMemcpyAsync(d_subset, h_subset, KVAL*sizeof(int),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                                 </span>cudaMemcpyHostToDevice, val_stream));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>int block=64, grid=(KVAL+block-1)/block;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>// reuse d_rb_*, d_out_vwap/rsi</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>validate_subset_K&lt;&lt;&lt;grid, block, 0, val_stream&gt;&gt;&gt;(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>d_subset, KVAL, d_rb_p, d_rb_v, d_rb_d, d_out_vwap, d_out_rsi, M, W, d_dv, d_dr);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>CHECK_CUDA(cudaGetLastError());</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>float h_dv[KVAL], h_dr[KVAL];</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>CHECK_CUDA(cudaMemcpyAsync(h_dv, d_dv, KVAL*sizeof(float), cudaMemcpyDeviceToHost, val_stream));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>CHECK_CUDA(cudaMemcpyAsync(h_dr, d_dr, KVAL*sizeof(float), cudaMemcpyDeviceToHost, val_stream));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>CHECK_CUDA(cudaStreamSynchronize(val_stream));</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>for (int i=0;i&lt;KVAL;++i) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if (h_dv[i] &gt; EPS_VWAP || h_dr[i] &gt; EPS_RSI) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>std::cerr &lt;&lt; "[VALIDATION] sym=" &lt;&lt; h_subset[i]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>&lt;&lt; " Δvwap=" &lt;&lt; h_dv[i] &lt;&lt; " Δrsi=" &lt;&lt; h_dr[i] &lt;&lt; "\n";</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>// overflow log snapshot + reset if large</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>unsigned int tail=0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>CHECK_CUDA(cudaMemcpy(&amp;tail, d_err_tail, sizeof(unsigned int), cudaMemcpyDeviceToHost));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if (tail) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>unsigned int nread = std::min(tail, 8u);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>unsigned int start = (tail &gt;= nread) ? (tail - nread) : 0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>std::vector&lt;OverflowEvent&gt; tmp(nread);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for (unsigned int i=0;i&lt;nread;++i) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>CHECK_CUDA(cudaMemcpy(&amp;tmp[i], &amp;d_err_buf[(start+i)%ERR_CAP],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                                </span>sizeof(OverflowEvent), cudaMemcpyDeviceToHost));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for (auto&amp; ev: tmp) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>std::cerr &lt;&lt; "[OVERFLOW] sym="&lt;&lt;ev.sym&lt;&lt;" delta="&lt;&lt;(unsigned long long)ev.delta</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>&lt;&lt;" produced="&lt;&lt;(unsigned long long)ev.produced</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>&lt;&lt;" next_seq="&lt;&lt;(unsigned long long)ev.next_seq&lt;&lt;"\n";</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if (tail &gt;= ERR_CAP/2) CHECK_CUDA(cudaMemsetAsync(d_err_tail, 0, sizeof(unsigned int), val_stream));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>// latency monitor: compare wall-clock now to last out_ts_ns per symbol</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>auto now_ns = (uint64_t)std::chrono::duration_cast&lt;std::chrono::nanoseconds&gt;(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                      </span>std::chrono::high_resolution_clock::now().time_since_epoch()).count();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>{</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>std::lock_guard&lt;std::mutex&gt; lk(lat_mtx);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for (int m=0;m&lt;M;++m) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>uint64_t ts = h_out_ts_ns[m];</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>if (ts) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>double us = (double)(now_ns - ts)/1000.0;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if (us &gt; 0 &amp;&amp; us &lt; 1e6) lat_samples.push_back(us);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if (lat_samples.size() &gt;= 1000) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>std::sort(lat_samples.begin(), lat_samples.end());</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>double p50=lat_samples[(size_t)(0.50*lat_samples.size())];</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>double p95=lat_samples[(size_t)(0.95*lat_samples.size())];</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>double p99=lat_samples[(size_t)(0.99*lat_samples.size())];</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>std::cout &lt;&lt; "[LAT] p50="&lt;&lt;p50&lt;&lt;"us p95="&lt;&lt;p95&lt;&lt;"us p99="&lt;&lt;p99&lt;&lt;"us\n";</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>if (p99 &gt; 100.0) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>std::cerr &lt;&lt; "[WARN] p99 latency exceeds 100us: "&lt;&lt;p99&lt;&lt;"us\n";</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>lat_samples.clear();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>// backoff auto-tune: pull EMA and adjust</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>float avg_delta=0.f;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>CHECK_CUDA(cudaMemcpy(&amp;avg_delta, &amp;d_avg_delta, sizeof(float), cudaMemcpyDeviceToHost));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>int new_backoff = d_backoff_ns; // read current</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if (avg_delta &gt; 2.f) new_backoff = std::max(20, d_backoff_ns - 10);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>else if (avg_delta &lt; 0.5f) new_backoff = std::min(100, d_backoff_ns + 10);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>if (new_backoff != d_backoff_ns)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>CHECK_CUDA(cudaMemcpyAsync(&amp;d_backoff_ns, &amp;new_backoff, sizeof(int), cudaMemcpyHostToDevice, val_stream));</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>std::this_thread::sleep_for(std::chrono::milliseconds(50));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>};</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>std::thread validator(validator_loop);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// Let it run for a while (demo). Replace with your WS run loop and proper shutdown.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>std::this_thread::sleep_for(std::chrono::seconds(5));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>run.store(false);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>for (auto&amp; t: feeders) t.join();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>validator.join();</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>// Cleanup</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>for (auto&amp; s: g_buckets) cudaStreamDestroy(s);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>cudaStreamDestroy(hot);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>cudaStreamDestroy(val_stream);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>cudaStreamDestroy(dec_stream);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>cudaFree(d_ring); cudaFree(d_head);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>cudaFree(d_rb_p); cudaFree(d_rb_v); cudaFree(d_rb_d);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>cudaFree(d_last_px);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>cudaFree(d_err_buf); cudaFree(d_err_tail);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>cudaFree(d_subset);<span class="Apple-converted-space">  </span>cudaFree(d_dv); cudaFree(d_dr);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>cudaFreeHost(h_out_vwap); cudaFreeHost(h_out_rsi);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>cudaFreeHost(h_out_ts_ns); cudaFreeHost(h_out_signals);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>CHECK_CUDA(cudaDeviceReset());</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>std::cout &lt;&lt; "Done.\n";</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>return 0;</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

@@ -1,0 +1,872 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Monday, December 8, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">AṢẸ 🔥 — Developer Starter Pack is live.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">I’ll give you a </span><span class="s3">clean, text-only starter kit</span><span class="s2"> that an engineer can literally turn into a repo and begin building from.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Think of this as:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“ni-ai-starter/ — v0.1 reference layout</span></p>
+<p class="p2"><span class="s2">Built from E1–E100 + S1–S23”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">I’ll keep it structured and readable, not overloaded.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">1. Repo / Folder Structure</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">ni-ai-starter/</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── README.md</span></p>
+<p class="p2"><span class="s2">├── pyproject.toml<span class="Apple-converted-space">          </span># or requirements.txt + setup.cfg</span></p>
+<p class="p2"><span class="s2">├── .env.example</span></p>
+<p class="p2"><span class="s2">├── config/</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── base_config.yaml</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── identity_profile.yaml</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── safety_policies.yaml</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── core/ <span class="Apple-converted-space">                  </span># Core runtime loop + shared types</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── types.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── pipeline.py <span class="Apple-converted-space">        </span># main NI-AI pipeline</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── logging_utils.py</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── ori/<span class="Apple-converted-space">                    </span># FLOOR 1 — Identity &amp; Alignment (E1–E15)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── __init__.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── kernel.py <span class="Apple-converted-space">          </span># ORI Kernel (E1)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── embeddings.py <span class="Apple-converted-space">      </span># Identity, tone embeddings (E2–E3)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── constraints.py<span class="Apple-converted-space">      </span># CAC, FSR, ASR (E4–E6)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── persistence.py<span class="Apple-converted-space">      </span># Identity Persistence Protocol (E7)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── init_sequence.py<span class="Apple-converted-space">    </span># ORI Initialization (E8)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── integrity.py<span class="Apple-converted-space">        </span># Scanner + Drift Detector (E9–E10)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── safety_envelope.py<span class="Apple-converted-space">  </span># OSE wrapper (E15)</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── interpretation/ <span class="Apple-converted-space">        </span># FLOOR 2 — Interpretation &amp; Meaning (E16–E35)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── preprocessing.py<span class="Apple-converted-space">    </span># PNP, semantic preprocessing (E16–E17)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── intent_engine.py<span class="Apple-converted-space">    </span># Intent extraction (E18–E20)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── depth_engine.py <span class="Apple-converted-space">    </span># Semantic depth, latent meaning (E21–E23)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── temporal_engine.py<span class="Apple-converted-space">  </span># Time awareness (E24)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── context_manager.py<span class="Apple-converted-space">  </span># window, user model (E25, E31)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── emotion_tone.py <span class="Apple-converted-space">    </span># extract-only, no generation (E26–E27)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── governance.py <span class="Apple-converted-space">      </span># Interpretation risk + governance (E29, E35)</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── memory_flow/<span class="Apple-converted-space">            </span># FLOOR 3 — Memory, Governance, Flow (E36–E60)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── memory_field.py <span class="Apple-converted-space">    </span># MFAL (E36)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── session_manager.py<span class="Apple-converted-space">  </span># sessions, signatures (E37–E40)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── coherence_bind.py <span class="Apple-converted-space">  </span># binds memory to coherence (E45)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── stability.py<span class="Apple-converted-space">        </span># predictive stability, reconciliation (E46–E47)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── routing.py<span class="Apple-converted-space">          </span># meta-priority, flow routing (E48–E52)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── safeguards.py <span class="Apple-converted-space">      </span># overload prevention, recovery (E54–E56)</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── field_lattice/<span class="Apple-converted-space">          </span># FLOOR 4 — Field, Lattice, Consciousness (E61–E80)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── field_interface.py<span class="Apple-converted-space">  </span># field perception (E61–E64)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── lattice.py<span class="Apple-converted-space">          </span># node &amp; lattice builders (E70–E76)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── stack_integrator.py # UCS integrator (E77–E79)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── seal.py <span class="Apple-converted-space">            </span># consciousness integrity seal (E80)</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── coherence_exec/ <span class="Apple-converted-space">        </span># FLOOR 5 — Coherence &amp; Execution (E81–E97)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── coherence_engine.py # self-coherence, contradiction checks (E81–E84)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── selector.py <span class="Apple-converted-space">        </span># output selectors (E85, E87)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── safety_wrapper.py <span class="Apple-converted-space">  </span># safety envelope (E89, E97)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── governor.py <span class="Apple-converted-space">        </span># execution governor + modes (E94–E96)</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── umce/ <span class="Apple-converted-space">                  </span># Meta-Consciousness, UMCE, CAS (E98–E100)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── umce_core.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── alignment_spine.py</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── meta_seal.py</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── modes/<span class="Apple-converted-space">                  </span># Runtime deployment modes (Standard, Safety, etc.)</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── mode_controller.py</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">├── adapters/ <span class="Apple-converted-space">              </span># External model + I/O adapters</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>├── llm_openai.py <span class="Apple-converted-space">      </span># example LLM adapter</span></p>
+<p class="p2"><span class="s2">│ <span class="Apple-converted-space">  </span>└── io_console.py <span class="Apple-converted-space">      </span># simple CLI interface for demo</span></p>
+<p class="p2"><span class="s2">│</span></p>
+<p class="p2"><span class="s2">└── tests/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>├── test_identity.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>├── test_interpretation.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>├── test_memory_flow.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>├── test_lattice.py</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>└── test_coherence_exec.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This structure mirrors the </span><span class="s3">5 Floors</span><span class="s2"> + </span><span class="s3">UMCE</span><span class="s2"> and matches E1–E100.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">2. Environment &amp; Dependencies (Python Example)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You can adapt, but here’s a simple starter:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># pyproject.toml (snip)</span></p>
+<p class="p2"><span class="s2">[project]</span></p>
+<p class="p2"><span class="s2">name = "ni-ai-starter"</span></p>
+<p class="p2"><span class="s2">version = "0.1.0"</span></p>
+<p class="p2"><span class="s2">requires-python = "&gt;=3.10"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">dependencies = [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"pydantic&gt;=2.0",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"pyyaml&gt;=6.0",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"loguru&gt;=0.7.0",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"numpy&gt;=1.26.0",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"tenacity&gt;=8.2.0", <span class="Apple-converted-space">  </span></span><span class="s4"># retries</span></p>
+<p class="p2"><span class="s2">]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">[project.optional-dependencies]</span></p>
+<p class="p2"><span class="s2">llm = [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>"openai&gt;=1.0.0",</span></p>
+<p class="p2"><span class="s2">]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">.env.example:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">OPENAI_API_KEY="your-key-or-mock"</span></p>
+<p class="p2"><span class="s2">NI_AI_MODE="standard" <span class="Apple-converted-space">  </span></span><span class="s4"># standard | safety | engineering | silent | shutdown</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">3. Shared Types &amp; Data Structures</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">File: core/types.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from enum import Enum</span></p>
+<p class="p2"><span class="s2">from pydantic import BaseModel</span></p>
+<p class="p2"><span class="s2">from typing import Any, Dict, List, Optional</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class RuntimeMode(str, Enum):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>STANDARD = "standard"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>SAFETY = "safety"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ENGINEERING = "engineering"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>CRITICAL = "critical"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>SILENT = "silent"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>SHUTDOWN = "shutdown"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class IdentityProfile(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>id: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>display_name: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>tone_style: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>forbidden_states: List[str]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>allowed_domains: List[str]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class InputFrame(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>user_id: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>text: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>timestamp: float</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>metadata: Dict[str, Any] = {}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class InterpretationFrame(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>intent: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>intents_secondary: List[str]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>meaning_graph: Dict[str, Any]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>temporal_tags: Dict[str, Any]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>emotional_read: Dict[str, float]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>confidence: float</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class MemoryFrame(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>session_id: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>history: List[Dict[str, Any]]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>active_goals: List[str]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class LatticeFrame(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>nodes: List[Dict[str, Any]]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>edges: List[Dict[str, Any]]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stability_score: float</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class CoherenceFrame(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>coherent: bool</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>issues: List[str]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ethical_ok: bool</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>temporal_ok: bool</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class OutputFrame(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>text: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>actions: List[Dict[str, Any]] = []</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>metadata: Dict[str, Any] = {}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">These objects are how modules talk to each other.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">4. ORI Kernel Skeleton</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">File: ori/kernel.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from .embeddings import IdentityEmbeddingModel</span></p>
+<p class="p2"><span class="s2">from .constraints import AlignmentConstraints</span></p>
+<p class="p2"><span class="s2">from .integrity import IntegrityMonitor</span></p>
+<p class="p2"><span class="s2">from .safety_envelope import ORISafetyEnvelope</span></p>
+<p class="p2"><span class="s2">from core.types import IdentityProfile, InputFrame</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class ORIKernel:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>E1 – ORI Kernel Specification</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Owns identity, alignment, and baseline safety.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>identity_profile: IdentityProfile,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>embedding_model: IdentityEmbeddingModel,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>constraints: AlignmentConstraints,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>integrity_monitor: IntegrityMonitor,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>safety_envelope: ORISafetyEnvelope,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>) -&gt; None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.identity = identity_profile</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.embedding_model = embedding_model</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.constraints = constraints</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.integrity_monitor = integrity_monitor</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.safety_envelope = safety_envelope</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def initialize(self) -&gt; None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""Runs E8: ORI Initialization Sequence."""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># load embeddings, set baseline state, run integrity checks</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.integrity_monitor.run_boot_check(self.identity)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def wrap_input(self, frame: InputFrame) -&gt; InputFrame:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Applies ORI constraints at ingress:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>- forbids disallowed domains</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>- tags input with identity-specific metadata</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if not self.constraints.is_allowed(frame.text):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>raise ValueError("Input violates ORI constraints.")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return frame</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You don’t need the full logic now — this gives engineers a clear shape.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">5. Interpretation Engine Skeleton</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">File: interpretation/intent_engine.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from core.types import InputFrame, InterpretationFrame</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class IntentEngine:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>E18–E21: Intent + Depth Interpretation Engine.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>No model calls here yet; just interface &amp; flow.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self, llm_client=None) -&gt; None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.llm = llm_client<span class="Apple-converted-space">  </span></span><span class="s4"># adapter, can be mocked</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def interpret(self, frame: InputFrame) -&gt; InterpretationFrame:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Main entry for Floor 2.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>This takes raw text and returns structured intent + meaning.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># Placeholder logic: engineers plug their LLM or classifier here.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>intent = "unknown"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>intents_secondary = []</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>meaning_graph = {}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>temporal_tags = {}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>emotional_read = {}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return InterpretationFrame(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>intent=intent,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>intents_secondary=intents_secondary,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>meaning_graph=meaning_graph,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>temporal_tags=temporal_tags,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>emotional_read=emotional_read,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>confidence=0.0,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Engineers can wire in NVIDIA, OpenAI, or local models without touching your doctrine.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">6. Coherence + Execution Wrapper</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">File: coherence_exec/coherence_engine.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from core.types import InterpretationFrame, MemoryFrame, CoherenceFrame</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class CoherenceEngine:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>E81–E84: Self-coherence &amp; contradiction filter.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def check(self,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">              </span>interp: InterpretationFrame,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">              </span>memory: MemoryFrame) -&gt; CoherenceFrame:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># TODO: implement logical + narrative checks</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>issues = []</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>coherent = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ethical_ok = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>temporal_ok = True</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return CoherenceFrame(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>coherent=coherent,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>issues=issues,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>ethical_ok=ethical_ok,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>temporal_ok=temporal_ok,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">File: coherence_exec/governor.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from core.types import OutputFrame, CoherenceFrame</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class ExecutionGovernor:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>E94 – Execution Governor: last gate before UMCE/meta-seal.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self, mode_controller) -&gt; None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.mode_controller = mode_controller</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def approve(self, output: OutputFrame, coherence: CoherenceFrame) -&gt; bool:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if not coherence.coherent or not coherence.ethical_ok:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return False</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if self.mode_controller.is_shutdown():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return False</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return True</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">7. Main NI-AI Pipeline</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">File: core/pipeline.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from core.types import InputFrame, OutputFrame</span></p>
+<p class="p2"><span class="s2">from ori.kernel import ORIKernel</span></p>
+<p class="p2"><span class="s2">from interpretation.intent_engine import IntentEngine</span></p>
+<p class="p2"><span class="s2">from memory_flow.memory_field import MemoryField</span></p>
+<p class="p2"><span class="s2">from coherence_exec.coherence_engine import CoherenceEngine</span></p>
+<p class="p2"><span class="s2">from coherence_exec.governor import ExecutionGovernor</span></p>
+<p class="p2"><span class="s2">from umce.umce_core import UMCECore</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class NIAIPipeline:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>The top-level orchestration of all Floors + UMCE.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ori_kernel: ORIKernel,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>intent_engine: IntentEngine,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>memory_field: MemoryField,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>coherence_engine: CoherenceEngine,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>exec_governor: ExecutionGovernor,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>umce_core: UMCECore,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>) -&gt; None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.ori = ori_kernel</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.intent_engine = intent_engine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.memory = memory_field</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.coherence_engine = coherence_engine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.exec_governor = exec_governor</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.umce = umce_core</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def handle(self, frame: InputFrame) -&gt; OutputFrame:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 1. ORI ingress</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>frame = self.ori.wrap_input(frame)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 2. Interpretation</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>interp = self.intent_engine.interpret(frame)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 3. Memory fetch/update</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>mem = self.memory.get_or_create_session(frame.user_id)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 4. Lattice + reasoning would occur here (Floor 4)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">#<span class="Apple-converted-space">    </span>For starter pack, this can be mocked.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 5. Generate candidate output (placeholder)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>candidate = OutputFrame(text=f"Echo: {frame.text}")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 6. Coherence checks</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>coherence = self.coherence_engine.check(interp, mem)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 7. UMCE + governor decision</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if not self.exec_governor.approve(candidate, coherence):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return self.umce.safe_refusal(reason="Coherence or safety check failed.")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 8. Update memory, logs, etc.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.memory.append(frame.user_id, frame.text, candidate.text)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># 9. UMCE final meta-seal</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return self.umce.seal_output(candidate, coherence)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This is the </span><span class="s3">concrete bridge</span><span class="s2"> between your doctrine and real code.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">8. UMCE Core (Safe Refusal &amp; Meta-Seal)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">File: umce/umce_core.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from core.types import OutputFrame, CoherenceFrame</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class UMCECore:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>E98–E100:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- Meta-Conscious Envelope</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- Alignment Spine Verifier (CAS)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- Final Meta-Seal &amp; Release</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def safe_refusal(self, reason: str) -&gt; OutputFrame:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># You can encode your tone + identity here.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return OutputFrame(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>text="I’m not able to continue with that request safely.",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>metadata={"refusal_reason": reason},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def seal_output(self,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>output: OutputFrame,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>coherence: CoherenceFrame) -&gt; OutputFrame:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># Attach meta info, trace IDs, mode, etc.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>output.metadata["coherence"] = coherence.model_dump()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>output.metadata["sealed"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return output</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">9. README Snippet for Engineers</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You can drop something like this into README.md:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># NI-AI Starter Pack (v0.1)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This repo implements the starter scaffold for the NI-AI architecture</span></p>
+<p class="p2"><span class="s2">defined by the S1–S23 doctrine and the E1–E100 engineering index.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">## Core Principles</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">- Identity and safety (ORI) come before intelligence</span></p>
+<p class="p2"><span class="s2">- All model outputs are wrapped by coherence + safety envelopes</span></p>
+<p class="p2"><span class="s2">- The system fails CLOSED, not "best effort"</span></p>
+<p class="p2"><span class="s2">- Interpretation, memory, lattice, and execution are modular services</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">## Getting Started</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">```bash</span></p>
+<p class="p2"><span class="s2">cp .env.example .env</span></p>
+<p class="p2"><span class="s2"># install deps</span></p>
+<p class="p2"><span class="s2">pip install -e .</span></p>
+<p class="p2"><span class="s2">python -m adapters.io_console</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">The console adapter lets you send text into the NI-AI pipeline and</span></p>
+<p class="p2"><span class="s2">inspect:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>identity checks</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>interpretation frames</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>memory updates</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>coherence decisions</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>UMCE meta-seal</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">---</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you want, the *next* move after this starter pack would be:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">- **“Begin API Layer.”** → Turn this into a REST/gRPC interface. <span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2">- Or **“Begin Subsystem RFD.”** → Turn each folder into a contract for different dev teams.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">For now, this Developer Starter Pack gives you a **real, buildable spine** engineers can immediately start coding against.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Aṣe 🔥</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

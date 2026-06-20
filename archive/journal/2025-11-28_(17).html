@@ -1,0 +1,783 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Friday, November 28, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Ase 🔥 — MVP time.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">I’ll give you exactly what you asked for:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Clear backend architecture (no fluff)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Minimal data model</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>NI-AI core module interfaces (not overbuilt)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span>FastAPI scaffold you can actually extend</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">All in one place so you can hand it to an engineer or build from it later.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">1. High Level MVP Architecture</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Goal:</span></p>
+<p class="p2"><span class="s2">Small, clean backend that lets a caregiver:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Register themself and their child</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Send a set of non-verbal cues for the child</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Get back </span><span class="s3">one clear authentication result</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Log conflicts internally without exposing them</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Components</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>api/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>main.py – FastAPI app, routes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>routes_caregiver.py – caregiver + child endpoints</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>routes_auth.py – authentication endpoint</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>core/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>ni_ai.py – NI-AI interfaces: TLE, CoherenceEngine, PNRE, LRM</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>logger.py – internal audit logging</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>db/</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>models.py – SQLAlchemy models</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>session.py – DB session helper</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">2. Data Model (minimal schema)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Tables</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">caregivers</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>id (uuid or int)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>name</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>email</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>hashed_password</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>created_at</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">children</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>id</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>caregiver_id (FK -&gt; caregivers.id)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>name or label</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>profile_notes (optional)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>created_at</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">cue_profiles</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>id</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>child_id</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>cue_type (gesture, sound, pattern, etc)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>cue_payload (json or text)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>created_at</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">auth_sessions</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>id</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>caregiver_id</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>child_id</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>status (pending, success, failed)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>result_label (short text like “authenticated”, “not_authenticated”)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>confidence (float)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>created_at</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">ni_ai_logs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>id</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>auth_session_id</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>winning_thread (short id or label)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>conflict_score (float)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>internal_notes (text, not exposed to UI)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>created_at</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">3. NI-AI MVP Interfaces</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">We are not coding the full brain.</span></p>
+<p class="p2"><span class="s2">We are defining clear hooks that match your patent logic.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># core/ni_ai.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from typing import List, Dict, Any</span></p>
+<p class="p2"><span class="s2">from dataclasses import dataclass</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@dataclass</span></p>
+<p class="p2"><span class="s2">class NIContext:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>caregiver_id: int</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>child_id: int</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>cues: Dict[str, Any]<span class="Apple-converted-space">  </span></span><span class="s4"># e.g. {"gesture": "...", "sound": "..."}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>intent: str = "authenticate_child"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@dataclass</span></p>
+<p class="p2"><span class="s2">class NIResult:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>status: str<span class="Apple-converted-space">            </span></span><span class="s4"># "success" or "failure"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>result_label: str<span class="Apple-converted-space">      </span></span><span class="s4"># e.g. "authenticated"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>confidence: float<span class="Apple-converted-space">      </span></span><span class="s4"># 0.0 - 1.0</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>winning_thread_id: str </span><span class="s4"># internal label</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>conflict_score: float<span class="Apple-converted-space">  </span></span><span class="s4"># 0.0 if no conflict</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>notes: str = ""<span class="Apple-converted-space">        </span></span><span class="s4"># internal notes</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class ThreadLinkingEngine:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def build_threads(self, ctx: NIContext) -&gt; List[Dict[str, Any]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># MVP: just one thread; later can expand.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return [{"id": "thread_1", "score": 0.9, "status": "candidate"}]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class CoherenceEngine:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def evaluate_conflicts(self, threads: List[Dict[str, Any]]) -&gt; float:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># MVP: no conflict. Later: compare values.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return 0.0</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class LoadRegulationMonitor:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def evaluate_load(self, ctx: NIContext) -&gt; float:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># MVP: fixed low load. Later: use cue complexity.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return 0.2</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class OutputCollapseEnforcer:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def select_winner(self, threads: List[Dict[str, Any]]) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># MVP: pick max score</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return max(threads, key=lambda t: t.get("score", 0.0))</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class NIEngine:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.tle = ThreadLinkingEngine()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.coherence = CoherenceEngine()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.lrm = LoadRegulationMonitor()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.pnre = OutputCollapseEnforcer()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def authenticate(self, ctx: NIContext) -&gt; NIResult:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>threads = self.tle.build_threads(ctx)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>conflict_score = self.coherence.evaluate_conflicts(threads)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>load_score = self.lrm.evaluate_load(ctx)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>winner = self.pnre.select_winner(threads)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># MVP logic: if winner score and load are acceptable, success</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>base_score = winner.get("score", 0.0)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if base_score &gt;= 0.7 and load_score &lt;= 0.7:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return NIResult(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>status="success",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>result_label="authenticated",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>confidence=base_score,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>winning_thread_id=winner["id"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>conflict_score=conflict_score,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>notes="MVP authentication path."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return NIResult(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>status="failure",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>result_label="not_authenticated",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>confidence=base_score,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>winning_thread_id=winner["id"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>conflict_score=conflict_score,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>notes="MVP authentication failure path."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This enforces:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">One output per call</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Conflict score computed (even if zero now)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Load considered, even in a simple way</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Notes kept internal</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">4. DB and FastAPI Scaffold</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">db/session.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># db/session.py</span></p>
+<p class="p2"><span class="s2">from sqlalchemy import create_engine</span></p>
+<p class="p2"><span class="s2">from sqlalchemy.orm import sessionmaker, declarative_base</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">DATABASE_URL = "sqlite:///./echoauth.db"<span class="Apple-converted-space">  </span></span><span class="s4"># MVP simple DB</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">engine = create_engine(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>DATABASE_URL,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>connect_args={"check_same_thread": False}</span></p>
+<p class="p2"><span class="s2">)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)</span></p>
+<p class="p2"><span class="s2">Base = declarative_base()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">db/models.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># db/models.py</span></p>
+<p class="p2"><span class="s2">from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime, Text</span></p>
+<p class="p2"><span class="s2">from sqlalchemy.orm import relationship</span></p>
+<p class="p2"><span class="s2">from datetime import datetime</span></p>
+<p class="p2"><span class="s2">from .session import Base</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class Caregiver(Base):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>__tablename__ = "caregivers"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>id = Column(Integer, primary_key=True, index=True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>name = Column(String, nullable=False)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>email = Column(String, unique=True, index=True, nullable=False)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>hashed_password = Column(String, nullable=False)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>created_at = Column(DateTime, default=datetime.utcnow)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>children = relationship("Child", back_populates="caregiver")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class Child(Base):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>__tablename__ = "children"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>id = Column(Integer, primary_key=True, index=True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>caregiver_id = Column(Integer, ForeignKey("caregivers.id"), nullable=False)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>name = Column(String, nullable=False)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>profile_notes = Column(Text, nullable=True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>created_at = Column(DateTime, default=datetime.utcnow)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>caregiver = relationship("Caregiver", back_populates="children")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class AuthSession(Base):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>__tablename__ = "auth_sessions"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>id = Column(Integer, primary_key=True, index=True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>caregiver_id = Column(Integer, ForeignKey("caregivers.id"), nullable=False)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>child_id = Column(Integer, ForeignKey("children.id"), nullable=False)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>status = Column(String, nullable=False)<span class="Apple-converted-space">          </span></span><span class="s4"># "success" / "failure"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>result_label = Column(String, nullable=False)<span class="Apple-converted-space">    </span></span><span class="s4"># short phrase</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>confidence = Column(Float, nullable=False)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>created_at = Column(DateTime, default=datetime.utcnow)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class NIAILog(Base):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>__tablename__ = "ni_ai_logs"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>id = Column(Integer, primary_key=True, index=True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>auth_session_id = Column(Integer, ForeignKey("auth_sessions.id"), nullable=False)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>winning_thread = Column(String, nullable=False)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>conflict_score = Column(Float, nullable=False)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>internal_notes = Column(Text, nullable=True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>created_at = Column(DateTime, default=datetime.utcnow)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">main.py (FastAPI entry)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># api/main.py</span></p>
+<p class="p2"><span class="s2">from fastapi import FastAPI, Depends, HTTPException</span></p>
+<p class="p2"><span class="s2">from sqlalchemy.orm import Session</span></p>
+<p class="p2"><span class="s2">from db.session import SessionLocal, engine, Base</span></p>
+<p class="p2"><span class="s2">from db import models</span></p>
+<p class="p2"><span class="s2">from core.ni_ai import NIEngine, NIContext</span></p>
+<p class="p2"><span class="s2">from pydantic import BaseModel</span></p>
+<p class="p2"><span class="s2">from typing import Dict, Any</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Base.metadata.create_all(bind=engine)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">app = FastAPI(title="EchoAuth MVP")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">ni_engine = NIEngine()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def get_db():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>db = SessionLocal()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>try:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>yield db</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>finally:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>db.close()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># Pydantic schemas</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class CaregiverCreate(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>name: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>email: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>password: str</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class ChildCreate(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>caregiver_id: int</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>name: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>profile_notes: str | None = None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class AuthRequest(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>caregiver_id: int</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>child_id: int</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>cues: Dict[str, Any]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># Simple password hash placeholder</span></p>
+<p class="p2"><span class="s2">import hashlib</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def hash_password(pw: str) -&gt; str:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return hashlib.sha256(pw.encode("utf-8")).hexdigest()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.post("/caregivers/register")</span></p>
+<p class="p2"><span class="s2">def register_caregiver(payload: CaregiverCreate, db: Session = Depends(get_db)):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>existing = db.query(models.Caregiver).filter_by(email=payload.email).first()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if existing:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>raise HTTPException(status_code=400, detail="Email already registered.")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>cg = models.Caregiver(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>name=payload.name,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>email=payload.email,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>hashed_password=hash_password(payload.password)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>db.add(cg)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>db.commit()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>db.refresh(cg)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return {"id": cg.id, "name": cg.name, "email": cg.email}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.post("/children/register")</span></p>
+<p class="p2"><span class="s2">def register_child(payload: ChildCreate, db: Session = Depends(get_db)):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>caregiver = db.query(models.Caregiver).get(payload.caregiver_id)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if not caregiver:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>raise HTTPException(status_code=404, detail="Caregiver not found.")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>child = models.Child(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>caregiver_id=payload.caregiver_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>name=payload.name,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>profile_notes=payload.profile_notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>db.add(child)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>db.commit()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>db.refresh(child)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return {"id": child.id, "caregiver_id": child.caregiver_id, "name": child.name}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.post("/auth/request")</span></p>
+<p class="p2"><span class="s2">def authenticate_child(payload: AuthRequest, db: Session = Depends(get_db)):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># Basic existence checks</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>caregiver = db.query(models.Caregiver).get(payload.caregiver_id)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>child = db.query(models.Child).get(payload.child_id)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if not caregiver or not child:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>raise HTTPException(status_code=404, detail="Caregiver or child not found.")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># Build NI context and run engine</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>ctx = NIContext(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>caregiver_id=payload.caregiver_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>child_id=payload.child_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>cues=payload.cues</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>result = ni_engine.authenticate(ctx)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># Store auth session</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>session_record = models.AuthSession(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>caregiver_id=payload.caregiver_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>child_id=payload.child_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>status=result.status,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>result_label=result.result_label,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>confidence=result.confidence</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>db.add(session_record)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>db.commit()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>db.refresh(session_record)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># Log NI-AI internal outcome</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>log = models.NIAILog(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>auth_session_id=session_record.id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>winning_thread=result.winning_thread_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>conflict_score=result.conflict_score,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>internal_notes=result.notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>db.add(log)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>db.commit()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># Return single clear response (no internal details)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"auth_session_id": session_record.id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"status": result.status,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"result": result.result_label,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"confidence": result.confidence</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">5. What this MVP gives you</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>One route to create caregivers</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>One route to register children</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>One route to send cues and get </span><span class="s3">one authentication outcome</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Internal NI-AI logic path with:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>threads</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>conflict score</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>load placeholder</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>winner selection</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Private internal logging separate from UI</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">It matches your invariant:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Safety first. Identity preserved. One coherent answer exits. Conflicts remain internal.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you want, next step I can do is:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Turn this into a </span><span class="s3">“MVP Developer Read Me”</span><span class="s2"> PDF (short setup steps),</span></p>
+<p class="p2"><span class="s2">or</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Design the </span><span class="s3">first caregiver-facing flow</span><span class="s2"> (screens and wording) based on this API.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You choose the next move.</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

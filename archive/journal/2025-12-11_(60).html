@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Thursday, December 11, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p2"><span class="s2">MelaninCognitionOS v3.0 (Scaffold)</span></p>
+<p class="p2"><span class="s2">----------------------------------</span></p>
+<p class="p2"><span class="s2">A simple console-based helper to run your Level 3 OS:</span></p>
+<p class="p2"><span class="s2">- Temporal Integration Engine (TIE)</span></p>
+<p class="p2"><span class="s2">- Multi-Layer State Bus (MLSB)</span></p>
+<p class="p2"><span class="s2">- Action Synthesis Engine (ASE)</span></p>
+<p class="p2"><span class="s2">- Hybrid Roles: Navigator, Guardian, Architect</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Run this in your terminal with: python melanin_cognition_os.py</span></p>
+<p class="p2"><span class="s2">"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from dataclasses import dataclass, field</span></p>
+<p class="p2"><span class="s2">from typing import Optional, Dict</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@dataclass</span></p>
+<p class="p2"><span class="s2">class TimeAxis:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>past: str <span class="Apple-converted-space">      </span># T-</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>present: str<span class="Apple-converted-space">    </span># T0</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>future: str <span class="Apple-converted-space">    </span># T_plus</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@dataclass</span></p>
+<p class="p2"><span class="s2">class LayerAxis:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>physical: str <span class="Apple-converted-space">  </span># L1</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>emotional: str<span class="Apple-converted-space">  </span># L2</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>mental: str <span class="Apple-converted-space">    </span># L3</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>vortex: str <span class="Apple-converted-space">    </span># L4 (intuition/pattern sense)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@dataclass</span></p>
+<p class="p2"><span class="s2">class RoleOutput:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>navigator_direction: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>guardian_warnings: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>architect_expression: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>architect_next_steps: str</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@dataclass</span></p>
+<p class="p2"><span class="s2">class MelaninCognitionOS:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""Core OS object representing your Level 3 decision frame."""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>context_title: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>time_axis: Optional[TimeAxis] = None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>layer_axis: Optional[LayerAxis] = None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>role_output: Optional[RoleOutput] = None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>metadata: Dict[str, str] = field(default_factory=dict)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def set_time_axis(self, past: str, present: str, future: str):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.time_axis = TimeAxis(past=past, present=present, future=future)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def set_layer_axis(self, physical: str, emotional: str, mental: str, vortex: str):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.layer_axis = LayerAxis(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>physical=physical,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>emotional=emotional,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>mental=mental,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>vortex=vortex</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def run_role_synthesis(self):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Very simple first-pass synthesis.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>You can customize this logic to better match your natural style.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if self.time_axis is None or self.layer_axis is None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>raise ValueError("TimeAxis and LayerAxis must be set before synthesis.")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># Navigator: choose direction based on future + vortex + mental</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>nav_lines = []</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if self.time_axis.future.strip():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>nav_lines.append(f"Target future state: {self.time_axis.future}")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if self.layer_axis.vortex.strip():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>nav_lines.append(f"Intuitive guidance: {self.layer_axis.vortex}")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if self.layer_axis.mental.strip():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>nav_lines.append(f"Mental framing: {self.layer_axis.mental}")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>navigator_direction = "\n".join(nav_lines) or "Navigator is awaiting clearer inputs."</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># Guardian: highlight risks &amp; safety points</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>guardian_lines = []</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if self.layer_axis.emotional.strip():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>guardian_lines.append(f"Emotional check: {self.layer_axis.emotional}")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if self.layer_axis.physical.strip():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>guardian_lines.append(f"Physical/real-world constraints: {self.layer_axis.physical}")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># You can expand this with any risk rules you want</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if "tired" in self.layer_axis.physical.lower():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>guardian_lines.append("⚠ You may want rest before making a final call.")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if "angry" in self.layer_axis.emotional.lower():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>guardian_lines.append("⚠ Avoid making irreversible decisions while angry.")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>guardian_warnings = "\n".join(guardian_lines) or "Guardian sees no immediate emotional/physical flags."</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># Architect: turn everything into an expression + next steps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># Here we just stitch things together in a clean, simple way.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>context = self.context_title</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>architect_expression = (</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>f"For the context: '{context}',\n"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>f"- Past: {self.time_axis.past}\n"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>f"- Present: {self.time_axis.present}\n"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>f"- Future: {self.time_axis.future}\n\n"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"Short explanation you can say out loud:\n"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># Craft a one-liner summary</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>one_liner = self._build_one_liner()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>architect_expression += f"➤ \"{one_liner}\"\n"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># Next steps: simple actionable suggestions</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>architect_next_steps = (</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"Suggested next steps:\n"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"- Clarify your future outcome in 1–2 bullet points.\n"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"- Decide on ONE concrete action you can take in the next 24 hours.\n"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"- Decide on ONE longer-term move (1–3 months).\n"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.role_output = RoleOutput(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>navigator_direction=navigator_direction,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>guardian_warnings=guardian_warnings,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>architect_expression=architect_expression,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>architect_next_steps=architect_next_steps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _build_one_liner(self) -&gt; str:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Builds a one-liner based on present, future and mental framing.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>You can edit this to reflect your speaking style.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>present = self.time_axis.present.strip()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>future = self.time_axis.future.strip()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>mental = self.layer_axis.mental.strip()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if future and mental:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return f"{present} – I’m moving this toward {future}, by focusing on {mental}."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>elif future:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return f"{present} – and the direction is toward {future}."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>elif mental:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return f"{present} – framed through {mental}."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return present or "I am still clarifying this in my mind."</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def pretty_print(self):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""Prints the OS state + role outputs in a clean way."""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print("\n" + "=" * 60)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print(f" Melanin Cognition OS – Context: {self.context_title}")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print("=" * 60)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print("\n[Time Axis]")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print(f" Past (T-): <span class="Apple-converted-space">    </span>{self.time_axis.past}")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print(f" Present (T0):<span class="Apple-converted-space">  </span>{self.time_axis.present}")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print(f" Future (T+): <span class="Apple-converted-space">  </span>{self.time_axis.future}")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print("\n[Layer Axis]")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print(f" Physical (L1): {self.layer_axis.physical}")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print(f" Emotional(L2): {self.layer_axis.emotional}")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print(f" Mental<span class="Apple-converted-space">  </span>(L3):<span class="Apple-converted-space">  </span>{self.layer_axis.mental}")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print(f" Vortex<span class="Apple-converted-space">  </span>(L4):<span class="Apple-converted-space">  </span>{self.layer_axis.vortex}")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print("\n[Navigator Direction]")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print(self.role_output.navigator_direction)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print("\n[Guardian Warnings]")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print(self.role_output.guardian_warnings)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print("\n[Architect Expression]")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print(self.role_output.architect_expression)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print("\n[Architect Next Steps]")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print(self.role_output.architect_next_steps)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print("\n" + "=" * 60 + "\n")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def interactive_run():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Simple CLI runner.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>You can comment this out if you want to import the class in other files.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("Melanin Cognition OS v3.0 – Room Mode Helper")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("-------------------------------------------\n")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>context = input("Context / situation (e.g. 'Investor asks about EchoAuth'): ").strip()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>os_obj = MelaninCognitionOS(context_title=context)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("\n--- Time Axis (Past / Present / Future) ---")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>past = input("T- (Past pattern / backstory): ")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>present = input("T0 (What is happening right now?): ")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>future = input("T+ (Desired / likely future if you act well): ")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>os_obj.set_time_axis(past=past, present=present, future=future)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("\n--- Layer Axis (Physical / Emotional / Mental / Vortex) ---")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>physical = input("L1 Physical (body, money, logistics, environment): ")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>emotional = input("L2 Emotional (your state, their state): ")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>mental = input("L3 Mental (facts, logic, structure you see): ")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>vortex = input("L4 Vortex (intuitive read / deeper pattern sense): ")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>os_obj.set_layer_axis(physical=physical, emotional=emotional, mental=mental, vortex=vortex)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>os_obj.run_role_synthesis()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>os_obj.pretty_print()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">if __name__ == "__main__":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>interactive_run()</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

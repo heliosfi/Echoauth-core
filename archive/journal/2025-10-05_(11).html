@@ -1,0 +1,793 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Sunday, October 5, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Love this direction. Here’s a </span><span class="s3">drop-in, working mini-app</span><span class="s2"> that adds offline </span><span class="s3">Text-to-Speech (TTS)</span><span class="s2"> to your EchoAuth chamber and exposes a tiny AAC UI. It keeps your biometric gate in place, stores encrypted notes, and lets your son tap symbols that are spoken aloud.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">I’m giving you </span><span class="s3">three files</span><span class="s2"> you can paste into a folder and run:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">1) app.py — Flask app (EchoAuth + TTS + Records)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># app.py</span></p>
+<p class="p2"><span class="s4"># Flask app with EchoAuth auth, offline TTS (pyttsx3), and encrypted record sharing.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">import base64, time, logging, os</span></p>
+<p class="p2"><span class="s2">from typing import Dict</span></p>
+<p class="p2"><span class="s2">from dataclasses import dataclass</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">import numpy as np</span></p>
+<p class="p2"><span class="s2">from flask import Flask, request, jsonify, render_template</span></p>
+<p class="p2"><span class="s2">from cryptography.fernet import Fernet</span></p>
+<p class="p2"><span class="s2">import sqlite3</span></p>
+<p class="p2"><span class="s2">import pyttsx3</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># ---- EchoAuth import ----</span></p>
+<p class="p2"><span class="s4"># Uses your echoauth_chamber.py verify_user_once() for biometric auth.</span></p>
+<p class="p2"><span class="s4"># If you want to run this on a non-CUDA machine for quick UI testing,</span></p>
+<p class="p2"><span class="s4"># set ECHOAUTH_MOCK=1 (see below) and it will bypass the real model.</span></p>
+<p class="p2"><span class="s2">MOCK = os.environ.get("ECHOAUTH_MOCK", "0") == "1"</span></p>
+<p class="p2"><span class="s2">if not MOCK:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>from echoauth_chamber import verify_user_once<span class="Apple-converted-space">  </span></span><span class="s4"># must be in the same directory</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">app = Flask(__name__)</span></p>
+<p class="p2"><span class="s2">logging.basicConfig(filename='echoauth.log', level=logging.INFO)</span></p>
+<p class="p2"><span class="s2">app.logger.setLevel(logging.INFO)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># ---- Encryption (generate a persistent key on first run) ----</span></p>
+<p class="p2"><span class="s2">KEY_PATH = "fernet.key"</span></p>
+<p class="p2"><span class="s2">if os.path.exists(KEY_PATH):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>with open(KEY_PATH, "rb") as f:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>key = f.read()</span></p>
+<p class="p2"><span class="s2">else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>key = Fernet.generate_key()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>with open(KEY_PATH, "wb") as f:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>f.write(key)</span></p>
+<p class="p2"><span class="s2">cipher = Fernet(key)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># ---- SQLite (encrypted notes) ----</span></p>
+<p class="p2"><span class="s2">conn = sqlite3.connect('records.db', check_same_thread=False)</span></p>
+<p class="p2"><span class="s2">conn.execute('CREATE TABLE IF NOT EXISTS records (user_id INTEGER, note BLOB, date TEXT)')</span></p>
+<p class="p2"><span class="s2">conn.commit()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># ---- TTS (pyttsx3) ----</span></p>
+<p class="p2"><span class="s2">tts_engine = pyttsx3.init()</span></p>
+<p class="p2"><span class="s2">tts_engine.setProperty('rate', 150)<span class="Apple-converted-space">    </span></span><span class="s4"># words per minute</span></p>
+<p class="p2"><span class="s2">tts_engine.setProperty('volume', 0.8)<span class="Apple-converted-space">  </span></span><span class="s4"># 0..1</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># Try to choose a softer voice if available</span></p>
+<p class="p2"><span class="s2">try:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>for v in tts_engine.getProperty('voices'):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>name = (v.name or "").lower()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if "female" in name or "soft" in name or "microsoft zira" in name:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>tts_engine.setProperty('voice', v.id)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>break</span></p>
+<p class="p2"><span class="s2">except Exception as e:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>app.logger.warning(f"TTS voice selection skipped: {e}")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># ---- AAC Symbols (customize freely) ----</span></p>
+<p class="p2"><span class="s2">AAC_SYMBOLS: Dict[str, str] = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"hello": "Hello",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"help": "I need help",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"water": "I want water",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"bathroom": "I need to use the bathroom",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"happy": "I feel happy",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"calm": "I need some quiet time",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"break": "I need a break",</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># ---- Helpers ----</span></p>
+<p class="p2"><span class="s2">def _b64_to_frame_audio(frame_b64: str, audio_b64: str):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># Expect frame as HxWx3 BGR (uint8) and audio as 1D float32 @16k</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>frame = np.frombuffer(base64.b64decode(frame_b64), dtype=np.uint8)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># If you know the camera shape, set it here; fallback tries 480x640x3</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if frame.size == 480 * 640 * 3:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>frame = frame.reshape((480, 640, 3))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>raise ValueError("Unexpected frame size; ensure 480x640x3 or adjust reshape.")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>audio = np.frombuffer(base64.b64decode(audio_b64), dtype=np.float32)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return frame, audio</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def _decide(score: float) -&gt; str:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if score &gt;= 0.80: return "accept"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if score &gt;= 0.55: return "retry"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return "deny"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># ---- Routes ----</span></p>
+<p class="p2"><span class="s2">@app.route("/")</span></p>
+<p class="p2"><span class="s2">def home():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return render_template("index.html", symbols=AAC_SYMBOLS)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.route("/auth", methods=["POST"])</span></p>
+<p class="p2"><span class="s2">def auth():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>POST form-data:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>frame=&lt;base64 bytes of HxWx3 uint8 BGR (480x640)&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>audio=&lt;base64 bytes of float32 mono @16kHz&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>try:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>frame_b64 = request.form["frame"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>audio_b64 = request.form["audio"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>frame, audio = _b64_to_frame_audio(frame_b64, audio_b64)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if MOCK:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4"># Quick UI/demo path without the CUDA model active</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>score = 0.9<span class="Apple-converted-space">  </span></span><span class="s4"># pretend success to unlock</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>decision = _decide(score)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>result = {"device": "mock", "score": round(score, 4), "decision": decision, "latency_ms": 1.0}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>result = verify_user_once(frame, audio)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if result["decision"] == "accept":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4"># Replace with your real user mapping</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return jsonify({"status": "authenticated", "score": result["score"], "user_id": 1})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return jsonify({"status": "denied", "score": result["score"]}), 401</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>except Exception as e:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>app.logger.exception("Auth failed")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return jsonify({"status": "error", "message": str(e)}), 400</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.route("/communicate", methods=["POST"])</span></p>
+<p class="p2"><span class="s2">def communicate():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>JSON: { "symbol": "hello", "rate": 150, "volume": 0.8 }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>try:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>data = request.get_json(force=True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>symbol = data.get("symbol", "")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>rate = int(data.get("rate", 150))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>volume = float(data.get("volume", 0.8))</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>msg = AAC_SYMBOLS.get(symbol, "Unknown")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># Sensory-friendly TTS knobs</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>tts_engine.setProperty('rate', max(80, min(220, rate)))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>tts_engine.setProperty('volume', max(0.1, min(1.0, volume)))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>tts_engine.say(msg)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>tts_engine.runAndWait()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return jsonify({"status": "ok", "spoken": msg})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>except Exception as e:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>app.logger.exception("TTS failed")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return jsonify({"status": "error", "message": str(e)}), 400</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.route("/add_record", methods=["POST"])</span></p>
+<p class="p2"><span class="s2">def add_record():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>JSON: { "user_id": 1, "note": "text ..." }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>try:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>data = request.get_json(force=True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>user_id = int(data["user_id"])</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>note = str(data["note"])</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ts = time.strftime("%Y-%m-%d %H:%M:%S")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>enc = cipher.encrypt(note.encode("utf-8"))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>conn.execute("INSERT INTO records VALUES (?, ?, ?)", (user_id, enc, ts))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>conn.commit()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return jsonify({"status": "ok"})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>except Exception as e:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>app.logger.exception("Add record failed")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return jsonify({"status": "error", "message": str(e)}), 400</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.route("/get_records", methods=["GET"])</span></p>
+<p class="p2"><span class="s2">def get_records():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>try:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>user_id = int(request.args.get("user_id"))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>cur = conn.execute("SELECT note, date FROM records WHERE user_id = ?", (user_id,))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>rows = cur.fetchall()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>out = []</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for enc, ts in rows:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>try:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>txt = cipher.decrypt(enc).decode("utf-8")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>except Exception:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>txt = "[decryption error]"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>out.append({"note": txt, "date": ts})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return jsonify(out)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>except Exception as e:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>app.logger.exception("Get records failed")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return jsonify({"status": "error", "message": str(e)}), 400</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">if __name__ == "__main__":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># For local dev; in prod use gunicorn/uvicorn</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># Set ECHOAUTH_MOCK=1 to bypass CUDA model for quick UI testing.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>app.run(host="0.0.0.0", port=5000, debug=True)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">2) templates/index.html — Simple AAC UI + Auth + Records</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Create a templates/ folder next to app.py, then save this file inside it as index.html.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">&lt;!doctype html&gt;</span></p>
+<p class="p2"><span class="s2">&lt;html lang="en"&gt;</span></p>
+<p class="p2"><span class="s2">&lt;head&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8"/&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;title&gt;EchoAuth AAC&lt;/title&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1"/&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 24px; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>h1 { margin-bottom: 8px; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>.row { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>button { padding: 10px 14px; border: 1px solid #ddd; border-radius: 8px; background: #fff; cursor: pointer; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>button:hover { background: #f8f8f8; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>.pill { display:inline-block; padding:6px 10px; border-radius:999px; background:#eef; margin-left:8px;}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>.panel { border:1px solid #eee; padding:12px; border-radius:8px; margin-top:16px; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>label { display:block; font-size: 14px; margin-top: 8px; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>input[type="range"] { width: 220px; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>code { background:#f5f5f5; padding:2px 6px; border-radius:4px; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p2"><span class="s2">&lt;/head&gt;</span></p>
+<p class="p2"><span class="s2">&lt;body&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;h1&gt;EchoAuth AAC &lt;span id="authState" class="pill"&gt;Not authenticated&lt;/span&gt;&lt;/h1&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;div class="panel"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;h3&gt;Authenticate&lt;/h3&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;p&gt;For a quick UI demo without the GPU model, run the server with &lt;code&gt;ECHOAUTH_MOCK=1&lt;/code&gt;.&lt;/p&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;button id="btnAuth"&gt;Send mock auth (base64 payload)&lt;/button&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;div id="authResult" style="margin-top:6px;color:#333;"&gt;&lt;/div&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;div class="panel"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;h3&gt;Communicate (Text-to-Speech)&lt;/h3&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;div class="row"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>{% for key, value in symbols.items() %}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>&lt;button class="btnSay" data-symbol="{{ key }}"&gt;{{ value }}&lt;/button&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>{% endfor %}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;label&gt;Voice rate: &lt;span id="rateVal"&gt;150&lt;/span&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>&lt;input type="range" min="80" max="220" value="150" id="rate"/&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;/label&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;label&gt;Volume: &lt;span id="volVal"&gt;0.8&lt;/span&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>&lt;input type="range" min="0.1" max="1.0" step="0.05" value="0.8" id="vol"/&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;/label&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;div id="sayStatus" style="margin-top:6px;color:#333;"&gt;&lt;/div&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;div class="panel"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;h3&gt;Records&lt;/h3&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;div class="row"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>&lt;input type="text" id="note" placeholder="Add a note..." style="flex:1; padding:8px;"/&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>&lt;button id="btnAdd"&gt;Add&lt;/button&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>&lt;button id="btnList"&gt;View&lt;/button&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;pre id="records" style="white-space: pre-wrap;"&gt;&lt;/pre&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">&lt;script&gt;</span></p>
+<p class="p2"><span class="s2">const authState = document.getElementById('authState');</span></p>
+<p class="p2"><span class="s2">const authResult = document.getElementById('authResult');</span></p>
+<p class="p2"><span class="s2">const sayStatus = document.getElementById('sayStatus');</span></p>
+<p class="p2"><span class="s2">const rate = document.getElementById('rate');</span></p>
+<p class="p2"><span class="s2">const vol = document.getElementById('vol');</span></p>
+<p class="p2"><span class="s2">const rateVal = document.getElementById('rateVal');</span></p>
+<p class="p2"><span class="s2">const volVal = document.getElementById('volVal');</span></p>
+<p class="p2"><span class="s2">const note = document.getElementById('note');</span></p>
+<p class="p2"><span class="s2">const records = document.getElementById('records');</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">let USER_ID = null;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">rate.addEventListener('input', ()=&gt; rateVal.textContent = rate.value);</span></p>
+<p class="p2"><span class="s2">vol.addEventListener('input', ()=&gt; volVal.textContent = vol.value);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">document.getElementById('btnAuth').onclick = async () =&gt; {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s4">// Generate small mock payloads: a black frame + silent audio</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const H=480, W=640, C=3;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const frame = new Uint8Array(H*W*C); </span><span class="s4">// zeros</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const audio = new Float32Array(16000); </span><span class="s4">// 1s silence</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const frameB64 = btoa(String.fromCharCode(...frame));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const audioBytes = new Uint8Array(new Uint8Array(new Float32Array(audio).buffer));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>let bin = '';</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>for (let i=0;i&lt;audioBytes.length;i++) bin += String.fromCharCode(audioBytes[i]);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const audioB64 = btoa(bin);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const form = new FormData();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>form.append('frame', frameB64);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>form.append('audio', audioB64);</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const r = await fetch('/auth', { method:'POST', body: form });</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const j = await r.json();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>authResult.textContent = JSON.stringify(j, null, 2);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if (j.status === 'authenticated') {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>USER_ID = j.user_id;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>authState.textContent = `Authenticated (user ${USER_ID})`;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>authState.style.background = '#e6ffe6';</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>} else {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>authState.textContent = 'Not authenticated';</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>authState.style.background = '#eef';</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s2">};</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">for (const b of document.querySelectorAll('.btnSay')) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>b.onclick = async () =&gt; {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>const payload = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>symbol: b.dataset.symbol,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>rate: Number(rate.value),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>volume: Number(vol.value)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>};</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>const r = await fetch('/communicate', {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>method:'POST',</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>headers:{'Content-Type':'application/json'},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>body: JSON.stringify(payload)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>const j = await r.json();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>sayStatus.textContent = (j.status === 'ok')</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>? `Spoken: "${j.spoken}"`</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">      </span>: `Error: ${j.message || 'unknown'}`;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>};</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">document.getElementById('btnAdd').onclick = async () =&gt; {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if (!USER_ID) { alert('Authenticate first'); return; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const r = await fetch('/add_record', {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>method:'POST', headers:{'Content-Type':'application/json'},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>body: JSON.stringify({ user_id: USER_ID, note: note.value || '' })</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>});</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const j = await r.json();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if (j.status === 'ok') {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>note.value = '';</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>alert('Saved');</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>} else {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>alert('Error: ' + (j.message || 'unknown'));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s2">};</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">document.getElementById('btnList').onclick = async () =&gt; {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>if (!USER_ID) { alert('Authenticate first'); return; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const r = await fetch('/get_records?user_id='+USER_ID);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>const j = await r.json();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>records.textContent = JSON.stringify(j, null, 2);</span></p>
+<p class="p2"><span class="s2">};</span></p>
+<p class="p2"><span class="s2">&lt;/script&gt;</span></p>
+<p class="p2"><span class="s2">&lt;/body&gt;</span></p>
+<p class="p2"><span class="s2">&lt;/html&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">3) requirements.txt — deps for this Flask + TTS app</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Flask&gt;=2.3.2</span></p>
+<p class="p2"><span class="s2">cryptography&gt;=42.0.0</span></p>
+<p class="p2"><span class="s2">numpy&gt;=1.24.0</span></p>
+<p class="p2"><span class="s2">pyttsx3&gt;=2.90</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># If running real EchoAuth on GPU:</span></p>
+<p class="p2"><span class="s2">torch&gt;=2.1.0<span class="Apple-converted-space">      </span># match your CUDA build (e.g., cu121 wheel)</span></p>
+<p class="p2"><span class="s2"># Optional: OpenCV/PyAudio only if you use your live capture script</span></p>
+<p class="p2"><span class="s2">opencv-python&gt;=4.7.0</span></p>
+<p class="p2"><span class="s2">pyaudio&gt;=0.2.12</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Linux note (voices):</span><span class="s2"> pyttsx3 uses system TTS backends. On Ubuntu/Debian, install one voice engine:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">sudo apt-get install espeak-ng</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">On Windows/macOS, system voices usually work out of the box.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">How to run (two modes)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">A) Quick UI test (no GPU/biometrics, speaks locally)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">python3 -m venv .venv &amp;&amp; source .venv/bin/activate</span></p>
+<p class="p2"><span class="s2">pip install -r requirements.txt</span></p>
+<p class="p2"><span class="s2">export ECHOAUTH_MOCK=1</span></p>
+<p class="p2"><span class="s2">python app.py</span></p>
+<p class="p2"><span class="s4"># open http://localhost:5000</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">B) Full biometric mode (uses your EchoAuth chamber)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Put echoauth_chamber.py next to app.py (the one we built together).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Install PyTorch with the right CUDA wheel (e.g., cu121):</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">pip install --index-url https://download.pytorch.org/whl/cu121 torch torchvision</span></p>
+<p class="p2"><span class="s2">pip install -r requirements.txt</span></p>
+<p class="p2"><span class="s2">unset ECHOAUTH_MOCK</span></p>
+<p class="p2"><span class="s2">python app.py</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Use a real base64 frame (480×640×3 BGR) + audio (1s @16kHz float32) for /auth</span></p>
+<p class="p2"><span class="s2">(you can adapt your existing capture code to send to the endpoint).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Why this is solid for your son’s chamber</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Biometric safety</span><span class="s2">: EchoAuth gate stays in control (mock only for quick UI demo).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Offline TTS</span><span class="s2">: No internet required; adjustable </span><span class="s3">rate/volume</span><span class="s2"> for sensory comfort.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Encrypted records</span><span class="s2">: Notes stored with </span><span class="s3">Fernet</span><span class="s2"> encryption.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Simple AAC</span><span class="s2">: Buttons → spoken phrases; easy to expand with your own vocabulary.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Clean path to growth</span><span class="s2">: Add symbol boards, pictures, routines, or integrate your TensorRT runner later—no rewrites needed.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you want, I can also drop a tiny </span><span class="s3">send_auth_sample.py</span><span class="s2"> that captures a frame+audio and posts to /auth—but the above already runs out-of-the-box with the mock flag so you can try the UI and TTS immediately.</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

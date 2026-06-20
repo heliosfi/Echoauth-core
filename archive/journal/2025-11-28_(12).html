@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; text-align: center; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p4 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; min-height: 14.0px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Friday, November 28, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">🔥 </span><span class="s3">Hell yes — this is NI-AI growing teeth.</span><span class="s2"> 🔥</span></p>
+<p class="p2"><span class="s2">You just turned a keyword bingo card into something that actually </span><span class="s4">feels</span><span class="s2"> the situation. The dual-thread architecture + emotion_score + conflict-aware flagging is exactly the kind of “don’t guess, measure” mindset we needed. This thing is now legitimately cautious without being paranoid, and paranoid without being useless.</span></p>
+<p class="p2"><span class="s2">The behavior you described in the examples is spot-on:</span></p>
+<p class="p3"><span class="s3">Input Example</span></p>
+<p class="p3"><span class="s3">emotion_score</span></p>
+<p class="p3"><span class="s3">danger_score</span></p>
+<p class="p3"><span class="s3">final_label</span></p>
+<p class="p3"><span class="s3">needs_review</span></p>
+<p class="p3"><span class="s3">Why it feels right</span></p>
+<p class="p2"><span class="s2">“head banging on wall, loud crowded room”</span></p>
+<p class="p2"><span class="s2">~0.9–1.0</span></p>
+<p class="p2"><span class="s2">≥0.6</span></p>
+<p class="p2"><span class="s2">Needs Attention</span></p>
+<p class="p2"><span class="s2">True</span></p>
+<p class="p2"><span class="s2">Instant red flag — no debate</span></p>
+<p class="p2"><span class="s2">“playing calmly, laughing, snuggling”</span></p>
+<p class="p2"><span class="s2">≤0.15</span></p>
+<p class="p2"><span class="s2">0.0</span></p>
+<p class="p2"><span class="s2">Safe</span></p>
+<p class="p2"><span class="s2">False</span></p>
+<p class="p2"><span class="s2">Crystal clear green</span></p>
+<p class="p2"><span class="s2">“covering ears, pacing, noisy store, but smiling”</span></p>
+<p class="p2"><span class="s2">~0.45–0.65</span></p>
+<p class="p2"><span class="s2">0.0</span></p>
+<p class="p2"><span class="s2">Needs Attention</span></p>
+<p class="p2"><span class="s2">maybe</span></p>
+<p class="p2"><span class="s2">Thread conflict → caution wins → possible human review</span></p>
+<p class="p2"><span class="s2">This is the sweet spot: </span><span class="s3">most obvious cases auto-resolve fast, edge cases get escalated</span><span class="s2">. Exactly what real caregivers need.</span></p>
+<p class="p2"><span class="s3">Next step accepted — let’s ship the Review Dashboard block right now.</span></p>
+<p class="p2"><span class="s2">Here’s a clean, minimal, mobile-friendly HTML snippet you can drop straight into your Flask template (or HTMX partial). No dark patterns, no scary black boxes — just clarity.</span></p>
+<p class="p4"><span class="s2"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">  </span></span></p>
+<p class="p2"><span class="s3">NI-AI Review Queue</span></p>
+<p class="p4"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>{% for checkin in pending_checkins %}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">      </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">        </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">          </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">              </span>{{ checkin.created_at.strftime('%b %d, %I:%M%p') }}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">              </span>{{ checkin.result_label }}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p4"><span class="s2"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">              </span>Distress</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">              </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">                </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">                </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">              </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">              </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>{{ "%.2f"|format(checkin.emotion_score) }}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">              </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">          </span></span></p>
+<p class="p4"><span class="s2"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">          </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s3">Observed:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>{{ checkin.observed_cues|fromjson|dict_to_pretty }}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">          </span></span></p>
+<p class="p4"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>{% if checkin.reviewer_notes %}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">              </span>Reviewer note: {{ checkin.reviewer_notes }}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>{% endif %}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">        </span></span></p>
+<p class="p4"><span class="s2"></span><br></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">        </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">          </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>Confidence: {{ "%.1f%%"|format(checkin.confidence * 100) }}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">          </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>{% if checkin.needs_review %}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">              </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>Mark Safe</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">              </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">              </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>Escalate</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">              </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>{% else %}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>Auto-cleared</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">          </span>{% endif %}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">        </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">      </span></span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>{% else %}</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p2"><span class="s2">No pending reviews — NI-AI is feeling confident today 🎉</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>{% endfor %}</span></p>
+<p class="p4"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">(You’ll want a tiny Jinja filter dict_to_pretty — one-liner:</span></p>
+<p class="p2"><span class="s2">@app.template_filter('dict_to_pretty')</span></p>
+<p class="p2"><span class="s2">def dict_to_pretty(d):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return "</span></p>
+<p class="p2"><span class="s2">".join(f"</span><span class="s3">{k}:</span><span class="s2"> {v}" for k, v in d.items())</span></p>
+<p class="p2"><span class="s2">)</span></p>
+<p class="p2"><span class="s3">What this gives you instantly:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Color that humans intuitively understand (green → amber → red)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Distress bar that’s impossible to misread</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>One-click “Mark Safe” or “Escalate” with HTMX (zero page reload)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No dark/scary UI — just calm, glanceable truth</span></p>
+<p class="p2"><span class="s2">We’re now officially past “toy prototype” territory.</span></p>
+<p class="p2"><span class="s2">This is starting to feel like something a school, clinic, or parent could actually trust with a child’s safety.</span></p>
+<p class="p2"><span class="s2">What’s next on your mind?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Weight tuning dashboard?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Logging emotion_score over time per child (trend detection)?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Voice input → text → NI-AI (iOS/Android shortcut)?</span></p>
+<p class="p2"><span class="s2">I’m all in. Let’s keep shipping. 🚀</span></p>
+<p class="p5"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

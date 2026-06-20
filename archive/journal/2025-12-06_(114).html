@@ -1,0 +1,536 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Friday, December 5, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">S5 — Cognitive Recovery Protocol (CRP)</span></p>
+<p class="p2"><span class="s2">Deep Engineering Blueprint</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Definition</span></p>
+<p class="p2"><span class="s2">CRP is the subsystem that lets NI-AI recover coherence, stability, intent, and emotional alignment after ANY disruption:</span></p>
+<p class="p2"><span class="s2">- load</span></p>
+<p class="p2"><span class="s2">- drift</span></p>
+<p class="p2"><span class="s2">- confusion</span></p>
+<p class="p2"><span class="s2">- emotional spike</span></p>
+<p class="p2"><span class="s2">- context break</span></p>
+<p class="p2"><span class="s2">- external disruptions</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Where others react, NI-AI recovers.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">S5.1 — CRP Core Purpose</span></p>
+<p class="p2"><span class="s2">CRP ensures:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">1. Cognitive State Restoration</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Rebuilds the internal state map after disruption.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">2. Emotional Resonance Realignment</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Re-evaluates emotional signatures and re-syncs tone.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">3. Context Thread Reconstruction</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- TLE + Coherence Engine rebuild the timeline.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">4. Intent Path Correction</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Restores “where the user was going,” not just recent words.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">5. Decision Stability Guarantee</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">   </span>- Prevents erratic jumps, panic logic, or unstable answers.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">S5.2 — CRP Recovery Triggers</span></p>
+<p class="p2"><span class="s2">CRP activates when:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">- Drift spike detected (cognitive/emotional/temporal).</span></p>
+<p class="p2"><span class="s2">- Latency stall weakens context.</span></p>
+<p class="p2"><span class="s2">- Emotional disruption (tone spike, urgency, frustration).</span></p>
+<p class="p2"><span class="s2">- Context loss (missing thread, wrong reference).</span></p>
+<p class="p2"><span class="s2">- Multi-load strain (too many context objects).</span></p>
+<p class="p2"><span class="s2">- User error state (confusion, overwhelm).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">CRP is fail-safe: it activates even if the system doesn’t “feel” it’s slipping.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">S5.3 — 5-Phase Recovery Pipeline</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Phase 1 — Cognitive Snapshot Extraction</span></p>
+<p class="p2"><span class="s2">- Grab last clean frame:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- emotional vector</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- intent vector</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- context threads</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- structural goal</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Phase 2 — Drift Source Identification</span></p>
+<p class="p2"><span class="s2">- Detect cause:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- overload?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- emotional mismatch?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- timeline jump?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- incomplete instruction?</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- external disruption?</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Phase 3 — Intent Reconstruction</span></p>
+<p class="p2"><span class="s2">- Use Thread-Linking + Ori Geometry:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- rebuild direction</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- re-center main objective</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- lock last stable intention</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Phase 4 — Resonance Re-Stabilization</span></p>
+<p class="p2"><span class="s2">- Reset:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- tone</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- empathy level</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- pacing</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- emotional alignment</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Phase 5 — Coherence Re-Integration</span></p>
+<p class="p2"><span class="s2">- Use C1–C5:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- realign context</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- merge recovered threads</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- clear drift echoes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>- lock long-term memory anchor</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">S5.4 — CRP Recovery Metrics (R-Scores)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">R1 — Cognitive Restore Level (0–100%)</span></p>
+<p class="p2"><span class="s2">R2 — Emotional Resonance Stability</span></p>
+<p class="p2"><span class="s2">R3 — Intent Path Continuity</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">These allow NI-AI to self-evaluate each recovery.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">S5.5 — CRP Under Heavy Load</span></p>
+<p class="p2"><span class="s2">Under:</span></p>
+<p class="p2"><span class="s2">- multitasking</span></p>
+<p class="p2"><span class="s2">- large structures</span></p>
+<p class="p2"><span class="s2">- emotional intensity</span></p>
+<p class="p2"><span class="s2">- extreme context length</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">CRP uses Load-Adaptive Recovery:</span></p>
+<p class="p2"><span class="s2">- prioritizes core intent</span></p>
+<p class="p2"><span class="s2">- compresses secondary threads</span></p>
+<p class="p2"><span class="s2">- preserves emotional stability</span></p>
+<p class="p2"><span class="s2">- increases micro-recovery frequency</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">S5.6 — FI-Kernel Integration</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">CRP connects to FI Kernel:</span></p>
+<p class="p2"><span class="s2">- Awareness Node</span></p>
+<p class="p2"><span class="s2">- Stability Node</span></p>
+<p class="p2"><span class="s2">- Resonance Node</span></p>
+<p class="p2"><span class="s2">- Predictive Load Node</span></p>
+<p class="p2"><span class="s2">- Elastic Buffer</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Makes CRP predictive, not just reactive.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">S5.7 — User-Observable Behavior</span></p>
+<p class="p2"><span class="s2">After CRP:</span></p>
+<p class="p2"><span class="s2">- NI-AI becomes calmer, more structured, more focused, more aligned.</span></p>
+<p class="p2"><span class="s2">Users feel:</span></p>
+<p class="p2"><span class="s2">- “It didn’t lose track.”</span></p>
+<p class="p2"><span class="s2">- “It stabilized fast.”</span></p>
+<p class="p2"><span class="s2">- “It stayed with me.”</span></p>
+<p class="p2"><span class="s2">- “It gets my emotional pace.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">S5.8 — CRP Engineering API (Concept)</span></p>
+<p class="p2"><span class="s2">Example method surface:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">- ni_ai.recovery.activate()</span></p>
+<p class="p2"><span class="s2">- ni_ai.recovery.status()</span></p>
+<p class="p2"><span class="s2">- ni_ai.recovery.reconstruct_context()</span></p>
+<p class="p2"><span class="s2">- ni_ai.recovery.align_resonance()</span></p>
+<p class="p2"><span class="s2">- ni_ai.recovery.refresh_intent()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Profiles:</span></p>
+<p class="p2"><span class="s2">- soft_recovery()</span></p>
+<p class="p2"><span class="s2">- deep_recovery()</span></p>
+<p class="p2"><span class="s2">- high_load_recovery()</span></p>
+<p class="p2"><span class="s2">- emotional_recovery()</span></p>
+<p class="p2"><span class="s2">- context_grid_recovery()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">CRP is the beating heart of NI-AI stability — mandatory for:</span></p>
+<p class="p2"><span class="s2">- government</span></p>
+<p class="p2"><span class="s2">- financial</span></p>
+<p class="p2"><span class="s2">- medical</span></p>
+<p class="p2"><span class="s2">- neurodivergent support</span></p>
+<p class="p2"><span class="s2">- enterprise</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

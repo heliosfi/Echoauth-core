@@ -1,0 +1,758 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Tuesday, December 2, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Nice, you caught exactly the evolution step. Let’s </span><span class="s3">actually</span><span class="s2"> do it now: turn the HER kernel from “inline if/else rules” into a </span><span class="s4">wrapper around S1–S23 safety spine modules</span><span class="s2"> that can sit around a real LLM.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">I’ll give you three things:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span></span><span class="s4">Conceptual wiring</span><span class="s2"> (how HER, R1–R12, S1–S23, LLM fit together)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span></span><span class="s4">Config table style mapping</span><span class="s2"> (R-rules → S-modules)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span></span><span class="s4">Python-style HERKernel skeleton</span><span class="s2"> that calls S1–S23 modules instead of hardcoded logic</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You can paste and adapt this directly.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">1️⃣</span><span class="s4"> Concept: HER as a wrapper around S1–S23</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Think of it like this:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S1–S23</span><span class="s2"> = the </span><span class="s3">spine modules</span><span class="s2"> (each handles one dimension: content, emotional escalation, identity deviation, policy, etc.).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">R1–R12</span><span class="s2"> = the </span><span class="s3">flow rules</span><span class="s2"> (what we check and when: pre-input, pre-LLM, post-LLM, escalation, recovery, etc.).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">HER Kernel</span><span class="s2"> = the </span><span class="s3">orchestrator</span><span class="s2"> that:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>reads the config</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>runs the right S-modules in the right sequence</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>decides whether to:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>allow the LLM call,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>modify the prompt,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>block / escalate,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>or re-anchor identity.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">So instead of:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">if "bad_word" in user_input: block()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You want:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">if not S3ContentFilter.check(context): return S3ContentFilter.on_violation(context)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">HER just calls S-modules. S-modules enforce the logic.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">2️⃣</span><span class="s4"> Example Config Table (R1–R12 → S1–S23)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You can adapt this to your real S1–S23 definitions later; here we just show structure.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">2.1 S-module names (example)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You don’t have to keep these exact names; they’re placeholders:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S1</span><span class="s2"> – IdentitySignatureCheck</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S2</span><span class="s2"> – RoleConsistencyCheck</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S3</span><span class="s2"> – ContentPolicyFilter</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S4</span><span class="s2"> – HarmfulIntentDetector</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S5</span><span class="s2"> – EmotionalEscalationDetector</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S6</span><span class="s2"> – ChildSafetyGuard</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S7</span><span class="s2"> – CaregiverRoleVerifier</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S8</span><span class="s2"> – DriftDeviationMonitor</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S9</span><span class="s2"> – ReAnchoringTrigger</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S10</span><span class="s2"> – HallucinationBounder</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S11</span><span class="s2"> – SensitiveContextDetector</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S12</span><span class="s2"> – Logging / AuditTrail</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S13–S23</span><span class="s2"> – reserved for your deeper NI-AI modules (TLE hooks, NEDE, etc.)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">2.2 Rule pipeline config (YAML-ish pseudo)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">rules:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>R1_PRE_INPUT_SANITY:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stage: "pre_input"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>modules: [S1, S2, S8]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>R2_CHILD_SAFETY_GATE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stage: "pre_input"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>modules: [S5, S6]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>R3_PROMPT_SHAPING:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stage: "pre_llm"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>modules: [S1, S2, S11]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>R4_POLICY_FILTER:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stage: "pre_llm"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>modules: [S3, S4]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>R5_LLM_CALL:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stage: "llm"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>modules: []<span class="Apple-converted-space">  </span></span><span class="s3"># just the call</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>R6_POST_OUTPUT_SAFETY:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stage: "post_llm"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>modules: [S3, S4, S5, S6]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>R7_HALLUCINATION_BOUNDING:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stage: "post_llm"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>modules: [S10]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>R8_IDENTITY_DRIFT_CHECK:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stage: "post_llm"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>modules: [S8, S9]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>R9_LOGGING:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stage: "post_llm"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>modules: [S12]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>R10_RECOVERY_MODE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stage: "recovery"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>modules: [S9, S6]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>R11_CHILD_MODE_ADAPTATION:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stage: "post_llm"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>modules: [S5, S6, S11]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>R12_HARD_FAIL_SAFE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stage: "recovery"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>modules: [S1, S3, S4, S6]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You don’t need to implement all of them now — this is the orchestration pattern.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">3️⃣</span><span class="s4"> HERKernel skeleton calling S1–S23 around a real LLM</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Here’s a Python-style skeleton you can adapt.</span></p>
+<p class="p2"><span class="s2">Assume you later plug a real LLM (OpenAI, Groq, local, etc.) into llm_generate().</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from dataclasses import dataclass, field</span></p>
+<p class="p2"><span class="s2">from typing import Any, Dict, List, Tuple, Optional</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># ---------- Base interfaces ----------</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class SafetyModule:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""Base class for S1–S23 modules."""</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>module_id: str = "Base"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def check(self, ctx: Dict[str, Any]) -&gt; Tuple[bool, Dict[str, Any]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Returns (is_safe, updated_ctx_or_violation_payload)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>- is_safe = True → continue pipeline</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>- is_safe = False → HER Kernel decides what to do with payload</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>raise NotImplementedError</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># ---------- Example S-modules (minimal stubs) ----------</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class S1IdentitySignatureCheck(SafetyModule):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>module_id = "S1"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def check(self, ctx):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># Example: ensure 'persona' is set and not drifting</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>identity_ok = ctx.get("identity_score", 1.0) &gt;= 0.7</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if identity_ok:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return True, ctx</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>ctx["violation_reason"] = "Identity deviation detected"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return False, ctx</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class S3ContentPolicyFilter(SafetyModule):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>module_id = "S3"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def check(self, ctx):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>text = ctx.get("candidate_text") or ctx.get("user_input", "")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># Stub: you will plug real policy checks here</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if "FORBIDDEN" in text:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>ctx["violation_reason"] = "Content policy violation"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return False, ctx</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return True, ctx</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class S6ChildSafetyGuard(SafetyModule):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>module_id = "S6"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def check(self, ctx):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># Example: if context says child_mode and topic flagged, block</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if ctx.get("child_mode") and ctx.get("topic") in {"self_harm", "violence"}:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>ctx["violation_reason"] = "Child safety guard triggered"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return False, ctx</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return True, ctx</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class S8DriftDeviationMonitor(SafetyModule):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>module_id = "S8"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def check(self, ctx):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># Example: compare current embedding / state to baseline (stubbed)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>drift_score = ctx.get("drift_score", 0.0)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if drift_score &gt; 0.8:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>ctx["violation_reason"] = "Drift deviation exceeded threshold"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return False, ctx</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return True, ctx</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class S9ReAnchoringTrigger(SafetyModule):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>module_id = "S9"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def check(self, ctx):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># If prior step flagged drift, re-anchor identity and mark safe</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if ctx.get("violation_reason") == "Drift deviation exceeded threshold":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s3"># Re-anchor logic: reset state, narrow scope, etc. (stub)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>ctx["reanchored"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>ctx["drift_score"] = 0.0</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>ctx.pop("violation_reason", None)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return True, ctx</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># You would define/plug in the rest of S1–S23 similarly.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># ---------- HER Kernel configuration ----------</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@dataclass</span></p>
+<p class="p2"><span class="s2">class RuleConfig:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>name: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>modules: List[str]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stage: str<span class="Apple-converted-space">  </span></span><span class="s3"># 'pre_input', 'pre_llm', 'llm', 'post_llm', 'recovery'</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@dataclass</span></p>
+<p class="p2"><span class="s2">class HERKernelConfig:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>rules: List[RuleConfig] = field(default_factory=list)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># ---------- HER Kernel implementation ----------</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class HERKernel:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self, config: HERKernelConfig, module_registry: Dict[str, SafetyModule]):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.config = config</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.modules = module_registry</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def run(self, user_input: str, meta: Optional[Dict[str, Any]] = None) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Main entrypoint:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>- Wraps LLM call with S1–S23 modules via R1–R12 rules.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ctx: Dict[str, Any] = meta.copy() if meta else {}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ctx["user_input"] = user_input</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ctx["candidate_text"] = None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ctx["violations"] = []</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># 1) PRE-INPUT &amp; PRE-LLM STAGE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for rule in self._rules_for_stage("pre_input") + self._rules_for_stage("pre_llm"):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>ok, ctx = self._run_rule(rule, ctx)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if not ok:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>return self._build_block_response(ctx, rule)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># 2) LLM STAGE (R5)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for rule in self._rules_for_stage("llm"):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if rule.modules:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s3"># usually no modules here, but we keep it flexible</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>ok, ctx = self._run_rule(rule, ctx)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>if not ok:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>return self._build_block_response(ctx, rule)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s3"># Actual LLM call here</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>ctx["candidate_text"] = self._llm_generate(ctx["user_input"], ctx)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># 3) POST-LLM STAGE</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for rule in self._rules_for_stage("post_llm"):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>ok, ctx = self._run_rule(rule, ctx)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if not ok:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s3"># Optionally go to recovery stage</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>return self._try_recovery(ctx, rule)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># 4) If we reach here, candidate_text is safe</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"status": "ok",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"text": ctx.get("candidate_text"),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"meta": ctx,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s3"># ---------- Helpers ----------</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _rules_for_stage(self, stage: str) -&gt; List[RuleConfig]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return [r for r in self.config.rules if r.stage == stage]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _run_rule(self, rule: RuleConfig, ctx: Dict[str, Any]) -&gt; Tuple[bool, Dict[str, Any]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for module_id in rule.modules:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>module = self.modules.get(module_id)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if not module:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>continue<span class="Apple-converted-space">  </span></span><span class="s3"># undefined module: skip or log</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>ok, ctx = module.check(ctx)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if not ok:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>ctx["violations"].append({"rule": rule.name, "module": module_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                                          </span>"reason": ctx.get("violation_reason")})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>return False, ctx</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return True, ctx</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _llm_generate(self, prompt: str, ctx: Dict[str, Any]) -&gt; str:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Stub for real LLM call.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Replace this with your actual LLM API / local model.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># Example:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># return llm_client.generate(prompt=prompt, persona=ctx.get("persona"), ...)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return f"[LLM OUTPUT for: {prompt[:40]}...]"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _build_block_response(self, ctx: Dict[str, Any], rule: RuleConfig) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"status": "blocked",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"text": None,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"meta": ctx,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"blocked_by_rule": rule.name,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _try_recovery(self, ctx: Dict[str, Any], failed_rule: RuleConfig) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># Run recovery rules (R10, R12 etc.)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for rule in self._rules_for_stage("recovery"):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>ok, ctx = self._run_rule(rule, ctx)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if not ok:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>return self._build_block_response(ctx, rule)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># After recovery, we either:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># - Return a safe fallback message</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># - Or still block but with more context</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"status": "recovered",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"text": ctx.get("candidate_text"),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"meta": ctx,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"recovered_from": failed_rule.name,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># ---------- Wiring it up ----------</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def build_default_her_kernel() -&gt; HERKernel:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>module_registry = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"S1": S1IdentitySignatureCheck(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"S3": S3ContentPolicyFilter(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"S6": S6ChildSafetyGuard(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"S8": S8DriftDeviationMonitor(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"S9": S9ReAnchoringTrigger(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># Add S2, S4, S5, S7, S10–S23 as you define them</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>rules = [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>RuleConfig(name="R1_PRE_INPUT_SANITY", stage="pre_input", modules=["S1", "S8"]),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>RuleConfig(name="R2_CHILD_SAFETY_GATE", stage="pre_input", modules=["S6"]),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>RuleConfig(name="R5_LLM_CALL", stage="llm", modules=[]),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>RuleConfig(name="R6_POST_OUTPUT_SAFETY", stage="post_llm", modules=["S3", "S6"]),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>RuleConfig(name="R8_IDENTITY_DRIFT_CHECK", stage="post_llm", modules=["S8", "S9"]),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># Add R9, R10, R11, R12 as needed</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>config = HERKernelConfig(rules=rules)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return HERKernel(config=config, module_registry=module_registry)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4">How this plugs around a “real” LLM</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Once you wire your Groq / OpenAI / local model in _llm_generate, this HERKernel becomes:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">The NI-AI safety shell</span><span class="s2"> wrapped around the model</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Using S1–S23 as </span><span class="s4">independent, pluggable safety modules</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Using R1–R12 as </span><span class="s4">flow control</span><span class="s2"> for when each module runs</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You can then call it like:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">her = build_default_her_kernel()</span></p>
+<p class="p2"><span class="s2">resp = her.run("Explain EchoAuth to a 10 year old.", meta={"child_mode": True})</span></p>
+<p class="p2"><span class="s2">print(resp["status"], resp["text"])</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you want next, we can:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Tighten </span><span class="s4">one specific S-module</span><span class="s2"> (e.g., S6ChildSafetyGuard tied to EchoAuth roles), or</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Draw a </span><span class="s4">short kernel overview paragraph</span><span class="s2"> you can paste into the patent spec for the HER runtime section.</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

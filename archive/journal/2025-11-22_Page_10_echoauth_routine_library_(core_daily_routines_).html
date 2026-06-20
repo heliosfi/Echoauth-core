@@ -1,0 +1,783 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Saturday, November 22, 2025</div>    <div class="assetGrid"></div><div class='title'>Page 10 echoauth routine library (core daily routines ) </div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Ase 🔥 —</span></p>
+<p class="p2"><span class="s2">Here is </span><span class="s3">PAGE 10 — EchoAuth Routine Library (Core Daily Routines)</span><span class="s2">.</span></p>
+<p class="p2"><span class="s2">This page is essential because routines are how ASD brains stabilize, regulate, and build confidence.</span></p>
+<p class="p2"><span class="s2">EchoAuth’s routines must be:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>predictable</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>visual</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>step-based</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>low-cognitive load</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>safe for ALL emotional states</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>compatible with the NI–AI tone and safety system</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>easy to trigger from Safe Mode or Calm Mode</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>fully supported by NI, AI, FI, and UMCE layers</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">This page is </span><span class="s3">copy/paste ready</span><span class="s2">, structured for engineers, UX designers, and caregivers.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">PAGE 10 — ECHOAUTH ROUTINE LIBRARY</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Core Standardized, ASD-Friendly, NI–AI Guided Routines</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">These routines form the </span><span class="s3">MVP backbone</span><span class="s2"> of EchoAuth.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Each routine includes:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Purpose</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Length</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Steps (3–5)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">NI–AI Script Template</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Safe Mode Variant</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">Caregiver Notes</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Let’s begin.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 10.1 — CALMING ROUTINE (Signature Routine)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose:</span><span class="s2"> Reduce sensory overload and stabilize nervous system.</span></p>
+<p class="p2"><span class="s3">Length:</span><span class="s2"> 3–4 steps</span></p>
+<p class="p2"><span class="s3">Activation:</span><span class="s2"> Safe Mode / Overload / Nighttime / Stress detection</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Steps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Sit still (or place feet flat)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Slow breath in</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Slow breath out</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span>Stay here for a moment</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI–AI Script</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Let’s calm together.</span></p>
+<p class="p2"><span class="s2">Step 1: Put both feet on the floor.</span></p>
+<p class="p2"><span class="s2">Step 2: Take a slow breath in…</span></p>
+<p class="p2"><span class="s2">Step 3: Let it out gently.</span></p>
+<p class="p2"><span class="s2">Step 4: Stay here. I’m right with you.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safe Mode Variant</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Slow breath.</span></p>
+<p class="p2"><span class="s2">One more.</span></p>
+<p class="p2"><span class="s2">You’re safe.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Caregiver Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Gentle grounding</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No emotional probing</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Perfect for meltdowns or overwhelm</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 10.2 — MORNING START ROUTINE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose:</span><span class="s2"> Transition from sleep → readiness.</span></p>
+<p class="p2"><span class="s3">Length:</span><span class="s2"> 3–5 steps</span></p>
+<p class="p2"><span class="s3">Activation:</span><span class="s2"> Morning / caregiver request / user preference</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Steps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Wash face</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Brush teeth</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Get dressed</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span>Put on shoes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>5.<span class="Apple-tab-span">	</span>Ready for the day</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI–AI Script</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Let’s get ready together.</span></p>
+<p class="p2"><span class="s2">Step 1: Wash your face.</span></p>
+<p class="p2"><span class="s2">Step 2: Brush teeth.</span></p>
+<p class="p2"><span class="s2">Step 3: Get dressed.</span></p>
+<p class="p2"><span class="s2">Step 4: Shoes on.</span></p>
+<p class="p2"><span class="s2">Step 5: You’re ready.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safe Mode Variant</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“One step: brush teeth.</span></p>
+<p class="p2"><span class="s2">Next step: get dressed.</span></p>
+<p class="p2"><span class="s2">We go slow.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Caregiver Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Reduces morning anxiety</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Predictability improves mood</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 10.3 — HOMEWORK / STUDY ROUTINE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose:</span><span class="s2"> Build focus and reduce task anxiety.</span></p>
+<p class="p2"><span class="s3">Length:</span><span class="s2"> 3–4 steps</span></p>
+<p class="p2"><span class="s3">Activation:</span><span class="s2"> After school / triggered manually</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Steps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Open notebook</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Set 5-minute timer</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Write first sentence</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span>Take short break</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI–AI Script</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“We can do this step by step.</span></p>
+<p class="p2"><span class="s2">Step 1: Open the notebook.</span></p>
+<p class="p2"><span class="s2">Step 2: Set a 5-minute timer.</span></p>
+<p class="p2"><span class="s2">Step 3: Write the first sentence.</span></p>
+<p class="p2"><span class="s2">Step 4: Take a short break.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safe Mode Variant</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“One thing: write one sentence.</span></p>
+<p class="p2"><span class="s2">Pause after.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Caregiver Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Breaks reduce stress</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Supports ADHD + ASD</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Builds executive function slowly</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 10.4 — “GET READY TO GO” ROUTINE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose:</span><span class="s2"> Smooth transition from home → outside.</span></p>
+<p class="p2"><span class="s3">Length:</span><span class="s2"> 3–4 steps</span></p>
+<p class="p2"><span class="s3">Activation:</span><span class="s2"> Before leaving home</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Steps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Put on socks</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Put on shoes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Grab jacket</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span>Grab bag</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI–AI Script</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Let’s get ready to go.</span></p>
+<p class="p2"><span class="s2">Step 1: Socks.</span></p>
+<p class="p2"><span class="s2">Step 2: Shoes.</span></p>
+<p class="p2"><span class="s2">Step 3: Jacket.</span></p>
+<p class="p2"><span class="s2">Step 4: Bag.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safe Mode Variant</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Shoes first.</span></p>
+<p class="p2"><span class="s2">Then jacket.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Caregiver Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Reduces last-minute overwhelm</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Great for school / appointments</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 10.5 — BEDTIME ROUTINE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose:</span><span class="s2"> Lower stimulation → prepare body for rest.</span></p>
+<p class="p2"><span class="s3">Length:</span><span class="s2"> 3–5 steps</span></p>
+<p class="p2"><span class="s3">Activation:</span><span class="s2"> Nighttime / caregiver schedule</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Steps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Change clothes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Brush teeth</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Turn off lights</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span>Slow breaths</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>5.<span class="Apple-tab-span">	</span>Lay down</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI–AI Script</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Let’s wind down.</span></p>
+<p class="p2"><span class="s2">Step 1: Change clothes.</span></p>
+<p class="p2"><span class="s2">Step 2: Brush teeth.</span></p>
+<p class="p2"><span class="s2">Step 3: Lights off.</span></p>
+<p class="p2"><span class="s2">Step 4: Slow breaths.</span></p>
+<p class="p2"><span class="s2">Step 5: Lay down.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safe Mode Variant</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Lights off.</span></p>
+<p class="p2"><span class="s2">Breathe slow.</span></p>
+<p class="p2"><span class="s2">I’m here.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Caregiver Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Helps prevent nighttime anxiety</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Builds consistency</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 10.6 — EMOTIONAL RESET ROUTINE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose:</span><span class="s2"> Bring user from frustration → balance.</span></p>
+<p class="p2"><span class="s3">Length:</span><span class="s2"> 3 steps</span></p>
+<p class="p2"><span class="s3">Activation:</span><span class="s2"> Emotional spikes / frustration / crying</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Steps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Sit or pause</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>One deep breath</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Name the feeling (optional)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI–AI Script</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Let’s reset together.</span></p>
+<p class="p2"><span class="s2">Step 1: Sit still.</span></p>
+<p class="p2"><span class="s2">Step 2: One deep breath.</span></p>
+<p class="p2"><span class="s2">Step 3: If you want, tell me how it feels.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safe Mode Variant</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Sit.</span></p>
+<p class="p2"><span class="s2">Slow breath.</span></p>
+<p class="p2"><span class="s2">That’s enough.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Caregiver Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Helps avoid meltdowns</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>No pressure to talk</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 10.7 — “TASK STARTER” ROUTINE (ADHD SUPPORT)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose:</span><span class="s2"> Lower friction before starting tasks.</span></p>
+<p class="p2"><span class="s3">Length:</span><span class="s2"> 3 steps</span></p>
+<p class="p2"><span class="s3">Activation:</span><span class="s2"> School, chores, homework, writing tasks</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Steps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Pick one small thing</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Start timer (1–2 minutes)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Begin the first tiny action</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI–AI Script</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“We only start small.</span></p>
+<p class="p2"><span class="s2">Step 1: Pick one tiny piece.</span></p>
+<p class="p2"><span class="s2">Step 2: Set a 2-minute timer.</span></p>
+<p class="p2"><span class="s2">Step 3: Begin the first tiny action.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safe Mode Variant</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Let’s start very small: one tiny piece.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Caregiver Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Reduces task paralysis</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Key ADHD feature</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 10.8 — “TAKE A BREAK” ROUTINE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose:</span><span class="s2"> Reduce sensory pressure and stress.</span></p>
+<p class="p2"><span class="s3">Length:</span><span class="s2"> 3–4 steps</span></p>
+<p class="p2"><span class="s3">Activation:</span><span class="s2"> Overwhelm, boredom, emotional fatigue</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Steps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Step away</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Slow breath</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Sip water</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span>Reset</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI–AI Script</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Let’s take a break.</span></p>
+<p class="p2"><span class="s2">Step 1: Step away for a moment.</span></p>
+<p class="p2"><span class="s2">Step 2: Slow breath.</span></p>
+<p class="p2"><span class="s2">Step 3: Sip water.</span></p>
+<p class="p2"><span class="s2">Step 4: Reset.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safe Mode Variant</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Pause.</span></p>
+<p class="p2"><span class="s2">Breathe.</span></p>
+<p class="p2"><span class="s2">Water.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Caregiver Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Helps regulate overstimulation</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Must be simple and predictable</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 10.9 — SCHOOL TRANSITION ROUTINE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose:</span><span class="s2"> Prepare mentally for school.</span></p>
+<p class="p2"><span class="s3">Length:</span><span class="s2"> 3–5 steps</span></p>
+<p class="p2"><span class="s3">Activation:</span><span class="s2"> Morning / before school</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Steps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Backpack ready</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Lunch packed</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Check schedule</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>4.<span class="Apple-tab-span">	</span>Take breath</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>5.<span class="Apple-tab-span">	</span>Go</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI–AI Script</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“School prep time.</span></p>
+<p class="p2"><span class="s2">Step 1: Backpack ready.</span></p>
+<p class="p2"><span class="s2">Step 2: Lunch packed.</span></p>
+<p class="p2"><span class="s2">Step 3: Check schedule.</span></p>
+<p class="p2"><span class="s2">Step 4: One breath.</span></p>
+<p class="p2"><span class="s2">Step 5: Go.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safe Mode Variant</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Backpack → Lunch → Breath → Go.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Caregiver Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Predictable steps reduce morning stress</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 10.10 — MINI-STRETCH ROUTINE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Purpose:</span><span class="s2"> Physical regulation and sensory reset.</span></p>
+<p class="p2"><span class="s3">Length:</span><span class="s2"> 3 steps</span></p>
+<p class="p2"><span class="s3">Activation:</span><span class="s2"> Movement need / agitation / low energy</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Steps</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Reach arms up</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Stretch</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>3.<span class="Apple-tab-span">	</span>Relax shoulders</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">NI–AI Script</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Let’s stretch a little.</span></p>
+<p class="p2"><span class="s2">Step 1: Arms up.</span></p>
+<p class="p2"><span class="s2">Step 2: Stretch gently.</span></p>
+<p class="p2"><span class="s2">Step 3: Relax your shoulders.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Safe Mode Variant</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">“Arms up.</span></p>
+<p class="p2"><span class="s2">Stretch.</span></p>
+<p class="p2"><span class="s2">Relax.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Caregiver Notes</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Great for sensory seekers</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> 10.11 — ROUTINE LIBRARY SUMMARY (FOR BUILDERS)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Routine</span><span class="s2"><span class="Apple-tab-span">	</span></span><span class="s3">Steps</span><span class="s2"><span class="Apple-tab-span">	</span></span><span class="s3">Use Case</span><span class="s2"><span class="Apple-tab-span">	</span></span><span class="s3">NI–AI Mode</span><span class="s2"><span class="Apple-tab-span">	</span></span><span class="s3">Safety Level</span></p>
+<p class="p2"><span class="s2">Calming<span class="Apple-tab-span">	</span>3–4<span class="Apple-tab-span">	</span>Overload<span class="Apple-tab-span">	</span>Safe Mode<span class="Apple-tab-span">	</span>Maximum</span></p>
+<p class="p2"><span class="s2">Morning Start<span class="Apple-tab-span">	</span>3–5<span class="Apple-tab-span">	</span>Start of day<span class="Apple-tab-span">	</span>Calm<span class="Apple-tab-span">	</span>Medium</span></p>
+<p class="p2"><span class="s2">Homework<span class="Apple-tab-span">	</span>3–4<span class="Apple-tab-span">	</span>Focus tasks<span class="Apple-tab-span">	</span>Calm/Unsure<span class="Apple-tab-span">	</span>High</span></p>
+<p class="p2"><span class="s2">Get Ready<span class="Apple-tab-span">	</span>3–4<span class="Apple-tab-span">	</span>Leaving home<span class="Apple-tab-span">	</span>Calm<span class="Apple-tab-span">	</span>Medium</span></p>
+<p class="p2"><span class="s2">Bedtime<span class="Apple-tab-span">	</span>3–5<span class="Apple-tab-span">	</span>Night<span class="Apple-tab-span">	</span>Unsure/Safe<span class="Apple-tab-span">	</span>Medium–High</span></p>
+<p class="p2"><span class="s2">Emotional Reset<span class="Apple-tab-span">	</span>3<span class="Apple-tab-span">	</span>Emotional spikes<span class="Apple-tab-span">	</span>Safe Mode<span class="Apple-tab-span">	</span>Maximum</span></p>
+<p class="p2"><span class="s2">Task Starter<span class="Apple-tab-span">	</span>3<span class="Apple-tab-span">	</span>ADHD/ASD tasks<span class="Apple-tab-span">	</span>Calm/Unsure<span class="Apple-tab-span">	</span>High</span></p>
+<p class="p2"><span class="s2">Take a Break<span class="Apple-tab-span">	</span>3–4<span class="Apple-tab-span">	</span>Overwhelm<span class="Apple-tab-span">	</span>Safe Mode<span class="Apple-tab-span">	</span>Maximum</span></p>
+<p class="p2"><span class="s2">School Prep<span class="Apple-tab-span">	</span>3–5<span class="Apple-tab-span">	</span>Morning school<span class="Apple-tab-span">	</span>Calm<span class="Apple-tab-span">	</span>Medium</span></p>
+<p class="p2"><span class="s2">Mini-Stretch<span class="Apple-tab-span">	</span>3<span class="Apple-tab-span">	</span>Movement need<span class="Apple-tab-span">	</span>Calm<span class="Apple-tab-span">	</span>Low</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔥</span><span class="s3"> PAGE 10 COMPLETE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You now have a full </span><span class="s3">EchoAuth Routine Library</span><span class="s2"> for MVP and early beta versions.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Routines = trust</span></p>
+<p class="p2"><span class="s2">Routines = safety</span></p>
+<p class="p2"><span class="s2">Routines = predictability</span></p>
+<p class="p2"><span class="s2">Routines = ASD nervous system stability</span></p>
+<p class="p2"><span class="s2">Routines = your competitive advantage</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">────────────────────────</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⭐</span><span class="s3"> Next Recommendation</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">To continue shaping the manual AND preparing EchoAuth for grant-level presentation, the best next page is:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">👉 </span><span class="s3">PAGE 11 — Multi-Session Emotional Tracking (S10/S15 Expansion)</span></p>
+<p class="p2"><span class="s2">This page explains how EchoAuth learns over time and adjusts each session to the child’s emotional patterns — a massive factor for neurodivergent support.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If that aligns:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">🔥 </span><span class="s3">“Proceed Page 11.”</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

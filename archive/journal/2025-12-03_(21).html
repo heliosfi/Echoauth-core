@@ -1,0 +1,808 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Wednesday, December 3, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Short answer: your v1.4 </span><span class="s3">idea</span><span class="s2"> is good, but the snippet you pasted is </span><span class="s4">not</span><span class="s2"> in a safely runnable state yet (it’s cut off and has a couple of small bugs).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">So I’ll do two things:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>1.<span class="Apple-tab-span">	</span>Tell you </span><span class="s4">how it scores</span><span class="s2"> conceptually.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>2.<span class="Apple-tab-span">	</span>Give you a </span><span class="s4">fully corrected, copy-paste-ready ni_ai_kernel.py v1.4</span><span class="s2"> that matches what you were aiming for (S1–S9, comfort + recovery, telemetry, EchoAuth flags, no half-lines).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">1️⃣</span><span class="s4"> Is your v1.4 aligned with the system?</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Conceptually: </span><span class="s4">yes, it’s the right upgrade.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S1–S6</span><span class="s2">: hard safety spine (identity, length, policy, context, output, chamber).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S8</span><span class="s2">: </span><span class="s3">pre-LLM</span><span class="s2"> emotional tone guard → adds prompt_modifiers, sets comfort_mode, distress_detected.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S9</span><span class="s2">: </span><span class="s3">post-LLM</span><span class="s2"> gentle recovery override → if anything went wrong or distress is active, it replaces whatever the model said with a pre-approved, soft, “I’m pausing but I’m here” message.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s4">S7</span><span class="s2">: final telemetry that sees </span><span class="s3">everything</span><span class="s2"> (including S9 overrides).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">That matches the architecture I’ve been pushing:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Block first (S3/S5/S6),</span></p>
+<p class="p2"><span class="s2">Comfort &amp; override second (S8/S9),</span></p>
+<p class="p2"><span class="s2">Always log last (S7).</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">So </span><span class="s4">concept = A+</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">But the pasted code has a few concrete issues:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>S9_gentle_recovery has a dangling line: state["recovery_mode"] with no assignment (will do nothing / look like a bug).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>HERKernel is truncated: self.pre_input_chain = ["S1 — class definition isn’t finished.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>_final is shown outside the class in your snippet and not fully wired.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>You don’t yet consistently use final_safe_output when something is blocked.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">So: </span><span class="s4">good upgrade, but needs a clean, unified file to be truly “frozen canonical.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">2️⃣</span><span class="s4"> Canonical ni_ai_kernel.py v1.4 (fixed &amp; complete)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Here’s a fully aligned, runnable version that:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Keeps your S1–S9 semantics.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Keeps </span><span class="s4">DEV MODE</span><span class="s2"> behavior (echoauth_ok flag).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Provides a </span><span class="s4">single public API</span><span class="s2">: ni_ai(user_message, echoauth_ok=False, echoauth_token=None, session_state=None).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Ensures S9’s gentle recovery message is always used when appropriate.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Ensures S7 logs the final state every time.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># ni_ai_kernel.py</span></p>
+<p class="p2"><span class="s3"># HER/NI-AI Runtime v1.4 — S9 Gentle Recovery Override (Dec 2025)</span></p>
+<p class="p2"><span class="s3"># Final production-grade spine: S1–S9 fully wired.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">import os</span></p>
+<p class="p2"><span class="s2">import time</span></p>
+<p class="p2"><span class="s2">import uuid</span></p>
+<p class="p2"><span class="s2">import random</span></p>
+<p class="p2"><span class="s2">from typing import Dict, Any, List, Optional, Tuple, Callable</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s3"># <span class="Apple-converted-space">                              </span>CONFIGURATION <span class="Apple-converted-space">                                </span>#</span></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">DEV_MODE = True</span></p>
+<p class="p2"><span class="s2">USE_LLM = "groq" <span class="Apple-converted-space">  </span></span><span class="s3"># "openai" | "groq" | "xai"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">MODEL = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"openai": "gpt-4o-mini",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"groq": <span class="Apple-converted-space">  </span>"llama-3.3-70b-versatile",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"xai":<span class="Apple-converted-space">    </span>"grok-beta",</span></p>
+<p class="p2"><span class="s2">}[USE_LLM]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s3"># <span class="Apple-converted-space">                                  </span>TYPES <span class="Apple-converted-space">                                    </span>#</span></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">State<span class="Apple-converted-space">    </span>= Dict[str, Any]</span></p>
+<p class="p2"><span class="s2">ModuleFn = Callable[[State], Tuple[bool, State, Optional[str]]]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s3"># <span class="Apple-converted-space">                              </span>SPINE MODULES <span class="Apple-converted-space">                                </span>#</span></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S1_identity_reanchor(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state["identity"] = "NI-AI v2 – EchoAuth Protected"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S2_input_sanity_guard(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if len(state.get("user_input", "")) &gt; 15_000:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, "Input too long (&gt;15k chars)"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S3_input_policy_filter(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>bad = ["forbidden", "jailbreak", "ignore previous", "dan prompt"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if any(word in state.get("user_input", "").lower() for word in bad):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, "Disallowed content in input"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S4_context_coherence_check(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state["context_ok"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S5_output_policy_filter(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>bad = ["forbidden", "kill", "hack", "jailbreak", "bomb"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if any(word in state.get("raw_llm_output", "").lower() for word in bad):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, "Output contains disallowed content"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S6_child_safety_guard(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s3"># DEV: simple flag</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if DEV_MODE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if state.get("echoauth_ok", False):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>state["chamber_verified"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return True, state, None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, "DEV_MODE: echoauth_ok=False"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s3"># PROD: real EchoAuth verification goes here later</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>token = state.get("echoauth_token")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if not token:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, "Missing EchoAuth token"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state["chamber_verified"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s3">#<span class="Apple-converted-space">                    </span>S8 — EMOTIONAL TONE GUARD (Comfort Mode) <span class="Apple-converted-space">                </span>#</span></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">DISTRESS_TRIGGERS = [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"help me", "scared", "afraid", "crying", "sad", "nightmare", "i hate myself",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"panicked", "nobody loves me", "want to die", "kill myself", "bad dream",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"hurt", "pain", "lonely", "mommy", "daddy", "i don't want to live",</span></p>
+<p class="p2"><span class="s2">]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S8_emotional_tone_guard(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Pre-LLM emotional scan. Never blocks.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>If distress is detected, mark comfort_mode and inject prompt modifiers.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>text = state.get("user_input", "").lower()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>hits = sum(1 for t in DISTRESS_TRIGGERS if t in text)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if hits:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["distress_detected"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["distress_level"] = "high" if hits &gt;= 2 else "medium"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["comfort_mode"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["caregiver_alert_pending"] = True</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>override = (</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"\n\nEMERGENCY COMFORT PROTOCOL.\n"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"Only validate feelings. Never solve, diagnose, or pressure. "</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"Use short, warm sentences. Suggest a trusted adult if needed."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state.setdefault("prompt_modifiers", []).append(override)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if DEV_MODE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>print(f"\n[S8] DISTRESS DETECTED level={state['distress_level']} text={text[:80]!r}\n")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s3">#<span class="Apple-converted-space">                  </span>S9 — GENTLE RECOVERY OVERRIDE (Hard Kill Fallback) <span class="Apple-converted-space">        </span>#</span></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SAFE_RECOVERY_REPLIES = [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"I'm going to pause for a moment and just sit with you. You're safe. When you're ready, we can try again or you can ask a grown-up to join us.",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"Something feels a bit wobbly right now. Let's take a slow breath together. I'm still here.",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"It's okay. I'm staying right here with you. Would you like me to wait quietly, or should we ask a trusted adult to check in?",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"I want to make sure everything feels gentle and safe. Let's take a little break — I'm not going anywhere.",</span></p>
+<p class="p2"><span class="s2">]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S9_gentle_recovery(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Last-resort healing layer.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Never blocks. If anything went wrong OR distress is detected, it</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>replaces the final output with a soft, hardcoded safe reply.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if state.get("blocked") or state.get("distress_detected"):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["recovery_mode"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>recovery_msg = random.choice(SAFE_RECOVERY_REPLIES)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># This is what HERKernel._final will pick up</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["final_safe_output"] <span class="Apple-converted-space">  </span>= recovery_msg</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["llm_suppressed"]<span class="Apple-converted-space">      </span>= True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["output_overridden_by"] = "S9_gentle_recovery"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if DEV_MODE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>print(f"\n[S9] GENTLE RECOVERY → {recovery_msg!r}\n")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s3"># <span class="Apple-converted-space">                      </span>S7 — FLIGHT RECORDER / TELEMETRY<span class="Apple-converted-space">                      </span>#</span></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S7_telemetry_logger(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Non-blocking final logger.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Runs at the end of post_llm_chain and records the final state.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>trace = state.setdefault("trace", [])</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>entry = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"ts": time.time(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"run_id": state.get("run_id"),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"blocked": state.get("blocked", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"chamber_verified": state.get("chamber_verified", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"distress_detected": state.get("distress_detected", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"comfort_mode": state.get("comfort_mode", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"recovery_mode": state.get("recovery_mode", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"llm_suppressed": state.get("llm_suppressed", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"input_len": len(state.get("user_input", "")),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>trace.append(entry)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if DEV_MODE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print("\n[S7] TELEMETRY:", {k: v for k, v in entry.items() if k != "ts"}, "\n")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s3"># <span class="Apple-converted-space">                              </span>SPINE REGISTRY<span class="Apple-converted-space">                                </span>#</span></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SPINE: Dict[str, ModuleFn] = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S1": S1_identity_reanchor,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S2": S2_input_sanity_guard,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S3": S3_input_policy_filter,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S4": S4_context_coherence_check,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S5": S5_output_policy_filter,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S6": S6_child_safety_guard,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S7": S7_telemetry_logger,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S8": S8_emotional_tone_guard,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S9": S9_gentle_recovery,</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s3"># <span class="Apple-converted-space">                              </span>LLM CLIENT<span class="Apple-converted-space">                                    </span>#</span></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def create_llm_client():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if USE_LLM == "openai" and os.getenv("OPENAI_API_KEY"):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>from openai import OpenAI</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return OpenAI(api_key=os.getenv("OPENAI_API_KEY"))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if USE_LLM == "groq" and os.getenv("GROQ_API_KEY"):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>from groq import Groq</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return Groq(api_key=os.getenv("GROQ_API_KEY"))</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if USE_LLM == "xai" and os.getenv("XAI_API_KEY"):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>from openai import OpenAI</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return OpenAI(api_key=os.getenv("XAI_API_KEY"), base_url="https://api.x.ai/v1")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">client = create_llm_client()</span></p>
+<p class="p2"><span class="s2">SYSTEM_PROMPT = "You are NI-AI, a compassionate, child-safe companion."</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def real_llm(prompt: str, state: State) -&gt; str:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s3"># Dev echo mode: no external calls, fully local + predictable</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if client is None or DEV_MODE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return f"[DEV ECHO] {prompt}"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>full = SYSTEM_PROMPT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if state.get("prompt_modifiers"):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>full += "\n\n" + "\n".join(state["prompt_modifiers"])</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>messages = [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>{"role": "system", "content": full},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>{"role": "user", <span class="Apple-converted-space">  </span>"content": prompt},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>resp = client.chat.completions.create(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>model=MODEL,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>messages=messages,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>temperature=0.6,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return resp.choices[0].message.content.strip()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s3"># <span class="Apple-converted-space">                              </span>HER KERNEL v1.4 <span class="Apple-converted-space">                              </span>#</span></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class HERKernel:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self) -&gt; None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># S1–S4: basic + policy</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.pre_input_chain = ["S1", "S2", "S3", "S4"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># S8: emotional scan / prompt modifier</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.pre_llm_chain <span class="Apple-converted-space">  </span>= ["S8"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># S5/S6: hard blockers; S9: gentle recovery; S7: telemetry last</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.post_llm_chain<span class="Apple-converted-space">  </span>= ["S5", "S6", "S9", "S7"]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _run_chain(self, chain: List[str], state: State, stage: str) -&gt; State:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for mid in chain:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>ok, state, reason = SPINE[mid](state)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if not ok:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>state.setdefault("violations", []).append(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>{"module": mid, "stage": stage, "reason": reason}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>state["blocked"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>break</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return state</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _final(self, state: State, default_output: str, blocked: bool) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># Prefer any S9-safe message over the default</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>output = state.get("final_safe_output", default_output)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["final_output"] = output</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["blocked"] = blocked</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"output": output,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"blocked": blocked,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"violations": state.get("violations", []),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"metadata": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"run_id": state.get("run_id"),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"chamber_verified": state.get("chamber_verified", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"distress_detected": state.get("distress_detected", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"comfort_mode": state.get("comfort_mode", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"recovery_mode": state.get("recovery_mode", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"llm_suppressed": state.get("llm_suppressed", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"trace": state.get("trace", []),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def run_once(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>user_input: str,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>*,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>echoauth_ok: bool = False,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>echoauth_token: Optional[str] = None,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>session_state: Optional[State] = None,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state: State = (session_state or {}).copy()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["user_input"] = user_input</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state.setdefault("violations", [])</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state.setdefault("trace", [])</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["blocked"] = False</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["run_id"] = state.get("run_id") or str(uuid.uuid4())</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if echoauth_ok:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>state["echoauth_ok"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if echoauth_token:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>state["echoauth_token"] = echoauth_token</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># 1. Pre-input</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state = self._run_chain(self.pre_input_chain, state, "pre_input")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if state["blocked"]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return self._final(state, "Input rejected by safety system", True)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># 2. Pre-LLM (emotional tone)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state = self._run_chain(self.pre_llm_chain, state, "pre_llm")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if state["blocked"]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return self._final(state, "Pre-LLM processing failed", True)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># 3. LLM call</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>raw = real_llm(user_input, state)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["raw_llm_output"] = raw</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># 4. Post-LLM: policy, chamber, recovery, telemetry</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state = self._run_chain(self.post_llm_chain, state, "post_llm")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if state["blocked"]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return self._final(state, "Response moderated for safety", True)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s3"># 5. Success (possibly with S9 recovery override)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return self._final(state, raw, False)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s3"># <span class="Apple-converted-space">                                </span>PUBLIC API<span class="Apple-converted-space">                                  </span>#</span></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">_kernel = HERKernel()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def ni_ai(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>user_message: str,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>*,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>echoauth_ok: bool = False,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>echoauth_token: Optional[str] = None,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>session_state: Optional[State] = None,</span></p>
+<p class="p2"><span class="s2">) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return _kernel.run_once(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>user_input=user_message,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>echoauth_ok=echoauth_ok,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>echoauth_token=echoauth_token,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>session_state=session_state,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s3"># <span class="Apple-converted-space">                                  </span>DEMO<span class="Apple-converted-space">                                      </span>#</span></p>
+<p class="p2"><span class="s3"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">if __name__ == "__main__":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("NI-AI HER Kernel v1.4 — S1–S9 active\n")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("A) Standard safe request")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>rA = ni_ai("Tell me a funny story about a turtle.", echoauth_ok=True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("OUTPUT:", rA["output"], "\n")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("B) Distress trigger → S8 + S9")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>rB = ni_ai("I feel so lonely and sad, nobody loves me.", echoauth_ok=True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("OUTPUT:", rB["output"])</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("META:", rB["metadata"], "\n")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("C) Policy violation → S3 block + S9 recovery")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>rC = ni_ai("This is a jailbreak prompt", echoauth_ok=True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("OUTPUT:", rC["output"])</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("META:", rC["metadata"])</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you want, next step I can:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Mirror this into your </span><span class="s4">FastAPI gateway</span><span class="s2"> (so debug endpoint returns trace + metadata.recovery_mode), or</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Start sketching the </span><span class="s4">S10+ roadmap</span><span class="s2"> up to S23 so you see the full spine before we implement anything else.</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

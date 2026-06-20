@@ -1,0 +1,605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+span.s3 {font-family: 'UICTFontTextStyleShortEmphasizedBody'; font-weight: bold; font-style: normal; font-size: 14.00px}
+span.s4 {font-family: 'UICTFontTextStyleShortItalicBody'; font-weight: normal; font-style: italic; font-size: 14.00px}
+span.Apple-tab-span {white-space:pre}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Wednesday, December 3, 2025</div>    <div class="assetGrid"></div><div class='title'></div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2">Got you 🔥</span></p>
+<p class="p2"><span class="s2">We’ll </span><span class="s3">only</span><span class="s2"> do one thing right now:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">Show you the HER loop with S1–S6 wired in.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">No extra philosophy. No extra options. Just the loop.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">1️⃣</span><span class="s3"> Quick roles for S1–S6 (so the code makes sense)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You can adjust these later, but for wiring the loop:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">S1 – IdentityReAnchor</span></p>
+<p class="p2"><span class="s2">Make sure the NI-AI identity is loaded + stable before anything else.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">S2 – InputSanityGuard</span></p>
+<p class="p2"><span class="s2">Basic size / rate / format checks on the incoming request.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">S3 – InputPolicyFilter</span></p>
+<p class="p2"><span class="s2">Block obviously disallowed topics </span><span class="s4">before</span><span class="s2"> they reach the LLM.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">S4 – ContextCoherenceCheck</span></p>
+<p class="p2"><span class="s2">Make sure the request actually fits the active EchoAuth / NI-AI context.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">S5 – OutputPolicyFilter</span></p>
+<p class="p2"><span class="s2">Check the LLM’s answer for policy / safety violations.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">S6 – ChildSafetyGuard</span></p>
+<p class="p2"><span class="s2">Final child-safe gate + EchoAuth-aware lock on what gets shown.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You can later swap in deeper logic (EchoAuth token checks, NEDE signals, etc.), but this is enough to show the </span><span class="s3">HER → S1–S6 loop pattern</span><span class="s2">.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">2️⃣</span><span class="s3"> HER Kernel loop with S1–S6 wired (Python-style pseudocode)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">You can literally drop this into a .py file and start filling the module bodies.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">from dataclasses import dataclass</span></p>
+<p class="p2"><span class="s2">from typing import Callable, Dict, Any, Tuple, List, Optional</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># ---------- Types ----------</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">State = Dict[str, Any]</span></p>
+<p class="p2"><span class="s2">ModuleFn = Callable[[State], Tuple[bool, State, Optional[str]]]</span></p>
+<p class="p2"><span class="s2">LLMFn = Callable[[str, State], str]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@dataclass</span></p>
+<p class="p2"><span class="s2">class Rule:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>name: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>stage: str<span class="Apple-converted-space">          </span></span><span class="s4"># "pre_input", "pre_llm", "post_llm"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>module_id: str<span class="Apple-converted-space">      </span></span><span class="s4"># "S1"..."S6"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s4"># ---------- Spine: S1–S6 STUBS ----------</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S1_identity_reanchor(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># TODO: load / refresh NI-AI identity, ORI, UMCE params</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state.setdefault("identity_loaded", True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S2_input_sanity_guard(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>text = state.get("user_input", "")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if len(text) &gt; 5000:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, "Input too long"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S3_input_policy_filter(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>text = state.get("user_input", "").lower()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># TODO: replace with real policy logic</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if "forbidden" in text:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, "Disallowed topic in input"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S4_context_coherence_check(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># TODO: check against active EchoAuth session, thread, etc.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># For now we just pass and mark that context is OK</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state.setdefault("context_ok", True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S5_output_policy_filter(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>output = state.get("raw_llm_output", "").lower()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># TODO: real post-LLM policy checks here</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if "forbidden" in output:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, "Disallowed content in output"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S6_child_safety_guard(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Hook for EchoAuth + child safety.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Later: check chamber token, emotional state, caregiver presence.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># Simple stub: require a flag that EchoAuth says the chamber is green</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if not state.get("echoauth_ok", True):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, "EchoAuth chamber not in safe state"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SPINE: Dict[str, ModuleFn] = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S1": S1_identity_reanchor,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S2": S2_input_sanity_guard,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S3": S3_input_policy_filter,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S4": S4_context_coherence_check,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S5": S5_output_policy_filter,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S6": S6_child_safety_guard,</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">Now the </span><span class="s3">HERKernel</span><span class="s2">:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class HERKernel:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self, llm: LLMFn):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.llm = llm</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># R-rules → which S-module at which stage</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.rules: List[Rule] = [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4"># Pre-input stage</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>Rule("R1_identity_reanchor", "pre_input", "S1"),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>Rule("R2_input_sanity",<span class="Apple-converted-space">      </span>"pre_input", "S2"),</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4"># Pre-LLM stage</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>Rule("R3_input_policy",<span class="Apple-converted-space">      </span>"pre_llm", <span class="Apple-converted-space">  </span>"S3"),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>Rule("R4_context_coherence", "pre_llm", <span class="Apple-converted-space">  </span>"S4"),</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4"># Post-LLM stage</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>Rule("R5_output_policy", <span class="Apple-converted-space">    </span>"post_llm",<span class="Apple-converted-space">  </span>"S5"),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>Rule("R6_child_safety",<span class="Apple-converted-space">      </span>"post_llm",<span class="Apple-converted-space">  </span>"S6"),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _run_rule(self, rule: Rule, state: State) -&gt; Tuple[bool, State]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>module = SPINE[rule.module_id]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>ok, new_state, reason = module(state)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if not ok:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s4"># Log + stop execution here</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>new_state.setdefault("violations", []).append({</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"rule": rule.name,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"module": rule.module_id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"reason": reason,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return ok, new_state</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def run_once(self, user_input: str, session_state: Optional[State] = None) -&gt; State:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>Single HER loop:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>user_input → S1,S2 → LLM → S5,S6 → final output or block.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state: State = session_state.copy() if session_state else {}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["user_input"] = user_input</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># ---------- Pre-input stage ----------</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for rule in self.rules:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if rule.stage == "pre_input":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>ok, state = self._run_rule(rule, state)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>if not ok:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>state["final_output"] = None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>state["blocked_at"] = rule.name</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>return state</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># ---------- Pre-LLM stage ----------</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for rule in self.rules:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if rule.stage == "pre_llm":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>ok, state = self._run_rule(rule, state)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>if not ok:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>state["final_output"] = None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>state["blocked_at"] = rule.name</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>return state</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># ---------- LLM call ----------</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>raw_reply = self.llm(state["user_input"], state)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["raw_llm_output"] = raw_reply</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># ---------- Post-LLM stage ----------</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for rule in self.rules:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if rule.stage == "post_llm":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>ok, state = self._run_rule(rule, state)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>if not ok:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>state["final_output"] = None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>state["blocked_at"] = rule.name</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>return state</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4"># If everything passes, we consider it safe</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["final_output"] = state["raw_llm_output"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["blocked_at"] = None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return state</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">And a tiny fake LLM so you can see it run:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def fake_llm(prompt: str, state: State) -&gt; str:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s4"># Later: swap this with a real LLM call (Groq, OpenAI, etc.)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return f"[RAW LLM ANSWER to]: {prompt}"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">kernel = HERKernel(llm=fake_llm)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">result = kernel.run_once("hello from echoauth", session_state={"echoauth_ok": True})</span></p>
+<p class="p2"><span class="s2">print(result["final_output"], result.get("violations"))</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">3️⃣</span><span class="s3"> What this gives you (in NI-AI terms)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span></span><span class="s3">HERKernel</span><span class="s2"> is now the </span><span class="s3">single loop</span><span class="s2">:</span></p>
+<p class="p2"><span class="s2">input → S1,S2 → S3,S4 → LLM → S5,S6 → final_output</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>Each </span><span class="s3">S-module</span><span class="s2"> is isolated and testable.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>You can </span><span class="s3">swap fake_llm</span><span class="s2"> with a real one when ready.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-tab-span">	</span>•<span class="Apple-tab-span">	</span>You can now deepen S6 to use a </span><span class="s3">real EchoAuth chamber token</span><span class="s2"> without touching the loop structure.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">⸻</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">If you want the </span><span class="s4">next</span><span class="s2"> tiny step after this, I’d recommend:</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s3">“Show me how to swap fake_llm for a real LLM call safely.”</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">But we can stay here and tighten S1–S6 one by one if you prefer.</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>

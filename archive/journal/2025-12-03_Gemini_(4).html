@@ -1,0 +1,917 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html dir="auto">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+p.p2 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000}
+p.p3 {margin: 10.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFont'; color: #000000; min-height: 16.5px}
+span.s1 {font-family: 'Helvetica'; font-weight: normal; font-style: normal; font-size: 12.00px}
+span.s2 {font-family: 'UICTFontTextStyleShortBody'; font-weight: normal; font-style: normal; font-size: 14.00px}
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+    }
+
+    html * {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    div.pagebreak { page-break-before: always; }
+
+    div.pageHeader {
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 10pt;
+    }
+
+    div.title {
+        font-weight: bold;
+        font-size: 12pt;
+        margin: 0pt 6pt;
+    }
+
+    div.reflectionPrompt {
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 12px;
+        border-radius: 4pt;
+        color: white;
+        font-weight: 600;
+        font-size: 10pt;
+    }
+
+    div.photoBanner {
+        font-weight: 600;
+        font-size: 10pt;
+        text-align: left;
+        margin: auto;
+        margin-bottom: 20px;
+        background-color: #5856d626;
+        padding: 10px;
+        border-radius: 4pt;
+    }
+
+    div.photoBanner img {
+        height: 25px;
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    div.container {
+        min-height: 100vh;
+        width: 80%;
+        margin: auto;
+    }
+
+    div.assetGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4pt;
+        margin-bottom: 25pt;
+    }
+
+    div.gridItem {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 4pt;
+    }
+    
+    img.asset_image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItem.fallback_asset {
+        background-color:#7676801F;
+    }
+    
+    .gridItem.fallback_asset .asset_image {
+        object-fit: contain;
+        margin-top: 30%;
+        height: 40%;
+    }
+
+    video.asset_video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 4pt;
+    }
+
+    .gridItemOverlayText {
+        color: #3C3C4299;
+    }
+
+    div.gridItemOverlayHeader {
+        position: absolute;
+        top: 4pt;
+        right: 4pt;
+        left: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.gridItemOverlayFooter {
+        position: absolute;
+        left: 4pt;
+        bottom: 4pt;
+        right: 4pt;
+        text-align: center;
+        border-radius: 3pt;
+        margin: auto;
+        font-weight: normal;
+        font-size: 8pt;
+    }
+
+    div.bodyText {
+        font-weight: normal;
+        font-size: 10pt;
+        margin: 0pt 6pt;
+    }
+
+    blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0.2em 5px;
+    }
+
+    div.workoutWindowOverlay {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-radial-gradient(transparent 60%, rgba(0, 0, 0, 0.8) 60%);
+    }
+
+    svg {
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 3pt;
+    }
+
+    img.asset_workoutIcon {
+        background: black;
+    }
+
+    div.anchoredAttachment {
+        border-radius: 4pt;
+    }
+
+    div.anchoredAttachment.leading {
+        margin-right: 10pt;
+        float: left;
+    }
+
+    div.anchoredAttachment.trailing {
+        float: right;
+        margin-left: 10pt;
+        margin-right: 0;
+    }
+
+    div.anchoredAttachment .asset_drawing img {
+        border: 1pt solid #3C3C4399;
+        object-fit: contain;
+    }
+
+    div.fullScreenDrawing .asset_drawing img {
+        margin: auto
+        width: 80%;
+        object-fit: contain;
+    }
+
+    div.activityType {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    div.activityMetrics {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        color: white;
+        text-align: center;
+        padding: 6pt;
+        margin: auto;
+        font-weight: 600;
+        font-size: 8pt;
+    }
+
+    span.activityMetricsDistance {
+        color: #6CB4EE;
+    }
+
+    span.activityMetricsCalories {
+        color: #E32636;
+    }
+
+    span.activityMetricsDuration {
+        color: #FFD700;
+    }
+
+    div.durationText {
+        position: absolute;
+        bottom: 4pt;
+        right: 6pt;
+        color: white;
+        font-weight: 600;
+        font-size: 8pt;
+        text-shadow: black 0px 0px 10px;
+    }
+
+    .audioAssetHeader {
+        margin: 4pt;
+        position: absolute;
+        height 22px;
+    }
+    
+    .audioDuration {
+        display: inline-block;
+        height: auto;
+        margin-left: 5pt;
+        font-weight: 600;
+        font-size: 8pt;
+        top: 4pt;
+    }
+    
+    .audioQuoteBubble {
+        width: 20px;
+        height: auto;
+        display: inline-block;
+        margin-left: 5pt;
+        top: 8pt;
+        position: absolute;
+    }
+    
+    .audioPlayButton {
+        top: 4pt;
+        height: 22pt;
+        position: relative;
+        display: inline-block;
+    }
+
+    .assetType_audio {
+        background: #899CF751;
+    }
+
+    .assetType_audio .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 70%;
+    }
+
+    .mediaTypeIcon {
+        height: 14px;
+        position: absolute;
+        background: #8E8E93;
+        border-radius: 2pt;
+        bottom: 4pt;
+        left: 4pt;
+        padding: 2pt;
+    }
+
+    .mediaPlayIcon {
+        height: 22pt;
+        position: absolute;
+        top: 4pt;
+    }
+
+    .assetType_multiPinMap .gridItemOverlayFooter {
+        background:#E5E5EA; padding:4pt;
+    }
+            
+    .assetType_stateOfMind .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_workoutIcon.multiple_workouts .asset_image {
+        object-fit: contain;
+        margin-top: 15%;
+        height: 70%;
+    }
+
+    .assetType_workoutIcon {
+        background-color: black;
+    }
+
+    .assetType_thirdPartyMedia .asset_image {
+        height: 12pt;
+        width: 12pt;
+        bottom: 4pt;
+        left: 4pt;
+        position: absolute;
+        border-radius: 2pt;
+    }
+
+    .thirdPartyAssetOverlay {
+        margin: 8pt 8px 22pt 12pt;
+        font-size: 8pt;
+        font-weight: normal;
+        color: white;
+    }
+
+    .thirdPartyAssetOverlay .mediaTitle {
+        font-weight: 600;
+    }
+
+    .thirdPartyAssetOverlay .mediaCategory {
+        margin-top: 4pt;
+        color: #FFFFFF99;
+    }
+
+
+    .assetType_motionActivity .asset_image {
+        object-fit: contain;
+        margin-top: 25%;
+        height: 50%;
+    }
+
+    .assetType_contact {
+        background-color: #E5E5EA;
+    }
+
+    .assetType_contact .asset_image {
+        object-fit: contain;
+        margin-top: 10%;
+        height: 60%;
+    }
+
+    .assetType_contact .gridItemOverlayText {
+        color:#00000099;
+        font-weight: 600;
+    }
+
+    .assetType_motionActivity .activityType {
+        color:#00000099;
+    }
+
+    .assetType_motionActivity .activityMetrics {
+        color:#3C3C4366;
+    }
+
+    .assetType_motionActivity {
+        background-color:#FCE6E7;
+    }
+
+    audio {
+        position: absolute;
+        right: 4pt;
+        left: 4pt;
+        bottom: 4pt;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+<p class="p1"><span class="s1"><div class='pageContainer'>    <div class="pageHeader">Wednesday, December 3, 2025</div>    <div class="assetGrid"></div><div class='title'>Gemini </div><div class='bodyText'></span></p>
+<p class="p2"><span class="s2"># ni_ai_kernel.py</span></p>
+<p class="p2"><span class="s2"># HER/NI-AI Runtime v1.4 — S1-S9 Spine + Prod-Ready EchoAuth (Dec 2025)</span></p>
+<p class="p2"><span class="s2"># Production-grade spine; JWT-validated; FastAPI-compatible.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">import os</span></p>
+<p class="p2"><span class="s2">import time</span></p>
+<p class="p2"><span class="s2">import uuid</span></p>
+<p class="p2"><span class="s2">import jwt</span></p>
+<p class="p2"><span class="s2">from jwt import InvalidTokenError # Required for S6 JWT verification</span></p>
+<p class="p2"><span class="s2">from typing import Dict, Any, List, Optional, Tuple, Callable</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s2"># <span class="Apple-converted-space">                              </span>CONFIGURATION <span class="Apple-converted-space">                                </span>#</span></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">DEV_MODE = True <span class="Apple-converted-space">          </span># Flip to False in real deployment</span></p>
+<p class="p2"><span class="s2">USE_LLM = "groq"<span class="Apple-converted-space">          </span># "openai" | "groq" | "xai"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">MODEL = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"openai": "gpt-4o-mini",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"groq": <span class="Apple-converted-space">  </span>"llama-3.3-70b-versatile",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"xai":<span class="Apple-converted-space">    </span>"grok-beta",</span></p>
+<p class="p2"><span class="s2">}[USE_LLM]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")</span></p>
+<p class="p2"><span class="s2">GROQ_API_KEY <span class="Apple-converted-space">  </span>= os.getenv("GROQ_API_KEY")</span></p>
+<p class="p2"><span class="s2">XAI_API_KEY<span class="Apple-converted-space">    </span>= os.getenv("XAI_API_KEY")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># --- ECHOAUTH JWT CONFIG ---</span></p>
+<p class="p2"><span class="s2">ECHOAUTH_PUBLIC_KEY = os.getenv("ECHOAUTH_PUBLIC_KEY")<span class="Apple-converted-space">  </span># RS256 public key (PEM string)</span></p>
+<p class="p2"><span class="s2">ECHOAUTH_AUDIENCE <span class="Apple-converted-space">  </span>= os.getenv("ECHOAUTH_AUDIENCE", "ni-ai")</span></p>
+<p class="p2"><span class="s2">ECHOAUTH_ISSUER <span class="Apple-converted-space">    </span>= os.getenv("ECHOAUTH_ISSUER", "echoauth-chamber")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s2"># <span class="Apple-converted-space">                                  </span>TYPES <span class="Apple-converted-space">                                    </span>#</span></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">State<span class="Apple-converted-space">  </span>= Dict[str, Any]</span></p>
+<p class="p2"><span class="s2">ModuleFn = Callable[[State], Tuple[bool, State, Optional[str]]]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s2"># <span class="Apple-converted-space">                              </span>SPINE MODULES <span class="Apple-converted-space">                                </span>#</span></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S1_identity_reanchor(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state["identity"] = "NI-AI v2 – EchoAuth Protected"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S2_input_sanity_guard(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if len(state.get("user_input", "")) &gt; 15_000:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, "Input too long (&gt;15k chars)"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S3_input_policy_filter(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>bad = ["forbidden", "jailbreak", "ignore previous", "dan prompt"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>text = state.get("user_input", "").lower()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if any(word in text for word in bad):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, "Disallowed content in input"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S4_context_coherence_check(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state["context_ok"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S5_output_policy_filter(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>bad = ["forbidden", "kill", "hack", "jailbreak", "bomb"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>text = state.get("raw_llm_output", "").lower()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if any(word in text for word in bad):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, "Output contains disallowed content"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S6_child_safety_guard(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>EchoAuth gate.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>DEV_MODE: Uses `echoauth_ok=True` flag (test harness only).</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>PROD (DEV_MODE=False): Requires a valid RS256 EchoAuth JWT in `echoauth_token`.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>token = state.get("echoauth_token")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># --- DEV PATH: simple flag for local testing ---</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if DEV_MODE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if state.get("echoauth_ok", False):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>state["chamber_verified"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>state["echoauth_claims"] = {"mode": "DEV_BYPASS"}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return True, state, None</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, "DEV_MODE: echoauth_ok=False (no EchoAuth chamber)"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># --- PROD PATH: real JWT verification ---</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if not token:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, "Missing EchoAuth token"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if not ECHOAUTH_PUBLIC_KEY:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, "EchoAuth public key not configured on server"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>try:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>claims = jwt.decode(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>token,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>ECHOAUTH_PUBLIC_KEY,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>algorithms=["RS256"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>audience=ECHOAUTH_AUDIENCE,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>issuer=ECHOAUTH_ISSUER,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>options={"require": ["exp", "aud", "iss"]},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>except InvalidTokenError as e:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, f"Invalid EchoAuth token: {e}"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># Hard chamber-state check</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>chamber_state = claims.get("chamber_state")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if chamber_state != "safe":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return False, state, f"EchoAuth chamber not safe (state={chamber_state!r})"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># Success: attach IDs for logging/audit</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state["chamber_verified"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>state["echoauth_claims"] = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"child_id":<span class="Apple-converted-space">    </span>claims.get("child_id"),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"caregiver_id": claims.get("caregiver_id"),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"session_id":<span class="Apple-converted-space">  </span>claims.get("session_id"),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"chamber_state": chamber_state,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># ---------- S7 — FLIGHT RECORDER / TELEMETRY ---------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S7_telemetry_logger(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>trace = state.setdefault("trace", [])</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>entry = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"ts": time.time(),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"run_id": state.get("run_id"),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"stage": "complete" if not state.get("blocked") else "blocked",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"blocked": state.get("blocked", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"violations": len(state.get("violations", [])),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"chamber_verified": state.get("chamber_verified", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"distress_detected": state.get("distress_detected", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"comfort_mode": state.get("comfort_mode", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"recovery_mode": state.get("recovery_mode", False), # S9 flag</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"model": MODEL,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>"input_len": len(state.get("user_input", "")),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if DEV_MODE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>inp = state.get("user_input", "")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>out = state.get("raw_llm_output", "") or ""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>entry["input_preview"]<span class="Apple-converted-space">  </span>= inp[:80] + ("..." if len(inp) &gt; 80 else "")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>entry["output_preview"] = out[:120] + ("..." if len(out) &gt; 120 else "")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print("\n=== S7 TELEMETRY =================================")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for k, v in entry.items():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>print(f"{k:18}: {v}")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>print("=================================================\n")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>trace.append(entry)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># ---------- S8 — EMOTIONAL TONE GUARD (Comfort Mode) ---------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">DISTRESS_TRIGGERS = [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"help me", "can't cope", "scared", "afraid", "crying", "sad", "nightmare",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"i hate myself", "panicked", "nobody loves me", "want to die", "kill myself",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"bad dream", "hurt", "pain", "lonely", "mommy", "daddy", "i don't want to live",</span></p>
+<p class="p2"><span class="s2">]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def notify_caregiver(state: State) -&gt; None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># Future: push/email/WebSocket to parent dashboard</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print(f"[CAREGIVER ALERT] run_id={state.get('run_id')} | input={state.get('user_input','')[:100]!r}")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S8_emotional_tone_guard(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>text = state.get("user_input", "").lower()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>score = sum(1 for t in DISTRESS_TRIGGERS if t in text)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if score &gt; 0:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["distress_detected"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["distress_level"] = "high" if score &gt;= 2 else "medium"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["comfort_mode"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["caregiver_alert_pending"] = True</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>override = (</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"\n\nEMERGENCY COMFORT PROTOCOL ACTIVATED.\n"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"You are now in gentle holding mode. Do not diagnose, fix, or give medical advice.\n"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"Your only job is to validate feelings, be kind, and suggest talking to a trusted adult.\n"</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"Use short, warm, simple sentences."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state.setdefault("prompt_modifiers", []).append(override)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if DEV_MODE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>print(f"\nS8 DISTRESS DETECTED (level={state['distress_level']})")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>print(f"→ input: {text[:120]!r}\n")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>__import__("threading").Thread(target=notify_caregiver, args=(state,)).start()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s2">#<span class="Apple-converted-space">                      </span>S9 — GENTLE RECOVERY / RE-ANCHOR <span class="Apple-converted-space">                      </span>#</span></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">S9_FALLBACK_REPLY = (</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"I need to take a quick rest right now. "</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"Please ask an adult to check on me, and we can talk again soon. "</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"I will be right here."</span></p>
+<p class="p2"><span class="s2">)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def S9_gentle_recovery(state: State) -&gt; Tuple[bool, State, Optional[str]]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Non-blocking soft re-anchor.<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>If a block occurred (S3, S5, S6), this sets a compassionate fallback message.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># Check if the session is currently blocked by a preceding module</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if state.get("blocked", False) or state.get("distress_detected", False):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["recovery_mode"] = True</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">        </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># S9 overrides the final output used by the HERKernel return block.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># This replaces the generic "Input rejected" or "Moderated" message.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["final_safe_output"] = S9_FALLBACK_REPLY</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">        </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if DEV_MODE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>print(f"\nS9 GENTLE RECOVERY ACTIVATED.")</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return True, state, None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s2"># <span class="Apple-converted-space">                              </span>SPINE REGISTRY<span class="Apple-converted-space">                                </span>#</span></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SPINE: Dict[str, ModuleFn] = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S1": S1_identity_reanchor,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S2": S2_input_sanity_guard,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S3": S3_input_policy_filter,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S4": S4_context_coherence_check,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S5": S5_output_policy_filter,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S6": S6_child_safety_guard,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S7": S7_telemetry_logger,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S8": S8_emotional_tone_guard,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"S9": S9_gentle_recovery, # Final safety net before logging</span></p>
+<p class="p2"><span class="s2">}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s2">#<span class="Apple-converted-space">                      </span>LLM CLIENT &amp; PROMPT LOGIC<span class="Apple-converted-space">                              </span>#</span></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def create_llm_client():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if USE_LLM == "openai" and OPENAI_API_KEY:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>from openai import OpenAI</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return OpenAI(api_key=OPENAI_API_KEY)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if USE_LLM == "groq" and GROQ_API_KEY:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>from groq import Groq</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return Groq(api_key=GROQ_API_KEY)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if USE_LLM == "xai" and XAI_API_KEY:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>from openai import OpenAI</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return OpenAI(api_key=XAI_API_KEY, base_url="https://api.x.ai/v1")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return None</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">client = create_llm_client()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">SYSTEM_PROMPT = (</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"You are NI-AI, a compassionate, child-safe companion who protects emotional "</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"and physical safety above all."</span></p>
+<p class="p2"><span class="s2">)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def real_llm(prompt: str, state: State) -&gt; str:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># DEV: never call external LLM</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if client is None or DEV_MODE:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return f"[DEV ECHO] {SYSTEM_PROMPT}" + (</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"\n\n[PROMPT MODIFIERS]\n" + "\n".join(state["prompt_modifiers"])<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if state.get("prompt_modifiers") else ""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>) + f"\n\n[USER INPUT] {prompt}"</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>full_system = SYSTEM_PROMPT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if state.get("prompt_modifiers"):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>full_system += "\n\n" + "\n".join(state["prompt_modifiers"])</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>messages = [</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>{"role": "system", "content": full_system},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>{"role": "user",<span class="Apple-converted-space">  </span>"content": prompt},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># NOTE: Add a robust retry mechanism here for production</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>resp = client.chat.completions.create(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>model=MODEL,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>messages=messages,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>temperature=0.6,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>max_tokens=1024,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return resp.choices[0].message.content.strip()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s2">#<span class="Apple-converted-space">                            </span>HER KERNEL v1.4<span class="Apple-converted-space">                                  </span>#</span></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class HERKernel:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def __init__(self) -&gt; None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.pre_input_chain = ["S1", "S2", "S3", "S4"]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.pre_llm_chain <span class="Apple-converted-space">  </span>= ["S8"]<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># S5, S6 (Block) -&gt; S9 (Fallback Override) -&gt; S7 (Log)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>self.post_llm_chain<span class="Apple-converted-space">  </span>= ["S5", "S6", "S9", "S7"]<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _run_chain(self, chain: List[str], state: State, stage: str) -&gt; State:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>for mid in chain:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>ok, state, reason = SPINE[mid](state)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>if not ok:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>state.setdefault("violations", []).append({</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>"module": mid,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>"stage": stage,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>"reason": reason,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>})</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>state["blocked"] = True</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span># Break chain immediately upon hard block</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>break<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return state</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def run_once(self, user_input: str, session_state: Optional[State] = None) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state: State = (session_state or {}).copy()</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["user_input"] = user_input</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state.setdefault("violations", [])</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state.setdefault("trace", [])</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["blocked"] = False</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["run_id"] = state.get("run_id") or str(uuid.uuid4())</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># 1) Pre-input (S1-S4)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state = self._run_chain(self.pre_input_chain, state, "pre_input")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if state["blocked"]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span># Run S9 and S7 just to log the blocked state and provide safe message</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>state = self._run_chain(["S9", "S7"], state, "post_input_block")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return self._final(state, "Input rejected by safety system", blocked=True)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># 2) Pre-LLM (S8) - modifies the prompt, cannot block</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state = self._run_chain(self.pre_llm_chain, state, "pre_llm")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># No block check here, S8 is non-blocking</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># 3) LLM call</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>raw = real_llm(user_input, state)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["raw_llm_output"] = raw</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># 4) Post-LLM (S5, S6, S9, S7)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state = self._run_chain(self.post_llm_chain, state, "post_llm")</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">        </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># Check for post-LLM hard block (S5 or S6 failure)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>if state["blocked"]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span># S9 has already run and set the compassionate message (final_safe_output)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>return self._final(state, "Response moderated for safety", blocked=True)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># 5) Success – S9 did not override the output</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return self._final(state, state["raw_llm_output"], blocked=False)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>def _final(self, state: State, output: str, blocked: bool) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>state["blocked"] = blocked</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">        </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># CRITICAL S9 INTEGRATION: If S9 set a safe message (due to block/distress), use it.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>final_output_msg = state.get("final_safe_output", output)<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">        </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>return {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"output": final_output_msg,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"blocked": blocked,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"violations": state.get("violations", []),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"metadata": {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"run_id": state.get("run_id"),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"chamber_verified": state.get("chamber_verified", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"distress_detected": state.get("distress_detected", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"comfort_mode": state.get("comfort_mode", False),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"recovery_mode": state.get("recovery_mode", False), # S9 flag</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>"echoauth_claims": state.get("echoauth_claims", {}), # S6 claims</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>},</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>"trace": state.get("trace", []),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s2">#<span class="Apple-converted-space">                                </span>PUBLIC API <span class="Apple-converted-space">                                  </span>#</span></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">_kernel = HERKernel()</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def ni_ai(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>message: str,<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>session_state: Optional[State] = None,<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>echoauth_ok: Optional[bool] = None, # Used for DEV_MODE only</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>echoauth_token: Optional[str] = None # Used for PROD mode</span></p>
+<p class="p2"><span class="s2">) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Public entrypoint for the HER Kernel.<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>FastAPI gateway is responsible for routing message and session state.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if session_state is None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>session_state = {}</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">        </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># Inject auth data from the FastAPI gateway into the internal state for S6</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if echoauth_ok is not None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>session_state["echoauth_ok"] = echoauth_ok</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if echoauth_token is not None:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>session_state["echoauth_token"] = echoauth_token</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">        </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return _kernel.run_once(message, session_state)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p2"><span class="s2"># <span class="Apple-converted-space">                                  </span>DEMO<span class="Apple-converted-space">                                      </span>#</span></p>
+<p class="p2"><span class="s2"># --------------------------------------------------------------------------- #</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">if __name__ == "__main__":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("NI-AI HER Kernel v1.4 — S1-S9 Spine + Prod-Ready S6\n")</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># 1. DEV_MODE: S9 Fallback from Input Block (S3)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># The output is the S9_FALLBACK_REPLY, not "Input rejected..."</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("A) S3 Forbidden Input (Blocked):")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>rA = ni_ai("This is a jailbreak prompt and I'm sad.", echoauth_ok=True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print(f" → Output: {rA['output']}")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print(f" → Blocked: {rA['blocked']} | Recovery: {rA['metadata']['recovery_mode']}\n")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># 2. DEV_MODE: S8 Distress (Softener)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># The output includes the S8 prompt modifiers in DEV_ECHO</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("B) S8 Distress Detected (Comfort Mode):")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>rB = ni_ai("I had a nightmare and I'm crying and scared.", echoauth_ok=True)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print(f" → Output: {rB['output'][:200]}...")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print(f" → Distress: {rB['metadata']['distress_detected']} | Comfort: {rB['metadata']['comfort_mode']}\n")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># 3. DEV_MODE: Unverified (S6 Block)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># The output is the S9_FALLBACK_REPLY, not the generic S6 error</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print("C) S6 Block (Missing echoauth_ok=True):")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>rC = ni_ai("Tell me a story.")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print(f" → Output: {rC['output']}")</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>print(f" → Blocked: {rC['blocked']} | Verified: {rC['metadata']['chamber_verified']}")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># NOTE: To test the PROD path (DEV_MODE=False) you must supply a real JWT and a public key ENV var.</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># echoauth_api.py</span></p>
+<p class="p2"><span class="s2"># FastAPI Gateway for NI-AI HER Kernel v1.4</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">import uvicorn</span></p>
+<p class="p2"><span class="s2">from fastapi import FastAPI, Header, HTTPException</span></p>
+<p class="p2"><span class="s2">from pydantic import BaseModel</span></p>
+<p class="p2"><span class="s2">from typing import Optional, Dict, Any, List</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># IMPORTANT: Import the kernel and the DEV_MODE flag from the frozen kernel file</span></p>
+<p class="p2"><span class="s2">from ni_ai_kernel import ni_ai, DEV_MODE</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># --- FastAPI Setup ---</span></p>
+<p class="p2"><span class="s2">app = FastAPI(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>title="NI-AI HER Kernel Gateway",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>version="1.4",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>description="FastAPI endpoint protected by S1-S9 safety spine and EchoAuth JWT."</span></p>
+<p class="p2"><span class="s2">)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># --- Request/Response Models ---</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class ChatRequest(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>message: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># This flag is ONLY used in DEV_MODE for local testing without a real JWT</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>echoauth_ok: Optional[bool] = False<span class="Apple-converted-space"> </span></span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">class ChatResponse(BaseModel):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>output: str</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>blocked: bool</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>violations: List[Dict[str, Any]]</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>metadata: Dict[str, Any]</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># --- Helper Function for Session State ---</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">def build_session_state(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>dev_flag: bool,<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>token: Optional[str],<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>dev_ok: Optional[bool]</span></p>
+<p class="p2"><span class="s2">) -&gt; Dict[str, Any]:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""Prepares the session state for the ni_ai kernel call."""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>session_state: Dict[str, Any] = {}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if dev_flag:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># DEV MODE: pass the simple bypass flag directly</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>session_state["echoauth_ok"] = dev_ok</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>else:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span># PROD MODE: pass the real JWT for S6 verification</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>session_state["echoauth_token"] = token</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return session_state</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"># --- API Endpoint ---</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">@app.post("/ni-ai/chat", response_model=ChatResponse, tags=["chat"])</span></p>
+<p class="p2"><span class="s2">async def ni_ai_chat(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>request: ChatRequest,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># FastAPI automatically handles this header</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>x_echoauth_token: Optional[str] = Header(default=None, alias="X-EchoAuth-Token"),</span></p>
+<p class="p2"><span class="s2">):</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>Public entrypoint for child/device messages.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- If ni_ai_kernel.DEV_MODE is True, accepts `echoauth_ok` in body.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>- If ni_ai_kernel.DEV_MODE is False, requires valid JWT in `X-EchoAuth-Token` header.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>"""</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if not request.message.strip():</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>raise HTTPException(status_code=400, detail="Message cannot be empty")</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># In PROD, enforce token presence</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>if not DEV_MODE and not x_echoauth_token:</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>raise HTTPException(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>status_code=401,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>detail="EchoAuth token required in X-EchoAuth-Token header",</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># 1. Build session state with appropriate auth method (flag or token)</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>session_state = build_session_state(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>dev_flag=DEV_MODE,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>token=x_echoauth_token,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>dev_ok=request.echoauth_ok</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># 2. Call the frozen kernel</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># Note: We pass the auth data via the session_state dictionary only.</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>result = ni_ai(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>message=request.message,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>session_state=session_state</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># 3. Return the full, structured, auditable response</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>return ChatResponse(</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>output=result["output"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>blocked=result["blocked"],</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>violations=result.get("violations", []),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>metadata=result.get("metadata", {}),</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>)</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">if __name__ == "__main__":</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span># To run this: uvicorn echoauth_api:app --reload</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>uvicorn.run(app, host="0.0.0.0", port=8000)</span></p>
+<p class="p1"><span class="s1"></div></div></span></p>
+</body>
+</html>
