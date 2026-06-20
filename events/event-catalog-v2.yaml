@@ -1,0 +1,142 @@
+version: 2.0.0-draft
+status: hold
+source: specs/event-bus-v2.md
+envelope_schema: event-envelope-v2.schema.json
+runtime_vocabulary_schema: ../schemas/event-bus-runtime-v2.schema.json
+approval_required: true
+runtime_implementation_permitted: false
+defaults:
+  lifecycle_state: active
+  payload_handling: reject_unclassified
+  replay_policy: prohibited
+  prohibited_payload_content:
+    - raw_credentials
+    - bearer_secrets
+    - private_keys
+    - executable_secret_material
+events:
+  - event_type: audit.record
+    lifecycle_state: active
+    payload_schema: ../schemas/audit-record.schema.json
+    payload_schema_id: https://echoauth.local/schemas/audit-record.schema.json
+    payload_schema_version: 1.0.0
+    confidentiality_class: restricted
+    integrity_class: high
+    retention_class: audit
+    replay_policy: authorized_only
+  - event_type: authority.verdict
+    lifecycle_state: active
+    payload_schema: ../schemas/authority-resolution.schema.json
+    payload_schema_id: https://echoauth.local/schemas/authority-resolution.schema.json
+    payload_schema_version: 1.0.0
+    confidentiality_class: sensitive
+    integrity_class: high
+    retention_class: audit
+    replay_policy: authorized_only
+  - event_type: delegation.validation
+    lifecycle_state: active
+    payload_schema: ../schemas/common.schema.json
+    payload_schema_id: https://echoauth.local/schemas/common.schema.json
+    payload_schema_version: 1.0.0
+    confidentiality_class: sensitive
+    integrity_class: high
+    retention_class: audit
+    replay_policy: authorized_only
+  - event_type: envelope.created
+    lifecycle_state: active
+    payload_schema: ../schemas/runtime-envelope.schema.json
+    payload_schema_id: https://echoauth.local/schemas/runtime-envelope.schema.json
+    payload_schema_version: 1.0.0
+    confidentiality_class: restricted
+    integrity_class: high
+    retention_class: operational
+    replay_policy: prohibited
+  - event_type: execution_claim.accepted
+    lifecycle_state: active
+    payload_schema: ../schemas/common.schema.json
+    payload_schema_id: https://echoauth.local/schemas/common.schema.json
+    payload_schema_version: 1.0.0
+    confidentiality_class: restricted
+    integrity_class: high
+    retention_class: audit
+    replay_policy: prohibited
+  - event_type: execution_token.issued
+    lifecycle_state: active
+    payload_schema: ../schemas/execution-token.schema.json
+    payload_schema_id: https://echoauth.local/schemas/execution-token.schema.json
+    payload_schema_version: 1.0.0
+    confidentiality_class: restricted
+    integrity_class: high
+    retention_class: operational
+    replay_policy: prohibited
+  - event_type: identity.verdict
+    lifecycle_state: active
+    payload_schema: ../schemas/common.schema.json
+    payload_schema_id: https://echoauth.local/schemas/common.schema.json
+    payload_schema_version: 1.0.0
+    confidentiality_class: restricted
+    integrity_class: high
+    retention_class: audit
+    replay_policy: authorized_only
+  - event_type: invariant.result
+    lifecycle_state: active
+    payload_schema: ../schemas/common.schema.json
+    payload_schema_id: https://echoauth.local/schemas/common.schema.json
+    payload_schema_version: 1.0.0
+    confidentiality_class: internal
+    integrity_class: high
+    retention_class: audit
+    replay_policy: authorized_only
+  - event_type: policy.decision
+    lifecycle_state: active
+    payload_schema: ../schemas/common.schema.json
+    payload_schema_id: https://echoauth.local/schemas/common.schema.json
+    payload_schema_version: 1.0.0
+    confidentiality_class: sensitive
+    integrity_class: high
+    retention_class: audit
+    replay_policy: authorized_only
+  - event_type: request.submitted
+    lifecycle_state: active
+    payload_schema: ../schemas/echoauth-request.schema.json
+    payload_schema_id: https://echoauth.local/schemas/echoauth-request.schema.json
+    payload_schema_version: 1.0.0
+    confidentiality_class: sensitive
+    integrity_class: standard
+    retention_class: operational
+    replay_policy: prohibited
+  - event_type: runtime.halted
+    lifecycle_state: active
+    payload_schema: ../schemas/common.schema.json
+    payload_schema_id: https://echoauth.local/schemas/common.schema.json
+    payload_schema_version: 1.0.0
+    confidentiality_class: sensitive
+    integrity_class: high
+    retention_class: audit
+    replay_policy: prohibited
+  - event_type: runtime.recovered
+    lifecycle_state: catalog_only
+    payload_schema: ../schemas/common.schema.json
+    payload_schema_id: https://echoauth.local/schemas/common.schema.json
+    payload_schema_version: 1.0.0
+    confidentiality_class: restricted
+    integrity_class: high
+    retention_class: audit
+    replay_policy: prohibited
+    prohibited_operations:
+      - accept
+      - produce
+      - subscribe
+      - publish
+      - replay
+      - emit
+deterministic_order: event_type_ascending
+unresolved_dependencies:
+  - confidential_field_profiles
+  - signature_algorithm_registry
+  - trust_roots_and_key_lifecycle
+  - transport_and_acknowledgement_contract
+  - storage_and_transaction_contract
+  - retention_duration_policy
+  - audit_chain_routing_contract
+  - durable_causation_lookup_contract

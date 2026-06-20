@@ -1,0 +1,204 @@
+version: 2.0.0-draft
+status: hold
+source: specs/event-bus-v2.md
+decision_log: contracts/event-bus-v2-decision-log.md
+approval:
+  required: true
+  approved: false
+  runtime_implementation_permitted: false
+  rule: HOLD remains compliant until every required decision is approved.
+artifacts:
+  envelope_schema: events/event-envelope-v2.schema.json
+  runtime_vocabulary_schema: schemas/event-bus-runtime-v2.schema.json
+  catalog: events/event-catalog-v2.yaml
+compatibility:
+  replaces_v1: false
+  modifies_v1: false
+  v1_and_v2_are_implicitly_interchangeable: false
+  adaptation_requires_explicit_contract: true
+schema_identity:
+  envelope_version: "2.0"
+  event_schema_id: https://echoauth.local/events/event-envelope-v2.schema.json
+  event_schema_version: 2.0.0
+  payload_schema_selection: exact_event_type_catalog_match
+  mismatch_outcome: rejected
+confidentiality:
+  classes:
+    - public
+    - internal
+    - sensitive
+    - restricted
+  classification_source: events/event-catalog-v2.yaml
+  producer_declaration_required: true
+  inference_prohibited: true
+  automatic_redaction_permitted: false
+  missing_or_mismatched_classification: rejected
+  prohibited_payload_content:
+    - raw_credentials
+    - bearer_secrets
+    - private_keys
+    - executable_secret_material
+  machine_verifiable_field_profiles: unresolved
+subscriptions:
+  schema: schemas/event-bus-runtime-v2.schema.json#/$defs/SubscriptionRecord
+  states:
+    - proposed
+    - active
+    - suspended
+    - revoked
+    - expired
+    - retired
+  eligible_state: active
+  wildcard_event_types_permitted: false
+  exact_schema_version_required: true
+  authorization_evidence_required: true
+  deterministic_candidate_order:
+    - priority_ascending
+    - subscription_version_descending
+    - subscription_id_ascending
+  registration_and_mutation_authority: unresolved
+delivery:
+  evidence_schema: schemas/event-bus-runtime-v2.schema.json#/$defs/DeliveryEvidence
+  states:
+    - accepted
+    - publish_pending
+    - published
+    - retry_pending
+    - dead_lettered
+    - rejected
+    - held
+  transitions:
+    - from: received
+      evidence_event: validation_passed
+      to: accepted
+    - from: received
+      evidence_event: validation_failed
+      to: rejected
+    - from: received
+      evidence_event: required_dependency_unavailable
+      to: held
+    - from: accepted
+      evidence_event: publication_proposed
+      to: publish_pending
+    - from: publish_pending
+      evidence_event: transport_acknowledged
+      to: published
+    - from: publish_pending
+      evidence_event: retryable_failure
+      to: retry_pending
+    - from: retry_pending
+      evidence_event: retry_due
+      to: publish_pending
+    - from: publish_pending
+      evidence_event: non_retryable_failure
+      to: dead_lettered
+    - from: retry_pending
+      evidence_event: retry_exhausted
+      to: dead_lettered
+  transition_authority: unresolved
+  transport: unresolved
+retry:
+  policy_schema: schemas/event-bus-runtime-v2.schema.json#/$defs/RetryPolicy
+  explicit_policy_required: true
+  attempt_numbers_start_at: 1
+  retry_without_policy: held
+  failure_code_registry: unresolved
+dead_letter:
+  evidence_schema: schemas/event-bus-runtime-v2.schema.json#/$defs/DeadLetterEvidence
+  eligible_causes:
+    - non_retryable_failure
+    - retry_exhausted
+  persistence: unresolved
+  reprocessing: unresolved
+replay:
+  request_schema: schemas/event-bus-runtime-v2.schema.json#/$defs/ReplayEligibilityRequest
+  result_schema: schemas/event-bus-runtime-v2.schema.json#/$defs/ReplayEligibilityResult
+  policies:
+    - prohibited
+    - authorized_only
+  default_policy: prohibited
+  explicit_authority_evidence_required: true
+  eligibility_is_permission_to_publish: false
+  eligibility_is_permission_to_deliver: false
+  operational_replay: deferred
+retention_and_offsets:
+  retention_classes:
+    - ephemeral
+    - operational
+    - audit
+    - legal_hold
+  offset_schema: schemas/event-bus-runtime-v2.schema.json#/$defs/OffsetEvidence
+  offset_type: opaque
+  offset_scope: single_stream
+  cross_stream_comparison_permitted: false
+  durations_and_deletion_authority: unresolved
+integrity:
+  classes:
+    - standard
+    - high
+  signature_schema: schemas/event-bus-runtime-v2.schema.json#/$defs/SignatureEvidence
+  high_integrity_signature_evidence_required: true
+  signature_is_authorization: false
+  signing_and_verification_behavior: deferred
+  algorithm_registry: unresolved
+  trust_roots_and_key_lifecycle: unresolved
+audit_mapping:
+  schema: schemas/event-bus-runtime-v2.schema.json#/$defs/AuditMappingEvidence
+  accepted_event_type: event.accepted
+  rejected_event_type: event.rejected
+  preserves_source_evidence: true
+  mapping_claims_append: false
+  mapping_claims_persistence: false
+  writer_identity: unresolved
+  chain_selection: unresolved
+  append_authority: unresolved
+  append_failure_policy: unresolved
+causation:
+  schema: schemas/event-bus-runtime-v2.schema.json#/$defs/CausationEvidence
+  missing_causation_id: absent
+  self_reference: invalid
+  present_in_batch: resolved
+  absent_from_partial_batch: unresolved
+  cross_request_causation: prohibited
+  cross_batch_resolution: deferred
+  durable_lookup_and_conflict_authority: unresolved
+catalog_only_events:
+  runtime.recovered:
+    operations_prohibited:
+      - accept
+      - produce
+      - subscribe
+      - publish
+      - replay
+      - emit
+governance_boundaries:
+  refusal_first_preserved: true
+  evidence_authorizes_operations: false
+  coordination_is_execution: false
+  governance_is_execution: false
+  prohibited_behaviors:
+    - runtime_publication
+    - routing
+    - callbacks
+    - delivery
+    - persistence
+    - replay
+    - signing
+    - verification
+    - audit_append
+    - notification_delivery
+    - orchestration
+    - authorization_effects
+    - runtime_state_mutation
+    - execution
+    - token_issuance
+    - runtime_recovered_emission
+approval_blockers:
+  - transport_and_acknowledgement_contract
+  - storage_engine_and_transaction_contract
+  - retention_durations_and_deletion_authority
+  - signature_algorithm_registry_and_trust_roots
+  - machine_verifiable_confidential_field_profiles
+  - subscription_registration_and_mutation_authority
+  - audit_writer_chain_and_append_failure_contract
+  - durable_causation_lookup_and_conflict_authority

@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/event-bus-runtime-v2.schema.json",
+  "title": "EchoAuth Event Bus Runtime Vocabulary v2",
+  "description": "Draft evidence schemas only. These definitions grant no delivery, persistence, replay, signing, audit-append, authorization, orchestration, or execution effect.",
+  "type": "object",
+  "$defs": {
+    "NonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "UtcTimestamp": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "Sha256Hex": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "ConfidentialityClass": {
+      "type": "string",
+      "enum": ["public", "internal", "sensitive", "restricted"]
+    },
+    "IntegrityClass": {
+      "type": "string",
+      "enum": ["standard", "high"]
+    },
+    "CatalogLifecycleState": {
+      "type": "string",
+      "enum": ["active", "disabled", "retired", "catalog_only"]
+    },
+    "SubscriptionState": {
+      "type": "string",
+      "enum": ["proposed", "active", "suspended", "revoked", "expired", "retired"]
+    },
+    "DeliveryState": {
+      "type": "string",
+      "enum": ["accepted", "publish_pending", "published", "retry_pending", "dead_lettered", "rejected", "held"]
+    },
+    "ReplayPolicy": {
+      "type": "string",
+      "enum": ["prohibited", "authorized_only"]
+    },
+    "ReplayEligibilityOutcome": {
+      "type": "string",
+      "enum": ["eligible", "rejected", "held"]
+    },
+    "RetentionClass": {
+      "type": "string",
+      "enum": ["ephemeral", "operational", "audit", "legal_hold"]
+    },
+    "CausationState": {
+      "type": "string",
+      "enum": ["absent", "resolved", "unresolved", "conflict", "invalid"]
+    },
+    "AuditMappingState": {
+      "type": "string",
+      "enum": ["mapped", "unmapped", "held"]
+    },
+    "SignatureEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm_id", "key_id", "signed_fields", "signature_encoding", "signature_value", "signed_at"],
+      "properties": {
+        "algorithm_id": { "$ref": "#/$defs/NonEmptyString" },
+        "key_id": { "$ref": "#/$defs/NonEmptyString" },
+        "signed_fields": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/NonEmptyString" }
+        },
+        "signature_encoding": {
+          "type": "string",
+          "enum": ["base64url"]
+        },
+        "signature_value": { "$ref": "#/$defs/NonEmptyString" },
+        "signed_at": { "$ref": "#/$defs/UtcTimestamp" }
+      }
+    },
+    "SubscriptionRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subscription_id", "subscription_version", "subscriber_id", "event_types", "event_schema_versions", "authorization_evidence_id", "authorization_evidence_hash", "priority", "state", "effective_at"],
+      "properties": {
+        "subscription_id": { "$ref": "#/$defs/NonEmptyString" },
+        "subscription_version": { "type": "integer", "minimum": 1 },
+        "subscriber_id": { "$ref": "#/$defs/NonEmptyString" },
+        "event_types": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/NonEmptyString" }
+        },
+        "event_schema_versions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/NonEmptyString" }
+        },
+        "authorization_evidence_id": { "$ref": "#/$defs/NonEmptyString" },
+        "authorization_evidence_hash": { "$ref": "#/$defs/Sha256Hex" },
+        "priority": { "type": "integer", "minimum": 0 },
+        "state": { "$ref": "#/$defs/SubscriptionState" },
+        "effective_at": { "$ref": "#/$defs/UtcTimestamp" },
+        "expires_at": { "$ref": "#/$defs/UtcTimestamp" }
+      }
+    },
+    "RetryPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy_id", "policy_version", "maximum_attempts", "retryable_failure_codes"],
+      "properties": {
+        "policy_id": { "$ref": "#/$defs/NonEmptyString" },
+        "policy_version": { "$ref": "#/$defs/NonEmptyString" },
+        "maximum_attempts": { "type": "integer", "minimum": 1 },
+        "retryable_failure_codes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/NonEmptyString" }
+        }
+      }
+    },
+    "DeliveryEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["delivery_id", "event_id", "subscription_id", "subscription_version", "attempt_number", "state", "decision_at", "evidence_hash"],
+      "properties": {
+        "delivery_id": { "$ref": "#/$defs/NonEmptyString" },
+        "event_id": { "$ref": "#/$defs/NonEmptyString" },
+        "subscription_id": { "$ref": "#/$defs/NonEmptyString" },
+        "subscription_version": { "type": "integer", "minimum": 1 },
+        "attempt_number": { "type": "integer", "minimum": 1 },
+        "state": { "$ref": "#/$defs/DeliveryState" },
+        "failure_code": { "$ref": "#/$defs/NonEmptyString" },
+        "retry_policy_id": { "$ref": "#/$defs/NonEmptyString" },
+        "decision_at": { "$ref": "#/$defs/UtcTimestamp" },
+        "evidence_hash": { "$ref": "#/$defs/Sha256Hex" }
+      }
+    },
+    "DeadLetterEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dead_letter_id", "delivery_id", "event_id", "failure_code", "attempts_exhausted", "dead_lettered_at", "evidence_hash"],
+      "properties": {
+        "dead_letter_id": { "$ref": "#/$defs/NonEmptyString" },
+        "delivery_id": { "$ref": "#/$defs/NonEmptyString" },
+        "event_id": { "$ref": "#/$defs/NonEmptyString" },
+        "failure_code": { "$ref": "#/$defs/NonEmptyString" },
+        "attempts_exhausted": { "type": "boolean" },
+        "dead_lettered_at": { "$ref": "#/$defs/UtcTimestamp" },
+        "evidence_hash": { "$ref": "#/$defs/Sha256Hex" }
+      }
+    },
+    "OffsetEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stream_id", "offset", "event_id", "evidence_hash"],
+      "properties": {
+        "stream_id": { "$ref": "#/$defs/NonEmptyString" },
+        "offset": { "$ref": "#/$defs/NonEmptyString" },
+        "event_id": { "$ref": "#/$defs/NonEmptyString" },
+        "evidence_hash": { "$ref": "#/$defs/Sha256Hex" }
+      }
+    },
+    "ReplayEligibilityRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["replay_request_id", "event_id", "stream_id", "source_offset", "requester_id", "authority_evidence_id", "authority_evidence_hash", "requested_at"],
+      "properties": {
+        "replay_request_id": { "$ref": "#/$defs/NonEmptyString" },
+        "event_id": { "$ref": "#/$defs/NonEmptyString" },
+        "stream_id": { "$ref": "#/$defs/NonEmptyString" },
+        "source_offset": { "$ref": "#/$defs/NonEmptyString" },
+        "requester_id": { "$ref": "#/$defs/NonEmptyString" },
+        "authority_evidence_id": { "$ref": "#/$defs/NonEmptyString" },
+        "authority_evidence_hash": { "$ref": "#/$defs/Sha256Hex" },
+        "requested_at": { "$ref": "#/$defs/UtcTimestamp" }
+      }
+    },
+    "ReplayEligibilityResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["replay_request_id", "outcome", "reason", "decided_at", "evidence_hash"],
+      "properties": {
+        "replay_request_id": { "$ref": "#/$defs/NonEmptyString" },
+        "outcome": { "$ref": "#/$defs/ReplayEligibilityOutcome" },
+        "reason": { "$ref": "#/$defs/NonEmptyString" },
+        "decided_at": { "$ref": "#/$defs/UtcTimestamp" },
+        "evidence_hash": { "$ref": "#/$defs/Sha256Hex" }
+      }
+    },
+    "CausationEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event_id", "correlation_id", "state", "evidence_hash"],
+      "properties": {
+        "event_id": { "$ref": "#/$defs/NonEmptyString" },
+        "correlation_id": { "$ref": "#/$defs/NonEmptyString" },
+        "causation_id": { "$ref": "#/$defs/NonEmptyString" },
+        "state": { "$ref": "#/$defs/CausationState" },
+        "evidence_hash": { "$ref": "#/$defs/Sha256Hex" }
+      }
+    },
+    "AuditMappingEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mapping_id", "event_evidence_hash", "audit_event_type", "actor_id", "reason", "details_hash", "occurred_at", "state", "evidence_hash"],
+      "properties": {
+        "mapping_id": { "$ref": "#/$defs/NonEmptyString" },
+        "event_evidence_hash": { "$ref": "#/$defs/Sha256Hex" },
+        "audit_event_type": {
+          "type": "string",
+          "enum": ["event.accepted", "event.rejected"]
+        },
+        "actor_id": { "$ref": "#/$defs/NonEmptyString" },
+        "request_id": { "$ref": "#/$defs/NonEmptyString" },
+        "reason": { "$ref": "#/$defs/NonEmptyString" },
+        "details_hash": { "$ref": "#/$defs/Sha256Hex" },
+        "occurred_at": { "$ref": "#/$defs/UtcTimestamp" },
+        "state": { "$ref": "#/$defs/AuditMappingState" },
+        "evidence_hash": { "$ref": "#/$defs/Sha256Hex" }
+      }
+    }
+  }
+}
