@@ -12,6 +12,7 @@ artifacts:
   runtime_vocabulary_schema: schemas/event-bus-runtime-v2.schema.json
   authority_intake_schema: schemas/event-bus-v2-authority-intake.schema.json
   authority_intake_submission_schema: schemas/event-bus-v2-authority-intake-submission.schema.json
+  authority_intake_verification_schema: schemas/event-bus-v2-authority-intake-verification.schema.json
   catalog: events/event-catalog-v2.yaml
 compatibility:
   replaces_v1: false
@@ -234,4 +235,35 @@ authority_intake_submission:
   secrets_permitted: false
   unnecessary_personal_data_permitted: false
   inferred_authority_permitted: false
+  runtime_effect: none
+authority_intake_verification:
+  schema: schemas/event-bus-v2-authority-intake-verification.schema.json
+  validation_effect: structure_only
+  source_status: SUBMITTED_UNVERIFIED
+  verified_status: VERIFIED_PENDING_GOVERNANCE
+  failure_status: SUBMITTED_UNVERIFIED
+  deterministic_outcomes:
+    - VERIFIED
+    - INCOMPLETE
+    - INVALID
+    - CONFLICT
+    - EXPIRED
+    - REVOKED
+    - UNVERIFIABLE
+  verifier_authority_evidence_required: true
+  evidence_references_required: true
+  evidence_hashes_required: true
+  provenance_required: true
+  scope_alignment_required: true
+  self_verification_permitted: false
+  inferred_authority_permitted: false
+  credentials_permitted: false
+  secrets_permitted: false
+  excess_personal_data_permitted: false
+  establishes_identity: false
+  assigns_authority: false
+  grants_approval: false
+  resolves_blocker: false
+  authorizes_execution: false
+  mutates_current_register: false
   runtime_effect: none

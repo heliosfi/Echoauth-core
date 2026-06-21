@@ -21,6 +21,7 @@ _V2_PATHS = (
     "schemas/event-bus-runtime-v2.schema.json",
     "schemas/event-bus-v2-authority-intake.schema.json",
     "schemas/event-bus-v2-authority-intake-submission.schema.json",
+    "schemas/event-bus-v2-authority-intake-verification.schema.json",
     "events/event-envelope-v2.schema.json",
     "events/event-catalog-v2.yaml",
     "contracts/event-bus-v2-decision-log.md",
@@ -121,6 +122,11 @@ def validate_event_bus_v2_contracts(
         "schemas/event-bus-v2-authority-intake-submission.schema.json",
         failures,
     )
+    verification_schema = _load_json(
+        root_path,
+        "schemas/event-bus-v2-authority-intake-verification.schema.json",
+        failures,
+    )
     envelope_schema = _load_json(
         root_path,
         "events/event-envelope-v2.schema.json",
@@ -135,7 +141,14 @@ def validate_event_bus_v2_contracts(
     assert envelope_schema is not None
     assert intake_schema is not None
     assert submission_schema is not None
-    schemas = (runtime_schema, envelope_schema, intake_schema, submission_schema)
+    assert verification_schema is not None
+    schemas = (
+        runtime_schema,
+        envelope_schema,
+        intake_schema,
+        submission_schema,
+        verification_schema,
+    )
     _validate_schema_declarations(*schemas, failures)
     _validate_local_references(root_path, *schemas, failures)
     _validate_schema_identity(
@@ -144,6 +157,7 @@ def validate_event_bus_v2_contracts(
         envelope_schema,
         intake_schema,
         submission_schema,
+        verification_schema,
         failures,
     )
     _validate_catalog(root_path, catalog, runtime_schema, failures)
@@ -154,6 +168,7 @@ def validate_event_bus_v2_contracts(
     _validate_approval_and_intake_records(root_path, failures)
     _validate_authority_intake_contract(contract, intake_schema, failures)
     _validate_authority_intake_submission_contract(contract, submission_schema, failures)
+    _validate_authority_intake_verification_contract(contract, verification_schema, failures)
     _validate_runtime_recovered(contract, catalog, failures)
     return EventBusV2ValidationReport(tuple(failures))
 
@@ -196,6 +211,7 @@ def _validate_schema_declarations(
     envelope_schema: Mapping[str, Any],
     intake_schema: Mapping[str, Any],
     submission_schema: Mapping[str, Any],
+    verification_schema: Mapping[str, Any],
     failures: list[EventBusV2ValidationFailure],
 ) -> None:
     identities: set[str] = set()
@@ -204,6 +220,7 @@ def _validate_schema_declarations(
         ("events/event-envelope-v2.schema.json", envelope_schema),
         ("schemas/event-bus-v2-authority-intake.schema.json", intake_schema),
         ("schemas/event-bus-v2-authority-intake-submission.schema.json", submission_schema),
+        ("schemas/event-bus-v2-authority-intake-verification.schema.json", verification_schema),
     ):
         if schema.get("$schema") != _DRAFT_2020_12:
             _fail(failures, "schema_draft_mismatch", path, "Draft 2020-12 declaration is required")
@@ -222,6 +239,7 @@ def _validate_local_references(
     envelope_schema: Mapping[str, Any],
     intake_schema: Mapping[str, Any],
     submission_schema: Mapping[str, Any],
+    verification_schema: Mapping[str, Any],
     failures: list[EventBusV2ValidationFailure],
 ) -> None:
     loaded: dict[Path, Mapping[str, Any]] = {
@@ -229,6 +247,7 @@ def _validate_local_references(
         (root / "events/event-envelope-v2.schema.json").resolve(): envelope_schema,
         (root / "schemas/event-bus-v2-authority-intake.schema.json").resolve(): intake_schema,
         (root / "schemas/event-bus-v2-authority-intake-submission.schema.json").resolve(): submission_schema,
+        (root / "schemas/event-bus-v2-authority-intake-verification.schema.json").resolve(): verification_schema,
     }
     visited: set[Path] = set()
 
@@ -264,6 +283,7 @@ def _validate_local_references(
     visit(root / "events/event-envelope-v2.schema.json", envelope_schema)
     visit(root / "schemas/event-bus-v2-authority-intake.schema.json", intake_schema)
     visit(root / "schemas/event-bus-v2-authority-intake-submission.schema.json", submission_schema)
+    visit(root / "schemas/event-bus-v2-authority-intake-verification.schema.json", verification_schema)
 
 
 def _validate_schema_identity(
@@ -272,6 +292,7 @@ def _validate_schema_identity(
     envelope_schema: Mapping[str, Any],
     intake_schema: Mapping[str, Any],
     submission_schema: Mapping[str, Any],
+    verification_schema: Mapping[str, Any],
     failures: list[EventBusV2ValidationFailure],
 ) -> None:
     identity = _mapping(contract.get("schema_identity"))
@@ -292,6 +313,11 @@ def _validate_schema_identity(
             artifacts.get("authority_intake_submission_schema"),
             "schemas/event-bus-v2-authority-intake-submission.schema.json",
         ),
+        (
+            "intake_verification_schema_path",
+            artifacts.get("authority_intake_verification_schema"),
+            "schemas/event-bus-v2-authority-intake-verification.schema.json",
+        ),
         ("catalog_envelope", catalog.get("envelope_schema"), "event-envelope-v2.schema.json"),
     )
     for label, actual, required in expected:
@@ -305,6 +331,13 @@ def _validate_schema_identity(
             failures,
             "schema_identity_mismatch",
             "schemas/event-bus-v2-authority-intake-submission.schema.json",
+            "$id",
+        )
+    if verification_schema.get("$id") != "https://echoauth.local/schemas/event-bus-v2-authority-intake-verification.schema.json":
+        _fail(
+            failures,
+            "schema_identity_mismatch",
+            "schemas/event-bus-v2-authority-intake-verification.schema.json",
             "$id",
         )
 
@@ -479,6 +512,189 @@ def _validate_authority_intake_submission_contract(
             _fail(
                 failures,
                 "submission_contract_boundary_mismatch",
+                "contracts/event-bus-v2.yaml",
+                field,
+            )
+
+
+def _validate_authority_intake_verification_contract(
+    contract: Mapping[str, Any],
+    schema: Mapping[str, Any],
+    failures: list[EventBusV2ValidationFailure],
+) -> None:
+    path = "schemas/event-bus-v2-authority-intake-verification.schema.json"
+    properties = _mapping(schema.get("properties"))
+    expected_fields = {
+        "verification_schema_version",
+        "verification_id",
+        "intake_id",
+        "blocker_id",
+        "source_intake_status",
+        "subject_party_reference",
+        "verifier_party_reference",
+        "verifier_authority_evidence_reference",
+        "verifier_authority_evidence_hash",
+        "verified_evidence_references",
+        "submission_evidence_hash",
+        "verification_evidence_hash",
+        "evidence_provenance",
+        "scope_alignment",
+        "self_verification_check",
+        "verification_outcome",
+        "failure_codes",
+        "resulting_intake_status",
+        "verified_at",
+        "self_verification_detected",
+        "inferred_authority",
+        "contains_credentials",
+        "contains_secrets",
+        "contains_excess_personal_data",
+        "identity_established",
+        "authority_assigned",
+        "approval_granted",
+        "blocker_resolved",
+        "execution_authorized",
+    }
+    required = schema.get("required")
+    if schema.get("additionalProperties") is not False:
+        _fail(failures, "verification_schema_open", path, "additional properties must be prohibited")
+    if set(properties) != expected_fields:
+        _fail(
+            failures,
+            "verification_schema_field_mismatch",
+            path,
+            "only canonical verification evidence and effect fields are permitted",
+        )
+    if not _string_sequence(required) or set(required) != expected_fields:
+        _fail(failures, "verification_schema_required_fields", path, "all canonical fields are required")
+    if _mapping(properties.get("verification_schema_version")).get("const") != "2.0.0":
+        _fail(failures, "verification_schema_version_mismatch", path, "verification schema version must be 2.0.0")
+    if tuple(_mapping(properties.get("blocker_id")).get("enum", ())) != _BLOCKER_IDS:
+        _fail(failures, "verification_schema_blocker_mismatch", path, "all eight blocker IDs are required in order")
+
+    evidence_references = _mapping(properties.get("verified_evidence_references"))
+    if evidence_references.get("minItems") != 1 or evidence_references.get("uniqueItems") is not True:
+        _fail(failures, "verification_evidence_reference_mismatch", path, "unique evidence references are required")
+    provenance = _mapping(properties.get("evidence_provenance"))
+    provenance_required = {"source_category", "source_reference", "evidence_hash", "observed_at"}
+    if provenance.get("additionalProperties") is not False or set(provenance.get("required", ())) != provenance_required:
+        _fail(failures, "verification_provenance_mismatch", path, "complete closed provenance is required")
+    alignment = _mapping(properties.get("scope_alignment"))
+    alignment_required = {"blocker_id", "submitted_scope_hash", "verifier_scope_hash", "outcome"}
+    if alignment.get("additionalProperties") is not False or set(alignment.get("required", ())) != alignment_required:
+        _fail(failures, "verification_scope_mismatch", path, "complete closed scope alignment is required")
+    alignment_outcomes = tuple(
+        _mapping(_mapping(alignment.get("properties")).get("outcome")).get("enum", ())
+    )
+    if alignment_outcomes != ("ALIGNED", "MISMATCH", "UNVERIFIED"):
+        _fail(failures, "verification_scope_mismatch", path, "canonical scope outcomes are required")
+    self_check = _mapping(properties.get("self_verification_check"))
+    self_check_required = {
+        "subject_party_reference_hash",
+        "verifier_party_reference_hash",
+        "outcome",
+        "evidence_hash",
+    }
+    self_check_properties = _mapping(self_check.get("properties"))
+    if (
+        self_check.get("additionalProperties") is not False
+        or set(self_check.get("required", ())) != self_check_required
+        or _mapping(self_check_properties.get("outcome")).get("const") != "DISTINCT"
+    ):
+        _fail(
+            failures,
+            "verification_self_check_mismatch",
+            path,
+            "hash-bound evidence with a DISTINCT outcome is required",
+        )
+
+    expected_outcomes = (
+        "VERIFIED",
+        "INCOMPLETE",
+        "INVALID",
+        "CONFLICT",
+        "EXPIRED",
+        "REVOKED",
+        "UNVERIFIABLE",
+    )
+    if tuple(_mapping(properties.get("verification_outcome")).get("enum", ())) != expected_outcomes:
+        _fail(failures, "verification_outcome_mismatch", path, "canonical deterministic outcomes are required")
+    constants = {
+        "source_intake_status": "SUBMITTED_UNVERIFIED",
+        "self_verification_detected": False,
+        "inferred_authority": False,
+        "contains_credentials": False,
+        "contains_secrets": False,
+        "contains_excess_personal_data": False,
+        "identity_established": False,
+        "authority_assigned": False,
+        "approval_granted": False,
+        "blocker_resolved": False,
+        "execution_authorized": False,
+    }
+    for field, expected in constants.items():
+        if _mapping(properties.get(field)).get("const") != expected:
+            _fail(failures, "verification_schema_effect_mismatch", path, field)
+
+    all_of = schema.get("allOf")
+    rule = _mapping(all_of[0]) if _sequence(all_of) and len(all_of) == 1 else {}
+    condition_properties = _mapping(_mapping(rule.get("if")).get("properties"))
+    verified_condition = _mapping(condition_properties.get("verification_outcome")).get("const")
+    then_properties = _mapping(_mapping(rule.get("then")).get("properties"))
+    else_properties = _mapping(_mapping(rule.get("else")).get("properties"))
+    verified_status = _mapping(then_properties.get("resulting_intake_status")).get("const")
+    verified_failures = _mapping(then_properties.get("failure_codes")).get("maxItems")
+    verified_alignment = _mapping(
+        _mapping(_mapping(then_properties.get("scope_alignment")).get("properties")).get("outcome")
+    ).get("const")
+    failure_status = _mapping(else_properties.get("resulting_intake_status")).get("const")
+    failure_codes = _mapping(else_properties.get("failure_codes")).get("minItems")
+    if (
+        verified_condition != "VERIFIED"
+        or verified_status != "VERIFIED_PENDING_GOVERNANCE"
+        or verified_failures != 0
+        or verified_alignment != "ALIGNED"
+        or failure_status != "SUBMITTED_UNVERIFIED"
+        or failure_codes != 1
+    ):
+        _fail(
+            failures,
+            "verification_transition_mismatch",
+            path,
+            "only complete aligned verification may propose pending governance",
+        )
+
+    verification_contract = _mapping(contract.get("authority_intake_verification"))
+    contract_expectations = {
+        "schema": path,
+        "validation_effect": "structure_only",
+        "source_status": "SUBMITTED_UNVERIFIED",
+        "verified_status": "VERIFIED_PENDING_GOVERNANCE",
+        "failure_status": "SUBMITTED_UNVERIFIED",
+        "deterministic_outcomes": list(expected_outcomes),
+        "verifier_authority_evidence_required": True,
+        "evidence_references_required": True,
+        "evidence_hashes_required": True,
+        "provenance_required": True,
+        "scope_alignment_required": True,
+        "self_verification_permitted": False,
+        "inferred_authority_permitted": False,
+        "credentials_permitted": False,
+        "secrets_permitted": False,
+        "excess_personal_data_permitted": False,
+        "establishes_identity": False,
+        "assigns_authority": False,
+        "grants_approval": False,
+        "resolves_blocker": False,
+        "authorizes_execution": False,
+        "mutates_current_register": False,
+        "runtime_effect": "none",
+    }
+    for field, expected in contract_expectations.items():
+        if verification_contract.get(field) != expected:
+            _fail(
+                failures,
+                "verification_contract_boundary_mismatch",
                 "contracts/event-bus-v2.yaml",
                 field,
             )

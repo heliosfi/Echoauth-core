@@ -90,6 +90,14 @@ assignment, approval, or blocker disposition. Credentials, secrets, unnecessary
 personal data, and inferred authority are prohibited. The register above remains
 the authoritative current state.
 
+Sprint 3J defines a machine-readable verification-evidence protocol in
+`schemas/event-bus-v2-authority-intake-verification.schema.json`. A conforming
+`VERIFIED` result may propose `VERIFIED_PENDING_GOVERNANCE` only; it is not an
+assignment, accepted authority reference, approval, blocker resolution, or
+runtime permission. Every non-verified deterministic outcome preserves
+`SUBMITTED_UNVERIFIED`. No verification instance or register mutation is
+recorded by this decision log.
+
 ## Approval Gate
 
 Sprint 3A authoring, Sprint 3B conformance, and Sprint 3C readiness tracking do

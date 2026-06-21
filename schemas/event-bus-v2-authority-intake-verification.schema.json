@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/event-bus-v2-authority-intake-verification.schema.json",
+  "title": "EchoAuth Event Bus v2 Authority Intake Verification",
+  "description": "Structure-only verification evidence. Conformance does not establish identity, assign authority, approve a contract, resolve a blocker, or permit runtime behavior.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "verification_schema_version",
+    "verification_id",
+    "intake_id",
+    "blocker_id",
+    "source_intake_status",
+    "subject_party_reference",
+    "verifier_party_reference",
+    "verifier_authority_evidence_reference",
+    "verifier_authority_evidence_hash",
+    "verified_evidence_references",
+    "submission_evidence_hash",
+    "verification_evidence_hash",
+    "evidence_provenance",
+    "scope_alignment",
+    "self_verification_check",
+    "verification_outcome",
+    "failure_codes",
+    "resulting_intake_status",
+    "verified_at",
+    "self_verification_detected",
+    "inferred_authority",
+    "contains_credentials",
+    "contains_secrets",
+    "contains_excess_personal_data",
+    "identity_established",
+    "authority_assigned",
+    "approval_granted",
+    "blocker_resolved",
+    "execution_authorized"
+  ],
+  "properties": {
+    "verification_schema_version": { "const": "2.0.0" },
+    "verification_id": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "intake_id": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "blocker_id": {
+      "type": "string",
+      "enum": [
+        "EVT2-B01",
+        "EVT2-B02",
+        "EVT2-B03",
+        "EVT2-B04",
+        "EVT2-B05",
+        "EVT2-B06",
+        "EVT2-B07",
+        "EVT2-B08"
+      ]
+    },
+    "source_intake_status": { "const": "SUBMITTED_UNVERIFIED" },
+    "subject_party_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "verifier_party_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "verifier_authority_evidence_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "verifier_authority_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "verified_evidence_references": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" }
+    },
+    "submission_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "verification_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "evidence_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_category", "source_reference", "evidence_hash", "observed_at"],
+      "properties": {
+        "source_category": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "source_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "observed_at": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/UtcTimestamp" }
+      }
+    },
+    "scope_alignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["blocker_id", "submitted_scope_hash", "verifier_scope_hash", "outcome"],
+      "properties": {
+        "blocker_id": {
+          "type": "string",
+          "enum": [
+            "EVT2-B01",
+            "EVT2-B02",
+            "EVT2-B03",
+            "EVT2-B04",
+            "EVT2-B05",
+            "EVT2-B06",
+            "EVT2-B07",
+            "EVT2-B08"
+          ]
+        },
+        "submitted_scope_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "verifier_scope_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "outcome": { "enum": ["ALIGNED", "MISMATCH", "UNVERIFIED"] }
+      }
+    },
+    "self_verification_check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subject_party_reference_hash",
+        "verifier_party_reference_hash",
+        "outcome",
+        "evidence_hash"
+      ],
+      "properties": {
+        "subject_party_reference_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "verifier_party_reference_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "outcome": { "const": "DISTINCT" },
+        "evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" }
+      }
+    },
+    "verification_outcome": {
+      "enum": ["VERIFIED", "INCOMPLETE", "INVALID", "CONFLICT", "EXPIRED", "REVOKED", "UNVERIFIABLE"]
+    },
+    "failure_codes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "MISSING_EVIDENCE",
+          "MISSING_PROVENANCE",
+          "INVALID_EVIDENCE",
+          "HASH_MISMATCH",
+          "SCOPE_MISMATCH",
+          "SELF_VERIFICATION",
+          "INVALID_VERIFIER_AUTHORITY",
+          "EXPIRED_EVIDENCE",
+          "REVOKED_EVIDENCE",
+          "CONFLICTING_EVIDENCE"
+        ]
+      }
+    },
+    "resulting_intake_status": { "enum": ["SUBMITTED_UNVERIFIED", "VERIFIED_PENDING_GOVERNANCE"] },
+    "verified_at": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/UtcTimestamp" },
+    "self_verification_detected": { "const": false },
+    "inferred_authority": { "const": false },
+    "contains_credentials": { "const": false },
+    "contains_secrets": { "const": false },
+    "contains_excess_personal_data": { "const": false },
+    "identity_established": { "const": false },
+    "authority_assigned": { "const": false },
+    "approval_granted": { "const": false },
+    "blocker_resolved": { "const": false },
+    "execution_authorized": { "const": false }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "verification_outcome": { "const": "VERIFIED" } }, "required": ["verification_outcome"] },
+      "then": {
+        "properties": {
+          "resulting_intake_status": { "const": "VERIFIED_PENDING_GOVERNANCE" },
+          "failure_codes": { "maxItems": 0 },
+          "scope_alignment": { "properties": { "outcome": { "const": "ALIGNED" } } }
+        }
+      },
+      "else": {
+        "properties": {
+          "resulting_intake_status": { "const": "SUBMITTED_UNVERIFIED" },
+          "failure_codes": { "minItems": 1 }
+        }
+      }
+    }
+  ]
+}

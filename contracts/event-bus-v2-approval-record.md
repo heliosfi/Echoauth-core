@@ -81,6 +81,24 @@ Submission conformance does not update the current intake register. All current
 entries therefore remain `NOT_SUBMITTED`, and no Sprint 3I artifact represents
 an actual submission.
 
+### Verification Protocol Boundary
+
+Sprint 3J defines structure-only verification evidence in
+`schemas/event-bus-v2-authority-intake-verification.schema.json`. Verification
+must cite the submitted evidence, its hashes and provenance, the verifier's
+authority evidence, and deterministic scope-alignment evidence. The protocol
+rejects self-verification and inferred authority.
+
+Only a structurally complete `VERIFIED` result may propose
+`VERIFIED_PENDING_GOVERNANCE`. Every incomplete, invalid, conflicting, expired,
+revoked, or unverifiable result preserves `SUBMITTED_UNVERIFIED`. Neither result
+assigns a party, establishes identity or authority, supplies an accepted
+authority reference, approves the contract, resolves a blocker, authorizes
+execution, or mutates the current register.
+
+No verification record is instantiated by Sprint 3J. The current register
+remains authoritative and unchanged.
+
 | Field | Required | Rule |
 | --- | --- | --- |
 | `intake_id` | yes after submission | Stable non-empty identifier unique within this approval package. |
@@ -138,6 +156,7 @@ placeholders only and does not infer authority from those placeholders.
 | Blocker ownership categories | Eight accountable discipline roles assigned in this record | `PASS` |
 | Accountable authority intake structure | Required fields and fail-closed intake states defined | `PASS` |
 | Unverified submission protocol | Structure-only schema; no submissions instantiated | `PASS` |
+| Verification evidence protocol | Structure-only schema; no verification instantiated | `PASS` |
 | Accountable authority intake records | Eight placeholders; no submissions | `BLOCKED` |
 | Named accountable parties | No named parties or verified authority references exist | `BLOCKED` |
 | Blocker dispositions | Eight of eight remain `UNRESOLVED` | `BLOCKED` |
