@@ -66,6 +66,7 @@
         "AUTHORITY_ASSIGNMENT_REVIEW",
         "AUTHORITY_ASSIGNMENT_DECISION"
         ,"AUTHORITY_ASSIGNMENT_APPLICATION_READINESS"
+        ,"AUTHORITY_ASSIGNMENT_APPLICATION_REVIEW"
       ]
     },
     "evidence_outcome": {
@@ -98,6 +99,9 @@
         ,"ASSIGNMENT_APPLICATION_REVIEW_READY"
         ,"ADDITIONAL_APPLICATION_EVIDENCE_REQUIRED"
         ,"ASSIGNMENT_APPLICATION_BLOCKED"
+        ,"FAVORABLE_APPLICATION_REVIEW_RECORDED"
+        ,"ADDITIONAL_APPLICATION_REVIEW_EVIDENCE_REQUIRED"
+        ,"APPLICATION_REVIEW_BLOCKED"
       ]
     },
     "register_mutation_status": {
@@ -134,6 +138,7 @@
             "AUTHORITY_ASSIGNMENT_REVIEW",
             "AUTHORITY_ASSIGNMENT_DECISION"
             ,"AUTHORITY_ASSIGNMENT_APPLICATION_READINESS"
+            ,"AUTHORITY_ASSIGNMENT_APPLICATION_REVIEW"
           ]
         },
         "mapping_scope_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
@@ -280,6 +285,14 @@
         "intake_state": { "const": "ACCEPTED_FOR_REVIEW" },
         "protocol_phase": { "const": "AUTHORITY_ASSIGNMENT_APPLICATION_READINESS" },
         "evidence_outcome": { "enum": ["ASSIGNMENT_APPLICATION_REVIEW_READY", "ADDITIONAL_APPLICATION_EVIDENCE_REQUIRED", "ASSIGNMENT_APPLICATION_BLOCKED"] },
+        "register_mutation_status": { "const": "PROSPECTIVE_EVIDENCE_ONLY" }
+      }
+    },
+    {
+      "properties": {
+        "intake_state": { "const": "ACCEPTED_FOR_REVIEW" },
+        "protocol_phase": { "const": "AUTHORITY_ASSIGNMENT_APPLICATION_REVIEW" },
+        "evidence_outcome": { "enum": ["FAVORABLE_APPLICATION_REVIEW_RECORDED", "ADDITIONAL_APPLICATION_REVIEW_EVIDENCE_REQUIRED", "APPLICATION_REVIEW_BLOCKED"] },
         "register_mutation_status": { "const": "PROSPECTIVE_EVIDENCE_ONLY" }
       }
     }

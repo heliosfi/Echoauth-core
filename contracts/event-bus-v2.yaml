@@ -21,6 +21,7 @@ artifacts:
   authority_assignment_review_schema: schemas/event-bus-v2-authority-assignment-review.schema.json
   authority_assignment_decision_schema: schemas/event-bus-v2-authority-assignment-decision.schema.json
   authority_assignment_application_readiness_schema: schemas/event-bus-v2-authority-assignment-application-readiness.schema.json
+  authority_assignment_application_review_schema: schemas/event-bus-v2-authority-assignment-application-review.schema.json
   catalog: events/event-catalog-v2.yaml
 compatibility:
   replaces_v1: false
@@ -443,6 +444,7 @@ authority_intake_lifecycle_reconciliation:
     - AUTHORITY_ASSIGNMENT_REVIEW
     - AUTHORITY_ASSIGNMENT_DECISION
     - AUTHORITY_ASSIGNMENT_APPLICATION_READINESS
+    - AUTHORITY_ASSIGNMENT_APPLICATION_REVIEW
   register_mutation_statuses:
     - LIVE_REGISTER_UNCHANGED
     - PROSPECTIVE_EVIDENCE_ONLY
@@ -460,6 +462,7 @@ authority_intake_lifecycle_reconciliation:
     - authority_assignment_review
     - authority_assignment_decision
     - authority_assignment_application_readiness
+    - authority_assignment_application_review
   reconciliation_authority_evidence_required: true
   provenance_required: true
   scope_alignment_required: true
@@ -590,6 +593,59 @@ authority_assignment_application_readiness:
   secrets_permitted: false
   excess_personal_data_permitted: false
   inferred_mutation_authority_permitted: false
+  assigns_party: false
+  assigns_authority: false
+  grants_authority_reference: false
+  creates_authority_record: false
+  writes_persistence: false
+  appends_audit: false
+  grants_approval: false
+  resolves_blocker: false
+  authorizes_execution: false
+  mutates_register: false
+  runtime_effect: none
+authority_assignment_application_review:
+  schema: schemas/event-bus-v2-authority-assignment-application-review.schema.json
+  validation_effect: structure_only
+  protocol_phase: AUTHORITY_ASSIGNMENT_APPLICATION_REVIEW
+  source_readiness_outcome: ASSIGNMENT_APPLICATION_REVIEW_READY
+  deterministic_outcomes:
+    - FAVORABLE_APPLICATION_REVIEW_RECORDED
+    - ADDITIONAL_APPLICATION_REVIEW_EVIDENCE_REQUIRED
+    - APPLICATION_REVIEW_BLOCKED
+  evidence_outcomes:
+    - FAVORABLE
+    - INCOMPLETE
+    - BLOCKED
+  failure_codes:
+    - SELF_REVIEW
+    - INFERRED_AUTHORITY
+    - SCOPE_MISMATCH
+    - REGISTER_SNAPSHOT_STALE_OR_MISSING
+    - UNRESOLVED_CONFLICT
+    - COMPETING_ASSIGNMENT
+    - LIFECYCLE_EVIDENCE_INCOMPLETE
+    - DEPENDENCY_CONTRACT_REFERENCE_MISSING
+    - PRIOR_STAGE_AUTHORITY_REUSED
+    - UNSAFE_EFFECT_REQUESTED
+  resulting_intake_state: ACCEPTED_FOR_REVIEW
+  register_mutation_status: PROSPECTIVE_EVIDENCE_ONLY
+  complete_evidence_chain_required: true
+  current_register_snapshot_required: true
+  dependency_contracts_required: true
+  application_review_authority_required: true
+  blocker_scope_required: true
+  competing_assignment_check_required: true
+  conflict_check_required: true
+  lifecycle_reconciliation_required: true
+  favorable_review_is_assignment: false
+  assignment_decision_emitted: false
+  mutation_proposal_emitted: false
+  assignment_application_permitted: false
+  credentials_permitted: false
+  secrets_permitted: false
+  excess_personal_data_permitted: false
+  inferred_application_review_authority_permitted: false
   assigns_party: false
   assigns_authority: false
   grants_authority_reference: false
