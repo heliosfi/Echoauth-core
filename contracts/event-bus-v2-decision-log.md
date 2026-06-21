@@ -106,6 +106,15 @@ approval: neither outcome assigns authority, grants an authority reference,
 resolves a blocker, authorizes execution, enables runtime behavior, or mutates
 the current register. No admission instance is recorded by this decision log.
 
+Sprint 3L reconciles a separate governance-review vocabulary for admitted
+authority intake evidence: `FAVORABLE_REVIEW_RECORDED`,
+`ADDITIONAL_INFORMATION_REQUIRED`, and `REVIEW_REJECTED`. The contract is
+machine-readable in
+`schemas/event-bus-v2-authority-intake-governance-review.schema.json`.
+Sprint 2J escalation-review outcomes are explicitly incompatible with this
+protocol. Favorable review is not approval, rejected review is not blocker
+resolution, and no review instance or register mutation is recorded here.
+
 ## Approval Gate
 
 Sprint 3A authoring, Sprint 3B conformance, and Sprint 3C readiness tracking do

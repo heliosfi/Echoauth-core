@@ -399,6 +399,148 @@ class EventBusV2ContractValidationTests(unittest.TestCase):
         self.assertIn("runtime_implementation_permitted: false", contract)
         self.assertEqual(current_register.count("`UNASSIGNED` | `ABSENT` | `NOT_SUBMITTED` | `UNRESOLVED`"), 8)
 
+    def test_missing_governance_review_schema_fails_closed(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            (root / "schemas/event-bus-v2-authority-intake-governance-review.schema.json").unlink()
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("missing_artifact", _codes(report))
+
+    def test_governance_review_schema_identity_drift_fails_closed(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-governance-review.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["$id"] = "https://echoauth.local/schemas/wrong-review.schema.json"
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("schema_identity_mismatch", _codes(report))
+
+    def test_governance_review_rejects_unsupported_outcomes_and_post_review_states(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-governance-review.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["properties"]["review_outcome"]["enum"].append("APPROVED")
+            schema["properties"]["resulting_intake_status"]["enum"].append("AUTHORITY_ASSIGNED")
+            schema["allOf"][0]["else"]["properties"]["resulting_intake_status"]["const"] = (
+                "AUTHORITY_ASSIGNED"
+            )
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        codes = _codes(report)
+        self.assertIn("governance_review_outcome_mismatch", codes)
+        self.assertIn("unsupported_post_review_state", codes)
+        self.assertIn("governance_review_transition_mismatch", codes)
+
+    def test_governance_review_rejects_sprint_2j_escalation_outcomes(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-governance-review.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["properties"]["review_outcome"]["enum"].append("approved_for_override_review")
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("sprint_2j_review_outcome_reuse", _codes(report))
+
+    def test_governance_review_requires_admission_authority_provenance_and_scope(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-governance-review.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["required"].remove("admission_record_reference")
+            schema["properties"]["admission_record_hash"]["$ref"] = (
+                "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString"
+            )
+            schema["properties"]["governance_review_authority_evidence_reference"]["$ref"] = (
+                "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex"
+            )
+            schema["properties"]["evidence_provenance"]["required"].remove("source_reference")
+            schema["properties"]["scope_alignment"]["properties"]["outcome"]["const"] = "MISMATCH"
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        codes = _codes(report)
+        self.assertIn("governance_review_schema_required_fields", codes)
+        self.assertIn("governance_review_evidence_reference_mismatch", codes)
+        self.assertIn("governance_review_provenance_mismatch", codes)
+        self.assertIn("governance_review_scope_mismatch", codes)
+
+    def test_governance_review_rejects_positive_effects(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-governance-review.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            for field in (
+                "contains_credentials",
+                "contains_secrets",
+                "contains_excess_personal_data",
+                "inferred_governance_authority",
+                "party_assigned",
+                "authority_assigned",
+                "authority_reference_granted",
+                "approval_granted",
+                "contract_approved",
+                "blocker_resolved",
+                "blockers_resolved",
+                "execution_authorized",
+                "runtime_enabled",
+                "current_register_mutated",
+            ):
+                schema["properties"][field]["const"] = True
+            schema["properties"]["runtime_effect"]["const"] = "EXECUTION"
+            schema["properties"]["personal_name"] = {"type": "string"}
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        codes = _codes(report)
+        self.assertIn("governance_review_schema_effect_mismatch", codes)
+        self.assertIn("governance_review_schema_field_mismatch", codes)
+
+    def test_governance_review_rejects_self_review_and_prior_authority_reuse(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-governance-review.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["properties"]["self_review_detected"]["const"] = True
+            schema["properties"]["admission_authority_evidence_reused"]["const"] = True
+            schema["properties"]["verifier_authority_evidence_reused"]["const"] = True
+            schema["properties"]["reviewer_independence_check"]["properties"]["outcome"]["const"] = (
+                "SAME_OR_REUSED"
+            )
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        codes = _codes(report)
+        self.assertIn("governance_review_schema_effect_mismatch", codes)
+        self.assertIn("governance_review_independence_mismatch", codes)
+
+    def test_governance_review_preserves_hold_and_current_register(self) -> None:
+        report = validate_event_bus_v2_contracts(_ROOT)
+        contract = (_ROOT / "contracts/event-bus-v2.yaml").read_text(encoding="utf-8")
+        approval = (_ROOT / "contracts/event-bus-v2-approval-record.md").read_text(encoding="utf-8")
+        current_register = approval.split("## Current Authority Intake Register", 1)[1].split(
+            "## Approval Readiness", 1
+        )[0]
+
+        self.assertTrue(report.passed, report.failures)
+        self.assertIn("status: hold", contract)
+        self.assertIn("approved: false", contract)
+        self.assertIn("runtime_implementation_permitted: false", contract)
+        self.assertIn("  grants_authority_reference: false", contract)
+        self.assertEqual(current_register.count("`UNASSIGNED` | `ABSENT` | `NOT_SUBMITTED` | `UNRESOLVED`"), 8)
+
     def test_missing_or_duplicate_approval_intake_entry_fails_closed(self) -> None:
         with TemporaryDirectory() as tmp:
             root = Path(tmp)

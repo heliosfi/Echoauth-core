@@ -14,6 +14,7 @@ artifacts:
   authority_intake_submission_schema: schemas/event-bus-v2-authority-intake-submission.schema.json
   authority_intake_verification_schema: schemas/event-bus-v2-authority-intake-verification.schema.json
   authority_intake_governance_admission_schema: schemas/event-bus-v2-authority-intake-governance-admission.schema.json
+  authority_intake_governance_review_schema: schemas/event-bus-v2-authority-intake-governance-review.schema.json
   catalog: events/event-catalog-v2.yaml
 compatibility:
   replaces_v1: false
@@ -289,6 +290,41 @@ authority_intake_governance_admission:
   excess_personal_data_permitted: false
   accepted_for_review_is_approval: false
   rejected_is_blocker_resolution: false
+  assigns_party: false
+  assigns_authority: false
+  grants_authority_reference: false
+  grants_approval: false
+  resolves_blocker: false
+  authorizes_execution: false
+  mutates_current_register: false
+  runtime_effect: none
+authority_intake_governance_review:
+  schema: schemas/event-bus-v2-authority-intake-governance-review.schema.json
+  validation_effect: structure_only
+  source_status: ACCEPTED_FOR_REVIEW
+  deterministic_outcomes:
+    - FAVORABLE_REVIEW_RECORDED
+    - ADDITIONAL_INFORMATION_REQUIRED
+    - REVIEW_REJECTED
+  favorable_status: ACCEPTED_FOR_REVIEW
+  additional_information_status: ACCEPTED_FOR_REVIEW
+  rejected_status: REJECTED
+  sprint_2j_outcomes_compatible: false
+  admission_record_reference_required: true
+  admission_record_hash_required: true
+  governance_reviewer_authority_evidence_required: true
+  provenance_required: true
+  scope_alignment_required: true
+  independent_review_evidence_required: true
+  self_review_permitted: false
+  admission_authority_evidence_reuse_permitted: false
+  verifier_authority_evidence_reuse_permitted: false
+  inferred_governance_authority_permitted: false
+  credentials_permitted: false
+  secrets_permitted: false
+  excess_personal_data_permitted: false
+  favorable_review_is_approval: false
+  rejected_review_is_blocker_resolution: false
   assigns_party: false
   assigns_authority: false
   grants_authority_reference: false
