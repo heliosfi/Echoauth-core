@@ -63,8 +63,23 @@ secrets and requires every effect field to remain false.
 
 The current schema accepts `NOT_SUBMITTED` placeholder records only. The full
 intake lifecycle remains defined as vocabulary, but enabling any submitted state
-requires a future explicit contract revision. No submitted evidence is accepted
-or verified by Sprint 3H.
+requires an explicit submission protocol. Sprint 3I defines that structure in
+`schemas/event-bus-v2-authority-intake-submission.schema.json`. Submission
+conformance accepts only `SUBMITTED_UNVERIFIED`; it does not verify or accept
+the evidence for governance review.
+
+### Submission Protocol Boundary
+
+The submission schema accepts stable references and hashes only. It prohibits
+credentials, secrets, unnecessary personal data, inferred authority, identity
+establishment, authority establishment, party assignment, approval, and blocker
+resolution. A proposed party or authority reference remains proposed evidence;
+the current register remains `UNASSIGNED` and `ABSENT` until a separate,
+explicit verification and governance process authorizes a change.
+
+Submission conformance does not update the current intake register. All current
+entries therefore remain `NOT_SUBMITTED`, and no Sprint 3I artifact represents
+an actual submission.
 
 | Field | Required | Rule |
 | --- | --- | --- |
@@ -72,10 +87,10 @@ or verified by Sprint 3H.
 | `blocker_id` | yes | Exactly one of `EVT2-B01` through `EVT2-B08`. |
 | `proposed_accountable_party_id` | yes after submission | Stable reference only; raw identity credentials and personal data are prohibited. |
 | `owner_role` | yes | Must equal the blocker role in the register; matching a role does not establish authority. |
-| `authority_source` | yes after submission | Explicit source category and repository or governance reference; role, title, affiliation, and ownership are insufficient alone. |
-| `authority_reference` | yes after submission | Stable reference to evidence that the proposed party may decide the complete blocker scope. |
-| `authority_scope` | yes after submission | Must name the blocker and every decision surface the authority may approve. |
-| `verification_evidence_hash` | yes before verification | Canonical hash of non-secret verification evidence. |
+| `proposed_authority_source` | yes after submission | Explicit source category and repository or governance reference; role, title, affiliation, and ownership are insufficient alone. |
+| `proposed_authority_reference` | yes after submission | Stable reference to unverified evidence proposed for the complete blocker scope; the accepted authority reference remains absent. |
+| `proposed_authority_scope` | yes after submission | Must name the blocker and every decision surface proposed for review. |
+| `submission_evidence_hash` | yes after submission | Canonical hash of non-secret, unverified submission evidence. |
 | `submitted_at` | yes after submission | UTC timestamp supplied by the intake process. |
 | `intake_status` | yes | `NOT_SUBMITTED`, `SUBMITTED_UNVERIFIED`, `VERIFIED_PENDING_GOVERNANCE`, `ACCEPTED_FOR_REVIEW`, or `REJECTED`. |
 | `governance_decision_reference` | conditional | Required before a blocker disposition may change; intake acceptance alone is insufficient. |
@@ -122,6 +137,7 @@ placeholders only and does not infer authority from those placeholders.
 | Refusal-first preservation | Missing dependencies resolve to rejection or HOLD; no positive inference | `PASS` |
 | Blocker ownership categories | Eight accountable discipline roles assigned in this record | `PASS` |
 | Accountable authority intake structure | Required fields and fail-closed intake states defined | `PASS` |
+| Unverified submission protocol | Structure-only schema; no submissions instantiated | `PASS` |
 | Accountable authority intake records | Eight placeholders; no submissions | `BLOCKED` |
 | Named accountable parties | No named parties or verified authority references exist | `BLOCKED` |
 | Blocker dispositions | Eight of eight remain `UNRESOLVED` | `BLOCKED` |

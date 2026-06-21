@@ -82,6 +82,14 @@ be inferred from a role label, repository authorship, affiliation, ownership,
 or conformance result. Intake acceptance, when it occurs, will permit governance
 review only; it will not resolve a blocker or approve runtime implementation.
 
+Sprint 3I defines the machine-readable structure for a future
+`SUBMITTED_UNVERIFIED` intake in
+`schemas/event-bus-v2-authority-intake-submission.schema.json`. Schema
+conformance records neither a submission nor a verified identity, authority,
+assignment, approval, or blocker disposition. Credentials, secrets, unnecessary
+personal data, and inferred authority are prohibited. The register above remains
+the authoritative current state.
+
 ## Approval Gate
 
 Sprint 3A authoring, Sprint 3B conformance, and Sprint 3C readiness tracking do

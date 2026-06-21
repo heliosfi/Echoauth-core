@@ -116,6 +116,75 @@ class EventBusV2ContractValidationTests(unittest.TestCase):
 
         self.assertIn("intake_contract_boundary_mismatch", _codes(report))
 
+    def test_missing_or_malformed_authority_intake_submission_schema_fails_closed(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-submission.schema.json"
+            schema_path.unlink()
+            missing_report = validate_event_bus_v2_contracts(root)
+            schema_path.write_text("{invalid", encoding="utf-8")
+            malformed_report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("missing_artifact", _codes(missing_report))
+        self.assertIn("invalid_json", _codes(malformed_report))
+
+    def test_submission_schema_cannot_grant_effects_or_collect_personal_data(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-submission.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            for field in (
+                "identity_established",
+                "authority_established",
+                "party_assigned",
+                "approval_granted",
+                "blocker_resolved",
+                "contains_credentials",
+                "contains_secrets",
+                "contains_unnecessary_personal_data",
+            ):
+                schema["properties"][field]["const"] = True
+            schema["properties"]["personal_name"] = {"type": "string"}
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        codes = _codes(report)
+        self.assertIn("submission_schema_effect_mismatch", codes)
+        self.assertIn("submission_schema_field_mismatch", codes)
+
+    def test_submission_contract_cannot_infer_authority_assign_or_resolve(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            contract_path = root / "contracts/event-bus-v2.yaml"
+            text = contract_path.read_text(encoding="utf-8")
+            section_start = text.index("authority_intake_submission:")
+            prefix, section = text[:section_start], text[section_start:]
+            for old, new in (
+                ("  inferred_authority_permitted: false", "  inferred_authority_permitted: true"),
+                ("  assigns_party: false", "  assigns_party: true"),
+                ("  grants_approval: false", "  grants_approval: true"),
+                ("  resolves_blocker: false", "  resolves_blocker: true"),
+            ):
+                section = section.replace(old, new, 1)
+            contract_path.write_text(prefix + section, encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("submission_contract_boundary_mismatch", _codes(report))
+
+    def test_submission_protocol_does_not_change_current_intake_register(self) -> None:
+        report = validate_event_bus_v2_contracts(_ROOT)
+        approval = (_ROOT / "contracts/event-bus-v2-approval-record.md").read_text(encoding="utf-8")
+
+        self.assertTrue(report.passed, report.failures)
+        current_register = approval.split("## Current Authority Intake Register", 1)[1].split(
+            "## Approval Readiness", 1
+        )[0]
+        self.assertEqual(current_register.count("`NOT_SUBMITTED` | `UNRESOLVED`"), 8)
+        self.assertNotIn("`SUBMITTED_UNVERIFIED` | `UNRESOLVED`", current_register)
+
     def test_missing_or_duplicate_approval_intake_entry_fails_closed(self) -> None:
         with TemporaryDirectory() as tmp:
             root = Path(tmp)
