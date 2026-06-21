@@ -214,6 +214,28 @@ persistence, appends audit, resolves a blocker, approves the contract, authorize
 execution, or mutates the register. No readiness record is instantiated by
 Sprint 3R.
 
+### Authority Assignment Application Review Boundary
+
+Sprint 3S defines structure-only application-review evidence in
+`schemas/event-bus-v2-authority-assignment-application-review.schema.json`. The
+phase follows only `ASSIGNMENT_APPLICATION_REVIEW_READY` source evidence and
+requires the complete chain, current register snapshot/version/hash, dependency
+contract references, independent application-review authority, scope, and
+conflict evidence.
+
+The outcomes are `FAVORABLE_APPLICATION_REVIEW_RECORDED`,
+`ADDITIONAL_APPLICATION_REVIEW_EVIDENCE_REQUIRED`, and
+`APPLICATION_REVIEW_BLOCKED`. Application review is prospective evidence only.
+It does not authorize assignment, approve the contract, create an
+`AuthorityRecord`, grant an authority reference, emit a mutation proposal,
+mutate the register, write persistence, append audit, resolve blockers, or
+authorize runtime execution. HOLD remains active, and `approved: false` remains
+unchanged.
+
+The Sprint 3Q, 3R, and 3S commit order is historical and chronological only. It
+does not define live lifecycle permission. This documentation update defines no
+Sprint 3T or later mutation, decision, or resubmission node.
+
 ### Governance Review Protocol Boundary
 
 Sprint 3L defines structure-only governance review evidence in
@@ -320,6 +342,7 @@ placeholders only and does not infer authority from those placeholders.
 | Authority assignment review | Structure-only schema; no assignment or review instance | `PASS` |
 | Authority assignment decision | Structure-only schema; no assignment or decision instance | `PASS` |
 | Assignment application readiness | Structure-only schema; no application or mutation instance | `PASS` |
+| Assignment application review | Structure-only schema; no assignment, mutation proposal, persistence, audit append, blocker resolution, or runtime execution | `PASS` |
 | Accountable authority intake records | Eight placeholders; no submissions | `BLOCKED` |
 | Named accountable parties | No named parties or verified authority references exist | `BLOCKED` |
 | Blocker dispositions | Eight of eight remain `UNRESOLVED` | `BLOCKED` |

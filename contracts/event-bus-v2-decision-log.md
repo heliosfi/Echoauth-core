@@ -167,6 +167,22 @@ Its outcomes are `ASSIGNMENT_APPLICATION_REVIEW_READY`,
 assignment application, persistence write, audit append, approval, execution,
 or register mutation. No readiness instance is recorded here.
 
+Sprint 3S adds the prospective `AUTHORITY_ASSIGNMENT_APPLICATION_REVIEW` phase
+through
+`schemas/event-bus-v2-authority-assignment-application-review.schema.json`. It
+follows only `ASSIGNMENT_APPLICATION_REVIEW_READY` readiness evidence. Its
+outcomes are `FAVORABLE_APPLICATION_REVIEW_RECORDED`,
+`ADDITIONAL_APPLICATION_REVIEW_EVIDENCE_REQUIRED`, and
+`APPLICATION_REVIEW_BLOCKED`. Application review remains evidence-only and does
+not authorize assignment, approve the contract, create an `AuthorityRecord`,
+grant an authority reference, emit a mutation proposal, mutate the register,
+write persistence, append audit, resolve blockers, or authorize runtime
+execution. HOLD remains active, and `approved: false` remains unchanged.
+
+The Sprint 3Q, 3R, and 3S commit order is historical and chronological only. It
+does not define live lifecycle permission, and this documentation update defines
+no Sprint 3T or later mutation, decision, or resubmission node.
+
 ## Approval Gate
 
 Sprint 3A authoring, Sprint 3B conformance, and Sprint 3C readiness tracking do
