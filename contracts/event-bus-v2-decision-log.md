@@ -40,20 +40,52 @@ No proposed decision is approved merely because it appears in this file.
 
 ## Unresolved Approval Blockers
 
-| ID | Required decision | Blocking runtime capability |
-| --- | --- | --- |
-| EVT2-B01 | Select transport boundary, acknowledgement semantics, and failure-code registry. | Publication, delivery, retry, and dead-letter processing. |
-| EVT2-B02 | Select storage engine, transaction isolation, locking, migrations, and durable uniqueness rules. | Persistence, offsets, replay, and concurrent delivery attempts. |
-| EVT2-B03 | Approve retention durations, deletion authority, and legal-hold ownership. | Retention enforcement and durable cleanup. |
-| EVT2-B04 | Approve signature algorithms, signed-field profile, trust roots, key rotation, revocation, and KMS boundary. | Distributed signing and verification. |
-| EVT2-B05 | Define machine-verifiable confidential-field profiles for open canonical payload schemas. | Sensitive-content enforcement beyond explicit catalog classification. |
-| EVT2-B06 | Define subscription registrar identity and lifecycle mutation authority. | Subscription creation, activation, suspension, revocation, and retirement. |
-| EVT2-B07 | Define audit writer identity, chain selection, append authority, and append-failure outcomes. | Event audit append and chain evidence. |
-| EVT2-B08 | Define durable causal lookup source, retention window, and conflict authority. | Cross-batch causation resolution. |
+The accountable owner roles identify decision disciplines only. They do not
+identify a person, establish authority, or resolve a blocker. Canonical tracking
+details are recorded in `contracts/event-bus-v2-approval-record.md`.
+
+| ID | Required decision | Decision category | Accountable owner role | Disposition | Blocking runtime capability |
+| --- | --- | --- | --- | --- | --- |
+| EVT2-B01 | Select transport boundary, acknowledgement semantics, and failure-code registry. | Integration architecture | Event transport contract owner | `UNRESOLVED` | Publication, delivery, retry, and dead-letter processing. |
+| EVT2-B02 | Select storage engine, transaction isolation, locking, migrations, and durable uniqueness rules. | Data architecture | Persistence contract owner | `UNRESOLVED` | Persistence, offsets, replay, and concurrent delivery attempts. |
+| EVT2-B03 | Approve retention durations, deletion authority, and legal-hold ownership. | Data governance | Retention and legal-hold contract owner | `UNRESOLVED` | Retention enforcement and durable cleanup. |
+| EVT2-B04 | Approve signature algorithms, signed-field profile, trust roots, key rotation, revocation, and KMS boundary. | Security architecture | Cryptographic security contract owner | `UNRESOLVED` | Distributed signing and verification. |
+| EVT2-B05 | Define machine-verifiable confidential-field profiles for open canonical payload schemas. | Data security and privacy | Data classification contract owner | `UNRESOLVED` | Sensitive-content enforcement beyond explicit catalog classification. |
+| EVT2-B06 | Define subscription registrar identity and lifecycle mutation authority. | Governance and access control | Subscription governance contract owner | `UNRESOLVED` | Subscription creation, activation, suspension, revocation, and retirement. |
+| EVT2-B07 | Define audit writer identity, chain selection, append authority, and append-failure outcomes. | Audit governance | Event audit contract owner | `UNRESOLVED` | Event audit append and chain evidence. |
+| EVT2-B08 | Define durable causal lookup source, retention window, and conflict authority. | Event integrity governance | Causation integrity contract owner | `UNRESOLVED` | Cross-batch causation resolution. |
+
+Conformance and tests provide evidence only. They do not grant approval. All
+eight blockers remain unresolved, `approved: true` must remain rejected, and
+HOLD remains active.
+
+## Accountable Authority Intake
+
+Owner roles are placeholders for accountable disciplines. They are not named
+parties, verified identities, AuthorityRecords, or approval authorities. Intake
+requirements and state rules are canonical in
+`contracts/event-bus-v2-approval-record.md`.
+
+| Blocker | Owner-role placeholder | Accountable party | Authority reference | Intake status | Disposition |
+| --- | --- | --- | --- | --- | --- |
+| EVT2-B01 | Event transport contract owner | `UNASSIGNED` | `ABSENT` | `NOT_SUBMITTED` | `UNRESOLVED` |
+| EVT2-B02 | Persistence contract owner | `UNASSIGNED` | `ABSENT` | `NOT_SUBMITTED` | `UNRESOLVED` |
+| EVT2-B03 | Retention and legal-hold contract owner | `UNASSIGNED` | `ABSENT` | `NOT_SUBMITTED` | `UNRESOLVED` |
+| EVT2-B04 | Cryptographic security contract owner | `UNASSIGNED` | `ABSENT` | `NOT_SUBMITTED` | `UNRESOLVED` |
+| EVT2-B05 | Data classification contract owner | `UNASSIGNED` | `ABSENT` | `NOT_SUBMITTED` | `UNRESOLVED` |
+| EVT2-B06 | Subscription governance contract owner | `UNASSIGNED` | `ABSENT` | `NOT_SUBMITTED` | `UNRESOLVED` |
+| EVT2-B07 | Event audit contract owner | `UNASSIGNED` | `ABSENT` | `NOT_SUBMITTED` | `UNRESOLVED` |
+| EVT2-B08 | Causation integrity contract owner | `UNASSIGNED` | `ABSENT` | `NOT_SUBMITTED` | `UNRESOLVED` |
+
+No intake has been submitted. No accountable party or authority reference may
+be inferred from a role label, repository authorship, affiliation, ownership,
+or conformance result. Intake acceptance, when it occurs, will permit governance
+review only; it will not resolve a blocker or approve runtime implementation.
 
 ## Approval Gate
 
-Sprint 3A authoring does not approve this contract set. Approval requires:
+Sprint 3A authoring, Sprint 3B conformance, and Sprint 3C readiness tracking do
+not approve this contract set. Approval requires:
 
 1. Every proposed decision to be explicitly accepted or revised.
 2. Every blocker required by the intended implementation scope to be resolved.
