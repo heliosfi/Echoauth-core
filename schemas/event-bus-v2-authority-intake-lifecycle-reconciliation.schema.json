@@ -1,0 +1,248 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json",
+  "title": "EchoAuth Event Bus v2 Authority Intake Lifecycle Reconciliation",
+  "description": "Canonical phase-qualified lifecycle evidence. Reconciliation distinguishes prospective mappings from the unchanged live intake register and grants no governance or runtime effect.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "reconciliation_schema_version",
+    "reconciliation_id",
+    "mapping_reference",
+    "mapping_hash",
+    "intake_state",
+    "protocol_phase",
+    "evidence_outcome",
+    "register_mutation_status",
+    "current_register_state",
+    "reconciliation_authority_evidence_reference",
+    "reconciliation_authority_evidence_hash",
+    "evidence_provenance",
+    "scope_alignment",
+    "reconciled_at",
+    "duplicate_state_usage_phased",
+    "prospective_mapping_is_live_mutation",
+    "governance_review_completed_supported",
+    "contains_credentials",
+    "contains_secrets",
+    "contains_excess_personal_data",
+    "inferred_authority",
+    "identity_established",
+    "party_assigned",
+    "authority_assigned",
+    "authority_reference_granted",
+    "approval_granted",
+    "contract_approved",
+    "blocker_resolved",
+    "blockers_resolved",
+    "execution_authorized",
+    "runtime_enabled",
+    "register_mutated",
+    "runtime_effect"
+  ],
+  "properties": {
+    "reconciliation_schema_version": { "const": "2.0.0" },
+    "reconciliation_id": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "mapping_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "mapping_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "intake_state": {
+      "enum": [
+        "NOT_SUBMITTED",
+        "SUBMITTED_UNVERIFIED",
+        "VERIFIED_PENDING_GOVERNANCE",
+        "ACCEPTED_FOR_REVIEW",
+        "REJECTED"
+      ]
+    },
+    "protocol_phase": {
+      "enum": [
+        "INTAKE_REGISTER",
+        "SUBMISSION",
+        "VERIFICATION",
+        "GOVERNANCE_ADMISSION",
+        "GOVERNANCE_REVIEW",
+        "REVIEW_DISPOSITION",
+        "AUTHORITY_REVIEW_ELIGIBILITY"
+      ]
+    },
+    "evidence_outcome": {
+      "enum": [
+        "NONE",
+        "VERIFIED",
+        "INCOMPLETE",
+        "INVALID",
+        "CONFLICT",
+        "EXPIRED",
+        "REVOKED",
+        "UNVERIFIABLE",
+        "ACCEPTED_FOR_REVIEW",
+        "REJECTED",
+        "FAVORABLE_REVIEW_RECORDED",
+        "ADDITIONAL_INFORMATION_REQUIRED",
+        "REVIEW_REJECTED",
+        "FAVORABLE_REVIEW_EVIDENCE_RETAINED",
+        "INFORMATION_REQUEST_EVIDENCE_RETAINED",
+        "REVIEW_REJECTION_EVIDENCE_RETAINED",
+        "ELIGIBLE_FOR_AUTHORITY_REVIEW",
+        "ADDITIONAL_EVIDENCE_REQUIRED",
+        "INELIGIBLE_FOR_AUTHORITY_REVIEW"
+      ]
+    },
+    "register_mutation_status": {
+      "enum": ["LIVE_REGISTER_UNCHANGED", "PROSPECTIVE_EVIDENCE_ONLY"]
+    },
+    "current_register_state": { "const": "NOT_SUBMITTED" },
+    "reconciliation_authority_evidence_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "reconciliation_authority_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "evidence_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_category", "source_reference", "evidence_hash", "observed_at"],
+      "properties": {
+        "source_category": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "source_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "observed_at": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/UtcTimestamp" }
+      }
+    },
+    "scope_alignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["protocol_phase", "mapping_scope_hash", "reconciliation_scope_hash", "outcome"],
+      "properties": {
+        "protocol_phase": {
+          "enum": [
+            "INTAKE_REGISTER",
+            "SUBMISSION",
+            "VERIFICATION",
+            "GOVERNANCE_ADMISSION",
+            "GOVERNANCE_REVIEW",
+            "REVIEW_DISPOSITION",
+            "AUTHORITY_REVIEW_ELIGIBILITY"
+          ]
+        },
+        "mapping_scope_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "reconciliation_scope_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "outcome": { "const": "ALIGNED" }
+      }
+    },
+    "reconciled_at": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/UtcTimestamp" },
+    "duplicate_state_usage_phased": { "const": true },
+    "prospective_mapping_is_live_mutation": { "const": false },
+    "governance_review_completed_supported": { "const": false },
+    "contains_credentials": { "const": false },
+    "contains_secrets": { "const": false },
+    "contains_excess_personal_data": { "const": false },
+    "inferred_authority": { "const": false },
+    "identity_established": { "const": false },
+    "party_assigned": { "const": false },
+    "authority_assigned": { "const": false },
+    "authority_reference_granted": { "const": false },
+    "approval_granted": { "const": false },
+    "contract_approved": { "const": false },
+    "blocker_resolved": { "const": false },
+    "blockers_resolved": { "const": false },
+    "execution_authorized": { "const": false },
+    "runtime_enabled": { "const": false },
+    "register_mutated": { "const": false },
+    "runtime_effect": { "const": "NONE" }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "intake_state": { "const": "NOT_SUBMITTED" },
+        "protocol_phase": { "const": "INTAKE_REGISTER" },
+        "evidence_outcome": { "const": "NONE" },
+        "register_mutation_status": { "const": "LIVE_REGISTER_UNCHANGED" }
+      }
+    },
+    {
+      "properties": {
+        "intake_state": { "const": "SUBMITTED_UNVERIFIED" },
+        "protocol_phase": { "const": "SUBMISSION" },
+        "evidence_outcome": { "const": "NONE" },
+        "register_mutation_status": { "const": "PROSPECTIVE_EVIDENCE_ONLY" }
+      }
+    },
+    {
+      "properties": {
+        "intake_state": { "const": "SUBMITTED_UNVERIFIED" },
+        "protocol_phase": { "const": "VERIFICATION" },
+        "evidence_outcome": { "enum": ["INCOMPLETE", "INVALID", "CONFLICT", "EXPIRED", "REVOKED", "UNVERIFIABLE"] },
+        "register_mutation_status": { "const": "PROSPECTIVE_EVIDENCE_ONLY" }
+      }
+    },
+    {
+      "properties": {
+        "intake_state": { "const": "VERIFIED_PENDING_GOVERNANCE" },
+        "protocol_phase": { "const": "VERIFICATION" },
+        "evidence_outcome": { "const": "VERIFIED" },
+        "register_mutation_status": { "const": "PROSPECTIVE_EVIDENCE_ONLY" }
+      }
+    },
+    {
+      "properties": {
+        "intake_state": { "const": "ACCEPTED_FOR_REVIEW" },
+        "protocol_phase": { "const": "GOVERNANCE_ADMISSION" },
+        "evidence_outcome": { "const": "ACCEPTED_FOR_REVIEW" },
+        "register_mutation_status": { "const": "PROSPECTIVE_EVIDENCE_ONLY" }
+      }
+    },
+    {
+      "properties": {
+        "intake_state": { "const": "REJECTED" },
+        "protocol_phase": { "const": "GOVERNANCE_ADMISSION" },
+        "evidence_outcome": { "const": "REJECTED" },
+        "register_mutation_status": { "const": "PROSPECTIVE_EVIDENCE_ONLY" }
+      }
+    },
+    {
+      "properties": {
+        "intake_state": { "const": "ACCEPTED_FOR_REVIEW" },
+        "protocol_phase": { "const": "GOVERNANCE_REVIEW" },
+        "evidence_outcome": { "enum": ["FAVORABLE_REVIEW_RECORDED", "ADDITIONAL_INFORMATION_REQUIRED"] },
+        "register_mutation_status": { "const": "PROSPECTIVE_EVIDENCE_ONLY" }
+      }
+    },
+    {
+      "properties": {
+        "intake_state": { "const": "REJECTED" },
+        "protocol_phase": { "const": "GOVERNANCE_REVIEW" },
+        "evidence_outcome": { "const": "REVIEW_REJECTED" },
+        "register_mutation_status": { "const": "PROSPECTIVE_EVIDENCE_ONLY" }
+      }
+    },
+    {
+      "properties": {
+        "intake_state": { "const": "ACCEPTED_FOR_REVIEW" },
+        "protocol_phase": { "const": "REVIEW_DISPOSITION" },
+        "evidence_outcome": { "enum": ["FAVORABLE_REVIEW_EVIDENCE_RETAINED", "INFORMATION_REQUEST_EVIDENCE_RETAINED"] },
+        "register_mutation_status": { "const": "PROSPECTIVE_EVIDENCE_ONLY" }
+      }
+    },
+    {
+      "properties": {
+        "intake_state": { "const": "REJECTED" },
+        "protocol_phase": { "const": "REVIEW_DISPOSITION" },
+        "evidence_outcome": { "const": "REVIEW_REJECTION_EVIDENCE_RETAINED" },
+        "register_mutation_status": { "const": "PROSPECTIVE_EVIDENCE_ONLY" }
+      }
+    },
+    {
+      "properties": {
+        "intake_state": { "const": "ACCEPTED_FOR_REVIEW" },
+        "protocol_phase": { "const": "AUTHORITY_REVIEW_ELIGIBILITY" },
+        "evidence_outcome": { "enum": ["ELIGIBLE_FOR_AUTHORITY_REVIEW", "ADDITIONAL_EVIDENCE_REQUIRED", "INELIGIBLE_FOR_AUTHORITY_REVIEW"] },
+        "register_mutation_status": { "const": "PROSPECTIVE_EVIDENCE_ONLY" }
+      }
+    },
+    {
+      "properties": {
+        "intake_state": { "const": "REJECTED" },
+        "protocol_phase": { "const": "AUTHORITY_REVIEW_ELIGIBILITY" },
+        "evidence_outcome": { "const": "INELIGIBLE_FOR_AUTHORITY_REVIEW" },
+        "register_mutation_status": { "const": "PROSPECTIVE_EVIDENCE_ONLY" }
+      }
+    }
+  ]
+}

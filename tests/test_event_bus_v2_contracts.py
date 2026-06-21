@@ -863,6 +863,133 @@ class EventBusV2ContractValidationTests(unittest.TestCase):
         self.assertIn("  grants_authority_reference: false", contract)
         self.assertEqual(current_register.count("`UNASSIGNED` | `ABSENT` | `NOT_SUBMITTED` | `UNRESOLVED`"), 8)
 
+    def test_missing_lifecycle_reconciliation_schema_fails_closed(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            (root / "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json").unlink()
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("missing_artifact", _codes(report))
+
+    def test_lifecycle_reconciliation_schema_identity_drift_fails_closed(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["$id"] = "https://echoauth.local/schemas/wrong-lifecycle.schema.json"
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("schema_identity_mismatch", _codes(report))
+
+    def test_lifecycle_reconciliation_rejects_governance_review_completed(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["properties"]["intake_state"]["enum"].append("GOVERNANCE_REVIEW_COMPLETED")
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("unsupported_lifecycle_state", _codes(report))
+
+    def test_accepted_for_review_duplicates_require_distinct_protocol_phases(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["oneOf"][6]["properties"]["protocol_phase"]["const"] = "GOVERNANCE_ADMISSION"
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        codes = _codes(report)
+        self.assertIn("duplicate_lifecycle_state_unphased", codes)
+        self.assertIn("lifecycle_reconciliation_graph_mismatch", codes)
+
+    def test_rejected_duplicates_require_distinct_protocol_phases(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["oneOf"][7]["properties"]["protocol_phase"]["const"] = "GOVERNANCE_ADMISSION"
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        codes = _codes(report)
+        self.assertIn("duplicate_lifecycle_state_unphased", codes)
+        self.assertIn("lifecycle_reconciliation_graph_mismatch", codes)
+
+    def test_prospective_lifecycle_mapping_is_not_live_register_mutation(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["oneOf"][1]["properties"]["register_mutation_status"]["const"] = (
+                "LIVE_REGISTER_UNCHANGED"
+            )
+            schema["properties"]["prospective_mapping_is_live_mutation"]["const"] = True
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        codes = _codes(report)
+        self.assertIn("lifecycle_reconciliation_graph_mismatch", codes)
+        self.assertIn("lifecycle_register_boundary_mismatch", codes)
+        self.assertIn("lifecycle_reconciliation_schema_effect_mismatch", codes)
+
+    def test_lifecycle_reconciliation_rejects_positive_effects(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            for field in (
+                "contains_credentials",
+                "contains_secrets",
+                "contains_excess_personal_data",
+                "inferred_authority",
+                "party_assigned",
+                "authority_assigned",
+                "authority_reference_granted",
+                "approval_granted",
+                "contract_approved",
+                "blocker_resolved",
+                "blockers_resolved",
+                "execution_authorized",
+                "runtime_enabled",
+                "register_mutated",
+            ):
+                schema["properties"][field]["const"] = True
+            schema["properties"]["runtime_effect"]["const"] = "EXECUTION"
+            schema["properties"]["personal_name"] = {"type": "string"}
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        codes = _codes(report)
+        self.assertIn("lifecycle_reconciliation_schema_effect_mismatch", codes)
+        self.assertIn("lifecycle_reconciliation_schema_field_mismatch", codes)
+
+    def test_lifecycle_reconciliation_preserves_hold_and_current_register(self) -> None:
+        report = validate_event_bus_v2_contracts(_ROOT)
+        contract = (_ROOT / "contracts/event-bus-v2.yaml").read_text(encoding="utf-8")
+        approval = (_ROOT / "contracts/event-bus-v2-approval-record.md").read_text(encoding="utf-8")
+        current_register = approval.split("## Current Authority Intake Register", 1)[1].split(
+            "## Approval Readiness", 1
+        )[0]
+
+        self.assertTrue(report.passed, report.failures)
+        self.assertIn("status: hold", contract)
+        self.assertIn("approved: false", contract)
+        self.assertIn("runtime_implementation_permitted: false", contract)
+        self.assertIn("  current_register_state: NOT_SUBMITTED", contract)
+        self.assertIn("  grants_authority_reference: false", contract)
+        self.assertEqual(current_register.count("`UNASSIGNED` | `ABSENT` | `NOT_SUBMITTED` | `UNRESOLVED`"), 8)
+
     def test_missing_or_duplicate_approval_intake_entry_fails_closed(self) -> None:
         with TemporaryDirectory() as tmp:
             root = Path(tmp)

@@ -133,6 +133,15 @@ Eligibility permits review consideration only and grants no assignment,
 authority, authority reference, approval, blocker resolution, execution, or
 register mutation. No eligibility instance is recorded here.
 
+Sprint 3O reconciles the authority-intake lifecycle in
+`schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json`.
+The graph separates intake state, protocol phase, evidence outcome, and register
+mutation status. Duplicate `ACCEPTED_FOR_REVIEW` and `REJECTED` uses require an
+explicit phase. Only `INTAKE_REGISTER / NOT_SUBMITTED` describes the live
+register; every Sprint 3I-3N mapping is prospective evidence.
+`GOVERNANCE_REVIEW_COMPLETED` remains unsupported, and reconciliation grants no
+governance or runtime effect.
+
 ## Approval Gate
 
 Sprint 3A authoring, Sprint 3B conformance, and Sprint 3C readiness tracking do

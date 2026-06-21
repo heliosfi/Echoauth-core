@@ -136,6 +136,24 @@ authority, authority reference, blocker resolution, approval, execution, or
 runtime effect and cannot bypass the blocker-resolution procedure. No eligibility
 record is instantiated by Sprint 3N, and the current register remains unchanged.
 
+### Canonical Lifecycle Reconciliation Boundary
+
+Sprint 3O defines the authoritative phase-qualified lifecycle graph in
+`schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json`.
+Each mapping separates `intake_state`, `protocol_phase`, `evidence_outcome`, and
+`register_mutation_status`.
+
+The sole live-register mapping is `INTAKE_REGISTER` with `NOT_SUBMITTED` and
+`LIVE_REGISTER_UNCHANGED`. Every Sprint 3I-3N mapping is
+`PROSPECTIVE_EVIDENCE_ONLY`. Repeated `ACCEPTED_FOR_REVIEW` and `REJECTED`
+states are valid only with an explicit protocol phase and evidence outcome.
+`GOVERNANCE_REVIEW_COMPLETED` remains unsupported.
+
+Reconciliation preserves all prior protocols and grants no assignment,
+authority, authority reference, blocker resolution, approval, execution,
+register mutation, or runtime effect. No reconciliation record is instantiated
+by Sprint 3O.
+
 ### Governance Review Protocol Boundary
 
 Sprint 3L defines structure-only governance review evidence in
@@ -238,6 +256,7 @@ placeholders only and does not infer authority from those placeholders.
 | Governance review protocol | Structure-only schema; no review instantiated | `PASS` |
 | Review disposition protocol | Structure-only schema; no disposition instantiated | `PASS` |
 | Authority review eligibility protocol | Structure-only schema; no eligibility instantiated | `PASS` |
+| Canonical lifecycle reconciliation | Phase-qualified evidence graph; live register unchanged | `PASS` |
 | Accountable authority intake records | Eight placeholders; no submissions | `BLOCKED` |
 | Named accountable parties | No named parties or verified authority references exist | `BLOCKED` |
 | Blocker dispositions | Eight of eight remain `UNRESOLVED` | `BLOCKED` |

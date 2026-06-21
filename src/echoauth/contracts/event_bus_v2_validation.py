@@ -26,6 +26,7 @@ _V2_PATHS = (
     "schemas/event-bus-v2-authority-intake-governance-review.schema.json",
     "schemas/event-bus-v2-authority-intake-review-disposition.schema.json",
     "schemas/event-bus-v2-authority-review-eligibility.schema.json",
+    "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json",
     "events/event-envelope-v2.schema.json",
     "events/event-catalog-v2.yaml",
     "contracts/event-bus-v2-decision-log.md",
@@ -162,6 +163,11 @@ def validate_event_bus_v2_contracts(
         "schemas/event-bus-v2-authority-review-eligibility.schema.json",
         failures,
     )
+    lifecycle_reconciliation_schema = _load_json(
+        root_path,
+        "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json",
+        failures,
+    )
     envelope_schema = _load_json(
         root_path,
         "events/event-envelope-v2.schema.json",
@@ -181,6 +187,7 @@ def validate_event_bus_v2_contracts(
     assert governance_review_schema is not None
     assert review_disposition_schema is not None
     assert authority_review_eligibility_schema is not None
+    assert lifecycle_reconciliation_schema is not None
     schemas = (
         runtime_schema,
         envelope_schema,
@@ -191,6 +198,7 @@ def validate_event_bus_v2_contracts(
         governance_review_schema,
         review_disposition_schema,
         authority_review_eligibility_schema,
+        lifecycle_reconciliation_schema,
     )
     _validate_schema_declarations(*schemas, failures)
     _validate_local_references(root_path, *schemas, failures)
@@ -205,6 +213,7 @@ def validate_event_bus_v2_contracts(
         governance_review_schema,
         review_disposition_schema,
         authority_review_eligibility_schema,
+        lifecycle_reconciliation_schema,
         failures,
     )
     _validate_catalog(root_path, catalog, runtime_schema, failures)
@@ -238,6 +247,12 @@ def validate_event_bus_v2_contracts(
         root_path,
         contract,
         authority_review_eligibility_schema,
+        failures,
+    )
+    _validate_authority_intake_lifecycle_reconciliation_contract(
+        root_path,
+        contract,
+        lifecycle_reconciliation_schema,
         failures,
     )
     _validate_runtime_recovered(contract, catalog, failures)
@@ -287,6 +302,7 @@ def _validate_schema_declarations(
     governance_review_schema: Mapping[str, Any],
     review_disposition_schema: Mapping[str, Any],
     authority_review_eligibility_schema: Mapping[str, Any],
+    lifecycle_reconciliation_schema: Mapping[str, Any],
     failures: list[EventBusV2ValidationFailure],
 ) -> None:
     identities: set[str] = set()
@@ -300,6 +316,7 @@ def _validate_schema_declarations(
         ("schemas/event-bus-v2-authority-intake-governance-review.schema.json", governance_review_schema),
         ("schemas/event-bus-v2-authority-intake-review-disposition.schema.json", review_disposition_schema),
         ("schemas/event-bus-v2-authority-review-eligibility.schema.json", authority_review_eligibility_schema),
+        ("schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json", lifecycle_reconciliation_schema),
     ):
         if schema.get("$schema") != _DRAFT_2020_12:
             _fail(failures, "schema_draft_mismatch", path, "Draft 2020-12 declaration is required")
@@ -323,6 +340,7 @@ def _validate_local_references(
     governance_review_schema: Mapping[str, Any],
     review_disposition_schema: Mapping[str, Any],
     authority_review_eligibility_schema: Mapping[str, Any],
+    lifecycle_reconciliation_schema: Mapping[str, Any],
     failures: list[EventBusV2ValidationFailure],
 ) -> None:
     loaded: dict[Path, Mapping[str, Any]] = {
@@ -335,6 +353,7 @@ def _validate_local_references(
         (root / "schemas/event-bus-v2-authority-intake-governance-review.schema.json").resolve(): governance_review_schema,
         (root / "schemas/event-bus-v2-authority-intake-review-disposition.schema.json").resolve(): review_disposition_schema,
         (root / "schemas/event-bus-v2-authority-review-eligibility.schema.json").resolve(): authority_review_eligibility_schema,
+        (root / "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json").resolve(): lifecycle_reconciliation_schema,
     }
     visited: set[Path] = set()
 
@@ -375,6 +394,7 @@ def _validate_local_references(
     visit(root / "schemas/event-bus-v2-authority-intake-governance-review.schema.json", governance_review_schema)
     visit(root / "schemas/event-bus-v2-authority-intake-review-disposition.schema.json", review_disposition_schema)
     visit(root / "schemas/event-bus-v2-authority-review-eligibility.schema.json", authority_review_eligibility_schema)
+    visit(root / "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json", lifecycle_reconciliation_schema)
 
 
 def _validate_schema_identity(
@@ -388,6 +408,7 @@ def _validate_schema_identity(
     governance_review_schema: Mapping[str, Any],
     review_disposition_schema: Mapping[str, Any],
     authority_review_eligibility_schema: Mapping[str, Any],
+    lifecycle_reconciliation_schema: Mapping[str, Any],
     failures: list[EventBusV2ValidationFailure],
 ) -> None:
     identity = _mapping(contract.get("schema_identity"))
@@ -432,6 +453,11 @@ def _validate_schema_identity(
             "authority_review_eligibility_schema_path",
             artifacts.get("authority_review_eligibility_schema"),
             "schemas/event-bus-v2-authority-review-eligibility.schema.json",
+        ),
+        (
+            "authority_intake_lifecycle_reconciliation_schema_path",
+            artifacts.get("authority_intake_lifecycle_reconciliation_schema"),
+            "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json",
         ),
         ("catalog_envelope", catalog.get("envelope_schema"), "event-envelope-v2.schema.json"),
     )
@@ -481,6 +507,13 @@ def _validate_schema_identity(
             failures,
             "schema_identity_mismatch",
             "schemas/event-bus-v2-authority-review-eligibility.schema.json",
+            "$id",
+        )
+    if lifecycle_reconciliation_schema.get("$id") != "https://echoauth.local/schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json":
+        _fail(
+            failures,
+            "schema_identity_mismatch",
+            "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json",
             "$id",
         )
 
@@ -1854,6 +1887,253 @@ def _validate_authority_review_eligibility_contract(
         for outcome in eligibility_outcomes:
             if outcome not in text:
                 _fail(failures, "authority_review_eligibility_vocabulary_missing", document_path, outcome)
+
+
+def _validate_authority_intake_lifecycle_reconciliation_contract(
+    root: Path,
+    contract: Mapping[str, Any],
+    schema: Mapping[str, Any],
+    failures: list[EventBusV2ValidationFailure],
+) -> None:
+    path = "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json"
+    properties = _mapping(schema.get("properties"))
+    expected_fields = {
+        "reconciliation_schema_version",
+        "reconciliation_id",
+        "mapping_reference",
+        "mapping_hash",
+        "intake_state",
+        "protocol_phase",
+        "evidence_outcome",
+        "register_mutation_status",
+        "current_register_state",
+        "reconciliation_authority_evidence_reference",
+        "reconciliation_authority_evidence_hash",
+        "evidence_provenance",
+        "scope_alignment",
+        "reconciled_at",
+        "duplicate_state_usage_phased",
+        "prospective_mapping_is_live_mutation",
+        "governance_review_completed_supported",
+        "contains_credentials",
+        "contains_secrets",
+        "contains_excess_personal_data",
+        "inferred_authority",
+        "identity_established",
+        "party_assigned",
+        "authority_assigned",
+        "authority_reference_granted",
+        "approval_granted",
+        "contract_approved",
+        "blocker_resolved",
+        "blockers_resolved",
+        "execution_authorized",
+        "runtime_enabled",
+        "register_mutated",
+        "runtime_effect",
+    }
+    required = schema.get("required")
+    if schema.get("additionalProperties") is not False:
+        _fail(failures, "lifecycle_reconciliation_schema_open", path, "additional properties must be prohibited")
+    if set(properties) != expected_fields:
+        _fail(
+            failures,
+            "lifecycle_reconciliation_schema_field_mismatch",
+            path,
+            "only canonical lifecycle dimensions and effect fields are permitted",
+        )
+    if not _string_sequence(required) or set(required) != expected_fields:
+        _fail(failures, "lifecycle_reconciliation_schema_required_fields", path, "all canonical fields are required")
+    if _mapping(properties.get("reconciliation_schema_version")).get("const") != "2.0.0":
+        _fail(failures, "lifecycle_reconciliation_schema_version_mismatch", path, "reconciliation schema version must be 2.0.0")
+
+    intake_states = (
+        "NOT_SUBMITTED",
+        "SUBMITTED_UNVERIFIED",
+        "VERIFIED_PENDING_GOVERNANCE",
+        "ACCEPTED_FOR_REVIEW",
+        "REJECTED",
+    )
+    protocol_phases = (
+        "INTAKE_REGISTER",
+        "SUBMISSION",
+        "VERIFICATION",
+        "GOVERNANCE_ADMISSION",
+        "GOVERNANCE_REVIEW",
+        "REVIEW_DISPOSITION",
+        "AUTHORITY_REVIEW_ELIGIBILITY",
+    )
+    mutation_statuses = ("LIVE_REGISTER_UNCHANGED", "PROSPECTIVE_EVIDENCE_ONLY")
+    if tuple(_mapping(properties.get("intake_state")).get("enum", ())) != intake_states:
+        _fail(failures, "lifecycle_reconciliation_state_mismatch", path, "canonical intake states are required")
+    if tuple(_mapping(properties.get("protocol_phase")).get("enum", ())) != protocol_phases:
+        _fail(failures, "lifecycle_reconciliation_phase_mismatch", path, "canonical protocol phases are required")
+    if tuple(_mapping(properties.get("register_mutation_status")).get("enum", ())) != mutation_statuses:
+        _fail(failures, "lifecycle_reconciliation_mutation_status_mismatch", path, "canonical mutation statuses are required")
+    if "GOVERNANCE_REVIEW_COMPLETED" in json.dumps(schema, sort_keys=True):
+        _fail(failures, "unsupported_lifecycle_state", path, "GOVERNANCE_REVIEW_COMPLETED is unsupported")
+
+    expected_refs = {
+        "mapping_reference": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString",
+        "mapping_hash": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex",
+        "reconciliation_authority_evidence_reference": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString",
+        "reconciliation_authority_evidence_hash": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex",
+    }
+    for field, expected_ref in expected_refs.items():
+        if _mapping(properties.get(field)).get("$ref") != expected_ref:
+            _fail(failures, "lifecycle_reconciliation_evidence_reference_mismatch", path, field)
+    provenance = _mapping(properties.get("evidence_provenance"))
+    provenance_required = {"source_category", "source_reference", "evidence_hash", "observed_at"}
+    if provenance.get("additionalProperties") is not False or set(provenance.get("required", ())) != provenance_required:
+        _fail(failures, "lifecycle_reconciliation_provenance_mismatch", path, "complete closed provenance is required")
+    alignment = _mapping(properties.get("scope_alignment"))
+    alignment_required = {"protocol_phase", "mapping_scope_hash", "reconciliation_scope_hash", "outcome"}
+    alignment_properties = _mapping(alignment.get("properties"))
+    if (
+        alignment.get("additionalProperties") is not False
+        or set(alignment.get("required", ())) != alignment_required
+        or tuple(_mapping(alignment_properties.get("protocol_phase")).get("enum", ()))
+        != protocol_phases
+        or _mapping(alignment_properties.get("outcome")).get("const") != "ALIGNED"
+    ):
+        _fail(failures, "lifecycle_reconciliation_scope_mismatch", path, "complete phase-aligned scope evidence is required")
+
+    constants = {
+        "current_register_state": "NOT_SUBMITTED",
+        "duplicate_state_usage_phased": True,
+        "prospective_mapping_is_live_mutation": False,
+        "governance_review_completed_supported": False,
+        "contains_credentials": False,
+        "contains_secrets": False,
+        "contains_excess_personal_data": False,
+        "inferred_authority": False,
+        "identity_established": False,
+        "party_assigned": False,
+        "authority_assigned": False,
+        "authority_reference_granted": False,
+        "approval_granted": False,
+        "contract_approved": False,
+        "blocker_resolved": False,
+        "blockers_resolved": False,
+        "execution_authorized": False,
+        "runtime_enabled": False,
+        "register_mutated": False,
+        "runtime_effect": "NONE",
+    }
+    for field, expected in constants.items():
+        if _mapping(properties.get(field)).get("const") != expected:
+            _fail(failures, "lifecycle_reconciliation_schema_effect_mismatch", path, field)
+
+    expected_graph: tuple[tuple[str, str, object, str], ...] = (
+        ("NOT_SUBMITTED", "INTAKE_REGISTER", "NONE", "LIVE_REGISTER_UNCHANGED"),
+        ("SUBMITTED_UNVERIFIED", "SUBMISSION", "NONE", "PROSPECTIVE_EVIDENCE_ONLY"),
+        ("SUBMITTED_UNVERIFIED", "VERIFICATION", ("INCOMPLETE", "INVALID", "CONFLICT", "EXPIRED", "REVOKED", "UNVERIFIABLE"), "PROSPECTIVE_EVIDENCE_ONLY"),
+        ("VERIFIED_PENDING_GOVERNANCE", "VERIFICATION", "VERIFIED", "PROSPECTIVE_EVIDENCE_ONLY"),
+        ("ACCEPTED_FOR_REVIEW", "GOVERNANCE_ADMISSION", "ACCEPTED_FOR_REVIEW", "PROSPECTIVE_EVIDENCE_ONLY"),
+        ("REJECTED", "GOVERNANCE_ADMISSION", "REJECTED", "PROSPECTIVE_EVIDENCE_ONLY"),
+        ("ACCEPTED_FOR_REVIEW", "GOVERNANCE_REVIEW", ("FAVORABLE_REVIEW_RECORDED", "ADDITIONAL_INFORMATION_REQUIRED"), "PROSPECTIVE_EVIDENCE_ONLY"),
+        ("REJECTED", "GOVERNANCE_REVIEW", "REVIEW_REJECTED", "PROSPECTIVE_EVIDENCE_ONLY"),
+        ("ACCEPTED_FOR_REVIEW", "REVIEW_DISPOSITION", ("FAVORABLE_REVIEW_EVIDENCE_RETAINED", "INFORMATION_REQUEST_EVIDENCE_RETAINED"), "PROSPECTIVE_EVIDENCE_ONLY"),
+        ("REJECTED", "REVIEW_DISPOSITION", "REVIEW_REJECTION_EVIDENCE_RETAINED", "PROSPECTIVE_EVIDENCE_ONLY"),
+        ("ACCEPTED_FOR_REVIEW", "AUTHORITY_REVIEW_ELIGIBILITY", ("ELIGIBLE_FOR_AUTHORITY_REVIEW", "ADDITIONAL_EVIDENCE_REQUIRED", "INELIGIBLE_FOR_AUTHORITY_REVIEW"), "PROSPECTIVE_EVIDENCE_ONLY"),
+        ("REJECTED", "AUTHORITY_REVIEW_ELIGIBILITY", "INELIGIBLE_FOR_AUTHORITY_REVIEW", "PROSPECTIVE_EVIDENCE_ONLY"),
+    )
+    one_of = schema.get("oneOf")
+    branches = tuple(_mapping(branch) for branch in one_of) if _sequence(one_of) else ()
+    actual_graph: list[tuple[str | None, str | None, object, str | None]] = []
+    for branch in branches:
+        branch_properties = _mapping(branch.get("properties"))
+        outcome_schema = _mapping(branch_properties.get("evidence_outcome"))
+        outcome: object = outcome_schema.get("const")
+        if outcome is None:
+            outcome = tuple(outcome_schema.get("enum", ()))
+        actual_graph.append(
+            (
+                _mapping(branch_properties.get("intake_state")).get("const"),
+                _mapping(branch_properties.get("protocol_phase")).get("const"),
+                outcome,
+                _mapping(branch_properties.get("register_mutation_status")).get("const"),
+            )
+        )
+    phase_state_pairs = [(state, phase) for state, phase, _, _ in actual_graph]
+    if len(phase_state_pairs) != len(set(phase_state_pairs)):
+        _fail(
+            failures,
+            "duplicate_lifecycle_state_unphased",
+            path,
+            "duplicate intake states require distinct protocol phases",
+        )
+    if tuple(actual_graph) != expected_graph:
+        _fail(failures, "lifecycle_reconciliation_graph_mismatch", path, "canonical twelve-node graph is required")
+    live_nodes = [node for node in actual_graph if node[3] == "LIVE_REGISTER_UNCHANGED"]
+    if live_nodes != [expected_graph[0]]:
+        _fail(
+            failures,
+            "lifecycle_register_boundary_mismatch",
+            path,
+            "only the current NOT_SUBMITTED register node may be live",
+        )
+
+    lifecycle_contract = _mapping(contract.get("authority_intake_lifecycle_reconciliation"))
+    contract_expectations = {
+        "schema": path,
+        "validation_effect": "structure_only",
+        "canonical_intake_states": list(intake_states),
+        "protocol_phases": list(protocol_phases),
+        "register_mutation_statuses": list(mutation_statuses),
+        "current_register_state": "NOT_SUBMITTED",
+        "duplicate_states_require_protocol_phase": True,
+        "prospective_evidence_is_live_mutation": False,
+        "governance_review_completed_supported": False,
+        "preserved_protocols": [
+            "authority_intake_submission",
+            "authority_intake_verification",
+            "authority_intake_governance_admission",
+            "authority_intake_governance_review",
+            "authority_intake_review_disposition",
+            "authority_review_eligibility",
+        ],
+        "reconciliation_authority_evidence_required": True,
+        "provenance_required": True,
+        "scope_alignment_required": True,
+        "credentials_permitted": False,
+        "secrets_permitted": False,
+        "excess_personal_data_permitted": False,
+        "inferred_authority_permitted": False,
+        "assigns_party": False,
+        "assigns_authority": False,
+        "grants_authority_reference": False,
+        "grants_approval": False,
+        "resolves_blocker": False,
+        "authorizes_execution": False,
+        "mutates_register": False,
+        "runtime_effect": "none",
+    }
+    for field, expected in contract_expectations.items():
+        if lifecycle_contract.get(field) != expected:
+            _fail(
+                failures,
+                "lifecycle_reconciliation_contract_boundary_mismatch",
+                "contracts/event-bus-v2.yaml",
+                field,
+            )
+
+    for document_path in (
+        "contracts/event-bus-v2-approval-record.md",
+        "contracts/event-bus-v2-decision-log.md",
+    ):
+        text = (root / document_path).read_text(encoding="utf-8")
+        if path not in text:
+            _fail(failures, "lifecycle_reconciliation_contract_reference_missing", document_path, path)
+        for vocabulary in (
+            "intake state",
+            "protocol phase",
+            "evidence outcome",
+            "register mutation",
+            "GOVERNANCE_REVIEW_COMPLETED",
+        ):
+            if vocabulary.lower() not in text.lower():
+                _fail(failures, "lifecycle_reconciliation_vocabulary_missing", document_path, vocabulary)
 
 
 def _validate_catalog(
