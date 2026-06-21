@@ -16,6 +16,7 @@ artifacts:
   authority_intake_governance_admission_schema: schemas/event-bus-v2-authority-intake-governance-admission.schema.json
   authority_intake_governance_review_schema: schemas/event-bus-v2-authority-intake-governance-review.schema.json
   authority_intake_review_disposition_schema: schemas/event-bus-v2-authority-intake-review-disposition.schema.json
+  authority_review_eligibility_schema: schemas/event-bus-v2-authority-review-eligibility.schema.json
   catalog: events/event-catalog-v2.yaml
 compatibility:
   replaces_v1: false
@@ -369,6 +370,52 @@ authority_intake_review_disposition:
   grants_authority_reference: false
   grants_approval: false
   resolves_blocker: false
+  authorizes_execution: false
+  mutates_current_register: false
+  runtime_effect: none
+authority_review_eligibility:
+  schema: schemas/event-bus-v2-authority-review-eligibility.schema.json
+  validation_effect: structure_only
+  source_disposition_outcomes:
+    - FAVORABLE_REVIEW_EVIDENCE_RETAINED
+    - INFORMATION_REQUEST_EVIDENCE_RETAINED
+    - REVIEW_REJECTION_EVIDENCE_RETAINED
+  deterministic_eligibility_outcomes:
+    - ELIGIBLE_FOR_AUTHORITY_REVIEW
+    - ADDITIONAL_EVIDENCE_REQUIRED
+    - INELIGIBLE_FOR_AUTHORITY_REVIEW
+  evidence_outcomes:
+    - SATISFIED
+    - INCOMPLETE
+    - INVALID
+    - CONFLICT
+  supported_resulting_states:
+    - ACCEPTED_FOR_REVIEW
+    - REJECTED
+  effect_boundary: REVIEW_CONSIDERATION_ONLY
+  favorable_disposition_sufficient: false
+  disposition_record_reference_required: true
+  disposition_record_hash_required: true
+  eligibility_authority_evidence_required: true
+  provenance_required: true
+  scope_alignment_required: true
+  independent_eligibility_evidence_required: true
+  self_eligibility_permitted: false
+  disposition_authority_evidence_reuse_permitted: false
+  review_authority_evidence_reuse_permitted: false
+  admission_authority_evidence_reuse_permitted: false
+  verifier_authority_evidence_reuse_permitted: false
+  inferred_eligibility_permitted: false
+  inferred_authority_permitted: false
+  credentials_permitted: false
+  secrets_permitted: false
+  excess_personal_data_permitted: false
+  assigns_party: false
+  assigns_authority: false
+  grants_authority_reference: false
+  grants_approval: false
+  resolves_blocker: false
+  bypasses_blocker_resolution: false
   authorizes_execution: false
   mutates_current_register: false
   runtime_effect: none

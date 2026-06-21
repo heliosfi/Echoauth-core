@@ -124,6 +124,15 @@ Sprint 3M reconciles evidence-only review dispositions:
 assignment eligibility, authority, approval, blocker resolution, execution, or
 register mutation, and no disposition instance is recorded here.
 
+Sprint 3N reconciles authority-review eligibility outcomes:
+`ELIGIBLE_FOR_AUTHORITY_REVIEW`, `ADDITIONAL_EVIDENCE_REQUIRED`, and
+`INELIGIBLE_FOR_AUTHORITY_REVIEW`. Their machine-readable contract is
+`schemas/event-bus-v2-authority-review-eligibility.schema.json`. A favorable
+disposition alone is insufficient; independent eligibility evidence is required.
+Eligibility permits review consideration only and grants no assignment,
+authority, authority reference, approval, blocker resolution, execution, or
+register mutation. No eligibility instance is recorded here.
+
 ## Approval Gate
 
 Sprint 3A authoring, Sprint 3B conformance, and Sprint 3C readiness tracking do

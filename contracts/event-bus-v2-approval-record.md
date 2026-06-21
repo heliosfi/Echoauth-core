@@ -118,6 +118,24 @@ the current register.
 No admission record is instantiated by Sprint 3K. HOLD remains active, and the
 current register remains authoritative and unchanged.
 
+### Authority Review Eligibility Protocol Boundary
+
+Sprint 3N defines structure-only authority-review eligibility evidence in
+`schemas/event-bus-v2-authority-review-eligibility.schema.json`. The reconciled
+outcomes are `ELIGIBLE_FOR_AUTHORITY_REVIEW`,
+`ADDITIONAL_EVIDENCE_REQUIRED`, and `INELIGIBLE_FOR_AUTHORITY_REVIEW`.
+
+A favorable review disposition is necessary but not sufficient for eligibility.
+`ELIGIBLE_FOR_AUTHORITY_REVIEW` additionally requires independently evidenced
+eligibility authority, satisfied eligibility evidence, provenance, and aligned
+scope. Missing evidence produces `ADDITIONAL_EVIDENCE_REQUIRED`; invalid or
+conflicting evidence fails closed as `INELIGIBLE_FOR_AUTHORITY_REVIEW`.
+
+Eligibility permits review consideration only. It grants no party assignment,
+authority, authority reference, blocker resolution, approval, execution, or
+runtime effect and cannot bypass the blocker-resolution procedure. No eligibility
+record is instantiated by Sprint 3N, and the current register remains unchanged.
+
 ### Governance Review Protocol Boundary
 
 Sprint 3L defines structure-only governance review evidence in
@@ -219,6 +237,7 @@ placeholders only and does not infer authority from those placeholders.
 | Governance admission protocol | Structure-only schema; no admission instantiated | `PASS` |
 | Governance review protocol | Structure-only schema; no review instantiated | `PASS` |
 | Review disposition protocol | Structure-only schema; no disposition instantiated | `PASS` |
+| Authority review eligibility protocol | Structure-only schema; no eligibility instantiated | `PASS` |
 | Accountable authority intake records | Eight placeholders; no submissions | `BLOCKED` |
 | Named accountable parties | No named parties or verified authority references exist | `BLOCKED` |
 | Blocker dispositions | Eight of eight remain `UNRESOLVED` | `BLOCKED` |
