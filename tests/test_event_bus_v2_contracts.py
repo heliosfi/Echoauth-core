@@ -41,6 +41,34 @@ class EventBusV2ContractValidationTests(unittest.TestCase):
 
         self.assertIn("missing_artifact", _codes(report))
 
+    def test_empty_blocker_matrix_fails_conformance(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            (root / "contracts/event-bus-v2-blocker-matrix.md").write_text(
+                "",
+                encoding="utf-8",
+            )
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("empty_blocker_matrix", _codes(report))
+
+    def test_blocker_matrix_requires_all_fields_and_unresolved_boundaries(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            matrix_path = root / "contracts/event-bus-v2-blocker-matrix.md"
+            matrix_path.write_text(
+                matrix_path.read_text(encoding="utf-8")
+                .replace("- Required evidence:", "- Removed evidence:", 1)
+                .replace("- Status: `UNRESOLVED`", "- Status: `RESOLVED`", 1),
+                encoding="utf-8",
+            )
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("missing_matrix_field", _codes(report))
+        self.assertIn("matrix_blocker_resolved", _codes(report))
+
     def test_malformed_yaml_and_json_fail_deterministically(self) -> None:
         with TemporaryDirectory() as tmp:
             root = Path(tmp)

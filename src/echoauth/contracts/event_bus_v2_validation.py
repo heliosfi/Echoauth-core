@@ -22,6 +22,7 @@ _V2_PATHS = (
     "events/event-envelope-v2.schema.json",
     "events/event-catalog-v2.yaml",
     "contracts/event-bus-v2-decision-log.md",
+    "contracts/event-bus-v2-blocker-matrix.md",
 )
 _BLOCKERS = (
     "transport_and_acknowledgement_contract",
@@ -40,6 +41,19 @@ _RECOVERED_PROHIBITIONS = (
     "publish",
     "replay",
     "emit",
+)
+_MATRIX_FIELDS = (
+    "Status",
+    "Owner role placeholder",
+    "Accountable party",
+    "Authority reference status",
+    "Required evidence",
+    "Required approval category",
+    "Dependent contracts",
+    "Dependent runtime capabilities",
+    "Upstream dependencies",
+    "Downstream dependencies",
+    "Resolution criteria",
 )
 
 
@@ -102,6 +116,7 @@ def validate_event_bus_v2_contracts(
     _validate_vocabularies(contract, runtime_schema, failures)
     _validate_hold_gate(root_path, contract, catalog, failures)
     _validate_blockers(root_path, contract, catalog, failures)
+    _validate_blocker_matrix(root_path, failures)
     _validate_runtime_recovered(contract, catalog, failures)
     return EventBusV2ValidationReport(tuple(failures))
 
@@ -372,6 +387,84 @@ def _validate_runtime_recovered(
     contract_recovered = _mapping(_mapping(contract.get("catalog_only_events")).get("runtime.recovered"))
     if tuple(contract_recovered.get("operations_prohibited", ())) != _RECOVERED_PROHIBITIONS:
         _fail(failures, "runtime_recovered_prohibitions", "contracts/event-bus-v2.yaml", "contract prohibitions must match catalog")
+
+
+def _validate_blocker_matrix(
+    root: Path,
+    failures: list[EventBusV2ValidationFailure],
+) -> None:
+    path = "contracts/event-bus-v2-blocker-matrix.md"
+    try:
+        text = (root / path).read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        _fail(failures, "invalid_blocker_matrix", path, str(exc))
+        return
+    if not text.strip():
+        _fail(failures, "empty_blocker_matrix", path, "blocker matrix must not be empty")
+        return
+    required_sections = (
+        "# Event Bus v2 Blocker Dependency Matrix",
+        "## Governance Boundary",
+        "## Dependency Summary",
+        "## Matrix Disposition",
+    )
+    for heading in required_sections:
+        if heading not in text:
+            _fail(failures, "missing_matrix_section", path, heading)
+
+    if "Dependency mapping does not grant approval." not in text:
+        _fail(failures, "matrix_approval_boundary_missing", path, "non-approval statement is required")
+    if "HOLD remains active" not in text or "approved: false" not in text:
+        _fail(failures, "matrix_hold_boundary_missing", path, "HOLD and approved:false boundaries are required")
+
+    sections = _matrix_blocker_sections(text)
+    expected_ids = tuple(f"EVT2-B0{index}" for index in range(1, 9))
+    if tuple(sections) != expected_ids:
+        _fail(failures, "matrix_blocker_set_mismatch", path, "EVT2-B01 through EVT2-B08 are required exactly once and in order")
+        return
+
+    valid_ids = set(expected_ids)
+    for blocker_id, section in sections.items():
+        fields = _matrix_fields(section)
+        for field in _MATRIX_FIELDS:
+            value = fields.get(field)
+            if not value:
+                _fail(failures, "missing_matrix_field", path, f"{blocker_id}:{field}")
+        if fields.get("Status") != "`UNRESOLVED`":
+            _fail(failures, "matrix_blocker_resolved", path, blocker_id)
+        if fields.get("Accountable party") != "`UNASSIGNED`":
+            _fail(failures, "matrix_party_assigned", path, blocker_id)
+        if fields.get("Authority reference status") != "`ABSENT`":
+            _fail(failures, "matrix_authority_present", path, blocker_id)
+        for dependency_field in ("Upstream dependencies", "Downstream dependencies"):
+            value = fields.get(dependency_field, "")
+            references = set(re.findall(r"EVT2-B0[1-8]", value))
+            if blocker_id in references:
+                _fail(failures, "matrix_self_dependency", path, f"{blocker_id}:{dependency_field}")
+            if not references.issubset(valid_ids):
+                _fail(failures, "matrix_unknown_dependency", path, f"{blocker_id}:{dependency_field}")
+
+
+def _matrix_blocker_sections(text: str) -> dict[str, str]:
+    matches = list(re.finditer(r"^## (EVT2-B0[1-8])\s*$", text, re.MULTILINE))
+    sections: dict[str, str] = {}
+    for index, match in enumerate(matches):
+        end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
+        blocker_id = match.group(1)
+        if blocker_id in sections:
+            return {}
+        sections[blocker_id] = text[match.end():end]
+    return sections
+
+
+def _matrix_fields(section: str) -> dict[str, str]:
+    fields: dict[str, str] = {}
+    for raw_line in section.splitlines():
+        if not raw_line.startswith("- ") or ":" not in raw_line:
+            continue
+        key, value = raw_line[2:].split(":", 1)
+        fields[key.strip()] = value.strip()
+    return fields
 
 
 def _references(value: object) -> tuple[str, ...]:
