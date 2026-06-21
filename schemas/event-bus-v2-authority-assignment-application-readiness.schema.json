@@ -1,0 +1,290 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/event-bus-v2-authority-assignment-application-readiness.schema.json",
+  "title": "EchoAuth Event Bus v2 Authority Assignment Application Readiness",
+  "description": "Structure-only application-readiness evidence. Readiness is not assignment, persistence, audit append, execution, or live-register mutation.",
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "DependencyContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract_reference", "contract_hash", "status"],
+      "properties": {
+        "contract_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "contract_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "status": { "enum": ["RESOLVED", "UNRESOLVED"] }
+      }
+    }
+  },
+  "required": [
+    "readiness_schema_version",
+    "readiness_id",
+    "intake_id",
+    "blocker_id",
+    "assignment_decision_record_reference",
+    "assignment_decision_record_hash",
+    "source_assignment_decision_outcome",
+    "complete_evidence_chain",
+    "proposed_party_reference",
+    "proposed_party_reference_hash",
+    "proposed_authority_evidence_reference",
+    "proposed_authority_evidence_hash",
+    "effective_at",
+    "expires_at",
+    "current_register_snapshot",
+    "dependency_contracts",
+    "all_dependencies_resolved",
+    "mutation_authority",
+    "mutation_authority_party_reference_hash",
+    "readiness_evidence_references",
+    "readiness_evidence_hash",
+    "evidence_provenance",
+    "blocker_scope_alignment",
+    "mutation_authority_independence_check",
+    "competing_assignment_check",
+    "conflict_check",
+    "readiness_evidence_outcome",
+    "readiness_outcome",
+    "failure_codes",
+    "resulting_intake_state",
+    "protocol_phase",
+    "register_mutation_status",
+    "evaluated_at",
+    "hold_status",
+    "contains_credentials",
+    "contains_secrets",
+    "contains_excess_personal_data",
+    "self_application_detected",
+    "prior_authority_evidence_reused",
+    "inferred_mutation_authority",
+    "readiness_is_mutation",
+    "assignment_application_permitted",
+    "identity_established",
+    "party_assigned",
+    "authority_assigned",
+    "authority_reference_granted",
+    "authority_record_created",
+    "persistence_written",
+    "audit_appended",
+    "approval_granted",
+    "contract_approved",
+    "blocker_resolved",
+    "blockers_resolved",
+    "execution_authorized",
+    "runtime_enabled",
+    "register_mutated",
+    "runtime_effect"
+  ],
+  "properties": {
+    "readiness_schema_version": { "const": "2.0.0" },
+    "readiness_id": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "intake_id": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "blocker_id": { "type": "string", "enum": ["EVT2-B01", "EVT2-B02", "EVT2-B03", "EVT2-B04", "EVT2-B05", "EVT2-B06", "EVT2-B07", "EVT2-B08"] },
+    "assignment_decision_record_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "assignment_decision_record_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "source_assignment_decision_outcome": { "const": "FAVORABLE_ASSIGNMENT_DECISION_RECORDED" },
+    "complete_evidence_chain": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "submission_reference", "submission_hash", "verification_reference", "verification_hash",
+        "admission_reference", "admission_hash", "governance_review_reference", "governance_review_hash",
+        "review_disposition_reference", "review_disposition_hash", "eligibility_reference", "eligibility_hash",
+        "lifecycle_reconciliation_reference", "lifecycle_reconciliation_hash",
+        "assignment_review_reference", "assignment_review_hash",
+        "assignment_decision_reference", "assignment_decision_hash"
+      ],
+      "properties": {
+        "submission_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "submission_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "verification_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "verification_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "admission_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "admission_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "governance_review_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "governance_review_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "review_disposition_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "review_disposition_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "eligibility_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "eligibility_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "lifecycle_reconciliation_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "lifecycle_reconciliation_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "assignment_review_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "assignment_review_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "assignment_decision_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "assignment_decision_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" }
+      }
+    },
+    "proposed_party_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "proposed_party_reference_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "proposed_authority_evidence_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "proposed_authority_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "effective_at": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/UtcTimestamp" },
+    "expires_at": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/UtcTimestamp" },
+    "current_register_snapshot": {
+      "type": "object", "additionalProperties": false,
+      "required": ["register_version", "register_hash", "expected_previous_hash", "accountable_party_status", "authority_reference_status", "blocker_status"],
+      "properties": {
+        "register_version": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "register_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "expected_previous_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "accountable_party_status": { "const": "UNASSIGNED" },
+        "authority_reference_status": { "const": "ABSENT" },
+        "blocker_status": { "const": "UNRESOLVED" }
+      }
+    },
+    "dependency_contracts": {
+      "type": "object", "additionalProperties": false,
+      "required": ["register_contract", "persistence_contract", "audit_append_contract", "idempotency_contract", "rollback_contract", "replacement_contract", "revocation_contract"],
+      "properties": {
+        "register_contract": { "$ref": "#/$defs/DependencyContract" },
+        "persistence_contract": { "$ref": "#/$defs/DependencyContract" },
+        "audit_append_contract": { "$ref": "#/$defs/DependencyContract" },
+        "idempotency_contract": { "$ref": "#/$defs/DependencyContract" },
+        "rollback_contract": { "$ref": "#/$defs/DependencyContract" },
+        "replacement_contract": { "$ref": "#/$defs/DependencyContract" },
+        "revocation_contract": { "$ref": "#/$defs/DependencyContract" }
+      }
+    },
+    "all_dependencies_resolved": { "type": "boolean" },
+    "mutation_authority": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_reference", "authority_reference", "scope_hash", "status", "issued_at", "expires_at", "evidence_hash"],
+      "properties": {
+        "source_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "authority_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "scope_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "status": { "const": "ACTIVE" },
+        "issued_at": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/UtcTimestamp" },
+        "expires_at": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/UtcTimestamp" },
+        "evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" }
+      }
+    },
+    "mutation_authority_party_reference_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "readiness_evidence_references": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" } },
+    "readiness_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "evidence_provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_category", "source_reference", "evidence_hash", "observed_at"],
+      "properties": {
+        "source_category": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "source_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "observed_at": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/UtcTimestamp" }
+      }
+    },
+    "blocker_scope_alignment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["blocker_id", "assignment_scope_hash", "mutation_scope_hash", "outcome"],
+      "properties": {
+        "blocker_id": { "type": "string", "enum": ["EVT2-B01", "EVT2-B02", "EVT2-B03", "EVT2-B04", "EVT2-B05", "EVT2-B06", "EVT2-B07", "EVT2-B08"] },
+        "assignment_scope_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "mutation_scope_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "outcome": { "const": "ALIGNED" }
+      }
+    },
+    "mutation_authority_independence_check": {
+      "type": "object", "additionalProperties": false,
+      "required": ["proposed_party_reference_hash", "mutation_authority_party_reference_hash", "assignment_reviewer_party_reference_hash", "decision_maker_party_reference_hash", "prior_authority_evidence_hashes", "mutation_authority_evidence_hash", "outcome", "evidence_hash"],
+      "properties": {
+        "proposed_party_reference_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "mutation_authority_party_reference_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "assignment_reviewer_party_reference_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "decision_maker_party_reference_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "prior_authority_evidence_hashes": { "type": "array", "minItems": 7, "uniqueItems": true, "items": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" } },
+        "mutation_authority_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "outcome": { "const": "DISTINCT_AND_INDEPENDENT" },
+        "evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" }
+      }
+    },
+    "competing_assignment_check": {
+      "type": "object", "additionalProperties": false,
+      "required": ["outcome", "assignment_set_hash", "evidence_hash"],
+      "properties": {
+        "outcome": { "enum": ["NONE_PRESENT", "RESOLVED"] },
+        "assignment_set_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" }
+      }
+    },
+    "conflict_check": {
+      "type": "object", "additionalProperties": false,
+      "required": ["outcome", "checked_references_hash", "evidence_hash"],
+      "properties": {
+        "outcome": { "const": "CLEAR" },
+        "checked_references_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" }
+      }
+    },
+    "readiness_evidence_outcome": { "enum": ["SATISFIED", "INCOMPLETE", "BLOCKED"] },
+    "readiness_outcome": { "enum": ["ASSIGNMENT_APPLICATION_REVIEW_READY", "ADDITIONAL_APPLICATION_EVIDENCE_REQUIRED", "ASSIGNMENT_APPLICATION_BLOCKED"] },
+    "failure_codes": {
+      "type": "array", "uniqueItems": true,
+      "items": { "enum": ["REGISTER_CONTRACT_UNRESOLVED", "PERSISTENCE_CONTRACT_UNRESOLVED", "AUDIT_APPEND_CONTRACT_UNRESOLVED", "IDEMPOTENCY_CONTRACT_UNRESOLVED", "ROLLBACK_CONTRACT_UNRESOLVED", "MUTATION_AUTHORITY_UNRESOLVED", "EXPECTED_VERSION_CONFLICT", "ASSIGNMENT_CONFLICT", "AUTHORITY_INVALID", "EVIDENCE_INCOMPLETE"] }
+    },
+    "resulting_intake_state": { "const": "ACCEPTED_FOR_REVIEW" },
+    "protocol_phase": { "const": "AUTHORITY_ASSIGNMENT_APPLICATION_READINESS" },
+    "register_mutation_status": { "const": "PROSPECTIVE_EVIDENCE_ONLY" },
+    "evaluated_at": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/UtcTimestamp" },
+    "hold_status": { "const": "ACTIVE" },
+    "contains_credentials": { "const": false },
+    "contains_secrets": { "const": false },
+    "contains_excess_personal_data": { "const": false },
+    "self_application_detected": { "const": false },
+    "prior_authority_evidence_reused": { "const": false },
+    "inferred_mutation_authority": { "const": false },
+    "readiness_is_mutation": { "const": false },
+    "assignment_application_permitted": { "const": false },
+    "identity_established": { "const": false },
+    "party_assigned": { "const": false },
+    "authority_assigned": { "const": false },
+    "authority_reference_granted": { "const": false },
+    "authority_record_created": { "const": false },
+    "persistence_written": { "const": false },
+    "audit_appended": { "const": false },
+    "approval_granted": { "const": false },
+    "contract_approved": { "const": false },
+    "blocker_resolved": { "const": false },
+    "blockers_resolved": { "const": false },
+    "execution_authorized": { "const": false },
+    "runtime_enabled": { "const": false },
+    "register_mutated": { "const": false },
+    "runtime_effect": { "const": "NONE" }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "readiness_evidence_outcome": { "const": "SATISFIED" },
+        "readiness_outcome": { "const": "ASSIGNMENT_APPLICATION_REVIEW_READY" },
+        "all_dependencies_resolved": { "const": true },
+        "dependency_contracts": {
+          "properties": {
+            "register_contract": { "properties": { "status": { "const": "RESOLVED" } } },
+            "persistence_contract": { "properties": { "status": { "const": "RESOLVED" } } },
+            "audit_append_contract": { "properties": { "status": { "const": "RESOLVED" } } },
+            "idempotency_contract": { "properties": { "status": { "const": "RESOLVED" } } },
+            "rollback_contract": { "properties": { "status": { "const": "RESOLVED" } } },
+            "replacement_contract": { "properties": { "status": { "const": "RESOLVED" } } },
+            "revocation_contract": { "properties": { "status": { "const": "RESOLVED" } } }
+          }
+        },
+        "failure_codes": { "maxItems": 0 }
+      }
+    },
+    {
+      "properties": {
+        "readiness_evidence_outcome": { "const": "INCOMPLETE" },
+        "readiness_outcome": { "const": "ADDITIONAL_APPLICATION_EVIDENCE_REQUIRED" },
+        "all_dependencies_resolved": { "const": false },
+        "failure_codes": { "minItems": 1 }
+      }
+    },
+    {
+      "properties": {
+        "readiness_evidence_outcome": { "const": "BLOCKED" },
+        "readiness_outcome": { "const": "ASSIGNMENT_APPLICATION_BLOCKED" },
+        "all_dependencies_resolved": { "const": false },
+        "failure_codes": { "minItems": 1 }
+      }
+    }
+  ]
+}

@@ -193,6 +193,27 @@ an `AuthorityRecord`, resolves a blocker, approves the contract, authorizes
 execution, or mutates the register. No decision record is instantiated by Sprint
 3Q.
 
+### Authority Assignment Application Readiness Boundary
+
+Sprint 3R defines structure-only application-readiness evidence in
+`schemas/event-bus-v2-authority-assignment-application-readiness.schema.json`.
+The phase accepts only `FAVORABLE_ASSIGNMENT_DECISION_RECORDED` source evidence
+and requires the complete chain, proposed-party authority and effective-period
+evidence, current register snapshot/version/hash, all dependency contract
+references, independent mutation authority, scope, and conflict evidence.
+
+The outcomes are `ASSIGNMENT_APPLICATION_REVIEW_READY`,
+`ADDITIONAL_APPLICATION_EVIDENCE_REQUIRED`, and
+`ASSIGNMENT_APPLICATION_BLOCKED`. Required failure codes identify unresolved
+register, persistence, audit append, idempotency, rollback, mutation-authority,
+version, assignment-conflict, authority, and evidence dependencies.
+
+Readiness is not mutation or application permission. No outcome assigns a party,
+grants authority or an authority reference, creates an `AuthorityRecord`, writes
+persistence, appends audit, resolves a blocker, approves the contract, authorizes
+execution, or mutates the register. No readiness record is instantiated by
+Sprint 3R.
+
 ### Governance Review Protocol Boundary
 
 Sprint 3L defines structure-only governance review evidence in
@@ -298,6 +319,7 @@ placeholders only and does not infer authority from those placeholders.
 | Canonical lifecycle reconciliation | Phase-qualified evidence graph; live register unchanged | `PASS` |
 | Authority assignment review | Structure-only schema; no assignment or review instance | `PASS` |
 | Authority assignment decision | Structure-only schema; no assignment or decision instance | `PASS` |
+| Assignment application readiness | Structure-only schema; no application or mutation instance | `PASS` |
 | Accountable authority intake records | Eight placeholders; no submissions | `BLOCKED` |
 | Named accountable parties | No named parties or verified authority references exist | `BLOCKED` |
 | Blocker dispositions | Eight of eight remain `UNRESOLVED` | `BLOCKED` |

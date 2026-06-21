@@ -158,6 +158,15 @@ are `FAVORABLE_ASSIGNMENT_DECISION_RECORDED`,
 assignment application, authority, approval, blocker resolution, execution
 permission, or register mutation. No assignment-decision instance is recorded.
 
+Sprint 3R adds the prospective `AUTHORITY_ASSIGNMENT_APPLICATION_READINESS`
+phase through
+`schemas/event-bus-v2-authority-assignment-application-readiness.schema.json`.
+Its outcomes are `ASSIGNMENT_APPLICATION_REVIEW_READY`,
+`ADDITIONAL_APPLICATION_EVIDENCE_REQUIRED`, and
+`ASSIGNMENT_APPLICATION_BLOCKED`. Readiness remains evidence-only and permits no
+assignment application, persistence write, audit append, approval, execution,
+or register mutation. No readiness instance is recorded here.
+
 ## Approval Gate
 
 Sprint 3A authoring, Sprint 3B conformance, and Sprint 3C readiness tracking do

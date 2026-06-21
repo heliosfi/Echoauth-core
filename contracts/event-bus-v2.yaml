@@ -20,6 +20,7 @@ artifacts:
   authority_intake_lifecycle_reconciliation_schema: schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json
   authority_assignment_review_schema: schemas/event-bus-v2-authority-assignment-review.schema.json
   authority_assignment_decision_schema: schemas/event-bus-v2-authority-assignment-decision.schema.json
+  authority_assignment_application_readiness_schema: schemas/event-bus-v2-authority-assignment-application-readiness.schema.json
   catalog: events/event-catalog-v2.yaml
 compatibility:
   replaces_v1: false
@@ -441,6 +442,7 @@ authority_intake_lifecycle_reconciliation:
     - AUTHORITY_REVIEW_ELIGIBILITY
     - AUTHORITY_ASSIGNMENT_REVIEW
     - AUTHORITY_ASSIGNMENT_DECISION
+    - AUTHORITY_ASSIGNMENT_APPLICATION_READINESS
   register_mutation_statuses:
     - LIVE_REGISTER_UNCHANGED
     - PROSPECTIVE_EVIDENCE_ONLY
@@ -457,6 +459,7 @@ authority_intake_lifecycle_reconciliation:
     - authority_review_eligibility
     - authority_assignment_review
     - authority_assignment_decision
+    - authority_assignment_application_readiness
   reconciliation_authority_evidence_required: true
   provenance_required: true
   scope_alignment_required: true
@@ -542,6 +545,57 @@ authority_assignment_decision:
   assigns_authority: false
   grants_authority_reference: false
   creates_authority_record: false
+  grants_approval: false
+  resolves_blocker: false
+  authorizes_execution: false
+  mutates_register: false
+  runtime_effect: none
+authority_assignment_application_readiness:
+  schema: schemas/event-bus-v2-authority-assignment-application-readiness.schema.json
+  validation_effect: structure_only
+  protocol_phase: AUTHORITY_ASSIGNMENT_APPLICATION_READINESS
+  source_assignment_decision_outcome: FAVORABLE_ASSIGNMENT_DECISION_RECORDED
+  deterministic_outcomes:
+    - ASSIGNMENT_APPLICATION_REVIEW_READY
+    - ADDITIONAL_APPLICATION_EVIDENCE_REQUIRED
+    - ASSIGNMENT_APPLICATION_BLOCKED
+  evidence_outcomes:
+    - SATISFIED
+    - INCOMPLETE
+    - BLOCKED
+  failure_codes:
+    - REGISTER_CONTRACT_UNRESOLVED
+    - PERSISTENCE_CONTRACT_UNRESOLVED
+    - AUDIT_APPEND_CONTRACT_UNRESOLVED
+    - IDEMPOTENCY_CONTRACT_UNRESOLVED
+    - ROLLBACK_CONTRACT_UNRESOLVED
+    - MUTATION_AUTHORITY_UNRESOLVED
+    - EXPECTED_VERSION_CONFLICT
+    - ASSIGNMENT_CONFLICT
+    - AUTHORITY_INVALID
+    - EVIDENCE_INCOMPLETE
+  resulting_intake_state: ACCEPTED_FOR_REVIEW
+  register_mutation_status: PROSPECTIVE_EVIDENCE_ONLY
+  complete_evidence_chain_required: true
+  current_register_snapshot_required: true
+  dependency_contracts_required: true
+  mutation_authority_required: true
+  blocker_scope_required: true
+  competing_assignment_check_required: true
+  conflict_check_required: true
+  lifecycle_reconciliation_required: true
+  readiness_is_mutation: false
+  assignment_application_permitted: false
+  credentials_permitted: false
+  secrets_permitted: false
+  excess_personal_data_permitted: false
+  inferred_mutation_authority_permitted: false
+  assigns_party: false
+  assigns_authority: false
+  grants_authority_reference: false
+  creates_authority_record: false
+  writes_persistence: false
+  appends_audit: false
   grants_approval: false
   resolves_blocker: false
   authorizes_execution: false
