@@ -22,6 +22,7 @@ _V2_PATHS = (
     "events/event-envelope-v2.schema.json",
     "events/event-catalog-v2.yaml",
     "contracts/event-bus-v2-decision-log.md",
+    "contracts/event-bus-v2-approval-record.md",
     "contracts/event-bus-v2-blocker-matrix.md",
 )
 _BLOCKERS = (
@@ -33,6 +34,17 @@ _BLOCKERS = (
     "subscription_registration_and_mutation_authority",
     "audit_writer_chain_and_append_failure_contract",
     "durable_causation_lookup_and_conflict_authority",
+)
+_BLOCKER_IDS = tuple(f"EVT2-B0{index}" for index in range(1, 9))
+_OWNER_ROLES = (
+    "Event transport contract owner",
+    "Persistence contract owner",
+    "Retention and legal-hold contract owner",
+    "Cryptographic security contract owner",
+    "Data classification contract owner",
+    "Subscription governance contract owner",
+    "Event audit contract owner",
+    "Causation integrity contract owner",
 )
 _RECOVERED_PROHIBITIONS = (
     "accept",
@@ -117,6 +129,7 @@ def validate_event_bus_v2_contracts(
     _validate_hold_gate(root_path, contract, catalog, failures)
     _validate_blockers(root_path, contract, catalog, failures)
     _validate_blocker_matrix(root_path, failures)
+    _validate_approval_and_intake_records(root_path, failures)
     _validate_runtime_recovered(contract, catalog, failures)
     return EventBusV2ValidationReport(tuple(failures))
 
@@ -418,12 +431,11 @@ def _validate_blocker_matrix(
         _fail(failures, "matrix_hold_boundary_missing", path, "HOLD and approved:false boundaries are required")
 
     sections = _matrix_blocker_sections(text)
-    expected_ids = tuple(f"EVT2-B0{index}" for index in range(1, 9))
-    if tuple(sections) != expected_ids:
+    if tuple(sections) != _BLOCKER_IDS:
         _fail(failures, "matrix_blocker_set_mismatch", path, "EVT2-B01 through EVT2-B08 are required exactly once and in order")
         return
 
-    valid_ids = set(expected_ids)
+    valid_ids = set(_BLOCKER_IDS)
     for blocker_id, section in sections.items():
         fields = _matrix_fields(section)
         for field in _MATRIX_FIELDS:
@@ -443,6 +455,133 @@ def _validate_blocker_matrix(
                 _fail(failures, "matrix_self_dependency", path, f"{blocker_id}:{dependency_field}")
             if not references.issubset(valid_ids):
                 _fail(failures, "matrix_unknown_dependency", path, f"{blocker_id}:{dependency_field}")
+
+
+def _validate_approval_and_intake_records(
+    root: Path,
+    failures: list[EventBusV2ValidationFailure],
+) -> None:
+    approval_path = "contracts/event-bus-v2-approval-record.md"
+    decision_path = "contracts/event-bus-v2-decision-log.md"
+    matrix_path = "contracts/event-bus-v2-blocker-matrix.md"
+    approval = (root / approval_path).read_text(encoding="utf-8")
+    decision = (root / decision_path).read_text(encoding="utf-8")
+    matrix = (root / matrix_path).read_text(encoding="utf-8")
+
+    if (
+        "Record status: `HOLD`" not in approval
+        or "Approval status: `NOT APPROVED`" not in approval
+        or "Runtime implementation permitted: `NO`" not in approval
+        or "HOLD remains active" not in approval
+    ):
+        _fail(failures, "approval_record_hold_mismatch", approval_path, "approval record must remain HOLD and not approved")
+    if "Approval status: `HOLD`" not in decision or "HOLD remains" not in decision:
+        _fail(failures, "decision_log_hold_mismatch", decision_path, "decision log must remain on HOLD")
+    if "do not grant approval" not in approval.lower() or "do not grant approval" not in decision.lower():
+        _fail(failures, "conformance_nonapproval_missing", approval_path, "conformance must not grant approval")
+    if "`approved: true` must remain rejected" not in approval:
+        _fail(failures, "approval_rejection_rule_missing", approval_path, "approved:true rejection rule is required")
+
+    approval_blockers = _markdown_table_rows(
+        approval,
+        "## Blocker Register",
+        "## Accountable Authority Intake Structure",
+    )
+    decision_blockers = _markdown_table_rows(
+        decision,
+        "## Unresolved Approval Blockers",
+        "## Accountable Authority Intake",
+    )
+    approval_intake = _markdown_table_rows(
+        approval,
+        "## Current Authority Intake Register",
+        "## Approval Readiness",
+    )
+    decision_intake = _markdown_table_rows(
+        decision,
+        "## Accountable Authority Intake",
+        "## Approval Gate",
+    )
+    matrix_ids = tuple(_matrix_blocker_sections(matrix))
+
+    _validate_blocker_rows(approval_blockers, approval_path, failures)
+    _validate_blocker_rows(decision_blockers, decision_path, failures)
+    _validate_intake_rows(approval_intake, approval_path, failures)
+    _validate_intake_rows(decision_intake, decision_path, failures)
+
+    sets = (
+        tuple(row[0] for row in approval_blockers),
+        tuple(row[0] for row in decision_blockers),
+        tuple(row[0] for row in approval_intake),
+        tuple(row[0] for row in decision_intake),
+        matrix_ids,
+    )
+    if any(blocker_ids != _BLOCKER_IDS for blocker_ids in sets):
+        _fail(failures, "governance_blocker_set_mismatch", approval_path, "all governance records must contain EVT2-B01 through EVT2-B08 exactly once and in order")
+
+
+def _validate_blocker_rows(
+    rows: tuple[tuple[str, ...], ...],
+    path: str,
+    failures: list[EventBusV2ValidationFailure],
+) -> None:
+    for index, row in enumerate(rows):
+        if len(row) < 5:
+            _fail(failures, "malformed_blocker_row", path, str(index))
+            continue
+        blocker_id = row[0]
+        if blocker_id not in _BLOCKER_IDS:
+            continue
+        expected_role = _OWNER_ROLES[_BLOCKER_IDS.index(blocker_id)]
+        role = row[3] if len(row) >= 6 else row[2]
+        disposition = row[4] if len(row) >= 6 else row[4]
+        if role != expected_role:
+            _fail(failures, "owner_role_mismatch", path, blocker_id)
+        if disposition != "`UNRESOLVED`":
+            _fail(failures, "approval_blocker_resolved", path, blocker_id)
+
+
+def _validate_intake_rows(
+    rows: tuple[tuple[str, ...], ...],
+    path: str,
+    failures: list[EventBusV2ValidationFailure],
+) -> None:
+    for index, row in enumerate(rows):
+        if len(row) != 6:
+            _fail(failures, "malformed_intake_row", path, str(index))
+            continue
+        blocker_id, role, party, authority, intake_status, disposition = row
+        if blocker_id not in _BLOCKER_IDS:
+            continue
+        expected_role = _OWNER_ROLES[_BLOCKER_IDS.index(blocker_id)]
+        if role != expected_role:
+            _fail(failures, "owner_role_mismatch", path, blocker_id)
+        if party != "`UNASSIGNED`":
+            _fail(failures, "approval_party_assigned", path, blocker_id)
+        if authority != "`ABSENT`":
+            _fail(failures, "approval_authority_present", path, blocker_id)
+        if intake_status != "`NOT_SUBMITTED`":
+            _fail(failures, "approval_intake_submitted", path, blocker_id)
+        if disposition != "`UNRESOLVED`":
+            _fail(failures, "approval_blocker_resolved", path, blocker_id)
+
+
+def _markdown_table_rows(
+    text: str,
+    start_heading: str,
+    end_heading: str,
+) -> tuple[tuple[str, ...], ...]:
+    start = text.find(start_heading)
+    end = text.find(end_heading, start + len(start_heading)) if start >= 0 else -1
+    if start < 0 or end < 0:
+        return ()
+    rows: list[tuple[str, ...]] = []
+    for raw_line in text[start:end].splitlines():
+        if not re.match(r"^\| EVT2-B0[1-8] \|", raw_line):
+            continue
+        cells = tuple(cell.strip() for cell in raw_line.strip().strip("|").split("|"))
+        rows.append(cells)
+    return tuple(rows)
 
 
 def _matrix_blocker_sections(text: str) -> dict[str, str]:

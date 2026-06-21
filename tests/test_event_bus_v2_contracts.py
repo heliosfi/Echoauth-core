@@ -26,6 +26,24 @@ def _codes(report: EventBusV2ValidationReport) -> set[str]:
     return {failure.code for failure in report.failures}
 
 
+def _replace_in_section(
+    text: str,
+    start_heading: str,
+    end_heading: str,
+    old: str,
+    new: str,
+    *,
+    count: int = 1,
+) -> str:
+    start = text.index(start_heading)
+    end = text.index(end_heading, start + len(start_heading))
+    section = text[start:end]
+    replaced = section.replace(old, new, count)
+    if replaced == section:
+        raise AssertionError(f"fixture value not found: {old}")
+    return text[:start] + replaced + text[end:]
+
+
 class EventBusV2ContractValidationTests(unittest.TestCase):
     def test_repository_v2_contracts_conform_and_remain_on_hold(self) -> None:
         report = validate_event_bus_v2_contracts(_ROOT)
@@ -40,6 +58,74 @@ class EventBusV2ContractValidationTests(unittest.TestCase):
             report = validate_event_bus_v2_contracts(root)
 
         self.assertIn("missing_artifact", _codes(report))
+
+    def test_missing_approval_record_fails_closed(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            (root / "contracts/event-bus-v2-approval-record.md").unlink()
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("missing_artifact", _codes(report))
+
+    def test_missing_or_duplicate_approval_intake_entry_fails_closed(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            approval_path = root / "contracts/event-bus-v2-approval-record.md"
+            text = approval_path.read_text(encoding="utf-8")
+            row = "| EVT2-B08 | Causation integrity contract owner | `UNASSIGNED` | `ABSENT` | `NOT_SUBMITTED` | `UNRESOLVED` |\n"
+            missing_text = _replace_in_section(
+                text,
+                "## Current Authority Intake Register",
+                "## Approval Readiness",
+                row,
+                "",
+            )
+            approval_path.write_text(missing_text, encoding="utf-8")
+            missing_report = validate_event_bus_v2_contracts(root)
+            approval_path.write_text(
+                _replace_in_section(
+                    text,
+                    "## Current Authority Intake Register",
+                    "## Approval Readiness",
+                    row,
+                    row + row,
+                ),
+                encoding="utf-8",
+            )
+            duplicate_report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("governance_blocker_set_mismatch", _codes(missing_report))
+        self.assertIn("governance_blocker_set_mismatch", _codes(duplicate_report))
+
+    def test_approval_record_intake_drift_fails_closed(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            approval_path = root / "contracts/event-bus-v2-approval-record.md"
+            text = approval_path.read_text(encoding="utf-8")
+            for old, new in (
+                ("`UNASSIGNED`", "`party-1`"),
+                ("`ABSENT`", "`authority-1`"),
+                ("`NOT_SUBMITTED`", "`SUBMITTED_UNVERIFIED`"),
+                ("`UNRESOLVED`", "`RESOLVED`"),
+            ):
+                text = _replace_in_section(
+                    text,
+                    "## Current Authority Intake Register",
+                    "## Approval Readiness",
+                    old,
+                    new,
+                )
+            approval_path.write_text(text, encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        codes = _codes(report)
+        self.assertIn("approval_party_assigned", codes)
+        self.assertIn("approval_authority_present", codes)
+        self.assertIn("approval_intake_submitted", codes)
+        self.assertIn("approval_blocker_resolved", codes)
 
     def test_empty_blocker_matrix_fails_conformance(self) -> None:
         with TemporaryDirectory() as tmp:
