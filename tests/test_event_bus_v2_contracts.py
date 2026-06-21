@@ -68,6 +68,54 @@ class EventBusV2ContractValidationTests(unittest.TestCase):
 
         self.assertIn("missing_artifact", _codes(report))
 
+    def test_missing_or_malformed_authority_intake_schema_fails_closed(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake.schema.json"
+            schema_path.unlink()
+            missing_report = validate_event_bus_v2_contracts(root)
+            schema_path.write_text("{invalid", encoding="utf-8")
+            malformed_report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("missing_artifact", _codes(missing_report))
+        self.assertIn("invalid_json", _codes(malformed_report))
+
+    def test_intake_schema_conformance_cannot_grant_effects(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            for field in (
+                "identity_established",
+                "authority_established",
+                "approval_granted",
+                "blocker_resolved",
+                "contains_credentials",
+                "contains_secrets",
+            ):
+                schema["properties"][field]["const"] = True
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("intake_schema_effect_mismatch", _codes(report))
+
+    def test_intake_contract_remains_unsubmitted_unverified_and_non_runtime(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            contract_path = root / "contracts/event-bus-v2.yaml"
+            text = contract_path.read_text(encoding="utf-8")
+            text = text.replace("  current_status: NOT_SUBMITTED", "  current_status: SUBMITTED_UNVERIFIED", 1)
+            text = text.replace("  establishes_authority: false", "  establishes_authority: true", 1)
+            text = text.replace("  grants_approval: false", "  grants_approval: true", 1)
+            text = text.replace("  runtime_effect: none", "  runtime_effect: delivery", 1)
+            contract_path.write_text(text, encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("intake_contract_boundary_mismatch", _codes(report))
+
     def test_missing_or_duplicate_approval_intake_entry_fails_closed(self) -> None:
         with TemporaryDirectory() as tmp:
             root = Path(tmp)

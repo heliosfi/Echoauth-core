@@ -10,6 +10,7 @@ approval:
 artifacts:
   envelope_schema: events/event-envelope-v2.schema.json
   runtime_vocabulary_schema: schemas/event-bus-runtime-v2.schema.json
+  authority_intake_schema: schemas/event-bus-v2-authority-intake.schema.json
   catalog: events/event-catalog-v2.yaml
 compatibility:
   replaces_v1: false
@@ -202,3 +203,17 @@ approval_blockers:
   - subscription_registration_and_mutation_authority
   - audit_writer_chain_and_append_failure_contract
   - durable_causation_lookup_and_conflict_authority
+authority_intake:
+  schema: schemas/event-bus-v2-authority-intake.schema.json
+  validation_effect: structure_only
+  current_status: NOT_SUBMITTED
+  accountable_party_status: UNASSIGNED
+  authority_reference_status: ABSENT
+  establishes_identity: false
+  establishes_authority: false
+  grants_approval: false
+  resolves_blocker: false
+  credentials_permitted: false
+  secrets_permitted: false
+  submitted_evidence_status: unverified
+  runtime_effect: none

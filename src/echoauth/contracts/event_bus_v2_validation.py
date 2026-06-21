@@ -19,6 +19,7 @@ _V2_PATHS = (
     "specs/event-bus-v2.md",
     "contracts/event-bus-v2.yaml",
     "schemas/event-bus-runtime-v2.schema.json",
+    "schemas/event-bus-v2-authority-intake.schema.json",
     "events/event-envelope-v2.schema.json",
     "events/event-catalog-v2.yaml",
     "contracts/event-bus-v2-decision-log.md",
@@ -109,6 +110,11 @@ def validate_event_bus_v2_contracts(
         "schemas/event-bus-runtime-v2.schema.json",
         failures,
     )
+    intake_schema = _load_json(
+        root_path,
+        "schemas/event-bus-v2-authority-intake.schema.json",
+        failures,
+    )
     envelope_schema = _load_json(
         root_path,
         "events/event-envelope-v2.schema.json",
@@ -121,15 +127,17 @@ def validate_event_bus_v2_contracts(
     assert catalog is not None
     assert runtime_schema is not None
     assert envelope_schema is not None
-    _validate_schema_declarations(runtime_schema, envelope_schema, failures)
-    _validate_local_references(root_path, runtime_schema, envelope_schema, failures)
-    _validate_schema_identity(contract, catalog, envelope_schema, failures)
+    assert intake_schema is not None
+    _validate_schema_declarations(runtime_schema, envelope_schema, intake_schema, failures)
+    _validate_local_references(root_path, runtime_schema, envelope_schema, intake_schema, failures)
+    _validate_schema_identity(contract, catalog, envelope_schema, intake_schema, failures)
     _validate_catalog(root_path, catalog, runtime_schema, failures)
     _validate_vocabularies(contract, runtime_schema, failures)
     _validate_hold_gate(root_path, contract, catalog, failures)
     _validate_blockers(root_path, contract, catalog, failures)
     _validate_blocker_matrix(root_path, failures)
     _validate_approval_and_intake_records(root_path, failures)
+    _validate_authority_intake_contract(contract, intake_schema, failures)
     _validate_runtime_recovered(contract, catalog, failures)
     return EventBusV2ValidationReport(tuple(failures))
 
@@ -170,12 +178,14 @@ def _load_yaml(
 def _validate_schema_declarations(
     runtime_schema: Mapping[str, Any],
     envelope_schema: Mapping[str, Any],
+    intake_schema: Mapping[str, Any],
     failures: list[EventBusV2ValidationFailure],
 ) -> None:
     identities: set[str] = set()
     for path, schema in (
         ("schemas/event-bus-runtime-v2.schema.json", runtime_schema),
         ("events/event-envelope-v2.schema.json", envelope_schema),
+        ("schemas/event-bus-v2-authority-intake.schema.json", intake_schema),
     ):
         if schema.get("$schema") != _DRAFT_2020_12:
             _fail(failures, "schema_draft_mismatch", path, "Draft 2020-12 declaration is required")
@@ -192,11 +202,13 @@ def _validate_local_references(
     root: Path,
     runtime_schema: Mapping[str, Any],
     envelope_schema: Mapping[str, Any],
+    intake_schema: Mapping[str, Any],
     failures: list[EventBusV2ValidationFailure],
 ) -> None:
     loaded: dict[Path, Mapping[str, Any]] = {
         (root / "schemas/event-bus-runtime-v2.schema.json").resolve(): runtime_schema,
         (root / "events/event-envelope-v2.schema.json").resolve(): envelope_schema,
+        (root / "schemas/event-bus-v2-authority-intake.schema.json").resolve(): intake_schema,
     }
     visited: set[Path] = set()
 
@@ -230,12 +242,14 @@ def _validate_local_references(
 
     visit(root / "schemas/event-bus-runtime-v2.schema.json", runtime_schema)
     visit(root / "events/event-envelope-v2.schema.json", envelope_schema)
+    visit(root / "schemas/event-bus-v2-authority-intake.schema.json", intake_schema)
 
 
 def _validate_schema_identity(
     contract: Mapping[str, Any],
     catalog: Mapping[str, Any],
     envelope_schema: Mapping[str, Any],
+    intake_schema: Mapping[str, Any],
     failures: list[EventBusV2ValidationFailure],
 ) -> None:
     identity = _mapping(contract.get("schema_identity"))
@@ -250,11 +264,94 @@ def _validate_schema_identity(
         ("envelope_schema_path", artifacts.get("envelope_schema"), "events/event-envelope-v2.schema.json"),
         ("catalog_path", artifacts.get("catalog"), "events/event-catalog-v2.yaml"),
         ("runtime_schema_path", artifacts.get("runtime_vocabulary_schema"), "schemas/event-bus-runtime-v2.schema.json"),
+        ("intake_schema_path", artifacts.get("authority_intake_schema"), "schemas/event-bus-v2-authority-intake.schema.json"),
         ("catalog_envelope", catalog.get("envelope_schema"), "event-envelope-v2.schema.json"),
     )
     for label, actual, required in expected:
         if actual != required:
             _fail(failures, "schema_identity_mismatch", "contracts/event-bus-v2.yaml", label)
+
+    if intake_schema.get("$id") != "https://echoauth.local/schemas/event-bus-v2-authority-intake.schema.json":
+        _fail(failures, "schema_identity_mismatch", "schemas/event-bus-v2-authority-intake.schema.json", "$id")
+
+
+def _validate_authority_intake_contract(
+    contract: Mapping[str, Any],
+    schema: Mapping[str, Any],
+    failures: list[EventBusV2ValidationFailure],
+) -> None:
+    path = "schemas/event-bus-v2-authority-intake.schema.json"
+    properties = _mapping(schema.get("properties"))
+    required = schema.get("required")
+    expected_required = {
+        "intake_schema_version",
+        "intake_id",
+        "blocker_id",
+        "owner_role",
+        "intake_status",
+        "accountable_party_status",
+        "authority_reference_status",
+        "contains_credentials",
+        "contains_secrets",
+        "identity_established",
+        "authority_established",
+        "approval_granted",
+        "blocker_resolved",
+    }
+    if schema.get("additionalProperties") is not False:
+        _fail(failures, "intake_schema_open", path, "additional properties must be prohibited")
+    if not _string_sequence(required) or not expected_required.issubset(set(required)):
+        _fail(failures, "intake_schema_required_fields", path, "required non-effect fields are missing")
+    if _mapping(properties.get("intake_schema_version")).get("const") != "2.0.0":
+        _fail(failures, "intake_schema_version_mismatch", path, "intake schema version must be 2.0.0")
+    if tuple(_mapping(properties.get("blocker_id")).get("enum", ())) != _BLOCKER_IDS:
+        _fail(failures, "intake_schema_blocker_mismatch", path, "all eight blocker IDs are required in order")
+    if tuple(_mapping(properties.get("owner_role")).get("enum", ())) != _OWNER_ROLES:
+        _fail(failures, "intake_schema_role_mismatch", path, "owner roles must match governance records")
+    expected_statuses = (
+        "NOT_SUBMITTED",
+        "SUBMITTED_UNVERIFIED",
+        "VERIFIED_PENDING_GOVERNANCE",
+        "ACCEPTED_FOR_REVIEW",
+        "REJECTED",
+    )
+    intake_definitions = _mapping(schema.get("$defs"))
+    if tuple(_mapping(intake_definitions.get("IntakeStatus")).get("enum", ())) != expected_statuses:
+        _fail(failures, "intake_schema_status_mismatch", path, "canonical intake statuses are required")
+    if _mapping(properties.get("intake_status")).get("const") != "NOT_SUBMITTED":
+        _fail(failures, "intake_schema_status_mismatch", path, "current intake status must remain NOT_SUBMITTED")
+    constants = {
+        "accountable_party_status": "UNASSIGNED",
+        "authority_reference_status": "ABSENT",
+        "contains_credentials": False,
+        "contains_secrets": False,
+        "identity_established": False,
+        "authority_established": False,
+        "approval_granted": False,
+        "blocker_resolved": False,
+    }
+    for field, expected in constants.items():
+        if _mapping(properties.get(field)).get("const") != expected:
+            _fail(failures, "intake_schema_effect_mismatch", path, field)
+    intake_contract = _mapping(contract.get("authority_intake"))
+    contract_expectations = {
+        "schema": "schemas/event-bus-v2-authority-intake.schema.json",
+        "validation_effect": "structure_only",
+        "current_status": "NOT_SUBMITTED",
+        "accountable_party_status": "UNASSIGNED",
+        "authority_reference_status": "ABSENT",
+        "establishes_identity": False,
+        "establishes_authority": False,
+        "grants_approval": False,
+        "resolves_blocker": False,
+        "credentials_permitted": False,
+        "secrets_permitted": False,
+        "submitted_evidence_status": "unverified",
+        "runtime_effect": "none",
+    }
+    for field, expected in contract_expectations.items():
+        if intake_contract.get(field) != expected:
+            _fail(failures, "intake_contract_boundary_mismatch", "contracts/event-bus-v2.yaml", field)
 
 
 def _validate_catalog(

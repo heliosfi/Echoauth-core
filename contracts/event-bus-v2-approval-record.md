@@ -53,6 +53,19 @@ An authority intake record is governance evidence for review. It is not an
 EchoAuth identity verdict, AuthorityRecord, authorization decision, contract
 approval, or permission to implement runtime behavior.
 
+Canonical machine-readable structure:
+`schemas/event-bus-v2-authority-intake.schema.json`.
+
+Schema conformance validates structure only. It does not verify a submitted
+party, establish identity, establish authority, approve a decision, resolve a
+blocker, or permit runtime implementation. The schema prohibits credentials and
+secrets and requires every effect field to remain false.
+
+The current schema accepts `NOT_SUBMITTED` placeholder records only. The full
+intake lifecycle remains defined as vocabulary, but enabling any submitted state
+requires a future explicit contract revision. No submitted evidence is accepted
+or verified by Sprint 3H.
+
 | Field | Required | Rule |
 | --- | --- | --- |
 | `intake_id` | yes after submission | Stable non-empty identifier unique within this approval package. |

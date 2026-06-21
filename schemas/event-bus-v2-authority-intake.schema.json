@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/event-bus-v2-authority-intake.schema.json",
+  "title": "EchoAuth Event Bus v2 Accountable Authority Intake",
+  "description": "Structure-only governance intake evidence. Schema validity does not establish identity, authority, approval, blocker resolution, or runtime permission.",
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "IntakeStatus": {
+      "type": "string",
+      "enum": [
+        "NOT_SUBMITTED",
+        "SUBMITTED_UNVERIFIED",
+        "VERIFIED_PENDING_GOVERNANCE",
+        "ACCEPTED_FOR_REVIEW",
+        "REJECTED"
+      ]
+    }
+  },
+  "required": [
+    "intake_schema_version",
+    "intake_id",
+    "blocker_id",
+    "owner_role",
+    "intake_status",
+    "accountable_party_status",
+    "authority_reference_status",
+    "contains_credentials",
+    "contains_secrets",
+    "identity_established",
+    "authority_established",
+    "approval_granted",
+    "blocker_resolved"
+  ],
+  "properties": {
+    "intake_schema_version": { "const": "2.0.0" },
+    "intake_id": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "blocker_id": {
+      "type": "string",
+      "enum": [
+        "EVT2-B01",
+        "EVT2-B02",
+        "EVT2-B03",
+        "EVT2-B04",
+        "EVT2-B05",
+        "EVT2-B06",
+        "EVT2-B07",
+        "EVT2-B08"
+      ]
+    },
+    "owner_role": {
+      "type": "string",
+      "enum": [
+        "Event transport contract owner",
+        "Persistence contract owner",
+        "Retention and legal-hold contract owner",
+        "Cryptographic security contract owner",
+        "Data classification contract owner",
+        "Subscription governance contract owner",
+        "Event audit contract owner",
+        "Causation integrity contract owner"
+      ]
+    },
+    "intake_status": { "const": "NOT_SUBMITTED" },
+    "accountable_party_status": { "const": "UNASSIGNED" },
+    "authority_reference_status": { "const": "ABSENT" },
+    "proposed_accountable_party_id": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "authority_source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_category", "source_reference", "evidence_hash"],
+      "properties": {
+        "source_category": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "source_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" }
+      }
+    },
+    "authority_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "authority_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["blocker_id", "decision_surfaces"],
+      "properties": {
+        "blocker_id": {
+          "type": "string",
+          "enum": [
+            "EVT2-B01",
+            "EVT2-B02",
+            "EVT2-B03",
+            "EVT2-B04",
+            "EVT2-B05",
+            "EVT2-B06",
+            "EVT2-B07",
+            "EVT2-B08"
+          ]
+        },
+        "decision_surfaces": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" }
+        }
+      }
+    },
+    "verification_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "submitted_at": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/UtcTimestamp" },
+    "governance_decision_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "contains_credentials": { "const": false },
+    "contains_secrets": { "const": false },
+    "identity_established": { "const": false },
+    "authority_established": { "const": false },
+    "approval_granted": { "const": false },
+    "blocker_resolved": { "const": false }
+  },
+  "not": {
+    "anyOf": [
+      { "required": ["proposed_accountable_party_id"] },
+      { "required": ["authority_source"] },
+      { "required": ["authority_reference"] },
+      { "required": ["authority_scope"] },
+      { "required": ["verification_evidence_hash"] },
+      { "required": ["submitted_at"] },
+      { "required": ["governance_decision_reference"] }
+    ]
+  }
+}
