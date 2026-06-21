@@ -541,6 +541,160 @@ class EventBusV2ContractValidationTests(unittest.TestCase):
         self.assertIn("  grants_authority_reference: false", contract)
         self.assertEqual(current_register.count("`UNASSIGNED` | `ABSENT` | `NOT_SUBMITTED` | `UNRESOLVED`"), 8)
 
+    def test_missing_review_disposition_schema_fails_closed(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            (root / "schemas/event-bus-v2-authority-intake-review-disposition.schema.json").unlink()
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("missing_artifact", _codes(report))
+
+    def test_review_disposition_schema_identity_drift_fails_closed(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-review-disposition.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["$id"] = "https://echoauth.local/schemas/wrong-disposition.schema.json"
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("schema_identity_mismatch", _codes(report))
+
+    def test_review_disposition_rejects_unsupported_states(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-review-disposition.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["properties"]["resulting_intake_status"]["enum"].append("AUTHORITY_ASSIGNED")
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("unsupported_review_disposition_state", _codes(report))
+
+    def test_governance_review_completed_remains_unsupported(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-review-disposition.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["properties"]["resulting_intake_status"]["enum"].append(
+                "GOVERNANCE_REVIEW_COMPLETED"
+            )
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("unsupported_review_disposition_state", _codes(report))
+
+    def test_review_disposition_maps_all_sprint_3l_outcomes_deterministically(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-review-disposition.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["allOf"][1]["then"]["properties"]["disposition_outcome"]["const"] = (
+                "FAVORABLE_REVIEW_EVIDENCE_RETAINED"
+            )
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        self.assertIn("review_disposition_transition_mismatch", _codes(report))
+
+    def test_review_disposition_requires_review_authority_provenance_and_scope(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-review-disposition.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["required"].remove("review_record_reference")
+            schema["properties"]["review_record_hash"]["$ref"] = (
+                "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString"
+            )
+            schema["properties"]["disposition_authority_evidence_reference"]["$ref"] = (
+                "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex"
+            )
+            schema["properties"]["evidence_provenance"]["required"].remove("source_reference")
+            schema["properties"]["scope_alignment"]["properties"]["outcome"]["const"] = "MISMATCH"
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        codes = _codes(report)
+        self.assertIn("review_disposition_schema_required_fields", codes)
+        self.assertIn("review_disposition_evidence_reference_mismatch", codes)
+        self.assertIn("review_disposition_provenance_mismatch", codes)
+        self.assertIn("review_disposition_scope_mismatch", codes)
+
+    def test_review_disposition_rejects_positive_effects(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-review-disposition.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            for field in (
+                "contains_credentials",
+                "contains_secrets",
+                "contains_excess_personal_data",
+                "inferred_disposition_authority",
+                "assignment_eligibility_granted",
+                "party_assigned",
+                "authority_assigned",
+                "authority_reference_granted",
+                "approval_granted",
+                "contract_approved",
+                "blocker_resolved",
+                "blockers_resolved",
+                "execution_authorized",
+                "runtime_enabled",
+                "current_register_mutated",
+            ):
+                schema["properties"][field]["const"] = True
+            schema["properties"]["runtime_effect"]["const"] = "EXECUTION"
+            schema["properties"]["personal_name"] = {"type": "string"}
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        codes = _codes(report)
+        self.assertIn("review_disposition_schema_effect_mismatch", codes)
+        self.assertIn("review_disposition_schema_field_mismatch", codes)
+
+    def test_review_disposition_rejects_self_disposition_and_prior_authority_reuse(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _copy_contract_tree(root)
+            schema_path = root / "schemas/event-bus-v2-authority-intake-review-disposition.schema.json"
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            schema["properties"]["self_disposition_detected"]["const"] = True
+            schema["properties"]["review_authority_evidence_reused"]["const"] = True
+            schema["properties"]["admission_authority_evidence_reused"]["const"] = True
+            schema["properties"]["verifier_authority_evidence_reused"]["const"] = True
+            schema["properties"]["disposition_independence_check"]["properties"]["outcome"][
+                "const"
+            ] = "SAME_OR_REUSED"
+            schema_path.write_text(json.dumps(schema), encoding="utf-8")
+            report = validate_event_bus_v2_contracts(root)
+
+        codes = _codes(report)
+        self.assertIn("review_disposition_schema_effect_mismatch", codes)
+        self.assertIn("review_disposition_independence_mismatch", codes)
+
+    def test_review_disposition_preserves_hold_and_current_register(self) -> None:
+        report = validate_event_bus_v2_contracts(_ROOT)
+        contract = (_ROOT / "contracts/event-bus-v2.yaml").read_text(encoding="utf-8")
+        approval = (_ROOT / "contracts/event-bus-v2-approval-record.md").read_text(encoding="utf-8")
+        current_register = approval.split("## Current Authority Intake Register", 1)[1].split(
+            "## Approval Readiness", 1
+        )[0]
+
+        self.assertTrue(report.passed, report.failures)
+        self.assertIn("status: hold", contract)
+        self.assertIn("approved: false", contract)
+        self.assertIn("runtime_implementation_permitted: false", contract)
+        self.assertIn("  grants_assignment_eligibility: false", contract)
+        self.assertIn("  grants_authority_reference: false", contract)
+        self.assertEqual(current_register.count("`UNASSIGNED` | `ABSENT` | `NOT_SUBMITTED` | `UNRESOLVED`"), 8)
+
     def test_missing_or_duplicate_approval_intake_entry_fails_closed(self) -> None:
         with TemporaryDirectory() as tmp:
             root = Path(tmp)

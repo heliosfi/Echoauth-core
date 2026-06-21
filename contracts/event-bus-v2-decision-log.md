@@ -115,6 +115,15 @@ Sprint 2J escalation-review outcomes are explicitly incompatible with this
 protocol. Favorable review is not approval, rejected review is not blocker
 resolution, and no review instance or register mutation is recorded here.
 
+Sprint 3M reconciles evidence-only review dispositions:
+`FAVORABLE_REVIEW_EVIDENCE_RETAINED`,
+`INFORMATION_REQUEST_EVIDENCE_RETAINED`, and
+`REVIEW_REJECTION_EVIDENCE_RETAINED`. Their machine-readable contract is
+`schemas/event-bus-v2-authority-intake-review-disposition.schema.json`.
+`GOVERNANCE_REVIEW_COMPLETED` remains unsupported. Disposition does not grant
+assignment eligibility, authority, approval, blocker resolution, execution, or
+register mutation, and no disposition instance is recorded here.
+
 ## Approval Gate
 
 Sprint 3A authoring, Sprint 3B conformance, and Sprint 3C readiness tracking do

@@ -15,6 +15,7 @@ artifacts:
   authority_intake_verification_schema: schemas/event-bus-v2-authority-intake-verification.schema.json
   authority_intake_governance_admission_schema: schemas/event-bus-v2-authority-intake-governance-admission.schema.json
   authority_intake_governance_review_schema: schemas/event-bus-v2-authority-intake-governance-review.schema.json
+  authority_intake_review_disposition_schema: schemas/event-bus-v2-authority-intake-review-disposition.schema.json
   catalog: events/event-catalog-v2.yaml
 compatibility:
   replaces_v1: false
@@ -325,6 +326,44 @@ authority_intake_governance_review:
   excess_personal_data_permitted: false
   favorable_review_is_approval: false
   rejected_review_is_blocker_resolution: false
+  assigns_party: false
+  assigns_authority: false
+  grants_authority_reference: false
+  grants_approval: false
+  resolves_blocker: false
+  authorizes_execution: false
+  mutates_current_register: false
+  runtime_effect: none
+authority_intake_review_disposition:
+  schema: schemas/event-bus-v2-authority-intake-review-disposition.schema.json
+  validation_effect: structure_only
+  source_review_outcomes:
+    - FAVORABLE_REVIEW_RECORDED
+    - ADDITIONAL_INFORMATION_REQUIRED
+    - REVIEW_REJECTED
+  deterministic_disposition_outcomes:
+    - FAVORABLE_REVIEW_EVIDENCE_RETAINED
+    - INFORMATION_REQUEST_EVIDENCE_RETAINED
+    - REVIEW_REJECTION_EVIDENCE_RETAINED
+  supported_resulting_states:
+    - ACCEPTED_FOR_REVIEW
+    - REJECTED
+  governance_review_completed_supported: false
+  review_record_reference_required: true
+  review_record_hash_required: true
+  disposition_authority_evidence_required: true
+  provenance_required: true
+  scope_alignment_required: true
+  independent_disposition_evidence_required: true
+  self_disposition_permitted: false
+  review_authority_evidence_reuse_permitted: false
+  admission_authority_evidence_reuse_permitted: false
+  verifier_authority_evidence_reuse_permitted: false
+  inferred_disposition_authority_permitted: false
+  credentials_permitted: false
+  secrets_permitted: false
+  excess_personal_data_permitted: false
+  grants_assignment_eligibility: false
   assigns_party: false
   assigns_authority: false
   grants_authority_reference: false

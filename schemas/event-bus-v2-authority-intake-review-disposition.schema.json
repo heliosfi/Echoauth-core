@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/event-bus-v2-authority-intake-review-disposition.schema.json",
+  "title": "EchoAuth Event Bus v2 Authority Intake Review Disposition",
+  "description": "Structure-only review disposition evidence. Disposition does not assign authority, approve a contract, resolve a blocker, authorize execution, or mutate the current register.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "disposition_schema_version",
+    "disposition_id",
+    "intake_id",
+    "blocker_id",
+    "review_record_reference",
+    "review_record_hash",
+    "source_review_outcome",
+    "review_reviewer_party_reference_hash",
+    "review_authority_evidence_hash",
+    "admission_authority_evidence_hash",
+    "verification_authority_evidence_hash",
+    "disposition_party_reference",
+    "disposition_party_reference_hash",
+    "disposition_authority_evidence_reference",
+    "disposition_authority_evidence_hash",
+    "disposition_evidence_references",
+    "disposition_evidence_hash",
+    "evidence_provenance",
+    "scope_alignment",
+    "disposition_independence_check",
+    "disposition_outcome",
+    "disposition_reason_codes",
+    "resulting_intake_status",
+    "disposed_at",
+    "hold_status",
+    "contains_credentials",
+    "contains_secrets",
+    "contains_excess_personal_data",
+    "self_disposition_detected",
+    "review_authority_evidence_reused",
+    "admission_authority_evidence_reused",
+    "verifier_authority_evidence_reused",
+    "inferred_disposition_authority",
+    "assignment_eligibility_granted",
+    "identity_established",
+    "party_assigned",
+    "authority_assigned",
+    "authority_reference_granted",
+    "approval_granted",
+    "contract_approved",
+    "blocker_resolved",
+    "blockers_resolved",
+    "execution_authorized",
+    "runtime_enabled",
+    "current_register_mutated",
+    "runtime_effect"
+  ],
+  "properties": {
+    "disposition_schema_version": { "const": "2.0.0" },
+    "disposition_id": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "intake_id": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "blocker_id": {
+      "type": "string",
+      "enum": [
+        "EVT2-B01",
+        "EVT2-B02",
+        "EVT2-B03",
+        "EVT2-B04",
+        "EVT2-B05",
+        "EVT2-B06",
+        "EVT2-B07",
+        "EVT2-B08"
+      ]
+    },
+    "review_record_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "review_record_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "source_review_outcome": {
+      "enum": [
+        "FAVORABLE_REVIEW_RECORDED",
+        "ADDITIONAL_INFORMATION_REQUIRED",
+        "REVIEW_REJECTED"
+      ]
+    },
+    "review_reviewer_party_reference_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "review_authority_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "admission_authority_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "verification_authority_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "disposition_party_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "disposition_party_reference_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "disposition_authority_evidence_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+    "disposition_authority_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "disposition_evidence_references": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" }
+    },
+    "disposition_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+    "evidence_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_category", "source_reference", "evidence_hash", "observed_at"],
+      "properties": {
+        "source_category": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "source_reference": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString" },
+        "evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "observed_at": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/UtcTimestamp" }
+      }
+    },
+    "scope_alignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["blocker_id", "reviewed_scope_hash", "disposition_scope_hash", "outcome"],
+      "properties": {
+        "blocker_id": {
+          "type": "string",
+          "enum": [
+            "EVT2-B01",
+            "EVT2-B02",
+            "EVT2-B03",
+            "EVT2-B04",
+            "EVT2-B05",
+            "EVT2-B06",
+            "EVT2-B07",
+            "EVT2-B08"
+          ]
+        },
+        "reviewed_scope_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "disposition_scope_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "outcome": { "const": "ALIGNED" }
+      }
+    },
+    "disposition_independence_check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "review_reviewer_party_reference_hash",
+        "disposition_party_reference_hash",
+        "verification_authority_evidence_hash",
+        "admission_authority_evidence_hash",
+        "review_authority_evidence_hash",
+        "disposition_authority_evidence_hash",
+        "outcome",
+        "evidence_hash"
+      ],
+      "properties": {
+        "review_reviewer_party_reference_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "disposition_party_reference_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "verification_authority_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "admission_authority_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "review_authority_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "disposition_authority_evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" },
+        "outcome": { "const": "DISTINCT_AND_INDEPENDENT" },
+        "evidence_hash": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex" }
+      }
+    },
+    "disposition_outcome": {
+      "enum": [
+        "FAVORABLE_REVIEW_EVIDENCE_RETAINED",
+        "INFORMATION_REQUEST_EVIDENCE_RETAINED",
+        "REVIEW_REJECTION_EVIDENCE_RETAINED"
+      ]
+    },
+    "disposition_reason_codes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "MISSING_INFORMATION",
+          "CONFLICTING_EVIDENCE",
+          "DISPOSITION_AUTHORITY_EVIDENCE_INVALID",
+          "PROVENANCE_INVALID",
+          "SCOPE_MISMATCH",
+          "SELF_DISPOSITION",
+          "REUSED_PRIOR_AUTHORITY_EVIDENCE",
+          "REVIEW_RECORD_INVALID"
+        ]
+      }
+    },
+    "resulting_intake_status": { "enum": ["ACCEPTED_FOR_REVIEW", "REJECTED"] },
+    "disposed_at": { "$ref": "event-bus-runtime-v2.schema.json#/$defs/UtcTimestamp" },
+    "hold_status": { "const": "ACTIVE" },
+    "contains_credentials": { "const": false },
+    "contains_secrets": { "const": false },
+    "contains_excess_personal_data": { "const": false },
+    "self_disposition_detected": { "const": false },
+    "review_authority_evidence_reused": { "const": false },
+    "admission_authority_evidence_reused": { "const": false },
+    "verifier_authority_evidence_reused": { "const": false },
+    "inferred_disposition_authority": { "const": false },
+    "assignment_eligibility_granted": { "const": false },
+    "identity_established": { "const": false },
+    "party_assigned": { "const": false },
+    "authority_assigned": { "const": false },
+    "authority_reference_granted": { "const": false },
+    "approval_granted": { "const": false },
+    "contract_approved": { "const": false },
+    "blocker_resolved": { "const": false },
+    "blockers_resolved": { "const": false },
+    "execution_authorized": { "const": false },
+    "runtime_enabled": { "const": false },
+    "current_register_mutated": { "const": false },
+    "runtime_effect": { "const": "NONE" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "source_review_outcome": { "const": "FAVORABLE_REVIEW_RECORDED" } }, "required": ["source_review_outcome"] },
+      "then": {
+        "properties": {
+          "disposition_outcome": { "const": "FAVORABLE_REVIEW_EVIDENCE_RETAINED" },
+          "resulting_intake_status": { "const": "ACCEPTED_FOR_REVIEW" },
+          "disposition_reason_codes": { "maxItems": 0 }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "source_review_outcome": { "const": "ADDITIONAL_INFORMATION_REQUIRED" } }, "required": ["source_review_outcome"] },
+      "then": {
+        "properties": {
+          "disposition_outcome": { "const": "INFORMATION_REQUEST_EVIDENCE_RETAINED" },
+          "resulting_intake_status": { "const": "ACCEPTED_FOR_REVIEW" },
+          "disposition_reason_codes": { "minItems": 1 }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "source_review_outcome": { "const": "REVIEW_REJECTED" } }, "required": ["source_review_outcome"] },
+      "then": {
+        "properties": {
+          "disposition_outcome": { "const": "REVIEW_REJECTION_EVIDENCE_RETAINED" },
+          "resulting_intake_status": { "const": "REJECTED" },
+          "disposition_reason_codes": { "minItems": 1 }
+        }
+      }
+    }
+  ]
+}

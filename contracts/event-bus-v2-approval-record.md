@@ -137,6 +137,27 @@ approval, or execution permission. A rejected review does not resolve the
 associated blocker. No review record is instantiated by Sprint 3L, and the
 current register remains authoritative and unchanged.
 
+### Review Disposition Protocol Boundary
+
+Sprint 3M defines structure-only review disposition evidence in
+`schemas/event-bus-v2-authority-intake-review-disposition.schema.json`. The
+protocol maps all three Sprint 3L outcomes to evidence-retention dispositions.
+The canonical dispositions are `FAVORABLE_REVIEW_EVIDENCE_RETAINED`,
+`INFORMATION_REQUEST_EVIDENCE_RETAINED`, and
+`REVIEW_REJECTION_EVIDENCE_RETAINED`. The first two preserve
+`ACCEPTED_FOR_REVIEW`; the final disposition maps only to the existing
+`REJECTED` intake state.
+
+`GOVERNANCE_REVIEW_COMPLETED` is not a canonical Event-Bus v2 state and remains
+explicitly unsupported. Disposition requires independently evidenced authority,
+provenance, aligned scope, and evidence distinct from verification, admission,
+and review authority evidence.
+
+Disposition grants no assignment eligibility, party assignment, authority,
+authority reference, blocker resolution, approval, execution permission, or
+runtime effect. No disposition record is instantiated by Sprint 3M, and the
+current register remains authoritative and unchanged.
+
 | Field | Required | Rule |
 | --- | --- | --- |
 | `intake_id` | yes after submission | Stable non-empty identifier unique within this approval package. |
@@ -197,6 +218,7 @@ placeholders only and does not infer authority from those placeholders.
 | Verification evidence protocol | Structure-only schema; no verification instantiated | `PASS` |
 | Governance admission protocol | Structure-only schema; no admission instantiated | `PASS` |
 | Governance review protocol | Structure-only schema; no review instantiated | `PASS` |
+| Review disposition protocol | Structure-only schema; no disposition instantiated | `PASS` |
 | Accountable authority intake records | Eight placeholders; no submissions | `BLOCKED` |
 | Named accountable parties | No named parties or verified authority references exist | `BLOCKED` |
 | Blocker dispositions | Eight of eight remain `UNRESOLVED` | `BLOCKED` |
