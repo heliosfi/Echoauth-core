@@ -150,6 +150,14 @@ outcomes are `CANDIDATE_RECOMMENDED_FOR_ASSIGNMENT_DECISION`,
 authority, approval, blocker resolution, execution permission, or register
 mutation. No assignment-review instance is recorded here.
 
+Sprint 3Q adds the prospective `AUTHORITY_ASSIGNMENT_DECISION` phase through
+`schemas/event-bus-v2-authority-assignment-decision.schema.json`. Its outcomes
+are `FAVORABLE_ASSIGNMENT_DECISION_RECORDED`,
+`ADDITIONAL_ASSIGNMENT_DECISION_EVIDENCE_REQUIRED`, and
+`UNFAVORABLE_ASSIGNMENT_DECISION_RECORDED`. Favorable decision evidence is not
+assignment application, authority, approval, blocker resolution, execution
+permission, or register mutation. No assignment-decision instance is recorded.
+
 ## Approval Gate
 
 Sprint 3A authoring, Sprint 3B conformance, and Sprint 3C readiness tracking do

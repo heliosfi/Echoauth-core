@@ -19,6 +19,7 @@ artifacts:
   authority_review_eligibility_schema: schemas/event-bus-v2-authority-review-eligibility.schema.json
   authority_intake_lifecycle_reconciliation_schema: schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json
   authority_assignment_review_schema: schemas/event-bus-v2-authority-assignment-review.schema.json
+  authority_assignment_decision_schema: schemas/event-bus-v2-authority-assignment-decision.schema.json
   catalog: events/event-catalog-v2.yaml
 compatibility:
   replaces_v1: false
@@ -439,6 +440,7 @@ authority_intake_lifecycle_reconciliation:
     - REVIEW_DISPOSITION
     - AUTHORITY_REVIEW_ELIGIBILITY
     - AUTHORITY_ASSIGNMENT_REVIEW
+    - AUTHORITY_ASSIGNMENT_DECISION
   register_mutation_statuses:
     - LIVE_REGISTER_UNCHANGED
     - PROSPECTIVE_EVIDENCE_ONLY
@@ -454,6 +456,7 @@ authority_intake_lifecycle_reconciliation:
     - authority_intake_review_disposition
     - authority_review_eligibility
     - authority_assignment_review
+    - authority_assignment_decision
   reconciliation_authority_evidence_required: true
   provenance_required: true
   scope_alignment_required: true
@@ -496,6 +499,45 @@ authority_assignment_review:
   secrets_permitted: false
   excess_personal_data_permitted: false
   inferred_reviewer_authority_permitted: false
+  assigns_party: false
+  assigns_authority: false
+  grants_authority_reference: false
+  creates_authority_record: false
+  grants_approval: false
+  resolves_blocker: false
+  authorizes_execution: false
+  mutates_register: false
+  runtime_effect: none
+authority_assignment_decision:
+  schema: schemas/event-bus-v2-authority-assignment-decision.schema.json
+  validation_effect: structure_only
+  protocol_phase: AUTHORITY_ASSIGNMENT_DECISION
+  source_assignment_review_outcome: CANDIDATE_RECOMMENDED_FOR_ASSIGNMENT_DECISION
+  deterministic_outcomes:
+    - FAVORABLE_ASSIGNMENT_DECISION_RECORDED
+    - ADDITIONAL_ASSIGNMENT_DECISION_EVIDENCE_REQUIRED
+    - UNFAVORABLE_ASSIGNMENT_DECISION_RECORDED
+  evidence_outcomes:
+    - SATISFIED
+    - INCOMPLETE
+    - INVALID
+    - CONFLICT
+  resulting_intake_state: ACCEPTED_FOR_REVIEW
+  register_mutation_status: PROSPECTIVE_EVIDENCE_ONLY
+  complete_evidence_chain_required: true
+  proposed_party_authority_evidence_required: true
+  blocker_scope_required: true
+  competing_candidate_check_required: true
+  conflict_check_required: true
+  independent_decision_authority_required: true
+  hash_bound_references_required: true
+  lifecycle_reconciliation_required: true
+  favorable_decision_is_assignment: false
+  assignment_application_permitted: false
+  credentials_permitted: false
+  secrets_permitted: false
+  excess_personal_data_permitted: false
+  inferred_decision_authority_permitted: false
   assigns_party: false
   assigns_authority: false
   grants_authority_reference: false

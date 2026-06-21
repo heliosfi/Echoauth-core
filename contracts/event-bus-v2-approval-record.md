@@ -173,6 +173,26 @@ an `AuthorityRecord`, resolves a blocker, approves the contract, authorizes
 execution, or mutates the register. No review record is instantiated by Sprint
 3P.
 
+### Authority Assignment Decision Boundary
+
+Sprint 3Q defines structure-only authority-assignment decision evidence in
+`schemas/event-bus-v2-authority-assignment-decision.schema.json`. The phase
+accepts only `CANDIDATE_RECOMMENDED_FOR_ASSIGNMENT_DECISION` source evidence and
+requires the complete hash-bound chain, proposed-party authority evidence,
+blocker-specific scope, competing-candidate resolution, a clear conflict check,
+and independent active decision authority.
+
+The outcomes are `FAVORABLE_ASSIGNMENT_DECISION_RECORDED`,
+`ADDITIONAL_ASSIGNMENT_DECISION_EVIDENCE_REQUIRED`, and
+`UNFAVORABLE_ASSIGNMENT_DECISION_RECORDED`. A favorable decision is evidence
+only; it does not permit assignment application. Every outcome remains
+`PROSPECTIVE_EVIDENCE_ONLY` and preserves `ACCEPTED_FOR_REVIEW`.
+
+No outcome assigns a party, grants authority or an authority reference, creates
+an `AuthorityRecord`, resolves a blocker, approves the contract, authorizes
+execution, or mutates the register. No decision record is instantiated by Sprint
+3Q.
+
 ### Governance Review Protocol Boundary
 
 Sprint 3L defines structure-only governance review evidence in
@@ -277,6 +297,7 @@ placeholders only and does not infer authority from those placeholders.
 | Authority review eligibility protocol | Structure-only schema; no eligibility instantiated | `PASS` |
 | Canonical lifecycle reconciliation | Phase-qualified evidence graph; live register unchanged | `PASS` |
 | Authority assignment review | Structure-only schema; no assignment or review instance | `PASS` |
+| Authority assignment decision | Structure-only schema; no assignment or decision instance | `PASS` |
 | Accountable authority intake records | Eight placeholders; no submissions | `BLOCKED` |
 | Named accountable parties | No named parties or verified authority references exist | `BLOCKED` |
 | Blocker dispositions | Eight of eight remain `UNRESOLVED` | `BLOCKED` |
