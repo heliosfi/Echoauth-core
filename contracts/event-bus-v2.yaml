@@ -18,6 +18,7 @@ artifacts:
   authority_intake_review_disposition_schema: schemas/event-bus-v2-authority-intake-review-disposition.schema.json
   authority_review_eligibility_schema: schemas/event-bus-v2-authority-review-eligibility.schema.json
   authority_intake_lifecycle_reconciliation_schema: schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json
+  authority_assignment_review_schema: schemas/event-bus-v2-authority-assignment-review.schema.json
   catalog: events/event-catalog-v2.yaml
 compatibility:
   replaces_v1: false
@@ -437,6 +438,7 @@ authority_intake_lifecycle_reconciliation:
     - GOVERNANCE_REVIEW
     - REVIEW_DISPOSITION
     - AUTHORITY_REVIEW_ELIGIBILITY
+    - AUTHORITY_ASSIGNMENT_REVIEW
   register_mutation_statuses:
     - LIVE_REGISTER_UNCHANGED
     - PROSPECTIVE_EVIDENCE_ONLY
@@ -451,6 +453,7 @@ authority_intake_lifecycle_reconciliation:
     - authority_intake_governance_review
     - authority_intake_review_disposition
     - authority_review_eligibility
+    - authority_assignment_review
   reconciliation_authority_evidence_required: true
   provenance_required: true
   scope_alignment_required: true
@@ -461,6 +464,42 @@ authority_intake_lifecycle_reconciliation:
   assigns_party: false
   assigns_authority: false
   grants_authority_reference: false
+  grants_approval: false
+  resolves_blocker: false
+  authorizes_execution: false
+  mutates_register: false
+  runtime_effect: none
+authority_assignment_review:
+  schema: schemas/event-bus-v2-authority-assignment-review.schema.json
+  validation_effect: structure_only
+  protocol_phase: AUTHORITY_ASSIGNMENT_REVIEW
+  source_eligibility_outcome: ELIGIBLE_FOR_AUTHORITY_REVIEW
+  deterministic_outcomes:
+    - CANDIDATE_RECOMMENDED_FOR_ASSIGNMENT_DECISION
+    - ADDITIONAL_ASSIGNMENT_EVIDENCE_REQUIRED
+    - CANDIDATE_REJECTED_FOR_ASSIGNMENT_DECISION
+  evidence_outcomes:
+    - SATISFIED
+    - INCOMPLETE
+    - INVALID
+    - CONFLICT
+  resulting_intake_state: ACCEPTED_FOR_REVIEW
+  register_mutation_status: PROSPECTIVE_EVIDENCE_ONLY
+  complete_evidence_chain_required: true
+  blocker_scope_required: true
+  independent_reviewer_authority_required: true
+  conflict_check_required: true
+  hash_bound_references_required: true
+  lifecycle_reconciliation_required: true
+  recommendation_is_assignment: false
+  credentials_permitted: false
+  secrets_permitted: false
+  excess_personal_data_permitted: false
+  inferred_reviewer_authority_permitted: false
+  assigns_party: false
+  assigns_authority: false
+  grants_authority_reference: false
+  creates_authority_record: false
   grants_approval: false
   resolves_blocker: false
   authorizes_execution: false

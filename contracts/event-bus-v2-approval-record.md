@@ -154,6 +154,25 @@ authority, authority reference, blocker resolution, approval, execution,
 register mutation, or runtime effect. No reconciliation record is instantiated
 by Sprint 3O.
 
+### Authority Assignment Review Boundary
+
+Sprint 3P defines structure-only authority-assignment review evidence in
+`schemas/event-bus-v2-authority-assignment-review.schema.json`. The phase accepts
+only `ELIGIBLE_FOR_AUTHORITY_REVIEW` source evidence and requires the complete
+hash-bound evidence chain, blocker-specific scope, independent active reviewer
+authority, conflict checks, provenance, and lifecycle-reconciliation evidence.
+
+The outcomes are `CANDIDATE_RECOMMENDED_FOR_ASSIGNMENT_DECISION`,
+`ADDITIONAL_ASSIGNMENT_EVIDENCE_REQUIRED`, and
+`CANDIDATE_REJECTED_FOR_ASSIGNMENT_DECISION`. Recommendation is not assignment
+or authority. Every outcome remains `PROSPECTIVE_EVIDENCE_ONLY` and preserves
+the `ACCEPTED_FOR_REVIEW` intake state.
+
+No outcome assigns a party, grants authority or an authority reference, creates
+an `AuthorityRecord`, resolves a blocker, approves the contract, authorizes
+execution, or mutates the register. No review record is instantiated by Sprint
+3P.
+
 ### Governance Review Protocol Boundary
 
 Sprint 3L defines structure-only governance review evidence in
@@ -257,6 +276,7 @@ placeholders only and does not infer authority from those placeholders.
 | Review disposition protocol | Structure-only schema; no disposition instantiated | `PASS` |
 | Authority review eligibility protocol | Structure-only schema; no eligibility instantiated | `PASS` |
 | Canonical lifecycle reconciliation | Phase-qualified evidence graph; live register unchanged | `PASS` |
+| Authority assignment review | Structure-only schema; no assignment or review instance | `PASS` |
 | Accountable authority intake records | Eight placeholders; no submissions | `BLOCKED` |
 | Named accountable parties | No named parties or verified authority references exist | `BLOCKED` |
 | Blocker dispositions | Eight of eight remain `UNRESOLVED` | `BLOCKED` |

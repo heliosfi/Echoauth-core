@@ -27,6 +27,7 @@ _V2_PATHS = (
     "schemas/event-bus-v2-authority-intake-review-disposition.schema.json",
     "schemas/event-bus-v2-authority-review-eligibility.schema.json",
     "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json",
+    "schemas/event-bus-v2-authority-assignment-review.schema.json",
     "events/event-envelope-v2.schema.json",
     "events/event-catalog-v2.yaml",
     "contracts/event-bus-v2-decision-log.md",
@@ -168,6 +169,11 @@ def validate_event_bus_v2_contracts(
         "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json",
         failures,
     )
+    authority_assignment_review_schema = _load_json(
+        root_path,
+        "schemas/event-bus-v2-authority-assignment-review.schema.json",
+        failures,
+    )
     envelope_schema = _load_json(
         root_path,
         "events/event-envelope-v2.schema.json",
@@ -188,6 +194,7 @@ def validate_event_bus_v2_contracts(
     assert review_disposition_schema is not None
     assert authority_review_eligibility_schema is not None
     assert lifecycle_reconciliation_schema is not None
+    assert authority_assignment_review_schema is not None
     schemas = (
         runtime_schema,
         envelope_schema,
@@ -199,6 +206,7 @@ def validate_event_bus_v2_contracts(
         review_disposition_schema,
         authority_review_eligibility_schema,
         lifecycle_reconciliation_schema,
+        authority_assignment_review_schema,
     )
     _validate_schema_declarations(*schemas, failures)
     _validate_local_references(root_path, *schemas, failures)
@@ -214,6 +222,7 @@ def validate_event_bus_v2_contracts(
         review_disposition_schema,
         authority_review_eligibility_schema,
         lifecycle_reconciliation_schema,
+        authority_assignment_review_schema,
         failures,
     )
     _validate_catalog(root_path, catalog, runtime_schema, failures)
@@ -253,6 +262,12 @@ def validate_event_bus_v2_contracts(
         root_path,
         contract,
         lifecycle_reconciliation_schema,
+        failures,
+    )
+    _validate_authority_assignment_review_contract(
+        root_path,
+        contract,
+        authority_assignment_review_schema,
         failures,
     )
     _validate_runtime_recovered(contract, catalog, failures)
@@ -303,6 +318,7 @@ def _validate_schema_declarations(
     review_disposition_schema: Mapping[str, Any],
     authority_review_eligibility_schema: Mapping[str, Any],
     lifecycle_reconciliation_schema: Mapping[str, Any],
+    authority_assignment_review_schema: Mapping[str, Any],
     failures: list[EventBusV2ValidationFailure],
 ) -> None:
     identities: set[str] = set()
@@ -317,6 +333,7 @@ def _validate_schema_declarations(
         ("schemas/event-bus-v2-authority-intake-review-disposition.schema.json", review_disposition_schema),
         ("schemas/event-bus-v2-authority-review-eligibility.schema.json", authority_review_eligibility_schema),
         ("schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json", lifecycle_reconciliation_schema),
+        ("schemas/event-bus-v2-authority-assignment-review.schema.json", authority_assignment_review_schema),
     ):
         if schema.get("$schema") != _DRAFT_2020_12:
             _fail(failures, "schema_draft_mismatch", path, "Draft 2020-12 declaration is required")
@@ -341,6 +358,7 @@ def _validate_local_references(
     review_disposition_schema: Mapping[str, Any],
     authority_review_eligibility_schema: Mapping[str, Any],
     lifecycle_reconciliation_schema: Mapping[str, Any],
+    authority_assignment_review_schema: Mapping[str, Any],
     failures: list[EventBusV2ValidationFailure],
 ) -> None:
     loaded: dict[Path, Mapping[str, Any]] = {
@@ -354,6 +372,7 @@ def _validate_local_references(
         (root / "schemas/event-bus-v2-authority-intake-review-disposition.schema.json").resolve(): review_disposition_schema,
         (root / "schemas/event-bus-v2-authority-review-eligibility.schema.json").resolve(): authority_review_eligibility_schema,
         (root / "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json").resolve(): lifecycle_reconciliation_schema,
+        (root / "schemas/event-bus-v2-authority-assignment-review.schema.json").resolve(): authority_assignment_review_schema,
     }
     visited: set[Path] = set()
 
@@ -395,6 +414,7 @@ def _validate_local_references(
     visit(root / "schemas/event-bus-v2-authority-intake-review-disposition.schema.json", review_disposition_schema)
     visit(root / "schemas/event-bus-v2-authority-review-eligibility.schema.json", authority_review_eligibility_schema)
     visit(root / "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json", lifecycle_reconciliation_schema)
+    visit(root / "schemas/event-bus-v2-authority-assignment-review.schema.json", authority_assignment_review_schema)
 
 
 def _validate_schema_identity(
@@ -409,6 +429,7 @@ def _validate_schema_identity(
     review_disposition_schema: Mapping[str, Any],
     authority_review_eligibility_schema: Mapping[str, Any],
     lifecycle_reconciliation_schema: Mapping[str, Any],
+    authority_assignment_review_schema: Mapping[str, Any],
     failures: list[EventBusV2ValidationFailure],
 ) -> None:
     identity = _mapping(contract.get("schema_identity"))
@@ -458,6 +479,11 @@ def _validate_schema_identity(
             "authority_intake_lifecycle_reconciliation_schema_path",
             artifacts.get("authority_intake_lifecycle_reconciliation_schema"),
             "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json",
+        ),
+        (
+            "authority_assignment_review_schema_path",
+            artifacts.get("authority_assignment_review_schema"),
+            "schemas/event-bus-v2-authority-assignment-review.schema.json",
         ),
         ("catalog_envelope", catalog.get("envelope_schema"), "event-envelope-v2.schema.json"),
     )
@@ -514,6 +540,13 @@ def _validate_schema_identity(
             failures,
             "schema_identity_mismatch",
             "schemas/event-bus-v2-authority-intake-lifecycle-reconciliation.schema.json",
+            "$id",
+        )
+    if authority_assignment_review_schema.get("$id") != "https://echoauth.local/schemas/event-bus-v2-authority-assignment-review.schema.json":
+        _fail(
+            failures,
+            "schema_identity_mismatch",
+            "schemas/event-bus-v2-authority-assignment-review.schema.json",
             "$id",
         )
 
@@ -1962,6 +1995,7 @@ def _validate_authority_intake_lifecycle_reconciliation_contract(
         "GOVERNANCE_REVIEW",
         "REVIEW_DISPOSITION",
         "AUTHORITY_REVIEW_ELIGIBILITY",
+        "AUTHORITY_ASSIGNMENT_REVIEW",
     )
     mutation_statuses = ("LIVE_REGISTER_UNCHANGED", "PROSPECTIVE_EVIDENCE_ONLY")
     if tuple(_mapping(properties.get("intake_state")).get("enum", ())) != intake_states:
@@ -2037,6 +2071,7 @@ def _validate_authority_intake_lifecycle_reconciliation_contract(
         ("REJECTED", "REVIEW_DISPOSITION", "REVIEW_REJECTION_EVIDENCE_RETAINED", "PROSPECTIVE_EVIDENCE_ONLY"),
         ("ACCEPTED_FOR_REVIEW", "AUTHORITY_REVIEW_ELIGIBILITY", ("ELIGIBLE_FOR_AUTHORITY_REVIEW", "ADDITIONAL_EVIDENCE_REQUIRED", "INELIGIBLE_FOR_AUTHORITY_REVIEW"), "PROSPECTIVE_EVIDENCE_ONLY"),
         ("REJECTED", "AUTHORITY_REVIEW_ELIGIBILITY", "INELIGIBLE_FOR_AUTHORITY_REVIEW", "PROSPECTIVE_EVIDENCE_ONLY"),
+        ("ACCEPTED_FOR_REVIEW", "AUTHORITY_ASSIGNMENT_REVIEW", ("CANDIDATE_RECOMMENDED_FOR_ASSIGNMENT_DECISION", "ADDITIONAL_ASSIGNMENT_EVIDENCE_REQUIRED", "CANDIDATE_REJECTED_FOR_ASSIGNMENT_DECISION"), "PROSPECTIVE_EVIDENCE_ONLY"),
     )
     one_of = schema.get("oneOf")
     branches = tuple(_mapping(branch) for branch in one_of) if _sequence(one_of) else ()
@@ -2064,7 +2099,7 @@ def _validate_authority_intake_lifecycle_reconciliation_contract(
             "duplicate intake states require distinct protocol phases",
         )
     if tuple(actual_graph) != expected_graph:
-        _fail(failures, "lifecycle_reconciliation_graph_mismatch", path, "canonical twelve-node graph is required")
+        _fail(failures, "lifecycle_reconciliation_graph_mismatch", path, "canonical thirteen-node graph is required")
     live_nodes = [node for node in actual_graph if node[3] == "LIVE_REGISTER_UNCHANGED"]
     if live_nodes != [expected_graph[0]]:
         _fail(
@@ -2092,6 +2127,7 @@ def _validate_authority_intake_lifecycle_reconciliation_contract(
             "authority_intake_governance_review",
             "authority_intake_review_disposition",
             "authority_review_eligibility",
+            "authority_assignment_review",
         ],
         "reconciliation_authority_evidence_required": True,
         "provenance_required": True,
@@ -2134,6 +2170,270 @@ def _validate_authority_intake_lifecycle_reconciliation_contract(
         ):
             if vocabulary.lower() not in text.lower():
                 _fail(failures, "lifecycle_reconciliation_vocabulary_missing", document_path, vocabulary)
+
+
+def _validate_authority_assignment_review_contract(
+    root: Path,
+    contract: Mapping[str, Any],
+    schema: Mapping[str, Any],
+    failures: list[EventBusV2ValidationFailure],
+) -> None:
+    path = "schemas/event-bus-v2-authority-assignment-review.schema.json"
+    properties = _mapping(schema.get("properties"))
+    expected_fields = {
+        "assignment_review_schema_version",
+        "assignment_review_id",
+        "intake_id",
+        "blocker_id",
+        "eligibility_record_reference",
+        "eligibility_record_hash",
+        "source_eligibility_outcome",
+        "complete_evidence_chain",
+        "proposed_party_reference",
+        "proposed_party_reference_hash",
+        "proposed_authority_evidence_reference",
+        "proposed_authority_evidence_hash",
+        "assignment_reviewer_party_reference",
+        "assignment_reviewer_party_reference_hash",
+        "assignment_reviewer_authority",
+        "review_evidence_references",
+        "review_evidence_hash",
+        "evidence_provenance",
+        "blocker_scope_alignment",
+        "reviewer_independence_check",
+        "conflict_check",
+        "assignment_review_evidence_outcome",
+        "assignment_review_outcome",
+        "assignment_review_reason_codes",
+        "resulting_intake_state",
+        "protocol_phase",
+        "register_mutation_status",
+        "reviewed_at",
+        "hold_status",
+        "contains_credentials",
+        "contains_secrets",
+        "contains_excess_personal_data",
+        "self_assignment_review_detected",
+        "prior_authority_evidence_reused",
+        "inferred_reviewer_authority",
+        "recommendation_is_assignment",
+        "identity_established",
+        "party_assigned",
+        "authority_assigned",
+        "authority_reference_granted",
+        "authority_record_created",
+        "approval_granted",
+        "contract_approved",
+        "blocker_resolved",
+        "blockers_resolved",
+        "execution_authorized",
+        "runtime_enabled",
+        "register_mutated",
+        "runtime_effect",
+    }
+    required = schema.get("required")
+    if schema.get("additionalProperties") is not False:
+        _fail(failures, "assignment_review_schema_open", path, "additional properties must be prohibited")
+    if set(properties) != expected_fields:
+        _fail(failures, "assignment_review_schema_field_mismatch", path, "only canonical review evidence and effect fields are permitted")
+    if not _string_sequence(required) or set(required) != expected_fields:
+        _fail(failures, "assignment_review_schema_required_fields", path, "all canonical fields are required")
+    if _mapping(properties.get("assignment_review_schema_version")).get("const") != "2.0.0":
+        _fail(failures, "assignment_review_schema_version_mismatch", path, "assignment-review schema version must be 2.0.0")
+    if tuple(_mapping(properties.get("blocker_id")).get("enum", ())) != _BLOCKER_IDS:
+        _fail(failures, "assignment_review_schema_blocker_mismatch", path, "all eight blocker IDs are required in order")
+
+    expected_refs = {
+        "eligibility_record_reference": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString",
+        "eligibility_record_hash": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex",
+        "proposed_authority_evidence_reference": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString",
+        "proposed_authority_evidence_hash": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex",
+    }
+    for field, expected_ref in expected_refs.items():
+        if _mapping(properties.get(field)).get("$ref") != expected_ref:
+            _fail(failures, "assignment_review_evidence_reference_mismatch", path, field)
+    if _mapping(properties.get("source_eligibility_outcome")).get("const") != "ELIGIBLE_FOR_AUTHORITY_REVIEW":
+        _fail(failures, "assignment_review_source_mismatch", path, "eligible source evidence is required")
+
+    chain = _mapping(properties.get("complete_evidence_chain"))
+    chain_fields = {
+        "submission_reference", "submission_hash",
+        "verification_reference", "verification_hash",
+        "admission_reference", "admission_hash",
+        "governance_review_reference", "governance_review_hash",
+        "review_disposition_reference", "review_disposition_hash",
+        "eligibility_reference", "eligibility_hash",
+        "lifecycle_reconciliation_reference", "lifecycle_reconciliation_hash",
+    }
+    if (
+        chain.get("additionalProperties") is not False
+        or set(chain.get("required", ())) != chain_fields
+        or set(_mapping(chain.get("properties"))) != chain_fields
+    ):
+        _fail(failures, "assignment_review_evidence_chain_mismatch", path, "complete closed evidence chain is required")
+    reviewer_authority = _mapping(properties.get("assignment_reviewer_authority"))
+    reviewer_authority_fields = {
+        "source_reference", "authority_reference", "scope_hash", "status",
+        "issued_at", "expires_at", "evidence_hash",
+    }
+    reviewer_authority_properties = _mapping(reviewer_authority.get("properties"))
+    if (
+        reviewer_authority.get("additionalProperties") is not False
+        or set(reviewer_authority.get("required", ())) != reviewer_authority_fields
+        or _mapping(reviewer_authority_properties.get("status")).get("const") != "ACTIVE"
+    ):
+        _fail(failures, "assignment_review_reviewer_authority_mismatch", path, "explicit active reviewer authority is required")
+    provenance = _mapping(properties.get("evidence_provenance"))
+    provenance_required = {"source_category", "source_reference", "evidence_hash", "observed_at"}
+    if provenance.get("additionalProperties") is not False or set(provenance.get("required", ())) != provenance_required:
+        _fail(failures, "assignment_review_provenance_mismatch", path, "complete closed provenance is required")
+    scope = _mapping(properties.get("blocker_scope_alignment"))
+    scope_required = {"blocker_id", "candidate_scope_hash", "reviewer_scope_hash", "outcome"}
+    scope_properties = _mapping(scope.get("properties"))
+    if (
+        scope.get("additionalProperties") is not False
+        or set(scope.get("required", ())) != scope_required
+        or _mapping(scope_properties.get("outcome")).get("const") != "ALIGNED"
+    ):
+        _fail(failures, "assignment_review_scope_mismatch", path, "blocker-specific aligned scope is required")
+    independence = _mapping(properties.get("reviewer_independence_check"))
+    independence_required = {
+        "proposed_party_reference_hash", "reviewer_party_reference_hash",
+        "prior_authority_evidence_hashes", "reviewer_authority_evidence_hash",
+        "outcome", "evidence_hash",
+    }
+    independence_properties = _mapping(independence.get("properties"))
+    prior_hashes = _mapping(independence_properties.get("prior_authority_evidence_hashes"))
+    if (
+        independence.get("additionalProperties") is not False
+        or set(independence.get("required", ())) != independence_required
+        or prior_hashes.get("minItems") != 5
+        or prior_hashes.get("uniqueItems") is not True
+        or _mapping(independence_properties.get("outcome")).get("const") != "DISTINCT_AND_INDEPENDENT"
+    ):
+        _fail(failures, "assignment_review_independence_mismatch", path, "independent reviewer evidence is required")
+    conflict = _mapping(properties.get("conflict_check"))
+    conflict_properties = _mapping(conflict.get("properties"))
+    if (
+        conflict.get("additionalProperties") is not False
+        or set(conflict.get("required", ())) != {"outcome", "checked_references_hash", "evidence_hash"}
+        or _mapping(conflict_properties.get("outcome")).get("const") != "CLEAR"
+    ):
+        _fail(failures, "assignment_review_conflict_mismatch", path, "a clear conflict check is required")
+
+    evidence_outcomes = ("SATISFIED", "INCOMPLETE", "INVALID", "CONFLICT")
+    review_outcomes = (
+        "CANDIDATE_RECOMMENDED_FOR_ASSIGNMENT_DECISION",
+        "ADDITIONAL_ASSIGNMENT_EVIDENCE_REQUIRED",
+        "CANDIDATE_REJECTED_FOR_ASSIGNMENT_DECISION",
+    )
+    if tuple(_mapping(properties.get("assignment_review_evidence_outcome")).get("enum", ())) != evidence_outcomes:
+        _fail(failures, "assignment_review_evidence_outcome_mismatch", path, "canonical evidence outcomes are required")
+    if tuple(_mapping(properties.get("assignment_review_outcome")).get("enum", ())) != review_outcomes:
+        _fail(failures, "assignment_review_outcome_mismatch", path, "canonical assignment-review outcomes are required")
+    constants = {
+        "resulting_intake_state": "ACCEPTED_FOR_REVIEW",
+        "protocol_phase": "AUTHORITY_ASSIGNMENT_REVIEW",
+        "register_mutation_status": "PROSPECTIVE_EVIDENCE_ONLY",
+        "hold_status": "ACTIVE",
+        "contains_credentials": False,
+        "contains_secrets": False,
+        "contains_excess_personal_data": False,
+        "self_assignment_review_detected": False,
+        "prior_authority_evidence_reused": False,
+        "inferred_reviewer_authority": False,
+        "recommendation_is_assignment": False,
+        "identity_established": False,
+        "party_assigned": False,
+        "authority_assigned": False,
+        "authority_reference_granted": False,
+        "authority_record_created": False,
+        "approval_granted": False,
+        "contract_approved": False,
+        "blocker_resolved": False,
+        "blockers_resolved": False,
+        "execution_authorized": False,
+        "runtime_enabled": False,
+        "register_mutated": False,
+        "runtime_effect": "NONE",
+    }
+    for field, expected in constants.items():
+        if _mapping(properties.get(field)).get("const") != expected:
+            _fail(failures, "assignment_review_schema_effect_mismatch", path, field)
+
+    expected_mappings = (
+        ("SATISFIED", review_outcomes[0], 0, None),
+        ("INCOMPLETE", review_outcomes[1], None, 1),
+        (("INVALID", "CONFLICT"), review_outcomes[2], None, 1),
+    )
+    one_of = schema.get("oneOf")
+    branches = tuple(_mapping(branch) for branch in one_of) if _sequence(one_of) else ()
+    mapping_valid = len(branches) == len(expected_mappings)
+    if mapping_valid:
+        for branch, expected_mapping in zip(branches, expected_mappings, strict=True):
+            evidence, outcome, maximum, minimum = expected_mapping
+            branch_properties = _mapping(branch.get("properties"))
+            evidence_schema = _mapping(branch_properties.get("assignment_review_evidence_outcome"))
+            actual_evidence: object = evidence_schema.get("const")
+            if actual_evidence is None:
+                actual_evidence = tuple(evidence_schema.get("enum", ()))
+            reasons = _mapping(branch_properties.get("assignment_review_reason_codes"))
+            if (
+                actual_evidence != evidence
+                or _mapping(branch_properties.get("assignment_review_outcome")).get("const") != outcome
+                or reasons.get("maxItems") != maximum
+                or reasons.get("minItems") != minimum
+            ):
+                mapping_valid = False
+                break
+    if not mapping_valid:
+        _fail(failures, "assignment_review_transition_mismatch", path, "review outcomes must map deterministically")
+
+    review_contract = _mapping(contract.get("authority_assignment_review"))
+    contract_expectations = {
+        "schema": path,
+        "validation_effect": "structure_only",
+        "protocol_phase": "AUTHORITY_ASSIGNMENT_REVIEW",
+        "source_eligibility_outcome": "ELIGIBLE_FOR_AUTHORITY_REVIEW",
+        "deterministic_outcomes": list(review_outcomes),
+        "evidence_outcomes": list(evidence_outcomes),
+        "resulting_intake_state": "ACCEPTED_FOR_REVIEW",
+        "register_mutation_status": "PROSPECTIVE_EVIDENCE_ONLY",
+        "complete_evidence_chain_required": True,
+        "blocker_scope_required": True,
+        "independent_reviewer_authority_required": True,
+        "conflict_check_required": True,
+        "hash_bound_references_required": True,
+        "lifecycle_reconciliation_required": True,
+        "recommendation_is_assignment": False,
+        "credentials_permitted": False,
+        "secrets_permitted": False,
+        "excess_personal_data_permitted": False,
+        "inferred_reviewer_authority_permitted": False,
+        "assigns_party": False,
+        "assigns_authority": False,
+        "grants_authority_reference": False,
+        "creates_authority_record": False,
+        "grants_approval": False,
+        "resolves_blocker": False,
+        "authorizes_execution": False,
+        "mutates_register": False,
+        "runtime_effect": "none",
+    }
+    for field, expected in contract_expectations.items():
+        if review_contract.get(field) != expected:
+            _fail(failures, "assignment_review_contract_boundary_mismatch", "contracts/event-bus-v2.yaml", field)
+
+    for document_path in (
+        "contracts/event-bus-v2-approval-record.md",
+        "contracts/event-bus-v2-decision-log.md",
+    ):
+        text = (root / document_path).read_text(encoding="utf-8")
+        if path not in text:
+            _fail(failures, "assignment_review_contract_reference_missing", document_path, path)
+        for outcome in review_outcomes:
+            if outcome not in text:
+                _fail(failures, "assignment_review_vocabulary_missing", document_path, outcome)
 
 
 def _validate_catalog(

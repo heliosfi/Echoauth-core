@@ -142,6 +142,14 @@ register; every Sprint 3I-3N mapping is prospective evidence.
 `GOVERNANCE_REVIEW_COMPLETED` remains unsupported, and reconciliation grants no
 governance or runtime effect.
 
+Sprint 3P adds the prospective `AUTHORITY_ASSIGNMENT_REVIEW` phase through
+`schemas/event-bus-v2-authority-assignment-review.schema.json`. Its canonical
+outcomes are `CANDIDATE_RECOMMENDED_FOR_ASSIGNMENT_DECISION`,
+`ADDITIONAL_ASSIGNMENT_EVIDENCE_REQUIRED`, and
+`CANDIDATE_REJECTED_FOR_ASSIGNMENT_DECISION`. Recommendation is not assignment,
+authority, approval, blocker resolution, execution permission, or register
+mutation. No assignment-review instance is recorded here.
+
 ## Approval Gate
 
 Sprint 3A authoring, Sprint 3B conformance, and Sprint 3C readiness tracking do
