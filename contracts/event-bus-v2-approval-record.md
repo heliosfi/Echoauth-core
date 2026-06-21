@@ -99,6 +99,25 @@ execution, or mutates the current register.
 No verification record is instantiated by Sprint 3J. The current register
 remains authoritative and unchanged.
 
+### Governance Admission Protocol Boundary
+
+Sprint 3K defines structure-only governance admission evidence in
+`schemas/event-bus-v2-authority-intake-governance-admission.schema.json`. The
+protocol consumes a referenced, hash-bound verification record and independently
+evidenced governance-review authority. It requires aligned scope, provenance,
+and hash-bound evidence that the reviewer and reviewer-authority evidence are
+distinct from the verification party and verification-authority evidence.
+
+The only admission outcomes are `ACCEPTED_FOR_REVIEW` and `REJECTED`.
+`ACCEPTED_FOR_REVIEW` permits governance review only; it is not approval.
+`REJECTED` terminates that prospective intake only; it does not resolve the
+associated blocker. Neither outcome assigns a party or authority, grants an
+authority reference, authorizes execution, enables runtime behavior, or mutates
+the current register.
+
+No admission record is instantiated by Sprint 3K. HOLD remains active, and the
+current register remains authoritative and unchanged.
+
 | Field | Required | Rule |
 | --- | --- | --- |
 | `intake_id` | yes after submission | Stable non-empty identifier unique within this approval package. |
@@ -157,6 +176,7 @@ placeholders only and does not infer authority from those placeholders.
 | Accountable authority intake structure | Required fields and fail-closed intake states defined | `PASS` |
 | Unverified submission protocol | Structure-only schema; no submissions instantiated | `PASS` |
 | Verification evidence protocol | Structure-only schema; no verification instantiated | `PASS` |
+| Governance admission protocol | Structure-only schema; no admission instantiated | `PASS` |
 | Accountable authority intake records | Eight placeholders; no submissions | `BLOCKED` |
 | Named accountable parties | No named parties or verified authority references exist | `BLOCKED` |
 | Blocker dispositions | Eight of eight remain `UNRESOLVED` | `BLOCKED` |

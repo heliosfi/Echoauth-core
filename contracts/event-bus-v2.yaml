@@ -13,6 +13,7 @@ artifacts:
   authority_intake_schema: schemas/event-bus-v2-authority-intake.schema.json
   authority_intake_submission_schema: schemas/event-bus-v2-authority-intake-submission.schema.json
   authority_intake_verification_schema: schemas/event-bus-v2-authority-intake-verification.schema.json
+  authority_intake_governance_admission_schema: schemas/event-bus-v2-authority-intake-governance-admission.schema.json
   catalog: events/event-catalog-v2.yaml
 compatibility:
   replaces_v1: false
@@ -262,6 +263,35 @@ authority_intake_verification:
   excess_personal_data_permitted: false
   establishes_identity: false
   assigns_authority: false
+  grants_approval: false
+  resolves_blocker: false
+  authorizes_execution: false
+  mutates_current_register: false
+  runtime_effect: none
+authority_intake_governance_admission:
+  schema: schemas/event-bus-v2-authority-intake-governance-admission.schema.json
+  validation_effect: structure_only
+  source_status: VERIFIED_PENDING_GOVERNANCE
+  deterministic_outcomes:
+    - ACCEPTED_FOR_REVIEW
+    - REJECTED
+  governance_reviewer_authority_evidence_required: true
+  verification_record_reference_required: true
+  verification_record_hash_required: true
+  provenance_required: true
+  scope_alignment_required: true
+  independent_reviewer_evidence_required: true
+  self_review_permitted: false
+  verifier_authority_evidence_reuse_permitted: false
+  inferred_governance_authority_permitted: false
+  credentials_permitted: false
+  secrets_permitted: false
+  excess_personal_data_permitted: false
+  accepted_for_review_is_approval: false
+  rejected_is_blocker_resolution: false
+  assigns_party: false
+  assigns_authority: false
+  grants_authority_reference: false
   grants_approval: false
   resolves_blocker: false
   authorizes_execution: false

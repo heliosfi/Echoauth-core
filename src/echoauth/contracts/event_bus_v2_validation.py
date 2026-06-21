@@ -22,6 +22,7 @@ _V2_PATHS = (
     "schemas/event-bus-v2-authority-intake.schema.json",
     "schemas/event-bus-v2-authority-intake-submission.schema.json",
     "schemas/event-bus-v2-authority-intake-verification.schema.json",
+    "schemas/event-bus-v2-authority-intake-governance-admission.schema.json",
     "events/event-envelope-v2.schema.json",
     "events/event-catalog-v2.yaml",
     "contracts/event-bus-v2-decision-log.md",
@@ -127,6 +128,11 @@ def validate_event_bus_v2_contracts(
         "schemas/event-bus-v2-authority-intake-verification.schema.json",
         failures,
     )
+    admission_schema = _load_json(
+        root_path,
+        "schemas/event-bus-v2-authority-intake-governance-admission.schema.json",
+        failures,
+    )
     envelope_schema = _load_json(
         root_path,
         "events/event-envelope-v2.schema.json",
@@ -142,12 +148,14 @@ def validate_event_bus_v2_contracts(
     assert intake_schema is not None
     assert submission_schema is not None
     assert verification_schema is not None
+    assert admission_schema is not None
     schemas = (
         runtime_schema,
         envelope_schema,
         intake_schema,
         submission_schema,
         verification_schema,
+        admission_schema,
     )
     _validate_schema_declarations(*schemas, failures)
     _validate_local_references(root_path, *schemas, failures)
@@ -158,6 +166,7 @@ def validate_event_bus_v2_contracts(
         intake_schema,
         submission_schema,
         verification_schema,
+        admission_schema,
         failures,
     )
     _validate_catalog(root_path, catalog, runtime_schema, failures)
@@ -169,6 +178,12 @@ def validate_event_bus_v2_contracts(
     _validate_authority_intake_contract(contract, intake_schema, failures)
     _validate_authority_intake_submission_contract(contract, submission_schema, failures)
     _validate_authority_intake_verification_contract(contract, verification_schema, failures)
+    _validate_authority_intake_governance_admission_contract(
+        root_path,
+        contract,
+        admission_schema,
+        failures,
+    )
     _validate_runtime_recovered(contract, catalog, failures)
     return EventBusV2ValidationReport(tuple(failures))
 
@@ -212,6 +227,7 @@ def _validate_schema_declarations(
     intake_schema: Mapping[str, Any],
     submission_schema: Mapping[str, Any],
     verification_schema: Mapping[str, Any],
+    admission_schema: Mapping[str, Any],
     failures: list[EventBusV2ValidationFailure],
 ) -> None:
     identities: set[str] = set()
@@ -221,6 +237,7 @@ def _validate_schema_declarations(
         ("schemas/event-bus-v2-authority-intake.schema.json", intake_schema),
         ("schemas/event-bus-v2-authority-intake-submission.schema.json", submission_schema),
         ("schemas/event-bus-v2-authority-intake-verification.schema.json", verification_schema),
+        ("schemas/event-bus-v2-authority-intake-governance-admission.schema.json", admission_schema),
     ):
         if schema.get("$schema") != _DRAFT_2020_12:
             _fail(failures, "schema_draft_mismatch", path, "Draft 2020-12 declaration is required")
@@ -240,6 +257,7 @@ def _validate_local_references(
     intake_schema: Mapping[str, Any],
     submission_schema: Mapping[str, Any],
     verification_schema: Mapping[str, Any],
+    admission_schema: Mapping[str, Any],
     failures: list[EventBusV2ValidationFailure],
 ) -> None:
     loaded: dict[Path, Mapping[str, Any]] = {
@@ -248,6 +266,7 @@ def _validate_local_references(
         (root / "schemas/event-bus-v2-authority-intake.schema.json").resolve(): intake_schema,
         (root / "schemas/event-bus-v2-authority-intake-submission.schema.json").resolve(): submission_schema,
         (root / "schemas/event-bus-v2-authority-intake-verification.schema.json").resolve(): verification_schema,
+        (root / "schemas/event-bus-v2-authority-intake-governance-admission.schema.json").resolve(): admission_schema,
     }
     visited: set[Path] = set()
 
@@ -284,6 +303,7 @@ def _validate_local_references(
     visit(root / "schemas/event-bus-v2-authority-intake.schema.json", intake_schema)
     visit(root / "schemas/event-bus-v2-authority-intake-submission.schema.json", submission_schema)
     visit(root / "schemas/event-bus-v2-authority-intake-verification.schema.json", verification_schema)
+    visit(root / "schemas/event-bus-v2-authority-intake-governance-admission.schema.json", admission_schema)
 
 
 def _validate_schema_identity(
@@ -293,6 +313,7 @@ def _validate_schema_identity(
     intake_schema: Mapping[str, Any],
     submission_schema: Mapping[str, Any],
     verification_schema: Mapping[str, Any],
+    admission_schema: Mapping[str, Any],
     failures: list[EventBusV2ValidationFailure],
 ) -> None:
     identity = _mapping(contract.get("schema_identity"))
@@ -318,6 +339,11 @@ def _validate_schema_identity(
             artifacts.get("authority_intake_verification_schema"),
             "schemas/event-bus-v2-authority-intake-verification.schema.json",
         ),
+        (
+            "intake_governance_admission_schema_path",
+            artifacts.get("authority_intake_governance_admission_schema"),
+            "schemas/event-bus-v2-authority-intake-governance-admission.schema.json",
+        ),
         ("catalog_envelope", catalog.get("envelope_schema"), "event-envelope-v2.schema.json"),
     )
     for label, actual, required in expected:
@@ -338,6 +364,13 @@ def _validate_schema_identity(
             failures,
             "schema_identity_mismatch",
             "schemas/event-bus-v2-authority-intake-verification.schema.json",
+            "$id",
+        )
+    if admission_schema.get("$id") != "https://echoauth.local/schemas/event-bus-v2-authority-intake-governance-admission.schema.json":
+        _fail(
+            failures,
+            "schema_identity_mismatch",
+            "schemas/event-bus-v2-authority-intake-governance-admission.schema.json",
             "$id",
         )
 
@@ -698,6 +731,212 @@ def _validate_authority_intake_verification_contract(
                 "contracts/event-bus-v2.yaml",
                 field,
             )
+
+
+def _validate_authority_intake_governance_admission_contract(
+    root: Path,
+    contract: Mapping[str, Any],
+    schema: Mapping[str, Any],
+    failures: list[EventBusV2ValidationFailure],
+) -> None:
+    path = "schemas/event-bus-v2-authority-intake-governance-admission.schema.json"
+    properties = _mapping(schema.get("properties"))
+    expected_fields = {
+        "admission_schema_version",
+        "admission_id",
+        "intake_id",
+        "blocker_id",
+        "source_intake_status",
+        "verification_record_reference",
+        "verification_record_hash",
+        "verification_verifier_party_reference_hash",
+        "governance_reviewer_party_reference",
+        "governance_reviewer_party_reference_hash",
+        "governance_reviewer_authority_evidence_reference",
+        "governance_reviewer_authority_evidence_hash",
+        "evidence_provenance",
+        "scope_alignment",
+        "reviewer_independence_check",
+        "admission_outcome",
+        "admission_reason_codes",
+        "resulting_intake_status",
+        "admitted_at",
+        "hold_status",
+        "contains_credentials",
+        "contains_secrets",
+        "contains_excess_personal_data",
+        "self_review_detected",
+        "verifier_authority_evidence_reused",
+        "inferred_governance_authority",
+        "identity_established",
+        "party_assigned",
+        "authority_assigned",
+        "authority_reference_granted",
+        "approval_granted",
+        "contract_approved",
+        "blocker_resolved",
+        "blockers_resolved",
+        "execution_authorized",
+        "runtime_enabled",
+        "current_register_mutated",
+        "runtime_effect",
+    }
+    required = schema.get("required")
+    if schema.get("additionalProperties") is not False:
+        _fail(failures, "admission_schema_open", path, "additional properties must be prohibited")
+    if set(properties) != expected_fields:
+        _fail(
+            failures,
+            "admission_schema_field_mismatch",
+            path,
+            "only canonical admission evidence and effect fields are permitted",
+        )
+    if not _string_sequence(required) or set(required) != expected_fields:
+        _fail(failures, "admission_schema_required_fields", path, "all canonical fields are required")
+    if _mapping(properties.get("admission_schema_version")).get("const") != "2.0.0":
+        _fail(failures, "admission_schema_version_mismatch", path, "admission schema version must be 2.0.0")
+    if tuple(_mapping(properties.get("blocker_id")).get("enum", ())) != _BLOCKER_IDS:
+        _fail(failures, "admission_schema_blocker_mismatch", path, "all eight blocker IDs are required in order")
+
+    expected_refs = {
+        "verification_record_reference": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString",
+        "verification_record_hash": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex",
+        "governance_reviewer_authority_evidence_reference": "event-bus-runtime-v2.schema.json#/$defs/NonEmptyString",
+        "governance_reviewer_authority_evidence_hash": "event-bus-runtime-v2.schema.json#/$defs/Sha256Hex",
+    }
+    for field, expected_ref in expected_refs.items():
+        if _mapping(properties.get(field)).get("$ref") != expected_ref:
+            _fail(failures, "admission_evidence_reference_mismatch", path, field)
+
+    provenance = _mapping(properties.get("evidence_provenance"))
+    provenance_required = {"source_category", "source_reference", "evidence_hash", "observed_at"}
+    if provenance.get("additionalProperties") is not False or set(provenance.get("required", ())) != provenance_required:
+        _fail(failures, "admission_provenance_mismatch", path, "complete closed provenance is required")
+    alignment = _mapping(properties.get("scope_alignment"))
+    alignment_required = {"blocker_id", "verified_scope_hash", "reviewer_scope_hash", "outcome"}
+    alignment_properties = _mapping(alignment.get("properties"))
+    if (
+        alignment.get("additionalProperties") is not False
+        or set(alignment.get("required", ())) != alignment_required
+        or _mapping(alignment_properties.get("outcome")).get("const") != "ALIGNED"
+    ):
+        _fail(failures, "admission_scope_mismatch", path, "complete aligned scope evidence is required")
+    independence = _mapping(properties.get("reviewer_independence_check"))
+    independence_required = {
+        "verification_verifier_party_reference_hash",
+        "governance_reviewer_party_reference_hash",
+        "verification_authority_evidence_hash",
+        "governance_reviewer_authority_evidence_hash",
+        "outcome",
+        "evidence_hash",
+    }
+    independence_properties = _mapping(independence.get("properties"))
+    if (
+        independence.get("additionalProperties") is not False
+        or set(independence.get("required", ())) != independence_required
+        or _mapping(independence_properties.get("outcome")).get("const")
+        != "DISTINCT_AND_INDEPENDENT"
+    ):
+        _fail(
+            failures,
+            "admission_independence_mismatch",
+            path,
+            "hash-bound distinct reviewer and authority evidence is required",
+        )
+
+    expected_outcomes = ("ACCEPTED_FOR_REVIEW", "REJECTED")
+    if tuple(_mapping(properties.get("admission_outcome")).get("enum", ())) != expected_outcomes:
+        _fail(failures, "admission_outcome_mismatch", path, "only canonical admission outcomes are permitted")
+    constants = {
+        "source_intake_status": "VERIFIED_PENDING_GOVERNANCE",
+        "hold_status": "ACTIVE",
+        "contains_credentials": False,
+        "contains_secrets": False,
+        "contains_excess_personal_data": False,
+        "self_review_detected": False,
+        "verifier_authority_evidence_reused": False,
+        "inferred_governance_authority": False,
+        "identity_established": False,
+        "party_assigned": False,
+        "authority_assigned": False,
+        "authority_reference_granted": False,
+        "approval_granted": False,
+        "contract_approved": False,
+        "blocker_resolved": False,
+        "blockers_resolved": False,
+        "execution_authorized": False,
+        "runtime_enabled": False,
+        "current_register_mutated": False,
+        "runtime_effect": "NONE",
+    }
+    for field, expected in constants.items():
+        if _mapping(properties.get(field)).get("const") != expected:
+            _fail(failures, "admission_schema_effect_mismatch", path, field)
+
+    all_of = schema.get("allOf")
+    rule = _mapping(all_of[0]) if _sequence(all_of) and len(all_of) == 1 else {}
+    condition_properties = _mapping(_mapping(rule.get("if")).get("properties"))
+    accepted_condition = _mapping(condition_properties.get("admission_outcome")).get("const")
+    then_properties = _mapping(_mapping(rule.get("then")).get("properties"))
+    else_properties = _mapping(_mapping(rule.get("else")).get("properties"))
+    accepted_status = _mapping(then_properties.get("resulting_intake_status")).get("const")
+    accepted_reasons = _mapping(then_properties.get("admission_reason_codes")).get("maxItems")
+    rejected_status = _mapping(else_properties.get("resulting_intake_status")).get("const")
+    rejected_reasons = _mapping(else_properties.get("admission_reason_codes")).get("minItems")
+    if (
+        accepted_condition != "ACCEPTED_FOR_REVIEW"
+        or accepted_status != "ACCEPTED_FOR_REVIEW"
+        or accepted_reasons != 0
+        or rejected_status != "REJECTED"
+        or rejected_reasons != 1
+    ):
+        _fail(failures, "admission_transition_mismatch", path, "admission outcomes must map deterministically")
+
+    admission_contract = _mapping(contract.get("authority_intake_governance_admission"))
+    contract_expectations = {
+        "schema": path,
+        "validation_effect": "structure_only",
+        "source_status": "VERIFIED_PENDING_GOVERNANCE",
+        "deterministic_outcomes": list(expected_outcomes),
+        "governance_reviewer_authority_evidence_required": True,
+        "verification_record_reference_required": True,
+        "verification_record_hash_required": True,
+        "provenance_required": True,
+        "scope_alignment_required": True,
+        "independent_reviewer_evidence_required": True,
+        "self_review_permitted": False,
+        "verifier_authority_evidence_reuse_permitted": False,
+        "inferred_governance_authority_permitted": False,
+        "credentials_permitted": False,
+        "secrets_permitted": False,
+        "excess_personal_data_permitted": False,
+        "accepted_for_review_is_approval": False,
+        "rejected_is_blocker_resolution": False,
+        "assigns_party": False,
+        "assigns_authority": False,
+        "grants_authority_reference": False,
+        "grants_approval": False,
+        "resolves_blocker": False,
+        "authorizes_execution": False,
+        "mutates_current_register": False,
+        "runtime_effect": "none",
+    }
+    for field, expected in contract_expectations.items():
+        if admission_contract.get(field) != expected:
+            _fail(
+                failures,
+                "admission_contract_boundary_mismatch",
+                "contracts/event-bus-v2.yaml",
+                field,
+            )
+
+    for document_path in (
+        "contracts/event-bus-v2-approval-record.md",
+        "contracts/event-bus-v2-decision-log.md",
+    ):
+        text = (root / document_path).read_text(encoding="utf-8")
+        if path not in text:
+            _fail(failures, "admission_contract_reference_missing", document_path, path)
 
 
 def _validate_catalog(

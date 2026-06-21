@@ -98,6 +98,14 @@ runtime permission. Every non-verified deterministic outcome preserves
 `SUBMITTED_UNVERIFIED`. No verification instance or register mutation is
 recorded by this decision log.
 
+Sprint 3K defines governance-admission evidence in
+`schemas/event-bus-v2-authority-intake-governance-admission.schema.json`.
+Admission requires independently evidenced governance-review authority and
+permits only `ACCEPTED_FOR_REVIEW` or `REJECTED`. Admission is not governance
+approval: neither outcome assigns authority, grants an authority reference,
+resolves a blocker, authorizes execution, enables runtime behavior, or mutates
+the current register. No admission instance is recorded by this decision log.
+
 ## Approval Gate
 
 Sprint 3A authoring, Sprint 3B conformance, and Sprint 3C readiness tracking do
