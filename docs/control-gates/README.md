@@ -29,6 +29,9 @@ execution, schema, validator, test, CI, or runtime behavior.
 * `authority-clarity-resolution-path-plan.md` - planning document for
   resolution paths for HOLD, ESCALATE, BLOCK, REFUSE, and LOG_ONLY outcomes so
   fail-closed behavior does not become fail-silent.
+* `authority-clarity-validator-readiness-plan.md` - validator-readiness
+  planning only; it does not authorize validator implementation, and preserves
+  future validation as separately approved mechanical conformance checking only.
 
 ## Relationship to Control Matrix
 
