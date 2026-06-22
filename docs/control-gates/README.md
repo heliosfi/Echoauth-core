@@ -36,6 +36,10 @@ execution, schema, validator, test, CI, or runtime behavior.
   phase-closure document confirming validator-readiness planning is complete,
   validator implementation remains unauthorized, and any future validator-only
   work requires separate explicit approval.
+* `authority-clarity-validator-only-approval-gate.md` - approval-planning-only
+  document that does not authorize validator implementation; future
+  validator-only work requires separate explicit approval that is narrow,
+  file-bounded, command-bounded, reversible, and includes stop conditions.
 
 ## Relationship to Control Matrix
 
