@@ -1,0 +1,48 @@
+# Control Gates
+
+## Purpose
+
+This folder contains planning and readiness documents for future Control Matrix
+gates. These documents prepare control-gate work without creating enforcement,
+execution, schema, validator, test, CI, or runtime behavior.
+
+## Current Documents
+
+* `authority-clarity-gate-plan.md` - planning document for a future Authority
+  Clarity Gate that would prevent EchoAuth / NI-AI decisions from proceeding
+  unless authority is explicit, current, and valid.
+* `authority-clarity-enforcement-readiness.md` - readiness checklist describing
+  what must exist before future schema, validator, test, CI, or runtime
+  enforcement work may begin for the Authority Clarity Gate.
+
+## Relationship to Control Matrix
+
+Control gates follow the control-before-capability discipline described in
+`../control-matrix.md` and `../../governance/principles.md`.
+
+## Current Status
+
+The files in this folder are documentation-only / planning-only unless a future
+task explicitly authorizes schema, validator, test, CI, or runtime enforcement
+work.
+
+## Boundary
+
+This folder does not create:
+
+* approval
+* authority
+* runtime behavior
+* enforcement behavior
+* blocker resolution
+* register mutation
+* event-bus behavior
+* broker access
+* trading permission
+* CI behavior
+
+## Future Movement Rule
+
+Future control-gate implementation must proceed only in separate, bounded tasks,
+and only after required inputs, outputs, fail-closed behavior, forbidden
+outcomes, tests, audit expectations, and non-authority boundaries are defined.
