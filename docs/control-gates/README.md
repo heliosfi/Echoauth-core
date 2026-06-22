@@ -23,6 +23,12 @@ execution, schema, validator, test, CI, or runtime behavior.
 * `non-authoritative-monitoring-node-plan.md` - planning document for a future
   observation-only monitoring node that may report risk without authority,
   enforcement, execution, service, agent, or autonomous-action behavior.
+* `monitoring-node-technical-boundaries.md` - planning document for future
+  monitoring-node observation inputs, advisory outputs, isolation, logging,
+  failure modes, and forbidden technical capabilities.
+* `authority-clarity-resolution-path-plan.md` - planning document for
+  resolution paths for HOLD, ESCALATE, BLOCK, REFUSE, and LOG_ONLY outcomes so
+  fail-closed behavior does not become fail-silent.
 
 ## Relationship to Control Matrix
 
