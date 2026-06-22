@@ -1,0 +1,384 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/authority-clarity-gate.schema.json",
+  "title": "Authority Clarity Gate Schema-Only Draft",
+  "description": "Schema-only data-shape draft for the future Authority Clarity Gate. This schema does not create authority, approval, enforcement, runtime behavior, blocker resolution, register mutation, event-bus behavior, broker or trading capability, click-through override, autonomous behavior, or command execution.",
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "NonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "GateState": {
+      "type": "string",
+      "description": "Candidate gate state. ALLOW_CANDIDATE is not execution permission; it only means the data shape appears sufficient for future review by a separate non-schema mechanism.",
+      "enum": ["HOLD", "ESCALATE", "BLOCK", "REFUSE", "LOG_ONLY", "ALLOW_CANDIDATE"]
+    },
+    "ActorRole": {
+      "type": "string",
+      "enum": [
+        "child",
+        "parent_caregiver_anchor",
+        "caregiver_delegate",
+        "school_actor",
+        "clinical_actor",
+        "reviewer_auditor",
+        "system_observer",
+        "monitoring_node"
+      ]
+    },
+    "AuthoritySource": {
+      "type": "string",
+      "description": "Candidate authority-source state. Values describe data-shape evidence only and do not grant authority.",
+      "enum": [
+        "parent_caregiver_anchor",
+        "explicit_delegation_record",
+        "reviewer_auditor_review",
+        "unresolved",
+        "missing",
+        "stale",
+        "conflicting",
+        "unauthorized"
+      ]
+    },
+    "ConflictStatus": {
+      "type": "string",
+      "enum": [
+        "none_detected",
+        "actor_conflict",
+        "authority_source_conflict",
+        "delegated_scope_conflict",
+        "evidence_conflict",
+        "lifecycle_conflict",
+        "unresolved_conflict",
+        "unknown"
+      ]
+    },
+    "FreshnessStatus": {
+      "type": "string",
+      "enum": ["current", "stale", "missing", "unknown"]
+    },
+    "ResolutionPath": {
+      "type": "string",
+      "description": "Candidate resolution path. These values are planning-only data states and do not permit click-through override or bypass.",
+      "enum": [
+        "none_required",
+        "provide_missing_evidence",
+        "refresh_stale_evidence",
+        "resolve_actor_mismatch",
+        "clarify_delegated_scope",
+        "escalate_to_parent_or_caregiver_anchor",
+        "confirm_block",
+        "abort_request",
+        "leave_in_hold",
+        "request_manual_review"
+      ]
+    },
+    "ForbiddenOutcome": {
+      "type": "string",
+      "enum": [
+        "ignore_and_proceed",
+        "click_through_approval",
+        "approval_by_notification",
+        "approval_by_slack_message",
+        "approval_by_google_drive_file",
+        "approval_by_calendar_event",
+        "approval_by_github_notification",
+        "approval_by_codex_message",
+        "school_or_clinic_final_authority",
+        "caregiver_delegate_scope_expansion_without_parent_or_caregiver_anchor",
+        "documentation_only_runtime_authority",
+        "monitoring_output_as_authority",
+        "silent_fallback_to_ALLOW"
+      ]
+    },
+    "NonAuthoritySource": {
+      "type": "string",
+      "enum": [
+        "slack_message",
+        "google_drive_file",
+        "google_calendar_event",
+        "github_notification",
+        "codex_message",
+        "documentation_only_file",
+        "planning_only_file",
+        "monitoring_output",
+        "notification",
+        "file_preview"
+      ]
+    },
+    "EvidenceType": {
+      "type": "string",
+      "enum": [
+        "parent_authorization_record",
+        "caregiver_authorization_record",
+        "delegated_scope_record",
+        "guardian_documentation_reference",
+        "lifecycle_state_record",
+        "conflict_review_record",
+        "freshness_check_record",
+        "audit_reference",
+        "no_valid_evidence",
+        "unknown_evidence"
+      ]
+    },
+    "DelegationScopeTerm": {
+      "type": "string",
+      "enum": ["none", "task_scoped", "time_limited", "context_limited", "expired", "exceeded", "disputed", "unknown"]
+    },
+    "EvidenceRecord": {
+      "type": "object",
+      "description": "Candidate evidence record shape only. Evidence records do not create authority or approval by themselves.",
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": { "$ref": "#/$defs/NonEmptyString" },
+        "evidence_type": { "$ref": "#/$defs/EvidenceType" },
+        "authority_source": { "$ref": "#/$defs/AuthoritySource" },
+        "actor_role": { "$ref": "#/$defs/ActorRole" },
+        "subject_role": { "$ref": "#/$defs/ActorRole" },
+        "requested_action": { "$ref": "#/$defs/NonEmptyString" },
+        "authority_scope": { "$ref": "#/$defs/NonEmptyString" },
+        "delegated_scope": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/DelegationScopeTerm" },
+          "uniqueItems": true
+        },
+        "lifecycle_state": { "$ref": "#/$defs/NonEmptyString" },
+        "conflict_status": { "$ref": "#/$defs/ConflictStatus" },
+        "freshness_status": { "$ref": "#/$defs/FreshnessStatus" },
+        "timestamp": { "$ref": "#/$defs/Timestamp" },
+        "issuer": { "$ref": "#/$defs/NonEmptyString" },
+        "reviewer": { "$ref": "#/$defs/NonEmptyString" },
+        "trace_reference": { "$ref": "#/$defs/NonEmptyString" }
+      }
+    },
+    "ExplanationPacket": {
+      "type": "object",
+      "description": "Explanatory packet for a stopped decision. It does not create approval, authority, or execution permission.",
+      "additionalProperties": false,
+      "properties": {
+        "gate_state": { "$ref": "#/$defs/GateState" },
+        "reason_code": { "$ref": "#/$defs/NonEmptyString" },
+        "missing_primitive": { "$ref": "#/$defs/NonEmptyString" },
+        "conflicting_primitive": { "$ref": "#/$defs/NonEmptyString" },
+        "stale_field": { "$ref": "#/$defs/NonEmptyString" },
+        "freshness_status": { "$ref": "#/$defs/FreshnessStatus" },
+        "conflict_status": { "$ref": "#/$defs/ConflictStatus" },
+        "actor_role": { "$ref": "#/$defs/ActorRole" },
+        "authority_source": { "$ref": "#/$defs/AuthoritySource" },
+        "delegated_scope": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/DelegationScopeTerm" },
+          "uniqueItems": true
+        },
+        "requested_action": { "$ref": "#/$defs/NonEmptyString" },
+        "lifecycle_state": { "$ref": "#/$defs/NonEmptyString" },
+        "evidence_reference": { "$ref": "#/$defs/NonEmptyString" },
+        "trace_reference": { "$ref": "#/$defs/NonEmptyString" },
+        "timestamp": { "$ref": "#/$defs/Timestamp" }
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "gate_name",
+    "gate_state",
+    "actor",
+    "authority_source",
+    "delegated_scope",
+    "requested_action",
+    "evidence",
+    "conflict_status",
+    "freshness_status",
+    "resolution_path",
+    "monitoring_observation",
+    "source_of_truth",
+    "non_authority_sources",
+    "forbidden_outcomes",
+    "non_implementation_status"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0-draft",
+      "description": "Schema-only draft version. This version does not indicate approval or implementation readiness."
+    },
+    "gate_name": {
+      "type": "string",
+      "const": "authority_clarity_gate"
+    },
+    "gate_state": { "$ref": "#/$defs/GateState" },
+    "actor": {
+      "type": "object",
+      "description": "Candidate actor shape. Actor data does not establish authority by itself.",
+      "additionalProperties": false,
+      "required": ["role"],
+      "properties": {
+        "role": { "$ref": "#/$defs/ActorRole" },
+        "actor_reference": { "$ref": "#/$defs/NonEmptyString" }
+      }
+    },
+    "authority_source": { "$ref": "#/$defs/AuthoritySource" },
+    "delegated_scope": {
+      "type": "object",
+      "description": "Candidate delegated scope shape. Delegated scope data does not expand authority or approve an action.",
+      "additionalProperties": false,
+      "properties": {
+        "terms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/DelegationScopeTerm" },
+          "uniqueItems": true
+        },
+        "scope_reference": { "$ref": "#/$defs/NonEmptyString" }
+      }
+    },
+    "requested_action": {
+      "type": "object",
+      "description": "Candidate requested action shape. Requested action data does not authorize execution.",
+      "additionalProperties": false,
+      "properties": {
+        "action": { "$ref": "#/$defs/NonEmptyString" },
+        "resource_reference": { "$ref": "#/$defs/NonEmptyString" },
+        "lifecycle_state": { "$ref": "#/$defs/NonEmptyString" }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "description": "Candidate authority evidence packet. Evidence must be reviewed by a separate future mechanism and does not create approval by itself.",
+      "additionalProperties": false,
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/EvidenceRecord" }
+        },
+        "evidence_only_phase": {
+          "type": "boolean",
+          "description": "Indicates evidence-only context; this must not create live effect."
+        }
+      }
+    },
+    "conflict_status": { "$ref": "#/$defs/ConflictStatus" },
+    "freshness_status": { "$ref": "#/$defs/FreshnessStatus" },
+    "resolution_path": {
+      "type": "object",
+      "description": "Candidate resolution-path shape. Resolution data must feed back into the gate and must not bypass it.",
+      "additionalProperties": false,
+      "required": ["selected_path"],
+      "properties": {
+        "selected_path": { "$ref": "#/$defs/ResolutionPath" },
+        "explanation_packet": { "$ref": "#/$defs/ExplanationPacket" }
+      }
+    },
+    "monitoring_observation": {
+      "type": "object",
+      "description": "Candidate monitoring observation shape. Monitoring observations are advisory and non-binding.",
+      "additionalProperties": false,
+      "properties": {
+        "observation_reference": { "$ref": "#/$defs/NonEmptyString" },
+        "advisory_only": { "type": "boolean", "const": true },
+        "creates_authority": { "type": "boolean", "const": false },
+        "creates_execution_permission": { "type": "boolean", "const": false }
+      }
+    },
+    "source_of_truth": {
+      "type": "object",
+      "description": "Candidate source-of-truth declaration. Coordination tools and monitoring output do not override governance sources.",
+      "additionalProperties": false,
+      "properties": {
+        "code_and_documentation_state": { "type": "string", "const": "github_repo" },
+        "governance_rules": { "type": "string", "const": "governance_documents" },
+        "coordination_only": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["slack", "google_drive", "google_calendar", "github_notification", "codex_message"]
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "non_authority_sources": {
+      "type": "array",
+      "description": "Sources that must not count as authority evidence or approval.",
+      "items": { "$ref": "#/$defs/NonAuthoritySource" },
+      "uniqueItems": true,
+      "allOf": [
+        { "contains": { "const": "slack_message" } },
+        { "contains": { "const": "google_drive_file" } },
+        { "contains": { "const": "google_calendar_event" } },
+        { "contains": { "const": "github_notification" } },
+        { "contains": { "const": "codex_message" } },
+        { "contains": { "const": "documentation_only_file" } },
+        { "contains": { "const": "planning_only_file" } },
+        { "contains": { "const": "monitoring_output" } },
+        { "contains": { "const": "notification" } },
+        { "contains": { "const": "file_preview" } }
+      ]
+    },
+    "forbidden_outcomes": {
+      "type": "array",
+      "description": "Forbidden outcomes that this data shape must not be interpreted to permit.",
+      "items": { "$ref": "#/$defs/ForbiddenOutcome" },
+      "uniqueItems": true,
+      "allOf": [
+        { "contains": { "const": "ignore_and_proceed" } },
+        { "contains": { "const": "click_through_approval" } },
+        { "contains": { "const": "approval_by_notification" } },
+        { "contains": { "const": "approval_by_slack_message" } },
+        { "contains": { "const": "approval_by_google_drive_file" } },
+        { "contains": { "const": "approval_by_calendar_event" } },
+        { "contains": { "const": "approval_by_github_notification" } },
+        { "contains": { "const": "approval_by_codex_message" } },
+        { "contains": { "const": "school_or_clinic_final_authority" } },
+        { "contains": { "const": "caregiver_delegate_scope_expansion_without_parent_or_caregiver_anchor" } },
+        { "contains": { "const": "documentation_only_runtime_authority" } },
+        { "contains": { "const": "monitoring_output_as_authority" } },
+        { "contains": { "const": "silent_fallback_to_ALLOW" } }
+      ]
+    },
+    "non_implementation_status": {
+      "type": "object",
+      "description": "Required non-implementation flags for this schema-only draft.",
+      "additionalProperties": false,
+      "required": [
+        "schema_only",
+        "implements_validator",
+        "modifies_ci",
+        "creates_runtime_behavior",
+        "creates_enforcement_behavior",
+        "creates_approval_authority",
+        "resolves_blockers",
+        "mutates_registers",
+        "affects_event_bus_behavior",
+        "affects_broker_or_trading_paths",
+        "creates_service",
+        "creates_agent",
+        "creates_autonomous_action",
+        "creates_click_through_override",
+        "grants_command_execution"
+      ],
+      "properties": {
+        "schema_only": { "type": "boolean", "const": true },
+        "implements_validator": { "type": "boolean", "const": false },
+        "modifies_ci": { "type": "boolean", "const": false },
+        "creates_runtime_behavior": { "type": "boolean", "const": false },
+        "creates_enforcement_behavior": { "type": "boolean", "const": false },
+        "creates_approval_authority": { "type": "boolean", "const": false },
+        "resolves_blockers": { "type": "boolean", "const": false },
+        "mutates_registers": { "type": "boolean", "const": false },
+        "affects_event_bus_behavior": { "type": "boolean", "const": false },
+        "affects_broker_or_trading_paths": { "type": "boolean", "const": false },
+        "creates_service": { "type": "boolean", "const": false },
+        "creates_agent": { "type": "boolean", "const": false },
+        "creates_autonomous_action": { "type": "boolean", "const": false },
+        "creates_click_through_override": { "type": "boolean", "const": false },
+        "grants_command_execution": { "type": "boolean", "const": false }
+      }
+    }
+  }
+}
