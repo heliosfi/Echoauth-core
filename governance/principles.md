@@ -100,6 +100,12 @@ Governance permits.
 
 Execution proceeds only after authorization.
 
+## Control Matrix Reference
+
+See `docs/control-matrix.md` for the control-before-capability discipline,
+forbidden outcomes, fail-closed defaults, workspace integration boundaries, and
+Codex implementation rules that keep control ahead of capability.
+
 ## Source Journal Files
 
 - `docs/journal/2026-06-18_(1).html`
