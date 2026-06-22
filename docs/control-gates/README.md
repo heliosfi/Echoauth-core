@@ -14,6 +14,15 @@ execution, schema, validator, test, CI, or runtime behavior.
 * `authority-clarity-enforcement-readiness.md` - readiness checklist describing
   what must exist before future schema, validator, test, CI, or runtime
   enforcement work may begin for the Authority Clarity Gate.
+* `authority-clarity-vocabulary.md` - planning document for candidate actor
+  roles, authority sources, delegation scope terms, conflict states, freshness
+  states, and gate outputs.
+* `authority-clarity-evidence-requirements.md` - planning document for candidate
+  evidence fields, evidence types, evidence properties, invalid evidence
+  sources, and fail-closed evidence rules.
+* `non-authoritative-monitoring-node-plan.md` - planning document for a future
+  observation-only monitoring node that may report risk without authority,
+  enforcement, execution, service, agent, or autonomous-action behavior.
 
 ## Relationship to Control Matrix
 
