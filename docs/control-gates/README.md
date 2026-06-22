@@ -32,6 +32,10 @@ execution, schema, validator, test, CI, or runtime behavior.
 * `authority-clarity-validator-readiness-plan.md` - validator-readiness
   planning only; it does not authorize validator implementation, and preserves
   future validation as separately approved mechanical conformance checking only.
+* `authority-clarity-validator-readiness-checkpoint.md` - checkpoint-only
+  phase-closure document confirming validator-readiness planning is complete,
+  validator implementation remains unauthorized, and any future validator-only
+  work requires separate explicit approval.
 
 ## Relationship to Control Matrix
 
