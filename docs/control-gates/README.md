@@ -96,6 +96,11 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   records 23 Authority Clarity tests OK, 7 contract validation tests OK,
   full-suite command identified but not run, and nearby contract validation
   boundaries not disturbed.
+* `authority-clarity-full-suite-proof.md` - read-only full-suite discovery
+  proof after Authority Clarity conformance expansion and compatibility
+  assessment indexing; records `python -m unittest discover -s tests`,
+  `Ran 383 tests in 20.856s`, `OK`, clean final tree, and proof-only
+  non-runtime boundary.
 
 ## Relationship to Control Matrix
 
@@ -106,7 +111,7 @@ Control gates follow the control-before-capability discipline described in
 
 Authority Clarity currently follows:
 
-`operating law -> documents -> schema -> validator -> tests -> CI proof -> audit evidence -> conformance expansion planning -> expanded conformance tests -> compatibility assessment`
+`operating law -> documents -> schema -> validator -> tests -> CI proof -> audit evidence -> conformance expansion planning -> expanded conformance tests -> compatibility assessment -> full-suite proof`
 
 * Operating law: `authority-clarity-operating-law.md`
 * Documents: this control-gates folder.
@@ -121,6 +126,7 @@ Authority Clarity currently follows:
   `../../tests/test_authority_clarity_gate_validation.py`
 * Compatibility assessment:
   `authority-clarity-compatibility-assessment.md`
+* Full-suite proof: `authority-clarity-full-suite-proof.md`
 
 ## Current Status
 
@@ -131,7 +137,8 @@ minimal validator-only CI workflow are listed above for traceability, along
 with the documentation-only audit evidence model and conformance expansion
 planning artifact. The compatibility assessment records read-only confirmation
 that expanded Authority Clarity tests did not disturb nearby contract
-validation boundaries.
+validation boundaries. The full-suite proof records read-only discovery proof
+without creating runtime approval.
 
 ## Boundary
 
