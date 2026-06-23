@@ -129,6 +129,12 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   authority and treats delegation as bounded, task-scoped, revocable,
   evidence-dependent, and non-transferable without approving implementation or
   capability expansion.
+* `delegation-boundary-schema-readiness-plan.md` - documentation-only
+  schema-readiness planning artifact for determining what must be true before
+  any future Delegation Boundary schema-only draft could be considered; it does
+  not approve schema creation, schema modification, validator work, tests, CI,
+  runtime, enforcement, approval authority, blocker resolution, register
+  mutation, event-bus behavior, or execution capability.
 
 ## Relationship to Control Matrix
 
@@ -182,7 +188,10 @@ review records Delegation Boundary Gate as the recommended next bounded
 documentation-only step without implementation approval or capability
 expansion. The Delegation Boundary Gate planning artifact records future
 delegation-boundary evaluation concepts while preserving parent/caregiver
-final authority and non-transferable delegated scope.
+final authority and non-transferable delegated scope. The Delegation Boundary
+schema-readiness plan records documentation-only readiness thresholds before
+any future schema-only draft could be considered, without approving schema or
+implementation work.
 
 ## Boundary
 
