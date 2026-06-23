@@ -136,6 +136,43 @@ class AuthorityClarityGateValidationTests(unittest.TestCase):
             report.issues,
         )
 
+    def test_required_top_level_fields_fail(self) -> None:
+        required_fields = [
+            "schema_version",
+            "gate_name",
+            "actor",
+            "authority_source",
+            "delegated_scope",
+            "requested_action",
+            "evidence",
+            "conflict_status",
+            "freshness_status",
+            "resolution_path",
+            "monitoring_observation",
+            "source_of_truth",
+            "non_authority_sources",
+            "forbidden_outcomes",
+            "non_implementation_status",
+        ]
+
+        for field in required_fields:
+            with self.subTest(field=field):
+                record = _valid_record()
+                del record[field]
+
+                report = validate_authority_clarity_gate_record(record)
+
+                self.assertFalse(report.passed)
+                self.assertTrue(
+                    any(
+                        issue.location == f"$.{field}"
+                        and "required field is missing" in issue.message
+                        for issue in report.issues
+                    ),
+                    report.issues,
+                )
+                self.assertTrue(report.non_authoritative)
+
     def test_wrong_type_fails(self) -> None:
         record = _valid_record()
         record["actor"] = "parent_caregiver_anchor"
@@ -148,6 +185,165 @@ class AuthorityClarityGateValidationTests(unittest.TestCase):
             report.issues,
         )
 
+    def test_invalid_gate_state_enum_values_fail(self) -> None:
+        for gate_state in ("", "ALLOW", "APPROVED"):
+            with self.subTest(gate_state=gate_state):
+                record = _valid_record()
+                record["gate_state"] = gate_state
+
+                report = validate_authority_clarity_gate_record(record)
+
+                self.assertFalse(report.passed)
+                self.assertTrue(
+                    any(
+                        issue.location == "$.gate_state"
+                        and "value is not allowed" in issue.message
+                        for issue in report.issues
+                    ),
+                    report.issues,
+                )
+                self.assertTrue(report.non_authoritative)
+
+    def test_declared_hold_refuse_escalate_gate_states_pass(self) -> None:
+        for gate_state in ("HOLD", "REFUSE", "ESCALATE"):
+            with self.subTest(gate_state=gate_state):
+                record = _valid_record()
+                record["gate_state"] = gate_state
+
+                report = validate_authority_clarity_gate_record(record)
+
+                self.assertTrue(report.passed, report.issues)
+                self.assertTrue(report.non_authoritative)
+
+    def test_authority_source_unresolved_states_pass(self) -> None:
+        for authority_source in ("missing", "stale", "conflicting", "unauthorized", "unresolved"):
+            with self.subTest(authority_source=authority_source):
+                record = _valid_record()
+                record["authority_source"] = authority_source
+
+                report = validate_authority_clarity_gate_record(record)
+
+                self.assertTrue(report.passed, report.issues)
+                self.assertTrue(report.non_authoritative)
+
+    def test_invalid_authority_source_values_fail(self) -> None:
+        for authority_source in ("", "slack_message", "approval_by_notification"):
+            with self.subTest(authority_source=authority_source):
+                record = _valid_record()
+                record["authority_source"] = authority_source
+
+                report = validate_authority_clarity_gate_record(record)
+
+                self.assertFalse(report.passed)
+                self.assertTrue(
+                    any(
+                        issue.location == "$.authority_source"
+                        and "value is not allowed" in issue.message
+                        for issue in report.issues
+                    ),
+                    report.issues,
+                )
+                self.assertTrue(report.non_authoritative)
+
+    def test_existing_conflict_status_values_pass(self) -> None:
+        conflict_statuses = [
+            "none_detected",
+            "actor_conflict",
+            "authority_source_conflict",
+            "delegated_scope_conflict",
+            "evidence_conflict",
+            "lifecycle_conflict",
+            "unresolved_conflict",
+            "unknown",
+        ]
+
+        for conflict_status in conflict_statuses:
+            with self.subTest(conflict_status=conflict_status):
+                record = _valid_record()
+                record["conflict_status"] = conflict_status
+
+                report = validate_authority_clarity_gate_record(record)
+
+                self.assertTrue(report.passed, report.issues)
+                self.assertTrue(report.non_authoritative)
+
+    def test_existing_actor_roles_and_delegation_scope_terms_pass(self) -> None:
+        actor_roles = [
+            "child",
+            "parent_caregiver_anchor",
+            "caregiver_delegate",
+            "school_actor",
+            "clinical_actor",
+            "reviewer_auditor",
+            "system_observer",
+            "monitoring_node",
+        ]
+        delegation_scope_terms = [
+            "none",
+            "task_scoped",
+            "time_limited",
+            "context_limited",
+            "expired",
+            "exceeded",
+            "disputed",
+            "unknown",
+        ]
+
+        for actor_role in actor_roles:
+            with self.subTest(actor_role=actor_role):
+                record = _valid_record()
+                record["actor"] = {"role": actor_role, "actor_reference": "actor-1"}
+
+                report = validate_authority_clarity_gate_record(record)
+
+                self.assertTrue(report.passed, report.issues)
+                self.assertTrue(report.non_authoritative)
+
+        for delegation_scope_term in delegation_scope_terms:
+            with self.subTest(delegation_scope_term=delegation_scope_term):
+                record = _valid_record()
+                record["delegated_scope"] = {
+                    "terms": [delegation_scope_term],
+                    "scope_reference": "scope-1",
+                }
+
+                report = validate_authority_clarity_gate_record(record)
+
+                self.assertTrue(report.passed, report.issues)
+                self.assertTrue(report.non_authoritative)
+
+    def test_invalid_actor_role_and_delegation_scope_term_fail(self) -> None:
+        record = _valid_record()
+        record["actor"] = {"role": "guardian", "actor_reference": "actor-1"}
+
+        report = validate_authority_clarity_gate_record(record)
+
+        self.assertFalse(report.passed)
+        self.assertTrue(
+            any(issue.location == "$.actor.role" and "value is not allowed" in issue.message for issue in report.issues),
+            report.issues,
+        )
+        self.assertTrue(report.non_authoritative)
+
+        record = _valid_record()
+        record["delegated_scope"] = {
+            "terms": ["none", "unsupported_scope"],
+            "scope_reference": "scope-1",
+        }
+
+        report = validate_authority_clarity_gate_record(record)
+
+        self.assertFalse(report.passed)
+        self.assertTrue(
+            any(
+                issue.location == "$.delegated_scope.terms[1]"
+                and "value is not allowed" in issue.message
+                for issue in report.issues
+            ),
+            report.issues,
+        )
+        self.assertTrue(report.non_authoritative)
+
     def test_schema_load_is_read_only(self) -> None:
         schema_path = Path("schemas/authority-clarity-gate.schema.json")
         before = schema_path.read_text(encoding="utf-8")
@@ -158,6 +354,204 @@ class AuthorityClarityGateValidationTests(unittest.TestCase):
         self.assertEqual(schema["properties"]["schema_version"]["const"], "0.1.0-draft")
         self.assertIn("non_implementation_status", schema["required"])
         self.assertEqual(schema_path.read_text(encoding="utf-8"), before)
+
+    def test_non_authority_source_containment_is_required(self) -> None:
+        record = _valid_record()
+        record["non_authority_sources"] = [
+            source for source in NON_AUTHORITY_SOURCES if source != "slack_message"
+        ]
+
+        report = validate_authority_clarity_gate_record(record)
+
+        self.assertFalse(report.passed)
+        self.assertTrue(
+            any(
+                issue.location == "$.non_authority_sources"
+                and "array does not contain required value 'slack_message'" in issue.message
+                for issue in report.issues
+            ),
+            report.issues,
+        )
+        self.assertTrue(report.non_authoritative)
+
+    def test_forbidden_outcome_containment_is_required(self) -> None:
+        record = _valid_record()
+        record["forbidden_outcomes"] = [
+            outcome for outcome in FORBIDDEN_OUTCOMES if outcome != "click_through_approval"
+        ]
+
+        report = validate_authority_clarity_gate_record(record)
+
+        self.assertFalse(report.passed)
+        self.assertTrue(
+            any(
+                issue.location == "$.forbidden_outcomes"
+                and "array does not contain required value 'click_through_approval'" in issue.message
+                for issue in report.issues
+            ),
+            report.issues,
+        )
+        self.assertTrue(report.non_authoritative)
+
+    def test_non_implementation_flags_must_keep_required_constants(self) -> None:
+        record = _valid_record()
+        record["non_implementation_status"] = {
+            **NON_IMPLEMENTATION_STATUS,
+            "creates_runtime_behavior": True,
+        }
+
+        report = validate_authority_clarity_gate_record(record)
+
+        self.assertFalse(report.passed)
+        self.assertTrue(
+            any(
+                issue.location == "$.non_implementation_status.creates_runtime_behavior"
+                and "expected constant False" in issue.message
+                for issue in report.issues
+            ),
+            report.issues,
+        )
+        self.assertTrue(report.non_authoritative)
+
+        record = _valid_record()
+        status = dict(NON_IMPLEMENTATION_STATUS)
+        del status["grants_command_execution"]
+        record["non_implementation_status"] = status
+
+        report = validate_authority_clarity_gate_record(record)
+
+        self.assertFalse(report.passed)
+        self.assertTrue(
+            any(
+                issue.location == "$.non_implementation_status.grants_command_execution"
+                and "required field is missing" in issue.message
+                for issue in report.issues
+            ),
+            report.issues,
+        )
+        self.assertTrue(report.non_authoritative)
+
+    def test_additional_properties_report_issue_paths(self) -> None:
+        record = _valid_record()
+        record["approval_authority"] = True
+
+        report = validate_authority_clarity_gate_record(record)
+
+        self.assertFalse(report.passed)
+        self.assertTrue(
+            any(
+                issue.location == "$.approval_authority"
+                and "additional property is not allowed" in issue.message
+                for issue in report.issues
+            ),
+            report.issues,
+        )
+        self.assertTrue(report.non_authoritative)
+
+    def test_evidence_record_with_existing_schema_fields_passes(self) -> None:
+        record = _valid_record()
+        record["evidence"] = {
+            "records": [
+                {
+                    "evidence_id": "evidence-1",
+                    "evidence_type": "audit_reference",
+                    "authority_source": "missing",
+                    "actor_role": "caregiver_delegate",
+                    "subject_role": "child",
+                    "requested_action": "review_candidate",
+                    "authority_scope": "task-scoped-review",
+                    "delegated_scope": ["unknown"],
+                    "lifecycle_state": "pending",
+                    "conflict_status": "unresolved_conflict",
+                    "freshness_status": "unknown",
+                    "timestamp": "2026-06-23T00:00:00Z",
+                    "issuer": "issuer-1",
+                    "reviewer": "reviewer-1",
+                    "trace_reference": "trace-1",
+                }
+            ],
+            "evidence_only_phase": True,
+        }
+
+        report = validate_authority_clarity_gate_record(record)
+
+        self.assertTrue(report.passed, report.issues)
+        self.assertTrue(report.non_authoritative)
+
+    def test_evidence_record_invalid_timestamp_reports_issue_path(self) -> None:
+        record = _valid_record()
+        record["evidence"] = {
+            "records": [
+                {
+                    "evidence_id": "evidence-1",
+                    "timestamp": "not-a-date",
+                    "trace_reference": "trace-1",
+                }
+            ],
+            "evidence_only_phase": True,
+        }
+
+        report = validate_authority_clarity_gate_record(record)
+
+        self.assertFalse(report.passed)
+        self.assertTrue(
+            any(
+                issue.location == "$.evidence.records[0].timestamp"
+                and "expected date-time string" in issue.message
+                for issue in report.issues
+            ),
+            report.issues,
+        )
+        self.assertTrue(report.non_authoritative)
+
+    def test_resolution_explanation_packet_with_existing_fields_passes(self) -> None:
+        record = _valid_record()
+        record["gate_state"] = "ESCALATE"
+        record["resolution_path"] = {
+            "selected_path": "request_manual_review",
+            "explanation_packet": {
+                "gate_state": "ESCALATE",
+                "reason_code": "unresolved_conflict",
+                "conflicting_primitive": "authority_source",
+                "freshness_status": "unknown",
+                "conflict_status": "authority_source_conflict",
+                "actor_role": "reviewer_auditor",
+                "authority_source": "conflicting",
+                "delegated_scope": ["disputed"],
+                "requested_action": "review_candidate",
+                "lifecycle_state": "pending",
+                "evidence_reference": "evidence-1",
+                "trace_reference": "trace-1",
+                "timestamp": "2026-06-23T00:00:00Z",
+            },
+        }
+
+        report = validate_authority_clarity_gate_record(record)
+
+        self.assertTrue(report.passed, report.issues)
+        self.assertTrue(report.non_authoritative)
+
+    def test_monitoring_observation_boundary_constants_fail_when_true(self) -> None:
+        record = _valid_record()
+        record["monitoring_observation"] = {
+            "observation_reference": "observation-1",
+            "advisory_only": True,
+            "creates_authority": True,
+            "creates_execution_permission": False,
+        }
+
+        report = validate_authority_clarity_gate_record(record)
+
+        self.assertFalse(report.passed)
+        self.assertTrue(
+            any(
+                issue.location == "$.monitoring_observation.creates_authority"
+                and "expected constant False" in issue.message
+                for issue in report.issues
+            ),
+            report.issues,
+        )
+        self.assertTrue(report.non_authoritative)
 
     def test_file_validation_reports_candidate_path(self) -> None:
         with TemporaryDirectory() as tmp:
