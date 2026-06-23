@@ -2,9 +2,10 @@
 
 ## Purpose
 
-This folder contains planning and readiness documents for future Control Matrix
-gates. These documents prepare control-gate work without creating enforcement,
-execution, schema, validator, test, CI, or runtime behavior.
+This folder contains planning, readiness, approval-boundary, and report
+documents for Control Matrix gates. These documents preserve the governance
+record without creating enforcement, execution, approval authority, runtime
+behavior, broker/trading paths, service behavior, or agent behavior.
 
 ## Current Documents
 
@@ -60,17 +61,45 @@ execution, schema, validator, test, CI, or runtime behavior.
 * `authority-clarity-validator-only-approval-boundary-checkpoint.md` -
   documentation-only / boundary-checkpoint-only marker with status BOUNDARY
   CHECKPOINT -- NOT APPROVED; it does not authorize validator implementation.
+* `authority-clarity-validator-only-implementation-report.md` - report
+  document for the separately approved validator-only implementation; it does
+  not authorize additional validator, runtime, enforcement, approval, broker,
+  trading, service, agent, autonomous-action, click-through, or command
+  execution capability.
+* `authority-clarity-validator-ci-planning.md` - CI-planning-only document
+  recording validated local commands and future CI boundaries; it does not
+  authorize CI changes.
+* `authority-clarity-validator-ci-design-plan.md` - CI-design-planning-only
+  document for a minimal future validator-only workflow; it does not create or
+  authorize CI.
+* `authority-clarity-validator-ci-approval-boundary-checkpoint.md` -
+  approval-boundary-only checkpoint documenting the boundary before separately
+  approved minimal validator-only CI creation; it does not authorize additional
+  CI changes.
 
 ## Relationship to Control Matrix
 
 Control gates follow the control-before-capability discipline described in
 `../control-matrix.md` and `../../governance/principles.md`.
 
+## Current Governance Chain
+
+Authority Clarity currently follows:
+
+`documents -> schema -> validator -> tests -> CI`
+
+* Documents: this control-gates folder.
+* Schema: `../../schemas/authority-clarity-gate.schema.json`
+* Validator: `../../src/echoauth/contracts/authority_clarity_gate_validation.py`
+* Tests: `../../tests/test_authority_clarity_gate_validation.py`
+* CI: `../../.github/workflows/authority-clarity-validator.yml`
+
 ## Current Status
 
-The files in this folder are documentation-only / planning-only unless a future
-task explicitly authorizes schema, validator, test, CI, or runtime enforcement
-work.
+The files in this folder are documentation-only unless a bounded task
+separately authorizes schema, validator, test, CI, or runtime enforcement work.
+The separately approved Authority Clarity validator, validator-only tests, and
+minimal validator-only CI workflow are listed above for traceability.
 
 ## Boundary
 
