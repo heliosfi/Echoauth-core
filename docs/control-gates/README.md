@@ -107,6 +107,13 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   and no schema, validator, test, CI, runtime, enforcement, approval, register,
   event-bus, broker/trading, service, agent, autonomous, click-through, or
   command-execution expansion is authorized.
+* `authority-clarity-audit-evidence-mapping.md` - documentation-only mapping
+  of the existing Authority Clarity governance/proof spine into
+  auditor-facing evidence categories, including operating law, audit evidence
+  expectations, schema, validator, tests, CI proof, compatibility proof,
+  full-suite proof, traceability proof, and non-authorization boundaries,
+  without creating audit storage, runtime logging, enforcement, approval, or
+  new capability.
 
 ## Relationship to Control Matrix
 
@@ -117,7 +124,7 @@ Control gates follow the control-before-capability discipline described in
 
 Authority Clarity currently follows:
 
-`operating law -> documents -> schema -> validator -> tests -> CI proof -> audit evidence -> conformance expansion planning -> expanded conformance tests -> compatibility assessment -> full-suite proof -> full-suite traceability review`
+`operating law -> documents -> schema -> validator -> tests -> CI proof -> audit evidence -> conformance expansion planning -> expanded conformance tests -> compatibility assessment -> full-suite proof -> full-suite traceability review -> audit evidence mapping`
 
 * Operating law: `authority-clarity-operating-law.md`
 * Documents: this control-gates folder.
@@ -135,6 +142,8 @@ Authority Clarity currently follows:
 * Full-suite proof: `authority-clarity-full-suite-proof.md`
 * Full-suite traceability review:
   `authority-clarity-full-suite-traceability-review.md`
+* Audit evidence mapping:
+  `authority-clarity-audit-evidence-mapping.md`
 
 ## Current Status
 
@@ -148,7 +157,9 @@ that expanded Authority Clarity tests did not disturb nearby contract
 validation boundaries. The full-suite proof records read-only discovery proof
 without creating runtime approval. The full-suite traceability review confirms
 the proof checkpoint is indexed and discoverable without authorizing capability
-expansion.
+expansion. The audit evidence mapping records the auditor-facing evidence
+chain without creating audit storage, runtime logging, enforcement, approval,
+or new capability.
 
 ## Boundary
 
