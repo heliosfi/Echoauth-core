@@ -135,6 +135,11 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   not approve schema creation, schema modification, validator work, tests, CI,
   runtime, enforcement, approval authority, blocker resolution, register
   mutation, event-bus behavior, or execution capability.
+* `delegation-boundary-schema-only-approval-gate.md` - documentation-only
+  approval-boundary artifact for any possible future Delegation Boundary
+  schema-only draft; records schema work as not approved and prevents movement
+  from readiness planning into schema drafting without explicit separate
+  approval.
 
 ## Relationship to Control Matrix
 
@@ -191,7 +196,9 @@ delegation-boundary evaluation concepts while preserving parent/caregiver
 final authority and non-transferable delegated scope. The Delegation Boundary
 schema-readiness plan records documentation-only readiness thresholds before
 any future schema-only draft could be considered, without approving schema or
-implementation work.
+implementation work. The Delegation Boundary schema-only approval gate records
+that schema work remains not approved and requires explicit separate approval
+before any schema drafting may begin.
 
 ## Boundary
 
