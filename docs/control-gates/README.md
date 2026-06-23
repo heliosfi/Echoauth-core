@@ -53,6 +53,10 @@ execution, schema, validator, test, CI, or runtime behavior.
 * `authority-clarity-validator-only-file-scope-proposal.md` -
   documentation-only / proposal-only file-scope proposal with status PROPOSAL
   ONLY -- NOT APPROVED; it does not authorize validator implementation.
+* `authority-clarity-validator-only-implementation-approval-request-draft.md` -
+  documentation-only / request-draft-only approval request draft with status
+  REQUEST DRAFT ONLY -- NOT APPROVED; it does not authorize validator
+  implementation.
 
 ## Relationship to Control Matrix
 
