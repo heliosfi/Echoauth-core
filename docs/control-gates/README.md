@@ -124,6 +124,11 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   closure; records Delegation Boundary Gate as the recommended next
   documentation-only gate planning category without approving implementation or
   capability expansion.
+* `delegation-boundary-gate.md` - documentation-only planning artifact for
+  future Delegation Boundary Gate evaluation; preserves parent/caregiver final
+  authority and treats delegation as bounded, task-scoped, revocable,
+  evidence-dependent, and non-transferable without approving implementation or
+  capability expansion.
 
 ## Relationship to Control Matrix
 
@@ -175,7 +180,9 @@ and points the next phase toward documentation-only Next Control Gate
 Selection before implementation planning. The next control gate selection
 review records Delegation Boundary Gate as the recommended next bounded
 documentation-only step without implementation approval or capability
-expansion.
+expansion. The Delegation Boundary Gate planning artifact records future
+delegation-boundary evaluation concepts while preserving parent/caregiver
+final authority and non-transferable delegated scope.
 
 ## Boundary
 
