@@ -80,6 +80,11 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   approval-boundary-only checkpoint documenting the boundary before separately
   approved minimal validator-only CI creation; it does not authorize additional
   CI changes.
+* `authority-clarity-audit-evidence-model.md` - auditor-facing evidence
+  expectations for Authority Clarity validation; preserves proof after
+  validation without creating runtime, enforcement, approval, register,
+  event-bus, broker/trading, service, agent, autonomous, click-through, or
+  command-execution capability.
 
 ## Relationship to Control Matrix
 
@@ -90,7 +95,7 @@ Control gates follow the control-before-capability discipline described in
 
 Authority Clarity currently follows:
 
-`operating law -> documents -> schema -> validator -> tests -> CI proof`
+`operating law -> documents -> schema -> validator -> tests -> CI proof -> audit evidence`
 
 * Operating law: `authority-clarity-operating-law.md`
 * Documents: this control-gates folder.
@@ -98,13 +103,15 @@ Authority Clarity currently follows:
 * Validator: `../../src/echoauth/contracts/authority_clarity_gate_validation.py`
 * Tests: `../../tests/test_authority_clarity_gate_validation.py`
 * CI: `../../.github/workflows/authority-clarity-validator.yml`
+* Audit evidence: `authority-clarity-audit-evidence-model.md`
 
 ## Current Status
 
 The files in this folder are documentation-only unless a bounded task
 separately authorizes schema, validator, test, CI, or runtime enforcement work.
 The separately approved Authority Clarity validator, validator-only tests, and
-minimal validator-only CI workflow are listed above for traceability.
+minimal validator-only CI workflow are listed above for traceability, along
+with the documentation-only audit evidence model.
 
 ## Boundary
 
