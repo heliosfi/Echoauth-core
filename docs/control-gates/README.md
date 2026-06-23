@@ -85,6 +85,12 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   validation without creating runtime, enforcement, approval, register,
   event-bus, broker/trading, service, agent, autonomous, click-through, or
   command-execution capability.
+* `authority-clarity-conformance-expansion-plan.md` - auditor-facing candidate
+  future Authority Clarity validator conformance scenarios before any test
+  implementation; includes authority-source gaps, conflicting claims,
+  delegation ambiguity, incomplete evidence chains, malformed escalation paths,
+  unresolved uncertainty, HOLD / REFUSE / ESCALATE classification candidates,
+  and audit evidence preservation expectations.
 
 ## Relationship to Control Matrix
 
@@ -95,7 +101,7 @@ Control gates follow the control-before-capability discipline described in
 
 Authority Clarity currently follows:
 
-`operating law -> documents -> schema -> validator -> tests -> CI proof -> audit evidence`
+`operating law -> documents -> schema -> validator -> tests -> CI proof -> audit evidence -> conformance expansion planning`
 
 * Operating law: `authority-clarity-operating-law.md`
 * Documents: this control-gates folder.
@@ -104,6 +110,8 @@ Authority Clarity currently follows:
 * Tests: `../../tests/test_authority_clarity_gate_validation.py`
 * CI: `../../.github/workflows/authority-clarity-validator.yml`
 * Audit evidence: `authority-clarity-audit-evidence-model.md`
+* Conformance expansion planning:
+  `authority-clarity-conformance-expansion-plan.md`
 
 ## Current Status
 
@@ -111,7 +119,8 @@ The files in this folder are documentation-only unless a bounded task
 separately authorizes schema, validator, test, CI, or runtime enforcement work.
 The separately approved Authority Clarity validator, validator-only tests, and
 minimal validator-only CI workflow are listed above for traceability, along
-with the documentation-only audit evidence model.
+with the documentation-only audit evidence model and conformance expansion
+planning artifact.
 
 ## Boundary
 
