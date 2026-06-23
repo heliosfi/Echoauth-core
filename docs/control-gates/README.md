@@ -43,6 +43,9 @@ execution, schema, validator, test, CI, or runtime behavior.
 * `authority-clarity-validator-only-readiness-to-approval-review.md` -
   documentation-only / review-only decision-prep for a separate validator-only
   approval decision; it does not authorize validator implementation.
+* `authority-clarity-validator-only-approval-decision-template.md` -
+  documentation-only / decision-prep-only template with status
+  PENDING -- NOT APPROVED; it does not authorize validator implementation.
 
 ## Relationship to Control Matrix
 
