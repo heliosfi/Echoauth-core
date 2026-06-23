@@ -40,6 +40,9 @@ execution, schema, validator, test, CI, or runtime behavior.
   document that does not authorize validator implementation; future
   validator-only work requires separate explicit approval that is narrow,
   file-bounded, command-bounded, reversible, and includes stop conditions.
+* `authority-clarity-validator-only-readiness-to-approval-review.md` -
+  documentation-only / review-only decision-prep for a separate validator-only
+  approval decision; it does not authorize validator implementation.
 
 ## Relationship to Control Matrix
 
