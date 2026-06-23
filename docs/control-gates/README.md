@@ -114,6 +114,11 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   full-suite proof, traceability proof, and non-authorization boundaries,
   without creating audit storage, runtime logging, enforcement, approval, or
   new capability.
+* `authority-clarity-closure-review.md` - documentation-only Authority Clarity
+  phase closure record confirming the evidence chain is complete for this
+  phase, proof artifacts are indexed, no unresolved gaps remain before
+  closure, and the recommended next category is documentation-only Next
+  Control Gate Selection.
 
 ## Relationship to Control Matrix
 
@@ -124,7 +129,7 @@ Control gates follow the control-before-capability discipline described in
 
 Authority Clarity currently follows:
 
-`operating law -> documents -> schema -> validator -> tests -> CI proof -> audit evidence -> conformance expansion planning -> expanded conformance tests -> compatibility assessment -> full-suite proof -> full-suite traceability review -> audit evidence mapping`
+`operating law -> documents -> schema -> validator -> tests -> CI proof -> audit evidence -> conformance expansion planning -> expanded conformance tests -> compatibility assessment -> full-suite proof -> full-suite traceability review -> audit evidence mapping -> closure review`
 
 * Operating law: `authority-clarity-operating-law.md`
 * Documents: this control-gates folder.
@@ -144,6 +149,7 @@ Authority Clarity currently follows:
   `authority-clarity-full-suite-traceability-review.md`
 * Audit evidence mapping:
   `authority-clarity-audit-evidence-mapping.md`
+* Closure review: `authority-clarity-closure-review.md`
 
 ## Current Status
 
@@ -159,7 +165,9 @@ without creating runtime approval. The full-suite traceability review confirms
 the proof checkpoint is indexed and discoverable without authorizing capability
 expansion. The audit evidence mapping records the auditor-facing evidence
 chain without creating audit storage, runtime logging, enforcement, approval,
-or new capability.
+or new capability. The closure review records documentation-only phase closure
+and points the next phase toward documentation-only Next Control Gate
+Selection before implementation planning.
 
 ## Boundary
 
