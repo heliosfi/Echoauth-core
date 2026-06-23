@@ -119,6 +119,11 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   phase, proof artifacts are indexed, no unresolved gaps remain before
   closure, and the recommended next category is documentation-only Next
   Control Gate Selection.
+* `next-control-gate-selection-review.md` - documentation-only review artifact
+  for selecting the next bounded control-gate step after Authority Clarity
+  closure; records Delegation Boundary Gate as the recommended next
+  documentation-only gate planning category without approving implementation or
+  capability expansion.
 
 ## Relationship to Control Matrix
 
@@ -167,7 +172,10 @@ expansion. The audit evidence mapping records the auditor-facing evidence
 chain without creating audit storage, runtime logging, enforcement, approval,
 or new capability. The closure review records documentation-only phase closure
 and points the next phase toward documentation-only Next Control Gate
-Selection before implementation planning.
+Selection before implementation planning. The next control gate selection
+review records Delegation Boundary Gate as the recommended next bounded
+documentation-only step without implementation approval or capability
+expansion.
 
 ## Boundary
 
