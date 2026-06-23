@@ -91,6 +91,11 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   delegation ambiguity, incomplete evidence chains, malformed escalation paths,
   unresolved uncertainty, HOLD / REFUSE / ESCALATE classification candidates,
   and audit evidence preservation expectations.
+* `authority-clarity-compatibility-assessment.md` - read-only compatibility
+  assessment after Authority Clarity validator conformance test expansion;
+  records 23 Authority Clarity tests OK, 7 contract validation tests OK,
+  full-suite command identified but not run, and nearby contract validation
+  boundaries not disturbed.
 
 ## Relationship to Control Matrix
 
@@ -101,7 +106,7 @@ Control gates follow the control-before-capability discipline described in
 
 Authority Clarity currently follows:
 
-`operating law -> documents -> schema -> validator -> tests -> CI proof -> audit evidence -> conformance expansion planning`
+`operating law -> documents -> schema -> validator -> tests -> CI proof -> audit evidence -> conformance expansion planning -> expanded conformance tests -> compatibility assessment`
 
 * Operating law: `authority-clarity-operating-law.md`
 * Documents: this control-gates folder.
@@ -112,6 +117,10 @@ Authority Clarity currently follows:
 * Audit evidence: `authority-clarity-audit-evidence-model.md`
 * Conformance expansion planning:
   `authority-clarity-conformance-expansion-plan.md`
+* Expanded conformance tests:
+  `../../tests/test_authority_clarity_gate_validation.py`
+* Compatibility assessment:
+  `authority-clarity-compatibility-assessment.md`
 
 ## Current Status
 
@@ -120,7 +129,9 @@ separately authorizes schema, validator, test, CI, or runtime enforcement work.
 The separately approved Authority Clarity validator, validator-only tests, and
 minimal validator-only CI workflow are listed above for traceability, along
 with the documentation-only audit evidence model and conformance expansion
-planning artifact.
+planning artifact. The compatibility assessment records read-only confirmation
+that expanded Authority Clarity tests did not disturb nearby contract
+validation boundaries.
 
 ## Boundary
 
