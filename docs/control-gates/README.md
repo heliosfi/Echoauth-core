@@ -57,6 +57,9 @@ execution, schema, validator, test, CI, or runtime behavior.
   documentation-only / request-draft-only approval request draft with status
   REQUEST DRAFT ONLY -- NOT APPROVED; it does not authorize validator
   implementation.
+* `authority-clarity-validator-only-approval-boundary-checkpoint.md` -
+  documentation-only / boundary-checkpoint-only marker with status BOUNDARY
+  CHECKPOINT -- NOT APPROVED; it does not authorize validator implementation.
 
 ## Relationship to Control Matrix
 
