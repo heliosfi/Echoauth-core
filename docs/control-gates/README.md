@@ -50,6 +50,9 @@ execution, schema, validator, test, CI, or runtime behavior.
   documentation-only / decision-prep-only package manifest with status
   DECISION-PREP ONLY -- NOT APPROVED; it does not authorize validator
   implementation.
+* `authority-clarity-validator-only-file-scope-proposal.md` -
+  documentation-only / proposal-only file-scope proposal with status PROPOSAL
+  ONLY -- NOT APPROVED; it does not authorize validator implementation.
 
 ## Relationship to Control Matrix
 
