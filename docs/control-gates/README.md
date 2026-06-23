@@ -101,6 +101,12 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   assessment indexing; records `python -m unittest discover -s tests`,
   `Ran 383 tests in 20.856s`, `OK`, clean final tree, and proof-only
   non-runtime boundary.
+* `authority-clarity-full-suite-traceability-review.md` - documentation-only
+  traceability review confirming the full-suite proof artifact is indexed, the
+  compatibility assessment and full-suite proof form a coherent proof trail,
+  and no schema, validator, test, CI, runtime, enforcement, approval, register,
+  event-bus, broker/trading, service, agent, autonomous, click-through, or
+  command-execution expansion is authorized.
 
 ## Relationship to Control Matrix
 
@@ -111,7 +117,7 @@ Control gates follow the control-before-capability discipline described in
 
 Authority Clarity currently follows:
 
-`operating law -> documents -> schema -> validator -> tests -> CI proof -> audit evidence -> conformance expansion planning -> expanded conformance tests -> compatibility assessment -> full-suite proof`
+`operating law -> documents -> schema -> validator -> tests -> CI proof -> audit evidence -> conformance expansion planning -> expanded conformance tests -> compatibility assessment -> full-suite proof -> full-suite traceability review`
 
 * Operating law: `authority-clarity-operating-law.md`
 * Documents: this control-gates folder.
@@ -127,6 +133,8 @@ Authority Clarity currently follows:
 * Compatibility assessment:
   `authority-clarity-compatibility-assessment.md`
 * Full-suite proof: `authority-clarity-full-suite-proof.md`
+* Full-suite traceability review:
+  `authority-clarity-full-suite-traceability-review.md`
 
 ## Current Status
 
@@ -138,7 +146,9 @@ with the documentation-only audit evidence model and conformance expansion
 planning artifact. The compatibility assessment records read-only confirmation
 that expanded Authority Clarity tests did not disturb nearby contract
 validation boundaries. The full-suite proof records read-only discovery proof
-without creating runtime approval.
+without creating runtime approval. The full-suite traceability review confirms
+the proof checkpoint is indexed and discoverable without authorizing capability
+expansion.
 
 ## Boundary
 
