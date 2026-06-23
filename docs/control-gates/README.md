@@ -9,6 +9,10 @@ behavior, broker/trading paths, service behavior, or agent behavior.
 
 ## Current Documents
 
+* `authority-clarity-operating-law.md` - Authority Clarity operating law and
+  vulnerability-first governance principle anchor; states that power must kneel
+  to responsibility before it moves and traces the principle through documents,
+  schema, validator, tests, CI, future runtime gates, and audit logs.
 * `authority-clarity-gate-plan.md` - planning document for a future Authority
   Clarity Gate that would prevent EchoAuth / NI-AI decisions from proceeding
   unless authority is explicit, current, and valid.
@@ -86,8 +90,9 @@ Control gates follow the control-before-capability discipline described in
 
 Authority Clarity currently follows:
 
-`documents -> schema -> validator -> tests -> CI`
+`operating law -> documents -> schema -> validator -> tests -> CI proof`
 
+* Operating law: `authority-clarity-operating-law.md`
 * Documents: this control-gates folder.
 * Schema: `../../schemas/authority-clarity-gate.schema.json`
 * Validator: `../../src/echoauth/contracts/authority_clarity_gate_validation.py`
