@@ -153,6 +153,10 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   enforcement, approval authority, blocker resolution, register mutation,
   event-bus behavior, SniperBot/trading, broker access, macro/hotkey
   automation, or execution capability.
+* `control-gates-phase-checkpoint.md` - documentation-only broader
+  control-gates phase checkpoint that records completed traceability state and
+  does not approve schema, validator, test, CI, runtime, enforcement,
+  event-bus, SniperBot/trading, broker, macro/hotkey, or execution movement.
 
 ## Relationship to Control Matrix
 
@@ -218,7 +222,9 @@ separate explicit approval. The post-Delegation Boundary checkpoint selection
 review pauses Delegation Boundary after checkpointing and selects broader
 control-gates phase checkpointing as the next traceability-only lane without
 approving schema, implementation, validator, test, CI, runtime, enforcement,
-SniperBot/trading, broker, macro/hotkey, or execution movement.
+SniperBot/trading, broker, macro/hotkey, or execution movement. The broader
+control-gates phase checkpoint records completed traceability state only and
+does not approve future movement.
 
 ## Boundary
 
