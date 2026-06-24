@@ -157,6 +157,11 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   control-gates phase checkpoint that records completed traceability state and
   does not approve schema, validator, test, CI, runtime, enforcement,
   event-bus, SniperBot/trading, broker, macro/hotkey, or execution movement.
+* `control-gates-next-lane-options-review.md` - documentation-only next-lane
+  options review that recommends authority conflict boundary review as the
+  safest next lane while not approving creation of that review or any schema,
+  validator, test, CI, runtime, enforcement, SniperBot/trading, broker,
+  macro/hotkey, or execution movement.
 
 ## Relationship to Control Matrix
 
@@ -224,7 +229,11 @@ control-gates phase checkpointing as the next traceability-only lane without
 approving schema, implementation, validator, test, CI, runtime, enforcement,
 SniperBot/trading, broker, macro/hotkey, or execution movement. The broader
 control-gates phase checkpoint records completed traceability state only and
-does not approve future movement.
+does not approve future movement. The control-gates next-lane options review
+recommends authority conflict boundary review as the safest next lane, but
+does not approve creating that review or any schema, validator, test, CI,
+runtime, enforcement, SniperBot/trading, broker, macro/hotkey, or execution
+movement.
 
 ## Boundary
 
