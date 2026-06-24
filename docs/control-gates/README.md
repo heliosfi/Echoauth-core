@@ -140,6 +140,11 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   schema-only draft; records schema work as not approved and prevents movement
   from readiness planning into schema drafting without explicit separate
   approval.
+* `delegation-boundary-phase-checkpoint.md` - documentation-only phase
+  checkpoint summarizing the completed Delegation Boundary planning lane and
+  preserving not-approved boundaries for schema creation, schema modification,
+  validator work, tests, CI, runtime, enforcement, approval authority, blocker
+  resolution, register mutation, event-bus behavior, and execution capability.
 
 ## Relationship to Control Matrix
 
@@ -198,7 +203,10 @@ schema-readiness plan records documentation-only readiness thresholds before
 any future schema-only draft could be considered, without approving schema or
 implementation work. The Delegation Boundary schema-only approval gate records
 that schema work remains not approved and requires explicit separate approval
-before any schema drafting may begin.
+before any schema drafting may begin. The Delegation Boundary phase checkpoint
+summarizes the completed planning lane and keeps schema, validator, test, CI,
+runtime, enforcement, event-bus, and execution movement not approved absent
+separate explicit approval.
 
 ## Boundary
 
