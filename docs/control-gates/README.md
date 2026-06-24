@@ -145,6 +145,14 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   preserving not-approved boundaries for schema creation, schema modification,
   validator work, tests, CI, runtime, enforcement, approval authority, blocker
   resolution, register mutation, event-bus behavior, and execution capability.
+* `post-delegation-boundary-checkpoint-selection-review.md` -
+  documentation-only post-checkpoint selection review that pauses Delegation
+  Boundary after checkpointing and selects broader control-gates phase
+  checkpointing as the next safe traceability-only lane without approving
+  schema creation, schema modification, validator work, tests, CI, runtime,
+  enforcement, approval authority, blocker resolution, register mutation,
+  event-bus behavior, SniperBot/trading, broker access, macro/hotkey
+  automation, or execution capability.
 
 ## Relationship to Control Matrix
 
@@ -206,7 +214,11 @@ that schema work remains not approved and requires explicit separate approval
 before any schema drafting may begin. The Delegation Boundary phase checkpoint
 summarizes the completed planning lane and keeps schema, validator, test, CI,
 runtime, enforcement, event-bus, and execution movement not approved absent
-separate explicit approval.
+separate explicit approval. The post-Delegation Boundary checkpoint selection
+review pauses Delegation Boundary after checkpointing and selects broader
+control-gates phase checkpointing as the next traceability-only lane without
+approving schema, implementation, validator, test, CI, runtime, enforcement,
+SniperBot/trading, broker, macro/hotkey, or execution movement.
 
 ## Boundary
 
