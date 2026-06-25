@@ -168,6 +168,14 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   documentation-planning classifications only without approving schema,
   validator, test, CI, runtime, enforcement, event-bus, register, blocker,
   SniperBot/trading, broker, macro/hotkey, Robinhood, or execution movement.
+* `caregiver-delegate-evidence-boundary-review.md` - documentation-only
+  caregiver/delegate evidence boundary review establishing that
+  caregiver/delegate evidence may support review but does not create
+  authority; defines evidence boundaries and documentation-planning
+  classifications only without approving schema, validator, test, CI, runtime,
+  enforcement, event-bus, register, blocker, SniperBot/trading, broker,
+  macro/hotkey, Robinhood, Robinhood execution alignment, or execution
+  movement.
 
 ## Relationship to Control Matrix
 
@@ -243,7 +251,12 @@ movement. The authority conflict boundary review records authority conflict as
 a halt condition and documents role-sensitive classification boundaries only,
 without approving schema, validator, test, CI, runtime, enforcement,
 event-bus, register, blocker, SniperBot/trading, broker, macro/hotkey,
-Robinhood, or execution movement.
+Robinhood, or execution movement. The caregiver/delegate evidence boundary
+review records that caregiver/delegate evidence may support review but does
+not create authority, and documents evidence-boundary classifications only
+without approving schema, validator, test, CI, runtime, enforcement,
+event-bus, register, blocker, SniperBot/trading, broker, macro/hotkey,
+Robinhood, Robinhood execution alignment, or execution movement.
 
 ## Boundary
 
