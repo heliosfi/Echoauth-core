@@ -162,6 +162,12 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   safest next lane while not approving creation of that review or any schema,
   validator, test, CI, runtime, enforcement, SniperBot/trading, broker,
   macro/hotkey, or execution movement.
+* `authority-conflict-boundary-review.md` - documentation-only authority
+  conflict boundary review establishing that authority conflict is a halt
+  condition, not a decision state; defines role-sensitive boundaries and
+  documentation-planning classifications only without approving schema,
+  validator, test, CI, runtime, enforcement, event-bus, register, blocker,
+  SniperBot/trading, broker, macro/hotkey, Robinhood, or execution movement.
 
 ## Relationship to Control Matrix
 
@@ -233,7 +239,11 @@ does not approve future movement. The control-gates next-lane options review
 recommends authority conflict boundary review as the safest next lane, but
 does not approve creating that review or any schema, validator, test, CI,
 runtime, enforcement, SniperBot/trading, broker, macro/hotkey, or execution
-movement.
+movement. The authority conflict boundary review records authority conflict as
+a halt condition and documents role-sensitive classification boundaries only,
+without approving schema, validator, test, CI, runtime, enforcement,
+event-bus, register, blocker, SniperBot/trading, broker, macro/hotkey,
+Robinhood, or execution movement.
 
 ## Boundary
 
