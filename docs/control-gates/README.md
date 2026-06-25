@@ -176,6 +176,14 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   enforcement, event-bus, register, blocker, SniperBot/trading, broker,
   macro/hotkey, Robinhood, Robinhood execution alignment, or execution
   movement.
+* `parent-authority-preservation-review.md` - documentation-only parent
+  authority preservation review establishing that parent/final authority is
+  not transferable by evidence and cannot be overridden by delegated,
+  observational, clinical, stale, silent, or system-held records; defines
+  preservation boundaries and documentation-planning classifications only
+  without approving schema, validator, test, CI, runtime, enforcement,
+  event-bus, register, blocker, SniperBot/trading, broker, macro/hotkey,
+  Robinhood, Robinhood execution alignment, or execution movement.
 
 ## Relationship to Control Matrix
 
@@ -256,7 +264,13 @@ review records that caregiver/delegate evidence may support review but does
 not create authority, and documents evidence-boundary classifications only
 without approving schema, validator, test, CI, runtime, enforcement,
 event-bus, register, blocker, SniperBot/trading, broker, macro/hotkey,
-Robinhood, Robinhood execution alignment, or execution movement.
+Robinhood, Robinhood execution alignment, or execution movement. The parent
+authority preservation review records that parent/final authority is not
+transferable by evidence and cannot be overridden by delegated, observational,
+clinical, stale, silent, or system-held records, without approving schema,
+validator, test, CI, runtime, enforcement, event-bus, register, blocker,
+SniperBot/trading, broker, macro/hotkey, Robinhood, Robinhood execution
+alignment, or execution movement.
 
 ## Boundary
 
