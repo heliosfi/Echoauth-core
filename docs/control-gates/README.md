@@ -218,6 +218,13 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   enforcement, event-bus, register, blocker, SniperBot/trading, broker,
   macro/hotkey, Robinhood, Robinhood execution alignment, autonomous action,
   or execution movement.
+* `audit-evidence-boundary-review.md` - documentation-only / governance-only
+  Audit Evidence Boundary Review for traceability; records that audit evidence
+  may support review but does not create authority, permission, or execution
+  readiness; preserves that PASS is not permission, silence is not consent,
+  documentation is not execution, ambiguity remains non-permission, refusal
+  cannot be weakened by audit output, and Trading/Robinhood remains a separate
+  domain with no execution alignment.
 
 ## Relationship to Control Matrix
 
