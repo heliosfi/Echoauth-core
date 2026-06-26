@@ -264,6 +264,22 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   resolution, broker/trading behavior, Robinhood alignment, SniperBot
   behavior, macro/hotkey behavior, autonomous action, command execution, or
   execution capability.
+* `authority-audit-refusal-consolidation-review.md` - documentation-only /
+  governance-only Authority/Audit/Refusal Consolidation Review consolidating
+  completed Authority Boundary, Refusal Integrity, Audit Evidence,
+  Control-Gates Post-Audit Evidence, and Refusal/Audit Combined Boundary work
+  for traceability only; preserves parent/final authority as
+  non-transferable by evidence, evidence as non-authoritative, audit evidence
+  as review-supporting only, refusal as protective, documentation as
+  non-executable, checkpointing as traceability-only, and EchoAuth governance
+  and Trading/Robinhood execution as separate domains. It is not a
+  higher-order authority source or meta-gate, does not add, reinterpret, rank,
+  or resolve governance rules, and does not create readiness, approval,
+  permission, unblock path, implementation authorization, runtime behavior,
+  enforcement behavior, event-bus behavior, register mutation, blocker
+  resolution, broker/trading behavior, Robinhood alignment, SniperBot
+  behavior, macro/hotkey behavior, autonomous action, command execution, or
+  execution capability.
 
 ## Relationship to Control Matrix
 
