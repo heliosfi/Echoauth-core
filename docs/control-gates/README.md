@@ -184,6 +184,11 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   without approving schema, validator, test, CI, runtime, enforcement,
   event-bus, register, blocker, SniperBot/trading, broker, macro/hotkey,
   Robinhood, Robinhood execution alignment, or execution movement.
+* `authority-boundary-consolidation-review.md` - documentation-only /
+  governance-only consolidation review that indexes the recently locked
+  authority-boundary rules without changing their meaning; preserves
+  parent/final authority as non-transferable, evidence as review-supporting
+  only, and authority conflict as a halt condition.
 
 ## Relationship to Control Matrix
 
@@ -270,7 +275,9 @@ transferable by evidence and cannot be overridden by delegated, observational,
 clinical, stale, silent, or system-held records, without approving schema,
 validator, test, CI, runtime, enforcement, event-bus, register, blocker,
 SniperBot/trading, broker, macro/hotkey, Robinhood, Robinhood execution
-alignment, or execution movement.
+alignment, or execution movement. The authority boundary consolidation review
+indexes those locked authority-boundary rules together for auditor-facing
+traceability only and does not change their meaning.
 
 ## Boundary
 
