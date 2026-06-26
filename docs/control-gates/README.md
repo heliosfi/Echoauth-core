@@ -295,6 +295,23 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   meta-gate or higher-order authority source, does not rank families, resolve
   anything, create a next lane, create readiness, create approval, create
   permission, or create an unblock path.
+* `post-final-governance-spine-next-lane-options-review.md` -
+  documentation-only / governance-only Post-Final Governance Spine Next Lane
+  Options Review recording founder-facing future direction options after the
+  Final Governance Spine Phase Checkpoint for traceability only; no option is
+  selected, authorized, or made ready, and possible later paths are
+  non-authorizing references only. Governance Spine Closeout / No-Movement
+  Review remains lowest risk, Monitoring Node Boundary Review remains
+  observation-only, non-authoritative, and non-agentic, Runtime Boundary
+  Separation Review remains separation-only and non-runtime, and
+  Broker/Trading Boundary Review remains a separate documentation-only domain
+  with Broker/Trading/Robinhood separate from EchoAuth governance. This review
+  does not create implementation authorization, approval, readiness,
+  permission, unblock status, runtime behavior, enforcement behavior,
+  event-bus behavior, register mutation, blocker resolution, monitoring
+  service/agent behavior, broker/trading behavior, Robinhood alignment,
+  SniperBot behavior, macro/hotkey behavior, autonomous action, command
+  execution, or execution capability.
 
 ## Relationship to Control Matrix
 
