@@ -312,6 +312,20 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   service/agent behavior, broker/trading behavior, Robinhood alignment,
   SniperBot behavior, macro/hotkey behavior, autonomous action, command
   execution, or execution capability.
+* `governance-spine-closeout-review.md` - documentation-only /
+  governance-only Governance Spine Closeout / No-Movement Review recording
+  the completed governance spine as parked cleanly for traceability only; the
+  completed governance spine, Final Governance Spine Phase Checkpoint, and
+  Post-Final Governance Spine Next Lane Options Review are recorded as
+  complete, indexed, verified, and parked, with no future lane selected,
+  authorized, ready, or unblocked, and no repo movement required from the
+  closeout. Parked status is a clean governance posture, not stagnation,
+  failure, readiness, approval, permission, or execution; the closeout is a
+  parking marker, not a source of authority, no movement can be inferred from
+  closeout, no-movement, parked, complete, indexed, verified, or traceable
+  status, future movement requires a separate explicit founder-selected
+  bounded task order, and EchoAuth governance and Trading/Robinhood execution
+  remain separate domains.
 
 ## Relationship to Control Matrix
 
