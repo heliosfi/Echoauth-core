@@ -210,6 +210,14 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   runtime, enforcement, event-bus, register, blocker, SniperBot/trading,
   broker, macro/hotkey, Robinhood, Robinhood execution alignment, autonomous
   action, or execution movement.
+* `refusal-integrity-phase-checkpoint.md` - documentation-only Refusal
+  Integrity Phase Checkpoint recording the completed refusal-integrity
+  governance lane after the Refusal Integrity Boundary Review and README
+  traceability update; checkpointing records a completed governance phase and
+  does not create readiness, approval, schema, validator, test, CI, runtime,
+  enforcement, event-bus, register, blocker, SniperBot/trading, broker,
+  macro/hotkey, Robinhood, Robinhood execution alignment, autonomous action,
+  or execution movement.
 
 ## Relationship to Control Matrix
 
@@ -305,7 +313,9 @@ selection review records posture only and does not create approval,
 unblocking, readiness, runtime behavior, enforcement behavior, or execution
 permission. The refusal integrity boundary review records refusal as a
 protective control for traceability only and does not approve capability
-movement.
+movement. The refusal integrity phase checkpoint records the completed
+refusal-integrity governance lane for traceability only and does not create
+readiness.
 
 ## Boundary
 
