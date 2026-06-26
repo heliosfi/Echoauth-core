@@ -236,6 +236,20 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   execution, ambiguity remains non-permission, refusal cannot be weakened by
   audit output, and EchoAuth governance and Trading/Robinhood execution remain
   separate domains.
+* `control-gates-post-audit-evidence-checkpoint.md` - documentation-only /
+  governance-only Control-Gates Post-Audit Evidence Checkpoint recording the
+  completed post-audit governance posture for traceability only; preserves
+  Authority Boundary, Refusal Integrity, Audit Evidence Boundary, and Audit
+  Evidence Phase Checkpoint lanes as traceable, evidence as
+  non-authoritative, audit evidence as review-supporting, non-authoritative,
+  non-permissive, and non-executable, refusal as protective, documentation as
+  non-executable, checkpointing as traceability-only, and EchoAuth governance
+  and Trading/Robinhood execution as separate domains without creating
+  readiness, approval, permission, unblock path, implementation authorization,
+  runtime behavior, enforcement behavior, event-bus behavior, register
+  mutation, blocker resolution, broker/trading behavior, Robinhood alignment,
+  SniperBot behavior, macro/hotkey behavior, autonomous action, or execution
+  capability.
 
 ## Relationship to Control Matrix
 
