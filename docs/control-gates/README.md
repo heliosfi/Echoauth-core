@@ -225,6 +225,17 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   documentation is not execution, ambiguity remains non-permission, refusal
   cannot be weakened by audit output, and Trading/Robinhood remains a separate
   domain with no execution alignment.
+* `audit-evidence-phase-checkpoint.md` - documentation-only / governance-only
+  Audit Evidence Phase Checkpoint recording completion of the audit-evidence
+  governance lane for traceability only; preserves audit evidence as
+  review-supporting, non-authoritative, non-permissive, and non-executable,
+  and confirms audit evidence does not create authority, permission, approval,
+  delegation, parent consent, runtime enforcement, event-bus progression,
+  register mutation, blocker resolution, or execution readiness; preserves
+  that PASS is not permission, silence is not consent, documentation is not
+  execution, ambiguity remains non-permission, refusal cannot be weakened by
+  audit output, and EchoAuth governance and Trading/Robinhood execution remain
+  separate domains.
 
 ## Relationship to Control Matrix
 
