@@ -189,6 +189,11 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   authority-boundary rules without changing their meaning; preserves
   parent/final authority as non-transferable, evidence as review-supporting
   only, and authority conflict as a halt condition.
+* `authority-boundary-phase-checkpoint.md` - documentation-only /
+  governance-only checkpoint that records the completed authority-boundary
+  governance phase for traceability only; preserves parent/final authority as
+  non-transferable, evidence as review-supporting only, authority conflict as
+  a halt condition, and checkpointing as non-readiness.
 
 ## Relationship to Control Matrix
 
@@ -277,7 +282,9 @@ validator, test, CI, runtime, enforcement, event-bus, register, blocker,
 SniperBot/trading, broker, macro/hotkey, Robinhood, Robinhood execution
 alignment, or execution movement. The authority boundary consolidation review
 indexes those locked authority-boundary rules together for auditor-facing
-traceability only and does not change their meaning.
+traceability only and does not change their meaning. The authority boundary
+phase checkpoint records the completed governance phase for traceability only
+and does not create readiness.
 
 ## Boundary
 
