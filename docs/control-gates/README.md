@@ -280,6 +280,21 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   resolution, broker/trading behavior, Robinhood alignment, SniperBot
   behavior, macro/hotkey behavior, autonomous action, command execution, or
   execution capability.
+* `final-governance-spine-phase-checkpoint.md` - documentation-only /
+  governance-only Final Governance Spine Phase Checkpoint recording the
+  completed governance spine as traceable after Authority Boundary, Refusal
+  Integrity, Audit Evidence, Control-Gates Post-Audit Evidence,
+  Refusal/Audit Combined Boundary, and Authority/Audit/Refusal Consolidation
+  work are complete, indexed, verified, and parked; preserves
+  completed/indexed/verified/parked status as traceability only, not
+  readiness, parent/final authority as non-transferable by evidence, evidence
+  as non-authoritative, audit evidence as review-supporting only, refusal as
+  protective, documentation as non-executable, checkpointing as
+  traceability-only, consolidation as non-authoritative, and EchoAuth
+  governance and Trading/Robinhood execution as separate domains. It is not a
+  meta-gate or higher-order authority source, does not rank families, resolve
+  anything, create a next lane, create readiness, create approval, create
+  permission, or create an unblock path.
 
 ## Relationship to Control Matrix
 
