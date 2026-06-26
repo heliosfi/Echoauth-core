@@ -201,6 +201,15 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   authority conflict as a halt condition, checkpointing as non-readiness, and
   selection review as posture-only without approval, unblocking, readiness,
   runtime behavior, enforcement behavior, or execution permission.
+* `refusal-integrity-boundary-review.md` - documentation-only Refusal
+  Integrity Boundary Review establishing refusal as a protective control, not
+  a failure; records that unsafe means refuse, unknown means hold, ambiguous
+  means non-permission, and refusal cannot be weakened by convenience, cached
+  state, stale records, automation pressure, monitoring output, audit output,
+  or broker/trading signals, without approving schema, validator, test, CI,
+  runtime, enforcement, event-bus, register, blocker, SniperBot/trading,
+  broker, macro/hotkey, Robinhood, Robinhood execution alignment, autonomous
+  action, or execution movement.
 
 ## Relationship to Control Matrix
 
@@ -294,7 +303,9 @@ phase checkpoint records the completed governance phase for traceability only
 and does not create readiness. The post authority boundary checkpoint
 selection review records posture only and does not create approval,
 unblocking, readiness, runtime behavior, enforcement behavior, or execution
-permission.
+permission. The refusal integrity boundary review records refusal as a
+protective control for traceability only and does not approve capability
+movement.
 
 ## Boundary
 
