@@ -250,6 +250,20 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   mutation, blocker resolution, broker/trading behavior, Robinhood alignment,
   SniperBot behavior, macro/hotkey behavior, autonomous action, or execution
   capability.
+* `refusal-audit-boundary-checkpoint.md` - documentation-only /
+  governance-only Refusal/Audit Combined Boundary Checkpoint recording the
+  shared boundary between the completed Refusal Integrity lane and the
+  completed Audit Evidence lane for traceability only; preserves refusal as a
+  protective control, audit evidence as review-supporting,
+  non-authoritative, non-permissive, and non-executable, documentation as
+  non-executable, checkpointing as traceability-only, and EchoAuth governance
+  and Trading/Robinhood execution as separate domains without adding or
+  reinterpreting governance rules or creating readiness, approval,
+  permission, unblock path, implementation authorization, runtime behavior,
+  enforcement behavior, event-bus behavior, register mutation, blocker
+  resolution, broker/trading behavior, Robinhood alignment, SniperBot
+  behavior, macro/hotkey behavior, autonomous action, command execution, or
+  execution capability.
 
 ## Relationship to Control Matrix
 
@@ -347,7 +361,14 @@ permission. The refusal integrity boundary review records refusal as a
 protective control for traceability only and does not approve capability
 movement. The refusal integrity phase checkpoint records the completed
 refusal-integrity governance lane for traceability only and does not create
-readiness.
+readiness. The refusal/audit combined boundary checkpoint records the shared
+boundary between the completed Refusal Integrity and Audit Evidence lanes for
+traceability only without adding or reinterpreting governance rules or
+creating readiness, approval, permission, unblocking, runtime behavior,
+enforcement behavior, event-bus behavior, register mutation, blocker
+resolution, broker/trading behavior, Robinhood alignment, SniperBot behavior,
+macro/hotkey behavior, autonomous action, command execution, or execution
+capability.
 
 ## Boundary
 
