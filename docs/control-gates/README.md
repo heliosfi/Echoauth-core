@@ -194,6 +194,13 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   governance phase for traceability only; preserves parent/final authority as
   non-transferable, evidence as review-supporting only, authority conflict as
   a halt condition, and checkpointing as non-readiness.
+* `post-authority-boundary-checkpoint-selection-review.md` -
+  documentation-only / governance-only selection review that records the
+  post-checkpoint posture for traceability only; preserves parent/final
+  authority as non-transferable, evidence as review-supporting only,
+  authority conflict as a halt condition, checkpointing as non-readiness, and
+  selection review as posture-only without approval, unblocking, readiness,
+  runtime behavior, enforcement behavior, or execution permission.
 
 ## Relationship to Control Matrix
 
@@ -284,7 +291,10 @@ alignment, or execution movement. The authority boundary consolidation review
 indexes those locked authority-boundary rules together for auditor-facing
 traceability only and does not change their meaning. The authority boundary
 phase checkpoint records the completed governance phase for traceability only
-and does not create readiness.
+and does not create readiness. The post authority boundary checkpoint
+selection review records posture only and does not create approval,
+unblocking, readiness, runtime behavior, enforcement behavior, or execution
+permission.
 
 ## Boundary
 
