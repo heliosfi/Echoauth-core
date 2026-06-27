@@ -506,6 +506,30 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   trade-traceability, broker, Robinhood, order-routing, or live-trading
   movement requires a separate explicit founder-selected bounded task order
   before implementation.
+* `sniperbot-rollback-no-action-fallback-boundary-review.md` -
+  documentation-only / governance-only / boundary-review-only /
+  fallback-planning-only / governance-posture-only / future-evidence-
+  planning-only / non-runtime / non-execution SniperBot Rollback /
+  No-Action Fallback Boundary Review defining future rollback and no-action
+  fallback boundaries that must be proven before future paper-trading,
+  simulation, broker, Robinhood, order-routing, CUDA, automation, or
+  live-trading work can move closer to execution, for traceability only.
+  "We don't move until system move." No-action is the default when evidence,
+  approval, authority, traceability, or safety posture is incomplete;
+  ambiguous authority resolves to no-action, incomplete evidence resolves to
+  no-action, and fallback posture comes before execution. Rollback/no-action
+  fallback is governance posture, future evidence planning, and boundary
+  review only, not runtime automation, trading logic, broker logic,
+  Robinhood logic, order-routing logic, CUDA trading behavior, macro/hotkey
+  behavior, audit runtime, traceability runtime, rollback runtime, command
+  execution, or execution capability. No live trading is authorized, no paper
+  trading is created, no simulation is created, no broker access is created,
+  no Robinhood access or alignment is created, no SniperBot behavior is
+  created, no CUDA trading code is created, no order routing is created, no
+  trade automation is created, no macro/hotkey behavior is created, and no
+  command execution or execution capability is created. Future README/index
+  updates, staging, commits, pushes, implementation, or next-lane movement
+  require separate explicit approval.
 
 ## Relationship to Control Matrix
 
