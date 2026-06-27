@@ -697,6 +697,50 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   child-safety runtime changes are created, no EchoAuth runtime changes are
   created, no NI-AI runtime changes are created, no founder approval runtime
   is created, and no command execution or execution capability is created.
+* `sniperbot-options-eligibility-exclusion-boundary-review.md` -
+  documentation-only / governance-only /
+  options-eligibility-exclusion-boundary-only /
+  options-readiness-planning-only / non-runtime / non-execution SniperBot
+  Options Eligibility / Exclusion Boundary Review defining future options
+  eligibility and exclusion as governance analysis only, separate from
+  options risk approval, before any future options-specific readiness review
+  can be considered under a separate bounded task order, for traceability
+  only. Eligibility must not become options approval, asset approval,
+  contract approval, ticker approval, underlying approval, strike approval,
+  expiration approval, spread approval, strategy approval, broker approval,
+  Robinhood approval, order authority, or execution authority. Exclusion
+  must not become runtime blocking logic, runtime filtering, routing logic,
+  order rejection logic, broker logic, Robinhood logic, strategy logic,
+  hidden execution logic, or hidden approval. Options eligibility/exclusion
+  review is governance posture and future evidence planning only, not
+  options runtime, eligibility runtime, exclusion runtime, options strategy
+  runtime, risk runtime, asset-selection logic, ticker-selection logic,
+  underlying-selection logic, contract-selection logic, strike-selection
+  logic, expiration-selection logic, spread-selection logic, contract
+  selection, strategy logic, strategy runtime, trading logic, broker logic,
+  Robinhood logic, order-routing logic, CUDA trading behavior,
+  macro/hotkey behavior, audit runtime, traceability runtime, rollback
+  runtime, autonomous-action runtime, command execution, or execution
+  capability. Ambiguous options eligibility authority resolves to no-action,
+  ambiguous options exclusion authority resolves to no-action, incomplete
+  options eligibility evidence resolves to no-action, incomplete options
+  exclusion evidence resolves to no-action, and "We don't move until system
+  move" remains the governing posture. No options trading is authorized, no
+  options approval is created, no options strategy execution is created, no
+  contract selection is authorized, no strike selection is authorized, no
+  expiration selection is authorized, no ticker or underlying selection is
+  authorized, no spread selection is authorized, no account behavior is
+  approved, no broker access is created, no Robinhood access is created, no
+  order submission is created, no automated execution is created, no paper
+  trading is created, no simulation is created, no live trading is
+  authorized, no position-sizing runtime is created, no trade-size runtime
+  is created, no risk runtime is created, no eligibility runtime is created,
+  no exclusion runtime is created, no options runtime is created, no
+  strategy runtime is created, no SniperBot behavior is created, no CUDA
+  trading code is created, no child-safety runtime changes are created, no
+  EchoAuth runtime changes are created, no NI-AI runtime changes are
+  created, no founder approval runtime is created, and no command execution
+  or execution capability is created.
 * `sniperbot-asset-class-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only / deferral-no-action-boundary-only /
   asset-class-readiness-planning-only / non-runtime / non-execution SniperBot
