@@ -921,6 +921,46 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   no founder approval runtime is created, and no command execution or
   execution capability is created.
 
+* `sniperbot-crypto-risk-boundary-review.md` - documentation-only /
+  governance-only / crypto-risk-boundary-only /
+  crypto-risk-planning-only / non-runtime / non-execution SniperBot Crypto
+  Risk Boundary Review defining future crypto-risk evidence boundaries and
+  crypto-specific risk surfaces before any future crypto-specific
+  eligibility, strategy, broker, exchange, wallet/custody, order-routing,
+  paper-trading, simulation, or live-trading review can be considered under
+  a separate bounded task order, for traceability only. Crypto risk is not
+  stock risk, and SniperBot must not treat crypto as merely another
+  asset-class switch. Crypto risk review is analysis only, not activation,
+  readiness, approval, or implementation authorization. Crypto risk review
+  is governance posture and future evidence planning only, not crypto
+  runtime, crypto risk runtime, crypto strategy runtime, risk-scoring
+  logic, risk runtime, asset-selection logic, token-selection logic,
+  stablecoin handling, asset approval, strategy logic, strategy runtime,
+  trading logic, broker logic, exchange logic, wallet logic, custody logic,
+  order-routing logic, position-sizing runtime, trade-size runtime,
+  liquidation-risk controls, leverage behavior, margin behavior,
+  market-making, arbitrage, DeFi interaction, smart-contract interaction,
+  CUDA trading behavior, macro/hotkey behavior, audit runtime, traceability
+  runtime, rollback runtime, autonomous-action runtime, command execution,
+  or execution capability. Ambiguous crypto risk authority resolves to
+  no-action, incomplete crypto risk evidence resolves to no-action, and "We
+  don't move until system move" remains the governing posture. No crypto
+  trading is authorized, no crypto approval is created, no crypto strategy
+  execution is created, no crypto risk approval is created, no asset
+  selection is authorized, no token selection is authorized, no stablecoin
+  handling is created, no live trading is authorized, no paper trading is
+  created, no simulation is created, no broker access is created, no
+  exchange access is created, no wallet or custody behavior is created, no
+  API key or secrets logic is created, no order submission is created, no
+  automated execution is created, no SniperBot behavior is created, no CUDA
+  trading code is created, no order routing is created, no trade automation
+  is created, no position-sizing runtime is created, no trade-size runtime
+  is created, no asset-class runtime is created, no crypto runtime is
+  created, no strategy runtime is created, no child-safety runtime changes
+  are created, no EchoAuth runtime changes are created, no NI-AI runtime
+  changes are created, no founder approval runtime is created, and no
+  command execution or execution capability is created.
+
 ## Relationship to Control Matrix
 
 Control gates follow the control-before-capability discipline described in
