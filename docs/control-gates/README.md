@@ -664,6 +664,39 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   are created, no NI-AI runtime changes are created, no founder approval
   runtime is created, and no command execution or execution capability is
   created.
+* `sniperbot-asset-class-eligibility-exclusion-boundary-review.md` -
+  documentation-only / governance-only / eligibility-exclusion-boundary-only
+  / asset-class-readiness-planning-only / non-runtime / non-execution
+  SniperBot Asset-Class Eligibility / Exclusion Boundary Review defining how
+  future asset classes may be reviewed as eligible, excluded, deferred, or
+  no-action before any future asset-class-specific readiness review can be
+  considered under a separate bounded task order, for traceability only.
+  Eligibility must not become asset approval, exclusion must not become
+  routing logic, asset-class eligibility must not become asset selection,
+  asset-class exclusion must not become trading logic, and options, stock,
+  or crypto eligibility must not become trading approval. Eligibility /
+  exclusion review is governance posture and future evidence planning only,
+  not eligibility runtime, exclusion runtime, asset-selection logic, asset
+  approval, strategy logic, strategy runtime, trading logic, broker logic,
+  Robinhood logic, order-routing logic, CUDA trading behavior, macro/hotkey
+  behavior, audit runtime, traceability runtime, rollback runtime,
+  autonomous-action runtime, command execution, or execution capability.
+  Ambiguous eligibility authority resolves to no-action, ambiguous exclusion
+  authority resolves to no-action, incomplete eligibility evidence resolves
+  to no-action, incomplete exclusion evidence resolves to no-action, and "We
+  don't move until system move" remains the governing posture. No options
+  trading is authorized, no stock trading is authorized, no crypto trading is
+  authorized, no asset selection is authorized, no asset approval is created,
+  no live trading is authorized, no paper trading is created, no simulation
+  is created, no broker access is created, no Robinhood access or alignment
+  is created, no SniperBot behavior is created, no CUDA trading code is
+  created, no order routing is created, no trade automation is created, no
+  position-sizing runtime is created, no trade-size runtime is created, no
+  asset-class runtime is created, no eligibility runtime is created, no
+  exclusion runtime is created, no strategy runtime is created, no
+  child-safety runtime changes are created, no EchoAuth runtime changes are
+  created, no NI-AI runtime changes are created, no founder approval runtime
+  is created, and no command execution or execution capability is created.
 
 ## Relationship to Control Matrix
 
