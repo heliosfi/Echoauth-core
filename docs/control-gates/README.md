@@ -554,6 +554,31 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   capability is created. Future README/index updates, staging, commits,
   pushes, implementation, or next-lane movement require separate explicit
   approval.
+* `sniperbot-no-child-safety-governance-crossover-boundary-review.md` -
+  documentation-only / governance-only / boundary-review-only /
+  separation-wall-only / non-runtime / non-execution SniperBot No
+  Child-Safety Governance Crossover Boundary Review defining the boundary
+  preventing EchoAuth / NI-AI child-safety governance from crossing into
+  Trading / Robinhood / Broker / SniperBot execution governance, for
+  traceability only. Best trades and child safety are two different lanes.
+  Child-safety authority must never become trading authority, EchoAuth
+  authority must never become SniperBot authority, NI-AI safety/coherence
+  authority must never become broker, Robinhood, order, or trading
+  authority, caregiver/child confirmation must never become trading
+  confirmation, and safety review must never become execution approval.
+  Child-safety / EchoAuth / NI-AI governance is not broker approval,
+  Robinhood approval, trading approval, order approval, strategy approval,
+  simulation approval, paper-trading approval, live-trading approval,
+  autonomous-action approval, command approval, or execution approval. No
+  live trading is authorized, no paper trading is created, no simulation is
+  created, no broker access is created, no Robinhood access or alignment is
+  created, no SniperBot behavior is created, no CUDA trading code is created,
+  no order routing is created, no trade automation is created, no macro/hotkey
+  behavior is created, no audit runtime is created, no traceability runtime
+  is created, no rollback runtime is created, no autonomous-action runtime is
+  created, no child-safety runtime changes are created, no EchoAuth runtime
+  changes are created, no NI-AI runtime changes are created, and no command
+  execution or execution capability is created.
 
 ## Relationship to Control Matrix
 
