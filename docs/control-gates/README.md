@@ -530,6 +530,30 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   command execution or execution capability is created. Future README/index
   updates, staging, commits, pushes, implementation, or next-lane movement
   require separate explicit approval.
+* `sniperbot-no-autonomous-action-boundary-review.md` -
+  documentation-only / governance-only / boundary-review-only /
+  no-autonomous-action-planning-only / non-runtime / non-execution SniperBot
+  No-Autonomous-Action Boundary Review defining future no-autonomous-action
+  boundaries that must be proven before future paper-trading, simulation,
+  broker, Robinhood, order-routing, CUDA, automation, or live-trading work
+  can move closer to execution, for traceability only. "We don't move until
+  system move." No-autonomous-action is governance posture, future evidence
+  planning, and boundary review only, not runtime automation, trading logic,
+  broker logic, Robinhood logic, order-routing logic, CUDA trading behavior,
+  macro/hotkey behavior, audit runtime, traceability runtime, rollback
+  runtime, autonomous-action runtime, command execution, or execution
+  capability. Observation must not become action, signals must not become
+  orders, human confirmation must not become automatic delegation, audit logs
+  must not become approvals, ambiguous authority resolves to no-action, and
+  incomplete evidence resolves to no-action. No live trading is authorized,
+  no paper trading is created, no simulation is created, no broker access is
+  created, no Robinhood access or alignment is created, no SniperBot behavior
+  is created, no CUDA trading code is created, no order routing is created,
+  no trade automation is created, no macro/hotkey behavior is created, no
+  autonomous action is created, and no command execution or execution
+  capability is created. Future README/index updates, staging, commits,
+  pushes, implementation, or next-lane movement require separate explicit
+  approval.
 
 ## Relationship to Control Matrix
 
