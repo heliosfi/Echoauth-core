@@ -607,6 +607,31 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   changes are created, no NI-AI runtime changes are created, no founder
   approval runtime is created, and no command execution or execution
   capability is created.
+* `sniperbot-trade-size-boundary-review.md` - documentation-only /
+  governance-only / risk-boundary-only / trade-size-planning-only /
+  non-runtime / non-execution SniperBot Trade-Size Boundary Review defining
+  future trade-size boundaries that must be reviewed before future
+  trading-adjacent readiness review can be considered under a separate
+  bounded task order, for traceability only. Trade-size review must not
+  become position-sizing logic, trade-size documentation must not become
+  order authority, trade-size limits must not become broker permission or
+  Robinhood permission, and trade-size discussion must not become trading
+  approval. Trade-size is governance posture, future evidence planning, and
+  risk-boundary review only, not position-sizing runtime, trade-size runtime,
+  trading logic, broker logic, Robinhood logic, order-routing logic, CUDA
+  trading behavior, macro/hotkey behavior, audit runtime, traceability
+  runtime, rollback runtime, autonomous-action runtime, command execution, or
+  execution capability. Ambiguous trade-size authority resolves to no-action,
+  incomplete trade-size evidence resolves to no-action, and "We don't move
+  until system move" remains the governing posture. No live trading is
+  authorized, no paper trading is created, no simulation is created, no
+  broker access is created, no Robinhood access or alignment is created, no
+  SniperBot behavior is created, no CUDA trading code is created, no order
+  routing is created, no trade automation is created, no position-sizing
+  runtime is created, no trade-size runtime is created, no child-safety
+  runtime changes are created, no EchoAuth runtime changes are created, no
+  NI-AI runtime changes are created, no founder approval runtime is created,
+  and no command execution or execution capability is created.
 
 ## Relationship to Control Matrix
 
