@@ -883,6 +883,43 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   no EchoAuth runtime changes are created, no NI-AI runtime changes are
   created, no founder approval runtime is created, and no command execution
   or execution capability is created.
+* `sniperbot-stock-risk-boundary-review.md` - documentation-only /
+  governance-only / stock-risk-boundary-only / stock-risk-planning-only /
+  non-runtime / non-execution SniperBot Stock Risk Boundary Review defining
+  future stock-risk evidence boundaries before any future stock-specific
+  eligibility, strategy, broker, Robinhood, order-routing, CUDA,
+  paper-trading, simulation, or live-trading review can be considered under
+  a separate bounded task order, for traceability only. Stock risk must not
+  become stock approval, stock risk evidence must not become asset
+  selection, stock risk documentation must not become trading logic, stock
+  risk review must not become stock trading approval, and stock risk
+  documentation must not become order authority. Stock risk review is
+  governance posture and future evidence planning only, not stock runtime,
+  stock risk runtime, stock strategy runtime, risk-scoring logic, risk
+  runtime, asset-selection logic, asset approval, strategy logic, strategy
+  runtime, trading logic, broker logic, Robinhood logic, order-routing logic,
+  CUDA trading behavior, macro/hotkey behavior, audit runtime, traceability
+  runtime, rollback runtime, autonomous-action runtime, command execution, or
+  execution capability. Ambiguous stock risk authority resolves to
+  no-action, incomplete stock risk evidence resolves to no-action, and "We
+  don't move until system move" remains the governing posture. No stock
+  trading is authorized, no stock approval is created, no stock strategy is
+  created, no stock risk approval is created, no asset selection is
+  authorized, no asset approval is created, no live trading is authorized, no
+  paper trading is created, no simulation is created, no broker access is
+  created, no Robinhood access or alignment is created, no SniperBot
+  behavior is created, no CUDA trading code is created, no order routing is
+  created, no trade automation is created, no position-sizing runtime is
+  created, no trade-size runtime is created, no asset-class runtime is
+  created, no eligibility runtime is created, no exclusion runtime is
+  created, no deferral runtime is created, no no-action runtime is created,
+  no stock runtime is created, no stock risk runtime is created, no stock
+  deferral runtime is created, no stock no-action runtime is created, no
+  stock strategy runtime is created, no risk runtime is created, no strategy
+  runtime is created, no child-safety runtime changes are created, no
+  EchoAuth runtime changes are created, no NI-AI runtime changes are created,
+  no founder approval runtime is created, and no command execution or
+  execution capability is created.
 
 ## Relationship to Control Matrix
 
