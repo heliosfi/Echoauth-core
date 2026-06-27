@@ -785,6 +785,56 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   changes are created, no NI-AI runtime changes are created, no founder
   approval runtime is created, and no command execution or execution
   capability is created.
+* `sniperbot-crypto-eligibility-exclusion-boundary-review.md` -
+  documentation-only / governance-only /
+  crypto-eligibility-exclusion-boundary-only /
+  crypto-readiness-planning-only / non-runtime / non-execution SniperBot
+  Crypto Eligibility / Exclusion Boundary Review defining future crypto
+  eligibility and exclusion as governance analysis only, separate from
+  crypto risk approval, before any future crypto-specific readiness review
+  can be considered under a separate bounded task order, for traceability
+  only. Eligibility must not become crypto approval, asset approval, token
+  approval, coin approval, pair approval, exchange approval, chain approval,
+  stablecoin approval, wallet approval, custody approval, DeFi approval,
+  smart-contract approval, strategy approval, broker approval, order
+  authority, or execution authority. Exclusion must not become runtime
+  blocking logic, runtime filtering, selector/scorer/router logic,
+  pre-trade filter logic, routing logic, order rejection logic, broker
+  logic, exchange logic, wallet logic, custody logic, strategy logic, DeFi
+  logic, smart-contract logic, hidden execution logic, or hidden approval.
+  Crypto eligibility/exclusion review is governance posture and future
+  evidence planning only, not crypto runtime, eligibility runtime, exclusion
+  runtime, crypto strategy runtime, risk runtime, asset-selection logic,
+  token-selection logic, coin-selection logic, pair-selection logic,
+  exchange-selection logic, chain-selection logic, stablecoin-handling
+  logic, wallet logic, custody logic, DeFi logic, smart-contract logic,
+  strategy logic, strategy runtime, trading logic, broker logic, exchange
+  logic, order-routing logic, CUDA trading behavior, macro/hotkey behavior,
+  audit runtime, traceability runtime, rollback runtime,
+  autonomous-action runtime, command execution, or execution capability.
+  Ambiguous crypto eligibility authority resolves to no-action, ambiguous
+  crypto exclusion authority resolves to no-action, incomplete crypto
+  eligibility evidence resolves to no-action, incomplete crypto exclusion
+  evidence resolves to no-action, and "We don't move until system move"
+  remains the governing posture. No crypto trading is authorized, no crypto
+  approval is created, no crypto strategy execution is created, no token
+  selection is authorized, no coin selection is authorized, no pair
+  selection is authorized, no exchange selection is authorized, no chain
+  selection is authorized, no stablecoin handling is created, no
+  wallet/custody behavior is created, no DeFi interaction is created, no
+  smart-contract interaction is created, no market-making is created, no
+  arbitrage is created, no broker access is created, no exchange access is
+  created, no order submission is created, no automated execution is
+  created, no paper trading is created, no simulation is created, no live
+  trading is authorized, no position-sizing runtime is created, no
+  trade-size runtime is created, no risk runtime is created, no eligibility
+  runtime is created, no exclusion runtime is created, no crypto runtime is
+  created, no selector/scorer/router reuse is created, no runtime
+  filter/gate logic is created, no strategy runtime is created, no
+  SniperBot behavior is created, no CUDA trading code is created, no
+  child-safety runtime changes are created, no EchoAuth runtime changes are
+  created, no NI-AI runtime changes are created, no founder approval runtime
+  is created, and no command execution or execution capability is created.
 * `sniperbot-asset-class-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only / deferral-no-action-boundary-only /
   asset-class-readiness-planning-only / non-runtime / non-execution SniperBot
