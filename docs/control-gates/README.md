@@ -455,6 +455,33 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   broker, Robinhood, order-routing, or live-trading movement requires a
   separate explicit founder-selected bounded task order and additional
   safety/risk/broker/execution-boundary review before implementation.
+* `sniperbot-human-confirmation-boundary-review.md` - documentation-only /
+  governance-only / human-confirmation-boundary-only / non-approval /
+  non-runtime / non-execution SniperBot Human Confirmation Boundary Review
+  defining future human-confirmation boundaries that must be proven before
+  future paper-trading, simulation, broker, Robinhood, order-routing, CUDA,
+  or live-trading work can be considered, for traceability only. Human
+  confirmation review is not human approval, confirmation boundary mapping
+  is not trading authorization, founder review language is not execution
+  authority, click-through language is not command authority, and
+  documentation is not execution. No approval workflow is created, no
+  confirmation UI is created, no click-through mechanism is created, no live
+  approval path is created, no order approval path is created, no hotkey
+  confirmation is created, no macro confirmation is created, no runtime
+  behavior is created, no simulation is created, no paper trading is created,
+  no capital allocation is authorized, no live trading is authorized, no
+  implementation-ready trading lane is authorized, no broker access is
+  created, no Robinhood access or alignment is created, no SniperBot behavior
+  is created, no CUDA trading code is created, no order routing is created,
+  no trade automation is created, and no command execution or execution
+  capability is created. Silence, timeout, default state, implied consent, UI
+  click, macro, hotkey, or automated state cannot become approval or
+  authority. Human-confirmation boundaries cannot shortcut capital-risk
+  limits, stop-loss boundaries, paper/simulation boundaries, or kill-switch
+  boundaries. NI-AI may support coherence, review, refusal, risk framing, and
+  confirmation-readiness language, but does not approve trades, generate
+  executable orders, connect brokers, authorize Robinhood access, confirm
+  trades, or execute trades.
 
 ## Relationship to Control Matrix
 
