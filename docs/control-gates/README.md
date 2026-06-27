@@ -579,6 +579,34 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   created, no child-safety runtime changes are created, no EchoAuth runtime
   changes are created, no NI-AI runtime changes are created, and no command
   execution or execution capability is created.
+* `sniperbot-founder-approval-boundary-review.md` - documentation-only /
+  governance-only / authority-boundary-only /
+  founder-approval-planning-only / non-runtime / non-execution SniperBot
+  Founder Approval Boundary Review defining future founder-approval
+  boundaries that must be proven before future trading-adjacent readiness
+  work can move closer to execution, for traceability only. Founder approval
+  must be explicit, bounded, documented, and task-specific; founder approval
+  for one lane must not authorize another lane, founder approval for
+  documentation must not authorize implementation, founder approval for
+  review must not authorize execution, and founder approval for README/index
+  updates must not authorize runtime changes. Founder approval is governance
+  posture, future evidence planning, and authority-boundary review only, not
+  trading approval, implementation approval, broker permission, Robinhood
+  permission, order authority, strategy authority, automation authority,
+  command authority, execution readiness, execution capability, or founder
+  approval runtime. Ambiguous founder approval resolves to no-action,
+  incomplete approval evidence resolves to no-action, and "We don't move
+  until system move" remains the governing posture. No live trading is
+  authorized, no paper trading is created, no simulation is created, no
+  broker access is created, no Robinhood access or alignment is created, no
+  SniperBot behavior is created, no CUDA trading code is created, no order
+  routing is created, no trade automation is created, no macro/hotkey
+  behavior is created, no audit runtime is created, no traceability runtime
+  is created, no rollback runtime is created, no autonomous-action runtime is
+  created, no child-safety runtime changes are created, no EchoAuth runtime
+  changes are created, no NI-AI runtime changes are created, no founder
+  approval runtime is created, and no command execution or execution
+  capability is created.
 
 ## Relationship to Control Matrix
 
