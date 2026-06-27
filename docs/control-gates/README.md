@@ -358,6 +358,26 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   but does not approve or execute trades. Future live trading requires a
   separate explicit founder-selected bounded task order after safety, risk,
   broker, execution, and kill-switch boundaries are reviewed.
+* `sniperbot-capital-risk-limit-boundary-review.md` -
+  documentation-only / governance-only / capital-risk-boundary-only /
+  non-execution SniperBot Capital Risk Limit Boundary Review defining future
+  capital-risk boundaries that must be proven before future trading work can
+  be considered, for traceability only. Capital risk review is not capital
+  approval, capital boundary mapping is not trading authorization, risk limit
+  language is not broker permission, and documentation is not execution. No
+  capital allocation is authorized, no live trading is authorized, no paper
+  trading is created, no trading lane is selected as implementation-ready, no
+  broker access is created, no Robinhood access or alignment is created, no
+  SniperBot behavior is created, no CUDA trading code is created, no order
+  routing is created, no trade automation is created, and no command
+  execution or execution capability is created. Essential family funds,
+  child-care funds, rent, food, medical, and emergency funds remain protected
+  from any implied trading availability. NI-AI may support coherence, review,
+  refusal, and risk framing, but does not approve capital allocation, size
+  trades, place trades, authorize broker access, or execute trades. Future
+  live trading requires a separate explicit founder-selected bounded task
+  order after safety, risk, broker, execution, and kill-switch boundaries are
+  reviewed.
 
 ## Relationship to Control Matrix
 
