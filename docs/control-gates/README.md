@@ -427,6 +427,34 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   requires a separate explicit founder-selected bounded task order and
   additional safety/risk/broker/execution-boundary review before
   implementation.
+* `sniperbot-kill-switch-boundary-review.md` - documentation-only /
+  governance-only / kill-switch-boundary-only / non-runtime /
+  non-monitoring / non-execution SniperBot Kill-Switch Boundary Review
+  defining future kill-switch boundaries that must be proven before future
+  paper-trading, simulation, broker, Robinhood, order-routing, CUDA, or
+  live-trading work can be considered, for traceability only. Kill-switch
+  review is not a kill switch, kill-switch boundary mapping is not trading
+  authorization, shutdown language is not command authority, monitoring
+  language is not monitoring-service authorization, and documentation is not
+  execution. No kill switch is created, no runtime behavior is created, no
+  monitoring behavior is created, no automated shutdown is created, no manual
+  shutdown function is created, no broker disconnect is created, no Robinhood
+  disconnect is created, no order cancellation path is created, no emergency
+  command path is created, no simulation is created, no paper trading is
+  created, no capital allocation is authorized, no live trading is
+  authorized, no implementation-ready trading lane is authorized, no broker
+  access is created, no Robinhood access or alignment is created, no
+  SniperBot behavior is created, no CUDA trading code is created, no order
+  routing is created, no trade automation is created, and no command
+  execution or execution capability is created. Kill-switch boundaries cannot
+  shortcut capital-risk limits, stop-loss boundaries, or paper/simulation
+  boundaries. NI-AI may support coherence, review, refusal, risk framing, and
+  kill-switch recommendation language, but does not trigger shutdowns,
+  connect brokers, disconnect brokers, cancel orders, authorize Robinhood
+  access, or execute trades. Future kill-switch, paper-trading, simulation,
+  broker, Robinhood, order-routing, or live-trading movement requires a
+  separate explicit founder-selected bounded task order and additional
+  safety/risk/broker/execution-boundary review before implementation.
 
 ## Relationship to Control Matrix
 
