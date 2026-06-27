@@ -378,6 +378,29 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   live trading requires a separate explicit founder-selected bounded task
   order after safety, risk, broker, execution, and kill-switch boundaries are
   reviewed.
+* `sniperbot-max-loss-daily-stop-loss-boundary-review.md` -
+  documentation-only / governance-only / loss-stop-boundary-only /
+  non-execution SniperBot Max Loss / Daily Stop-Loss Boundary Review defining
+  future loss-stop boundaries that must be proven after capital-risk limits
+  and before future trading work can be considered, for traceability only.
+  Max loss review is not loss-limit approval, daily stop-loss review is not
+  trading approval, stop-loss boundary mapping is not trading authorization,
+  loss-limit language is not broker permission, and documentation is not
+  execution. No capital allocation is authorized, no live trading is
+  authorized, no paper trading is created, no trading lane is selected as
+  implementation-ready, no broker access is created, no Robinhood access or
+  alignment is created, no SniperBot behavior is created, no CUDA trading code
+  is created, no order routing is created, no trade automation is created,
+  and no command execution or execution capability is created. Essential
+  family funds, child-care funds, rent, food, medical funds, emergency funds,
+  and recovery-trading funds remain protected from any implied trading
+  availability. A loss-stop event must preserve no-action / lockout posture
+  unless a future, separately approved boundary allows review. NI-AI may
+  support coherence, review, refusal, and risk framing, but does not approve
+  loss limits, override stop-losses, size trades, place trades, authorize
+  broker access, or execute trades. Future live trading requires a separate
+  explicit founder-selected bounded task order after safety, risk, broker,
+  execution, and kill-switch boundaries are reviewed.
 
 ## Relationship to Control Matrix
 
