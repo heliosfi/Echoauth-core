@@ -632,6 +632,38 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   runtime changes are created, no EchoAuth runtime changes are created, no
   NI-AI runtime changes are created, no founder approval runtime is created,
   and no command execution or execution capability is created.
+* `sniperbot-asset-class-risk-separation-boundary-review.md` -
+  documentation-only / governance-only / risk-separation-only /
+  asset-class-boundary-only / non-runtime / non-execution SniperBot
+  Asset-Class Risk Separation Boundary Review defining future options-risk,
+  stock-risk, crypto-risk, and asset-class separation boundaries before any
+  future asset-class-specific trading-adjacent readiness review can be
+  considered under a separate bounded task order, for traceability only.
+  Asset-class separation must not become asset selection; options-risk
+  discussion must not become options trading approval; stock-risk discussion
+  must not become stock trading approval; crypto-risk discussion must not
+  become crypto trading approval; asset-class documentation must not become
+  order authority; and asset-class boundaries must not become broker
+  permission or Robinhood permission. Asset-class risk separation is
+  governance posture, future evidence planning, and risk-separation review
+  only, not asset-selection logic, strategy logic, strategy runtime, trading
+  logic, broker logic, Robinhood logic, order-routing logic, CUDA trading
+  behavior, macro/hotkey behavior, audit runtime, traceability runtime,
+  rollback runtime, autonomous-action runtime, command execution, or
+  execution capability. Ambiguous asset-class authority resolves to
+  no-action, incomplete asset-class evidence resolves to no-action, and "We
+  don't move until system move" remains the governing posture. No options
+  trading is authorized, no stock trading is authorized, no crypto trading is
+  authorized, no live trading is authorized, no paper trading is created, no
+  simulation is created, no broker access is created, no Robinhood access or
+  alignment is created, no SniperBot behavior is created, no CUDA trading
+  code is created, no order routing is created, no trade automation is
+  created, no position-sizing runtime is created, no trade-size runtime is
+  created, no asset-class runtime is created, no strategy runtime is created,
+  no child-safety runtime changes are created, no EchoAuth runtime changes
+  are created, no NI-AI runtime changes are created, no founder approval
+  runtime is created, and no command execution or execution capability is
+  created.
 
 ## Relationship to Control Matrix
 
