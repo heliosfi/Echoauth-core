@@ -343,6 +343,21 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   movement requires a separate explicit founder-selected bounded task order
   and additional safety/risk/broker/execution-boundary review before
   implementation.
+* `sniperbot-live-trading-readiness-boundary-review.md` -
+  documentation-only / governance-only / readiness-boundary-only /
+  non-execution SniperBot Live Trading Readiness Boundary Review defining
+  future boundaries that must be reviewed before any live-trading work can be
+  considered, for traceability only. Readiness review is not readiness,
+  boundary mapping is not authorization, and documentation is not execution.
+  No live trading is authorized, no paper trading is created, no trading lane
+  is selected as implementation-ready, no broker access is created, no
+  Robinhood access or alignment is created, no SniperBot behavior is created,
+  no CUDA trading code is created, no order routing is created, no trade
+  automation is created, and no command execution or execution capability is
+  created. NI-AI may support coherence, review, refusal, and risk framing,
+  but does not approve or execute trades. Future live trading requires a
+  separate explicit founder-selected bounded task order after safety, risk,
+  broker, execution, and kill-switch boundaries are reviewed.
 
 ## Relationship to Control Matrix
 
