@@ -741,6 +741,50 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   EchoAuth runtime changes are created, no NI-AI runtime changes are
   created, no founder approval runtime is created, and no command execution
   or execution capability is created.
+* `sniperbot-stock-eligibility-exclusion-boundary-review.md` -
+  documentation-only / governance-only /
+  stock-eligibility-exclusion-boundary-only /
+  stock-readiness-planning-only / non-runtime / non-execution SniperBot
+  Stock Eligibility / Exclusion Boundary Review defining future stock
+  eligibility and exclusion as governance analysis only, separate from stock
+  risk approval, before any future stock-specific readiness review can be
+  considered under a separate bounded task order, for traceability only.
+  Eligibility must not become stock approval, asset approval, ticker
+  approval, equity approval, sector approval, watchlist approval, screen
+  approval, strategy approval, broker approval, Robinhood approval, order
+  authority, or execution authority. Exclusion must not become runtime
+  blocking logic, runtime filtering, pre-trade filter logic, routing logic,
+  order rejection logic, broker logic, Robinhood logic, strategy logic,
+  hidden execution logic, or hidden approval. Stock eligibility/exclusion
+  review is governance posture and future evidence planning only, not stock
+  runtime, eligibility runtime, exclusion runtime, stock strategy runtime,
+  risk runtime, asset-selection logic, ticker-selection logic,
+  equity-selection logic, sector-selection logic, watchlist logic, screen
+  logic, strategy logic, strategy runtime, trading logic, broker logic,
+  Robinhood logic, order-routing logic, CUDA trading behavior, macro/hotkey
+  behavior, audit runtime, traceability runtime, rollback runtime,
+  autonomous-action runtime, command execution, or execution capability.
+  Ambiguous stock eligibility authority resolves to no-action, ambiguous
+  stock exclusion authority resolves to no-action, incomplete stock
+  eligibility evidence resolves to no-action, incomplete stock exclusion
+  evidence resolves to no-action, and "We don't move until system move"
+  remains the governing posture. No stock trading is authorized, no stock
+  approval is created, no stock strategy execution is created, no ticker
+  selection is authorized, no equity selection is authorized, no sector
+  selection is authorized, no market-cap profile is approved, no liquidity
+  profile is approved, no volatility profile is approved, no watchlist is
+  created, no screen is created, no account behavior is approved, no broker
+  access is created, no Robinhood access is created, no order submission is
+  created, no automated execution is created, no paper trading is created,
+  no simulation is created, no live trading is authorized, no
+  position-sizing runtime is created, no trade-size runtime is created, no
+  risk runtime is created, no eligibility runtime is created, no exclusion
+  runtime is created, no stock runtime is created, no strategy runtime is
+  created, no SniperBot behavior is created, no CUDA trading code is
+  created, no child-safety runtime changes are created, no EchoAuth runtime
+  changes are created, no NI-AI runtime changes are created, no founder
+  approval runtime is created, and no command execution or execution
+  capability is created.
 * `sniperbot-asset-class-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only / deferral-no-action-boundary-only /
   asset-class-readiness-planning-only / non-runtime / non-execution SniperBot
