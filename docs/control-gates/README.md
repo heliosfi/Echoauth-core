@@ -845,6 +845,44 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   are created, no EchoAuth runtime changes are created, no NI-AI runtime
   changes are created, no founder approval runtime is created, and no
   command execution or execution capability is created.
+* `sniperbot-options-risk-boundary-review.md` - documentation-only /
+  governance-only / options-risk-boundary-only /
+  options-risk-planning-only / non-runtime / non-execution SniperBot Options
+  Risk Boundary Review defining future options-risk evidence boundaries
+  before any future options-specific eligibility, strategy, broker,
+  Robinhood, order-routing, CUDA, paper-trading, simulation, or live-trading
+  review can be considered under a separate bounded task order, for
+  traceability only. Options risk must not become options approval, options
+  risk evidence must not become asset selection, options risk documentation
+  must not become trading logic, options risk review must not become options
+  trading approval, and options risk documentation must not become order
+  authority. Options risk review is governance posture and future evidence
+  planning only, not options runtime, options risk runtime, options strategy
+  runtime, risk-scoring logic, risk runtime, asset-selection logic, asset
+  approval, strategy logic, strategy runtime, trading logic, broker logic,
+  Robinhood logic, order-routing logic, CUDA trading behavior, macro/hotkey
+  behavior, audit runtime, traceability runtime, rollback runtime,
+  autonomous-action runtime, command execution, or execution capability.
+  Ambiguous options risk authority resolves to no-action, incomplete options
+  risk evidence resolves to no-action, and "We don't move until system move"
+  remains the governing posture. No options trading is authorized, no
+  options approval is created, no options strategy is created, no options
+  risk approval is created, no asset selection is authorized, no asset
+  approval is created, no live trading is authorized, no paper trading is
+  created, no simulation is created, no broker access is created, no
+  Robinhood access or alignment is created, no SniperBot behavior is
+  created, no CUDA trading code is created, no order routing is created, no
+  trade automation is created, no position-sizing runtime is created, no
+  trade-size runtime is created, no asset-class runtime is created, no
+  eligibility runtime is created, no exclusion runtime is created, no
+  deferral runtime is created, no no-action runtime is created, no options
+  runtime is created, no options risk runtime is created, no options
+  deferral runtime is created, no options no-action runtime is created, no
+  options strategy runtime is created, no risk runtime is created, no
+  strategy runtime is created, no child-safety runtime changes are created,
+  no EchoAuth runtime changes are created, no NI-AI runtime changes are
+  created, no founder approval runtime is created, and no command execution
+  or execution capability is created.
 
 ## Relationship to Control Matrix
 
