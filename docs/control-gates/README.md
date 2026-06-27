@@ -401,6 +401,32 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   broker access, or execute trades. Future live trading requires a separate
   explicit founder-selected bounded task order after safety, risk, broker,
   execution, and kill-switch boundaries are reviewed.
+* `sniperbot-paper-trading-simulation-boundary-review.md` -
+  documentation-only / governance-only / paper-simulation-boundary-only /
+  non-simulative / non-execution SniperBot Paper-Trading / Simulation
+  Boundary Review defining future paper/simulation boundaries that must be
+  proven before future paper-trading or simulation work can be considered,
+  for traceability only. Paper-trading review is not paper trading,
+  simulation review is not simulation, simulation boundary mapping is not
+  trading authorization, paper-trading language is not broker permission,
+  mock order language is not order-routing authority, and documentation is
+  not execution. No simulation is created, no paper trading is created, no
+  mock broker is created, no broker connection is created, no Robinhood
+  connection is created, no market-data feed is created, no backtest logic is
+  created, no strategy logic is created, no capital allocation is authorized,
+  no live trading is authorized, no implementation-ready trading lane is
+  authorized, no broker access is created, no Robinhood access or alignment
+  is created, no SniperBot behavior is created, no CUDA trading code is
+  created, no order routing is created, no trade automation is created, and
+  no command execution or execution capability is created. Paper/simulation
+  boundaries cannot shortcut capital-risk limits or stop-loss boundaries.
+  NI-AI may support coherence, review, refusal, and risk framing, but does
+  not approve simulated trades, generate executable orders, connect brokers,
+  authorize Robinhood access, or execute trades. Future paper-trading,
+  simulation, broker, Robinhood, order-routing, or live-trading movement
+  requires a separate explicit founder-selected bounded task order and
+  additional safety/risk/broker/execution-boundary review before
+  implementation.
 
 ## Relationship to Control Matrix
 
