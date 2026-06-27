@@ -358,6 +358,35 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   but does not approve or execute trades. Future live trading requires a
   separate explicit founder-selected bounded task order after safety, risk,
   broker, execution, and kill-switch boundaries are reviewed.
+* `sniperbot-broker-access-boundary-review.md` - documentation-only /
+  governance-only / broker-access-boundary-only / non-runtime /
+  non-execution SniperBot Broker Access Boundary Review defining future
+  broker-access boundaries before any future broker, Robinhood, exchange,
+  wallet/custody, account-linking, OAuth/login/session, credential,
+  market-data, order-routing, paper-trading, simulation, or live-trading work
+  can be considered under a separate bounded task order, for traceability
+  only. Broker-access review is not broker access, broker-access mapping is
+  not broker permission, readiness language is not broker connectivity, and
+  documentation is not execution. Broker access must not be treated as a
+  configuration switch, environment-variable addition, API-key addition,
+  secret-manager entry, OAuth setup step, login/session setup step,
+  account-linking shortcut, broker SDK setup, API integration shortcut,
+  market-data setup step, order-routing prerequisite, or hidden execution
+  bridge. No broker access is authorized, no Robinhood access is authorized,
+  no exchange access is authorized, no wallet/custody access is authorized,
+  no account linking is authorized, no OAuth/login/session behavior is
+  authorized, no API key or secret handling is authorized, no credential
+  storage or retrieval is authorized, no broker API calls are authorized, no
+  market-data runtime is authorized, no order submission or order routing is
+  authorized, no automated execution is authorized, no paper trading is
+  created, no simulation is created, no live trading is authorized, no
+  position-sizing runtime is created, no trade-size runtime is created, no
+  asset-class runtime is created, no risk runtime is created, no strategy
+  runtime is created, no SniperBot behavior is created, no CUDA trading
+  behavior is created, no macro/hotkey behavior is created, no command
+  execution is created, and no execution capability is created. Future
+  broker capability requires separate explicit founder-selected approval
+  gates before implementation could be discussed.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
