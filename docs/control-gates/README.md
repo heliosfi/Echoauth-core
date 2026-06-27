@@ -326,6 +326,23 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   status, future movement requires a separate explicit founder-selected
   bounded task order, and EchoAuth governance and Trading/Robinhood execution
   remain separate domains.
+* `broker-trading-boundary-review.md` - documentation-only /
+  governance-only / separate-domain-only Broker/Trading Boundary Review
+  recording separation boundaries between EchoAuth governance, NI-AI
+  governance, and any future broker/trading/Robinhood/SniperBot/CUDA/
+  auto-trade work for traceability only. The review is not trading readiness;
+  boundary mapping is not authorization; documentation is not execution;
+  EchoAuth governance is not a trading execution system; and NI-AI governance
+  is not a broker, trading bot, order router, macro, hotkey, or autonomous
+  execution system. Future trading tools may support the broader mission
+  financially, but trading execution must remain separate from EchoAuth
+  child/caregiver safety governance. No trading lane is selected as
+  implementation-ready, no broker access is created, no Robinhood access or
+  alignment is created, no SniperBot behavior is created, no CUDA trading code
+  is created, no auto-trading behavior is created, and any future trading
+  movement requires a separate explicit founder-selected bounded task order
+  and additional safety/risk/broker/execution-boundary review before
+  implementation.
 
 ## Relationship to Control Matrix
 
