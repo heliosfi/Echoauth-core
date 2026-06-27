@@ -482,6 +482,30 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   confirmation-readiness language, but does not approve trades, generate
   executable orders, connect brokers, authorize Robinhood access, confirm
   trades, or execute trades.
+* `sniperbot-audit-log-trade-traceability-boundary-review.md` -
+  documentation-only / governance-only / boundary-review-only /
+  traceability-planning-only / non-runtime / non-execution SniperBot Audit
+  Log / Trade Traceability Boundary Review defining future audit-log and
+  trade-traceability boundaries that must be proven before future
+  paper-trading, simulation, broker, Robinhood, order-routing, CUDA, or
+  live-trading work can move closer to execution, for traceability only.
+  Auditability comes before execution. Audit logs are future evidence records
+  only, not runtime controls, trading controls, broker controls, Robinhood
+  controls, order-routing controls, automation controls, command controls, or
+  execution controls. Traceability is review/accountability only, not
+  readiness approval, implementation approval, trading approval, broker
+  approval, Robinhood approval, order approval, command approval, or
+  execution approval. Audit logs must not trigger trades, approve trades,
+  create order intent, connect to brokers, connect to Robinhood, operate as
+  automation, or become command execution. No live trading is authorized, no
+  paper trading is created, no simulation is created, no broker access is
+  created, no Robinhood access or alignment is created, no SniperBot behavior
+  is created, no CUDA trading code is created, no order routing is created,
+  no trade automation is created, no macro/hotkey behavior is created, and no
+  command execution or execution capability is created. Future audit-log,
+  trade-traceability, broker, Robinhood, order-routing, or live-trading
+  movement requires a separate explicit founder-selected bounded task order
+  before implementation.
 
 ## Relationship to Control Matrix
 
