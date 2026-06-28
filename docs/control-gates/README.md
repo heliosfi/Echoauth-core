@@ -456,6 +456,45 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   execution capability is created. Future order-routing capability requires
   separate explicit founder-selected approval gates before implementation
   could be discussed.
+* `sniperbot-latency-cuda-boundary-review.md` - documentation-only /
+  governance-only / latency / CUDA-boundary-only / non-runtime /
+  non-execution SniperBot Latency / CUDA Boundary Review defining future
+  performance-governance and execution-adjacent boundaries before any future
+  CUDA trading code, GPU kernels, persistent kernels, warp-per-symbol
+  execution, H2D/D2H transfer logic, pinned memory behavior, CUDA streams,
+  latency benchmarking, latency optimization, tick-processing runtime,
+  market-data runtime, signal runtime, strategy runtime, order-routing,
+  paper-trading, simulation, or live-trading work can be considered under a
+  separate bounded task order, for traceability only. Latency / CUDA review
+  is not latency optimization, CUDA analysis is not CUDA implementation,
+  performance mapping is not execution authority, broker-access review is not
+  inherited latency / CUDA approval, Robinhood-access review is not inherited
+  latency / CUDA approval, order-routing review is not inherited latency /
+  CUDA approval, and documentation is not execution. Latency / CUDA work must
+  not be treated as a configuration switch, environment-variable addition,
+  CUDA toolkit setup, GPU driver setup, dependency addition, benchmark script,
+  profiling task, GPU-runtime path, kernel prototype, persistent-kernel
+  prototype, warp-per-symbol prototype, pinned-memory buffer,
+  stream-orchestration path, H2D/D2H transfer path, tick processor,
+  market-data processor, signal processor, runtime-optimization path,
+  order-routing accelerator, routing queue, queue worker, dispatcher,
+  paper-trading shortcut, simulation shortcut, live-trading shortcut, or
+  hidden execution bridge. No CUDA trading code is authorized, no GPU kernels
+  are authorized, no persistent kernels are authorized, no warp-per-symbol
+  execution is authorized, no H2D/D2H transfer logic is authorized, no pinned
+  memory behavior is authorized, no CUDA streams are authorized, no latency
+  benchmarking or optimization is authorized, no tick-processing runtime is
+  created, no market-data runtime is created, no signal runtime is created,
+  no strategy runtime is created, no order routing is authorized, no order
+  submission or order cancellation is authorized, no broker routing is
+  authorized, no Robinhood routing is authorized, no exchange routing is
+  authorized, no paper trading is created, no simulation is created, no live
+  trading is authorized, no automated execution is authorized, no
+  position-sizing runtime is created, no trade-size runtime is created, no
+  SniperBot behavior is created, no command execution is created, and no
+  execution capability is created. Future latency / CUDA capability requires
+  separate explicit founder-selected approval gates before implementation
+  could be discussed.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
