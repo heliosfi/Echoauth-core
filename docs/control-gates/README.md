@@ -387,6 +387,40 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   execution is created, and no execution capability is created. Future
   broker capability requires separate explicit founder-selected approval
   gates before implementation could be discussed.
+* `sniperbot-robinhood-access-boundary-review.md` - documentation-only /
+  governance-only / Robinhood-access-boundary-only / non-runtime /
+  non-execution SniperBot Robinhood Access Boundary Review defining future
+  Robinhood-specific access boundaries before any future Robinhood,
+  broker-runtime, account-linking, OAuth/login/session, cookie/session,
+  browser-automation, credential, market-data, order-routing,
+  paper-trading, simulation, or live-trading work can be considered under a
+  separate bounded task order, for traceability only. Robinhood-access
+  review is not Robinhood access, Robinhood-access mapping is not Robinhood
+  permission, broker-access review is not inherited Robinhood approval, and
+  documentation is not execution. Robinhood access must not be treated as a
+  configuration switch, environment-variable addition, API-key addition,
+  secret-manager entry, OAuth setup step, login/session setup step,
+  cookie/session reuse, browser automation, browser-profile reuse,
+  account-linking shortcut, Robinhood SDK setup, API integration shortcut,
+  market-data setup step, order-routing prerequisite, or hidden execution
+  bridge. No Robinhood access is authorized, no Robinhood account linking is
+  authorized, no Robinhood login/session behavior is authorized, no
+  Robinhood API calls are authorized, no Robinhood market-data access is
+  authorized, no API key or secret handling is authorized, no credential
+  storage or retrieval is authorized, no OAuth/session setup is authorized,
+  no cookie/session reuse is authorized, no browser automation is
+  authorized, no broker access implementation is authorized, no exchange
+  access is authorized, no wallet/custody access is authorized, no order
+  submission or order cancellation is authorized, no order routing is
+  authorized, no automated execution is authorized, no paper trading is
+  created, no simulation is created, no live trading is authorized, no
+  position-sizing runtime is created, no trade-size runtime is created, no
+  broker runtime is created, no strategy runtime is created, no SniperBot
+  behavior is created, no CUDA trading behavior is created, no macro/hotkey
+  behavior is created, no command execution is created, and no execution
+  capability is created. Future Robinhood capability requires separate
+  explicit founder-selected approval gates before implementation could be
+  discussed.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
