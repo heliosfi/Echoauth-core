@@ -545,6 +545,59 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   execution capability is created. Future market-data / tick-processing
   capability requires separate explicit founder-selected approval gates
   before implementation could be discussed.
+* `sniperbot-signal-runtime-boundary-review.md` - documentation-only /
+  governance-only / signal-runtime-boundary-only / non-runtime /
+  non-execution SniperBot Signal Runtime Boundary Review defining future
+  signal-governance and execution-adjacent boundaries before any future
+  signal runtime, signal generation, indicator computation, indicator
+  evaluation, threshold logic, confidence scoring, buy/sell/hold signals,
+  options signals, stock signals, crypto signals, signal queues, signal
+  dispatchers, signal-to-strategy handoff, signal-to-risk handoff,
+  signal-to-order-routing handoff, market-data runtime, tick-processing
+  runtime, replay/backtest runtime, strategy runtime, risk runtime, CUDA
+  signal processing, latency optimization, order-routing, paper-trading,
+  simulation, or live-trading work can be considered under a separate
+  bounded task order, for traceability only. Signal-runtime review is not
+  signal generation, indicator analysis is not indicator computation,
+  threshold analysis is not threshold logic, alert-state analysis is not
+  alert runtime, confidence-scoring analysis is not confidence scoring,
+  market-data / tick-processing review is not inherited signal-runtime
+  approval, latency / CUDA review is not inherited signal-runtime approval,
+  and documentation is not execution. Signal-runtime work must not be treated
+  as a configuration switch, environment-variable addition, indicator
+  addition, indicator library setup, indicator evaluator, indicator
+  implementation, threshold rule, alert-state machine, alert implementation,
+  confidence scorer, buy/sell/hold classifier, options-signal path,
+  stock-signal path, crypto-signal path, signal queue, signal dispatcher,
+  signal router, signal-to-strategy bridge, signal-to-risk bridge,
+  signal-to-order-routing bridge, signal-pipeline implementation, strategy
+  prerequisite, strategy implementation, risk-runtime prerequisite, risk
+  implementation, order-routing prerequisite, routing implementation,
+  market-data runtime prerequisite, CUDA runtime prerequisite, paper-trading
+  shortcut, simulation shortcut, live-trading shortcut, or hidden execution
+  bridge. No signal runtime is authorized, no signal generation is
+  authorized, no signal-pipeline implementation is authorized, no indicator
+  computation or evaluation is authorized, no indicator runtime or
+  implementation is authorized, no threshold logic is authorized, no
+  confidence scoring is authorized, no alert runtime, alerting, alert
+  implementation, or alert state is authorized, no buy/sell/hold signals are
+  authorized, no options, stock, or crypto signals are authorized, no signal
+  queues or dispatchers are authorized, no signal-to-strategy handoff is
+  authorized, no signal-to-risk handoff is authorized, no
+  signal-to-order-routing handoff is authorized, no market-data runtime is
+  created, no tick-processing runtime is created, no replay/backtest runtime
+  is created, no strategy runtime or strategy implementation is created, no
+  risk runtime or risk implementation is created, no CUDA signal processing
+  is authorized, no latency optimization is authorized, no order routing is
+  authorized, no order submission or order cancellation is authorized, no
+  broker routing is authorized, no Robinhood routing is authorized, no
+  exchange routing is authorized, no paper trading is created, no simulation
+  is created, no live trading is authorized, no automated execution is
+  authorized, no position-sizing runtime is created, no trade-size runtime is
+  created, no SniperBot behavior is created, no command execution is created,
+  and no execution capability is created. Future signal-runtime capability
+  requires separate explicit founder-selected approval gates before
+  implementation could be discussed.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
