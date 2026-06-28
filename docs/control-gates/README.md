@@ -545,6 +545,62 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   execution capability is created. Future market-data / tick-processing
   capability requires separate explicit founder-selected approval gates
   before implementation could be discussed.
+* `sniperbot-replay-backtest-separation-boundary-review.md` -
+  documentation-only / governance-only / replay / backtest separation
+  boundary-only / non-runtime / non-execution SniperBot Replay / Backtest
+  Separation Boundary Review defining future historical-data,
+  evidence-integrity, and execution-adjacent boundaries before any future
+  replay runtime, backtest runtime, historical-data ingestion runtime,
+  recorded-data replay logic, market-data replay, tick replay, quote replay,
+  option-chain replay, replay-to-signal handoff, replay-to-strategy handoff,
+  replay-to-risk handoff, replay-to-position-sizing handoff,
+  replay-to-trade-size handoff, replay-to-order-routing handoff, backtest
+  result scoring, backtest optimization, parameter tuning runtime,
+  walk-forward runtime, simulated confidence scoring, paper-trading,
+  simulation, or live-trading work can be considered under a separate
+  bounded task order, for traceability only. Replay / backtest review is not
+  replay runtime, backtest analysis is not backtest runtime,
+  historical-data analysis is not historical-data ingestion runtime,
+  recorded-data analysis is not recorded-data replay logic, optimization
+  analysis is not backtest optimization, parameter analysis is not parameter
+  tuning runtime, simulated-confidence analysis is not simulated confidence
+  scoring, and documentation is not execution. Market-data review is not
+  inherited replay / backtest approval, signal-runtime review is not
+  inherited replay / backtest approval, strategy-runtime review is not
+  inherited replay / backtest approval, risk-runtime review is not inherited
+  replay / backtest approval, position-sizing review is not inherited replay
+  / backtest approval, trade-size review is not inherited replay / backtest
+  approval, and paper/simulation review is not inherited replay / backtest
+  approval. Replay / backtest work must not be treated as a configuration
+  switch, environment-variable addition, data-file addition, replay engine,
+  backtest engine, historical-data reader, recorded-data player, tick replay
+  pipeline, quote replay pipeline, option-chain replay pipeline, optimizer
+  loop, strategy tuning loop, risk testing loop, parameter tuning loop,
+  walk-forward runtime, simulated-confidence scorer, replay-to-signal bridge,
+  replay-to-strategy bridge, replay-to-risk bridge,
+  replay-to-position-sizing bridge, replay-to-trade-size bridge,
+  replay-to-order-routing bridge, runtime replay/backtest pipeline,
+  paper-trading shortcut, simulation shortcut, live-trading shortcut, or
+  hidden execution bridge. No replay runtime is authorized, no backtest
+  runtime is authorized, no historical-data ingestion runtime is authorized,
+  no recorded-data replay logic is authorized, no market-data, tick, quote,
+  or option-chain replay is authorized, no replay-to-signal,
+  replay-to-strategy, replay-to-risk, replay-to-position-sizing,
+  replay-to-trade-size, or replay-to-order-routing handoff is authorized, no
+  backtest result scoring is authorized, no backtest optimization is
+  authorized, no parameter tuning runtime is authorized, no walk-forward
+  runtime is authorized, no simulated confidence scoring is authorized, no
+  replay engine, backtest engine, historical-data reader, recorded-data
+  player, optimizer loop, strategy tuning loop, risk testing loop, or
+  runtime replay/backtest pipeline is authorized, no paper trading is
+  created, no simulation is created, no live trading is authorized, no broker
+  access is created, no Robinhood access is created, no exchange or wallet
+  access is created, no order routing is authorized, no order submission or
+  order cancellation is authorized, no automated execution is authorized, no
+  SniperBot behavior is created, no command execution is created, and no
+  execution capability is created. Future replay / backtest capability
+  requires separate explicit founder-selected approval gates before
+  implementation could be discussed.
 * `sniperbot-signal-runtime-boundary-review.md` - documentation-only /
   governance-only / signal-runtime-boundary-only / non-runtime /
   non-execution SniperBot Signal Runtime Boundary Review defining future
