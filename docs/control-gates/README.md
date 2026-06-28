@@ -705,6 +705,58 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   created, no command execution is created, and no execution capability is
   created. Future risk-runtime capability requires separate explicit
   founder-selected approval gates before implementation could be discussed.
+* `sniperbot-position-sizing-boundary-review.md` - documentation-only /
+  governance-only / position-sizing-boundary-only / non-runtime /
+  non-execution SniperBot Position Sizing Boundary Review defining future
+  position-sizing readiness boundaries before any future position-sizing
+  runtime, position-size calculation, quantity calculation, share quantity
+  calculation, contract quantity calculation, crypto quantity calculation,
+  buying-power allocation, capital allocation, exposure allocation,
+  risk-to-position-sizing handoff, position-sizing-to-trade-size handoff,
+  position-sizing-to-routing handoff, position-sizing-to-order-routing
+  handoff, position-sizing approval, position-sizing rejection,
+  account-balance reads, broker balance reads, Robinhood balance reads,
+  buying-power reads, margin calculation, leverage calculation, trade sizing,
+  order-routing, paper-trading, simulation, or live-trading work can be
+  considered under a separate bounded task order, for traceability only.
+  Position-sizing review is not position sizing, position-size analysis is
+  not position-size calculation, quantity analysis is not quantity
+  calculation, buying-power analysis is not account-balance access, margin
+  analysis is not margin calculation, leverage analysis is not leverage
+  calculation, risk-runtime review is not inherited position-sizing approval,
+  trade-size review is not inherited position-sizing approval, and
+  documentation is not execution. Position-sizing work must not be treated as
+  a configuration switch, environment-variable addition, calculator
+  implementation, quantity calculator, buying-power allocator, exposure
+  allocator, margin calculator, leverage calculator, position-sizing gate,
+  queue, dispatcher, risk-to-position-sizing bridge,
+  position-sizing-to-trade-size bridge, position-sizing-to-routing bridge,
+  position-sizing-to-order-routing bridge, account-balance integration,
+  broker-balance integration, Robinhood-balance integration, trade-size
+  prerequisite, order-routing prerequisite, routing implementation,
+  paper-trading shortcut, simulation shortcut, live-trading shortcut, or
+  hidden execution bridge. No position-sizing runtime is authorized, no
+  position-size calculation is authorized, no quantity calculation is
+  authorized, no share, contract, or crypto quantity calculation is
+  authorized, no buying-power allocation is authorized, no capital allocation
+  is authorized, no exposure allocation is authorized, no
+  risk-to-position-sizing handoff is authorized, no
+  position-sizing-to-trade-size handoff is authorized, no
+  position-sizing-to-routing or position-sizing-to-order-routing handoff is
+  authorized, no account-balance, broker-balance, Robinhood-balance, or
+  buying-power read is authorized, no margin or leverage calculation is
+  authorized, no trade sizing is authorized, no risk runtime is created, no
+  strategy runtime is created, no market-data runtime is created, no
+  tick-processing runtime is created, no signal runtime is created, no
+  replay/backtest runtime is created, no order routing is authorized, no
+  order submission or order cancellation is authorized, no broker routing is
+  authorized, no Robinhood routing is authorized, no exchange routing is
+  authorized, no paper trading is created, no simulation is created, no live
+  trading is authorized, no automated execution is authorized, no SniperBot
+  behavior is created, no command execution is created, and no execution
+  capability is created. Future position-sizing capability requires separate
+  explicit founder-selected approval gates before implementation could be
+  discussed.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
