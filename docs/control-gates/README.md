@@ -888,6 +888,87 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   execution is created, and no execution capability is created. Future
   deployment / operations capability requires separate explicit
   founder-selected approval gates before implementation could be discussed.
+* `sniperbot-deployment-operations-scope-definition-boundary-review.md` -
+  documentation-only / governance-only / deployment / operations scope
+  definition-boundary-only / non-runtime / non-execution SniperBot
+  Deployment / Operations Scope Definition Boundary Review defining future
+  operational scope areas before any future deployment implementation,
+  operations implementation, runtime startup, service startup, worker
+  startup, scheduler startup, bot process activation, environment
+  provisioning, staging environment rollout, production environment rollout,
+  secrets configuration, broker credential handling, Robinhood credential
+  handling, exchange credential handling, monitoring runtime, alerting
+  runtime, health-check runtime, operational dashboards, process
+  supervision, auto-restart behavior, runtime logging pipelines,
+  incident-response automation, rollback automation, deployment scripts,
+  startup scripts, scheduler scripts, worker scripts, service files,
+  infrastructure configuration, paper-trading, simulation, replay runtime,
+  backtest runtime, market-data runtime, signal runtime, strategy runtime,
+  risk runtime, position-sizing runtime, trade-size runtime, order-routing,
+  broker-access, Robinhood-access, exchange-access, live-trading,
+  automated-execution, SniperBot behavior, command-execution, or
+  execution-capability work can be considered under a separate bounded task
+  order, for traceability only. Scope definition is not deployment
+  implementation, deployment scope is not deployment approval, operations
+  scope is not operations implementation, runtime-startup scope is not
+  runtime startup, service-startup scope is not service startup,
+  worker-startup scope is not worker startup, scheduler-startup scope is not
+  scheduler startup, bot-process activation scope is not bot process
+  activation, environment-provisioning scope is not environment
+  provisioning, staging-rollout scope is not staging rollout,
+  production-rollout scope is not production rollout, environment scope is
+  not environment-file or environment-variable work, secrets-handling scope
+  is not secrets configuration, credential-handling scope is not broker,
+  Robinhood, or exchange credential handling, monitoring scope is not
+  monitoring runtime, alerting scope is not alerting runtime, health-check
+  scope is not health-check runtime, dashboard scope is not operational
+  dashboard implementation, process-supervision scope is not process
+  supervision, auto-restart scope is not auto-restart behavior,
+  logging-pipeline scope is not runtime logging pipelines,
+  incident-response scope is not incident-response automation,
+  rollback-automation scope is not rollback automation, script scope is not
+  script creation or execution, infrastructure scope is not infrastructure
+  configuration, and documentation is not execution. The broader deployment
+  / operations review is not inherited implementation approval, latency /
+  CUDA review is not inherited deployment / operations approval, market-data
+  review is not inherited deployment / operations approval, replay/backtest
+  review is not inherited deployment / operations approval, signal-runtime
+  review is not inherited deployment / operations approval, strategy-runtime
+  review is not inherited deployment / operations approval, risk-runtime
+  review is not inherited deployment / operations approval, position-sizing
+  review is not inherited deployment / operations approval, trade-size review
+  is not inherited deployment / operations approval, paper/simulation review
+  is not inherited deployment / operations approval, broker-access review is
+  not inherited deployment / operations approval, Robinhood-access review is
+  not inherited deployment / operations approval, and order-routing review is
+  not inherited deployment / operations approval. No deployment
+  implementation is authorized, no operations implementation is authorized,
+  no runtime startup is authorized, no service startup is authorized, no
+  worker startup is authorized, no scheduler startup is authorized, no bot
+  process activation is authorized, no environment provisioning is
+  authorized, no staging or production environment rollout is authorized, no
+  secrets configuration is authorized, no broker, Robinhood, or exchange
+  credential handling is authorized, no monitoring runtime is authorized, no
+  alerting runtime is authorized, no health-check runtime is authorized, no
+  operational dashboards are authorized, no process supervision is
+  authorized, no auto-restart behavior is authorized, no runtime logging
+  pipelines are authorized, no incident-response automation is authorized,
+  no rollback automation is authorized, no deployment scripts, startup
+  scripts, scheduler scripts, worker scripts, service files, infrastructure
+  configuration, deployment pipelines, operational automation, or runtime
+  process controls are authorized, no paper trading is created, no
+  simulation is created, no replay runtime is authorized, no backtest runtime
+  is authorized, no market-data runtime is created, no signal runtime is
+  created, no strategy runtime is created, no risk runtime is created, no
+  position-sizing runtime is created, no trade-size runtime is created, no
+  order routing is authorized, no order submission or order cancellation is
+  authorized, no broker access is created, no Robinhood access is created, no
+  exchange access is created, no live trading is authorized, no automated
+  execution is authorized, no SniperBot behavior is created, no command
+  execution is created, and no execution capability is created. Future
+  deployment / operations implementation capability requires separate
+  explicit founder-selected approval gates before implementation could be
+  discussed.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
