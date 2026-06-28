@@ -813,6 +813,81 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   capability is created. Future position-sizing capability requires separate
   explicit founder-selected approval gates before implementation could be
   discussed.
+* `sniperbot-deployment-operations-boundary-review.md` - documentation-only /
+  governance-only / deployment / operations-boundary-only / non-runtime /
+  non-execution SniperBot Deployment / Operations Boundary Review defining
+  future operational-governance and execution-adjacent boundaries before any
+  future deployment implementation, operations implementation, runtime
+  startup, service startup, worker startup, scheduler startup, bot process
+  activation, environment provisioning, staging environment rollout,
+  production environment rollout, secrets configuration, broker credential
+  handling, Robinhood credential handling, exchange credential handling,
+  monitoring runtime, alerting runtime, health-check runtime, process
+  supervision, auto-restart behavior, runtime logging pipelines, operational
+  dashboards, incident-response automation, rollback automation,
+  paper-trading, simulation, replay runtime, backtest runtime, market-data
+  runtime, signal runtime, strategy runtime, risk runtime, position-sizing
+  runtime, trade-size runtime, order-routing, broker-access, Robinhood-access,
+  exchange-access, live-trading, automated-execution, SniperBot behavior,
+  command-execution, or execution-capability work can be considered under a
+  separate bounded task order, for traceability only. Deployment / operations
+  review is not deployment implementation, operations analysis is not
+  operations implementation, runtime-startup analysis is not runtime startup,
+  service-startup analysis is not service startup, worker-startup analysis is
+  not worker startup, scheduler analysis is not scheduler startup,
+  environment analysis is not environment provisioning, staging analysis is
+  not staging rollout, production analysis is not production rollout,
+  secrets analysis is not secrets configuration, credential analysis is not
+  credential handling, monitoring analysis is not monitoring runtime,
+  alerting analysis is not alerting runtime, health-check analysis is not
+  health-check runtime, process-supervision analysis is not process
+  supervision, rollback analysis is not rollback automation, and
+  documentation is not execution. Latency / CUDA review is not inherited
+  deployment / operations approval, market-data review is not inherited
+  deployment / operations approval, replay/backtest review is not inherited
+  deployment / operations approval, signal-runtime review is not inherited
+  deployment / operations approval, strategy-runtime review is not inherited
+  deployment / operations approval, risk-runtime review is not inherited
+  deployment / operations approval, position-sizing review is not inherited
+  deployment / operations approval, trade-size review is not inherited
+  deployment / operations approval, paper/simulation review is not inherited
+  deployment / operations approval, broker-access review is not inherited
+  deployment / operations approval, Robinhood-access review is not inherited
+  deployment / operations approval, and order-routing review is not inherited
+  deployment / operations approval. Deployment / operations work must not be
+  treated as a configuration switch, environment-variable addition,
+  environment-file addition, secrets-file addition, deployment script,
+  startup script, operations script, scheduler, worker, daemon, service,
+  monitor, alerting system, health check, operational dashboard,
+  incident-response automation path, auto-restart behavior, runtime logging
+  pipeline, process supervisor, infrastructure configuration, broker
+  credential path, Robinhood credential path, exchange credential path,
+  staging environment rollout, production environment rollout, rollback
+  automation path, runtime startup prerequisite, paper-trading shortcut,
+  simulation shortcut, live-trading shortcut, or hidden execution bridge. No
+  deployment implementation is authorized, no operations implementation is
+  authorized, no runtime startup is authorized, no service startup is
+  authorized, no worker startup is authorized, no scheduler startup is
+  authorized, no bot process activation is authorized, no environment
+  provisioning is authorized, no staging or production environment rollout is
+  authorized, no secrets configuration is authorized, no broker, Robinhood,
+  or exchange credential handling is authorized, no monitoring runtime is
+  authorized, no alerting runtime is authorized, no health-check runtime is
+  authorized, no process supervision is authorized, no auto-restart behavior
+  is authorized, no runtime logging pipelines are authorized, no operational
+  dashboards are authorized, no incident-response automation is authorized,
+  no rollback automation is authorized, no paper trading is created, no
+  simulation is created, no replay runtime is authorized, no backtest runtime
+  is authorized, no market-data runtime is created, no signal runtime is
+  created, no strategy runtime is created, no risk runtime is created, no
+  position-sizing runtime is created, no trade-size runtime is created, no
+  order routing is authorized, no order submission or order cancellation is
+  authorized, no broker access is created, no Robinhood access is created, no
+  exchange access is created, no live trading is authorized, no automated
+  execution is authorized, no SniperBot behavior is created, no command
+  execution is created, and no execution capability is created. Future
+  deployment / operations capability requires separate explicit
+  founder-selected approval gates before implementation could be discussed.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
