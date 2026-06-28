@@ -598,6 +598,56 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   and no execution capability is created. Future signal-runtime capability
   requires separate explicit founder-selected approval gates before
   implementation could be discussed.
+* `sniperbot-strategy-runtime-boundary-review.md` - documentation-only /
+  governance-only / strategy-runtime-boundary-only / non-runtime /
+  non-execution SniperBot Strategy Runtime Boundary Review defining future
+  strategy-governance and execution-adjacent boundaries before any future
+  strategy runtime, strategy activation, strategy selection, strategy
+  scoring, strategy ranking, trade-intent creation, buy/sell/hold
+  decisioning, options strategy runtime, stock strategy runtime, crypto
+  strategy runtime, signal-to-strategy handoff, strategy-to-risk handoff,
+  strategy-to-routing handoff, strategy-to-order-routing handoff,
+  market-data runtime, tick-processing runtime, signal runtime,
+  replay/backtest runtime, risk runtime, position sizing, trade sizing,
+  order-routing, paper-trading, simulation, or live-trading work can be
+  considered under a separate bounded task order, for traceability only.
+  Strategy-runtime review is not strategy activation, strategy-selection
+  analysis is not strategy selection, strategy-scoring analysis is not
+  strategy scoring, strategy-ranking analysis is not strategy ranking,
+  trade-intent analysis is not trade-intent creation, buy/sell/hold analysis
+  is not buy/sell/hold decisioning, market-data / tick-processing review is
+  not inherited strategy-runtime approval, signal-runtime review is not
+  inherited strategy-runtime approval, and documentation is not execution.
+  Strategy-runtime work must not be treated as a configuration switch,
+  environment-variable addition, strategy addition, strategy selector,
+  strategy scorer, ranking system, trade-intent generator, buy/sell/hold
+  logic, options-strategy path, stock-strategy path, crypto-strategy path,
+  strategy queue, strategy dispatcher, strategy router, signal-to-strategy
+  bridge, strategy-to-risk bridge, strategy-to-routing bridge,
+  strategy-to-order-routing bridge, strategy-pipeline implementation,
+  risk-runtime prerequisite, risk implementation, order-routing prerequisite,
+  routing implementation, market-data runtime prerequisite, signal-runtime
+  prerequisite, paper-trading shortcut, simulation shortcut, live-trading
+  shortcut, or hidden execution bridge. No strategy runtime is authorized, no
+  strategy activation is authorized, no strategy selection, scoring, or
+  ranking is authorized, no strategy selector, scorer, or ranking system is
+  authorized, no trade-intent creation is authorized, no buy/sell/hold
+  decisioning or logic is authorized, no options, stock, or crypto strategy
+  runtime is authorized, no strategy queues or dispatchers are authorized, no
+  signal-to-strategy handoff is authorized, no strategy-to-risk handoff is
+  authorized, no strategy-to-routing or strategy-to-order-routing handoff is
+  authorized, no market-data runtime is created, no tick-processing runtime
+  is created, no signal runtime is created, no replay/backtest runtime is
+  created, no risk runtime or risk implementation is created, no position
+  sizing or trade sizing is authorized, no order routing is authorized, no
+  order submission or order cancellation is authorized, no broker routing is
+  authorized, no Robinhood routing is authorized, no exchange routing is
+  authorized, no paper trading is created, no simulation is created, no live
+  trading is authorized, no automated execution is authorized, no SniperBot
+  behavior is created, no command execution is created, and no execution
+  capability is created. Future strategy-runtime capability requires
+  separate explicit founder-selected approval gates before implementation
+  could be discussed.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
