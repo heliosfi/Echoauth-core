@@ -421,6 +421,41 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   capability is created. Future Robinhood capability requires separate
   explicit founder-selected approval gates before implementation could be
   discussed.
+* `sniperbot-order-routing-boundary-review.md` - documentation-only /
+  governance-only / order-routing-boundary-only / non-runtime /
+  non-execution SniperBot Order Routing Boundary Review defining future
+  order-routing boundaries before any future order creation, order
+  submission, order cancellation, order modification, broker routing,
+  Robinhood routing, exchange routing, routing API calls, order-builder
+  behavior, queue-worker behavior, dispatcher behavior, paper-trading,
+  simulation, or live-trading work can be considered under a separate bounded
+  task order, for traceability only. Order-routing review is not order
+  routing, order-routing mapping is not order authority, broker-access review
+  is not inherited order-routing approval, Robinhood-access review is not
+  inherited order-routing approval, and documentation is not execution. Order
+  routing must not be treated as a configuration switch,
+  environment-variable addition, API endpoint addition, broker SDK call,
+  Robinhood SDK call, exchange SDK call, order-builder shortcut,
+  order-validator shortcut, queue worker, dispatcher, message-bus event,
+  route-selection helper, routing API wrapper, route preview, dry run, mock
+  route, sandbox route, paper order, simulated order, live order, or hidden
+  execution bridge. No order routing is authorized, no order creation is
+  authorized, no order submission is authorized, no order cancellation is
+  authorized, no order modification is authorized, no broker routing is
+  authorized, no Robinhood routing is authorized, no exchange routing is
+  authorized, no routing API calls are authorized, no market order behavior
+  is authorized, no limit order behavior is authorized, no stop order
+  behavior is authorized, no options order routing is authorized, no stock
+  order routing is authorized, no crypto order routing is authorized, no
+  paper trading is created, no simulation is created, no live trading is
+  authorized, no automated execution is authorized, no position-sizing
+  runtime is created, no trade-size runtime is created, no strategy runtime
+  is created, no risk runtime is created, no market-data runtime is created,
+  no SniperBot behavior is created, no CUDA trading behavior is created, no
+  macro/hotkey behavior is created, no command execution is created, and no
+  execution capability is created. Future order-routing capability requires
+  separate explicit founder-selected approval gates before implementation
+  could be discussed.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
