@@ -648,6 +648,63 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   capability is created. Future strategy-runtime capability requires
   separate explicit founder-selected approval gates before implementation
   could be discussed.
+* `sniperbot-risk-runtime-boundary-review.md` - documentation-only /
+  governance-only / risk-runtime-boundary-only / non-runtime /
+  non-execution SniperBot Risk Runtime Boundary Review defining future
+  risk-governance and execution-adjacent boundaries before any future risk
+  runtime, risk activation, risk scoring, risk decisioning, risk approval,
+  risk rejection, strategy-to-risk handoff, risk-to-position-sizing handoff,
+  risk-to-trade-sizing handoff, risk-to-routing handoff,
+  risk-to-order-routing handoff, exposure calculation runtime,
+  capital-allocation runtime, loss-limit enforcement runtime, stop-loss
+  runtime, daily stop-loss runtime, position sizing, trade sizing,
+  market-data runtime, tick-processing runtime, signal runtime, strategy
+  runtime, replay/backtest runtime, order-routing, paper-trading,
+  simulation, or live-trading work can be considered under a separate
+  bounded task order, for traceability only. Risk-runtime review is not risk
+  activation, risk-scoring analysis is not risk scoring, risk-decision
+  analysis is not risk decisioning, risk-approval analysis is not risk
+  approval, risk-rejection analysis is not risk rejection, exposure analysis
+  is not exposure calculation runtime, loss-limit analysis is not
+  loss-limit enforcement runtime, stop-loss analysis is not stop-loss
+  runtime, daily stop-loss analysis is not daily stop-loss runtime,
+  strategy-runtime review is not inherited risk-runtime approval,
+  signal-runtime review is not inherited risk-runtime approval, market-data /
+  tick-processing review is not inherited risk-runtime approval, and
+  documentation is not execution. Risk-runtime work must not be treated as a
+  configuration switch, environment-variable addition, risk-engine addition,
+  risk scorer, risk gate, risk approval path, risk rejection path, exposure
+  calculator, capital-allocation calculator, loss-limit enforcer, stop-loss
+  enforcer, daily stop-loss enforcer, position-size calculator, trade-size
+  calculator, strategy-to-risk bridge, risk-to-position-sizing bridge,
+  risk-to-trade-sizing bridge, risk-to-routing bridge,
+  risk-to-order-routing bridge, risk-pipeline implementation,
+  risk-decision implementation, risk-approval implementation,
+  risk-rejection implementation, position-sizing prerequisite, trade-size
+  prerequisite, order-routing prerequisite, routing implementation,
+  market-data runtime prerequisite, signal-runtime prerequisite,
+  strategy-runtime prerequisite, paper-trading shortcut, simulation shortcut,
+  live-trading shortcut, or hidden execution bridge. No risk runtime is
+  authorized, no risk activation is authorized, no risk scoring or
+  decisioning is authorized, no risk approval or rejection is authorized, no
+  risk engine, scorer, gate, approval path, rejection path, or risk-pipeline
+  implementation is authorized, no strategy-to-risk handoff is authorized,
+  no risk-to-position-sizing handoff is authorized, no risk-to-trade-sizing
+  handoff is authorized, no risk-to-routing or risk-to-order-routing handoff
+  is authorized, no exposure calculation runtime is created, no
+  capital-allocation runtime is created, no loss-limit enforcement runtime is
+  created, no stop-loss runtime is created, no daily stop-loss runtime is
+  created, no position sizing or trade sizing is authorized, no market-data
+  runtime is created, no tick-processing runtime is created, no signal
+  runtime is created, no strategy runtime is created, no replay/backtest
+  runtime is created, no order routing is authorized, no order submission or
+  order cancellation is authorized, no broker routing is authorized, no
+  Robinhood routing is authorized, no exchange routing is authorized, no
+  paper trading is created, no simulation is created, no live trading is
+  authorized, no automated execution is authorized, no SniperBot behavior is
+  created, no command execution is created, and no execution capability is
+  created. Future risk-runtime capability requires separate explicit
+  founder-selected approval gates before implementation could be discussed.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
