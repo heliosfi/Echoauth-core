@@ -495,6 +495,56 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   execution capability is created. Future latency / CUDA capability requires
   separate explicit founder-selected approval gates before implementation
   could be discussed.
+* `sniperbot-market-data-tick-processing-boundary-review.md` -
+  documentation-only / governance-only / market-data / tick-processing
+  boundary-only / non-runtime / non-execution SniperBot Market Data / Tick
+  Processing Boundary Review defining future data-governance and
+  execution-adjacent boundaries before any future market-data runtime,
+  market-data feed access, broker market-data access, Robinhood market-data
+  access, quote access, option-chain access, tick ingestion, tick processing,
+  feed handlers, websocket connections, polling jobs, data replay,
+  backtesting runtime, historical-data ingestion, real-time-data ingestion,
+  stale-data logic, signal runtime, strategy runtime, risk runtime, CUDA
+  tick-processing behavior, latency optimization, order-routing,
+  paper-trading, simulation, or live-trading work can be considered under a
+  separate bounded task order, for traceability only. Market-data /
+  tick-processing review is not market-data access, quote analysis is not
+  quote-feed access, option-chain analysis is not option-chain access,
+  tick-processing analysis is not tick processing, replay analysis is not
+  replay runtime, stale-data analysis is not stale-data logic, broker-access
+  review is not inherited market-data approval, Robinhood-access review is
+  not inherited market-data approval, order-routing review is not inherited
+  market-data approval, latency / CUDA review is not inherited market-data
+  approval, and documentation is not execution. Market-data / tick-processing
+  work must not be treated as a configuration switch, environment-variable
+  addition, API-key addition, credential addition, broker SDK setup,
+  Robinhood SDK setup, exchange SDK setup, API call wrapper, websocket
+  client, polling job, feed handler, quote parser, option-chain parser, tick
+  buffer, tick processor, market-data cache, stale-data filter,
+  historical-data importer, real-time-data ingestion path, replay tool,
+  backtest harness, signal prerequisite, strategy prerequisite, risk-runtime
+  prerequisite, latency / CUDA prerequisite, order-routing prerequisite,
+  paper-trading shortcut, simulation shortcut, live-trading shortcut, or
+  hidden execution bridge. No market-data runtime is authorized, no
+  market-data feed access is authorized, no broker market-data access is
+  authorized, no Robinhood market-data access is authorized, no quote access
+  is authorized, no option-chain access is authorized, no tick ingestion or
+  tick processing is authorized, no feed handlers are authorized, no
+  websocket connections or polling jobs are authorized, no data replay is
+  authorized, no backtesting runtime is authorized, no historical-data or
+  real-time-data ingestion is authorized, no stale-data logic is authorized,
+  no signal runtime is created, no strategy runtime is created, no risk
+  runtime is created, no CUDA tick-processing behavior is authorized, no
+  latency optimization is authorized, no order routing is authorized, no
+  order submission or order cancellation is authorized, no broker routing is
+  authorized, no Robinhood routing is authorized, no exchange routing is
+  authorized, no paper trading is created, no simulation is created, no live
+  trading is authorized, no automated execution is authorized, no
+  position-sizing runtime is created, no trade-size runtime is created, no
+  SniperBot behavior is created, no command execution is created, and no
+  execution capability is created. Future market-data / tick-processing
+  capability requires separate explicit founder-selected approval gates
+  before implementation could be discussed.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
