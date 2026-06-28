@@ -1054,6 +1054,64 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   execution is created, and no execution capability is created. Future
   deployment implementation capability requires separate explicit
   founder-selected approval gates before implementation could be discussed.
+* `sniperbot-deployment-implementation-approval-boundary-review.md` -
+  documentation-only / governance-only / deployment implementation
+  approval-boundary-only / non-runtime / non-execution SniperBot Deployment
+  Implementation Approval-Boundary Review defining what deployment
+  implementation approval language must and must not mean before any future
+  lower-level implementation lane can be considered under a separate bounded
+  task order, for traceability only. Approval-boundary review is not
+  deployment approval, approval-boundary analysis is not approval, approval
+  scope analysis is not implementation scope, approval authority analysis is
+  not authority to execute, approval prerequisite analysis is not readiness,
+  approval evidence analysis is not approval evidence creation, approval
+  limits analysis is not activation, founder approval analysis is not
+  deployment approval, runtime-startup approval separation is not runtime
+  startup, service-startup approval separation is not service startup,
+  worker-startup approval separation is not worker startup,
+  scheduler-startup approval separation is not scheduler startup,
+  environment-provisioning approval separation is not environment
+  provisioning, staging-rollout approval separation is not staging rollout,
+  production-rollout approval separation is not production rollout,
+  secrets-handling approval separation is not secrets configuration,
+  credential-handling approval separation is not broker, Robinhood, or
+  exchange credential handling, monitoring / alerting approval separation is
+  not monitoring runtime or alerting runtime, incident / rollback approval
+  separation is not incident-response automation or rollback automation,
+  infrastructure approval separation is not infrastructure configuration,
+  paper/simulation approval separation is not paper trading or simulation,
+  live-trading approval separation is not live trading, and documentation is
+  not execution. Founder approval remains separate from runtime approval,
+  deployment approval, operations approval, paper/simulation approval,
+  live-trading approval, command-execution approval, and execution approval.
+  No deployment implementation is authorized, no operations implementation is
+  authorized, no runtime startup is authorized, no service startup is
+  authorized, no worker startup is authorized, no scheduler startup is
+  authorized, no bot process activation is authorized, no environment
+  provisioning is authorized, no staging or production environment rollout
+  is authorized, no secrets configuration is authorized, no broker,
+  Robinhood, or exchange credential handling is authorized, no monitoring
+  runtime is authorized, no alerting runtime is authorized, no health-check
+  runtime is authorized, no operational dashboards are authorized, no
+  process supervision is authorized, no auto-restart behavior is authorized,
+  no runtime logging pipelines are authorized, no incident-response
+  automation is authorized, no rollback automation is authorized, no
+  deployment scripts, startup scripts, scheduler scripts, worker scripts,
+  service files, infrastructure configuration, approval records, approval
+  mechanisms, approval commands, runtime toggles, deployment pipelines,
+  operational automation, or runtime process controls are authorized, no
+  paper trading is created, no simulation is created, no replay runtime is
+  authorized, no backtest runtime is authorized, no market-data runtime is
+  created, no signal runtime is created, no strategy runtime is created, no
+  risk runtime is created, no position-sizing runtime is created, no
+  trade-size runtime is created, no order routing is authorized, no order
+  submission or order cancellation is authorized, no broker access is
+  created, no Robinhood access is created, no exchange access is created, no
+  live trading is authorized, no automated execution is authorized, no
+  SniperBot behavior is created, no command execution is created, and no
+  execution capability is created. Future deployment implementation approval
+  requires separate explicit founder-selected approval gates before
+  implementation could be discussed.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
