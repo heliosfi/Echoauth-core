@@ -2238,6 +2238,50 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   access is created, no Robinhood access is created, no exchange access is
   created, no wallet access is created, no order routing is created, no
   command execution is created, and no execution capability is created.
+* `sniperbot-deployment-paper-trading-simulation-separation-review.md` -
+  documentation-only / governance-only / deployment paper-trading /
+  simulation separation review only / non-runtime / non-simulative /
+  non-execution SniperBot Deployment Paper-Trading / Simulation Separation
+  Review defining that paper-trading language, simulation language, replay
+  language, backtest language, historical-data language, sandbox language,
+  mock-order language, and dry-run language must not become runtime
+  authority, broker authority, order-routing authority, trading authority,
+  or execution capability, for traceability only. Paper trading and
+  simulation remain separate lanes. Paper trading is execution-adjacent and
+  remains blocked until separately authorized. Simulation is analysis-only
+  unless a separate future gate authorizes runtime behavior. Monitoring /
+  Rollback Non-Authorization does not authorize monitored paper trading,
+  rollback-capable paper trading, or simulation runtime. Environment /
+  Secrets Non-Authorization does not authorize sandbox credentials, broker
+  credentials, exchange credentials, Robinhood credentials, wallet
+  credentials, or paper-trading environment setup. Bot-Process Activation
+  Non-Authorization does not authorize paper-trading bot activation,
+  simulation bot activation, mock-order bot activation, or dry-run
+  execution. Paper / simulation separation remains blocked until separate
+  future gates explicitly handle live-trading non-authorization and explicit
+  founder approval before any implementation task. No paper-trading
+  authorization is created, no simulation authorization is created, no
+  replay runtime authorization is created, no backtest runtime authorization
+  is created, no historical-data ingestion authorization is created, no
+  sandbox broker authorization is created, no sandbox Robinhood
+  authorization is created, no sandbox exchange authorization is created, no
+  wallet authorization is created, no mock-order runtime authorization is
+  created, no dry-run execution authorization is created, no paper account
+  access is created, no simulated fill execution is created, no test trade
+  execution is created, no order routing is created, no order submission is
+  created, no order cancellation is created, no broker access is created, no
+  Robinhood access is created, no exchange access is created, no wallet
+  access is created, no runtime startup is authorized, no bot-process
+  activation is authorized, no monitoring activation is authorized, no
+  rollback automation is authorized, no paper-trading runtime is created, no
+  simulation runtime is created, no replay runtime is created, no backtest
+  runtime is created, no market-data runtime is created, no signal runtime
+  is created, no strategy runtime is created, no risk runtime is created, no
+  position-sizing runtime is created, no trade-size runtime is created, no
+  live trading is authorized, no automated execution is created, no
+  SniperBot behavior is created, no command execution is created, no
+  execution capability is created, no approval records are created, no
+  approval mechanisms are created, and no runtime toggles are created.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
