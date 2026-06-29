@@ -2332,6 +2332,56 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   trade-size runtime is created, no live trading is authorized, no automated
   execution is created, no SniperBot behavior is created, no command
   execution is created, and no execution capability is created.
+* `sniperbot-deployment-explicit-founder-approval-before-implementation-review.md` -
+  documentation-only / governance-only / deployment explicit founder
+  approval before implementation review only / non-runtime / non-execution
+  SniperBot Deployment Explicit Founder Approval Before Implementation
+  Review defining that any future SniperBot implementation task must be
+  preceded by a separate explicit founder approval artifact, for
+  traceability only. This review is not founder approval, not
+  implementation approval, not deployment approval, not runtime approval,
+  not trading approval, not paper-trading approval, not simulation
+  approval, not live-trading approval, not broker approval, not Robinhood
+  approval, not exchange approval, not wallet approval, not order-routing
+  approval, not command-execution approval, not approval record creation,
+  not approval mechanism creation, and not execution readiness. Founder
+  references, founder identity, founder intent, founder selection, founder
+  approval language, founder-related documents, documentation approval,
+  governance approval, README / index inclusion, repo progress, commit
+  history, push history, and locked governance commits must not be treated
+  as implementation authorization. Governance approval of a boundary does
+  not equal runtime approval, deployment approval, trading approval, or
+  execution approval. Live-Trading Non-Authorization does not authorize
+  founder approval, implementation approval, live trading, broker access,
+  order routing, or execution readiness. Paper-Trading / Simulation
+  Separation does not authorize founder approval, paper-trading runtime,
+  simulation runtime, or execution readiness. Monitoring / Rollback
+  Non-Authorization does not authorize founder approval, monitoring
+  runtime, rollback automation, or operational readiness. Environment /
+  Secrets Non-Authorization does not authorize founder approval,
+  environment provisioning, secrets handling, credentials, or
+  infrastructure configuration. Bot-Process Activation Non-Authorization
+  does not authorize founder approval, bot-process activation, runtime
+  startup, or execution capability. No founder approval is created, no
+  implementation approval is created, no deployment approval is created, no
+  runtime approval is created, no trading approval is created, no approval
+  records are created, no approval mechanisms are created, no approval
+  workflows are created, no runtime toggles are created, no execution
+  toggles are created, no implementation task is created, no runtime file
+  is created, no deployment file is created, no broker file is created, no
+  trading file is created, no command file is created, no execution path is
+  created, no order-routing logic is created, no order-submission logic is
+  created, no order-cancellation logic is created, no live execution path
+  is created, no paper-trading runtime is created, no simulation runtime is
+  created, no replay runtime is created, no backtest runtime is created, no
+  historical-data ingestion is created, no market-data runtime is created,
+  no signal runtime is created, no strategy runtime is created, no risk
+  runtime is created, no position-sizing runtime is created, no trade-size
+  runtime is created, no live trading is authorized, no automated execution
+  is created, no SniperBot behavior is created, no command execution is
+  created, and no execution capability is created. Any future
+  implementation requires a separate explicit founder approval artifact and
+  a separate implementation task order.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
