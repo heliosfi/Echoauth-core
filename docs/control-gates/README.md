@@ -2443,6 +2443,49 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   runtime is created, no live trading is authorized, no automated execution
   is created, no SniperBot behavior is created, and no execution capability
   is created.
+* `sniperbot-deployment-explicit-founder-approval-artifact-requirements-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / deployment explicit founder
+  approval artifact requirements non-authorization boundary review only /
+  non-runtime / non-execution SniperBot Deployment Explicit Founder
+  Approval Artifact Requirements Non-Authorization Boundary Review
+  defining requirements boundaries for a possible future explicit founder
+  approval artifact, for traceability only. This review is not founder
+  approval, not a founder approval artifact, not implementation approval,
+  not an implementation task order, not approval record creation, not
+  approval mechanism creation, not approval workflow creation, not runtime
+  toggle approval, not command-gate approval, not deployment-gate approval,
+  not execution-gate approval, not runtime approval, not trading approval,
+  and not execution readiness. It reviews requirements for a possible
+  future explicit founder approval artifact only. It does not create the
+  founder approval artifact, approve implementation, approve any
+  implementation task order, create approval records, create approval
+  mechanisms, create approval workflows, create runtime toggles, create
+  command gates, create deployment gates, create execution gates, create
+  unlock paths, create runtime authority, create trading authority, create
+  command authority, or create execution capability. README / index
+  inclusion is traceability only and does not equal approval. Documentation
+  governance progress does not equal runtime readiness, deployment
+  readiness, trading readiness, command readiness, safe-to-run status, or
+  execution readiness. Any future founder approval artifact must require a
+  separate explicit task order and must remain non-executing unless later
+  implementation is separately approved. No runtime startup is authorized,
+  no bot-process activation is authorized, no monitoring activation is
+  authorized, no rollback automation is authorized, no environment
+  provisioning is authorized, no secrets handling is authorized, no
+  credential handling is authorized, no infrastructure configuration is
+  authorized, no broker access is created, no Robinhood access is created,
+  no exchange access is created, no wallet access is created, no
+  market-data runtime is created, no signal runtime is created, no strategy
+  runtime is created, no risk runtime is created, no position-sizing
+  runtime is created, no trade-size runtime is created, no paper-trading
+  runtime is created, no simulation runtime is created, no replay runtime
+  is created, no backtest runtime is created, no historical-data ingestion
+  is created, no order-routing logic is created, no order-submission logic
+  is created, no order-cancellation logic is created, no live execution
+  path is created, no paper trading is authorized, no simulation is
+  authorized, no live trading is authorized, no automated execution is
+  created, no SniperBot behavior is created, no command execution is
+  created, and no execution capability is created.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
