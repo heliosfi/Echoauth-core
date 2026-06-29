@@ -2179,6 +2179,65 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   access is created, no wallet access is created, no order routing is
   created, no command execution is created, and no execution capability is
   created.
+* `sniperbot-deployment-monitoring-rollback-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / deployment monitoring / rollback
+  non-authorization boundary only / non-runtime / non-execution SniperBot
+  Deployment Monitoring / Rollback Non-Authorization Boundary Review
+  defining that monitoring / rollback review must not become monitoring,
+  alerting, health-check, dashboard, logging pipeline, incident-response,
+  rollback, rollback automation, supervision, auto-restart, operational
+  readiness, runtime readiness, deployment readiness, trading readiness, or
+  execution readiness approval, for traceability only. Environment / Secrets
+  Non-Authorization does not authorize monitoring, alerting, health checks,
+  dashboards, logging pipelines, incident-response automation, rollback
+  automation, supervision, auto-restart, runtime health checks, operational
+  dashboards, recovery automation, staging rollout, production rollout, or
+  credential handling. Bot-Process Activation Non-Authorization does not
+  authorize supervised runtime, monitored runtime, auto-restarting runtime,
+  or rollback-capable runtime. Monitoring / rollback language remains
+  separate from deployment implementation, runtime startup, service startup,
+  worker startup, scheduler startup, bot-process activation, environment
+  provisioning, staging rollout, production rollout, secrets handling,
+  credential handling, broker credential handling, Robinhood credential
+  handling, exchange credential handling, wallet credential handling,
+  infrastructure configuration, paper trading, simulation, live trading,
+  broker access, Robinhood access, exchange access, wallet access, order
+  routing, command execution, and execution capability. Monitoring-ready
+  false readiness is rejected, rollback-ready false readiness is rejected,
+  health-check-ready false readiness is rejected, dashboard-ready false
+  readiness is rejected, alert-ready false readiness is rejected,
+  auto-restart-ready false readiness is rejected, supervised false readiness
+  is rejected, operational false readiness is rejected, recovery-ready false
+  readiness is rejected, and incident-ready false readiness is rejected.
+  Monitoring / rollback remain blocked until separate future gates explicitly
+  handle paper/simulation separation, live-trading non-authorization, and
+  explicit founder approval before any implementation task. No monitoring
+  approval is created, no alerting approval is created, no health-check
+  approval is created, no dashboard approval is created, no logging pipeline
+  approval is created, no incident-response approval is created, no rollback
+  approval is created, no rollback automation approval is created, no
+  auto-restart approval is created, no process supervision approval is
+  created, no operational readiness approval is created, no runtime readiness
+  approval is created, no deployment readiness approval is created, no
+  trading readiness approval is created, no execution readiness approval is
+  created, no monitoring file is created, no alerting file is created, no
+  health-check file is created, no dashboard file is created, no logging
+  pipeline is created, no incident-response automation is created, no
+  rollback script is created, no rollback automation is created, no
+  supervisor config is created, no auto-restart config is created, no runtime
+  toggle is created, no approval record is created, no approval mechanism is
+  created, no process is supervised, no auto-restart behavior is created, no
+  failure detection runtime is created, no runtime health check is created,
+  no operational dashboard is created, no runtime control is created, no
+  recovery automation is created, no staging rollout is created, no
+  production rollout is created, no broker credential handling is created, no
+  Robinhood credential handling is created, no exchange credential handling
+  is created, no wallet credential handling is created, no
+  execution-adjacent recovery infrastructure is created, no paper trading is
+  created, no simulation is created, no live trading is authorized, no broker
+  access is created, no Robinhood access is created, no exchange access is
+  created, no wallet access is created, no order routing is created, no
+  command execution is created, and no execution capability is created.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
