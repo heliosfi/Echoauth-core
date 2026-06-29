@@ -2382,6 +2382,67 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   created, and no execution capability is created. Any future
   implementation requires a separate explicit founder approval artifact and
   a separate implementation task order.
+* `sniperbot-deployment-approval-records-approval-mechanisms-runtime-toggles-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / deployment approval records /
+  approval mechanisms / runtime toggles non-authorization boundary review
+  only / non-runtime / non-execution SniperBot Deployment Approval Records
+  / Approval Mechanisms / Runtime Toggles Non-Authorization Boundary Review
+  defining the boundary that keeps founder approval language, future
+  approval language, implementation readiness language, approval
+  requirement language, workflow language, gate language, toggle language,
+  command language, README / index inclusion, and repo progress from
+  becoming approval records, approval mechanisms, approval workflows,
+  runtime toggles, execution toggles, command gates, deployment gates,
+  execution gates, approval artifacts, implementation task orders, founder
+  approval artifacts, trading approval artifacts, deployment authorization,
+  runtime authority, command authority, or execution capability, for
+  traceability only. Approval records, approval mechanisms, approval
+  workflows, runtime toggles, execution toggles, command gates, deployment
+  gates, execution gates, approval artifacts, founder approval artifacts,
+  and implementation task orders are execution-adjacent surfaces. This
+  review is not founder approval, not implementation approval, not
+  approval-record creation approval, not approval-mechanism creation
+  approval, not approval-workflow creation approval, not runtime-toggle
+  approval, not execution-toggle approval, not command-gate approval, not
+  deployment-gate approval, not runtime approval, not trading approval, and
+  not execution readiness. Explicit Founder Approval Before Implementation
+  Review does not create founder approval, approval records, approval
+  mechanisms, approval workflows, runtime toggles, execution toggles,
+  command gates, deployment gates, execution gates, approval artifacts, or
+  implementation task orders. Live-Trading Non-Authorization does not
+  authorize live trading, approval records, runtime toggles, execution
+  toggles, broker access, order routing, command gates, execution gates,
+  deployment authorization, or execution capability. README / index
+  inclusion does not equal approval. Documentation governance progress does
+  not equal runtime readiness. No future approval can be treated as valid
+  unless it is created as a separate explicit founder approval artifact
+  under a separate task order. No implementation can begin unless a
+  separate implementation task order exists after explicit founder
+  approval. No founder approval is created, no implementation approval is
+  created, no approval records are created, no approval mechanisms are
+  created, no approval workflows are created, no runtime toggles are
+  created, no execution toggles are created, no command gates are created,
+  no deployment gates are created, no execution gates are created, no
+  approval artifacts are created, no founder approval artifacts are created,
+  no implementation task orders are created, no trading approval artifacts
+  are created, no deployment authorization is created, no command-unlock
+  paths are created, no command execution is created, no runtime startup is
+  authorized, no bot-process activation is authorized, no monitoring
+  activation is authorized, no rollback automation is authorized, no
+  environment provisioning is authorized, no secrets handling is
+  authorized, no credential handling is authorized, no infrastructure
+  configuration is authorized, no broker access is created, no Robinhood
+  access is created, no exchange access is created, no wallet access is
+  created, no order-routing logic is created, no order-submission logic is
+  created, no order-cancellation logic is created, no live execution path
+  is created, no paper-trading runtime is created, no simulation runtime is
+  created, no replay runtime is created, no backtest runtime is created, no
+  historical-data ingestion is created, no market-data runtime is created,
+  no signal runtime is created, no strategy runtime is created, no risk
+  runtime is created, no position-sizing runtime is created, no trade-size
+  runtime is created, no live trading is authorized, no automated execution
+  is created, no SniperBot behavior is created, and no execution capability
+  is created.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
