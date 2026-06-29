@@ -2047,6 +2047,70 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   is created, no exchange access is created, no wallet access is created,
   no order routing is created, no command execution is created, and no
   execution capability is created.
+* `sniperbot-deployment-bot-process-activation-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / deployment bot-process activation
+  non-authorization boundary only / non-runtime / non-execution SniperBot
+  Deployment Bot-Process Activation Non-Authorization Boundary Review
+  defining that bot-process activation review must not become bot-process
+  activation authorization, for traceability only. Bot-process activation
+  review is not bot activation approval, not bot-process startup approval,
+  not runtime startup approval, not background-process activation approval,
+  not worker-loop approval, not service-daemon approval, not scheduler
+  activation approval, not always-on approval, not deployment startup
+  approval, not runtime entrypoint creation, not process runner creation,
+  not bot loop creation, not service-file creation approval, not
+  worker-file creation approval, not scheduler-file creation approval, not
+  startup-script creation approval, not runtime-toggle creation approval,
+  not process-supervisor approval, not auto-restart configuration, not
+  monitoring approval, not rollback approval, not operational readiness, and
+  not execution readiness. Service / Worker / Scheduler Startup
+  Non-Authorization does not authorize bot-process activation. Runtime /
+  Startup Non-Authorization does not authorize bot-process activation.
+  Bot-process activation language remains separate from runtime startup,
+  service startup, worker startup, scheduler startup, background processes,
+  worker loops, service daemons, scheduled tasks, always-on behavior,
+  automated execution, deployment implementation, founder approval,
+  operational readiness, execution readiness, environment provisioning,
+  staging rollout, production rollout, secrets handling, credential
+  handling, monitoring, alerting, health checks, dashboards, process
+  supervision, auto-restart behavior, logging pipelines, incident
+  automation, rollback automation, infrastructure configuration, paper
+  trading, simulation, live trading, broker access, Robinhood access,
+  exchange access, wallet access, order routing, command execution, and
+  execution capability. Bot-ready false readiness is rejected,
+  activation-ready false readiness is rejected, process-ready false
+  readiness is rejected, runtime-ready false readiness is rejected,
+  daemon-ready false readiness is rejected, always-on false readiness is
+  rejected, scheduled false readiness is rejected, background-running false
+  readiness is rejected, loop-ready false readiness is rejected, and
+  runner-ready false readiness is rejected. Bot-process activation remains
+  blocked until separate future gates explicitly handle environment/secrets
+  non-authorization, monitoring/rollback non-authorization,
+  paper/simulation separation, live-trading non-authorization, and explicit
+  founder approval before any implementation task. No bot activation
+  approval is created, no bot-process startup approval is created, no
+  runtime startup is authorized, no background-process activation approval
+  is created, no worker-loop approval is created, no service-daemon approval
+  is created, no scheduler activation approval is created, no always-on
+  approval is created, no deployment startup approval is created, no bot
+  process is activated, no bot loop is started, no process runner is
+  created, no runtime entrypoint is created, no service file is created, no
+  worker file is created, no scheduler file is created, no startup script is
+  created, no background process activation is created, no scheduled task
+  activation is created, no worker-loop activation is created, no service
+  daemon activation is created, no always-on behavior is created, no process
+  supervisor configuration is created, no auto-restart configuration is
+  created, no runtime toggle is created, no approval record is created, no
+  approval mechanism is created, no environment file is created, no secrets
+  file is created, no credential file is created, no monitoring file is
+  created, no alerting file is created, no health-check file is created, no
+  dashboard is created, no logging pipeline is created, no incident
+  automation is created, no rollback automation is created, no
+  infrastructure configuration is created, no paper trading is created, no
+  simulation is created, no live trading is authorized, no broker access is
+  created, no Robinhood access is created, no exchange access is created,
+  no wallet access is created, no order routing is created, no command
+  execution is created, and no execution capability is created.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
