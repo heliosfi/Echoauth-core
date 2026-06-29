@@ -1915,6 +1915,80 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   created, no live trading is authorized, no automated execution is
   authorized, no SniperBot behavior is created, no command execution is
   created, and no execution capability is created.
+* `sniperbot-deployment-runtime-startup-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / deployment runtime / startup
+  non-authorization boundary only / non-runtime / non-execution SniperBot
+  Deployment Runtime / Startup Non-Authorization Boundary Review defining
+  that runtime / startup review must not become runtime / startup
+  authorization, for traceability only. Runtime / startup review is not
+  runtime approval, not runtime startup, not startup authorization, not
+  deployment startup approval, not service startup approval, not worker
+  startup approval, not scheduler startup approval, not bot-process
+  activation approval, not environment rollout approval, not secrets
+  approval, not credential approval, not monitoring approval, not rollback
+  approval, not paper-trading approval, not simulation approval, not
+  live-trading approval, not operational readiness, and not execution
+  readiness. Proposed-scope implementation non-authorization does not
+  authorize runtime startup, proposed-scope approval language does not
+  authorize runtime startup, proposed-scope acceptance language does not
+  authorize runtime startup, deployment approval scope-limit acceptance does
+  not authorize runtime startup, and accepted scope limits do not create
+  runtime approval, startup authorization, implementation authority,
+  operational readiness, or execution readiness. Runtime / startup language
+  remains separate from deployment approval, deployment implementation,
+  proposed-scope approval, proposed-scope acceptance, proposed-scope
+  implementation, accepted scope limits, implementation authority,
+  scope-limit acceptance, scope-limit implementation, founder approval,
+  operational readiness, execution readiness, runtime startup, service
+  startup, worker startup, scheduler startup, bot-process activation,
+  environment provisioning, staging rollout, production rollout, secrets
+  handling, credential handling, monitoring, alerting, health checks,
+  dashboards, process supervision, auto-restart behavior, logging pipelines,
+  incident automation, rollback automation, infrastructure configuration,
+  paper trading, simulation, live trading, broker access, Robinhood access,
+  exchange access, wallet access, order routing, command execution, and
+  execution capability. Runtime-ready false readiness is rejected,
+  startup-ready false readiness is rejected, deployment-ready false
+  readiness is rejected, service-ready false readiness is rejected,
+  activation-ready false readiness is rejected, and operational-ready false
+  readiness is rejected. Runtime / startup remains blocked until separate
+  future gates explicitly handle service/worker/scheduler startup
+  non-authorization, bot-process activation non-authorization,
+  environment/secrets non-authorization, monitoring/rollback
+  non-authorization, paper/simulation separation, live-trading
+  non-authorization, and explicit founder approval before any implementation
+  task. No runtime approval is created, no runtime startup is authorized, no
+  startup authorization is created, no deployment startup approval is
+  created, no service startup approval is created, no worker startup
+  approval is created, no scheduler startup approval is created, no
+  bot-process activation approval is created, no environment rollout
+  approval is created, no secrets approval is created, no credential
+  approval is created, no monitoring approval is created, no rollback
+  approval is created, no operational readiness is created, no execution
+  readiness is created, no deployment approval is created, no deployment
+  implementation is authorized, no proposed-scope approval is created, no
+  proposed-scope acceptance is created, no proposed-scope implementation is
+  authorized, no scope-limit acceptance is created, no scope-limit
+  implementation is authorized, no founder approval is created, no evidence
+  is accepted, no evidence is validated, no approval authority is assigned,
+  no approval records are created, no approval mechanisms are created, no
+  runtime toggles are created, no runtime startup files are created, no
+  startup scripts, service files, worker files, scheduler files,
+  environment files, secrets files, credential files, monitoring files,
+  alerting files, health-check files, dashboards, supervision configs,
+  auto-restart configs, logging pipelines, incident automation, rollback
+  automation, infrastructure configuration, command paths, or execution
+  paths are created, no paper trading is created, no simulation is created,
+  no replay runtime is authorized, no backtest runtime is authorized, no
+  market-data runtime is created, no signal runtime is created, no strategy
+  runtime is created, no risk runtime is created, no position-sizing runtime
+  is created, no trade-size runtime is created, no order routing is
+  authorized, no order submission or order cancellation is authorized, no
+  broker access is created, no Robinhood access is created, no exchange
+  access is created, no wallet access is created, no live trading is
+  authorized, no automated execution is authorized, no SniperBot behavior is
+  created, no command execution is created, and no execution capability is
+  created.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
