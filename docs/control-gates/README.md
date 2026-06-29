@@ -2282,6 +2282,56 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   SniperBot behavior is created, no command execution is created, no
   execution capability is created, no approval records are created, no
   approval mechanisms are created, and no runtime toggles are created.
+* `sniperbot-deployment-live-trading-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / deployment live-trading
+  non-authorization boundary review only / non-runtime / non-execution
+  SniperBot Deployment Live-Trading Non-Authorization Boundary Review
+  defining that live-trading language, live-money language, broker
+  language, Robinhood language, exchange language, wallet language,
+  order-routing language, order-submission language, order-cancellation
+  language, paper-trading language, simulation language, replay language,
+  backtest language, monitoring / rollback language, environment / secrets
+  language, bot-process activation language, and founder approval
+  references must not become live-trading authorization, runtime authority,
+  broker authority, order authority, trading authority, implementation
+  approval, or execution capability, for traceability only. Existing
+  live-trading readiness boundary review is not deployment-specific
+  live-trading authorization. Paper-Trading / Simulation Separation does
+  not authorize live trading, paper-trading runtime, simulation runtime, or
+  execution readiness. Monitoring / Rollback Non-Authorization does not
+  authorize live monitoring, live rollback, live incident response, or
+  live-trading recovery behavior. Environment / Secrets Non-Authorization
+  does not authorize live credentials, broker credentials, Robinhood
+  credentials, exchange credentials, wallet credentials, or production
+  secrets. Bot-Process Activation Non-Authorization does not authorize
+  live-trading bot activation. Founder-related documents do not equal
+  explicit founder approval for implementation. Live-trading
+  non-authorization remains blocked until a separate future gate explicitly
+  handles founder approval before any implementation task. No live-trading
+  authorization is created, no live-money approval is created, no broker
+  approval is created, no Robinhood approval is created, no exchange
+  approval is created, no wallet approval is created, no order-routing
+  approval is created, no order-submission approval is created, no
+  order-cancellation approval is created, no runtime approval is created,
+  no bot activation approval is created, no paper-trading approval is
+  created, no simulation approval is created, no deployment approval is
+  created, no founder approval is created, no implementation approval is
+  created, no execution readiness approval is created, no broker access is
+  created, no Robinhood access is created, no exchange access is created,
+  no wallet access is created, no order-routing logic is created, no
+  order-submission logic is created, no order-cancellation logic is
+  created, no live execution path is created, no approval records are
+  created, no approval mechanisms are created, no runtime toggles are
+  created, no runtime startup is authorized, no bot-process activation is
+  authorized, no monitoring activation is authorized, no rollback automation
+  is authorized, no paper-trading runtime is created, no simulation runtime
+  is created, no replay runtime is created, no backtest runtime is created,
+  no historical-data ingestion is created, no market-data runtime is
+  created, no signal runtime is created, no strategy runtime is created, no
+  risk runtime is created, no position-sizing runtime is created, no
+  trade-size runtime is created, no live trading is authorized, no automated
+  execution is created, no SniperBot behavior is created, no command
+  execution is created, and no execution capability is created.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
