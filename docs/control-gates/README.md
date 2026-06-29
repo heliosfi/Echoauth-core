@@ -2521,6 +2521,40 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   authorized, no live execution is authorized, no command execution is
   created, no SniperBot behavior is created, and no execution capability is
   created.
+* `sniperbot-deployment-explicit-founder-approval-artifact-creation-authorization-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / deployment explicit founder
+  approval artifact creation authorization non-authorization boundary
+  review only / non-runtime / non-execution SniperBot Deployment Explicit
+  Founder Approval Artifact Creation Authorization Non-Authorization
+  Boundary Review defining the boundary around possible future
+  authorization to create a founder approval artifact, for traceability
+  only. This review is not founder approval, not founder approval artifact
+  creation, not founder approval artifact creation authorization, not
+  implementation approval, not an implementation task order, not deployment
+  authorization, not approval-record creation, not approval-mechanism
+  creation, not approval-workflow creation, not runtime-toggle creation,
+  not execution-toggle creation, not command-gate creation, not broker
+  authorization, not trading authorization, not runtime authorization, not
+  paper-trading authorization, not simulation authorization, not
+  live-execution authorization, and not execution readiness. Artifact
+  creation scope is separate from artifact creation authorization, and
+  artifact creation authorization is separate from the artifact itself.
+  Authorization language does not become approval, authorization review
+  does not become artifact creation, README / index inclusion does not
+  become approval, and documentation-governance progress does not become
+  implementation readiness, live-execution authorization, or execution
+  readiness. No founder approval is created, no founder approval artifact
+  is created, no founder approval artifact creation authorization is
+  created, no implementation approval is created, no implementation task
+  order is created, no deployment authorization is created, no approval
+  records are created, no approval mechanisms are created, no approval
+  workflows are created, no runtime toggles are created, no execution
+  toggles are created, no command gates are created, no deployment gates
+  are created, no execution gates are created, no broker access is created,
+  no trading access is created, no paper trading is authorized, no
+  simulation is authorized, no live execution is authorized, no command
+  execution is created, no SniperBot behavior is created, and no execution
+  capability is created.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
