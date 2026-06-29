@@ -1774,6 +1774,80 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   is authorized, no SniperBot behavior is created, no command execution is
   created, and no execution capability is created. Any future movement
   requires a separate explicit founder-selected bounded task order.
+* `sniperbot-deployment-approval-scope-limit-acceptance-review.md` -
+  documentation-only / governance-only / deployment approval scope-limit
+  acceptance review only / non-runtime / non-execution SniperBot Deployment
+  Approval Scope-Limit Acceptance Review defining the boundary around future
+  deployment approval scope-limit acceptance, for traceability only.
+  Scope-limit acceptance review is not scope-limit acceptance, not
+  scope-limit implementation, not deployment scope approval, not
+  implementation scope approval, not founder approval, not deployment
+  approval, not deployment implementation approval, not evidence acceptance,
+  not evidence validation, not evidence approval, not approval authority
+  acceptance, not approval authority assignment, not approval record
+  creation, not approval mechanism creation, not runtime approval, not
+  operational readiness, and not execution readiness. Completing the
+  deployment approval authority acceptance review does not accept deployment
+  scope limits, does not approve deployment scope, does not approve
+  implementation scope, does not assign authority, does not create approval
+  records, does not create approval mechanisms, does not approve evidence,
+  does not accept evidence, does not validate evidence, does not approve
+  deployment, does not approve implementation, does not grant founder
+  approval, does not grant runtime approval, and does not authorize
+  implementation. No inherited approval may flow from evidence requirement
+  language, evidence acceptance language, evidence validation language,
+  evidence freshness language, evidence provenance language, evidence
+  traceability language, founder approval language, founder intent language,
+  founder-selected scope language, approval authority language,
+  authority-accepted language, deployment approval scope-limit language,
+  accepted-scope language, bounded-scope language, scope-approved language,
+  deployment-limit language, approval request language, or deployment
+  approval language. Deployment approval scope-limit acceptance remains
+  separate from founder approval, evidence acceptance, evidence validation,
+  evidence approval, approval authority assignment, evidence requirements,
+  approval request language, runtime approval, operations approval,
+  paper/simulation approval, live-trading approval, command-execution
+  approval, and execution approval. Accepted-scope false readiness is
+  rejected. Bounded-scope false readiness is rejected. Scope-approved false
+  readiness is rejected. Deployment-limits false readiness is rejected. Any
+  future deployment approval remains subordinate to separate proposed-scope
+  implementation non-authorization, runtime/startup non-authorization,
+  environment/secrets non-authorization, monitoring/rollback
+  non-authorization, paper/simulation separation, live-trading
+  non-authorization, and explicit founder approval before implementation.
+  No scope-limit acceptance is created, no scope-limit implementation is
+  authorized, no deployment scope is approved, no implementation scope is
+  approved, no founder approval is created, no deployment approval is
+  created, no deployment implementation is authorized, no operations
+  implementation is authorized, no evidence is accepted, no evidence is
+  validated, no evidence is approved, no approval authority is accepted, no
+  approval authority is assigned, no approval records are created, no
+  approval mechanisms are created, no runtime toggles are created, no
+  runtime startup is authorized, no service startup is authorized, no worker
+  startup is authorized, no scheduler startup is authorized, no bot process
+  activation is authorized, no environment provisioning is authorized, no
+  staging or production rollout is authorized, no secrets configuration is
+  authorized, no broker, Robinhood, or exchange credential handling is
+  authorized, no monitoring runtime is authorized, no alerting runtime is
+  authorized, no health-check runtime is authorized, no operational
+  dashboards are authorized, no process supervision is authorized, no
+  auto-restart behavior is authorized, no runtime logging pipelines are
+  authorized, no incident-response automation is authorized, no rollback
+  automation is authorized, no deployment scripts, startup scripts,
+  scheduler scripts, worker scripts, service files, infrastructure
+  configuration, deployment pipelines, operational automation, command
+  paths, or runtime process controls are authorized, no paper trading is
+  created, no simulation is created, no replay runtime is authorized, no
+  backtest runtime is authorized, no market-data runtime is created, no
+  signal runtime is created, no strategy runtime is created, no risk runtime
+  is created, no position-sizing runtime is created, no trade-size runtime
+  is created, no order routing is authorized, no order submission or order
+  cancellation is authorized, no broker access is created, no Robinhood
+  access is created, no exchange access is created, no live trading is
+  authorized, no automated execution is authorized, no SniperBot behavior is
+  created, no command execution is created, and no execution capability is
+  created. Any future movement requires a separate explicit
+  founder-selected bounded task order.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
