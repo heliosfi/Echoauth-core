@@ -2718,6 +2718,52 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   created, no command paths are created, no executable authority is
   created, no capital deployment is authorized, and no execution capability
   is created.
+* `sniperbot-deployment-explicit-founder-approval-artifact-non-execution-wording-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / create-only / deployment explicit
+  founder approval artifact non-execution wording non-authorization
+  boundary review only / non-runtime / non-execution SniperBot Deployment
+  Explicit Founder Approval Artifact Non-Execution Wording
+  Non-Authorization Boundary Review defining required non-execution
+  wording boundaries for any possible future SniperBot deployment explicit
+  founder approval artifact, for traceability only. This review is not
+  founder approval, not founder approval artifact creation, not founder
+  approval artifact creation authorization, not implementation approval,
+  not an implementation task order, not deployment authorization, not
+  approval-record creation, not approval-mechanism creation, not
+  approval-workflow creation, not runtime-toggle creation, not
+  control-gate implementation, not command-gate creation, not broker
+  authorization, not trading authorization, not runtime authorization, not
+  paper-trading authorization, not simulation authorization, not
+  live-trading authorization, not command-execution authorization, not
+  capital deployment authorization, and not execution readiness. Future
+  founder approval artifacts must use explicit non-execution wording that
+  separates founder decision evidence from executable authority. Approval
+  text must not be capable of interpretation as permission to implement,
+  deploy, start runtime, connect brokers, connect Robinhood, access
+  exchanges, access wallets, route orders, simulate execution, paper
+  trade, live trade, execute commands, deploy capital, or create execution
+  capability. Prohibited wording includes approved-to-proceed language
+  without exact non-execution limits, approved-for-deployment,
+  approved-for-runtime, approved-for-trading, approved-for-broker
+  connection, approved-for-execution, approved-for-capital-use, greenlit,
+  ready-to-launch, go-live, turn-on, activate, execute, and vague approval
+  language without exact scope, exclusions, currentness, and traceability.
+  Required safer wording preserves exact task / lane / decision scope,
+  explicit exclusions, explicit non-execution statements, no-runtime,
+  no-trading, no-broker, no-command-execution, no-capital-deployment
+  statements, exact currentness or expiration boundaries, and exact
+  traceability references. README / index inclusion does not become
+  approval, and documentation-governance progress does not become
+  implementation readiness, deployment readiness, runtime readiness,
+  trading readiness, broker readiness, capital readiness, or execution
+  readiness. No founder approval artifact is created, no founder approval
+  is granted, no artifact creation is authorized, no artifact creation
+  authorization is authorized, no approval records are created, no approval
+  mechanisms are created, no approval workflows are created, no runtime
+  toggles are created, no control gates are implemented, no implementation
+  task order is created, no deployment task order is created, no command
+  paths are created, no executable authority is created, no capital
+  deployment is authorized, and no execution capability is created.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
