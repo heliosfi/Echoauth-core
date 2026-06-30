@@ -3085,6 +3085,69 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   no command paths are created, no executable authority is created, no
   approval-mechanism readiness is created, no capital deployment is
   authorized, and no execution capability is created.
+* `sniperbot-deployment-explicit-founder-approval-artifact-relationship-to-approval-workflows-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / create-only / deployment explicit
+  founder approval artifact relationship to approval workflows
+  non-authorization boundary review only / non-runtime / non-execution
+  SniperBot Deployment Explicit Founder Approval Artifact Relationship To
+  Approval Workflows Non-Authorization Boundary Review defining the
+  relationship boundary between any possible future SniperBot deployment
+  explicit founder approval artifact and any possible future approval
+  workflow, for traceability only. This review is not founder approval,
+  not founder approval artifact creation, not founder approval artifact
+  creation authorization, not approval-record creation, not
+  approval-mechanism creation, not approval-workflow creation, not
+  approval-workflow authorization, not runtime-toggle creation, not
+  control-gate implementation, not implementation task order, not
+  deployment task order, not deployment authorization, not broker
+  authorization, not trading authorization, not runtime authorization, not
+  paper-trading authorization, not simulation authorization, not
+  live-trading authorization, not command-execution authorization, not
+  capital deployment authorization, and not execution readiness. A future
+  founder approval artifact and a future approval workflow are separate
+  governance surfaces. A founder approval artifact cannot itself become
+  an approval workflow and cannot create an approval workflow by
+  implication. A future approval workflow must be separate, explicit,
+  scoped, current, traceable, repo-supported, and separately authorized;
+  it must identify the exact approval subject, approval scope, workflow
+  steps, required actors, approval inputs, approval outputs, explicit
+  exclusions, evidence references, currentness boundary, non-execution
+  limits, and traceability reference before it may be treated as a future
+  approval workflow. An approval workflow cannot be inferred from artifact
+  existence, artifact title, artifact format, artifact content, founder
+  identity reference, repository presence, README / index presence, commit
+  history, prior governance documents, evidence references, currentness
+  language, task-specificity language,
+  relationship-to-implementation-task-orders language,
+  relationship-to-approval-records language,
+  relationship-to-approval-mechanisms language, or "approved" wording
+  without a separate approval workflow. Founder approval artifact does
+  not mean approval workflow exists, approval workflow does not mean
+  founder approval artifact exists, artifact currentness does not mean
+  approval workflow authorization, artifact task-specificity does not mean
+  approval workflow authorization, artifact traceability does not mean
+  approval workflow authorization, artifact relationship to approval
+  records does not mean approval workflow authorization, artifact
+  relationship to approval mechanisms does not mean approval workflow
+  authorization, README / index entry does not mean approval workflow
+  authorization, completed governance lane does not mean approval workflow
+  exists, approval workflow cannot be assumed from prior approvals, and
+  approval workflow cannot be implied by founder approval language. Any
+  future approval workflow must remain separate from founder approval
+  artifact, approval record, approval mechanism, implementation task
+  order, deployment task order, runtime toggle, control gate
+  implementation, broker authorization, trading authorization,
+  command-execution authorization, capital-deployment authorization, or
+  execution authorization. No founder approval artifact is created, no
+  founder approval is granted, no artifact creation is authorized, no
+  artifact creation authorization is authorized, no approval record is
+  created, no approval mechanism is created, no approval workflow is
+  created, no approval workflow is authorized, no runtime toggle is
+  created, no control gate is implemented, no implementation task is
+  authorized, no deployment task is authorized, no command paths are
+  created, no executable authority is created, no approval-workflow
+  readiness is created, no capital deployment is authorized, and no
+  execution capability is created.
 * `sniperbot-deployment-explicit-founder-approval-artifact-currentness-requirements-non-authorization-boundary-review.md` -
   documentation-only / governance-only / create-only / deployment explicit
   founder approval artifact currentness requirements non-authorization
