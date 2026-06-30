@@ -2764,6 +2764,52 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   task order is created, no deployment task order is created, no command
   paths are created, no executable authority is created, no capital
   deployment is authorized, and no execution capability is created.
+* `sniperbot-deployment-explicit-founder-approval-artifact-storage-traceability-boundaries-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / create-only / deployment explicit
+  founder approval artifact storage and traceability boundaries
+  non-authorization boundary review only / non-runtime / non-execution
+  SniperBot Deployment Explicit Founder Approval Artifact Storage And
+  Traceability Boundaries Non-Authorization Boundary Review defining
+  storage and traceability boundaries for any possible future SniperBot
+  deployment explicit founder approval artifact, for traceability only.
+  This review is not founder approval, not founder approval artifact
+  creation, not founder approval artifact creation authorization, not
+  implementation approval, not an implementation task order, not deployment
+  authorization, not approval-record creation, not approval-mechanism
+  creation, not approval-workflow creation, not runtime-toggle creation,
+  not control-gate implementation, not command-gate creation, not broker
+  authorization, not trading authorization, not runtime authorization, not
+  paper-trading authorization, not simulation authorization, not
+  live-trading authorization, not command-execution authorization, not
+  capital deployment authorization, and not execution readiness. Future
+  artifact storage must be traceable, bounded, non-executable, and
+  separate from runtime authority and executable authority. Storage
+  location, README / index presence, repository presence, and commit
+  history do not create authority. A stored artifact cannot become
+  approval unless separately created, scoped, current, traceable, and
+  explicitly bounded by future repo-supported authorization. Future
+  storage requirements include exact artifact path or storage location,
+  exact linked task / lane / decision, locked commit or evidence reference
+  when applicable, artifact date and time, founder identity reference,
+  scope and exclusions, currentness or expiration boundary, traceability
+  back to related governance documents, and explicit non-execution
+  wording. Traceability may link an artifact to a task order, locked
+  commit or evidence reference, exact approval scope, explicit exclusions,
+  and future implementation or deployment decision only if separately
+  authorized. Stored does not mean approved, indexed does not mean
+  approved, committed does not mean executable, README-listed does not
+  mean deployable, artifact path does not mean runtime authority,
+  traceability does not mean implementation permission, evidence reference
+  does not mean trading permission, and founder identity reference does not
+  mean blanket approval. No founder approval artifact is created, no
+  founder approval is granted, no artifact creation is authorized, no
+  artifact creation authorization is authorized, no approval records are
+  created, no approval mechanisms are created, no approval workflows are
+  created, no runtime toggles are created, no control gates are
+  implemented, no implementation task order is created, no deployment task
+  order is created, no command paths are created, no executable authority
+  is created, no capital deployment is authorized, and no execution
+  capability is created.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
