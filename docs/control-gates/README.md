@@ -2914,6 +2914,63 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   created, no command paths are created, no executable authority is
   created, no capital deployment is authorized, and no execution
   capability is created.
+* `sniperbot-deployment-explicit-founder-approval-artifact-relationship-to-implementation-task-orders-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / create-only / deployment explicit
+  founder approval artifact relationship to implementation task orders
+  non-authorization boundary review only / non-runtime / non-execution
+  SniperBot Deployment Explicit Founder Approval Artifact Relationship To
+  Implementation Task Orders Non-Authorization Boundary Review defining
+  the relationship boundary between any possible future SniperBot
+  deployment explicit founder approval artifact and any possible future
+  implementation task order, for traceability only. This review is not
+  founder approval, not founder approval artifact creation, not founder
+  approval artifact creation authorization, not implementation task order
+  creation, not implementation task order authorization, not
+  implementation approval, not deployment authorization, not
+  approval-record creation, not approval-mechanism creation, not
+  approval-workflow creation, not runtime-toggle creation, not
+  control-gate implementation, not broker authorization, not trading
+  authorization, not runtime authorization, not paper-trading
+  authorization, not simulation authorization, not live-trading
+  authorization, not command-execution authorization, not capital
+  deployment authorization, and not execution readiness. A future founder
+  approval artifact and a future implementation task order are separate
+  governance surfaces. A founder approval artifact cannot itself become
+  an implementation task order and cannot approve implementation by
+  implication. A future implementation task order must be separate,
+  explicit, scoped, current, traceable, and repo-supported; it must
+  identify exact files, code paths, runtime scope, prohibited actions,
+  acceptance criteria, boundary conditions, and explicit
+  non-authorization limits before any implementation work. An
+  implementation task order cannot be inferred from artifact existence,
+  artifact title, artifact format, artifact content, founder identity
+  reference, repository presence, README / index presence, commit history,
+  prior governance documents, evidence references, currentness language,
+  task-specificity language, or "approved" wording without a separate
+  implementation task order. Founder approval artifact does not mean
+  implementation may begin, founder approval artifact does not mean
+  deployment may begin, artifact currentness does not mean implementation
+  authorization, artifact task-specificity does not mean implementation
+  authorization, artifact traceability does not mean implementation
+  authorization, README / index entry does not mean implementation
+  authorization, completed governance lane does not mean implementation
+  task order exists, implementation task order cannot be assumed from
+  prior approvals, and implementation task order cannot be implied by
+  founder approval language. Any future implementation task order must
+  remain separate from founder approval artifact, approval record,
+  approval mechanism, approval workflow, runtime toggle, control gate
+  implementation, deployment task order, broker authorization, trading
+  authorization, command-execution authorization, capital-deployment
+  authorization, or execution authorization. No founder approval artifact
+  is created, no founder approval is granted, no artifact creation is
+  authorized, no artifact creation authorization is authorized, no
+  implementation task order is created, no implementation task order is
+  authorized, no approval records are created, no approval mechanisms are
+  created, no approval workflows are created, no runtime toggles are
+  created, no control gates are implemented, no implementation task is
+  authorized, no deployment task is authorized, no command paths are
+  created, no executable authority is created, no capital deployment is
+  authorized, and no execution capability is created.
 * `sniperbot-deployment-explicit-founder-approval-artifact-currentness-requirements-non-authorization-boundary-review.md` -
   documentation-only / governance-only / create-only / deployment explicit
   founder approval artifact currentness requirements non-authorization
