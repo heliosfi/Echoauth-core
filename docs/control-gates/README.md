@@ -2858,6 +2858,62 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   is created, no deployment task order is created, no command paths are
   created, no executable authority is created, no capital deployment is
   authorized, and no execution capability is created.
+* `sniperbot-deployment-explicit-founder-approval-artifact-task-specificity-requirements-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / create-only / deployment explicit
+  founder approval artifact task-specificity requirements
+  non-authorization boundary review only / non-runtime / non-execution
+  SniperBot Deployment Explicit Founder Approval Artifact
+  Task-Specificity Requirements Non-Authorization Boundary Review defining
+  task-specificity requirements for any possible future SniperBot
+  deployment explicit founder approval artifact, for traceability only.
+  This review is not founder approval, not founder approval artifact
+  creation, not founder approval artifact creation authorization, not
+  implementation approval, not an implementation task order, not
+  deployment authorization, not approval-record creation, not
+  approval-mechanism creation, not approval-workflow creation, not
+  runtime-toggle creation, not control-gate implementation, not
+  command-gate creation, not broker authorization, not trading
+  authorization, not runtime authorization, not paper-trading
+  authorization, not simulation authorization, not live-trading
+  authorization, not command-execution authorization, not capital
+  deployment authorization, and not execution readiness. Future founder
+  approval artifacts must be task-specific to the exact task, lane,
+  decision, repo state, evidence reference, and locked commit they claim
+  to address. One artifact cannot apply broadly to related, adjacent,
+  future, inferred, downstream, or expanded tasks unless separately
+  renewed. Task-specificity cannot be inferred from artifact existence,
+  repository presence, README / index presence, commit history, founder
+  identity reference, prior governance documents, evidence references, old
+  task orders, old approval language, currentness language, or previously
+  completed lanes. Future task-specificity requirements include exact
+  task title, exact lane or decision being addressed, exact repo commit
+  or evidence reference where applicable, exact scope and exclusions,
+  exact non-execution boundary, exact currentness or expiration boundary,
+  traceability to the relevant governance document or task order, and
+  confirmation that the artifact does not apply to any later, adjacent,
+  inferred, downstream, or expanded task unless separately renewed. One
+  approval does not apply to multiple tasks, approval of a boundary review
+  does not mean implementation approval, approval of an artifact
+  requirement does not mean artifact creation approval, approval of
+  artifact creation does not mean deployment approval, approval of one
+  lane does not mean future-lane approval, and governance approval does
+  not mean broker, runtime, trading, command-execution,
+  capital-deployment, or execution approval. Task-specificity
+  requirements cannot replace a separate founder approval artifact,
+  separate implementation task order, separate deployment task order,
+  approval records, approval mechanisms, approval workflows, runtime
+  toggles, control gates, evidence reviews, currentness requirements,
+  broker authorization, trading authorization, command-execution
+  authorization, capital-deployment authorization, or execution
+  authorization. No founder approval artifact is created, no founder
+  approval is granted, no artifact creation is authorized, no artifact
+  creation authorization is authorized, no approval records are created,
+  no approval mechanisms are created, no approval workflows are created,
+  no runtime toggles are created, no control gates are implemented, no
+  implementation task order is created, no deployment task order is
+  created, no command paths are created, no executable authority is
+  created, no capital deployment is authorized, and no execution
+  capability is created.
 * `sniperbot-deployment-explicit-founder-approval-artifact-currentness-requirements-non-authorization-boundary-review.md` -
   documentation-only / governance-only / create-only / deployment explicit
   founder approval artifact currentness requirements non-authorization
