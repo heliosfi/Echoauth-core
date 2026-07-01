@@ -3989,6 +3989,56 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   behavior is authorized, no runtime behavior is authorized, no order routing
   is authorized, no command execution is authorized, no capital deployment is
   authorized, and no execution capability is created.
+* `sniperbot-deployment-approval-execution-gate-separation-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / index-only / non-runtime /
+  non-execution reference to the SniperBot Deployment Approval Execution Gate
+  Separation Non-Authorization Boundary Review. This README entry points to
+  `docs/control-gates/sniperbot-deployment-approval-execution-gate-separation-non-authorization-boundary-review.md`
+  for traceability only. This index entry is not an execution gate, not
+  execution-gate authorization, not a deployment gate, not a command gate, not
+  an approval execution toggle, not an approval runtime toggle, not an
+  approval workflow, not an approval mechanism, not an approval record, not
+  founder approval, not founder approval artifact creation, not implementation
+  task creation, not deployment task creation, not broker integration, not
+  trading behavior, not runtime behavior, not order routing, not command
+  execution, not paper-trading execution, not live execution, not capital
+  deployment, and not execution capability. The referenced review defines the
+  non-authorization separation boundary between approval evidence /
+  governance surfaces and any possible future execution gate while preserving
+  execution-gate-separation-only, execution-admission-boundary-only,
+  evidence-separation-only, non-runtime, non-execution, paper/live-execution
+  non-authorization, and non-authorization boundaries. Any future execution
+  gate, if separately authorized later, may only define whether an execution
+  action is blocked, denied, pending review, out of scope, expired, revoked,
+  or separately authorized for a specific task; it cannot generate approval,
+  infer approval, approve by silence, approve by README index alone, approve
+  by document existence alone, approve by commit history alone, approve stale
+  approval artifacts, approve blanket or inherited approval, approve ambiguous
+  founder language, escalate approval automatically, self-approve, convert
+  evidence into execution authority, treat runtime-toggle, execution-toggle,
+  command-gate, or deployment-gate state as execution permission, trigger
+  deployment, trigger runtime startup, trigger broker connection, trigger
+  trading, trigger order routing, trigger command execution, trigger
+  paper-trading execution, trigger live execution, trigger capital deployment,
+  override safety or risk controls, bypass human review, or autonomously
+  execute. Approval records, approval mechanisms, approval workflows,
+  approval runtime toggles, approval execution toggles, command gates,
+  deployment gates, execution gates, founder approval artifacts,
+  implementation authorization, deployment authorization, runtime startup
+  authorization, broker authorization, trading authorization, order-routing
+  authorization, command-execution authorization, paper-trading execution
+  authorization, live-execution authorization, and capital-deployment
+  authorization remain separate governance surfaces. No execution gate is
+  created, no deployment gate is created, no command gate is created, no
+  approval execution toggle is created, no approval runtime toggle is created,
+  no approval workflow is created, no approval mechanism is created, no
+  approval record is created, no founder approval artifact is created, no
+  founder approval is granted, no implementation task is created, no
+  deployment task is created, no broker integration is created, no trading
+  behavior is authorized, no runtime behavior is authorized, no order routing
+  is authorized, no command execution is authorized, no paper-trading
+  execution is authorized, no live execution is authorized, no capital
+  deployment is authorized, and no execution capability is created.
 * `sniperbot-deployment-explicit-founder-approval-artifact-currentness-requirements-non-authorization-boundary-review.md` -
   documentation-only / governance-only / create-only / deployment explicit
   founder approval artifact currentness requirements non-authorization
