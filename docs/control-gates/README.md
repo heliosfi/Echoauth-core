@@ -3110,6 +3110,49 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   execution is authorized, no capital deployment is authorized, no cleanup
   authority is created, no deletion authority is created, and no execution
   capability is created.
+* `sniperbot-deployment-artifact-path-authorization-task-order-adoption-conversion-task-scope-review-non-authorization-boundary-review.md` -
+  documentation-only / governance-only /
+  adoption-conversion-task-scope-review-only / draft-status /
+  non-authorization-only / non-runtime / non-execution SniperBot Deployment
+  Artifact-Path Authorization Task Order Adoption/Conversion Task Scope
+  Review Non-Authorization Boundary Review defining exact source draft
+  path, output path, action, exclusions, non-execution boundary,
+  traceability, validation, pause/escalation, and refusal-first task-scope
+  requirements for any possible future adoption/conversion task, for
+  traceability only. This review does not adopt the draft, does not convert
+  the draft, does not create task-order readiness, does not create an
+  artifact-path authorization task order, and does not create actual
+  artifact-path authorization. It is not final law, not operative policy,
+  not an active gate, not an approval standard, and not an authority
+  resolver. It is not founder approval, not a founder approval artifact,
+  not an artifact shell, not artifact storage authority, not artifact
+  creation authority, not approval-record creation, not approval
+  activation, not implementation authority, not deployment authority, not
+  runtime authorization, not broker authorization, not trading
+  authorization, not order-routing authorization, not command-execution
+  authorization, not paper-trading execution authorization, not
+  live-execution authorization, not capital-deployment authorization, not
+  cleanup authority, not deletion authority, and not execution readiness.
+  Adoption/conversion task-scope language does not become task-order draft
+  adoption, task-order draft conversion, artifact-path authorization, an
+  artifact-path authorization task order, task-order readiness, founder
+  approval, artifact creation authority, approval record creation, approval
+  activation, implementation or deployment authority, runtime authority,
+  broker or trading authority, command execution, capital deployment,
+  cleanup/deletion authority, or execution capability. No founder approval
+  is created, no founder approval artifact is created, no artifact shell is
+  created, no artifact storage authority is created, no artifact creation
+  authority is created, no actual artifact-path authorization is created,
+  no artifact-path authorization task order is created, no task-order
+  readiness is created, no task-order draft is adopted, no task-order draft
+  is converted, no approval records are created, no approval activation is
+  created, no implementation task order is created, no deployment task
+  order is created, no runtime behavior is created, no broker access is
+  created, no trading access is created, no order routing is authorized, no
+  command execution is created, no paper-trading execution is authorized,
+  no live execution is authorized, no capital deployment is authorized, no
+  cleanup authority is created, no deletion authority is created, and no
+  execution capability is created.
 * `sniperbot-deployment-explicit-founder-approval-artifact-format-boundaries-non-authorization-boundary-review.md` -
   documentation-only / governance-only / deployment explicit founder
   approval artifact format boundaries non-authorization boundary review
