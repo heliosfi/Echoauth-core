@@ -3775,6 +3775,45 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   created, no trading behavior is authorized, no runtime behavior is
   authorized, no command execution is authorized, no capital deployment is
   authorized, and no execution capability is created.
+* `sniperbot-deployment-approval-workflow-requirements-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / index-only / non-runtime /
+  non-execution reference to the SniperBot Deployment Approval Workflow
+  Requirements Non-Authorization Boundary Review. This README entry points to
+  `docs/control-gates/sniperbot-deployment-approval-workflow-requirements-non-authorization-boundary-review.md`
+  for traceability only. This index entry is not an approval workflow, not
+  approval workflow authorization, not an approval mechanism, not an approval
+  record, not founder approval, not founder approval artifact creation, not
+  runtime-toggle creation, not execution-toggle creation, not command-gate
+  creation, not deployment-gate creation, not execution-gate creation, not
+  implementation task creation, not deployment task creation, not broker
+  integration, not trading behavior, not runtime behavior, not command
+  execution, not capital deployment, and not execution capability. The
+  referenced review defines requirements for any possible future approval
+  workflow while preserving non-authorization, evidence-handling-only,
+  review-sequence-only, non-runtime, and non-execution boundaries. Any future
+  approval workflow, if separately authorized later, may only organize how
+  evidence is received, reviewed, checked, rejected, recorded, or escalated
+  for human review; it cannot generate approval, infer approval, approve by
+  silence, approve by README index alone, approve by document existence alone,
+  approve by commit history alone, approve stale approval artifacts, approve
+  blanket or inherited approval, approve ambiguous founder language, escalate
+  approval automatically, self-approve, convert evidence into authority,
+  trigger deployment, trigger runtime startup, trigger broker connection,
+  trigger trading, trigger command execution, trigger capital deployment,
+  override safety or risk controls, or bypass human review. Approval records,
+  approval mechanisms, approval workflows, founder approval artifacts,
+  implementation authorization, deployment authorization, runtime startup
+  authorization, broker authorization, trading authorization,
+  command-execution authorization, and capital-deployment authorization remain
+  separate governance surfaces. No approval workflow is created, no approval
+  mechanism is created, no approval record is created, no founder approval
+  artifact is created, no founder approval is granted, no runtime toggle is
+  created, no execution toggle is created, no command gate is created, no
+  deployment gate is created, no execution gate is created, no implementation
+  task is created, no deployment task is created, no broker integration is
+  created, no trading behavior is authorized, no runtime behavior is
+  authorized, no command execution is authorized, no capital deployment is
+  authorized, and no execution capability is created.
 * `sniperbot-deployment-explicit-founder-approval-artifact-currentness-requirements-non-authorization-boundary-review.md` -
   documentation-only / governance-only / create-only / deployment explicit
   founder approval artifact currentness requirements non-authorization
