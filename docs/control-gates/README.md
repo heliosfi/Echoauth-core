@@ -2662,6 +2662,42 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   command execution is created, no paper-trading execution is authorized,
   no live execution is authorized, no capital deployment is authorized, and
   no execution capability is created.
+* `sniperbot-deployment-explicit-founder-approval-artifact-shell-format-review-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / founder approval artifact shell
+  format review only / shell-format-review-only / non-runtime /
+  non-execution SniperBot Deployment Explicit Founder Approval Artifact
+  Shell Format Review Non-Authorization Boundary Review defining
+  non-authorization shell-format boundaries for a possible future founder
+  approval artifact shell, for traceability only. This review is not
+  founder approval, not a founder approval artifact, not an artifact shell,
+  not a usable approval artifact template, not artifact creation authority,
+  not an approval record, not an approval mechanism, not an approval
+  workflow, not runtime-toggle creation, not execution-toggle creation, not
+  command-gate creation, not deployment-gate creation, not execution-gate
+  creation, not implementation task order creation, not deployment task
+  order creation, not runtime authorization, not broker authorization, not
+  trading authorization, not order-routing authorization, not
+  command-execution authorization, not paper-trading execution
+  authorization, not live-execution authorization, not capital-deployment
+  authorization, and not execution readiness. Shell-format-review language
+  does not become shell creation, shell-format language does not become a
+  usable approval artifact template, artifact shell language does not
+  become founder approval, README / index inclusion does not become
+  approval, and documentation-governance progress does not become
+  implementation readiness, runtime readiness, live-execution
+  authorization, or execution readiness. No founder approval is created, no
+  founder approval artifact is created, no artifact shell is created, no
+  usable approval artifact template is created, no artifact creation
+  authority is created, no approval records are created, no approval
+  mechanisms are created, no approval workflows are created, no runtime
+  toggles are created, no execution toggles are created, no command gates
+  are created, no deployment gates are created, no execution gates are
+  created, no implementation task order is created, no deployment task
+  order is created, no runtime behavior is created, no broker access is
+  created, no trading access is created, no order routing is authorized, no
+  command execution is created, no paper-trading execution is authorized,
+  no live execution is authorized, no capital deployment is authorized, and
+  no execution capability is created.
 * `sniperbot-deployment-explicit-founder-approval-artifact-format-boundaries-non-authorization-boundary-review.md` -
   documentation-only / governance-only / deployment explicit founder
   approval artifact format boundaries non-authorization boundary review
