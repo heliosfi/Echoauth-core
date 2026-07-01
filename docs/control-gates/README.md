@@ -2734,6 +2734,43 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   execution is authorized, no capital deployment is authorized, no cleanup
   authority is created, no deletion authority is created, and no execution
   capability is created.
+* `sniperbot-deployment-explicit-founder-approval-artifact-storage-path-review-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / founder approval artifact storage
+  path review only / storage-path-only / non-authorization-only /
+  non-runtime / non-execution SniperBot Deployment Explicit Founder
+  Approval Artifact Storage Path Review Non-Authorization Boundary Review
+  defining storage-path-only boundaries for a possible future founder
+  approval artifact, for traceability only. This review is not founder
+  approval, not a founder approval artifact, not an artifact shell, not a
+  usable approval artifact template, not artifact storage authority, not
+  artifact creation authority, not currentness enforcement creation, not
+  approval activation, not approval-record creation, not approval-mechanism
+  creation, not approval-workflow creation, not implementation task order
+  creation, not deployment task order creation, not runtime authorization,
+  not broker authorization, not trading authorization, not order-routing
+  authorization, not command-execution authorization, not paper-trading
+  execution authorization, not live-execution authorization, not
+  capital-deployment authorization, not cleanup authority, not deletion
+  authority, and not execution readiness. Storage-path language does not
+  become artifact storage, artifact creation, artifact shell creation,
+  founder approval, currentness enforcement, approval evidence, approval
+  records, approval mechanisms, approval workflows, implementation
+  readiness, deployment readiness, runtime readiness, broker readiness,
+  trading readiness, order-routing readiness, paper-execution readiness,
+  live-execution authorization, capital-deployment authorization, cleanup
+  authorization, deletion authorization, or execution readiness. No founder
+  approval is created, no founder approval artifact is created, no artifact
+  shell is created, no usable approval artifact template is created, no
+  artifact storage authority is created, no artifact creation authority is
+  created, no currentness enforcement is created, no approval activation is
+  created, no approval records are created, no approval mechanisms are
+  created, no approval workflows are created, no implementation task order
+  is created, no deployment task order is created, no runtime behavior is
+  created, no broker access is created, no trading access is created, no
+  order routing is authorized, no command execution is created, no
+  paper-trading execution is authorized, no live execution is authorized,
+  no capital deployment is authorized, no cleanup authority is created, no
+  deletion authority is created, and no execution capability is created.
 * `sniperbot-deployment-explicit-founder-approval-artifact-format-boundaries-non-authorization-boundary-review.md` -
   documentation-only / governance-only / deployment explicit founder
   approval artifact format boundaries non-authorization boundary review
