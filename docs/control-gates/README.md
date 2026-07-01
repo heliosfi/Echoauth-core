@@ -2810,6 +2810,50 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   paper-trading execution is authorized, no live execution is authorized,
   no capital deployment is authorized, no cleanup authority is created, no
   deletion authority is created, and no execution capability is created.
+* `sniperbot-deployment-explicit-founder-approval-artifact-rejection-and-revocation-checklist-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / founder approval artifact
+  rejection and revocation checklist boundary only /
+  rejection-and-revocation-checklist-boundary-only /
+  non-authorization-only / non-runtime / non-execution SniperBot
+  Deployment Explicit Founder Approval Artifact Rejection and Revocation
+  Checklist Non-Authorization Boundary Review defining checklist-boundary
+  discipline for a possible future rejection/revocation checklist related
+  to a future founder approval artifact, for traceability only. This
+  review is not founder approval, not a founder approval artifact, not an
+  artifact shell, not a usable approval artifact template, not artifact
+  storage authority, not artifact creation authority, not approval-record
+  creation, not approval-mechanism activation, not approval-workflow
+  activation, not rejection authority, not revocation authority, not a
+  rejection mechanism, not a revocation mechanism, not authority registry
+  mutation, not authority registry behavior change, not implementation
+  task order creation, not deployment task order creation, not runtime
+  authorization, not broker authorization, not trading authorization, not
+  order-routing authorization, not command-execution authorization, not
+  paper-trading execution authorization, not live-execution authorization,
+  not capital-deployment authorization, not cleanup authority, not deletion
+  authority, and not execution readiness. Rejection/revocation checklist
+  language remains review-question-only and verification-point-only; it
+  does not override current traceable authority resolution, does not
+  become founder approval, approval evidence, approval records, approval
+  mechanisms, approval workflows, rejection authority, revocation
+  authority, authority registry mutation, implementation readiness,
+  deployment readiness, runtime readiness, broker readiness, trading
+  readiness, order-routing readiness, paper-execution readiness,
+  live-execution authorization, capital-deployment authorization, cleanup
+  authorization, deletion authorization, or execution readiness. No founder
+  approval is created, no founder approval artifact is created, no artifact
+  shell is created, no usable approval artifact template is created, no
+  artifact storage authority is created, no artifact creation authority is
+  created, no approval records are created, no approval mechanisms are
+  activated, no approval workflows are activated, no rejection authority is
+  created, no revocation authority is created, no authority registry
+  mutation is created, no implementation task order is created, no
+  deployment task order is created, no runtime behavior is created, no
+  broker access is created, no trading access is created, no order routing
+  is authorized, no command execution is created, no paper-trading
+  execution is authorized, no live execution is authorized, no capital
+  deployment is authorized, no cleanup authority is created, no deletion
+  authority is created, and no execution capability is created.
 * `sniperbot-deployment-explicit-founder-approval-artifact-format-boundaries-non-authorization-boundary-review.md` -
   documentation-only / governance-only / deployment explicit founder
   approval artifact format boundaries non-authorization boundary review
