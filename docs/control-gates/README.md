@@ -3669,6 +3669,75 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   readiness is created, no broker readiness is created, no command-execution
   readiness is created, no capital readiness is created, and no execution
   capability is created.
+* `sniperbot-deployment-approval-record-requirements-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / index-only / non-runtime /
+  non-execution reference to the SniperBot Deployment Approval Record
+  Requirements Non-Authorization Boundary Review. This README entry points to
+  `docs/control-gates/sniperbot-deployment-approval-record-requirements-non-authorization-boundary-review.md`
+  for traceability only. This index entry is not an approval record, not
+  approval record authorization, not approval, not founder approval, not
+  founder approval artifact creation, not founder approval artifact creation
+  authorization, not artifact creation authorization, not approval-mechanism
+  creation, not approval-workflow creation, not implementation task order
+  creation, not implementation task authorization, not deployment task order
+  creation, not deployment task authorization, not runtime-toggle creation,
+  not execution-toggle creation, not command-gate creation, not
+  deployment-gate creation, not execution-gate creation, not control-gate
+  implementation, not runtime startup approval, not service activation
+  approval, not worker activation approval, not scheduler activation
+  approval, not bot-process activation approval, not broker authorization,
+  not Robinhood authorization, not exchange authorization, not wallet
+  authorization, not order-routing authorization, not CUDA runtime behavior
+  authorization, not strategy runtime behavior authorization, not simulation
+  authorization, not paper-trading authorization, not live-trading
+  authorization, not command-execution authorization, not capital deployment
+  authorization, and not execution readiness. The referenced review defines
+  minimum requirements for any possible future SniperBot deployment approval
+  record, including exact approval record title, exact approval subject,
+  exact deployment subject, exact deployment scope, exact approving authority,
+  exact approval timestamp or currentness reference, exact evidence
+  references, exact prerequisite governance references, required founder
+  approval artifact reference if applicable in the future, required
+  implementation task order reference if applicable in the future, required
+  deployment task order reference if applicable in the future, required
+  approval mechanism or workflow reference if applicable in the future,
+  required toggle or gate references if applicable in the future, explicit
+  exclusions, non-runtime boundary, non-execution boundary, broker / trading /
+  capital exclusion, expiration or revalidation boundary if applicable,
+  traceability reference, acceptance criteria, and an explicit statement that
+  Codex may only rely on a future approval record for the exact bounded
+  subject described. Approval record cannot be inferred from this README /
+  index entry, from requirements being documented, from founder approval
+  artifact relationship chain, from implementation task order requirements,
+  from deployment task order requirements, from approval mechanism language,
+  from approval workflow language, from runtime toggle language, from
+  execution toggle language, from command gate language, from deployment gate
+  language, from execution gate language, from completed governance lane,
+  from repository presence, from commit history, from prior governance
+  documents, from evidence references, from currentness language, from
+  task-specificity language, or from "approved" wording without a separate
+  approval record. No approval record is created, no approval record is
+  authorized, no approval is granted, no founder approval artifact is created,
+  no founder approval is granted, no artifact creation is authorized, no
+  artifact creation authorization is authorized, no implementation task order
+  is created, no implementation task is authorized, no deployment task order
+  is created, no deployment task is authorized, no approval mechanism is
+  created, no approval workflow is created, no runtime toggle is created, no
+  execution toggle is created, no command gate is created, no deployment gate
+  is created, no execution gate is created, no control gate is implemented,
+  no runtime startup is authorized, no service activation is authorized, no
+  worker activation is authorized, no scheduler activation is authorized, no
+  bot-process activation is authorized, no broker access is authorized, no
+  Robinhood access is authorized, no exchange access is authorized, no wallet
+  access is authorized, no order routing is authorized, no CUDA runtime
+  behavior is authorized, no strategy runtime behavior is authorized, no
+  simulation is authorized, no paper trading is authorized, no live trading is
+  authorized, no command execution is authorized, no capital deployment is
+  authorized, no approval authority is created, no executable authority is
+  created, no implementation readiness is created, no deployment readiness is
+  created, no runtime readiness is created, no trading readiness is created,
+  no broker readiness is created, no command-execution readiness is created,
+  no capital readiness is created, and no execution capability is created.
 * `sniperbot-deployment-explicit-founder-approval-artifact-currentness-requirements-non-authorization-boundary-review.md` -
   documentation-only / governance-only / create-only / deployment explicit
   founder approval artifact currentness requirements non-authorization
