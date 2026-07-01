@@ -3855,6 +3855,49 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   created, no trading behavior is authorized, no runtime behavior is
   authorized, no command execution is authorized, no capital deployment is
   authorized, and no execution capability is created.
+* `sniperbot-deployment-approval-execution-toggle-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / index-only / non-runtime /
+  non-execution reference to the SniperBot Deployment Approval Execution
+  Toggle Non-Authorization Boundary Review. This README entry points to
+  `docs/control-gates/sniperbot-deployment-approval-execution-toggle-non-authorization-boundary-review.md`
+  for traceability only. This index entry is not an approval execution
+  toggle, not execution-toggle authorization, not an approval runtime toggle,
+  not runtime-toggle authorization, not an approval workflow, not an approval
+  mechanism, not an approval record, not founder approval, not founder
+  approval artifact creation, not command-gate creation, not deployment-gate
+  creation, not execution-gate creation, not implementation task creation,
+  not deployment task creation, not broker integration, not trading behavior,
+  not runtime behavior, not order routing, not command execution, not capital
+  deployment, and not execution capability. The referenced review defines the
+  non-authorization boundary for any possible future approval execution toggle
+  while preserving execution-state-boundary-only, evidence-separation-only,
+  non-runtime, non-execution, and non-authorization boundaries. Any future
+  approval execution toggle, if separately authorized later, may only
+  represent a governed execution-state boundary condition for a specific task;
+  it cannot generate approval, infer approval, approve by silence, approve by
+  README index alone, approve by document existence alone, approve by commit
+  history alone, approve stale approval artifacts, approve blanket or
+  inherited approval, approve ambiguous founder language, escalate approval
+  automatically, self-approve, convert evidence into authority, trigger
+  deployment, trigger runtime startup, trigger broker connection, trigger
+  trading, trigger order routing, trigger command execution, trigger capital
+  deployment, start runtime autonomously, enable execution autonomously,
+  override safety or risk controls, or bypass human review. Approval records,
+  approval mechanisms, approval workflows, approval runtime toggles, approval
+  execution toggles, founder approval artifacts, implementation authorization,
+  deployment authorization, runtime startup authorization, broker
+  authorization, trading authorization, order-routing authorization,
+  command-execution authorization, and capital-deployment authorization remain
+  separate governance surfaces. No approval execution toggle is created, no
+  approval runtime toggle is created, no approval workflow is created, no
+  approval mechanism is created, no approval record is created, no founder
+  approval artifact is created, no founder approval is granted, no command
+  gate is created, no deployment gate is created, no execution gate is
+  created, no implementation task is created, no deployment task is created,
+  no broker integration is created, no trading behavior is authorized, no
+  runtime behavior is authorized, no order routing is authorized, no command
+  execution is authorized, no capital deployment is authorized, and no
+  execution capability is created.
 * `sniperbot-deployment-explicit-founder-approval-artifact-currentness-requirements-non-authorization-boundary-review.md` -
   documentation-only / governance-only / create-only / deployment explicit
   founder approval artifact currentness requirements non-authorization
