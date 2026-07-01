@@ -3507,6 +3507,86 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   is created, no execution-gate readiness is created, no
   command-execution readiness is created, no capital deployment is
   authorized, and no execution capability is created.
+* `sniperbot-deployment-implementation-task-order-requirements-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / create-only / SniperBot deployment
+  implementation task order requirements non-authorization boundary review
+  only / non-runtime / non-execution SniperBot Deployment Implementation
+  Task Order Requirements Non-Authorization Boundary Review defining the
+  minimum requirements for any possible future SniperBot deployment
+  implementation task order, for traceability only. This review is not an
+  implementation task order, not implementation task authorization, not
+  implementation approval, not deployment task order creation, not
+  deployment task authorization, not deployment approval, not founder
+  approval, not founder approval artifact creation, not founder approval
+  artifact creation authorization, not artifact creation authorization, not
+  approval-record creation, not approval-mechanism creation, not
+  approval-workflow creation, not runtime-toggle creation, not
+  execution-toggle creation, not command-gate creation, not deployment-gate
+  creation, not execution-gate creation, not control-gate implementation,
+  not runtime startup approval, not service activation approval, not worker
+  activation approval, not scheduler activation approval, not bot-process
+  activation approval, not broker authorization, not Robinhood
+  authorization, not exchange authorization, not wallet authorization, not
+  order-routing authorization, not CUDA runtime behavior authorization, not
+  strategy runtime behavior authorization, not simulation authorization, not
+  paper-trading authorization, not live-trading authorization, not
+  command-execution authorization, not capital deployment authorization, and
+  not execution readiness. Any future implementation task order must be
+  separate, explicit, scoped, current, traceable, repo-supported, and
+  separately authorized. It must identify exact task title, exact
+  implementation subject, exact file paths allowed, explicit exclusions,
+  required prerequisite governance documents, required founder approval
+  artifact reference if applicable in the future, required approval record
+  reference if applicable in the future, required approval mechanism or
+  workflow reference if applicable in the future, required toggle or gate
+  references if applicable in the future, task scope boundary, non-runtime
+  boundary, non-execution boundary, broker / trading / capital exclusion,
+  rollback or reversal boundary if applicable, evidence and traceability
+  references, currentness requirements, acceptance criteria, and an explicit
+  statement that Codex may only perform the described task and no adjacent
+  implementation. Implementation task order cannot be inferred from this
+  requirements document existing, requirements being documented, founder
+  approval artifact relationship chain, approval record language, approval
+  mechanism language, approval workflow language, runtime toggle language,
+  execution toggle language, command gate language, deployment gate
+  language, execution gate language, README / index entry, completed
+  governance lane, repository presence, commit history, prior governance
+  documents, evidence references, currentness language, task-specificity
+  language, or "approved" wording without a separate implementation task
+  order. Implementation is not authorized because requirements are
+  documented. Deployment is not authorized because implementation
+  requirements are documented. Runtime is not authorized because
+  implementation requirements are documented. Broker, trading,
+  order-routing, command-execution, capital deployment, or execution
+  capability is not authorized because implementation requirements are
+  documented. Any future implementation task order must remain separate from
+  founder approval artifact, approval record, approval mechanism, approval
+  workflow, runtime toggle, execution toggle, command gate, deployment gate,
+  execution gate, deployment task order, control gate implementation,
+  runtime startup authorization, broker authorization, trading
+  authorization, command-execution authorization, capital-deployment
+  authorization, or execution authorization. No implementation task order is
+  created, no implementation task is authorized, no deployment task order is
+  created, no deployment task is authorized, no founder approval artifact is
+  created, no founder approval is granted, no artifact creation is
+  authorized, no artifact creation authorization is authorized, no approval
+  record is created, no approval mechanism is created, no approval workflow
+  is created, no runtime toggle is created, no execution toggle is created,
+  no command gate is created, no deployment gate is created, no execution
+  gate is created, no control gate is implemented, no runtime startup is
+  authorized, no service activation is authorized, no worker activation is
+  authorized, no scheduler activation is authorized, no bot-process
+  activation is authorized, no broker access is authorized, no Robinhood
+  access is authorized, no exchange access is authorized, no wallet access
+  is authorized, no order routing is authorized, no CUDA runtime behavior is
+  authorized, no strategy runtime behavior is authorized, no simulation is
+  authorized, no paper trading is authorized, no live trading is authorized,
+  no command execution is authorized, no capital deployment is authorized,
+  no executable authority is created, no implementation readiness is
+  created, no deployment readiness is created, no runtime readiness is
+  created, no trading readiness is created, no broker readiness is created,
+  no command-execution readiness is created, no capital readiness is
+  created, and no execution capability is created.
 * `sniperbot-deployment-explicit-founder-approval-artifact-currentness-requirements-non-authorization-boundary-review.md` -
   documentation-only / governance-only / create-only / deployment explicit
   founder approval artifact currentness requirements non-authorization
