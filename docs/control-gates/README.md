@@ -4092,6 +4092,61 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   is created, no deployment task order is created, no command paths are
   created, no executable authority is created, no capital deployment is
   authorized, and no execution capability is created.
+* `sniperbot-deployment-explicit-founder-approval-artifact-currentness-enforcement-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / index-only / non-runtime /
+  non-execution reference to the SniperBot Deployment Explicit Founder
+  Approval Artifact Currentness Enforcement Non-Authorization Boundary
+  Review. This README entry points to
+  `docs/control-gates/sniperbot-deployment-explicit-founder-approval-artifact-currentness-enforcement-non-authorization-boundary-review.md`
+  for traceability only. This index entry is not founder approval, not a
+  founder approval artifact, not currentness enforcement mechanism creation,
+  not approval record creation, not approval mechanism creation, not approval
+  workflow creation, not runtime-toggle creation, not execution-toggle
+  creation, not command-gate creation, not deployment-gate creation, not
+  execution-gate creation, not implementation task creation, not deployment
+  task creation, not broker integration, not trading behavior, not runtime
+  behavior, not order routing, not command execution, not paper-trading
+  execution, not live execution, not capital deployment, and not execution
+  capability. The referenced review defines the non-authorization boundary
+  for any possible future enforcement of founder approval artifact
+  currentness while preserving currentness-enforcement-boundary-only,
+  currentness-status-boundary-only, evidence-separation-only, non-runtime,
+  non-execution, paper/live-execution non-authorization, and
+  non-authorization boundaries. Any future currentness enforcement process,
+  if separately authorized later, may only classify whether a separately
+  created founder approval artifact is current, stale, expired, revoked,
+  ambiguous, missing, out of scope, or requiring human review for a specific
+  task; it cannot generate approval, infer approval, approve by silence,
+  approve by README index alone, approve by document existence alone, approve
+  by commit history alone, approve stale artifacts, approve expired
+  artifacts, approve revoked artifacts, approve blanket or inherited
+  approval, approve ambiguous founder language, escalate approval
+  automatically, self-approve, refresh stale approval, extend approval
+  duration, expand approval scope, convert currentness evidence into
+  deployment authority, convert currentness evidence into execution
+  authority, trigger deployment, trigger runtime startup, trigger broker
+  connection, trigger trading, trigger order routing, trigger command
+  execution, trigger paper-trading execution, trigger live execution, trigger
+  capital deployment, override safety or risk controls, or bypass human
+  review. Founder approval artifacts, founder approval, currentness
+  enforcement mechanisms, approval records, approval mechanisms, approval
+  workflows, runtime toggles, execution toggles, command gates, deployment
+  gates, execution gates, implementation authorization, deployment
+  authorization, runtime startup authorization, broker authorization, trading
+  authorization, order-routing authorization, command-execution
+  authorization, paper-trading execution authorization, live-execution
+  authorization, and capital-deployment authorization remain separate
+  governance surfaces. No founder approval artifact is created, no founder
+  approval is granted, no currentness enforcement mechanism is created, no
+  approval record is created, no approval mechanism is created, no approval
+  workflow is created, no runtime toggle is created, no execution toggle is
+  created, no command gate is created, no deployment gate is created, no
+  execution gate is created, no implementation task is created, no deployment
+  task is created, no broker integration is created, no trading behavior is
+  authorized, no runtime behavior is authorized, no order routing is
+  authorized, no command execution is authorized, no paper-trading execution
+  is authorized, no live execution is authorized, no capital deployment is
+  authorized, and no execution capability is created.
 * `sniperbot-capital-risk-limit-boundary-review.md` -
   documentation-only / governance-only / capital-risk-boundary-only /
   non-execution SniperBot Capital Risk Limit Boundary Review defining future
