@@ -2698,6 +2698,42 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   command execution is created, no paper-trading execution is authorized,
   no live execution is authorized, no capital deployment is authorized, and
   no execution capability is created.
+* `sniperbot-deployment-founder-approval-artifact-path-integrity-course-lock-review-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / founder approval artifact path
+  integrity course-lock review only / anti-drift review only /
+  course-lock-only / non-runtime / non-execution SniperBot Deployment
+  Founder Approval Artifact Path Integrity Course-Lock Review
+  Non-Authorization Boundary Review defining anti-drift course-lock
+  discipline for the SniperBot founder approval artifact path, for
+  traceability only. This review is not founder approval, not a founder
+  approval artifact, not an artifact shell, not a usable approval artifact
+  template, not artifact creation authority, not approval activation, not
+  implementation authority, not an implementation task order, not
+  deployment authorization, not a deployment task order, not runtime
+  authorization, not broker authorization, not trading authorization, not
+  order-routing authorization, not command-execution authorization, not
+  paper-trading execution authorization, not live-execution authorization,
+  not capital-deployment authorization, not cleanup authority, not deletion
+  authority, and not execution readiness. Course-lock language keeps review
+  files as review files, index entries as traceability only,
+  shell-format reviews as shell-format reviews only, task-order reviews as
+  task-order reviews only, and cleanup discussions separate from the active
+  founder approval artifact path. Course-lock language does not become
+  founder approval, artifact creation, artifact shell creation,
+  implementation readiness, runtime readiness, broker readiness, trading
+  readiness, order-routing readiness, paper-execution readiness,
+  live-execution authorization, cleanup authorization, deletion
+  authorization, or execution readiness. No founder approval is created, no
+  founder approval artifact is created, no artifact shell is created, no
+  usable approval artifact template is created, no artifact creation
+  authority is created, no approval activation is created, no
+  implementation task order is created, no deployment task order is
+  created, no runtime behavior is created, no broker access is created, no
+  trading access is created, no order routing is authorized, no command
+  execution is created, no paper-trading execution is authorized, no live
+  execution is authorized, no capital deployment is authorized, no cleanup
+  authority is created, no deletion authority is created, and no execution
+  capability is created.
 * `sniperbot-deployment-explicit-founder-approval-artifact-format-boundaries-non-authorization-boundary-review.md` -
   documentation-only / governance-only / deployment explicit founder
   approval artifact format boundaries non-authorization boundary review
