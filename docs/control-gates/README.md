@@ -375,6 +375,27 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   execution, live-money approval, founder approval artifact creation,
   approval record creation, implementation task order approval, production
   deployment, runtime behavior, SniperBot behavior, or execution capability.
+* `docs/control-gates/sniperbot-live-money-readiness-evidence-requirements-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / index-only reference to the
+  SniperBot Live-Money Readiness Evidence Requirements Non-Authorization
+  Boundary Review defining the future evidence package requirements for any
+  possible SniperBot progression toward live-money readiness, for
+  traceability only. Evidence requirements are not evidence acceptance,
+  evidence validation, readiness certification, approval, implementation,
+  activation, simulation runtime, paper trading, broker access, order
+  routing, sizing, execution, capital deployment, live-money approval, or
+  live-money activation. This README entry does not create, modify, grant,
+  imply, validate, accept, certify, or authorize broker access, broker
+  connection, broker account access, API key use, credential handling,
+  order routing, order submission, order cancellation, trade placement,
+  capital deployment, live execution, paper trading, simulation runtime
+  activation, runtime toggles, position sizing runtime, trade sizing
+  runtime, portfolio allocation, autonomous execution, command execution,
+  live-money approval, live-money activation, founder approval artifact
+  creation, approval record creation, implementation task order approval,
+  evidence artifact creation, evidence acceptance, evidence validation,
+  readiness certification, production deployment, runtime behavior,
+  SniperBot behavior, or execution capability.
 * `sniperbot-broker-access-boundary-review.md` - documentation-only /
   governance-only / broker-access-boundary-only / non-runtime /
   non-execution SniperBot Broker Access Boundary Review defining future
