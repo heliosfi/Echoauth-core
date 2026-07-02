@@ -358,6 +358,23 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   but does not approve or execute trades. Future live trading requires a
   separate explicit founder-selected bounded task order after safety, risk,
   broker, execution, and kill-switch boundaries are reviewed.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-non-authorization-boundary-review.md` -
+  documentation-only / governance-only / index-only reference to the
+  SniperBot Live-Money Readiness Ladder Non-Authorization Boundary Review
+  defining the staged ladder from the current SniperBot governance spine
+  toward any possible future live-money readiness, for traceability only.
+  Live-money readiness is not live-money authorization; readiness mapping is
+  not activation; paper trading is proof-stage evidence only; and founder
+  approval remains a separate required key before any future advancement.
+  This README entry does not create, modify, grant, imply, or authorize
+  broker access, broker connection, broker account access, API key use,
+  credential handling, order routing, order submission, order cancellation,
+  trade placement, capital deployment, live execution, paper trading,
+  simulation runtime activation, runtime toggles, position sizing runtime,
+  trade sizing runtime, portfolio allocation, autonomous execution, command
+  execution, live-money approval, founder approval artifact creation,
+  approval record creation, implementation task order approval, production
+  deployment, runtime behavior, SniperBot behavior, or execution capability.
 * `sniperbot-broker-access-boundary-review.md` - documentation-only /
   governance-only / broker-access-boundary-only / non-runtime /
   non-execution SniperBot Broker Access Boundary Review defining future
