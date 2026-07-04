@@ -25,6 +25,11 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   governance, CEG movement sequencing, EchoAuth permission enforcement, and
   bounded execution. Documentation-only / governance-only / non-authorization
   boundary.
+* `docs/control-gates/echoauth-ceg-movement-sequencing-boundary-review.md` -
+  EchoAuth CEG Movement Sequencing Boundary Review. Documents CEG as a
+  movement sequencing / order-control boundary that may sequence review,
+  handoff, checkpoint, and governance movement order only within authorized
+  scope. Documentation-only / governance-only / non-authorization boundary.
 * `authority-clarity-operating-law.md` - Authority Clarity operating law and
   vulnerability-first governance principle anchor; states that power must kneel
   to responsibility before it moves and traces the principle through documents,
