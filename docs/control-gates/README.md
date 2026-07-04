@@ -9,6 +9,10 @@ behavior, broker/trading paths, service behavior, or agent behavior.
 
 ## Current Documents
 
+* `docs/control-gates/echoauth-authority-mode-spine-review.md` - EchoAuth
+  Authority-Mode Spine Review. Documents the repo-facing authority spine that
+  separates explanation, state discipline, permission enforcement, and bounded
+  execution. Documentation-only / governance-only / non-authorization boundary.
 * `authority-clarity-operating-law.md` - Authority Clarity operating law and
   vulnerability-first governance principle anchor; states that power must kneel
   to responsibility before it moves and traces the principle through documents,
