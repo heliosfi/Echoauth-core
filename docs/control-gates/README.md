@@ -57,6 +57,15 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   runtime-envelope terminology, source scaffolding, documentation commits, and
   README index entries. Documentation-only / governance-only /
   non-authorization boundary.
+* `docs/control-gates/echoauth-runtime-capability-separation-review.md` -
+  EchoAuth Runtime Capability Separation Review. Documents runtime capability
+  as separate from runtime source paths, runtime folders, runtime
+  state-machine terms, runtime-envelope terminology, schemas, readiness
+  reports, build-readiness assessments, production-readiness assessments,
+  READY labels, execution-capability language, execution-token language,
+  bounded-execution language, source scaffolding, documentation commits, and
+  README index entries. Documentation-only / governance-only /
+  non-authorization boundary.
 * `authority-clarity-operating-law.md` - Authority Clarity operating law and
   vulnerability-first governance principle anchor; states that power must kneel
   to responsibility before it moves and traces the principle through documents,
