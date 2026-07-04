@@ -30,6 +30,12 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   movement sequencing / order-control boundary that may sequence review,
   handoff, checkpoint, and governance movement order only within authorized
   scope. Documentation-only / governance-only / non-authorization boundary.
+* `docs/control-gates/echoauth-permission-enforcement-non-bypass-boundary-review.md` -
+  EchoAuth Permission Enforcement Non-Bypass Boundary Review. Documents
+  EchoAuth permission enforcement as the non-bypassable permission layer
+  across S-modules, MCG/MPC, S-mode labels, CEG signals, archive doctrine,
+  bounded-execution language, runtime terminology, and future implementation
+  work. Documentation-only / governance-only / non-authorization boundary.
 * `authority-clarity-operating-law.md` - Authority Clarity operating law and
   vulnerability-first governance principle anchor; states that power must kneel
   to responsibility before it moves and traces the principle through documents,
