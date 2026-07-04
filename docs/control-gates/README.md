@@ -49,6 +49,14 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   references, bounded-execution language, and runtime-envelope terminology as
   non-authorizing. Documentation-only / governance-only / non-authorization
   boundary.
+* `docs/control-gates/echoauth-execution-capability-separation-review.md` -
+  EchoAuth Execution Capability Separation Review. Documents execution
+  capability as separate from file names, folders, schemas, execution-token
+  terminology, bounded-execution terminology, readiness reports, dependency
+  graphs, READY labels, execution-claim language, eligibility language,
+  runtime-envelope terminology, source scaffolding, documentation commits, and
+  README index entries. Documentation-only / governance-only /
+  non-authorization boundary.
 * `authority-clarity-operating-law.md` - Authority Clarity operating law and
   vulnerability-first governance principle anchor; states that power must kneel
   to responsibility before it moves and traces the principle through documents,
