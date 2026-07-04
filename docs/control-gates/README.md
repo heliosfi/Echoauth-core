@@ -36,6 +36,13 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   across S-modules, MCG/MPC, S-mode labels, CEG signals, archive doctrine,
   bounded-execution language, runtime terminology, and future implementation
   work. Documentation-only / governance-only / non-authorization boundary.
+* `docs/control-gates/echoauth-bounded-execution-non-authorization-boundary-review.md` -
+  EchoAuth Bounded Execution Non-Authorization Boundary Review. Documents
+  bounded execution as governance boundary language only, not active execution
+  capability, runtime approval, implementation authority, deployment readiness,
+  founder approval, readiness certification, production activation, or
+  external-system action. Documentation-only / governance-only /
+  non-authorization boundary.
 * `authority-clarity-operating-law.md` - Authority Clarity operating law and
   vulnerability-first governance principle anchor; states that power must kneel
   to responsibility before it moves and traces the principle through documents,
