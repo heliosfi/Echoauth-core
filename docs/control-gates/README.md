@@ -43,6 +43,12 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   founder approval, readiness certification, production activation, or
   external-system action. Documentation-only / governance-only /
   non-authorization boundary.
+* `docs/control-gates/echoauth-execution-token-non-authorization-boundary-review.md` -
+  EchoAuth Execution Token Non-Authorization Boundary Review. Documents
+  execution-token language, schema names, token structures, readiness
+  references, bounded-execution language, and runtime-envelope terminology as
+  non-authorizing. Documentation-only / governance-only / non-authorization
+  boundary.
 * `authority-clarity-operating-law.md` - Authority Clarity operating law and
   vulnerability-first governance principle anchor; states that power must kneel
   to responsibility before it moves and traces the principle through documents,
