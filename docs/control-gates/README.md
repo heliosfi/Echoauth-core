@@ -19,6 +19,12 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   so S-mode labels cannot be mistaken for permission, readiness, runtime
   authority, founder approval, deployment approval, or execution capability.
   Documentation-only / governance-only / non-authorization boundary.
+* `docs/control-gates/echoauth-s-module-mcg-integration-boundary-review.md` -
+  EchoAuth S-Module / MCG Integration Boundary Review. Documents the
+  repo-facing integration boundary between S1-S23 modules, MCG / MPC
+  governance, CEG movement sequencing, EchoAuth permission enforcement, and
+  bounded execution. Documentation-only / governance-only / non-authorization
+  boundary.
 * `authority-clarity-operating-law.md` - Authority Clarity operating law and
   vulnerability-first governance principle anchor; states that power must kneel
   to responsibility before it moves and traces the principle through documents,
