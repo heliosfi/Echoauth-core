@@ -66,6 +66,14 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   bounded-execution language, source scaffolding, documentation commits, and
   README index entries. Documentation-only / governance-only /
   non-authorization boundary.
+* `docs/control-gates/codex-three-rule-repo-protocol.md` - Codex Three-Rule
+  Repo Protocol. Codex / repo anti-drift operating protocol locking Habitat
+  Before Routine, Silence Is Not Permission, and Stop Outside the Lane.
+  Documentation-only / governance-only / non-authorization boundary; does not
+  authorize runtime, implementation, deployment, trading, broker access,
+  credentials, production activation, approval records, approval mechanisms,
+  simulation readiness, paper-trading readiness, live-money readiness, or
+  execution capability.
 * `authority-clarity-operating-law.md` - Authority Clarity operating law and
   vulnerability-first governance principle anchor; states that power must kneel
   to responsibility before it moves and traces the principle through documents,
