@@ -104,6 +104,33 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   execution, execution capability, or approval mechanisms, and any future
   movement requires a separate explicit founder-selected bounded task
   order.
+* `docs/control-gates/post-echoauth-spine-next-lane-options-review.md` -
+  Post-EchoAuth-Spine Next-Lane Options Review. Records six founder-facing
+  future direction option categories after the EchoAuth non-authorization
+  spine was completed, indexed, verified, consolidated, and parked:
+  (1) Documentation / Traceability Continuation,
+  (2) Readiness Evidence Requirements,
+  (3) Founder Approval Artifact Requirements,
+  (4) Implementation Task-Order Requirements,
+  (5) Runtime Boundary Requirements,
+  (6) Broker / Robinhood / Agentic Destination Boundary Requirements.
+  No option is selected, approved, authorized, prepared, or made ready.
+  Robinhood agentic capability is a future destination only, not current
+  repo capability, not authorized, not implemented, and not approved for
+  code, broker access, credentials, order routing, paper trading, live
+  trading, runtime, execution, production, or agentic activation. Parked
+  does not mean ready. Preserves the Codex Three-Rule Repo Protocol
+  (Habitat Before Routine, Silence Is Not Permission, Stop Outside the
+  Lane). Documentation-only / governance-only / options-review-only /
+  traceability-only / non-authorization boundary; does not authorize
+  runtime, implementation, source-code change, schema change, validator
+  work, tests, CI, deployment, credentials, execution, production, paper
+  trading, broker access, Robinhood access, Robinhood agentic activation,
+  live trading, simulation, SniperBot behavior, macro/hotkey behavior,
+  CUDA behavior, autonomous action, command execution, execution
+  capability, approval mechanisms, or a next-lane selection, and any
+  future movement requires a separate explicit founder-selected bounded
+  task order.
 * `docs/control-gates/codex-three-rule-repo-protocol.md` - Codex Three-Rule
   Repo Protocol. Codex / repo anti-drift operating protocol locking Habitat
   Before Routine, Silence Is Not Permission, and Stop Outside the Lane.
