@@ -66,6 +66,24 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   bounded-execution language, source scaffolding, documentation commits, and
   README index entries. Documentation-only / governance-only /
   non-authorization boundary.
+* `docs/control-gates/echoauth-post-runtime-capability-separation-phase-checkpoint.md`
+  - EchoAuth Post-Runtime-Capability-Separation Phase Checkpoint. Records the
+  EchoAuth non-authorization spine (Authority-Mode Spine, S-Mode Transition
+  Requirements, S-Module / MCG Integration Boundary, CEG Movement Sequencing
+  Boundary, Permission-Enforcement Non-Bypass Boundary, Bounded Execution
+  Non-Authorization Boundary, Execution Token Non-Authorization Boundary,
+  Execution Capability Separation, Runtime Capability Separation) as
+  complete, indexed, verified, and parked. Parked does not mean ready.
+  Preserves the Codex Three-Rule Repo Protocol (Habitat Before Routine,
+  Silence Is Not Permission, Stop Outside the Lane). Documentation-only /
+  governance-only / phase-checkpoint-only / traceability-only /
+  non-authorization boundary; does not authorize runtime, implementation,
+  source-code change, schema change, validator work, tests, CI, deployment,
+  credentials, execution, production, paper trading, broker access, Robinhood
+  access, live trading, simulation, SniperBot behavior, macro/hotkey behavior,
+  CUDA behavior, autonomous action, command execution, or execution
+  capability, and any future movement requires a separate explicit
+  founder-selected bounded task order.
 * `docs/control-gates/codex-three-rule-repo-protocol.md` - Codex Three-Rule
   Repo Protocol. Codex / repo anti-drift operating protocol locking Habitat
   Before Routine, Silence Is Not Permission, and Stop Outside the Lane.
