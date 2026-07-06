@@ -299,6 +299,37 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   permission, and any HOLD-trigger resolution work, ESCALATE-element
   resolution work, Stage 3 entry, or downstream capability movement
   requires a separate explicit founder-selected bounded task order.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-founder-approval-artifact-requirements-currentness-validation-review.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Founder Approval
+  Artifact Requirements Currentness-Validation Review. Addresses only
+  one HOLD trigger — "no currentness-validation review has been
+  performed" — under a strictly narrow documentation-currentness
+  scope (files present on disk at HEAD `2491ad6` and not modified
+  after their add commit). Records the composite finding: "No
+  documentation-currentness gap identified by this review" across the
+  Stage 2 Cross-Map / Gap-Analysis / Consolidation / Gate-Decision
+  chain (Group A) and the 30-file Founder Approval Artifact
+  requirement family (Group B). Explicitly states that
+  documentation-currentness validation is not coverage acceptance,
+  sufficiency validation, content adequacy validation, cross-file
+  consistency validation, Stage 2 certification, Stage 2 advancement,
+  Stage 3 entry, approval artifact / approval record / approval
+  mechanism / approval workflow / implementation task order creation,
+  runtime permission, broker permission, Robinhood permission, paper-
+  trading permission, live-trading permission, or execution
+  permission. Stage 2 gate posture remains HOLD with ESCALATE
+  elements; Stage 3 not entered; the Stage 2 gate outcome is not
+  changed; no new Advancement Gate decision is issued. Robinhood
+  agentic capability remains a future destination only, not current
+  repo capability, not implemented, not approved, and not
+  authorized. Preserves the Codex Three-Rule Repo Protocol (Habitat
+  Before Routine, Silence Is Not Permission, Stop Outside the Lane).
+  Documentation-only / governance-only / currentness-validation-only
+  / documentation-currentness traceability only / single-HOLD-
+  trigger scope only / traceability-only / non-authorization
+  boundary; any remaining HOLD-trigger resolution work, ESCALATE-
+  element resolution work, Stage 2 re-gate review, or Stage 3 entry
+  requires a separate explicit founder-selected bounded task order.
 * `docs/control-gates/codex-three-rule-repo-protocol.md` - Codex Three-Rule
   Repo Protocol. Codex / repo anti-drift operating protocol locking Habitat
   Before Routine, Silence Is Not Permission, and Stop Outside the Lane.
