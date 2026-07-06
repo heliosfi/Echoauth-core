@@ -269,6 +269,36 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   decision review, Ladder ↔ Stage Checklist numbering reconciliation
   review, or Stage 3 entry requires a separate explicit founder-
   selected bounded task order.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-decision-review.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Advancement Gate
+  Decision Review. Records Stage 2 gate posture as HOLD with ESCALATE
+  elements, using only the repo-defined gate states (HOLD, ESCALATE,
+  BLOCK) enumerated in the Advancement Gate Non-Authorization Boundary
+  Review; explicitly disclaims "non-blocking record" as not a
+  repo-defined gate state. HOLD basis: no founder approval artifact,
+  approval record, approval mechanism, approval workflow, or
+  implementation task order exists; no currentness-validation review
+  has been performed; documentation-only files cannot authorize
+  advancement; Stage 2 documentation-existence coverage is not
+  coverage acceptance, sufficiency validation, certification, or
+  advancement. ESCALATE basis: evidence/traceability exists but
+  acceptance has not occurred under a separate future process, and
+  traceability does not settle authority. Conclusion: Stage 2 cannot
+  advance to Stage 3; Stage 3 is not entered. Robinhood agentic
+  capability remains a future destination only, not current repo
+  capability, not implemented, not approved, and not authorized.
+  Preserves the Codex Three-Rule Repo Protocol (Habitat Before
+  Routine, Silence Is Not Permission, Stop Outside the Lane).
+  Documentation-only / governance-only / advancement-gate-decision-
+  review-only / HOLD outcome with ESCALATE elements / traceability-
+  only / non-authorization boundary; does not create a founder
+  approval artifact, an approval record, an approval mechanism, an
+  approval workflow, an implementation task order, a runtime
+  permission, a broker permission, a Robinhood permission, a paper-
+  trading permission, a live-trading permission, or an execution
+  permission, and any HOLD-trigger resolution work, ESCALATE-element
+  resolution work, Stage 3 entry, or downstream capability movement
+  requires a separate explicit founder-selected bounded task order.
 * `docs/control-gates/codex-three-rule-repo-protocol.md` - Codex Three-Rule
   Repo Protocol. Codex / repo anti-drift operating protocol locking Habitat
   Before Routine, Silence Is Not Permission, and Stop Outside the Lane.
