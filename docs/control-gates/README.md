@@ -330,6 +330,11 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   boundary; any remaining HOLD-trigger resolution work, ESCALATE-
   element resolution work, Stage 2 re-gate review, or Stage 3 entry
   requires a separate explicit founder-selected bounded task order.
+* `docs/control-gates/echoauth-safety-before-identity-alignment-review.md` -
+  EchoAuth Safety-Before-Identity Alignment Review. Records the core rule
+  "Safety first, identity after safety is confirmed." as docs-only governance
+  alignment only. Non-authorizing; no runtime, deployment, child-data,
+  biometric, camera, school/hospital, or medical-diagnosis approval.
 * `docs/control-gates/codex-three-rule-repo-protocol.md` - Codex Three-Rule
   Repo Protocol. Codex / repo anti-drift operating protocol locking Habitat
   Before Routine, Silence Is Not Permission, and Stop Outside the Lane.
