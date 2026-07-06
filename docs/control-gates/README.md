@@ -131,6 +131,36 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   capability, approval mechanisms, or a next-lane selection, and any
   future movement requires a separate explicit founder-selected bounded
   task order.
+* `docs/control-gates/sniperbot-spine-phase-checkpoint.md` - SniperBot
+  Spine Phase Checkpoint. Records that the SniperBot / Robinhood /
+  live-money path is currently parked at
+  `docs/control-gates/sniperbot-live-money-readiness-stage-checklist-non-authorization-boundary-review.md`,
+  and records the SniperBot spine (Broker / Robinhood, Order Routing,
+  Market Data / Tick Processing, CUDA / Latency, Signal / Strategy, Risk /
+  Sizing, Kill Switch / Max Loss / Human Confirmation / No Autonomous /
+  Rollback, Paper Trading, Replay / Backtest / Simulation, Live-Trading
+  Readiness, Asset-Class Deferral for stock / options / crypto, Deployment
+  sub-spine, Explicit Founder Approval Artifact sub-spine, Live-Money
+  Readiness sub-spine ending at the Stage Checklist node, No-Child-Safety
+  Governance Crossover) as complete-so-far, indexed, verified, and parked.
+  Parked does not mean ready. Robinhood agentic capability remains a
+  future destination only, not current repo capability, not implemented,
+  not approved, and not authorized. Preserves the Codex Three-Rule Repo
+  Protocol (Habitat Before Routine, Silence Is Not Permission, Stop
+  Outside the Lane). Documentation-only / governance-only / phase-
+  checkpoint-only / traceability-only / non-authorization boundary; does
+  not authorize code, source-code change, schema change, validator work,
+  tests, CI, runtime activation, deployment, production, credentials,
+  broker access, Robinhood access, Robinhood agentic activation,
+  market-data runtime, signal runtime, strategy runtime, risk runtime,
+  position sizing, trade sizing, order routing, paper trading, simulation
+  runtime, live trading, live-money readiness certification, live-money
+  activation, capital deployment, CUDA / GPU behavior, autonomous action,
+  command execution, founder-approval-artifact creation, approval-record
+  creation, approval-mechanism creation, implementation-task-order
+  creation, or SniperBot runtime behavior, and any movement toward live
+  trading / Robinhood agentic capability requires a separate explicit
+  founder-selected bounded task order.
 * `docs/control-gates/codex-three-rule-repo-protocol.md` - Codex Three-Rule
   Repo Protocol. Codex / repo anti-drift operating protocol locking Habitat
   Before Routine, Silence Is Not Permission, and Stop Outside the Lane.
