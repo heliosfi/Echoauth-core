@@ -192,6 +192,47 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   and any Stage 2 completion, gap analysis, consolidation closeout, or
   Advancement Gate decision requires a separate explicit founder-selected
   bounded task order.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-founder-approval-artifact-requirements-gap-analysis-review.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Founder Approval
+  Artifact Requirements Gap-Analysis Review. Performs a
+  documentation-existence gap analysis of the Ladder Stage 2 Cross-Map
+  Review across all 23 requirement surfaces (artifact requirements,
+  authority limits, content boundaries, format boundaries, shell format,
+  non-execution wording, task specificity, creation scope, creation
+  authorization boundaries, currentness, evidence relationship, storage
+  path, storage traceability, human review, rejection / revocation, and
+  relationships to approval mechanisms, approval records, approval
+  workflows, command gates, deployment gates, execution gates, execution
+  toggles, and runtime toggles). Records each surface as Covered by at
+  least one directly-attributed documentation-only non-authorization
+  boundary review file in `docs/control-gates/`, and records the overall
+  finding as "No unresolved documentation gap identified by this
+  review." Records Ladder Stage 2 as still mapped only, not complete,
+  not certified, not advanced, not passed through the Advancement Gate.
+  Documentation-existence coverage is explicitly not coverage acceptance,
+  not sufficiency validation, not currentness validation, not content
+  adequacy, not cross-file consistency validation, not Stage 2
+  completion, not Stage 2 certification, not Stage 2 advancement, and
+  not an Advancement Gate decision. Does not create a founder approval
+  artifact, an approval record, an approval mechanism, an approval
+  workflow, or an implementation task order. Preserves the Codex
+  Three-Rule Repo Protocol (Habitat Before Routine, Silence Is Not
+  Permission, Stop Outside the Lane). Documentation-only /
+  governance-only / gap-analysis-only / documentation-existence gap
+  analysis only / traceability-only / non-authorization boundary; does
+  not authorize code, source-code change, schema change, validator
+  work, tests, CI, runtime activation, deployment, production,
+  credentials, broker access, Robinhood access, Robinhood agentic
+  activation, market-data runtime, signal runtime, strategy runtime,
+  risk runtime, position sizing, trade sizing, order routing, paper
+  trading, simulation runtime, live trading, live-money readiness
+  certification, live-money activation, capital deployment, CUDA / GPU
+  behavior, autonomous action, command execution, SniperBot runtime
+  behavior, Stage 2 completion, Stage 2 certification, Stage 2
+  advancement, Stage 3 entry, or an Advancement Gate decision, and any
+  future coverage-acceptance review, sufficiency-validation review,
+  consolidation closeout, Advancement Gate decision, or Stage 3 entry
+  requires a separate explicit founder-selected bounded task order.
 * `docs/control-gates/codex-three-rule-repo-protocol.md` - Codex Three-Rule
   Repo Protocol. Codex / repo anti-drift operating protocol locking Habitat
   Before Routine, Silence Is Not Permission, and Stop Outside the Lane.
