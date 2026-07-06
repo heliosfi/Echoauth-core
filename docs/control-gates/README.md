@@ -233,6 +233,42 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   future coverage-acceptance review, sufficiency-validation review,
   consolidation closeout, Advancement Gate decision, or Stage 3 entry
   requires a separate explicit founder-selected bounded task order.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-consolidation-closeout-review.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Consolidation Closeout
+  Review. Consolidates and parks the Stage 2 documentation-existence
+  lane at the committed Stage 2 Cross-Map Review (`cff8e84`) and Stage
+  2 Gap-Analysis Review (`694e970`). Records Stage 2 as mapped,
+  gap-analyzed for documentation existence, found to have no unresolved
+  documentation-existence gap, consolidated, and parked. Stage 2 is
+  complete-so-far only as a documentation-existence / requirements-
+  mapping surface; Stage 2 is not certified, not advanced, has not
+  passed through the Advancement Gate, and Stage 3 is not entered. Does
+  not create a founder approval artifact, an approval record, an
+  approval mechanism, an approval workflow, an implementation task
+  order, a gate decision, or any runtime permission. Any Advancement
+  Gate decision for Stage 2 requires a separate explicit founder-
+  selected bounded task order. Robinhood agentic capability remains a
+  future destination only, not current repo capability, not
+  implemented, not approved, and not authorized. Preserves the Codex
+  Three-Rule Repo Protocol (Habitat Before Routine, Silence Is Not
+  Permission, Stop Outside the Lane). Documentation-only /
+  governance-only / consolidation-closeout-only / documentation-
+  existence consolidation only / traceability-only / non-authorization
+  boundary; does not authorize code, source-code change, schema change,
+  validator work, tests, CI, runtime activation, deployment,
+  production, credentials, broker access, Robinhood access, Robinhood
+  agentic activation, market-data runtime, signal runtime, strategy
+  runtime, risk runtime, position sizing, trade sizing, order routing,
+  paper trading, simulation runtime, live trading, live-money
+  readiness certification, live-money activation, capital deployment,
+  CUDA / GPU behavior, autonomous action, command execution, SniperBot
+  runtime behavior, Stage 2 certification, Stage 2 advancement, Stage
+  3 entry, or an Advancement Gate decision, and any future coverage-
+  acceptance review, sufficiency-validation review, currentness-
+  validation review, cross-file-consistency review, Advancement Gate
+  decision review, Ladder ↔ Stage Checklist numbering reconciliation
+  review, or Stage 3 entry requires a separate explicit founder-
+  selected bounded task order.
 * `docs/control-gates/codex-three-rule-repo-protocol.md` - Codex Three-Rule
   Repo Protocol. Codex / repo anti-drift operating protocol locking Habitat
   Before Routine, Silence Is Not Permission, and Stop Outside the Lane.
