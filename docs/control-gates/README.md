@@ -161,6 +161,37 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   creation, or SniperBot runtime behavior, and any movement toward live
   trading / Robinhood agentic capability requires a separate explicit
   founder-selected bounded task order.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-founder-approval-artifact-requirements-cross-map-review.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Founder Approval
+  Artifact Requirements Cross-Map Review. Cross-maps the existing
+  30-file Founder Approval Artifact requirement family to Ladder
+  Stage 2's 23 requirement surfaces (artifact requirements, authority
+  limits, content boundaries, format boundaries, shell format,
+  non-execution wording, task specificity, creation scope, creation
+  authorization boundaries, currentness, evidence relationship, storage
+  path, storage traceability, human review, rejection / revocation, and
+  relationships to approval mechanisms, approval records, approval
+  workflows, command gates, deployment gates, execution gates, execution
+  toggles, and runtime toggles). Records Ladder Stage 2 as mapped only,
+  not complete, not certified, not advanced, and not passed through the
+  Advancement Gate. Does not create a founder approval artifact, an
+  approval record, an approval mechanism, an approval workflow, or an
+  implementation task order. Preserves the Codex Three-Rule Repo Protocol
+  (Habitat Before Routine, Silence Is Not Permission, Stop Outside the
+  Lane). Documentation-only / governance-only / cross-map-only /
+  traceability-only / non-authorization boundary; does not authorize
+  code, source-code change, schema change, validator work, tests, CI,
+  runtime activation, deployment, production, credentials, broker access,
+  Robinhood access, Robinhood agentic activation, market-data runtime,
+  signal runtime, strategy runtime, risk runtime, position sizing, trade
+  sizing, order routing, paper trading, simulation runtime, live trading,
+  live-money readiness certification, live-money activation, capital
+  deployment, CUDA / GPU behavior, autonomous action, command execution,
+  SniperBot runtime behavior, Stage 2 completion, Stage 2 certification,
+  Stage 2 advancement, Stage 3 entry, or an Advancement Gate decision,
+  and any Stage 2 completion, gap analysis, consolidation closeout, or
+  Advancement Gate decision requires a separate explicit founder-selected
+  bounded task order.
 * `docs/control-gates/codex-three-rule-repo-protocol.md` - Codex Three-Rule
   Repo Protocol. Codex / repo anti-drift operating protocol locking Habitat
   Before Routine, Silence Is Not Permission, and Stop Outside the Lane.
