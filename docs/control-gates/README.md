@@ -5794,6 +5794,16 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   non-runtime / non-execution / non-authorization boundary; does not create a
   schema, implementation, asset selection, market-data access, runtime
   integration, trading, broker, order, execution, or Stage 3 capability.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-asset-class-deferral-no-action-founder-decision-record.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Asset-Class Deferral /
+  No-Action Founder Decision Record. Records all nine founder decisions:
+  the three-class vocabulary (`STOCK`, `OPTIONS`, `CRYPTO`), `DEFER` /
+  `NO_ACTION` outcomes, 13 closed reason codes, bounded optional EchoAuth
+  evidence, exact fail-closed precedence, five RequiredAction values and
+  mappings, unknown-class handling, future paths, and validation stops.
+  Documentation-only / governance-only / founder-decision-record-only /
+  non-runtime / non-execution boundary; Stage 2 remains HOLD and Stage 3
+  remains unentered and unauthorized.
 * `sniperbot-options-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only /
   options-deferral-no-action-boundary-only / options-readiness-planning-only
