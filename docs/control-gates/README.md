@@ -342,6 +342,17 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   Documentation-only / governance-only / authority-resolution-only /
   non-authorization boundary; does not authorize implementation, runtime,
   broker access, trading, execution, evidence acceptance, or LocalOps work.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-evidence-acceptance-decision-record.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Evidence-Acceptance Decision
+  Record. Records the founder-authorized review of the existing Stage 2
+  governance evidence with a HOLD outcome: the evidence supports
+  documentation traceability only, not a specific implementation subject,
+  readiness, advancement, or Stage 3 entry. Identifies the missing
+  task-specific approval artifact, approval record and workflow outcome,
+  implementation task order, and operational evidence. Documentation-only /
+  governance-only / evidence-acceptance-decision-only / non-authorization
+  boundary; does not authorize implementation, runtime, deployment, broker
+  access, trading, credentials, execution, or LocalOps work.
 * `docs/control-gates/echoauth-safety-before-identity-alignment-review.md` -
   EchoAuth Safety-Before-Identity Alignment Review. Records the core rule
   "Safety first, identity after safety is confirmed." as docs-only governance
