@@ -330,6 +330,18 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   boundary; any remaining HOLD-trigger resolution work, ESCALATE-
   element resolution work, Stage 2 re-gate review, or Stage 3 entry
   requires a separate explicit founder-selected bounded task order.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-authority-resolution-governance-record.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Authority-Resolution
+  Governance Record. Records the founder's selection of SniperBot as the
+  active subject only for the bounded Stage 2 authority-resolution governance
+  lane; LocalOps is outside the lane. Establishes a human-governance decision
+  format with APPROVE, REJECT, HOLD, and ESCALATE outcomes, a durable
+  approval-record format, an evidence-and-human-review workflow, and the rule
+  requiring a separate exact bounded implementation task order before code
+  changes. Stage 2 remains HOLD; Stage 3 is not entered or authorized.
+  Documentation-only / governance-only / authority-resolution-only /
+  non-authorization boundary; does not authorize implementation, runtime,
+  broker access, trading, execution, evidence acceptance, or LocalOps work.
 * `docs/control-gates/echoauth-safety-before-identity-alignment-review.md` -
   EchoAuth Safety-Before-Identity Alignment Review. Records the core rule
   "Safety first, identity after safety is confirmed." as docs-only governance
