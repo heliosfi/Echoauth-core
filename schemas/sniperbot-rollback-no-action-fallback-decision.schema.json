@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/sniperbot-rollback-no-action-fallback-decision.schema.json",
+  "title": "SniperBot Rollback / No-Action Fallback Decision Schema",
+  "description": "Pure, deterministic, immutable, side-effect-free, non-authorizing, non-executing descriptive classification. The future evaluator owns first-match precedence: contradiction, rollback/no-action conflict, undefined combination, authority failure, missing evidence, stale evidence, insufficient evidence, unavailable rollback, rollback required, explicit no-action, then ordinary no-action. No schema conditional performs rollback, recovery, FSM mutation, reset, or execution.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request", "decision"],
+  "properties": {
+    "request": { "$ref": "#/$defs/Request" },
+    "decision": { "$ref": "#/$defs/Decision" }
+  },
+  "$defs": {
+    "Outcome": {
+      "type": "string",
+      "enum": ["DEFER", "NO_ACTION"],
+      "description": "Neither outcome is rollback authorization, recovery authority, FSM approval, reset permission, state mutation, or execution."
+    },
+    "ReasonCode": {
+      "type": "string",
+      "enum": [
+        "ROLLBACK_EXTERNALLY_REQUIRED",
+        "ROLLBACK_UNAVAILABLE",
+        "ROLLBACK_EVIDENCE_MISSING",
+        "ROLLBACK_EVIDENCE_STALE",
+        "ROLLBACK_EVIDENCE_INSUFFICIENT",
+        "ROLLBACK_EVIDENCE_CONTRADICTORY",
+        "ROLLBACK_AND_NO_ACTION_CONFLICT",
+        "AUTHORITY_EVIDENCE_INVALID",
+        "AUTHORITY_EVIDENCE_STALE",
+        "AUTHORITY_EVIDENCE_REVOKED",
+        "AUTHORITY_EVIDENCE_OUT_OF_SCOPE",
+        "UNKNOWN_CONDITION",
+        "UNDEFINED_INPUT_COMBINATION",
+        "NO_ACTION_REQUIRED"
+      ]
+    },
+    "RequiredAction": {
+      "type": "string",
+      "enum": ["NONE", "HUMAN_REVIEW", "GOVERNANCE_REVIEW", "FOUNDER_AUTHORITY_REQUIRED", "RESET_REQUIRED"],
+      "description": "Repository-wide closed vocabulary. FOUNDER_AUTHORITY_REQUIRED and RESET_REQUIRED are not emitted by this subject."
+    },
+    "EmittableAction": {
+      "type": "string",
+      "enum": ["NONE", "HUMAN_REVIEW", "GOVERNANCE_REVIEW"]
+    },
+    "AuthorityEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["validity", "currentness", "revocation", "scope", "evidence_reference"],
+      "properties": {
+        "validity": { "type": "string", "enum": ["VALID", "INVALID", "AMBIGUOUS"] },
+        "currentness": { "type": "string", "enum": ["CURRENT", "STALE"] },
+        "revocation": { "type": "string", "enum": ["NON_REVOKED", "REVOKED"] },
+        "scope": { "type": "string", "enum": ["IN_SCOPE", "OUT_OF_SCOPE", "AMBIGUOUS"] },
+        "evidence_reference": { "type": "string", "minLength": 1 }
+      },
+      "description": "Optional contextual EchoAuth evidence only. It grants no authority and is not independently validated, repaired, reinterpreted, broadened, bypassed, persisted, or audited here. Future evaluator failure order is ambiguous, invalid, revoked, stale, out of scope."
+    },
+    "State": {
+      "type": "string",
+      "enum": ["PAUSE", "READY", "ARMED_MANUAL", "ARMED_AUTO", "IN_TRADE", "LOCKOUT"]
+    },
+    "Request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "current_condition_reference",
+        "rollback_required",
+        "rollback_available",
+        "rollback_evidence_present",
+        "rollback_evidence_current",
+        "rollback_evidence_sufficient",
+        "rollback_evidence_contradictory",
+        "no_action",
+        "correlation_reference"
+      ],
+      "properties": {
+        "current_condition_reference": { "type": "string", "minLength": 1, "description": "Opaque external reference only; it does not identify a mutable state or command." },
+        "rollback_required": { "type": "boolean", "description": "Externally supplied descriptive assertion that rollback review may be needed; not authorization or an instruction." },
+        "rollback_available": { "type": "boolean", "description": "Externally supplied descriptive assertion that a separately controlled path exists; not verified, authorized, or invoked here." },
+        "rollback_evidence_present": { "type": "boolean" },
+        "rollback_evidence_current": { "type": "boolean" },
+        "rollback_evidence_sufficient": { "type": "boolean" },
+        "rollback_evidence_contradictory": { "type": "boolean", "description": "Only this external flag establishes rollback-evidence contradiction." },
+        "no_action": { "type": "boolean", "description": "Externally supplied descriptive no-action fact only." },
+        "authority_evidence": { "oneOf": [{ "$ref": "#/$defs/AuthorityEvidence" }, { "type": "null" }], "description": "Optional contextual authority evidence; omission creates no permission." },
+        "fsm_state_reference": { "$ref": "#/$defs/State", "description": "Optional opaque descriptive context; no transition evaluation or mutation occurs." },
+        "halt_context": { "type": "boolean" },
+        "failure_context": { "type": "boolean" },
+        "recovery_context": { "type": "boolean" },
+        "reset_context": { "type": "boolean" },
+        "correlation_reference": { "type": "string", "minLength": 1, "description": "Opaque caller reference; exact equality with the decision reference is a future evaluator rule." }
+      }
+    },
+    "Decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome", "reason_code", "required_action", "correlation_reference"],
+      "properties": {
+        "outcome": { "$ref": "#/$defs/Outcome" },
+        "reason_code": { "$ref": "#/$defs/ReasonCode" },
+        "required_action": { "$ref": "#/$defs/EmittableAction" },
+        "correlation_reference": { "type": "string", "minLength": 1, "description": "Must equal the request reference; exact cross-object equality is evaluator-owned. No mutation, persistence, command, order, broker, credential, or recovery instruction is represented." },
+        "rollback_no_action_posture": { "type": "string", "enum": ["ROLLBACK_REVIEW", "NO_ACTION"], "description": "Optional descriptive posture only; it does not authorize rollback or execution." }
+      }
+    }
+  }
+}
