@@ -401,6 +401,14 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   governance-only / schema-amendment-only / non-authorization boundary;
   Stage 2 remains HOLD with ESCALATE elements and Stage 3 remains unentered and
   unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-fsm-implementation-evidence-decision-record.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 FSM Implementation-Evidence
+  Decision Record. Records an ACCEPT outcome limited to the pure, isolated,
+  non-executing evaluator at commit `bd57d6b`; local implementation and test
+  evidence passed, while unavailable remote CI is explicitly not treated as
+  proof. Acceptance does not advance Stage 2, enter Stage 3, or authorize
+  runtime integration, trading, broker access, execution, or any additional
+  capability.
 * `docs/control-gates/echoauth-safety-before-identity-alignment-review.md` -
   EchoAuth Safety-Before-Identity Alignment Review. Records the core rule
   "Safety first, identity after safety is confirmed." as docs-only governance
