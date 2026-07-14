@@ -5431,6 +5431,16 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   contract-definition-only / fallback-planning-only / non-runtime /
   non-execution boundary; Stage 2 remains HOLD and Stage 3 remains unentered
   and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-rollback-no-action-fallback-founder-decision-record.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Rollback / No-Action
+  Fallback Founder Decision Record. Records all 13 founder decisions,
+  including the two-outcome and 14-reason-code vocabularies, five RequiredAction
+  values with three emittable actions, exact first-match precedence, three
+  undefined combinations, contextual EchoAuth evidence, opaque FSM/recovery
+  context, future paths, and validation stops. Documentation-only /
+  governance-only / founder-decision-record-only / non-runtime /
+  non-execution boundary; Stage 2 remains HOLD and Stage 3 remains unentered
+  and unauthorized.
 * `sniperbot-rollback-no-action-fallback-boundary-review.md` -
   documentation-only / governance-only / boundary-review-only /
   fallback-planning-only / governance-posture-only / future-evidence-
