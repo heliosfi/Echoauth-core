@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/sniperbot-fsm-transition-decision.schema.json",
+  "title": "SniperBot FSM Transition Decision Schema",
+  "description": "Schema-only representation of a pure, deterministic, side-effect-free, non-executing transition decision. This schema creates no authority, state mutation, persistence, network call, command, order, broker, credential, runtime, or execution capability.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request", "decision"],
+  "properties": {
+    "request": { "$ref": "#/$defs/TransitionRequest" },
+    "decision": { "$ref": "#/$defs/TransitionDecision" }
+  },
+  "$defs": {
+    "State": {
+      "type": "string",
+      "enum": ["PAUSE", "READY", "ARMED_MANUAL", "ARMED_AUTO", "IN_TRADE", "LOCKOUT"]
+    },
+    "TransitionRequestName": {
+      "type": "string",
+      "enum": [
+        "PAUSE_TO_READY",
+        "READY_TO_ARMED_MANUAL",
+        "READY_TO_ARMED_AUTO",
+        "ARMED_AUTO_TO_IN_TRADE",
+        "ARMED_MANUAL_TO_IN_TRADE",
+        "IN_TRADE_TO_READY",
+        "IN_TRADE_TO_PAUSE",
+        "ANY_TO_LOCKOUT",
+        "LOCKOUT_TO_PAUSE"
+      ]
+    },
+    "ExternalFacts": {
+      "type": "object",
+      "description": "Immutable facts already determined by an external authority. The FSM does not calculate, discover, verify through calls, refresh, mutate, or persist them.",
+      "additionalProperties": false,
+      "required": [
+        "readiness_preconditions_satisfied",
+        "confirmed_position_exists",
+        "position_closed",
+        "cooldown_complete",
+        "lockout_required",
+        "logging_failure_indicated",
+        "reset_facts_explicit"
+      ],
+      "properties": {
+        "readiness_preconditions_satisfied": { "type": "boolean" },
+        "confirmed_position_exists": { "type": "boolean" },
+        "position_closed": { "type": "boolean" },
+        "cooldown_complete": { "type": "boolean" },
+        "lockout_required": { "type": "boolean" },
+        "logging_failure_indicated": { "type": "boolean" },
+        "reset_facts_explicit": { "type": "boolean" }
+      }
+    },
+    "AuthorityEvidence": {
+      "type": "object",
+      "description": "Caller-supplied representation of an already-bounded EchoAuth result. EchoAuth alone owns permission authority; this schema does not grant, validate, repair, reinterpret, or bypass it.",
+      "additionalProperties": false,
+      "required": ["presence", "subject_scope", "currentness", "revocation", "validity_outcome", "authority_reference"],
+      "properties": {
+        "presence": { "type": "string", "enum": ["PRESENT", "ABSENT"] },
+        "subject_scope": { "type": "string", "minLength": 1 },
+        "currentness": { "type": "string", "enum": ["CURRENT", "STALE"] },
+        "revocation": { "type": "string", "enum": ["NON_REVOKED", "REVOKED"] },
+        "validity_outcome": { "type": "string", "enum": ["VALID", "INVALID", "AMBIGUOUS", "OUT_OF_SCOPE"] },
+        "authority_reference": { "type": "string", "minLength": 1 }
+      }
+    },
+    "TransitionRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["current_state", "requested_state", "transition_request", "correlation_reference", "external_facts", "authority_evidence"],
+      "properties": {
+        "current_state": { "$ref": "#/$defs/State" },
+        "requested_state": { "$ref": "#/$defs/State" },
+        "transition_request": { "$ref": "#/$defs/TransitionRequestName" },
+        "correlation_reference": { "type": "string", "minLength": 1, "description": "Mandatory opaque caller reference; it is not generated, interpreted, persisted, or audited by the FSM." },
+        "external_facts": { "$ref": "#/$defs/ExternalFacts" },
+        "authority_evidence": {
+          "description": "Required as bounded input for arming and reset decisions; null represents absent evidence and never grants permission.",
+          "oneOf": [{ "$ref": "#/$defs/AuthorityEvidence" }, { "type": "null" }]
+        }
+      }
+    },
+    "ReasonCode": {
+      "type": "string",
+      "enum": [
+        "ALLOWED",
+        "UNDEFINED_TRANSITION",
+        "UNKNOWN_STATE",
+        "READINESS_FACTS_MISSING",
+        "AUTHORITY_MISSING",
+        "AUTHORITY_INVALID",
+        "AUTHORITY_STALE",
+        "AUTHORITY_REVOKED",
+        "AUTHORITY_OUT_OF_SCOPE",
+        "TRANSITION_FOUNDER_DENIED",
+        "CONFIRMED_POSITION_FACT_MISSING",
+        "POSITION_CLOSED_FACT_MISSING",
+        "COOLDOWN_FACT_MISSING",
+        "LOCKOUT_REQUIRED",
+        "RESET_EVIDENCE_MISSING",
+        "RESET_FACTS_MISSING",
+        "AMBIGUOUS_OR_CONTRADICTORY_INPUT"
+      ]
+    },
+    "RequiredAction": {
+      "type": ["string", "null"],
+      "enum": [null, "NONE", "HUMAN_REVIEW", "GOVERNANCE_REVIEW", "FOUNDER_AUTHORITY_REQUIRED", "RESET_REQUIRED"]
+    },
+    "TransitionDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["current_state", "requested_state", "allowed", "resulting_state", "reason_code", "required_next_human_or_governance_action", "correlation_reference"],
+      "properties": {
+        "current_state": { "$ref": "#/$defs/State" },
+        "requested_state": { "$ref": "#/$defs/State" },
+        "allowed": { "type": "boolean" },
+        "resulting_state": { "$ref": "#/$defs/State", "description": "Descriptive only; no state mutation occurs." },
+        "reason_code": { "$ref": "#/$defs/ReasonCode" },
+        "required_next_human_or_governance_action": { "$ref": "#/$defs/RequiredAction" },
+        "correlation_reference": { "type": "string", "minLength": 1, "description": "Must equal the request reference; the FSM does not generate, interpret, persist, or audit it." }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "request": {
+            "properties": {
+              "external_facts": { "properties": { "lockout_required": { "const": true } } }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "decision": {
+            "properties": {
+              "allowed": { "const": false },
+              "resulting_state": { "const": "LOCKOUT" },
+              "reason_code": { "const": "LOCKOUT_REQUIRED" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "request": {
+            "properties": {
+              "current_state": { "const": "READY" },
+              "requested_state": { "const": "ARMED_AUTO" }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "decision": {
+            "properties": {
+              "allowed": { "const": false },
+              "resulting_state": { "const": "READY" },
+              "reason_code": { "const": "TRANSITION_FOUNDER_DENIED" }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
