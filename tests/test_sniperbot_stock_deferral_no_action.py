@@ -147,6 +147,122 @@ class StockDeferralNoActionTests(unittest.TestCase):
         with self.assertRaises(FrozenInstanceError):
             first.reason_code = ReasonCode.NO_ACTION_REQUIRED
 
+    def test_empty_references_and_supplied_object_nonmutation(self):
+        with self.assertRaises(ValueError):
+            make(stock_reference="")
+        with self.assertRaises(ValueError):
+            make(correlation_reference="")
+        with self.assertRaises(ValueError):
+            generic(context_reference="")
+        with self.assertRaises(ValueError):
+            authority(evidence_reference="")
+        with self.assertRaises(ValueError):
+            Decision("", Outcome.NO_ACTION, ReasonCode.NO_ACTION_REQUIRED, RequiredAction.NONE, "c")
+        with self.assertRaises(ValueError):
+            Decision("s", Outcome.NO_ACTION, ReasonCode.NO_ACTION_REQUIRED, RequiredAction.NONE, "")
+
+        context = generic()
+        evidence = authority()
+        request = make(generic_asset_class_context=context, authority_evidence=evidence)
+        before = (asdict(request), asdict(context), asdict(evidence))
+        result = evaluate(request)
+        self.assertIsNot(result, request)
+        self.assertEqual((asdict(request), asdict(context), asdict(evidence)), before)
+        self.assertEqual(result.stock_reference, request.stock_reference)
+        self.assertEqual(result.correlation_reference, request.correlation_reference)
+
+    def test_undefined_over_all_lower_categories(self):
+        lower = [
+            dict(stock_lane_confirmation=None),
+            dict(stock_lane_confirmation=StockLaneConfirmation.CONTRADICTORY),
+            dict(stock_lane_confirmation=StockLaneConfirmation.NOT_CONFIRMED),
+            dict(generic_asset_class_context=generic(contradictory=True)),
+            dict(generic_asset_class_context=generic(validity="AMBIGUOUS")),
+            dict(generic_asset_class_context=generic(asset_class=AssetClass.OPTIONS)),
+            dict(generic_asset_class_context=generic(current=False)),
+            dict(generic_asset_class_context=generic(in_scope=False)),
+            dict(stock_excluded=True), dict(stock_restricted=True),
+            dict(authority_evidence=authority(validity="INVALID")),
+            dict(stock_deferral=True), dict(stock_no_action=True),
+        ]
+        for overrides in lower:
+            values = dict(stock_evidence_present=False, stock_evidence_current=True,
+                          stock_evidence_sufficient=False)
+            values.update(overrides)
+            result = evaluate(make(**values))
+            self.assertEqual((result.outcome, result.reason_code, result.required_action),
+                             (Outcome.NO_ACTION, ReasonCode.UNDEFINED_INPUT_COMBINATION, RequiredAction.GOVERNANCE_REVIEW))
+        for values in (
+            dict(stock_evidence_present=False, stock_evidence_current=True, stock_evidence_sufficient=False),
+            dict(stock_evidence_present=False, stock_evidence_current=False, stock_evidence_sufficient=True),
+            dict(stock_evidence_present=False, stock_evidence_current=False, stock_evidence_sufficient=True),
+        ):
+            result = evaluate(make(**values))
+            self.assertEqual(result.reason_code, ReasonCode.UNDEFINED_INPUT_COMBINATION)
+
+    def test_each_lane_failure_over_all_lower_categories(self):
+        lower = [dict(generic_asset_class_context=generic(asset_class=AssetClass.OPTIONS)),
+                 dict(stock_excluded=True), dict(stock_restricted=True),
+                 dict(authority_evidence=authority(validity="INVALID")),
+                 dict(stock_evidence_present=False, stock_evidence_current=False, stock_evidence_sufficient=False),
+                 dict(stock_evidence_current=False, stock_evidence_sufficient=False),
+                 dict(stock_evidence_sufficient=False), dict(stock_deferral=True), dict(stock_no_action=True)]
+        for lane, expected in ((None, ReasonCode.STOCK_LANE_CONFIRMATION_MISSING),
+                               (StockLaneConfirmation.CONTRADICTORY, ReasonCode.STOCK_LANE_CONTRADICTORY),
+                               (StockLaneConfirmation.NOT_CONFIRMED, ReasonCode.STOCK_LANE_NOT_CONFIRMED)):
+            for overrides in lower:
+                result = evaluate(make(stock_lane_confirmation=lane, **overrides))
+                self.assertEqual((result.outcome, result.reason_code, result.required_action),
+                                 (Outcome.NO_ACTION, expected, RequiredAction.GOVERNANCE_REVIEW))
+
+    def test_each_generic_failure_over_all_lower_categories(self):
+        lower = [dict(stock_excluded=True), dict(stock_restricted=True),
+                 dict(authority_evidence=authority(validity="INVALID")),
+                 dict(stock_evidence_present=False, stock_evidence_current=False, stock_evidence_sufficient=False),
+                 dict(stock_evidence_current=False, stock_evidence_sufficient=False),
+                 dict(stock_evidence_sufficient=False), dict(stock_deferral=True), dict(stock_no_action=True)]
+        contexts = [
+            (generic(contradictory=True), ReasonCode.GENERIC_ASSET_CLASS_CONTEXT_CONTRADICTORY),
+            (generic(validity="AMBIGUOUS"), ReasonCode.GENERIC_ASSET_CLASS_CONTEXT_INVALID),
+            (generic(validity="INVALID"), ReasonCode.GENERIC_ASSET_CLASS_CONTEXT_INVALID),
+            (generic(asset_class=AssetClass.OPTIONS), ReasonCode.GENERIC_ASSET_CLASS_NOT_STOCK),
+            (generic(current=False), ReasonCode.GENERIC_ASSET_CLASS_CONTEXT_STALE),
+            (generic(in_scope=False), ReasonCode.GENERIC_ASSET_CLASS_CONTEXT_OUT_OF_SCOPE),
+        ]
+        for context, expected in contexts:
+            for overrides in lower:
+                result = evaluate(make(generic_asset_class_context=context, **overrides))
+                self.assertEqual((result.outcome, result.reason_code, result.required_action),
+                                 (Outcome.NO_ACTION, expected, RequiredAction.GOVERNANCE_REVIEW))
+
+    def test_restriction_and_exclusion_over_all_lower_categories(self):
+        lower = [dict(authority_evidence=authority(validity="INVALID")),
+                 dict(stock_evidence_present=False, stock_evidence_current=False, stock_evidence_sufficient=False),
+                 dict(stock_evidence_current=False, stock_evidence_sufficient=False),
+                 dict(stock_evidence_sufficient=False), dict(stock_deferral=True), dict(stock_no_action=True)]
+        for flag, expected in (("stock_excluded", ReasonCode.STOCK_EXCLUDED),
+                               ("stock_restricted", ReasonCode.STOCK_RESTRICTED)):
+            for overrides in lower:
+                result = evaluate(make(**{flag: True}, **overrides))
+                self.assertEqual((result.outcome, result.reason_code, result.required_action),
+                                 (Outcome.NO_ACTION, expected, RequiredAction.NONE))
+
+    def test_authority_over_all_lower_postures(self):
+        lower = [dict(stock_evidence_present=False, stock_evidence_current=False, stock_evidence_sufficient=False),
+                 dict(stock_evidence_current=False, stock_evidence_sufficient=False),
+                 dict(stock_evidence_sufficient=False), dict(stock_deferral=True), dict(stock_no_action=True), dict()]
+        for overrides in lower:
+            result = evaluate(make(authority_evidence=authority(validity="INVALID"), **overrides))
+            self.assertEqual((result.outcome, result.reason_code, result.required_action),
+                             (Outcome.NO_ACTION, ReasonCode.AUTHORITY_EVIDENCE_INVALID, RequiredAction.GOVERNANCE_REVIEW))
+
+    def test_explicit_no_action_and_fallback_have_same_safe_mapping(self):
+        explicit = evaluate(make(stock_no_action=True))
+        fallback = evaluate(make(stock_no_action=False))
+        expected = (Outcome.NO_ACTION, ReasonCode.NO_ACTION_REQUIRED, RequiredAction.NONE)
+        self.assertEqual((explicit.outcome, explicit.reason_code, explicit.required_action), expected)
+        self.assertEqual((fallback.outcome, fallback.reason_code, fallback.required_action), expected)
+
 
 if __name__ == "__main__":
     unittest.main()
