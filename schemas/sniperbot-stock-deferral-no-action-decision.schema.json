@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/sniperbot-stock-deferral-no-action-decision.schema.json",
+  "title": "SniperBot Stock Deferral / No-Action Decision Schema",
+  "description": "Pure, deterministic, immutable, side-effect-free, non-authorizing, non-executing classification of externally supplied stock-specific facts. The future evaluator owns first-match precedence: contradiction, deferral/no-action conflict, undefined combination, lane confirmation, generic context, exclusion, restriction, authority failure, evidence deficiencies, deferral, and no-action. No schema conditional performs eligibility, selection, market-data access, orchestration, rollback, execution, or runtime integration.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request", "decision"],
+  "properties": {
+    "request": { "$ref": "#/$defs/Request" },
+    "decision": { "$ref": "#/$defs/Decision" }
+  },
+  "$defs": {
+    "Outcome": {
+      "type": "string",
+      "enum": ["DEFER", "NO_ACTION"],
+      "description": "Neither outcome represents eligibility, approval, security selection, signal direction, trade permission, order instruction, or execution authority."
+    },
+    "ReasonCode": {
+      "type": "string",
+      "enum": [
+        "STOCK_DEFERRAL_EXTERNALLY_REQUIRED",
+        "STOCK_EVIDENCE_MISSING",
+        "STOCK_EVIDENCE_STALE",
+        "STOCK_EVIDENCE_INSUFFICIENT",
+        "STOCK_EVIDENCE_CONTRADICTORY",
+        "STOCK_DEFERRAL_NO_ACTION_CONFLICT",
+        "STOCK_RESTRICTED",
+        "STOCK_EXCLUDED",
+        "STOCK_LANE_CONFIRMATION_MISSING",
+        "STOCK_LANE_NOT_CONFIRMED",
+        "STOCK_LANE_CONTRADICTORY",
+        "GENERIC_ASSET_CLASS_CONTEXT_INVALID",
+        "GENERIC_ASSET_CLASS_CONTEXT_STALE",
+        "GENERIC_ASSET_CLASS_CONTEXT_CONTRADICTORY",
+        "GENERIC_ASSET_CLASS_CONTEXT_OUT_OF_SCOPE",
+        "GENERIC_ASSET_CLASS_NOT_STOCK",
+        "AUTHORITY_EVIDENCE_INVALID",
+        "AUTHORITY_EVIDENCE_STALE",
+        "AUTHORITY_EVIDENCE_REVOKED",
+        "AUTHORITY_EVIDENCE_OUT_OF_SCOPE",
+        "UNDEFINED_INPUT_COMBINATION",
+        "NO_ACTION_REQUIRED"
+      ],
+      "description": "Closed 22-value stock-specific reason vocabulary. No UNKNOWN or free-text reason is approved."
+    },
+    "RequiredAction": {
+      "type": "string",
+      "enum": ["NONE", "HUMAN_REVIEW", "GOVERNANCE_REVIEW", "FOUNDER_AUTHORITY_REQUIRED", "RESET_REQUIRED"],
+      "description": "Full repository vocabulary. FOUNDER_AUTHORITY_REQUIRED and RESET_REQUIRED are vocabulary-only and are not emitted by this subject."
+    },
+    "EmittableAction": {
+      "type": "string",
+      "enum": ["NONE", "HUMAN_REVIEW", "GOVERNANCE_REVIEW"],
+      "description": "The three actions this subject may emit."
+    },
+    "StockLaneConfirmation": {
+      "type": "string",
+      "enum": ["CONFIRMED", "NOT_CONFIRMED", "CONTRADICTORY"]
+    },
+    "GenericAssetClassContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asset_class", "validity", "current", "contradictory", "in_scope", "context_reference"],
+      "properties": {
+        "asset_class": { "type": "string", "enum": ["STOCK", "OPTIONS", "CRYPTO"] },
+        "validity": { "type": "string", "enum": ["VALID", "INVALID", "AMBIGUOUS"] },
+        "current": { "type": "boolean" },
+        "contradictory": { "type": "boolean" },
+        "in_scope": { "type": "boolean" },
+        "context_reference": { "type": "string", "minLength": 1 }
+      },
+      "description": "Optional contextual generic asset-class evidence only. It is non-authorizing, does not invoke the generic classifier, and does not create orchestration or runtime coupling. Only STOCK is contextually compatible."
+    },
+    "AuthorityEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["validity", "current", "revoked", "contradictory", "in_scope", "evidence_reference"],
+      "properties": {
+        "validity": { "type": "string", "enum": ["VALID", "INVALID", "AMBIGUOUS"] },
+        "current": { "type": "boolean" },
+        "revoked": { "type": "boolean" },
+        "contradictory": { "type": "boolean" },
+        "in_scope": { "type": "boolean" },
+        "evidence_reference": { "type": "string", "minLength": 1 }
+      },
+      "description": "Optional contextual EchoAuth evidence only. EchoAuth remains the sole permission authority; this schema grants no authority and does not call, validate, repair, reinterpret, broaden, or bypass EchoAuth."
+    },
+    "Request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stock_reference",
+        "stock_evidence_present",
+        "stock_evidence_current",
+        "stock_evidence_sufficient",
+        "stock_evidence_contradictory",
+        "stock_deferral",
+        "stock_no_action",
+        "stock_restricted",
+        "stock_excluded",
+        "correlation_reference"
+      ],
+      "properties": {
+        "stock_reference": { "type": "string", "minLength": 1, "description": "Opaque non-empty stock/security reference only; no ticker, exchange, metadata, or selection semantics are represented." },
+        "stock_evidence_present": { "type": "boolean" },
+        "stock_evidence_current": { "type": "boolean" },
+        "stock_evidence_sufficient": { "type": "boolean" },
+        "stock_evidence_contradictory": { "type": "boolean", "description": "Only this supplied flag establishes stock-evidence contradiction." },
+        "stock_deferral": { "type": "boolean", "description": "External descriptive assertion that stock-specific review should pause; not permission, exclusion, or execution." },
+        "stock_no_action": { "type": "boolean", "description": "External descriptive no-action posture; not approval, eligibility, signal, trade completion, or execution." },
+        "stock_restricted": { "type": "boolean", "description": "External descriptive restriction fact only; not calculated, verified, derived, modified, or approved here." },
+        "stock_excluded": { "type": "boolean", "description": "External descriptive exclusion fact only; not calculated, verified, derived, modified, or approved here." },
+        "stock_lane_confirmation": { "oneOf": [{ "$ref": "#/$defs/StockLaneConfirmation" }, { "type": "null" }], "description": "Optional; absence is classified by the future evaluator. Confirmation is never inferred from a reference or data." },
+        "generic_asset_class_context": { "oneOf": [{ "$ref": "#/$defs/GenericAssetClassContext" }, { "type": "null" }] },
+        "authority_evidence": { "oneOf": [{ "$ref": "#/$defs/AuthorityEvidence" }, { "type": "null" }] },
+        "correlation_reference": { "type": "string", "minLength": 1, "description": "Mandatory opaque caller reference; exact equality with the decision reference is evaluator-owned." }
+      }
+    },
+    "Decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stock_reference", "outcome", "reason_code", "required_action", "correlation_reference"],
+      "properties": {
+        "stock_reference": { "type": "string", "minLength": 1 },
+        "outcome": { "$ref": "#/$defs/Outcome" },
+        "reason_code": { "$ref": "#/$defs/ReasonCode" },
+        "required_action": { "$ref": "#/$defs/EmittableAction" },
+        "correlation_reference": { "type": "string", "minLength": 1, "description": "Must equal the request reference; exact cross-object equality is evaluator-owned. No selection, signal, order, broker, persistence, or execution is represented." }
+      },
+      "description": "Descriptive output only. The future evaluator owns the exact first-match order, mappings, undefined classifications, authority precedence, and correlation equality; no procedural output conditionals are encoded here."
+    }
+  }
+}
