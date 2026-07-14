@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/sniperbot-asset-class-deferral-no-action-decision.schema.json",
+  "title": "SniperBot Asset-Class Deferral / No-Action Decision Schema",
+  "description": "Pure, deterministic, immutable, side-effect-free, non-authorizing, non-executing descriptive classification. Deferral and no-action are not permission, eligibility, approval, asset selection, trading, or execution.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request", "decision"],
+  "properties": {
+    "request": { "$ref": "#/$defs/Request" },
+    "decision": { "$ref": "#/$defs/Decision" }
+  },
+  "$defs": {
+    "AssetClass": {
+      "type": "string",
+      "enum": ["STOCK", "OPTIONS", "CRYPTO"]
+    },
+    "Outcome": {
+      "type": "string",
+      "enum": ["DEFER", "NO_ACTION"]
+    },
+    "ReasonCode": {
+      "type": "string",
+      "enum": [
+        "EXTERNAL_DEFERRAL_REQUIRED",
+        "NO_ACTION_REQUIRED",
+        "EVIDENCE_MISSING",
+        "EVIDENCE_STALE",
+        "EVIDENCE_INSUFFICIENT",
+        "EVIDENCE_CONTRADICTORY",
+        "EXTERNALLY_EXCLUDED",
+        "AUTHORITY_EVIDENCE_INVALID",
+        "AUTHORITY_EVIDENCE_STALE",
+        "AUTHORITY_EVIDENCE_REVOKED",
+        "AUTHORITY_EVIDENCE_OUT_OF_SCOPE",
+        "UNKNOWN_ASSET_CLASS",
+        "UNDEFINED_INPUT_COMBINATION"
+      ]
+    },
+    "RequiredAction": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "HUMAN_REVIEW",
+        "GOVERNANCE_REVIEW",
+        "FOUNDER_AUTHORITY_REQUIRED",
+        "RESET_REQUIRED"
+      ],
+      "description": "The closed repository vocabulary is preserved. FOUNDER_AUTHORITY_REQUIRED and RESET_REQUIRED are not emitted by this subject without separate authority."
+    },
+    "AuthorityEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["validity", "currentness", "revocation", "scope", "evidence_reference"],
+      "properties": {
+        "validity": { "type": "string", "enum": ["VALID", "INVALID", "AMBIGUOUS"] },
+        "currentness": { "type": "string", "enum": ["CURRENT", "STALE"] },
+        "revocation": { "type": "string", "enum": ["NON_REVOKED", "REVOKED"] },
+        "scope": { "type": "string", "enum": ["IN_SCOPE", "OUT_OF_SCOPE", "AMBIGUOUS"] },
+        "evidence_reference": { "type": "string", "minLength": 1 }
+      },
+      "description": "Caller-supplied contextual EchoAuth evidence only. It grants no permission and is not independently validated, repaired, reinterpreted, broadened, bypassed, persisted, or audited by this schema."
+    },
+    "Request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_class",
+        "evidence_present",
+        "evidence_current",
+        "evidence_sufficient",
+        "evidence_contradictory",
+        "eligibility_status",
+        "exclusion_status",
+        "explicit_deferral_required",
+        "authority_evidence",
+        "correlation_reference"
+      ],
+      "properties": {
+        "asset_class": { "$ref": "#/$defs/AssetClass" },
+        "evidence_present": { "type": "boolean" },
+        "evidence_current": { "type": "boolean" },
+        "evidence_sufficient": { "type": "boolean" },
+        "evidence_contradictory": { "type": "boolean" },
+        "eligibility_status": { "type": ["boolean", "null"], "description": "Externally determined eligibility fact only; null means not supplied. No calculation or discovery occurs here." },
+        "exclusion_status": { "type": ["boolean", "null"], "description": "Externally determined exclusion fact only; null means not supplied. No calculation or discovery occurs here." },
+        "explicit_deferral_required": { "type": "boolean" },
+        "authority_evidence": {
+          "oneOf": [{ "$ref": "#/$defs/AuthorityEvidence" }, { "type": "null" }],
+          "description": "Optional bounded contextual input. Omission creates no permission."
+        },
+        "correlation_reference": { "type": "string", "minLength": 1, "description": "Mandatory opaque caller reference; exact equality with decision.correlation_reference is a future evaluator rule because sibling equality is not represented here." }
+      }
+    },
+    "Decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asset_class", "outcome", "reason_code", "required_action", "correlation_reference"],
+      "properties": {
+        "asset_class": { "$ref": "#/$defs/AssetClass" },
+        "outcome": { "$ref": "#/$defs/Outcome" },
+        "reason_code": { "$ref": "#/$defs/ReasonCode" },
+        "required_action": { "$ref": "#/$defs/RequiredAction" },
+        "correlation_reference": { "type": "string", "minLength": 1, "description": "Must equal the request reference; exact equality is a future evaluator rule. No audit record is created or persisted." }
+      },
+      "description": "Descriptive output only; no state mutation, persistence, network activity, order, trading, or execution is represented."
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "request": { "required": ["evidence_contradictory"], "properties": { "evidence_contradictory": { "const": true } } } } },
+      "then": { "properties": { "decision": { "properties": { "outcome": { "const": "NO_ACTION" }, "reason_code": { "const": "EVIDENCE_CONTRADICTORY" }, "required_action": { "const": "HUMAN_REVIEW" } } } } }
+    },
+    {
+      "if": { "properties": { "request": { "required": ["exclusion_status"], "properties": { "exclusion_status": { "const": true } } } } },
+      "then": { "properties": { "decision": { "properties": { "outcome": { "const": "NO_ACTION" }, "reason_code": { "const": "EXTERNALLY_EXCLUDED" }, "required_action": { "const": "NONE" } } } } }
+    },
+    {
+      "if": { "properties": { "request": { "required": ["evidence_present"], "properties": { "evidence_present": { "const": false } } } } },
+      "then": { "properties": { "decision": { "properties": { "outcome": { "const": "DEFER" }, "reason_code": { "const": "EVIDENCE_MISSING" }, "required_action": { "const": "HUMAN_REVIEW" } } } } }
+    },
+    {
+      "if": { "properties": { "request": { "required": ["evidence_current"], "properties": { "evidence_current": { "const": false } } } } },
+      "then": { "properties": { "decision": { "properties": { "outcome": { "const": "DEFER" }, "reason_code": { "const": "EVIDENCE_STALE" }, "required_action": { "const": "HUMAN_REVIEW" } } } } }
+    },
+    {
+      "if": { "properties": { "request": { "required": ["evidence_sufficient"], "properties": { "evidence_sufficient": { "const": false } } } } },
+      "then": { "properties": { "decision": { "properties": { "outcome": { "const": "DEFER" }, "reason_code": { "const": "EVIDENCE_INSUFFICIENT" }, "required_action": { "const": "HUMAN_REVIEW" } } } } }
+    },
+    {
+      "if": { "properties": { "request": { "required": ["explicit_deferral_required"], "properties": { "explicit_deferral_required": { "const": true } } } } },
+      "then": { "properties": { "decision": { "properties": { "outcome": { "const": "DEFER" }, "reason_code": { "const": "EXTERNAL_DEFERRAL_REQUIRED" }, "required_action": { "const": "NONE" } } } } }
+    },
+    {
+      "if": { "properties": { "request": { "properties": { "authority_evidence": { "properties": { "validity": { "const": "INVALID" } } } } } } },
+      "then": { "properties": { "decision": { "properties": { "outcome": { "const": "NO_ACTION" }, "reason_code": { "const": "AUTHORITY_EVIDENCE_INVALID" }, "required_action": { "const": "GOVERNANCE_REVIEW" } } } } }
+    },
+    {
+      "if": { "properties": { "request": { "properties": { "authority_evidence": { "properties": { "currentness": { "const": "STALE" } } } } } } },
+      "then": { "properties": { "decision": { "properties": { "outcome": { "const": "NO_ACTION" }, "reason_code": { "const": "AUTHORITY_EVIDENCE_STALE" }, "required_action": { "const": "GOVERNANCE_REVIEW" } } } } }
+    },
+    {
+      "if": { "properties": { "request": { "properties": { "authority_evidence": { "properties": { "revocation": { "const": "REVOKED" } } } } } } },
+      "then": { "properties": { "decision": { "properties": { "outcome": { "const": "NO_ACTION" }, "reason_code": { "const": "AUTHORITY_EVIDENCE_REVOKED" }, "required_action": { "const": "GOVERNANCE_REVIEW" } } } } }
+    },
+    {
+      "if": { "properties": { "request": { "properties": { "authority_evidence": { "properties": { "scope": { "const": "OUT_OF_SCOPE" } } } } } } },
+      "then": { "properties": { "decision": { "properties": { "outcome": { "const": "NO_ACTION" }, "reason_code": { "const": "AUTHORITY_EVIDENCE_OUT_OF_SCOPE" }, "required_action": { "const": "GOVERNANCE_REVIEW" } } } } }
+    }
+  ]
+}
