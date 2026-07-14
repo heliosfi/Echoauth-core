@@ -5813,6 +5813,15 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   first-match precedence. Documentation-only / governance-only /
   schema-amendment-only / non-runtime / non-execution boundary; Stage 2
   remains HOLD and Stage 3 remains unentered and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-asset-class-deferral-no-action-schema-consistency-founder-decision-record.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Asset-Class Deferral /
+  No-Action Schema Consistency Founder Decision Record. Records the exact
+  four undefined combinations, contradiction boundary, authority-failure
+  order, evaluator-owned first-match precedence, ordinary no-action fallback,
+  and schema-versus-evaluator responsibilities. Documentation-only /
+  governance-only / schema-consistency-decision-only / non-runtime /
+  non-execution boundary; Stage 2 remains HOLD and Stage 3 remains unentered
+  and unauthorized.
 * `sniperbot-options-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only /
   options-deferral-no-action-boundary-only / options-readiness-planning-only
