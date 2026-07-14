@@ -5919,6 +5919,16 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   behavior. Documentation-only / governance-only / contract-definition-only /
   non-runtime / non-execution boundary; Stage 2 remains HOLD and Stage 3
   remains unentered and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-stock-deferral-no-action-implementation-evidence-acceptance.md` -
+  SniperBot Stage 2 Stock Deferral / No-Action Implementation-Evidence
+  Acceptance. Accepts only the pure evaluator, frozen structures, closed
+  vocabularies, deterministic 20-step behavior, reference preservation,
+  supplied-object non-mutation, and completed direct tests at `ea6b61f` and
+  `153f33c`. It creates no generic-classifier integration, eligibility,
+  selection, market-data, trading, execution, runtime, or Stage 3 authority.
+  Documentation-only / governance-only / acceptance-record-only /
+  non-runtime / non-execution boundary; Stage 2 remains HOLD and Stage 3
+  remains unentered and unauthorized.
 * `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-stock-deferral-no-action-founder-decision-record.md` -
   SniperBot Stage 2 Stock Deferral / No-Action Founder Decision Record.
   Records all 16 approved founder decisions, the 22-code vocabulary, three
