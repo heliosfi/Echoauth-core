@@ -4,7 +4,7 @@
 
 `ACCEPT BOUNDED ROLLBACK / NO-ACTION IMPLEMENTATION EVIDENCE`
 
-Repository: `heliosfi/Echoauth-core`  
+Repository: `heliosfi/Echoauth-core`
 Current checkpoint: `e9b4dddeca3ab8d1cb0867c53d1c2c2d9bc71a95`
 
 This acceptance covers only the pure Rollback / No-Action Fallback evaluator,
