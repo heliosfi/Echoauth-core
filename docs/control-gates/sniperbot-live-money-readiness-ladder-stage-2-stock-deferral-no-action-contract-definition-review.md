@@ -5,7 +5,7 @@
 Documentation-only / governance-only / contract-definition-only /
 stock-specific / non-runtime / non-execution / non-authorizing.
 
-Repository: `heliosfi/Echoauth-core`  
+Repository: `heliosfi/Echoauth-core`
 Starting checkpoint: `8f5f91737c58ec3777a4901c383a8dba1440587c`.
 
 This review defines one proposed future contract for classifying externally
