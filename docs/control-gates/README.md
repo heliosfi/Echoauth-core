@@ -5910,6 +5910,15 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   changes are created, no EchoAuth runtime changes are created, no NI-AI
   runtime changes are created, no founder approval runtime is created, and
   no command execution or execution capability is created.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-options-deferral-no-action-contract-definition-review.md` -
+  SniperBot Stage 2 Options Deferral / No-Action Contract Definition Review.
+  Defines one proposed documentation-only options-specific classifier for
+  externally supplied deferral, no-action, evidence, restriction, lane
+  confirmation, context, and authority facts, separate from the generic
+  Asset-Class and Stock Deferral / No-Action subjects. Exactly seventeen
+  founder decisions remain required before any schema or implementation work;
+  the review is non-runtime, non-execution, non-authorizing, and keeps Stage 2
+  HOLD and Stage 3 unentered and unauthorized.
 * `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-stock-deferral-no-action-contract-definition-review.md` -
   SniperBot Stage 2 Stock Deferral / No-Action Contract Definition Review.
   Defines a proposed documentation-only stock-specific classification subject
