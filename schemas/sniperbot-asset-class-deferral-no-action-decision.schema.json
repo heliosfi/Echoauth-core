@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://echoauth.local/schemas/sniperbot-asset-class-deferral-no-action-decision.schema.json",
   "title": "SniperBot Asset-Class Deferral / No-Action Decision Schema",
-  "description": "Pure, deterministic, immutable, side-effect-free, non-authorizing, non-executing descriptive classification. Deferral and no-action are not permission, eligibility, approval, asset selection, trading, or execution.",
+  "description": "Pure, deterministic, immutable, side-effect-free, non-authorizing, non-executing descriptive classification. Deferral and no-action are not permission, eligibility, approval, asset selection, trading, or execution. The future evaluator must apply first-match precedence: contradiction flag, undefined combination, exclusion, authority failure (ambiguous, invalid, revoked, stale, out of scope), missing evidence, stale evidence, insufficient evidence, explicit deferral, then ordinary no-action.",
   "type": "object",
   "additionalProperties": false,
   "required": ["request", "decision"],
@@ -82,14 +82,14 @@
         "evidence_current": { "type": "boolean" },
         "evidence_sufficient": { "type": "boolean" },
         "evidence_contradictory": { "type": "boolean" },
-        "eligibility_status": { "type": ["boolean", "null"], "description": "Externally determined eligibility fact only; null means not supplied. No calculation or discovery occurs here." },
+        "eligibility_status": { "type": ["boolean", "null"], "description": "Externally determined eligibility fact only; null means not supplied. It is contextual and non-decisional; no calculation, selection, approval, or discovery occurs here." },
         "exclusion_status": { "type": ["boolean", "null"], "description": "Externally determined exclusion fact only; null means not supplied. No calculation or discovery occurs here." },
         "explicit_deferral_required": { "type": "boolean" },
         "authority_evidence": {
           "oneOf": [{ "$ref": "#/$defs/AuthorityEvidence" }, { "type": "null" }],
           "description": "Optional bounded contextual input. Omission creates no permission."
         },
-        "correlation_reference": { "type": "string", "minLength": 1, "description": "Mandatory opaque caller reference; exact equality with decision.correlation_reference is a future evaluator rule because sibling equality is not represented here." }
+        "correlation_reference": { "type": "string", "minLength": 1, "description": "Mandatory opaque caller reference; exact equality with decision.correlation_reference is a future evaluator rule because sibling equality is not represented here. Unknown raw asset-class values must be rejected before typed request creation." }
       }
     },
     "Decision": {
@@ -136,6 +136,10 @@
       "then": { "properties": { "decision": { "properties": { "outcome": { "const": "NO_ACTION" }, "reason_code": { "const": "AUTHORITY_EVIDENCE_INVALID" }, "required_action": { "const": "GOVERNANCE_REVIEW" } } } } }
     },
     {
+      "if": { "properties": { "request": { "properties": { "authority_evidence": { "properties": { "validity": { "const": "AMBIGUOUS" } } } } } } },
+      "then": { "properties": { "decision": { "properties": { "outcome": { "const": "NO_ACTION" }, "reason_code": { "const": "AUTHORITY_EVIDENCE_INVALID" }, "required_action": { "const": "GOVERNANCE_REVIEW" } } } } }
+    },
+    {
       "if": { "properties": { "request": { "properties": { "authority_evidence": { "properties": { "currentness": { "const": "STALE" } } } } } } },
       "then": { "properties": { "decision": { "properties": { "outcome": { "const": "NO_ACTION" }, "reason_code": { "const": "AUTHORITY_EVIDENCE_STALE" }, "required_action": { "const": "GOVERNANCE_REVIEW" } } } } }
     },
@@ -146,6 +150,22 @@
     {
       "if": { "properties": { "request": { "properties": { "authority_evidence": { "properties": { "scope": { "const": "OUT_OF_SCOPE" } } } } } } },
       "then": { "properties": { "decision": { "properties": { "outcome": { "const": "NO_ACTION" }, "reason_code": { "const": "AUTHORITY_EVIDENCE_OUT_OF_SCOPE" }, "required_action": { "const": "GOVERNANCE_REVIEW" } } } } }
+    },
+    {
+      "if": { "properties": { "request": { "required": ["evidence_present", "evidence_current"], "properties": { "evidence_present": { "const": false }, "evidence_current": { "const": true } } } } },
+      "then": { "properties": { "decision": { "properties": { "outcome": { "const": "NO_ACTION" }, "reason_code": { "const": "UNDEFINED_INPUT_COMBINATION" }, "required_action": { "const": "GOVERNANCE_REVIEW" } } } } }
+    },
+    {
+      "if": { "properties": { "request": { "required": ["evidence_present", "evidence_sufficient"], "properties": { "evidence_present": { "const": false }, "evidence_sufficient": { "const": true } } } } },
+      "then": { "properties": { "decision": { "properties": { "outcome": { "const": "NO_ACTION" }, "reason_code": { "const": "UNDEFINED_INPUT_COMBINATION" }, "required_action": { "const": "GOVERNANCE_REVIEW" } } } } }
+    },
+    {
+      "if": { "properties": { "request": { "required": ["evidence_current", "evidence_sufficient"], "properties": { "evidence_current": { "const": false }, "evidence_sufficient": { "const": true } } } } },
+      "then": { "properties": { "decision": { "properties": { "outcome": { "const": "NO_ACTION" }, "reason_code": { "const": "UNDEFINED_INPUT_COMBINATION" }, "required_action": { "const": "GOVERNANCE_REVIEW" } } } } }
+    },
+    {
+      "if": { "properties": { "request": { "required": ["eligibility_status", "exclusion_status"], "properties": { "eligibility_status": { "const": true }, "exclusion_status": { "const": true } } } } },
+      "then": { "properties": { "decision": { "properties": { "outcome": { "const": "NO_ACTION" }, "reason_code": { "const": "UNDEFINED_INPUT_COMBINATION" }, "required_action": { "const": "GOVERNANCE_REVIEW" } } } } }
     }
   ]
 }

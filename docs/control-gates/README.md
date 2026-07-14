@@ -5804,6 +5804,15 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   Documentation-only / governance-only / founder-decision-record-only /
   non-runtime / non-execution boundary; Stage 2 remains HOLD and Stage 3
   remains unentered and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-asset-class-deferral-no-action-semantics-founder-decision-record.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Asset-Class Deferral /
+  No-Action Semantics Founder Decision Record. Records seven founder-selected
+  fail-closed semantics: the closed undefined-combination list, authority
+  failure order, ambiguous-authority mapping, contextual eligibility, explicit
+  contradiction flag, rejection of unknown raw asset classes, and ordered
+  first-match precedence. Documentation-only / governance-only /
+  schema-amendment-only / non-runtime / non-execution boundary; Stage 2
+  remains HOLD and Stage 3 remains unentered and unauthorized.
 * `sniperbot-options-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only /
   options-deferral-no-action-boundary-only / options-readiness-planning-only
