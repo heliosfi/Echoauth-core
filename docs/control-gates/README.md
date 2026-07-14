@@ -378,6 +378,19 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   only / non-authorization boundary; does not authorize schemas,
   implementation, tests, runtime integration, strategy, signals, risk, sizing,
   trading, broker access, orders, execution, or EchoAuth runtime changes.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-canonical-fsm-schema-interface-proposal.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Canonical FSM Schema and
+  Interface Proposal. Defines a documentation-only six-state transition
+  request, external-facts structure, bounded EchoAuth authority input,
+  descriptive decision output, allowed transitions, 17-code closed reason
+  set, and fail-closed rules. Proposes future paths only and creates no schema,
+  interface, implementation, tests, runtime integration, or execution
+  capability. Stage 2 remains HOLD with ESCALATE elements; Stage 3 is not
+  entered or authorized. Documentation-only / governance-only /
+  schema-interface-proposal-only / non-authorization boundary; no strategy,
+  signals, risk, sizing, trade cards, simulation, backtesting, broker,
+  Robinhood, orders, credentials, deployment, database, execution, or
+  EchoAuth runtime changes.
 * `docs/control-gates/echoauth-safety-before-identity-alignment-review.md` -
   EchoAuth Safety-Before-Identity Alignment Review. Records the core rule
   "Safety first, identity after safety is confirmed." as docs-only governance
