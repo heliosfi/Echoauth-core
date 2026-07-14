@@ -5822,6 +5822,17 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   governance-only / schema-consistency-decision-only / non-runtime /
   non-execution boundary; Stage 2 remains HOLD and Stage 3 remains unentered
   and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-asset-class-deferral-no-action-implementation-evidence-acceptance.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Asset-Class Deferral /
+  No-Action Implementation-Evidence Acceptance. Accepts only the pure
+  evaluator, immutable structures, direct tests, closed vocabularies, and
+  deterministic classification behavior at commit `908c882`. Records the
+  intentional non-emission of `UNKNOWN_ASSET_CLASS`,
+  `FOUNDER_AUTHORITY_REQUIRED`, and `RESET_REQUIRED`; preserves all runtime,
+  integration, execution, neighboring-lane, and Stage 3 prohibitions.
+  Documentation-only / governance-only / evidence-acceptance-only /
+  non-authorization boundary; Stage 2 remains HOLD and Stage 3 remains
+  unentered and unauthorized.
 * `sniperbot-options-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only /
   options-deferral-no-action-boundary-only / options-readiness-planning-only
