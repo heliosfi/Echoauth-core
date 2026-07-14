@@ -1,5 +1,5 @@
 import unittest
-from dataclasses import FrozenInstanceError
+from dataclasses import FrozenInstanceError, asdict
 
 from sniperbot.rollback.fallback_decision import (
     AuthorityEvidence, Context, Decision, EmittableReasonCode, Outcome,
@@ -63,11 +63,108 @@ class RollbackNoActionFallbackTests(unittest.TestCase):
             self.assertEqual((result.outcome, result.reason_code, result.required_action), (outcome, reason, action))
 
     def test_precedence_collisions(self):
-        self.assertEqual(evaluate(make(rollback_evidence_contradictory=True, rollback_required=True, no_action=True, rollback_evidence_present=False)).reason_code, ReasonCode.ROLLBACK_EVIDENCE_CONTRADICTORY)
-        self.assertEqual(evaluate(make(rollback_required=True, no_action=True, rollback_evidence_present=False, rollback_evidence_current=True)).reason_code, ReasonCode.ROLLBACK_AND_NO_ACTION_CONFLICT)
-        self.assertEqual(evaluate(make(rollback_evidence_present=False, rollback_evidence_current=True, authority_evidence=authority(validity="INVALID"))).reason_code, ReasonCode.UNDEFINED_INPUT_COMBINATION)
-        self.assertEqual(evaluate(make(authority_evidence=authority(revocation="REVOKED"), rollback_evidence_present=False, rollback_evidence_current=False, rollback_evidence_sufficient=False)).reason_code, ReasonCode.AUTHORITY_EVIDENCE_REVOKED)
-        self.assertEqual(evaluate(make(rollback_required=True, rollback_available=False, no_action=True)).reason_code, ReasonCode.ROLLBACK_AND_NO_ACTION_CONFLICT)
+        lower_precedence = [
+            dict(rollback_required=True, no_action=True),
+            dict(rollback_evidence_present=False, rollback_evidence_current=True),
+            dict(rollback_evidence_present=False, rollback_evidence_sufficient=True),
+            dict(rollback_evidence_current=False, rollback_evidence_sufficient=True),
+            dict(authority_evidence=authority(validity="INVALID")),
+            dict(rollback_evidence_present=False, rollback_evidence_current=False, rollback_evidence_sufficient=False),
+            dict(rollback_evidence_current=False, rollback_evidence_sufficient=False),
+            dict(rollback_evidence_sufficient=False),
+            dict(rollback_required=True, rollback_available=False),
+            dict(rollback_required=True, rollback_available=True),
+            dict(no_action=True),
+            dict(),
+        ]
+        for overrides in lower_precedence:
+            with self.subTest(overrides=overrides):
+                result = evaluate(make(rollback_evidence_contradictory=True, **overrides))
+                self.assertEqual((result.outcome, result.reason_code, result.required_action),
+                                 (Outcome.NO_ACTION, ReasonCode.ROLLBACK_EVIDENCE_CONTRADICTORY,
+                                  RequiredAction.HUMAN_REVIEW))
+
+        result = evaluate(make(rollback_required=True, no_action=True,
+                               rollback_evidence_present=False,
+                               rollback_evidence_current=True,
+                               rollback_evidence_sufficient=False))
+        self.assertEqual((result.outcome, result.reason_code, result.required_action),
+                         (Outcome.NO_ACTION, ReasonCode.ROLLBACK_AND_NO_ACTION_CONFLICT,
+                          RequiredAction.GOVERNANCE_REVIEW))
+
+        undefined = dict(rollback_evidence_present=False,
+                         rollback_evidence_current=True,
+                         rollback_evidence_sufficient=False)
+        for extra in (dict(authority_evidence=authority(validity="INVALID")),
+                      dict(),):
+            with self.subTest(undefined_extra=extra):
+                result = evaluate(make(**undefined, **extra))
+                self.assertEqual((result.outcome, result.reason_code, result.required_action),
+                                 (Outcome.NO_ACTION, ReasonCode.UNDEFINED_INPUT_COMBINATION,
+                                  RequiredAction.GOVERNANCE_REVIEW))
+        for evidence in (
+            dict(rollback_evidence_present=False, rollback_evidence_current=True, rollback_evidence_sufficient=False),
+            dict(rollback_evidence_present=False, rollback_evidence_current=True, rollback_evidence_sufficient=False),
+            dict(rollback_evidence_present=False, rollback_evidence_current=False, rollback_evidence_sufficient=True),
+        ):
+            result = evaluate(make(authority_evidence=authority(validity="INVALID"), **evidence))
+            self.assertEqual(result.reason_code, ReasonCode.UNDEFINED_INPUT_COMBINATION)
+
+        authority_over = [
+            dict(rollback_evidence_present=False, rollback_evidence_current=False, rollback_evidence_sufficient=False),
+            dict(rollback_evidence_present=True, rollback_evidence_current=False, rollback_evidence_sufficient=False),
+            dict(rollback_evidence_present=True, rollback_evidence_current=True, rollback_evidence_sufficient=False),
+            dict(rollback_required=True, rollback_available=False),
+            dict(rollback_required=True, rollback_available=True),
+            dict(no_action=True),
+        ]
+        for overrides in authority_over:
+            with self.subTest(authority_over=overrides):
+                result = evaluate(make(authority_evidence=authority(validity="INVALID"), **overrides))
+                self.assertEqual((result.outcome, result.reason_code, result.required_action),
+                                 (Outcome.NO_ACTION, ReasonCode.AUTHORITY_EVIDENCE_INVALID,
+                                  RequiredAction.GOVERNANCE_REVIEW))
+
+        for overrides in (
+            dict(rollback_evidence_present=False, rollback_evidence_current=False, rollback_evidence_sufficient=False),
+            dict(rollback_evidence_present=True, rollback_evidence_current=False, rollback_evidence_sufficient=False),
+        ):
+            result = evaluate(make(**overrides))
+            self.assertEqual((result.outcome, result.reason_code, result.required_action),
+                             (Outcome.DEFER, ReasonCode.ROLLBACK_EVIDENCE_MISSING if not overrides["rollback_evidence_present"] else ReasonCode.ROLLBACK_EVIDENCE_STALE, RequiredAction.HUMAN_REVIEW))
+
+        for overrides, reason in (
+            (dict(rollback_evidence_present=False, rollback_evidence_current=False, rollback_evidence_sufficient=False), ReasonCode.ROLLBACK_EVIDENCE_MISSING),
+            (dict(rollback_evidence_present=True, rollback_evidence_current=False, rollback_evidence_sufficient=False), ReasonCode.ROLLBACK_EVIDENCE_STALE),
+        ):
+            result = evaluate(make(**overrides))
+            self.assertEqual((result.outcome, result.reason_code, result.required_action),
+                             (Outcome.DEFER, reason, RequiredAction.HUMAN_REVIEW))
+
+        result = evaluate(make(rollback_evidence_present=True, rollback_evidence_current=True,
+                               rollback_evidence_sufficient=False))
+        self.assertEqual((result.outcome, result.reason_code, result.required_action),
+                         (Outcome.DEFER, ReasonCode.ROLLBACK_EVIDENCE_INSUFFICIENT,
+                          RequiredAction.HUMAN_REVIEW))
+
+        result = evaluate(make(rollback_required=True, rollback_available=False))
+        self.assertEqual((result.outcome, result.reason_code, result.required_action),
+                         (Outcome.DEFER, ReasonCode.ROLLBACK_UNAVAILABLE,
+                          RequiredAction.HUMAN_REVIEW))
+
+    def test_missing_stale_insufficient_ordering(self):
+        for overrides in (
+            dict(rollback_evidence_present=False, rollback_evidence_current=False, rollback_evidence_sufficient=False),
+            dict(rollback_evidence_present=False, rollback_evidence_current=False, rollback_evidence_sufficient=False),
+            dict(rollback_evidence_present=False, rollback_evidence_current=False, rollback_evidence_sufficient=False),
+        ):
+            result = evaluate(make(**overrides))
+            self.assertEqual((result.outcome, result.reason_code, result.required_action),
+                             (Outcome.DEFER, ReasonCode.ROLLBACK_EVIDENCE_MISSING, RequiredAction.HUMAN_REVIEW))
+        result = evaluate(make(rollback_evidence_present=True, rollback_evidence_current=False,
+                               rollback_evidence_sufficient=False))
+        self.assertEqual((result.outcome, result.reason_code, result.required_action),
+                         (Outcome.DEFER, ReasonCode.ROLLBACK_EVIDENCE_STALE, RequiredAction.HUMAN_REVIEW))
 
     def test_authority_subprecedence(self):
         for overrides, reason in [
@@ -97,6 +194,25 @@ class RollbackNoActionFallbackTests(unittest.TestCase):
             request.correlation_reference = "changed"
         with self.assertRaises(FrozenInstanceError):
             first.reason_code = ReasonCode.NO_ACTION_REQUIRED
+
+    def test_evaluation_does_not_mutate_supplied_objects(self):
+        context = Context(State.IN_TRADE, True, False, True, False)
+        evidence = authority()
+        request = make(authority_evidence=evidence,
+                       fsm_state_reference=context.fsm_state_reference,
+                       halt_context=context.halt_context,
+                       failure_context=context.failure_context,
+                       recovery_context=context.recovery_context,
+                       reset_context=context.reset_context)
+        request_before = asdict(request)
+        evidence_before = asdict(evidence)
+        context_before = asdict(context)
+        result = evaluate(request)
+        self.assertIsNot(result, request)
+        self.assertEqual(asdict(request), request_before)
+        self.assertEqual(asdict(evidence), evidence_before)
+        self.assertEqual(asdict(context), context_before)
+        self.assertEqual(result.correlation_reference, request.correlation_reference)
 
     def test_authority_absent_valid_and_unknown_condition_never_emitted(self):
         self.assertEqual(evaluate(make(authority_evidence=None)).reason_code, ReasonCode.NO_ACTION_REQUIRED)
