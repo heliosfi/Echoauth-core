@@ -5919,6 +5919,16 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   founder decisions remain required before any schema or implementation work;
   the review is non-runtime, non-execution, non-authorizing, and keeps Stage 2
   HOLD and Stage 3 unentered and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-options-deferral-no-action-founder-decision-record.md` -
+  SniperBot Stage 2 Options Deferral / No-Action Founder Decision Record.
+  Records all 17 approved options-specific decisions, the 22-code reason
+  vocabulary, five RequiredAction values with three subject-emittable values,
+  three lane-confirmation values, exact 20-step first-match precedence,
+  optional non-authorizing generic and EchoAuth context, exact undefined
+  combinations, future paths, and validation stops. Documentation-only /
+  governance-only / founder-decision-record-only / non-runtime /
+  non-execution; Stage 2 remains HOLD and Stage 3 remains unentered and
+  unauthorized.
 * `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-stock-deferral-no-action-contract-definition-review.md` -
   SniperBot Stage 2 Stock Deferral / No-Action Contract Definition Review.
   Defines a proposed documentation-only stock-specific classification subject
