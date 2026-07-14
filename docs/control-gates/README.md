@@ -5451,6 +5451,15 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   schema-consistency-only / founder-decision-record-only / non-runtime /
   non-execution boundary; Stage 2 remains HOLD and Stage 3 remains unentered
   and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-rollback-no-action-fallback-implementation-evidence-acceptance.md`
+  - SniperBot Stage 2 Rollback / No-Action Fallback Implementation-Evidence
+  Acceptance. Accepts only the pure evaluator, frozen structures, closed
+  vocabularies, deterministic mappings, correlation preservation, supplied-
+  object non-mutation, and completed direct tests at `c172aae` and `e9b4ddd`.
+  It creates no rollback, recovery, reset, FSM, EchoAuth runtime, execution,
+  integration, or Stage 3 authority. Documentation-only / governance-only /
+  acceptance-record-only / non-runtime / non-execution boundary; Stage 2
+  remains HOLD and Stage 3 remains unentered and unauthorized.
 * `sniperbot-rollback-no-action-fallback-boundary-review.md` -
   documentation-only / governance-only / boundary-review-only /
   fallback-planning-only / governance-posture-only / future-evidence-
