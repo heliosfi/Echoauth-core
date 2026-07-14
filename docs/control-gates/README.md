@@ -366,6 +366,18 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   implementation, runtime, schemas, validators, tests, CI, strategy, signals,
   risk, sizing, trade cards, simulation, broker access, orders, execution, or
   EchoAuth runtime changes.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-canonical-fsm-re-gate-founder-decision-record.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Canonical FSM Re-Gate Founder
+  Decision Record. Records the founder's 17 bounded selections for the
+  proposed pure, non-executing FSM transition-decision contract, including
+  authority-at-arming, denied `ARMED_AUTO` entry, external confirmed-position
+  facts, lockout precedence, reset evidence, closed reason codes, and opaque
+  correlation references. EchoAuth remains the sole permission authority.
+  Stage 2 remains HOLD with ESCALATE elements; Stage 3 is not entered or
+  authorized. Documentation-only / governance-only / founder-decision-record-
+  only / non-authorization boundary; does not authorize schemas,
+  implementation, tests, runtime integration, strategy, signals, risk, sizing,
+  trading, broker access, orders, execution, or EchoAuth runtime changes.
 * `docs/control-gates/echoauth-safety-before-identity-alignment-review.md` -
   EchoAuth Safety-Before-Identity Alignment Review. Records the core rule
   "Safety first, identity after safety is confirmed." as docs-only governance
