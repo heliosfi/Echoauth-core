@@ -5421,6 +5421,16 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   trade-traceability, broker, Robinhood, order-routing, or live-trading
   movement requires a separate explicit founder-selected bounded task order
   before implementation.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-rollback-no-action-fallback-contract-definition-review.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Rollback / No-Action
+  Fallback Contract Definition Review. Defines one proposed pure,
+  deterministic, non-executing classification subject for externally supplied
+  rollback and no-action fallback facts, while leaving outcome vocabulary,
+  precedence, authority, halt/reset relationships, paths, and validation for
+  founder decisions. Documentation-only / governance-only /
+  contract-definition-only / fallback-planning-only / non-runtime /
+  non-execution boundary; Stage 2 remains HOLD and Stage 3 remains unentered
+  and unauthorized.
 * `sniperbot-rollback-no-action-fallback-boundary-review.md` -
   documentation-only / governance-only / boundary-review-only /
   fallback-planning-only / governance-posture-only / future-evidence-
