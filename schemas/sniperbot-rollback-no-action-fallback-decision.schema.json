@@ -33,7 +33,27 @@
         "UNKNOWN_CONDITION",
         "UNDEFINED_INPUT_COMBINATION",
         "NO_ACTION_REQUIRED"
-      ]
+      ],
+      "description": "Full repository reason-code vocabulary (14 values). UNKNOWN_CONDITION is reserved vocabulary-only traceability and is not emittable by this subject."
+    },
+    "SubjectEmittableReasonCode": {
+      "type": "string",
+      "enum": [
+        "ROLLBACK_EXTERNALLY_REQUIRED",
+        "ROLLBACK_UNAVAILABLE",
+        "ROLLBACK_EVIDENCE_MISSING",
+        "ROLLBACK_EVIDENCE_STALE",
+        "ROLLBACK_EVIDENCE_INSUFFICIENT",
+        "ROLLBACK_EVIDENCE_CONTRADICTORY",
+        "ROLLBACK_AND_NO_ACTION_CONFLICT",
+        "AUTHORITY_EVIDENCE_INVALID",
+        "AUTHORITY_EVIDENCE_STALE",
+        "AUTHORITY_EVIDENCE_REVOKED",
+        "AUTHORITY_EVIDENCE_OUT_OF_SCOPE",
+        "UNDEFINED_INPUT_COMBINATION",
+        "NO_ACTION_REQUIRED"
+      ],
+      "description": "The 13 reason codes this subject may emit. UNKNOWN_CONDITION remains reserved in ReasonCode and must not validate here."
     },
     "RequiredAction": {
       "type": "string",
@@ -99,7 +119,7 @@
       "required": ["outcome", "reason_code", "required_action", "correlation_reference"],
       "properties": {
         "outcome": { "$ref": "#/$defs/Outcome" },
-        "reason_code": { "$ref": "#/$defs/ReasonCode" },
+        "reason_code": { "$ref": "#/$defs/SubjectEmittableReasonCode" },
         "required_action": { "$ref": "#/$defs/EmittableAction" },
         "correlation_reference": { "type": "string", "minLength": 1, "description": "Must equal the request reference; exact cross-object equality is evaluator-owned. No mutation, persistence, command, order, broker, credential, or recovery instruction is represented." },
         "rollback_no_action_posture": { "type": "string", "enum": ["ROLLBACK_REVIEW", "NO_ACTION"], "description": "Optional descriptive posture only; it does not authorize rollback or execution." }

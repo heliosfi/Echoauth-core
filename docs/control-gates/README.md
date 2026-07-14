@@ -5441,6 +5441,16 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   governance-only / founder-decision-record-only / non-runtime /
   non-execution boundary; Stage 2 remains HOLD and Stage 3 remains unentered
   and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-rollback-no-action-fallback-unknown-condition-founder-decision-record.md`
+  - SniperBot Stage 2 Rollback / No-Action Fallback Unknown-Condition Founder
+  Decision Record. Records `UNKNOWN_CONDITION` as vocabulary-only and
+  non-emittable, preserves the full 14-code repository vocabulary while
+  constraining this subject to 13 emittable codes, and records the schema
+  consistency repair without adding triggers, fields, interpretations, or
+  implementation authority. Documentation-only / governance-only /
+  schema-consistency-only / founder-decision-record-only / non-runtime /
+  non-execution boundary; Stage 2 remains HOLD and Stage 3 remains unentered
+  and unauthorized.
 * `sniperbot-rollback-no-action-fallback-boundary-review.md` -
   documentation-only / governance-only / boundary-review-only /
   fallback-planning-only / governance-posture-only / future-evidence-
