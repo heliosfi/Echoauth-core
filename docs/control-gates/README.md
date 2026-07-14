@@ -5784,6 +5784,16 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   are created, no NI-AI runtime changes are created, no founder approval
   runtime is created, and no command execution or execution capability is
   created.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-asset-class-deferral-no-action-contract-definition-review.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Asset-Class Deferral /
+  No-Action Contract Definition Review. Defines one proposed future pure,
+  deterministic classification contract for already-supplied asset-class
+  deferral and no-action facts, while leaving unsupported vocabularies,
+  precedence, authority requirements, and future paths unresolved for founder
+  decision. Documentation-only / governance-only / contract-definition-only /
+  non-runtime / non-execution / non-authorization boundary; does not create a
+  schema, implementation, asset selection, market-data access, runtime
+  integration, trading, broker, order, execution, or Stage 3 capability.
 * `sniperbot-options-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only /
   options-deferral-no-action-boundary-only / options-readiness-planning-only
