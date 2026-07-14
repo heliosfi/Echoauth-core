@@ -353,6 +353,19 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   governance-only / evidence-acceptance-decision-only / non-authorization
   boundary; does not authorize implementation, runtime, deployment, broker
   access, trading, credentials, execution, or LocalOps work.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-canonical-fsm-contract-definition-review.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Canonical FSM Contract
+  Definition Review. Defines one proposed future pure, non-executing FSM
+  transition-decision contract using the archive's declared state vocabulary
+  only. Separates state, transition request, external facts, EchoAuth-owned
+  authority evidence, decision, and reason code; preserves every archive
+  contradiction and unanswered founder decision instead of resolving it.
+  Stage 2 remains HOLD with ESCALATE elements; Stage 3 is not entered or
+  authorized. Documentation-only / governance-only / proposed-contract-
+  definition-only / non-authorization boundary; does not authorize
+  implementation, runtime, schemas, validators, tests, CI, strategy, signals,
+  risk, sizing, trade cards, simulation, broker access, orders, execution, or
+  EchoAuth runtime changes.
 * `docs/control-gates/echoauth-safety-before-identity-alignment-review.md` -
   EchoAuth Safety-Before-Identity Alignment Review. Records the core rule
   "Safety first, identity after safety is confirmed." as docs-only governance
