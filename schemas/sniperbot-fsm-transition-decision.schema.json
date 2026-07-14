@@ -66,6 +66,19 @@
         "authority_reference": { "type": "string", "minLength": 1 }
       }
     },
+    "ValidAuthorityEvidence": {
+      "allOf": [
+        { "$ref": "#/$defs/AuthorityEvidence" },
+        {
+          "properties": {
+            "presence": { "const": "PRESENT" },
+            "currentness": { "const": "CURRENT" },
+            "revocation": { "const": "NON_REVOKED" },
+            "validity_outcome": { "const": "VALID" }
+          }
+        }
+      ]
+    },
     "TransitionRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -119,7 +132,7 @@
         "resulting_state": { "$ref": "#/$defs/State", "description": "Descriptive only; no state mutation occurs." },
         "reason_code": { "$ref": "#/$defs/ReasonCode" },
         "required_next_human_or_governance_action": { "$ref": "#/$defs/RequiredAction" },
-        "correlation_reference": { "type": "string", "minLength": 1, "description": "Must equal the request reference; the FSM does not generate, interpret, persist, or audit it." }
+        "correlation_reference": { "type": "string", "minLength": 1, "description": "Must equal the request reference; the FSM does not generate, interpret, persist, or audit it. Exact equality is enforced by the future pure evaluator because Draft 2020-12 cannot compare sibling values." }
       }
     }
   },
@@ -164,6 +177,179 @@
               "allowed": { "const": false },
               "resulting_state": { "const": "READY" },
               "reason_code": { "const": "TRANSITION_FOUNDER_DENIED" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["current_state", "requested_state"],
+            "properties": {
+              "current_state": { "const": "READY" },
+              "requested_state": { "const": "ARMED_MANUAL" }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "request": {
+            "properties": { "authority_evidence": { "$ref": "#/$defs/ValidAuthorityEvidence" } }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["current_state", "requested_state"],
+            "properties": {
+              "current_state": { "const": "LOCKOUT" },
+              "requested_state": { "const": "PAUSE" }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "request": {
+            "properties": { "authority_evidence": { "$ref": "#/$defs/ValidAuthorityEvidence" } }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["current_state", "requested_state"],
+            "properties": {
+              "current_state": { "const": "PAUSE" },
+              "requested_state": { "const": "READY" }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "request": {
+            "properties": {
+              "external_facts": {
+                "properties": { "readiness_preconditions_satisfied": { "const": true } }
+              }
+            }
+          }
+        },
+        "required": ["decision"]
+      }
+    },
+    {
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["current_state", "requested_state"],
+            "properties": {
+              "current_state": { "const": "ARMED_AUTO" },
+              "requested_state": { "const": "IN_TRADE" }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "request": {
+            "properties": {
+              "external_facts": {
+                "properties": { "confirmed_position_exists": { "const": true } }
+              }
+            }
+          }
+        },
+        "required": ["decision"]
+      }
+    },
+    {
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["current_state", "requested_state"],
+            "properties": {
+              "current_state": { "const": "IN_TRADE" },
+              "requested_state": { "const": "PAUSE" }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "request": {
+            "properties": {
+              "external_facts": {
+                "properties": {
+                  "position_closed": { "const": true },
+                  "cooldown_complete": { "const": true }
+                }
+              }
+            }
+          }
+        },
+        "required": ["decision"]
+      }
+    },
+    {
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["current_state", "requested_state"],
+            "properties": {
+              "current_state": { "const": "ARMED_MANUAL" },
+              "requested_state": { "const": "IN_TRADE" }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "decision": {
+            "properties": {
+              "allowed": { "const": false },
+              "resulting_state": { "const": "ARMED_MANUAL" },
+              "reason_code": { "const": "UNDEFINED_TRANSITION" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["current_state", "requested_state"],
+            "properties": {
+              "current_state": { "const": "IN_TRADE" },
+              "requested_state": { "const": "READY" }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "decision": {
+            "properties": {
+              "allowed": { "const": false },
+              "resulting_state": { "const": "IN_TRADE" },
+              "reason_code": { "const": "UNDEFINED_TRANSITION" }
             }
           }
         }

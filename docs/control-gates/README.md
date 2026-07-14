@@ -391,6 +391,16 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   signals, risk, sizing, trade cards, simulation, backtesting, broker,
   Robinhood, orders, credentials, deployment, database, execution, or
   EchoAuth runtime changes.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-canonical-fsm-schema-semantics-founder-decision-record.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Canonical FSM Schema
+  Semantics Founder Decision Record. Records the eleven founder-selected
+  fail-closed schema semantics, including conditional authority evidence,
+  readiness and position facts, denial/state-retention rules, contradictory
+  input handling, correlation requirements, required-action mappings, and the
+  schema-versus-evaluator enforcement boundary. Documentation-only /
+  governance-only / schema-amendment-only / non-authorization boundary;
+  Stage 2 remains HOLD with ESCALATE elements and Stage 3 remains unentered and
+  unauthorized.
 * `docs/control-gates/echoauth-safety-before-identity-alignment-review.md` -
   EchoAuth Safety-Before-Identity Alignment Review. Records the core rule
   "Safety first, identity after safety is confirmed." as docs-only governance
