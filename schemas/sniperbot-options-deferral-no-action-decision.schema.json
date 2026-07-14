@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/sniperbot-options-deferral-no-action-decision.schema.json",
+  "title": "SniperBot Options Deferral / No-Action Decision Schema",
+  "description": "Pure, deterministic, immutable, side-effect-free, non-authorizing, non-executing classification of externally supplied options-specific facts. The future evaluator owns first-match precedence and mappings; this schema does not encode procedural conditionals, eligibility, contract selection, market-data access, orchestration, exercise, assignment, orders, execution, or runtime integration.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request", "decision"],
+  "properties": {
+    "request": { "$ref": "#/$defs/Request" },
+    "decision": { "$ref": "#/$defs/Decision" }
+  },
+  "$defs": {
+    "Outcome": {
+      "type": "string",
+      "enum": ["DEFER", "NO_ACTION"],
+      "description": "Neither outcome represents options eligibility, contract approval, direction, strategy, trade permission, exercise or assignment authority, order instruction, or execution authority."
+    },
+    "ReasonCode": {
+      "type": "string",
+      "enum": [
+        "OPTIONS_DEFERRAL_EXTERNALLY_REQUIRED",
+        "OPTIONS_EVIDENCE_MISSING",
+        "OPTIONS_EVIDENCE_STALE",
+        "OPTIONS_EVIDENCE_INSUFFICIENT",
+        "OPTIONS_EVIDENCE_CONTRADICTORY",
+        "OPTIONS_DEFERRAL_NO_ACTION_CONFLICT",
+        "OPTIONS_RESTRICTED",
+        "OPTIONS_EXCLUDED",
+        "OPTIONS_LANE_CONFIRMATION_MISSING",
+        "OPTIONS_LANE_NOT_CONFIRMED",
+        "OPTIONS_LANE_CONTRADICTORY",
+        "GENERIC_ASSET_CLASS_CONTEXT_INVALID",
+        "GENERIC_ASSET_CLASS_CONTEXT_STALE",
+        "GENERIC_ASSET_CLASS_CONTEXT_CONTRADICTORY",
+        "GENERIC_ASSET_CLASS_CONTEXT_OUT_OF_SCOPE",
+        "GENERIC_ASSET_CLASS_NOT_OPTIONS",
+        "AUTHORITY_EVIDENCE_INVALID",
+        "AUTHORITY_EVIDENCE_STALE",
+        "AUTHORITY_EVIDENCE_REVOKED",
+        "AUTHORITY_EVIDENCE_OUT_OF_SCOPE",
+        "UNDEFINED_INPUT_COMBINATION",
+        "NO_ACTION_REQUIRED"
+      ],
+      "description": "Closed 22-value options-specific reason vocabulary. No UNKNOWN, stock-specific, or free-text reason is approved."
+    },
+    "RequiredAction": {
+      "type": "string",
+      "enum": ["NONE", "HUMAN_REVIEW", "GOVERNANCE_REVIEW", "FOUNDER_AUTHORITY_REQUIRED", "RESET_REQUIRED"],
+      "description": "Full repository vocabulary. FOUNDER_AUTHORITY_REQUIRED and RESET_REQUIRED are vocabulary-only and are not emitted by this subject."
+    },
+    "EmittableAction": {
+      "type": "string",
+      "enum": ["NONE", "HUMAN_REVIEW", "GOVERNANCE_REVIEW"],
+      "description": "The three actions this subject may emit."
+    },
+    "OptionsLaneConfirmation": {
+      "type": "string",
+      "enum": ["CONFIRMED", "NOT_CONFIRMED", "CONTRADICTORY"]
+    },
+    "GenericAssetClassContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asset_class", "validity", "current", "contradictory", "in_scope", "context_reference"],
+      "properties": {
+        "asset_class": { "type": "string", "enum": ["STOCK", "OPTIONS", "CRYPTO"] },
+        "validity": { "type": "string", "enum": ["VALID", "INVALID", "AMBIGUOUS"] },
+        "current": { "type": "boolean" },
+        "contradictory": { "type": "boolean" },
+        "in_scope": { "type": "boolean" },
+        "context_reference": { "type": "string", "minLength": 1 }
+      },
+      "description": "Optional contextual generic asset-class evidence only. It is non-authorizing, independent, and does not invoke or orchestrate a generic classifier. Only OPTIONS is contextually compatible."
+    },
+    "AuthorityEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["validity", "current", "revoked", "contradictory", "in_scope", "evidence_reference"],
+      "properties": {
+        "validity": { "type": "string", "enum": ["VALID", "INVALID", "AMBIGUOUS"] },
+        "current": { "type": "boolean" },
+        "revoked": { "type": "boolean" },
+        "contradictory": { "type": "boolean" },
+        "in_scope": { "type": "boolean" },
+        "evidence_reference": { "type": "string", "minLength": 1 }
+      },
+      "description": "Optional contextual EchoAuth evidence only. EchoAuth remains the sole permission authority; this schema grants no authority and does not call, validate, repair, reinterpret, broaden, or bypass EchoAuth."
+    },
+    "Request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "options_reference",
+        "options_evidence_present",
+        "options_evidence_current",
+        "options_evidence_sufficient",
+        "options_evidence_contradictory",
+        "options_deferral",
+        "options_no_action",
+        "options_restricted",
+        "options_excluded",
+        "correlation_reference"
+      ],
+      "properties": {
+        "options_reference": { "type": "string", "minLength": 1, "description": "Opaque non-empty options reference only; no underlying ticker, contract parsing, selection, chain, or market-data semantics are represented." },
+        "options_evidence_present": { "type": "boolean" },
+        "options_evidence_current": { "type": "boolean" },
+        "options_evidence_sufficient": { "type": "boolean" },
+        "options_evidence_contradictory": { "type": "boolean", "description": "Only this supplied flag establishes options-evidence contradiction." },
+        "options_deferral": { "type": "boolean", "description": "External descriptive assertion that options-specific review should pause; not permission, exclusion, or execution." },
+        "options_no_action": { "type": "boolean", "description": "External descriptive no-action posture; not approval, eligibility, signal, lifecycle handling, or execution." },
+        "options_restricted": { "type": "boolean", "description": "External descriptive restriction fact only; not calculated, verified, derived, modified, or approved here." },
+        "options_excluded": { "type": "boolean", "description": "External descriptive exclusion fact only; not calculated, verified, derived, modified, or approved here." },
+        "options_lane_confirmation": { "oneOf": [{ "$ref": "#/$defs/OptionsLaneConfirmation" }, { "type": "null" }], "description": "Optional; absence is classified by the future evaluator. Confirmation is never inferred from a reference, identifier, or data." },
+        "generic_asset_class_context": { "oneOf": [{ "$ref": "#/$defs/GenericAssetClassContext" }, { "type": "null" }] },
+        "authority_evidence": { "oneOf": [{ "$ref": "#/$defs/AuthorityEvidence" }, { "type": "null" }] },
+        "correlation_reference": { "type": "string", "minLength": 1, "description": "Mandatory opaque caller reference; exact equality with the decision reference is evaluator-owned." }
+      },
+      "description": "Closed request of externally supplied descriptive facts only. It intentionally contains no underlying-stock, ticker, OCC, call/put, strike, expiration, premium, Greeks, volume, open interest, liquidity, market-hours, exercise, assignment, position, signal, strategy, risk, sizing, order, broker, or executable fields."
+    },
+    "Decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["options_reference", "outcome", "reason_code", "required_action", "correlation_reference"],
+      "properties": {
+        "options_reference": { "type": "string", "minLength": 1 },
+        "outcome": { "$ref": "#/$defs/Outcome" },
+        "reason_code": { "$ref": "#/$defs/ReasonCode" },
+        "required_action": { "$ref": "#/$defs/EmittableAction" },
+        "correlation_reference": { "type": "string", "minLength": 1, "description": "Must equal the request correlation reference; exact cross-object equality is evaluator-owned. No selection, signal, order, broker, persistence, or execution is represented." }
+      },
+      "description": "Descriptive output only. The future evaluator owns the exact 20-step first-match order, mappings, undefined classifications, authority precedence, and correlation equality; no procedural output conditionals are encoded here."
+    }
+  }
+}
