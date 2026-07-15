@@ -6005,6 +6005,14 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   no EchoAuth runtime changes are created, no NI-AI runtime changes are
   created, no founder approval runtime is created, and no command execution
   or execution capability is created.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-crypto-deferral-no-action-contract-definition-review.md` -
+  SniperBot Stage 2 Crypto Deferral / No-Action Contract Definition Review.
+  Records the established descriptive, non-authorizing Crypto boundary and
+  the exactly 18 unresolved founder-decision areas required before any future
+  contract can be defined. Recommendations are not Crypto authority; no schema
+  or implementation is authorized. Documentation-only / governance-only /
+  contract-definition-only / non-runtime / non-execution boundary; Stage 2
+  remains HOLD and Stage 3 remains unentered and unauthorized.
 * `sniperbot-crypto-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only /
   crypto-deferral-no-action-boundary-only / crypto-readiness-planning-only /
