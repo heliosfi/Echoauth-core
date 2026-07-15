@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/sniperbot-crypto-deferral-no-action-decision.schema.json",
+  "title": "SniperBot Crypto Deferral / No-Action Decision Schema",
+  "description": "Pure, deterministic, immutable, side-effect-free, non-authorizing, non-executing classification of externally supplied crypto-specific facts. The future evaluator owns the approved 20-step first-match precedence and mappings; this schema does not encode procedural conditionals, eligibility, asset approval, exchange or wallet selection, market-data access, strategy, risk, sizing, orchestration, broker or exchange APIs, orders, routing, execution, or runtime integration.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request", "decision"],
+  "properties": {
+    "request": { "$ref": "#/$defs/Request" },
+    "decision": { "$ref": "#/$defs/Decision" }
+  },
+  "$defs": {
+    "Outcome": {
+      "type": "string",
+      "enum": ["DEFER", "NO_ACTION"],
+      "description": "Neither outcome represents crypto eligibility, asset approval, strategy, permission, transfer, order instruction, routing, or execution authority."
+    },
+    "ReasonCode": {
+      "type": "string",
+      "enum": [
+        "CRYPTO_DEFERRAL_EXTERNALLY_REQUIRED",
+        "CRYPTO_EVIDENCE_MISSING",
+        "CRYPTO_EVIDENCE_STALE",
+        "CRYPTO_EVIDENCE_INSUFFICIENT",
+        "CRYPTO_EVIDENCE_CONTRADICTORY",
+        "CRYPTO_DEFERRAL_NO_ACTION_CONFLICT",
+        "CRYPTO_RESTRICTED",
+        "CRYPTO_EXCLUDED",
+        "CRYPTO_LANE_CONFIRMATION_MISSING",
+        "CRYPTO_LANE_NOT_CONFIRMED",
+        "CRYPTO_LANE_CONTRADICTORY",
+        "GENERIC_ASSET_CLASS_CONTEXT_INVALID",
+        "GENERIC_ASSET_CLASS_CONTEXT_STALE",
+        "GENERIC_ASSET_CLASS_CONTEXT_CONTRADICTORY",
+        "GENERIC_ASSET_CLASS_CONTEXT_OUT_OF_SCOPE",
+        "GENERIC_ASSET_CLASS_NOT_CRYPTO",
+        "AUTHORITY_EVIDENCE_INVALID",
+        "AUTHORITY_EVIDENCE_STALE",
+        "AUTHORITY_EVIDENCE_REVOKED",
+        "AUTHORITY_EVIDENCE_OUT_OF_SCOPE",
+        "UNDEFINED_INPUT_COMBINATION",
+        "NO_ACTION_REQUIRED"
+      ],
+      "description": "Closed 22-value crypto-specific reason vocabulary. No UNKNOWN, Stock-specific, Options-specific, alias, hidden fallback, or free-text reason is approved. EmittableReasonCode must remain exactly compatible with this vocabulary."
+    },
+    "RequiredAction": {
+      "type": "string",
+      "enum": ["NONE", "HUMAN_REVIEW", "GOVERNANCE_REVIEW", "FOUNDER_AUTHORITY_REQUIRED", "RESET_REQUIRED"],
+      "description": "Full repository vocabulary. FOUNDER_AUTHORITY_REQUIRED and RESET_REQUIRED are vocabulary-only and are not emitted by this subject."
+    },
+    "EmittableAction": {
+      "type": "string",
+      "enum": ["NONE", "HUMAN_REVIEW", "GOVERNANCE_REVIEW"],
+      "description": "The three actions a Crypto decision may emit."
+    },
+    "CryptoLaneConfirmation": {
+      "type": "string",
+      "enum": ["CONFIRMED", "NOT_CONFIRMED", "CONTRADICTORY"],
+      "description": "Optional supplied Crypto-lane confirmation only. It is never inferred from a token, coin, address, chain, exchange, wallet, account, contract, market datum, price, or balance."
+    },
+    "AssetClass": {
+      "type": "string",
+      "enum": ["STOCK", "OPTIONS", "CRYPTO"]
+    },
+    "Validity": {
+      "type": "string",
+      "enum": ["VALID", "INVALID", "AMBIGUOUS"]
+    },
+    "GenericAssetClassContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asset_class", "validity", "current", "contradictory", "in_scope", "context_reference"],
+      "properties": {
+        "asset_class": { "$ref": "#/$defs/AssetClass" },
+        "validity": { "$ref": "#/$defs/Validity" },
+        "current": { "type": "boolean" },
+        "contradictory": { "type": "boolean" },
+        "in_scope": { "type": "boolean" },
+        "context_reference": { "type": "string", "minLength": 1 }
+      },
+      "description": "Optional contextual generic asset-class evidence only. It is opaque, independent, and non-authorizing and does not invoke or orchestrate a generic evaluator. Only CRYPTO is contextually compatible for the future evaluator."
+    },
+    "AuthorityEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["validity", "current", "revoked", "contradictory", "in_scope", "evidence_reference"],
+      "properties": {
+        "validity": { "$ref": "#/$defs/Validity" },
+        "current": { "type": "boolean" },
+        "revoked": { "type": "boolean" },
+        "contradictory": { "type": "boolean" },
+        "in_scope": { "type": "boolean" },
+        "evidence_reference": { "type": "string", "minLength": 1 }
+      },
+      "description": "Optional contextual EchoAuth evidence only. Its presence grants no authority. EchoAuth remains the sole permission authority; this schema does not call, validate, repair, reinterpret, broaden, grant, replace, or bypass EchoAuth."
+    },
+    "Request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "crypto_reference",
+        "crypto_evidence_present",
+        "crypto_evidence_current",
+        "crypto_evidence_sufficient",
+        "crypto_evidence_contradictory",
+        "crypto_deferral",
+        "crypto_no_action",
+        "crypto_restricted",
+        "crypto_excluded",
+        "correlation_reference"
+      ],
+      "properties": {
+        "crypto_reference": { "type": "string", "minLength": 1, "description": "Opaque non-empty Crypto subject reference only; no token, symbol, address, chain, exchange, wallet, account, contract, market, or selection semantics are represented." },
+        "crypto_evidence_present": { "type": "boolean" },
+        "crypto_evidence_current": { "type": "boolean" },
+        "crypto_evidence_sufficient": { "type": "boolean" },
+        "crypto_evidence_contradictory": { "type": "boolean", "description": "Only this supplied flag establishes Crypto-evidence contradiction." },
+        "crypto_deferral": { "type": "boolean", "description": "External descriptive assertion that Crypto-specific review should pause; not permission, eligibility, strategy, transfer, order, or execution." },
+        "crypto_no_action": { "type": "boolean", "description": "External descriptive no-action posture; not approval, eligibility, asset handling, position handling, transfer, order, or execution." },
+        "crypto_restricted": { "type": "boolean", "description": "External descriptive restriction fact only; not calculated, verified, derived, modified, approved, or treated as eligibility here." },
+        "crypto_excluded": { "type": "boolean", "description": "External descriptive exclusion fact only; not calculated, verified, derived, modified, approved, or treated as eligibility here." },
+        "crypto_lane_confirmation": { "oneOf": [{ "$ref": "#/$defs/CryptoLaneConfirmation" }, { "type": "null" }], "description": "Optional; absence remains schema-valid and is classified as missing by the future evaluator." },
+        "generic_asset_class_context": { "oneOf": [{ "$ref": "#/$defs/GenericAssetClassContext" }, { "type": "null" }] },
+        "authority_evidence": { "oneOf": [{ "$ref": "#/$defs/AuthorityEvidence" }, { "type": "null" }] },
+        "correlation_reference": { "type": "string", "minLength": 1, "description": "Mandatory opaque caller reference; exact equality with the decision reference is evaluator-owned." }
+      },
+      "description": "Closed request of externally supplied descriptive facts only. Evidence absent while current, evidence absent while sufficient, and evidence stale while sufficient remain structurally valid typed requests for future fail-closed classification. The future evaluator owns the approved 20-step order: evidence contradiction; deferral/no-action conflict; governed undefined combination; lane missing, contradictory, then not confirmed; generic context contradictory, ambiguous or invalid, not Crypto, stale, then out of scope; exclusion; restriction; authority failure; evidence missing, stale, then insufficient; external deferral; explicit no-action; ordinary no-action fallback. This request intentionally contains no token or coin eligibility, asset approval, symbol, address, chain, exchange, wallet, account, credential, custody, deposit, withdrawal, node, chain-analysis, market-data, pricing, liquidity, slippage, strategy, risk, sizing, simulation, paper-trading, broker or exchange API, order, routing, execution, or runtime-wiring field."
+    },
+    "Decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["crypto_reference", "outcome", "reason_code", "required_action", "correlation_reference"],
+      "properties": {
+        "crypto_reference": { "type": "string", "minLength": 1 },
+        "outcome": { "$ref": "#/$defs/Outcome" },
+        "reason_code": { "$ref": "#/$defs/ReasonCode" },
+        "required_action": { "$ref": "#/$defs/EmittableAction" },
+        "correlation_reference": { "type": "string", "minLength": 1, "description": "Must equal the request correlation reference; exact cross-object equality is evaluator-owned." }
+      },
+      "description": "Closed descriptive output only. The future evaluator owns exact reference preservation, the approved first-match order, mappings, undefined classifications, context and authority sub-precedence, and correlation equality. No permission, eligibility, asset approval, strategy, risk, order, routing, broker, exchange, persistence, runtime, or execution field or behavior is represented."
+    }
+  }
+}
