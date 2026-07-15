@@ -6013,6 +6013,16 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   or implementation is authorized. Documentation-only / governance-only /
   contract-definition-only / non-runtime / non-execution boundary; Stage 2
   remains HOLD and Stage 3 remains unentered and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-crypto-deferral-no-action-founder-decision-record.md` -
+  SniperBot Stage 2 Crypto Deferral / No-Action Founder Decision Record.
+  Records all 18 founder-approved Crypto decisions, including the closed
+  22-code reason vocabulary, exact typed contract, 20-step precedence, three
+  governed undefined predicates, approved 12-symbol future API, future paths,
+  validation sequence, and stop boundaries. The contract-definition decision
+  surface is resolved, but no schema or implementation is authorized
+  automatically. Documentation-only / governance-only /
+  founder-decision-record-only / non-runtime / non-execution; Stage 2 remains
+  HOLD and Stage 3 remains unentered and unauthorized.
 * `sniperbot-crypto-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only /
   crypto-deferral-no-action-boundary-only / crypto-readiness-planning-only /
