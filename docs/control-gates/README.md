@@ -6115,6 +6115,20 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   Stage 3 authority. Documentation-only / governance-only /
   contract-definition-only / non-runtime / non-execution; Stage 2 remains HOLD
   and Stage 3 remains unentered and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-stock-eligibility-exclusion-founder-decision-record.md` -
+  SniperBot Stage 2 Stock Eligibility / Exclusion Founder-Decision Record.
+  Resolves all 20 Stock-specific decision domains, including the exact request
+  and immutable decision boundaries, six closed enums, four frozen
+  dataclasses, 23 reason codes, 16-step precedence, generic and authority
+  subprecedence, 12-symbol submodule-only future API, strict exception and
+  omission/null rules, Stock Deferral coexistence, purity constraints, direct
+  tests, and a 32,768-combination exhaustive evidence model. It grants no
+  schema, Python implementation, tests, package exports, runtime, integration,
+  orchestration, market-data, broker, wallet, networking, persistence,
+  registration, order, execution, or Stage 3 authority. Documentation-only /
+  governance-only / founder-decision-record-only / non-runtime /
+  non-execution; Stage 2 remains HOLD and Stage 3 remains unentered and
+  unauthorized.
 * `sniperbot-crypto-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only /
   crypto-deferral-no-action-boundary-only / crypto-readiness-planning-only /
