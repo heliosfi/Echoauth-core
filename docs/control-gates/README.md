@@ -6046,6 +6046,18 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   Stage 3 authority. Documentation-only / governance-only /
   contract-definition-only / non-runtime / non-execution; Stage 2 remains
   HOLD and Stage 3 remains unentered and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-asset-class-eligibility-exclusion-founder-decision-record.md` -
+  SniperBot Stage 2 Asset-Class Eligibility / Exclusion Founder Decision
+  Record. Records all 20 founder decisions, including the three asset classes,
+  four outcomes, 15 reasons, five RequiredAction values with three emittable,
+  exact request and decision boundaries, deterministic 12-step precedence,
+  three governed undefined predicates, optional contextual EchoAuth evidence,
+  exact future paths, and validation and stop conditions. It authorizes no
+  schema, package, implementation, tests, integration, runtime, trading,
+  execution, neighboring subject, or Stage 3 movement. Documentation-only /
+  governance-only / founder-decision-record-only / non-runtime /
+  non-execution; Stage 2 remains HOLD and Stage 3 remains unentered and
+  unauthorized.
 * `sniperbot-crypto-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only /
   crypto-deferral-no-action-boundary-only / crypto-readiness-planning-only /
