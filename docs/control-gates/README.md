@@ -6023,6 +6023,19 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   automatically. Documentation-only / governance-only /
   founder-decision-record-only / non-runtime / non-execution; Stage 2 remains
   HOLD and Stage 3 remains unentered and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-crypto-deferral-no-action-implementation-evidence-acceptance.md` -
+  SniperBot Stage 2 Crypto Deferral / No-Action Implementation-Evidence
+  Acceptance. Accepts evidence at `93bd254ab695a3de0b7994fca78a62d5662757e0`
+  and `8250816dac7bdf7786e039a4a1a1a4d52cf79ea9` only for the pure evaluator,
+  exact 12-symbol API, frozen structures, closed vocabularies, strict typed
+  boundaries, deterministic 20-step behavior, three governed undefined
+  predicates, contextual generic and EchoAuth evidence, direct tests,
+  non-mutation, exact reference preservation, and equal but distinct repeated
+  decisions. It creates no integration, eligibility, asset-selection, wallet,
+  market-data, trading, execution, runtime, neighboring-subject, or Stage 3
+  authority. Documentation-only / governance-only / acceptance-record-only /
+  non-runtime / non-execution; Stage 2 remains HOLD and Stage 3 remains
+  unentered and unauthorized.
 * `sniperbot-crypto-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only /
   crypto-deferral-no-action-boundary-only / crypto-readiness-planning-only /
