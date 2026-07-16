@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/sniperbot-asset-class-eligibility-exclusion-decision.schema.json",
+  "title": "SniperBot Asset-Class Eligibility / Exclusion Decision Schema",
+  "description": "Pure, deterministic, immutable, side-effect-free, non-authorizing, non-executing descriptive classification of externally supplied generic asset-class eligibility, exclusion, restriction, evidence, and optional contextual authority facts. ELIGIBLE means only continued governed Stage 2 evaluation and never permission, asset approval, downstream-gate completion, trading, transaction, execution, integration, or Stage 3 authority. The future evaluator owns the approved 12-step first-match precedence and mappings; this schema intentionally encodes no procedural conditionals and preserves governed conflicts and undefined combinations as structurally valid typed requests.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request", "decision"],
+  "properties": {
+    "request": { "$ref": "#/$defs/Request" },
+    "decision": { "$ref": "#/$defs/Decision" }
+  },
+  "$defs": {
+    "AssetClass": {
+      "type": "string",
+      "enum": ["STOCK", "OPTIONS", "CRYPTO"],
+      "description": "Exactly one explicitly supplied generic asset class. It is never inferred from an identifier, contract, token, broker, exchange, wallet, venue, market data, or metadata."
+    },
+    "Outcome": {
+      "type": "string",
+      "enum": ["ELIGIBLE", "EXCLUDED", "RESTRICTED", "REVIEW_REQUIRED"],
+      "description": "Closed descriptive outcomes only. None grants EchoAuth permission, market access, asset approval, order or transaction authority, execution authority, or completion of downstream gates."
+    },
+    "ReasonCode": {
+      "type": "string",
+      "enum": [
+        "ASSET_CLASS_ELIGIBLE",
+        "ASSET_CLASS_EXCLUDED",
+        "ASSET_CLASS_RESTRICTED",
+        "ELIGIBILITY_EVIDENCE_MISSING",
+        "ELIGIBILITY_EVIDENCE_STALE",
+        "ELIGIBILITY_EVIDENCE_INSUFFICIENT",
+        "ELIGIBILITY_EVIDENCE_CONTRADICTORY",
+        "ELIGIBLE_EXCLUDED_CONFLICT",
+        "ELIGIBLE_RESTRICTED_CONFLICT",
+        "AUTHORITY_EVIDENCE_INVALID",
+        "AUTHORITY_EVIDENCE_STALE",
+        "AUTHORITY_EVIDENCE_REVOKED",
+        "AUTHORITY_EVIDENCE_OUT_OF_SCOPE",
+        "UNDEFINED_INPUT_COMBINATION",
+        "ELIGIBILITY_UNRESOLVED"
+      ],
+      "description": "Closed 15-value reason vocabulary. UNKNOWN, free text, aliases, hidden fallbacks, Deferral reasons, and lane-specific reasons are not approved."
+    },
+    "RequiredAction": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "HUMAN_REVIEW",
+        "GOVERNANCE_REVIEW",
+        "FOUNDER_AUTHORITY_REQUIRED",
+        "RESET_REQUIRED"
+      ],
+      "description": "Full five-value repository vocabulary. FOUNDER_AUTHORITY_REQUIRED and RESET_REQUIRED are vocabulary-only and cannot be emitted by this subject. NONE means only that this classifier requires no additional action; it never means permission."
+    },
+    "EmittableAction": {
+      "type": "string",
+      "enum": ["NONE", "HUMAN_REVIEW", "GOVERNANCE_REVIEW"],
+      "description": "The exact three RequiredAction values this subject may emit."
+    },
+    "Validity": {
+      "type": "string",
+      "enum": ["VALID", "INVALID", "AMBIGUOUS"]
+    },
+    "AuthorityEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "validity",
+        "current",
+        "revoked",
+        "contradictory",
+        "in_scope",
+        "evidence_reference"
+      ],
+      "properties": {
+        "validity": { "$ref": "#/$defs/Validity" },
+        "current": { "type": "boolean" },
+        "revoked": { "type": "boolean" },
+        "contradictory": { "type": "boolean" },
+        "in_scope": { "type": "boolean" },
+        "evidence_reference": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Opaque non-empty caller-supplied evidence reference. It is not parsed, inferred, looked up, or interpreted."
+        }
+      },
+      "description": "Optional contextual EchoAuth evidence only. The future evaluator uses the founder-approved subprecedence: contradictory; AMBIGUOUS; INVALID; revoked; not current; not in scope. A fully valid object permits evaluation to continue to lower branches only. It grants no authority or eligibility and does not call, validate, repair, reinterpret, broaden, grant, replace, or bypass EchoAuth."
+    },
+    "Request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_class",
+        "eligibility_reference",
+        "eligibility_evidence_present",
+        "eligibility_evidence_current",
+        "eligibility_evidence_sufficient",
+        "eligibility_evidence_contradictory",
+        "asset_class_eligible",
+        "asset_class_excluded",
+        "asset_class_restricted",
+        "correlation_reference"
+      ],
+      "properties": {
+        "asset_class": { "$ref": "#/$defs/AssetClass" },
+        "eligibility_reference": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Opaque non-empty eligibility reference only; no individual asset, identifier, venue, account, market, or selection semantics are represented."
+        },
+        "eligibility_evidence_present": { "type": "boolean" },
+        "eligibility_evidence_current": { "type": "boolean" },
+        "eligibility_evidence_sufficient": { "type": "boolean" },
+        "eligibility_evidence_contradictory": {
+          "type": "boolean",
+          "description": "Only this supplied flag establishes eligibility-evidence contradiction."
+        },
+        "asset_class_eligible": {
+          "type": "boolean",
+          "description": "Externally supplied descriptive eligibility fact. It is not calculated, inferred, verified, modified, or treated as permission."
+        },
+        "asset_class_excluded": {
+          "type": "boolean",
+          "description": "Externally supplied descriptive exclusion fact. It is not calculated, verified, derived, modified, removed, overridden, narrowed, or broadened."
+        },
+        "asset_class_restricted": {
+          "type": "boolean",
+          "description": "Externally supplied descriptive restriction fact. It is not calculated, verified, derived, modified, removed, overridden, narrowed, or broadened."
+        },
+        "authority_evidence": {
+          "$ref": "#/$defs/AuthorityEvidence",
+          "description": "Optional by property omission only. null and an empty object are invalid; absence creates no authority, permission, failure branch, or inferred eligibility."
+        },
+        "correlation_reference": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Opaque non-empty caller reference; exact equality with decision.correlation_reference is evaluator-owned."
+        }
+      },
+      "description": "Closed request of externally supplied generic asset-class facts only. Eligible/excluded, eligible/restricted, excluded/restricted, and the three approved undefined predicates remain structurally valid for future evaluator classification. The future evaluator owns the exact order: evidence contradiction; eligible/excluded; eligible/restricted; governed undefined combination; exclusion; restriction; supplied authority failure; evidence missing; stale; insufficient; external eligible; unresolved fallback. No Deferral context, lane confirmation, lane-specific result, individual asset, security, option, contract, token, coin, ticker, symbol, venue, exchange, wallet, account, broker, custody, blockchain, address, market-data, price, liquidity, signal, strategy, risk, sizing, simulation, replay, backtesting, order, transaction, routing, execution, integration, or runtime-wiring field is represented."
+    },
+    "Decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_class",
+        "eligibility_reference",
+        "outcome",
+        "reason_code",
+        "required_action",
+        "correlation_reference"
+      ],
+      "properties": {
+        "asset_class": { "$ref": "#/$defs/AssetClass" },
+        "eligibility_reference": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Must exactly preserve request.eligibility_reference; cross-object equality is evaluator-owned."
+        },
+        "outcome": { "$ref": "#/$defs/Outcome" },
+        "reason_code": { "$ref": "#/$defs/ReasonCode" },
+        "required_action": { "$ref": "#/$defs/EmittableAction" },
+        "correlation_reference": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Must exactly preserve request.correlation_reference; cross-object equality is evaluator-owned."
+        }
+      },
+      "description": "Closed descriptive output only. ELIGIBLE means continued governed Stage 2 evaluation, not permission or completion of downstream gates. The future evaluator owns exact mappings, precedence, reference preservation, immutability, and non-mutation. No other evaluator is invoked or orchestrated, and no selection, access, market data, strategy, risk, sizing, order, transaction, routing, persistence, runtime, integration, trading, or execution behavior is represented."
+    }
+  }
+}
