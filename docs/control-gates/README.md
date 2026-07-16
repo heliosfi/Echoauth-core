@@ -6103,6 +6103,18 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   Stage 3 movement. Documentation-only / governance-only / acceptance-record-
   only / non-runtime / non-execution; Stage 2 remains HOLD and Stage 3 remains
   unentered and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-stock-eligibility-exclusion-contract-definition-review.md` -
+  SniperBot Stage 2 Stock Eligibility / Exclusion Contract-Definition Review.
+  Defines the bounded descriptive subject, non-authorizing purpose, coexistence
+  with accepted Stock Deferral / No-Action, Stock-specific evidence questions,
+  and the complete unresolved founder-decision surface without inheriting
+  Options-specific API symbols, precedence, vocabularies, counts, authority
+  representation, or behavior. It grants no founder decision, schema, API,
+  implementation, test, runtime, integration, orchestration, market-data,
+  broker, wallet, networking, persistence, registration, order, execution, or
+  Stage 3 authority. Documentation-only / governance-only /
+  contract-definition-only / non-runtime / non-execution; Stage 2 remains HOLD
+  and Stage 3 remains unentered and unauthorized.
 * `sniperbot-crypto-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only /
   crypto-deferral-no-action-boundary-only / crypto-readiness-planning-only /
