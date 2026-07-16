@@ -418,6 +418,27 @@ class AssetClassEligibilityExclusionTests(unittest.TestCase):
         for overrides, reason in collisions:
             self.assertEqual(evaluate(request(authority_evidence=authority(**overrides))).reason_code, reason)
 
+    def test_authority_contradiction_wins_over_invalid_validity(self):
+        evidence = AuthorityEvidence(
+            validity=Validity.INVALID,
+            current=True,
+            revoked=False,
+            contradictory=True,
+            in_scope=True,
+            evidence_reference="contradictory-invalid-authority",
+        )
+        result = evaluate(request(
+            authority_evidence=evidence,
+            eligibility_evidence_sufficient=False,
+            asset_class_eligible=True,
+        ))
+        self.assert_mapping(
+            result,
+            Outcome.REVIEW_REQUIRED,
+            ReasonCode.AUTHORITY_EVIDENCE_INVALID,
+            RequiredAction.GOVERNANCE_REVIEW,
+        )
+
     def test_authority_absent_and_valid_continue(self):
         self.assertEqual(evaluate(request()).reason_code, ReasonCode.ELIGIBILITY_UNRESOLVED)
         self.assertEqual(evaluate(request(authority_evidence=authority())).reason_code,
