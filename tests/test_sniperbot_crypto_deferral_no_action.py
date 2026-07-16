@@ -4,6 +4,7 @@ import unittest
 from dataclasses import FrozenInstanceError, asdict
 from pathlib import Path
 
+import sniperbot.crypto as crypto_package
 from sniperbot.crypto.deferral_decision import (
     AssetClass,
     AuthorityEvidence,
@@ -70,6 +71,29 @@ def mapping(request):
 
 
 class CryptoDeferralNoActionTests(unittest.TestCase):
+    def test_package_public_api_is_exactly_the_approved_twelve_symbols(self):
+        expected = {
+            "Outcome",
+            "ReasonCode",
+            "EmittableReasonCode",
+            "RequiredAction",
+            "CryptoLaneConfirmation",
+            "AssetClass",
+            "GenericAssetClassContext",
+            "AuthorityEvidence",
+            "CryptoRequest",
+            "Decision",
+            "create_request",
+            "evaluate",
+        }
+        self.assertTrue(hasattr(crypto_package, "__all__"))
+        self.assertEqual(len(crypto_package.__all__), 12)
+        self.assertEqual(len(set(crypto_package.__all__)), 12)
+        self.assertEqual(set(crypto_package.__all__), expected)
+        for name in expected:
+            with self.subTest(name=name):
+                self.assertTrue(hasattr(crypto_package, name))
+
     def test_vocabularies_match_schema_and_decision_restrictions(self):
         schema = json.loads(
             Path("schemas/sniperbot-crypto-deferral-no-action-decision.schema.json").read_text(
@@ -358,6 +382,28 @@ class CryptoDeferralNoActionTests(unittest.TestCase):
         ):
             with self.assertRaises(FrozenInstanceError):
                 setattr(obj, field, value)
+
+    def test_repeated_evaluations_are_equal_distinct_and_preserve_request(self):
+        request = make(
+            crypto_reference="opaque-repeat-crypto-reference",
+            correlation_reference="opaque-repeat-correlation-reference",
+            generic_asset_class_context=generic(),
+            authority_evidence=authority(),
+        )
+        before = asdict(request)
+
+        first = evaluate(request)
+        second = evaluate(request)
+
+        self.assertEqual(first, second)
+        self.assertIsNot(first, second)
+        self.assertIsNot(first, request)
+        self.assertIsNot(second, request)
+        self.assertEqual(first.crypto_reference, request.crypto_reference)
+        self.assertEqual(second.crypto_reference, request.crypto_reference)
+        self.assertEqual(first.correlation_reference, request.correlation_reference)
+        self.assertEqual(second.correlation_reference, request.correlation_reference)
+        self.assertEqual(asdict(request), before)
 
 
 if __name__ == "__main__":
