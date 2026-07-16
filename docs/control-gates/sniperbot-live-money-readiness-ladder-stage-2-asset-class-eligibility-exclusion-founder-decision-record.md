@@ -82,7 +82,10 @@ remains the sole permission authority.
     Bounded EchoAuth evidence is optional contextual input. Absence creates no
     failure, permission, or eligibility. Supplied evidence uses the closed
     subprecedence and mappings below. Valid evidence only permits evaluation
-    to continue; it does not establish eligibility or authority.
+    to continue; it does not establish eligibility or authority. When supplied,
+    `authority_evidence` is the exact closed six-field object recorded below.
+    Absence is represented only by omitting the request property; `null`, an
+    empty object, and default evidence construction are prohibited.
 16. **`ASSET-ELIGIBILITY-DECISION-16` — `RESERVED_FOR_FUTURE_INTEGRATION_ONLY`**:
     Asset-Class Deferral / No-Action context is excluded. Neither evaluator
     invokes, imports for execution, modifies, duplicates, overrides, or
@@ -190,8 +193,35 @@ field.
 
 ## Authority Subprecedence
 
-Optional supplied authority evidence uses this order: contradictory,
-ambiguous, invalid, revoked, stale, then out of scope.
+Optional `authority_evidence` uses this exact closed object whenever supplied:
+
+| Field | Required type and boundary |
+| --- | --- |
+| `validity` | Required closed enum: `VALID`, `INVALID`, `AMBIGUOUS`. |
+| `current` | Required strict Boolean. |
+| `revoked` | Required strict Boolean. |
+| `contradictory` | Required strict Boolean. |
+| `in_scope` | Required strict Boolean. |
+| `evidence_reference` | Required opaque non-empty string with minimum length 1; it is not parsed, inferred, looked up, or interpreted. |
+
+The nested object rejects additional properties. All six fields are required.
+The request property itself is optional; absence is represented only by
+omission. `null`, an empty object, nullable unions, defaults, optional nested
+fields, aliases, `UNKNOWN`, free-text validity, timestamps, issuers,
+signatures, scope arrays, authority grants, and runtime references are not
+approved.
+
+This subject does not use or mix the alternate generic Deferral fields
+`currentness`, `revocation`, or `scope`.
+
+Optional supplied authority evidence uses this exact internal order:
+
+1. `contradictory` is true;
+2. `validity` is `AMBIGUOUS`;
+3. `validity` is `INVALID`;
+4. `revoked` is true;
+5. `current` is false; and
+6. `in_scope` is false.
 
 * contradictory, ambiguous, or invalid → `REVIEW_REQUIRED` /
   `AUTHORITY_EVIDENCE_INVALID` / `GOVERNANCE_REVIEW`
@@ -201,6 +231,10 @@ ambiguous, invalid, revoked, stale, then out of scope.
   `GOVERNANCE_REVIEW`
 * out of scope → `REVIEW_REQUIRED` / `AUTHORITY_EVIDENCE_OUT_OF_SCOPE` /
   `GOVERNANCE_REVIEW`
+
+Supplied evidence with `validity = VALID`, `current = true`, `revoked = false`,
+`contradictory = false`, and `in_scope = true` permits evaluation to continue
+to lower-precedence branches only.
 
 The classifier never calls, independently validates, repairs, reinterprets,
 broadens, grants, or bypasses EchoAuth authority.
