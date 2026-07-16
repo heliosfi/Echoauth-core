@@ -6090,6 +6090,19 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   authority. Documentation-only / governance-only / founder-decision-record-
   only / non-runtime / non-execution; Stage 2 remains HOLD and Stage 3 remains
   unentered and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-options-eligibility-exclusion-implementation-evidence-acceptance.md` -
+  SniperBot Stage 2 Options Eligibility / Exclusion Implementation-Evidence
+  Acceptance. Accepts only the pure descriptive evaluator and its bounded
+  direct-test evidence at implementation commit
+  `b465be15ab8ac9ef9d2d003e0b87392019b26453`, direct-test evidence completion
+  commit `7fb1e4abfc90daa100b63f1ba361d46abde86ed4`, and formal acceptance commit
+  `a22f948a08c47e9993eba48e17eceaf4ed200a54`. This traceability entry grants no
+  operative authority and authorizes no next implementation lane, integration,
+  orchestration, market data, broker, wallet, networking, persistence,
+  registration, order, execution, runtime wiring, live-money behavior, or
+  Stage 3 movement. Documentation-only / governance-only / acceptance-record-
+  only / non-runtime / non-execution; Stage 2 remains HOLD and Stage 3 remains
+  unentered and unauthorized.
 * `sniperbot-crypto-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only /
   crypto-deferral-no-action-boundary-only / crypto-readiness-planning-only /
