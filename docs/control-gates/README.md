@@ -6036,6 +6036,16 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   authority. Documentation-only / governance-only / acceptance-record-only /
   non-runtime / non-execution; Stage 2 remains HOLD and Stage 3 remains
   unentered and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-asset-class-eligibility-exclusion-contract-definition-review.md` -
+  SniperBot Stage 2 Asset-Class Eligibility / Exclusion Contract Definition
+  Review. Defines the bounded descriptive classifier subject, its separation
+  from asset selection and permission, proposed caller-supplied inputs and
+  descriptive outputs, prohibited side effects, provisional future paths, and
+  all 20 unresolved founder decisions. It creates no schema, implementation,
+  test, integration, runtime, trading, execution, neighboring-subject, or
+  Stage 3 authority. Documentation-only / governance-only /
+  contract-definition-only / non-runtime / non-execution; Stage 2 remains
+  HOLD and Stage 3 remains unentered and unauthorized.
 * `sniperbot-crypto-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only /
   crypto-deferral-no-action-boundary-only / crypto-readiness-planning-only /
