@@ -253,6 +253,123 @@ Excluded/restricted without eligible uses exclusion precedence. External
 evidence contradiction uses its dedicated highest-precedence branch. No other
 conflict or undefined predicate may be inferred.
 
+## Exact Future Python API Contract — Not Implementation Authority
+
+This clarification supplements the existing 20 decisions without creating a
+new behavioral decision or authorizing implementation.
+
+The future `src/sniperbot/eligibility/__init__.py` must export exactly these ten
+symbols, with no duplicate, alias, convenience API, registration,
+orchestration, runtime wiring, mutable global state, or import-time behavior:
+
+1. `AssetClass`
+2. `Outcome`
+3. `ReasonCode`
+4. `RequiredAction`
+5. `Validity`
+6. `AuthorityEvidence`
+7. `EligibilityRequest`
+8. `Decision`
+9. `create_request`
+10. `evaluate`
+
+`__all__` contains exactly those ten names. `AssetClass`, `Outcome`,
+`ReasonCode`, `RequiredAction`, and `Validity` are public string-valued enums
+with exactly the already approved members and no aliases, `UNKNOWN`, free-text
+fallback, or cross-lane value. `Validity` is public because it is the declared
+type of `AuthorityEvidence.validity`.
+
+No separate public `EmittableAction` enum is created or exported. The exact
+emittable subset of `RequiredAction` is an internal immutable validation
+boundary containing `NONE`, `HUMAN_REVIEW`, and `GOVERNANCE_REVIEW`.
+`FOUNDER_AUTHORITY_REQUIRED` and `RESET_REQUIRED` remain public enum members
+but are invalid in `Decision.required_action`.
+
+### Frozen Dataclasses
+
+Exactly three public structures use `@dataclass(frozen=True)`:
+
+1. `AuthorityEvidence`, with fields in this order:
+   `validity: Validity`, `current: bool`, `revoked: bool`,
+   `contradictory: bool`, `in_scope: bool`, and `evidence_reference: str`.
+2. `EligibilityRequest`, with the ten required schema fields in schema order:
+   `asset_class: AssetClass`, `eligibility_reference: str`,
+   `eligibility_evidence_present: bool`,
+   `eligibility_evidence_current: bool`,
+   `eligibility_evidence_sufficient: bool`,
+   `eligibility_evidence_contradictory: bool`, `asset_class_eligible: bool`,
+   `asset_class_excluded: bool`, `asset_class_restricted: bool`, and
+   `correlation_reference: str`; followed by
+   `authority_evidence: AuthorityEvidence | None = None`.
+3. `Decision`, with fields in schema order: `asset_class: AssetClass`,
+   `eligibility_reference: str`, `outcome: Outcome`,
+   `reason_code: ReasonCode`, `required_action: RequiredAction`, and
+   `correlation_reference: str`.
+
+No additional public request, result, context, evidence, or wrapper class is
+approved.
+
+### Construction and Evaluation APIs
+
+The only construction function is:
+
+```python
+def create_request(**values: object) -> EligibilityRequest:
+```
+
+It directly constructs one frozen `EligibilityRequest`, accepts only approved
+request names, performs no evaluation or coercion, and creates no default
+`AuthorityEvidence`. Omission alone represents absent authority evidence.
+`create_request` rejects an explicitly supplied `authority_evidence=None`,
+while omission permits the dataclass default `None`. There is no second parser,
+factory, adapter, deserializer, or raw-input construction path.
+
+The only evaluation function is:
+
+```python
+def evaluate(request: EligibilityRequest) -> Decision:
+```
+
+It accepts only `EligibilityRequest`, applies the approved 12-step first-match
+behavior, preserves all opaque references exactly, mutates nothing, and returns
+one new frozen `Decision` on every call. Repeated evaluation of the same request
+produces equal but distinct decisions. It performs no orchestration, external
+call, other-evaluator invocation, I/O, logging, persistence, networking,
+environment access, or side effect.
+
+### Typed Validation and Exceptions
+
+All enum fields require exact instances of their declared enum; raw strings are
+not accepted or coerced. Every Boolean field requires exact `bool`; integers,
+strings, `None`, lists, dictionaries, arbitrary objects, and other truthy or
+falsy values are rejected. Supplied authority evidence must be exactly
+`AuthorityEvidence`; dictionaries, explicit `None`, alternate generic Deferral
+evidence, and similar wrong-class objects are rejected.
+
+Use `TypeError` for incorrect runtime types, raw strings where enums are
+required, non-Boolean Boolean fields, invalid nested objects, non-request input
+to `evaluate`, and unexpected keywords through normal Python constructor
+behavior. Use `ValueError` for empty required opaque strings, either
+non-emittable action in `Decision.required_action`, and any correctly typed
+enum combination violating an explicitly closed decision-only boundary. No
+custom exception or input-validation `AssertionError` is approved.
+
+`Decision` requires exact `Outcome`, `ReasonCode`, and `RequiredAction`
+instances, rejects both non-emittable actions and empty references with
+`ValueError`, preserves all six schema fields, and remains descriptive and
+non-authorizing.
+
+Private helpers may implement only strict Boolean, non-empty-string, exact
+enum-type, approved decision-construction, and approved branch-classification
+logic. They begin with `_`, are not exported, have no side effects, and do not
+broaden the API. Production imports remain limited to:
+
+```python
+from __future__ import annotations
+from dataclasses import dataclass
+from enum import Enum
+```
+
 ## Approved Future Paths — Not Authorized for Creation
 
 1. `schemas/sniperbot-asset-class-eligibility-exclusion-decision.schema.json`
