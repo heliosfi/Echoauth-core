@@ -2,7 +2,7 @@ import ast
 import inspect
 import json
 import unittest
-from dataclasses import FrozenInstanceError, fields
+from dataclasses import MISSING, FrozenInstanceError, fields
 from pathlib import Path
 
 import sniperbot.eligibility as eligibility
@@ -35,6 +35,15 @@ def request(**overrides):
     )
     values.update(overrides)
     return EligibilityRequest(**values)
+
+
+class AlternateDeferralAuthority:
+    def __init__(self):
+        self.validity = "VALID"
+        self.currentness = "CURRENT"
+        self.revocation = "NON_REVOKED"
+        self.scope = "IN_SCOPE"
+        self.evidence_reference = "alternate-authority"
 
 
 class AssetClassEligibilityExclusionTests(unittest.TestCase):
@@ -76,6 +85,76 @@ class AssetClassEligibilityExclusionTests(unittest.TestCase):
                        RequiredAction.RESET_REQUIRED]:
             with self.assertRaises(ValueError):
                 Decision(required_action=action, **base)
+
+    def test_enum_members_have_no_hidden_aliases(self):
+        expected = {
+            AssetClass: ["STOCK", "OPTIONS", "CRYPTO"],
+            Outcome: ["ELIGIBLE", "EXCLUDED", "RESTRICTED", "REVIEW_REQUIRED"],
+            ReasonCode: [
+                "ASSET_CLASS_ELIGIBLE", "ASSET_CLASS_EXCLUDED",
+                "ASSET_CLASS_RESTRICTED", "ELIGIBILITY_EVIDENCE_MISSING",
+                "ELIGIBILITY_EVIDENCE_STALE", "ELIGIBILITY_EVIDENCE_INSUFFICIENT",
+                "ELIGIBILITY_EVIDENCE_CONTRADICTORY", "ELIGIBLE_EXCLUDED_CONFLICT",
+                "ELIGIBLE_RESTRICTED_CONFLICT", "AUTHORITY_EVIDENCE_INVALID",
+                "AUTHORITY_EVIDENCE_STALE", "AUTHORITY_EVIDENCE_REVOKED",
+                "AUTHORITY_EVIDENCE_OUT_OF_SCOPE", "UNDEFINED_INPUT_COMBINATION",
+                "ELIGIBILITY_UNRESOLVED",
+            ],
+            RequiredAction: ["NONE", "HUMAN_REVIEW", "GOVERNANCE_REVIEW",
+                             "FOUNDER_AUTHORITY_REQUIRED", "RESET_REQUIRED"],
+            Validity: ["VALID", "INVALID", "AMBIGUOUS"],
+        }
+        for enum_type, names in expected.items():
+            with self.subTest(enum=enum_type.__name__):
+                self.assertEqual(list(enum_type.__members__), names)
+                self.assertEqual(len(enum_type.__members__), len(names))
+                self.assertNotIn("UNKNOWN", enum_type.__members__)
+                self.assertEqual(len({member.value for member in enum_type.__members__.values()}), len(names))
+                for name in names:
+                    self.assertIs(enum_type.__members__[name], getattr(enum_type, name))
+
+    def test_authority_fields_are_all_required_without_defaults(self):
+        expected = ["validity", "current", "revoked", "contradictory",
+                    "in_scope", "evidence_reference"]
+        definitions = list(fields(AuthorityEvidence))
+        self.assertEqual([field.name for field in definitions], expected)
+        for field in definitions:
+            self.assertIs(field.default, MISSING)
+            self.assertIs(field.default_factory, MISSING)
+        valid = dict(validity=Validity.VALID, current=True, revoked=False,
+                     contradictory=False, in_scope=True,
+                     evidence_reference="authority-1")
+        for name in expected:
+            values = valid.copy()
+            values.pop(name)
+            with self.subTest(missing=name):
+                with self.assertRaises(TypeError):
+                    AuthorityEvidence(**values)
+
+    def test_alternate_deferral_authority_shapes_are_rejected(self):
+        with self.assertRaises(TypeError):
+            request(authority_evidence=AlternateDeferralAuthority())
+        alternate = dict(validity="VALID", currentness="CURRENT",
+                         revocation="NON_REVOKED", scope="IN_SCOPE",
+                         evidence_reference="alternate-authority")
+        with self.assertRaises(TypeError):
+            request(authority_evidence=alternate)
+
+    def test_raw_decision_enum_strings_are_type_errors(self):
+        valid = dict(asset_class=AssetClass.STOCK,
+                     eligibility_reference="eligibility-1",
+                     outcome=Outcome.ELIGIBLE,
+                     reason_code=ReasonCode.ASSET_CLASS_ELIGIBLE,
+                     required_action=RequiredAction.NONE,
+                     correlation_reference="correlation-1")
+        for field, raw in [("outcome", "ELIGIBLE"),
+                           ("reason_code", "ASSET_CLASS_ELIGIBLE"),
+                           ("required_action", "NONE")]:
+            values = valid.copy()
+            values[field] = raw
+            with self.subTest(field=field):
+                with self.assertRaises(TypeError):
+                    Decision(**values)
 
     def test_boolean_fields_are_strict(self):
         request_fields = ["eligibility_evidence_present",
@@ -163,6 +242,157 @@ class AssetClassEligibilityExclusionTests(unittest.TestCase):
             self.assertEqual(evaluate(request(**overrides)).reason_code,
                              ReasonCode.UNDEFINED_INPUT_COMBINATION)
         self.assertEqual(evaluate(request()).reason_code, ReasonCode.ELIGIBILITY_UNRESOLVED)
+
+    def test_conflicts_win_over_each_undefined_predicate(self):
+        undefined = [
+            dict(eligibility_evidence_present=False,
+                 eligibility_evidence_current=True,
+                 eligibility_evidence_sufficient=False),
+            dict(eligibility_evidence_present=False,
+                 eligibility_evidence_current=False,
+                 eligibility_evidence_sufficient=True),
+            dict(eligibility_evidence_present=True,
+                 eligibility_evidence_current=False,
+                 eligibility_evidence_sufficient=True),
+        ]
+        conflicts = [
+            (dict(asset_class_eligible=True, asset_class_excluded=True),
+             Outcome.REVIEW_REQUIRED, ReasonCode.ELIGIBLE_EXCLUDED_CONFLICT,
+             RequiredAction.GOVERNANCE_REVIEW),
+            (dict(asset_class_eligible=True, asset_class_restricted=True),
+             Outcome.RESTRICTED, ReasonCode.ELIGIBLE_RESTRICTED_CONFLICT,
+             RequiredAction.HUMAN_REVIEW),
+        ]
+        for posture, outcome, reason, action in conflicts:
+            for index, predicate in enumerate(undefined, 1):
+                values = predicate | posture
+                with self.subTest(conflict=reason, predicate=index):
+                    self.assert_mapping(evaluate(request(**values)), outcome, reason, action)
+        all_three = request(asset_class_eligible=True, asset_class_excluded=True,
+                            asset_class_restricted=True)
+        self.assertEqual(evaluate(all_three).reason_code,
+                         ReasonCode.ELIGIBLE_EXCLUDED_CONFLICT)
+
+    def test_undefined_category_wins_over_each_compatible_lower_category(self):
+        witnesses = [
+            ("missing", dict(eligibility_evidence_present=False,
+                             eligibility_evidence_current=True,
+                             eligibility_evidence_sufficient=False)),
+            ("stale", dict(eligibility_evidence_present=True,
+                           eligibility_evidence_current=False,
+                           eligibility_evidence_sufficient=True)),
+            # P1 necessarily includes missing while proving undefined over insufficient.
+            ("insufficient", dict(eligibility_evidence_present=False,
+                                  eligibility_evidence_current=True,
+                                  eligibility_evidence_sufficient=False)),
+            ("exclusion", dict(eligibility_evidence_present=False,
+                               eligibility_evidence_current=True,
+                               eligibility_evidence_sufficient=False,
+                               asset_class_excluded=True)),
+            ("restriction", dict(eligibility_evidence_present=False,
+                                 eligibility_evidence_current=True,
+                                 eligibility_evidence_sufficient=False,
+                                 asset_class_restricted=True)),
+            ("authority", dict(eligibility_evidence_present=False,
+                               eligibility_evidence_current=True,
+                               eligibility_evidence_sufficient=False,
+                               authority_evidence=authority(validity=Validity.INVALID))),
+            ("eligible", dict(eligibility_evidence_present=False,
+                              eligibility_evidence_current=True,
+                              eligibility_evidence_sufficient=False,
+                              asset_class_eligible=True)),
+            ("fallback", dict(eligibility_evidence_present=False,
+                              eligibility_evidence_current=True,
+                              eligibility_evidence_sufficient=False)),
+        ]
+        for lower, values in witnesses:
+            with self.subTest(lower=lower):
+                self.assert_mapping(evaluate(request(**values)), Outcome.REVIEW_REQUIRED,
+                                    ReasonCode.UNDEFINED_INPUT_COMBINATION,
+                                    RequiredAction.GOVERNANCE_REVIEW)
+
+    def test_exclusion_wins_over_every_compatible_lower_category(self):
+        lower_cases = [("restriction", dict(asset_class_restricted=True))]
+        lower_cases += [(f"authority-{name}", dict(authority_evidence=authority(**values)))
+                        for name, values, _ in self._authority_failures()]
+        lower_cases += [
+            ("missing", dict(eligibility_evidence_present=False,
+                             eligibility_evidence_current=False,
+                             eligibility_evidence_sufficient=False)),
+            ("stale", dict(eligibility_evidence_current=False,
+                           eligibility_evidence_sufficient=False)),
+            ("insufficient", dict(eligibility_evidence_sufficient=False)),
+            ("fallback", {}),
+        ]
+        for lower, values in lower_cases:
+            with self.subTest(lower=lower):
+                self.assert_mapping(evaluate(request(asset_class_excluded=True, **values)),
+                                    Outcome.EXCLUDED, ReasonCode.ASSET_CLASS_EXCLUDED,
+                                    RequiredAction.NONE)
+
+    def test_restriction_wins_over_every_compatible_lower_category(self):
+        lower_cases = [(f"authority-{name}", dict(authority_evidence=authority(**values)))
+                       for name, values, _ in self._authority_failures()]
+        lower_cases += [
+            ("missing", dict(eligibility_evidence_present=False,
+                             eligibility_evidence_current=False,
+                             eligibility_evidence_sufficient=False)),
+            ("stale", dict(eligibility_evidence_current=False,
+                           eligibility_evidence_sufficient=False)),
+            ("insufficient", dict(eligibility_evidence_sufficient=False)),
+            ("fallback", {}),
+        ]
+        for lower, values in lower_cases:
+            with self.subTest(lower=lower):
+                self.assert_mapping(evaluate(request(asset_class_restricted=True, **values)),
+                                    Outcome.RESTRICTED, ReasonCode.ASSET_CLASS_RESTRICTED,
+                                    RequiredAction.HUMAN_REVIEW)
+
+    def test_every_authority_failure_wins_over_all_lower_categories(self):
+        lower_cases = [
+            ("missing", dict(eligibility_evidence_present=False,
+                             eligibility_evidence_current=False,
+                             eligibility_evidence_sufficient=False)),
+            ("stale", dict(eligibility_evidence_current=False,
+                           eligibility_evidence_sufficient=False)),
+            ("insufficient", dict(eligibility_evidence_sufficient=False)),
+            ("eligible", dict(asset_class_eligible=True)),
+            ("fallback", {}),
+        ]
+        for authority_name, authority_values, reason in self._authority_failures():
+            for lower, request_values in lower_cases:
+                with self.subTest(authority=authority_name, lower=lower):
+                    result = evaluate(request(
+                        authority_evidence=authority(**authority_values),
+                        **request_values,
+                    ))
+                    self.assert_mapping(result, Outcome.REVIEW_REQUIRED, reason,
+                                        RequiredAction.GOVERNANCE_REVIEW)
+
+    def test_evidence_ordering_and_eligible_over_fallback(self):
+        cases = [
+            (dict(eligibility_evidence_present=False,
+                  eligibility_evidence_current=False,
+                  eligibility_evidence_sufficient=False,
+                  asset_class_eligible=True), ReasonCode.ELIGIBILITY_EVIDENCE_MISSING),
+            (dict(eligibility_evidence_present=False,
+                  eligibility_evidence_current=False,
+                  eligibility_evidence_sufficient=True), ReasonCode.UNDEFINED_INPUT_COMBINATION),
+            (dict(eligibility_evidence_current=False,
+                  eligibility_evidence_sufficient=False,
+                  asset_class_eligible=True), ReasonCode.ELIGIBILITY_EVIDENCE_STALE),
+            (dict(eligibility_evidence_sufficient=False,
+                  asset_class_eligible=True), ReasonCode.ELIGIBILITY_EVIDENCE_INSUFFICIENT),
+        ]
+        for values, reason in cases:
+            with self.subTest(reason=reason):
+                self.assertEqual(evaluate(request(**values)).reason_code, reason)
+        self.assert_mapping(evaluate(request(asset_class_eligible=True)),
+                            Outcome.ELIGIBLE, ReasonCode.ASSET_CLASS_ELIGIBLE,
+                            RequiredAction.NONE)
+        self.assert_mapping(evaluate(request()), Outcome.REVIEW_REQUIRED,
+                            ReasonCode.ELIGIBILITY_UNRESOLVED,
+                            RequiredAction.GOVERNANCE_REVIEW)
 
     def test_authority_failures_and_subprecedence(self):
         cases = [
@@ -289,6 +519,23 @@ class AssetClassEligibilityExclusionTests(unittest.TestCase):
         )
         values.update(overrides)
         return values
+
+    @staticmethod
+    def _authority_failures():
+        return [
+            ("contradictory", dict(contradictory=True),
+             ReasonCode.AUTHORITY_EVIDENCE_INVALID),
+            ("ambiguous", dict(validity=Validity.AMBIGUOUS),
+             ReasonCode.AUTHORITY_EVIDENCE_INVALID),
+            ("invalid", dict(validity=Validity.INVALID),
+             ReasonCode.AUTHORITY_EVIDENCE_INVALID),
+            ("revoked", dict(revoked=True),
+             ReasonCode.AUTHORITY_EVIDENCE_REVOKED),
+            ("stale", dict(current=False),
+             ReasonCode.AUTHORITY_EVIDENCE_STALE),
+            ("out-of-scope", dict(in_scope=False),
+             ReasonCode.AUTHORITY_EVIDENCE_OUT_OF_SCOPE),
+        ]
 
 
 if __name__ == "__main__":
