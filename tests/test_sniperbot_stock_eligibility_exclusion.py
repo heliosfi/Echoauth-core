@@ -383,6 +383,40 @@ class StockEligibilityExclusionTests(unittest.TestCase):
         with self.assertRaises(dataclasses.FrozenInstanceError):
             decision().outcome = Outcome.EXCLUDED
 
+    def test_all_frozen_dataclasses_have_governed_value_equality(self) -> None:
+        cases = (
+            (
+                GenericAssetClassContext,
+                generic(),
+                generic(),
+                generic(current=False),
+            ),
+            (
+                AuthorityEvidence,
+                authority(),
+                authority(),
+                authority(revoked=True),
+            ),
+            (
+                StockEligibilityRequest,
+                request(),
+                request(),
+                request(stock_eligible=False),
+            ),
+            (
+                Decision,
+                decision(),
+                decision(),
+                decision(stock_reference="changed-stock-reference"),
+            ),
+        )
+        for dataclass_type, first, second, changed in cases:
+            with self.subTest(dataclass=dataclass_type.__name__):
+                self.assertIs(dataclass_type.__dataclass_params__.eq, True)
+                self.assertEqual(first, second)
+                self.assertIsNot(first, second)
+                self.assertNotEqual(first, changed)
+
     def test_exact_function_signatures(self) -> None:
         create_signature = inspect.signature(create_request)
         self.assertEqual(list(create_signature.parameters), ["values"])
