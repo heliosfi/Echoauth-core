@@ -111,6 +111,27 @@ class OptionsEligibilityExclusionTests(unittest.TestCase):
         for cls in (AuthorityEvidence, OptionsEligibilityRequest, Decision):
             self.assertTrue(cls.__dataclass_params__.frozen)
 
+    def test_all_authority_fields_are_required_without_defaults(self) -> None:
+        authority_fields = dataclasses.fields(AuthorityEvidence)
+        for field in authority_fields:
+            with self.subTest(field=field.name):
+                self.assertIs(field.default, dataclasses.MISSING)
+                self.assertIs(field.default_factory, dataclasses.MISSING)
+
+        valid: dict[str, object] = {
+            "validity": Validity.VALID,
+            "current": True,
+            "revoked": False,
+            "contradictory": False,
+            "in_scope": True,
+            "evidence_reference": "authority-ref",
+        }
+        for field in authority_fields:
+            values = valid.copy()
+            values.pop(field.name)
+            with self.subTest(missing=field.name), self.assertRaises(TypeError):
+                AuthorityEvidence(**values)
+
     def test_exact_function_signatures(self) -> None:
         self.assertEqual(str(inspect.signature(create_request)), "(**values: 'object') -> 'OptionsEligibilityRequest'")
         self.assertEqual(str(inspect.signature(evaluate)), "(request: 'OptionsEligibilityRequest') -> 'Decision'")
@@ -148,6 +169,31 @@ class OptionsEligibilityExclusionTests(unittest.TestCase):
             AuthorityEvidence(Validity.VALID, 1, False, False, True, "ref")
         with self.assertRaises(ValueError):
             AuthorityEvidence(Validity.VALID, True, False, False, True, "")
+
+    def test_all_authority_boolean_fields_are_strict(self) -> None:
+        for field in ("current", "revoked", "contradictory", "in_scope"):
+            with self.subTest(field=field), self.assertRaises(TypeError):
+                self.authority(**{field: 1})
+
+    def test_alternate_authority_object_representations_are_rejected(self) -> None:
+        class AlternateAuthority:
+            validity = Validity.VALID
+            current = True
+            revoked = False
+            contradictory = False
+            in_scope = True
+            evidence_reference = "alternate-authority-ref"
+
+        class DeferralShapedAuthority:
+            validity = "VALID"
+            currentness = "CURRENT"
+            revocation = "NON_REVOKED"
+            scope = "IN_SCOPE"
+            evidence_reference = "deferral-authority-ref"
+
+        for evidence in (AlternateAuthority(), DeferralShapedAuthority()):
+            with self.subTest(type=type(evidence).__name__), self.assertRaises(TypeError):
+                self.request(authority_evidence=evidence)
 
     def test_decision_typed_and_emittable_boundaries(self) -> None:
         valid = (Outcome.ELIGIBLE, ReasonCode.OPTIONS_ELIGIBLE, RequiredAction.NONE, "o", "e", "c")
@@ -236,6 +282,17 @@ class OptionsEligibilityExclusionTests(unittest.TestCase):
     def test_absent_and_valid_authority_continue(self) -> None:
         self.assert_decision(self.request(), Outcome.ELIGIBLE, ReasonCode.OPTIONS_ELIGIBLE, RequiredAction.NONE)
         self.assert_decision(self.request(authority_evidence=self.authority()), Outcome.ELIGIBLE, ReasonCode.OPTIONS_ELIGIBLE, RequiredAction.NONE)
+
+    def test_out_of_scope_authority_wins_independently(self) -> None:
+        self.assert_decision(
+            self.request(
+                options_eligible=False,
+                authority_evidence=self.authority(in_scope=False),
+            ),
+            Outcome.REVIEW_REQUIRED,
+            ReasonCode.AUTHORITY_EVIDENCE_OUT_OF_SCOPE,
+            RequiredAction.GOVERNANCE_REVIEW,
+        )
 
     def test_reference_preservation_non_mutation_and_repetition(self) -> None:
         authority = self.authority()
