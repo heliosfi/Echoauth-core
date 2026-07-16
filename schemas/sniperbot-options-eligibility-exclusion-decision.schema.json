@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/sniperbot-options-eligibility-exclusion-decision.schema.json",
+  "title": "SniperBot Options Eligibility / Exclusion Decision Schema",
+  "description": "Pure structural contract for a deterministic, descriptive, non-authorizing classification of caller-supplied Options eligibility, exclusion, restriction, evidence-quality, and optional contextual authority facts. References are opaque. No market interpretation, option-chain access, trading permission, runtime behavior, integration, or execution authority is represented.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request", "decision"],
+  "properties": {
+    "request": { "$ref": "#/$defs/Request" },
+    "decision": { "$ref": "#/$defs/Decision" }
+  },
+  "$defs": {
+    "Outcome": {
+      "type": "string",
+      "enum": ["ELIGIBLE", "EXCLUDED", "RESTRICTED", "REVIEW_REQUIRED"],
+      "description": "Closed descriptive outcomes only. ELIGIBLE means only eligible for continued governed Stage 2 evaluation; no outcome grants approval, trading authority, market access, execution authority, or live-money authority."
+    },
+    "ReasonCode": {
+      "type": "string",
+      "enum": [
+        "OPTIONS_ELIGIBLE",
+        "OPTIONS_EXCLUDED",
+        "OPTIONS_RESTRICTED",
+        "OPTIONS_ELIGIBILITY_EVIDENCE_MISSING",
+        "OPTIONS_ELIGIBILITY_EVIDENCE_STALE",
+        "OPTIONS_ELIGIBILITY_EVIDENCE_INSUFFICIENT",
+        "OPTIONS_ELIGIBILITY_EVIDENCE_CONTRADICTORY",
+        "OPTIONS_ELIGIBLE_EXCLUDED_CONFLICT",
+        "OPTIONS_ELIGIBLE_RESTRICTED_CONFLICT",
+        "AUTHORITY_EVIDENCE_INVALID",
+        "AUTHORITY_EVIDENCE_STALE",
+        "AUTHORITY_EVIDENCE_REVOKED",
+        "AUTHORITY_EVIDENCE_OUT_OF_SCOPE",
+        "UNDEFINED_INPUT_COMBINATION",
+        "OPTIONS_ELIGIBILITY_UNRESOLVED"
+      ],
+      "description": "Exact closed 15-value reason vocabulary. Generic asset-class reasons, Options Deferral reasons, aliases, unknown values, and free text are not permitted."
+    },
+    "RequiredAction": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "HUMAN_REVIEW",
+        "GOVERNANCE_REVIEW",
+        "FOUNDER_AUTHORITY_REQUIRED",
+        "RESET_REQUIRED"
+      ],
+      "description": "Full closed repository vocabulary. FOUNDER_AUTHORITY_REQUIRED and RESET_REQUIRED are vocabulary-only for this subject and are not decision-emittable."
+    },
+    "EmittableAction": {
+      "type": "string",
+      "enum": ["NONE", "HUMAN_REVIEW", "GOVERNANCE_REVIEW"],
+      "description": "Exact RequiredAction subset that an Options Eligibility / Exclusion decision may emit. NONE is descriptive only and never means permission."
+    },
+    "Validity": {
+      "type": "string",
+      "enum": ["VALID", "INVALID", "AMBIGUOUS"],
+      "description": "Closed authority-validity vocabulary."
+    },
+    "AuthorityEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "validity",
+        "current",
+        "revoked",
+        "contradictory",
+        "in_scope",
+        "evidence_reference"
+      ],
+      "properties": {
+        "validity": { "$ref": "#/$defs/Validity" },
+        "current": { "type": "boolean" },
+        "revoked": { "type": "boolean" },
+        "contradictory": { "type": "boolean" },
+        "in_scope": { "type": "boolean" },
+        "evidence_reference": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Opaque non-empty caller-supplied authority-evidence reference; it is not parsed, normalized, looked up, or interpreted."
+        }
+      },
+      "description": "Optional contextual authority evidence only. All typed combinations remain structurally representable for future evaluator classification. This structure encodes no authority precedence and grants no eligibility, permission, trading authority, or execution authority."
+    },
+    "Request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "options_reference",
+        "eligibility_evidence_present",
+        "eligibility_evidence_current",
+        "eligibility_evidence_sufficient",
+        "eligibility_evidence_contradictory",
+        "options_eligible",
+        "options_excluded",
+        "options_restricted",
+        "eligibility_evidence_reference",
+        "correlation_reference"
+      ],
+      "properties": {
+        "options_reference": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Opaque non-empty Options request reference. It carries no symbol, underlying, contract, option-chain, strike, expiration, price, or market meaning."
+        },
+        "eligibility_evidence_present": {
+          "type": "boolean",
+          "description": "Caller-supplied evidence-presence fact."
+        },
+        "eligibility_evidence_current": {
+          "type": "boolean",
+          "description": "Caller-supplied evidence-currentness fact."
+        },
+        "eligibility_evidence_sufficient": {
+          "type": "boolean",
+          "description": "Caller-supplied evidence-sufficiency fact."
+        },
+        "eligibility_evidence_contradictory": {
+          "type": "boolean",
+          "description": "Caller-supplied explicit evidence-contradiction fact; contradiction is not inferred by this schema."
+        },
+        "options_eligible": {
+          "type": "boolean",
+          "description": "Caller-supplied descriptive eligibility posture. It is not approval, permission, recommendation, or execution authority."
+        },
+        "options_excluded": {
+          "type": "boolean",
+          "description": "Caller-supplied descriptive exclusion posture. Absence or falsehood never implies approval."
+        },
+        "options_restricted": {
+          "type": "boolean",
+          "description": "Caller-supplied descriptive restriction posture."
+        },
+        "eligibility_evidence_reference": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Opaque non-empty eligibility-evidence reference; it is not parsed, normalized, looked up, or interpreted."
+        },
+        "correlation_reference": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Opaque non-empty caller correlation reference; exact cross-object preservation is evaluator-owned."
+        },
+        "authority_evidence": {
+          "$ref": "#/$defs/AuthorityEvidence",
+          "description": "Optional by property omission only. Null is invalid. Supplied authority evidence is contextual and non-authorizing."
+        }
+      },
+      "description": "Closed request containing caller-supplied descriptive facts only. Every typed Boolean posture combination, the three governed undefined predicates, evidence-defect collision, and authority collision remain structurally valid for future evaluator classification. No evaluator precedence or market behavior is encoded."
+    },
+    "Decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "outcome",
+        "reason_code",
+        "required_action",
+        "options_reference",
+        "eligibility_evidence_reference",
+        "correlation_reference"
+      ],
+      "properties": {
+        "outcome": { "$ref": "#/$defs/Outcome" },
+        "reason_code": { "$ref": "#/$defs/ReasonCode" },
+        "required_action": { "$ref": "#/$defs/EmittableAction" },
+        "options_reference": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Opaque reference preserved from the request; equality is evaluator-owned."
+        },
+        "eligibility_evidence_reference": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Opaque evidence reference preserved from the request; equality is evaluator-owned."
+        },
+        "correlation_reference": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Opaque correlation reference preserved from the request; equality is evaluator-owned."
+        }
+      },
+      "description": "Closed descriptive result surface only. It contains no permission, authorization, market interpretation, strategy, risk, sizing, broker, order, transaction, routing, runtime, integration, trading, or execution field."
+    }
+  }
+}
