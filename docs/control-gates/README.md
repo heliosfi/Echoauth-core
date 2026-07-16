@@ -6069,6 +6069,16 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   neighboring-subject, or Stage 3 authority. Documentation-only /
   governance-only / acceptance-record-only / non-runtime / non-execution;
   Stage 2 remains HOLD and Stage 3 remains unentered and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-options-eligibility-exclusion-contract-definition-review.md` -
+  SniperBot Stage 2 Options Eligibility / Exclusion Contract-Definition
+  Review. Defines the bounded descriptive subject, adjacent-lane separations,
+  proposed caller-supplied inputs and decision surface, unresolved conflicts,
+  authority-evidence proposal, prohibited capabilities, future sequence, and
+  all 70 pending founder decisions. It grants no schema, implementation,
+  integration, trading, execution, neighboring-subject, or Stage 3 authority.
+  Documentation-only / governance-only / contract-definition-only /
+  non-runtime / non-execution; Stage 2 remains HOLD and Stage 3 remains
+  unentered and unauthorized.
 * `sniperbot-crypto-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only /
   crypto-deferral-no-action-boundary-only / crypto-readiness-planning-only /
