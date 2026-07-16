@@ -1,0 +1,248 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://echoauth.local/schemas/sniperbot-stock-eligibility-exclusion-decision.schema.json",
+  "title": "SniperBot Stock Eligibility / Exclusion Decision Schema",
+  "description": "Pure structural contract for deterministic, descriptive, non-authorizing classification of caller-supplied Stock eligibility, exclusion, restriction, evidence-quality, lane-confirmation, generic-context, and optional contextual authority facts. References are opaque. This schema encodes no evaluator precedence, market interpretation, selection, runtime behavior, integration, orchestration, trading, order, or execution authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request", "decision"],
+  "properties": {
+    "request": { "$ref": "#/$defs/Request" },
+    "decision": { "$ref": "#/$defs/Decision" }
+  },
+  "$defs": {
+    "AssetClass": {
+      "type": "string",
+      "enum": ["STOCK", "OPTIONS", "CRYPTO"],
+      "description": "Closed caller-supplied generic asset-class vocabulary. No value is inferred from a reference or external data."
+    },
+    "StockLaneConfirmation": {
+      "type": "string",
+      "enum": ["CONFIRMED", "NOT_CONFIRMED", "CONTRADICTORY"],
+      "description": "Closed caller-supplied Stock-lane confirmation vocabulary. Confirmation is never inferred."
+    },
+    "Validity": {
+      "type": "string",
+      "enum": ["VALID", "INVALID", "AMBIGUOUS"],
+      "description": "Closed validity vocabulary for supplied generic context and authority evidence."
+    },
+    "Outcome": {
+      "type": "string",
+      "enum": ["ELIGIBLE", "EXCLUDED", "RESTRICTED", "REVIEW_REQUIRED"],
+      "description": "Closed descriptive outcomes only. ELIGIBLE means only continued governed Stage 2 consideration and never approval, selection, trading permission, order authority, execution authority, or live-money authority."
+    },
+    "ReasonCode": {
+      "type": "string",
+      "enum": [
+        "STOCK_ELIGIBLE",
+        "STOCK_EXCLUDED",
+        "STOCK_RESTRICTED",
+        "STOCK_ELIGIBILITY_EVIDENCE_MISSING",
+        "STOCK_ELIGIBILITY_EVIDENCE_STALE",
+        "STOCK_ELIGIBILITY_EVIDENCE_INSUFFICIENT",
+        "STOCK_ELIGIBILITY_EVIDENCE_CONTRADICTORY",
+        "STOCK_ELIGIBLE_EXCLUDED_CONFLICT",
+        "STOCK_ELIGIBLE_RESTRICTED_CONFLICT",
+        "STOCK_LANE_CONFIRMATION_MISSING",
+        "STOCK_LANE_NOT_CONFIRMED",
+        "STOCK_LANE_CONTRADICTORY",
+        "GENERIC_ASSET_CLASS_CONTEXT_INVALID",
+        "GENERIC_ASSET_CLASS_CONTEXT_STALE",
+        "GENERIC_ASSET_CLASS_CONTEXT_CONTRADICTORY",
+        "GENERIC_ASSET_CLASS_CONTEXT_OUT_OF_SCOPE",
+        "GENERIC_ASSET_CLASS_NOT_STOCK",
+        "AUTHORITY_EVIDENCE_INVALID",
+        "AUTHORITY_EVIDENCE_STALE",
+        "AUTHORITY_EVIDENCE_REVOKED",
+        "AUTHORITY_EVIDENCE_OUT_OF_SCOPE",
+        "UNDEFINED_INPUT_COMBINATION",
+        "STOCK_ELIGIBILITY_UNRESOLVED"
+      ],
+      "description": "Exact closed 23-value Stock Eligibility / Exclusion reason vocabulary. Aliases, unknown values, free text, generic posture reasons, Options-specific reasons, and Stock Deferral / No-Action reasons are not permitted."
+    },
+    "RequiredAction": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "HUMAN_REVIEW",
+        "GOVERNANCE_REVIEW",
+        "FOUNDER_AUTHORITY_REQUIRED",
+        "RESET_REQUIRED"
+      ],
+      "description": "Full closed five-value vocabulary. FOUNDER_AUTHORITY_REQUIRED and RESET_REQUIRED are vocabulary-only and are not decision-emittable by this subject."
+    },
+    "EmittableAction": {
+      "type": "string",
+      "enum": ["NONE", "HUMAN_REVIEW", "GOVERNANCE_REVIEW"],
+      "description": "Exact RequiredAction subset that a Stock Eligibility / Exclusion decision may emit. NONE is descriptive only and never means permission."
+    },
+    "GenericAssetClassContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_class",
+        "validity",
+        "current",
+        "contradictory",
+        "in_scope",
+        "context_reference"
+      ],
+      "properties": {
+        "asset_class": { "$ref": "#/$defs/AssetClass" },
+        "validity": { "$ref": "#/$defs/Validity" },
+        "current": { "type": "boolean" },
+        "contradictory": { "type": "boolean" },
+        "in_scope": { "type": "boolean" },
+        "context_reference": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Opaque caller-supplied generic-context reference containing at least one non-whitespace character. It is not parsed, normalized, looked up, or interpreted."
+        }
+      },
+      "description": "Optional by request-property omission only. JSON null and empty objects are invalid. This context is descriptive and non-authorizing; the schema encodes no generic-context subprecedence and invokes no evaluator."
+    },
+    "AuthorityEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "validity",
+        "current",
+        "revoked",
+        "contradictory",
+        "in_scope",
+        "evidence_reference"
+      ],
+      "properties": {
+        "validity": { "$ref": "#/$defs/Validity" },
+        "current": { "type": "boolean" },
+        "revoked": { "type": "boolean" },
+        "contradictory": { "type": "boolean" },
+        "in_scope": { "type": "boolean" },
+        "evidence_reference": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Opaque caller-supplied authority-evidence reference containing at least one non-whitespace character. It is not parsed, normalized, looked up, or interpreted."
+        }
+      },
+      "description": "Optional contextual authority evidence by request-property omission only. JSON null and empty objects are invalid. All fields are required when supplied. This structure grants no eligibility, permission, trading authority, order authority, or execution authority and encodes no authority subprecedence."
+    },
+    "Request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stock_reference",
+        "eligibility_evidence_present",
+        "eligibility_evidence_current",
+        "eligibility_evidence_sufficient",
+        "eligibility_evidence_contradictory",
+        "stock_eligible",
+        "stock_excluded",
+        "stock_restricted",
+        "eligibility_evidence_reference",
+        "correlation_reference"
+      ],
+      "properties": {
+        "stock_reference": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Opaque caller-supplied Stock subject reference containing at least one non-whitespace character. It is not parsed, normalized, validated, selected, looked up, or interpreted."
+        },
+        "eligibility_evidence_present": {
+          "type": "boolean",
+          "description": "Caller-supplied evidence-presence fact."
+        },
+        "eligibility_evidence_current": {
+          "type": "boolean",
+          "description": "Caller-supplied evidence-currentness fact. The schema performs no time lookup."
+        },
+        "eligibility_evidence_sufficient": {
+          "type": "boolean",
+          "description": "Caller-supplied evidence-sufficiency fact. The schema performs no scoring or policy lookup."
+        },
+        "eligibility_evidence_contradictory": {
+          "type": "boolean",
+          "description": "Caller-supplied explicit evidence-contradiction fact. The schema infers no contradiction."
+        },
+        "stock_eligible": {
+          "type": "boolean",
+          "description": "Caller-supplied descriptive Stock eligibility posture. It is not approval, selection, permission, or execution authority."
+        },
+        "stock_excluded": {
+          "type": "boolean",
+          "description": "Caller-supplied descriptive Stock exclusion posture. It is not a runtime blocklist, filter, or rejection rule."
+        },
+        "stock_restricted": {
+          "type": "boolean",
+          "description": "Caller-supplied descriptive Stock restriction posture. It is not an enforcement mechanism."
+        },
+        "eligibility_evidence_reference": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Opaque eligibility-evidence reference containing at least one non-whitespace character. It is not parsed, normalized, looked up, or interpreted."
+        },
+        "correlation_reference": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Opaque correlation reference containing at least one non-whitespace character. Exact preservation is evaluator-owned."
+        },
+        "stock_lane_confirmation": {
+          "oneOf": [
+            { "$ref": "#/$defs/StockLaneConfirmation" },
+            { "type": "null" }
+          ],
+          "description": "Optional. Omission or JSON null represents missing Stock-lane confirmation. This schema infers no confirmation."
+        },
+        "generic_asset_class_context": {
+          "$ref": "#/$defs/GenericAssetClassContext",
+          "description": "Optional by property omission only. JSON null is invalid. No generic evaluator is invoked."
+        },
+        "authority_evidence": {
+          "$ref": "#/$defs/AuthorityEvidence",
+          "description": "Optional by property omission only. JSON null is invalid. Supplied evidence is contextual and non-authorizing."
+        }
+      },
+      "description": "Closed request containing caller-supplied descriptive facts only. Every typed posture, evidence-quality, lane, generic-context, and authority combination remains structurally representable for future evaluator classification. This schema encodes no first-match precedence, runtime logic, integration, orchestration, market-data access, broker behavior, wallet behavior, networking, persistence, registration, order behavior, trading, or execution."
+    },
+    "Decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "outcome",
+        "reason_code",
+        "required_action",
+        "stock_reference",
+        "eligibility_evidence_reference",
+        "correlation_reference"
+      ],
+      "properties": {
+        "outcome": { "$ref": "#/$defs/Outcome" },
+        "reason_code": { "$ref": "#/$defs/ReasonCode" },
+        "required_action": { "$ref": "#/$defs/EmittableAction" },
+        "stock_reference": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Opaque Stock reference preserved exactly from the request; cross-object equality is evaluator-owned."
+        },
+        "eligibility_evidence_reference": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Opaque eligibility-evidence reference preserved exactly from the request; cross-object equality is evaluator-owned."
+        },
+        "correlation_reference": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Opaque correlation reference preserved exactly from the request; cross-object equality is evaluator-owned."
+        }
+      },
+      "description": "Closed descriptive result surface only. It contains no permission, authorization, market interpretation, selection, strategy, risk, sizing, broker, wallet, order, transaction, routing, runtime, integration, orchestration, trading, or execution field."
+    }
+  }
+}
