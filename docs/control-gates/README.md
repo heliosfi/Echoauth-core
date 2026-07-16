@@ -6079,6 +6079,17 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   Documentation-only / governance-only / contract-definition-only /
   non-runtime / non-execution; Stage 2 remains HOLD and Stage 3 remains
   unentered and unauthorized.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-options-eligibility-exclusion-founder-decision-record.md` -
+  SniperBot Stage 2 Options Eligibility / Exclusion Founder-Decision Record.
+  Records all 70 founder decisions, including exact request and decision
+  boundaries, closed vocabularies, deterministic 12-step precedence, three
+  governed undefined predicates, six-field authority evidence and
+  subprecedence, exact nine-symbol future API, purity constraints, and evidence
+  requirements. Schema and implementation remain unauthorized, and it grants
+  no integration, trading, execution, neighboring-subject, or Stage 3
+  authority. Documentation-only / governance-only / founder-decision-record-
+  only / non-runtime / non-execution; Stage 2 remains HOLD and Stage 3 remains
+  unentered and unauthorized.
 * `sniperbot-crypto-deferral-no-action-boundary-review.md` -
   documentation-only / governance-only /
   crypto-deferral-no-action-boundary-only / crypto-readiness-planning-only /
