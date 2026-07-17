@@ -1,5 +1,7 @@
+import json
 import unittest
 from dataclasses import FrozenInstanceError, replace
+from pathlib import Path
 
 from sniperbot.fsm.transition_contract import (
     AuthorityEvidence, ExternalFacts, ReasonCode, RequiredAction, State,
@@ -33,6 +35,22 @@ class SniperbotFsmTransitionContractTests(unittest.TestCase):
         self.assertEqual(len(State), 6)
         self.assertEqual(len(ReasonCode), 17)
         self.assertEqual(len(RequiredAction), 5)
+
+    def test_required_action_schema_parity(self):
+        schema_path = (
+            Path(__file__).resolve().parents[1]
+            / "schemas"
+            / "sniperbot-fsm-transition-decision.schema.json"
+        )
+        schema = json.loads(schema_path.read_text(encoding="utf-8"))
+        required_action = schema["$defs"]["RequiredAction"]
+
+        self.assertEqual(required_action["type"], "string")
+        self.assertEqual(
+            required_action["enum"],
+            [action.value for action in RequiredAction],
+        )
+        self.assertNotIn(None, required_action["enum"])
 
     def test_pause_ready(self):
         result = evaluate_transition(request(State.PAUSE, State.READY, TransitionRequestName.PAUSE_TO_READY, readiness_preconditions_satisfied=True))
