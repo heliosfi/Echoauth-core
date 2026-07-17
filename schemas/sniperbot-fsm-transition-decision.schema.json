@@ -198,7 +198,7 @@
       "then": {
         "properties": {
           "request": {
-            "properties": { "authority_evidence": { "$ref": "#/$defs/ValidAuthorityEvidence" } }
+            "properties": { "authority_evidence": { "$ref": "#/$defs/AuthorityEvidence" } }
           }
         }
       }
@@ -219,90 +219,9 @@
       "then": {
         "properties": {
           "request": {
-            "properties": { "authority_evidence": { "$ref": "#/$defs/ValidAuthorityEvidence" } }
+            "properties": { "authority_evidence": { "$ref": "#/$defs/AuthorityEvidence" } }
           }
         }
-      }
-    },
-    {
-      "if": {
-        "required": ["request"],
-        "properties": {
-          "request": {
-            "required": ["current_state", "requested_state"],
-            "properties": {
-              "current_state": { "const": "PAUSE" },
-              "requested_state": { "const": "READY" }
-            }
-          }
-        }
-      },
-      "then": {
-        "properties": {
-          "request": {
-            "properties": {
-              "external_facts": {
-                "properties": { "readiness_preconditions_satisfied": { "const": true } }
-              }
-            }
-          }
-        },
-        "required": ["decision"]
-      }
-    },
-    {
-      "if": {
-        "required": ["request"],
-        "properties": {
-          "request": {
-            "required": ["current_state", "requested_state"],
-            "properties": {
-              "current_state": { "const": "ARMED_AUTO" },
-              "requested_state": { "const": "IN_TRADE" }
-            }
-          }
-        }
-      },
-      "then": {
-        "properties": {
-          "request": {
-            "properties": {
-              "external_facts": {
-                "properties": { "confirmed_position_exists": { "const": true } }
-              }
-            }
-          }
-        },
-        "required": ["decision"]
-      }
-    },
-    {
-      "if": {
-        "required": ["request"],
-        "properties": {
-          "request": {
-            "required": ["current_state", "requested_state"],
-            "properties": {
-              "current_state": { "const": "IN_TRADE" },
-              "requested_state": { "const": "PAUSE" }
-            }
-          }
-        }
-      },
-      "then": {
-        "properties": {
-          "request": {
-            "properties": {
-              "external_facts": {
-                "properties": {
-                  "position_closed": { "const": true },
-                  "cooldown_complete": { "const": true }
-                }
-              }
-            }
-          }
-        },
-        "required": ["decision"]
       }
     },
     {

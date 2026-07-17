@@ -52,6 +52,277 @@ class SniperbotFsmTransitionContractTests(unittest.TestCase):
         )
         self.assertNotIn(None, required_action["enum"])
 
+    def test_denial_input_schema_boundary_parity(self):
+        schema_path = (
+            Path(__file__).resolve().parents[1]
+            / "schemas"
+            / "sniperbot-fsm-transition-decision.schema.json"
+        )
+        schema = json.loads(schema_path.read_text(encoding="utf-8"))
+        definitions = schema["$defs"]
+        request_schema = definitions["TransitionRequest"]
+        facts_schema = definitions["ExternalFacts"]
+        authority_schema = definitions["AuthorityEvidence"]
+
+        self.assertIn("authority_evidence", request_schema["required"])
+        self.assertFalse(request_schema["additionalProperties"])
+        self.assertFalse(facts_schema["additionalProperties"])
+        self.assertFalse(authority_schema["additionalProperties"])
+        self.assertTrue(
+            all(
+                facts_schema["properties"][field]["type"] == "boolean"
+                for field in facts_schema["required"]
+            )
+        )
+        self.assertEqual(
+            request_schema["properties"]["correlation_reference"]["minLength"],
+            1,
+        )
+        self.assertEqual(
+            authority_schema["properties"]["authority_reference"]["minLength"],
+            1,
+        )
+
+        conditional_text = json.dumps(schema["allOf"], sort_keys=True)
+        self.assertNotIn("#/$defs/ValidAuthorityEvidence", conditional_text)
+        self.assertEqual(conditional_text.count("#/$defs/AuthorityEvidence"), 2)
+        for affirmative_input_constraint in (
+            '"readiness_preconditions_satisfied": {"const": true}',
+            '"confirmed_position_exists": {"const": true}',
+            '"cooldown_complete": {"const": true}',
+        ):
+            self.assertNotIn(affirmative_input_constraint, conditional_text)
+
+    def assert_denial(self, value, reason, action):
+        first = evaluate_transition(value)
+        second = evaluate_transition(value)
+        self.assertIsInstance(first, TransitionDecision)
+        self.assertFalse(first.allowed)
+        self.assertEqual(first.resulting_state, value.current_state)
+        self.assertEqual(first.reason_code, reason)
+        self.assertEqual(first.required_next_human_or_governance_action, action)
+        self.assertEqual(first.correlation_reference, value.correlation_reference)
+        self.assertEqual(first, second)
+
+    def test_governed_prerequisite_negative_conditions(self):
+        cases = (
+            (
+                request(
+                    State.PAUSE,
+                    State.READY,
+                    TransitionRequestName.PAUSE_TO_READY,
+                    readiness_preconditions_satisfied=False,
+                ),
+                ReasonCode.READINESS_FACTS_MISSING,
+            ),
+            (
+                request(
+                    State.ARMED_AUTO,
+                    State.IN_TRADE,
+                    TransitionRequestName.ARMED_AUTO_TO_IN_TRADE,
+                    confirmed_position_exists=False,
+                ),
+                ReasonCode.CONFIRMED_POSITION_FACT_MISSING,
+            ),
+            (
+                request(
+                    State.IN_TRADE,
+                    State.PAUSE,
+                    TransitionRequestName.IN_TRADE_TO_PAUSE,
+                    position_closed=False,
+                    cooldown_complete=True,
+                ),
+                ReasonCode.POSITION_CLOSED_FACT_MISSING,
+            ),
+            (
+                request(
+                    State.IN_TRADE,
+                    State.PAUSE,
+                    TransitionRequestName.IN_TRADE_TO_PAUSE,
+                    position_closed=True,
+                    cooldown_complete=False,
+                ),
+                ReasonCode.COOLDOWN_FACT_MISSING,
+            ),
+        )
+        for value, reason in cases:
+            with self.subTest(reason=reason):
+                self.assert_denial(value, reason, RequiredAction.GOVERNANCE_REVIEW)
+
+    def test_governed_individual_authority_failure_conditions(self):
+        authority_cases = (
+            ({"presence": "ABSENT"}, ReasonCode.AUTHORITY_MISSING),
+            ({"currentness": "STALE"}, ReasonCode.AUTHORITY_STALE),
+            ({"revocation": "REVOKED"}, ReasonCode.AUTHORITY_REVOKED),
+            ({"validity_outcome": "OUT_OF_SCOPE"}, ReasonCode.AUTHORITY_OUT_OF_SCOPE),
+            ({"validity_outcome": "INVALID"}, ReasonCode.AUTHORITY_INVALID),
+            ({"validity_outcome": "AMBIGUOUS"}, ReasonCode.AUTHORITY_INVALID),
+        )
+        for overrides, reason in authority_cases:
+            evidence = authority(**overrides)
+            arming = TransitionRequest(
+                State.READY,
+                State.ARMED_MANUAL,
+                TransitionRequestName.READY_TO_ARMED_MANUAL,
+                "arming-ref",
+                facts(),
+                evidence,
+            )
+            reset = TransitionRequest(
+                State.LOCKOUT,
+                State.PAUSE,
+                TransitionRequestName.LOCKOUT_TO_PAUSE,
+                "reset-ref",
+                facts(reset_facts_explicit=True),
+                evidence,
+            )
+            arming_reason = reason
+            reset_reason = (
+                ReasonCode.RESET_EVIDENCE_MISSING
+                if reason is ReasonCode.AUTHORITY_MISSING
+                else reason
+            )
+            arming_action = (
+                RequiredAction.GOVERNANCE_REVIEW
+                if reason is ReasonCode.AUTHORITY_OUT_OF_SCOPE
+                else RequiredAction.FOUNDER_AUTHORITY_REQUIRED
+            )
+            with self.subTest(context="arming", overrides=overrides):
+                self.assert_denial(arming, arming_reason, arming_action)
+            with self.subTest(context="reset", overrides=overrides):
+                self.assert_denial(reset, reset_reason, RequiredAction.RESET_REQUIRED)
+
+    def test_wrong_runtime_types_and_unsupported_shapes_are_rejected(self):
+        valid = request(
+            State.PAUSE,
+            State.READY,
+            TransitionRequestName.PAUSE_TO_READY,
+            readiness_preconditions_satisfied=True,
+        )
+        with self.assertRaises(TypeError):
+            evaluate_transition(object())
+        with self.assertRaises(TypeError):
+            evaluate_transition(replace(valid, current_state="PAUSE"))
+        with self.assertRaises(TypeError):
+            evaluate_transition(replace(valid, requested_state="READY"))
+        with self.assertRaises(TypeError):
+            evaluate_transition(replace(valid, transition_request="PAUSE_TO_READY"))
+        with self.assertRaises(TypeError):
+            evaluate_transition(replace(valid, external_facts={}))
+        with self.assertRaises(TypeError):
+            evaluate_transition(replace(valid, authority_evidence={}))
+
+    def test_external_fact_types_are_strict_booleans(self):
+        field_names = (
+            "readiness_preconditions_satisfied",
+            "confirmed_position_exists",
+            "position_closed",
+            "cooldown_complete",
+            "lockout_required",
+            "logging_failure_indicated",
+            "reset_facts_explicit",
+        )
+        for field_name in field_names:
+            invalid_facts = replace(facts(), **{field_name: 1})
+            value = TransitionRequest(
+                State.PAUSE,
+                State.READY,
+                TransitionRequestName.PAUSE_TO_READY,
+                "corr-1",
+                invalid_facts,
+                authority(),
+            )
+            with self.subTest(field=field_name), self.assertRaises(TypeError):
+                evaluate_transition(value)
+
+    def test_unknown_authority_vocabulary_values_are_rejected(self):
+        fields = (
+            "presence",
+            "currentness",
+            "revocation",
+            "validity_outcome",
+        )
+        for field_name in fields:
+            evidence = authority(**{field_name: "UNKNOWN"})
+            value = TransitionRequest(
+                State.READY,
+                State.ARMED_MANUAL,
+                TransitionRequestName.READY_TO_ARMED_MANUAL,
+                "corr-1",
+                facts(),
+                evidence,
+            )
+            with self.subTest(field=field_name), self.assertRaises(ValueError):
+                evaluate_transition(value)
+        with self.assertRaises(ValueError):
+            State("UNKNOWN")
+        with self.assertRaises(ValueError):
+            TransitionRequestName("UNKNOWN")
+
+    def test_invalid_references_and_authority_field_types_are_rejected(self):
+        valid = request(
+            State.PAUSE,
+            State.READY,
+            TransitionRequestName.PAUSE_TO_READY,
+            readiness_preconditions_satisfied=True,
+        )
+        with self.assertRaises(ValueError):
+            evaluate_transition(replace(valid, correlation_reference=""))
+        with self.assertRaises(TypeError):
+            evaluate_transition(replace(valid, correlation_reference=1))
+        for field_name in (
+            "presence",
+            "subject_scope",
+            "currentness",
+            "revocation",
+            "validity_outcome",
+            "authority_reference",
+        ):
+            evidence = authority(**{field_name: 1})
+            with self.subTest(field=field_name), self.assertRaises(TypeError):
+                evaluate_transition(replace(valid, authority_evidence=evidence))
+        for field_name in ("subject_scope", "authority_reference"):
+            evidence = authority(**{field_name: ""})
+            with self.subTest(field=field_name), self.assertRaises(ValueError):
+                evaluate_transition(replace(valid, authority_evidence=evidence))
+
+    def test_prohibited_constructor_fields_are_rejected(self):
+        with self.assertRaises(TypeError):
+            TransitionRequest(
+                State.PAUSE,
+                State.READY,
+                TransitionRequestName.PAUSE_TO_READY,
+                "corr-1",
+                facts(),
+                authority(),
+                prohibited=True,
+            )
+        with self.assertRaises(TypeError):
+            ExternalFacts(
+                False,
+                False,
+                False,
+                False,
+                False,
+                False,
+                False,
+                prohibited=True,
+            )
+        with self.assertRaises(TypeError):
+            AuthorityEvidence(
+                "PRESENT",
+                "sniperbot-fsm",
+                "CURRENT",
+                "NON_REVOKED",
+                "VALID",
+                "auth-1",
+                prohibited=True,
+            )
+        with self.assertRaises(TypeError):
+            ExternalFacts()
+        with self.assertRaises(TypeError):
+            AuthorityEvidence()
+
     def test_pause_ready(self):
         result = evaluate_transition(request(State.PAUSE, State.READY, TransitionRequestName.PAUSE_TO_READY, readiness_preconditions_satisfied=True))
         self.assertTrue(result.allowed)

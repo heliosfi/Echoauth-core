@@ -97,6 +97,79 @@ class TransitionDecision:
     correlation_reference: str
 
 
+def _require_exact_type(value: object, expected_type: type, field_name: str) -> None:
+    if type(value) is not expected_type:
+        raise TypeError(f"{field_name} must be a {expected_type.__name__}")
+
+
+def _require_non_empty_string(value: object, field_name: str) -> None:
+    _require_exact_type(value, str, field_name)
+    if not value:
+        raise ValueError(f"{field_name} must not be empty")
+
+
+def _require_closed_string(
+    value: object, allowed: frozenset[str], field_name: str
+) -> None:
+    _require_exact_type(value, str, field_name)
+    if value not in allowed:
+        raise ValueError(f"{field_name} is outside the closed vocabulary")
+
+
+def _validate_external_facts(value: object) -> ExternalFacts:
+    _require_exact_type(value, ExternalFacts, "external_facts")
+    for field_name in (
+        "readiness_preconditions_satisfied",
+        "confirmed_position_exists",
+        "position_closed",
+        "cooldown_complete",
+        "lockout_required",
+        "logging_failure_indicated",
+        "reset_facts_explicit",
+    ):
+        _require_exact_type(getattr(value, field_name), bool, f"external_facts.{field_name}")
+    return value
+
+
+def _validate_authority_evidence(value: object) -> None:
+    if value is None:
+        return
+    _require_exact_type(value, AuthorityEvidence, "authority_evidence")
+    _require_closed_string(
+        value.presence, frozenset({"PRESENT", "ABSENT"}), "authority_evidence.presence"
+    )
+    _require_non_empty_string(value.subject_scope, "authority_evidence.subject_scope")
+    _require_closed_string(
+        value.currentness, frozenset({"CURRENT", "STALE"}), "authority_evidence.currentness"
+    )
+    _require_closed_string(
+        value.revocation,
+        frozenset({"NON_REVOKED", "REVOKED"}),
+        "authority_evidence.revocation",
+    )
+    _require_closed_string(
+        value.validity_outcome,
+        frozenset({"VALID", "INVALID", "AMBIGUOUS", "OUT_OF_SCOPE"}),
+        "authority_evidence.validity_outcome",
+    )
+    _require_non_empty_string(
+        value.authority_reference, "authority_evidence.authority_reference"
+    )
+
+
+def _validate_request(request: object) -> TransitionRequest:
+    _require_exact_type(request, TransitionRequest, "request")
+    _require_exact_type(request.current_state, State, "current_state")
+    _require_exact_type(request.requested_state, State, "requested_state")
+    _require_exact_type(
+        request.transition_request, TransitionRequestName, "transition_request"
+    )
+    _require_non_empty_string(request.correlation_reference, "correlation_reference")
+    _validate_external_facts(request.external_facts)
+    _validate_authority_evidence(request.authority_evidence)
+    return request
+
+
 def _authority_reason(evidence: AuthorityEvidence | None) -> ReasonCode | None:
     if evidence is None or evidence.presence == "ABSENT":
         return ReasonCode.AUTHORITY_MISSING
@@ -130,11 +203,8 @@ def _decision(request: TransitionRequest, allowed: bool, resulting: State,
 
 def evaluate_transition(request: TransitionRequest) -> TransitionDecision:
     """Evaluate one request without mutation, persistence, or external effects."""
-    if not isinstance(request, TransitionRequest):
-        raise TypeError("request must be a TransitionRequest")
+    request = _validate_request(request)
     facts = request.external_facts
-    if not isinstance(facts, ExternalFacts) or not request.correlation_reference:
-        return _decision(request, False, request.current_state, ReasonCode.AMBIGUOUS_OR_CONTRADICTORY_INPUT, RequiredAction.HUMAN_REVIEW)
     if facts.lockout_required:
         return _decision(request, True, State.LOCKOUT, ReasonCode.LOCKOUT_REQUIRED, RequiredAction.NONE)
     if facts.confirmed_position_exists and facts.position_closed:
