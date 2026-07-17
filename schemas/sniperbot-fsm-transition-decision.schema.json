@@ -153,7 +153,50 @@
             "properties": {
               "allowed": { "const": false },
               "resulting_state": { "const": "LOCKOUT" },
-              "reason_code": { "const": "LOCKOUT_REQUIRED" }
+              "reason_code": { "const": "LOCKOUT_REQUIRED" },
+              "required_next_human_or_governance_action": { "const": "RESET_REQUIRED" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["current_state", "requested_state", "transition_request", "external_facts"],
+            "properties": {
+              "current_state": { "const": "LOCKOUT" },
+              "external_facts": {
+                "not": {
+                  "required": ["confirmed_position_exists", "position_closed"],
+                  "properties": {
+                    "confirmed_position_exists": { "const": true },
+                    "position_closed": { "const": true }
+                  }
+                }
+              }
+            },
+            "not": {
+              "required": ["requested_state", "transition_request"],
+              "properties": {
+                "requested_state": { "const": "PAUSE" },
+                "transition_request": { "const": "LOCKOUT_TO_PAUSE" }
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "decision": {
+            "properties": {
+              "current_state": { "const": "LOCKOUT" },
+              "allowed": { "const": false },
+              "resulting_state": { "const": "LOCKOUT" },
+              "reason_code": { "const": "LOCKOUT_REQUIRED" },
+              "required_next_human_or_governance_action": { "const": "RESET_REQUIRED" }
             }
           }
         }
@@ -165,7 +208,10 @@
           "request": {
             "properties": {
               "current_state": { "const": "READY" },
-              "requested_state": { "const": "ARMED_AUTO" }
+              "requested_state": { "const": "ARMED_AUTO" },
+              "external_facts": {
+                "properties": { "lockout_required": { "const": false } }
+              }
             }
           }
         }
@@ -232,7 +278,10 @@
             "required": ["current_state", "requested_state"],
             "properties": {
               "current_state": { "const": "ARMED_MANUAL" },
-              "requested_state": { "const": "IN_TRADE" }
+              "requested_state": { "const": "IN_TRADE" },
+              "external_facts": {
+                "properties": { "lockout_required": { "const": false } }
+              }
             }
           }
         }
@@ -257,7 +306,10 @@
             "required": ["current_state", "requested_state"],
             "properties": {
               "current_state": { "const": "IN_TRADE" },
-              "requested_state": { "const": "READY" }
+              "requested_state": { "const": "READY" },
+              "external_facts": {
+                "properties": { "lockout_required": { "const": false } }
+              }
             }
           }
         }

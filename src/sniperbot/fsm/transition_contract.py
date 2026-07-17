@@ -219,7 +219,7 @@ def evaluate_transition(request: TransitionRequest) -> TransitionDecision:
     request = _validate_request(request)
     facts = request.external_facts
     if facts.lockout_required:
-        return _decision(request, True, State.LOCKOUT, ReasonCode.LOCKOUT_REQUIRED, RequiredAction.NONE)
+        return _decision(request, False, State.LOCKOUT, ReasonCode.LOCKOUT_REQUIRED, RequiredAction.RESET_REQUIRED)
     if facts.confirmed_position_exists and facts.position_closed:
         return _decision(request, False, request.current_state, ReasonCode.AMBIGUOUS_OR_CONTRADICTORY_INPUT, RequiredAction.HUMAN_REVIEW)
     current, requested = request.current_state, request.requested_state
@@ -251,13 +251,18 @@ def evaluate_transition(request: TransitionRequest) -> TransitionDecision:
         if not facts.cooldown_complete:
             return _decision(request, False, current, ReasonCode.COOLDOWN_FACT_MISSING, RequiredAction.GOVERNANCE_REVIEW)
         return _decision(request, True, requested, ReasonCode.ALLOWED, RequiredAction.NONE)
-    if current is State.LOCKOUT and requested is State.PAUSE:
-        reason = _authority_reason(request.authority_evidence)
-        if reason:
-            return _decision(request, False, current, ReasonCode.RESET_EVIDENCE_MISSING if reason is ReasonCode.AUTHORITY_MISSING else reason, RequiredAction.RESET_REQUIRED)
-        if not facts.reset_facts_explicit:
-            return _decision(request, False, current, ReasonCode.RESET_FACTS_MISSING, RequiredAction.RESET_REQUIRED)
-        return _decision(request, True, requested, ReasonCode.ALLOWED, RequiredAction.NONE)
+    if current is State.LOCKOUT:
+        if (
+            requested is State.PAUSE
+            and request.transition_request is TransitionRequestName.LOCKOUT_TO_PAUSE
+        ):
+            reason = _authority_reason(request.authority_evidence)
+            if reason:
+                return _decision(request, False, current, ReasonCode.RESET_EVIDENCE_MISSING if reason is ReasonCode.AUTHORITY_MISSING else reason, RequiredAction.RESET_REQUIRED)
+            if not facts.reset_facts_explicit:
+                return _decision(request, False, current, ReasonCode.RESET_FACTS_MISSING, RequiredAction.RESET_REQUIRED)
+            return _decision(request, True, requested, ReasonCode.ALLOWED, RequiredAction.NONE)
+        return _decision(request, False, current, ReasonCode.LOCKOUT_REQUIRED, RequiredAction.RESET_REQUIRED)
     if request.transition_request is TransitionRequestName.ANY_TO_LOCKOUT:
         return _decision(request, False, current, ReasonCode.UNDEFINED_TRANSITION, RequiredAction.GOVERNANCE_REVIEW)
     return _decision(request, False, current, ReasonCode.UNDEFINED_TRANSITION, RequiredAction.GOVERNANCE_REVIEW)

@@ -54,6 +54,72 @@ class SniperbotFsmTransitionContractTests(unittest.TestCase):
         )
         self.assertNotIn(None, required_action["enum"])
 
+    def test_lockout_schema_semantic_parity(self):
+        schema_path = (
+            Path(__file__).resolve().parents[1]
+            / "schemas"
+            / "sniperbot-fsm-transition-decision.schema.json"
+        )
+        schema = json.loads(schema_path.read_text(encoding="utf-8"))
+        forced_lockout = schema["allOf"][0]["then"]["properties"]["decision"][
+            "properties"
+        ]
+        locked_state = schema["allOf"][1]
+        locked_decision = locked_state["then"]["properties"]["decision"][
+            "properties"
+        ]
+
+        expected = {
+            "allowed": {"const": False},
+            "resulting_state": {"const": "LOCKOUT"},
+            "reason_code": {"const": "LOCKOUT_REQUIRED"},
+            "required_next_human_or_governance_action": {
+                "const": "RESET_REQUIRED"
+            },
+        }
+        self.assertEqual(forced_lockout, expected)
+        self.assertEqual(
+            {key: locked_decision[key] for key in expected},
+            expected,
+        )
+        self.assertEqual(locked_decision["current_state"], {"const": "LOCKOUT"})
+        locked_request = locked_state["if"]["properties"]["request"]
+        self.assertEqual(
+            locked_request["properties"]["current_state"],
+            {"const": "LOCKOUT"},
+        )
+        self.assertEqual(
+            locked_request["not"]["properties"],
+            {
+                "requested_state": {"const": "PAUSE"},
+                "transition_request": {"const": "LOCKOUT_TO_PAUSE"},
+            },
+        )
+        lower_reason_codes = {
+            "TRANSITION_FOUNDER_DENIED",
+            "UNDEFINED_TRANSITION",
+        }
+        guarded_lower_rules = 0
+        for rule in schema["allOf"][2:]:
+            decision = (
+                rule.get("then", {})
+                .get("properties", {})
+                .get("decision", {})
+                .get("properties", {})
+            )
+            reason = decision.get("reason_code", {}).get("const")
+            if reason not in lower_reason_codes:
+                continue
+            guarded_lower_rules += 1
+            request = rule["if"]["properties"]["request"]
+            self.assertEqual(
+                request["properties"]["external_facts"]["properties"][
+                    "lockout_required"
+                ],
+                {"const": False},
+            )
+        self.assertEqual(guarded_lower_rules, 3)
+
     def test_denial_input_schema_boundary_parity(self):
         schema_path = (
             Path(__file__).resolve().parents[1]
@@ -88,12 +154,16 @@ class SniperbotFsmTransitionContractTests(unittest.TestCase):
         conditional_text = json.dumps(schema["allOf"], sort_keys=True)
         self.assertNotIn("#/$defs/ValidAuthorityEvidence", conditional_text)
         self.assertEqual(conditional_text.count("#/$defs/AuthorityEvidence"), 2)
+        conditional_effects = json.dumps(
+            [rule.get("then", {}) for rule in schema["allOf"]],
+            sort_keys=True,
+        )
         for affirmative_input_constraint in (
             '"readiness_preconditions_satisfied": {"const": true}',
             '"confirmed_position_exists": {"const": true}',
             '"cooldown_complete": {"const": true}',
         ):
-            self.assertNotIn(affirmative_input_constraint, conditional_text)
+            self.assertNotIn(affirmative_input_constraint, conditional_effects)
 
     def test_null_authority_schema_parity(self):
         schema_path = (
@@ -437,6 +507,175 @@ class SniperbotFsmTransitionContractTests(unittest.TestCase):
             RequiredAction.HUMAN_REVIEW,
         )
 
+    def test_forced_lockout_is_absolute_across_closed_request_identifiers(self):
+        for current, requested, transition_name in itertools.product(
+            tuple(State), tuple(State), tuple(TransitionRequestName)
+        ):
+            value = TransitionRequest(
+                current,
+                requested,
+                transition_name,
+                "forced-lockout-ref",
+                facts(lockout_required=True),
+                authority(),
+            )
+            with self.subTest(
+                current=current,
+                requested=requested,
+                transition_name=transition_name,
+            ):
+                first = evaluate_transition(value)
+                second = evaluate_transition(value)
+                self.assertEqual(first.current_state, current)
+                self.assertEqual(first.requested_state, requested)
+                self.assertFalse(first.allowed)
+                self.assertEqual(first.resulting_state, State.LOCKOUT)
+                self.assertEqual(first.reason_code, ReasonCode.LOCKOUT_REQUIRED)
+                self.assertEqual(
+                    first.required_next_human_or_governance_action,
+                    RequiredAction.RESET_REQUIRED,
+                )
+                self.assertEqual(first.correlation_reference, "forced-lockout-ref")
+                self.assertEqual(first, second)
+                self.assertIsNot(first, second)
+                self.assertEqual(value.external_facts, facts(lockout_required=True))
+
+        contradiction = evaluate_transition(
+            TransitionRequest(
+                State.READY,
+                State.ARMED_MANUAL,
+                TransitionRequestName.READY_TO_ARMED_MANUAL,
+                "forced-contradiction-ref",
+                facts(
+                    lockout_required=True,
+                    confirmed_position_exists=True,
+                    position_closed=True,
+                ),
+                authority(presence="ABSENT", currentness="STALE"),
+            )
+        )
+        self.assertEqual(contradiction.reason_code, ReasonCode.LOCKOUT_REQUIRED)
+        self.assertEqual(contradiction.resulting_state, State.LOCKOUT)
+
+    def test_only_exact_governed_reset_path_can_exit_lockout(self):
+        for requested, transition_name in itertools.product(
+            tuple(State), tuple(TransitionRequestName)
+        ):
+            if (
+                requested is State.PAUSE
+                and transition_name is TransitionRequestName.LOCKOUT_TO_PAUSE
+            ):
+                continue
+            value = TransitionRequest(
+                State.LOCKOUT,
+                requested,
+                transition_name,
+                "locked-denial-ref",
+                facts(reset_facts_explicit=True),
+                authority(),
+            )
+            with self.subTest(requested=requested, transition_name=transition_name):
+                decision = evaluate_transition(value)
+                self.assertFalse(decision.allowed)
+                self.assertEqual(decision.resulting_state, State.LOCKOUT)
+                self.assertEqual(decision.reason_code, ReasonCode.LOCKOUT_REQUIRED)
+                self.assertEqual(
+                    decision.required_next_human_or_governance_action,
+                    RequiredAction.RESET_REQUIRED,
+                )
+                self.assertEqual(decision.correlation_reference, "locked-denial-ref")
+
+        wrong_name_with_collision = evaluate_transition(
+            TransitionRequest(
+                State.LOCKOUT,
+                State.PAUSE,
+                TransitionRequestName.PAUSE_TO_READY,
+                "locked-collision-ref",
+                facts(reset_facts_explicit=True),
+                authority(presence="ABSENT", currentness="STALE"),
+            )
+        )
+        self.assertEqual(
+            wrong_name_with_collision.reason_code,
+            ReasonCode.LOCKOUT_REQUIRED,
+        )
+
+    def test_lockout_reset_requirements_and_contradiction_precedence(self):
+        evidence_free_entry = evaluate_transition(
+            TransitionRequest(
+                State.PAUSE,
+                State.LOCKOUT,
+                TransitionRequestName.ANY_TO_LOCKOUT,
+                "evidence-free-lockout-ref",
+                facts(lockout_required=False),
+                authority(),
+            )
+        )
+        valid_reset = evaluate_transition(
+            TransitionRequest(
+                State.LOCKOUT,
+                State.PAUSE,
+                TransitionRequestName.LOCKOUT_TO_PAUSE,
+                "valid-reset-ref",
+                facts(reset_facts_explicit=True),
+                authority(),
+            )
+        )
+        missing_facts = evaluate_transition(
+            TransitionRequest(
+                State.LOCKOUT,
+                State.PAUSE,
+                TransitionRequestName.LOCKOUT_TO_PAUSE,
+                "missing-reset-facts-ref",
+                facts(reset_facts_explicit=False),
+                authority(),
+            )
+        )
+        contradiction = evaluate_transition(
+            TransitionRequest(
+                State.LOCKOUT,
+                State.READY,
+                TransitionRequestName.PAUSE_TO_READY,
+                "locked-contradiction-ref",
+                facts(confirmed_position_exists=True, position_closed=True),
+                authority(),
+            )
+        )
+
+        self.assertFalse(evidence_free_entry.allowed)
+        self.assertEqual(evidence_free_entry.resulting_state, State.PAUSE)
+        self.assertEqual(
+            evidence_free_entry.reason_code,
+            ReasonCode.UNDEFINED_TRANSITION,
+        )
+        self.assertEqual(
+            evidence_free_entry.required_next_human_or_governance_action,
+            RequiredAction.GOVERNANCE_REVIEW,
+        )
+        self.assertTrue(valid_reset.allowed)
+        self.assertEqual(valid_reset.resulting_state, State.PAUSE)
+        self.assertEqual(valid_reset.reason_code, ReasonCode.ALLOWED)
+        self.assertEqual(
+            valid_reset.required_next_human_or_governance_action,
+            RequiredAction.NONE,
+        )
+        self.assertFalse(missing_facts.allowed)
+        self.assertEqual(missing_facts.resulting_state, State.LOCKOUT)
+        self.assertEqual(missing_facts.reason_code, ReasonCode.RESET_FACTS_MISSING)
+        self.assertEqual(
+            missing_facts.required_next_human_or_governance_action,
+            RequiredAction.RESET_REQUIRED,
+        )
+        self.assertEqual(
+            contradiction.reason_code,
+            ReasonCode.AMBIGUOUS_OR_CONTRADICTORY_INPUT,
+        )
+        self.assertEqual(contradiction.resulting_state, State.LOCKOUT)
+        self.assertEqual(
+            contradiction.required_next_human_or_governance_action,
+            RequiredAction.HUMAN_REVIEW,
+        )
+
     def test_wrong_runtime_types_and_unsupported_shapes_are_rejected(self):
         valid = request(
             State.PAUSE,
@@ -611,9 +850,10 @@ class SniperbotFsmTransitionContractTests(unittest.TestCase):
 
     def test_lockout_precedence_and_logging_failure(self):
         result = evaluate_transition(request(State.READY, State.ARMED_MANUAL, TransitionRequestName.READY_TO_ARMED_MANUAL, lockout_required=True, logging_failure_indicated=True))
-        self.assertTrue(result.allowed)
+        self.assertFalse(result.allowed)
         self.assertEqual(result.resulting_state, State.LOCKOUT)
         self.assertEqual(result.reason_code, ReasonCode.LOCKOUT_REQUIRED)
+        self.assertEqual(result.required_next_human_or_governance_action, RequiredAction.RESET_REQUIRED)
 
     def test_reset(self):
         ok = evaluate_transition(request(State.LOCKOUT, State.PAUSE, TransitionRequestName.LOCKOUT_TO_PAUSE, reset_facts_explicit=True))
