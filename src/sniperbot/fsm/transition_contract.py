@@ -83,7 +83,7 @@ class TransitionRequest:
     transition_request: TransitionRequestName
     correlation_reference: str
     external_facts: ExternalFacts
-    authority_evidence: AuthorityEvidence | None = None
+    authority_evidence: AuthorityEvidence | None
 
 
 @dataclass(frozen=True)
@@ -166,6 +166,19 @@ def _validate_request(request: object) -> TransitionRequest:
     )
     _require_non_empty_string(request.correlation_reference, "correlation_reference")
     _validate_external_facts(request.external_facts)
+    if request.authority_evidence is None and (
+        (
+            request.current_state is State.READY
+            and request.requested_state is State.ARMED_MANUAL
+        )
+        or (
+            request.current_state is State.LOCKOUT
+            and request.requested_state is State.PAUSE
+        )
+    ):
+        raise ValueError(
+            "authority_evidence must not be None for an authority-required transition"
+        )
     _validate_authority_evidence(request.authority_evidence)
     return request
 

@@ -1,3 +1,4 @@
+import inspect
 import json
 import unittest
 from dataclasses import FrozenInstanceError, replace
@@ -92,6 +93,105 @@ class SniperbotFsmTransitionContractTests(unittest.TestCase):
             '"cooldown_complete": {"const": true}',
         ):
             self.assertNotIn(affirmative_input_constraint, conditional_text)
+
+    def test_null_authority_schema_parity(self):
+        schema_path = (
+            Path(__file__).resolve().parents[1]
+            / "schemas"
+            / "sniperbot-fsm-transition-decision.schema.json"
+        )
+        schema = json.loads(schema_path.read_text(encoding="utf-8"))
+        request_schema = schema["$defs"]["TransitionRequest"]
+        authority_property = request_schema["properties"]["authority_evidence"]
+
+        self.assertIn("authority_evidence", request_schema["required"])
+        self.assertEqual(
+            authority_property["oneOf"],
+            [
+                {"$ref": "#/$defs/AuthorityEvidence"},
+                {"type": "null"},
+            ],
+        )
+        conditional_text = json.dumps(schema["allOf"], sort_keys=True)
+        self.assertEqual(conditional_text.count("#/$defs/AuthorityEvidence"), 2)
+
+    def test_authority_omission_and_explicit_none_are_distinct(self):
+        parameter = inspect.signature(TransitionRequest).parameters[
+            "authority_evidence"
+        ]
+        self.assertIs(parameter.default, inspect.Parameter.empty)
+
+        with self.assertRaises(TypeError):
+            TransitionRequest(
+                State.PAUSE,
+                State.READY,
+                TransitionRequestName.PAUSE_TO_READY,
+                "corr-1",
+                facts(readiness_preconditions_satisfied=True),
+            )
+
+        allowed = evaluate_transition(
+            TransitionRequest(
+                State.PAUSE,
+                State.READY,
+                TransitionRequestName.PAUSE_TO_READY,
+                "allowed-null-ref",
+                facts(readiness_preconditions_satisfied=True),
+                None,
+            )
+        )
+        denied = evaluate_transition(
+            TransitionRequest(
+                State.PAUSE,
+                State.READY,
+                TransitionRequestName.PAUSE_TO_READY,
+                "denied-null-ref",
+                facts(readiness_preconditions_satisfied=False),
+                None,
+            )
+        )
+        self.assertTrue(allowed.allowed)
+        self.assertEqual(allowed.reason_code, ReasonCode.ALLOWED)
+        self.assertEqual(allowed.correlation_reference, "allowed-null-ref")
+        self.assertFalse(denied.allowed)
+        self.assertEqual(denied.reason_code, ReasonCode.READINESS_FACTS_MISSING)
+        self.assertEqual(
+            denied.required_next_human_or_governance_action,
+            RequiredAction.GOVERNANCE_REVIEW,
+        )
+        self.assertEqual(denied.correlation_reference, "denied-null-ref")
+
+    def test_explicit_none_rejected_before_authority_required_evaluation(self):
+        cases = (
+            TransitionRequest(
+                State.READY,
+                State.ARMED_MANUAL,
+                TransitionRequestName.READY_TO_ARMED_MANUAL,
+                "arming-null-ref",
+                facts(),
+                None,
+            ),
+            TransitionRequest(
+                State.LOCKOUT,
+                State.PAUSE,
+                TransitionRequestName.LOCKOUT_TO_PAUSE,
+                "reset-null-ref",
+                facts(reset_facts_explicit=True),
+                None,
+            ),
+            TransitionRequest(
+                State.READY,
+                State.ARMED_MANUAL,
+                TransitionRequestName.READY_TO_ARMED_MANUAL,
+                "lockout-null-ref",
+                facts(lockout_required=True),
+                None,
+            ),
+        )
+        for value in cases:
+            with self.subTest(reference=value.correlation_reference):
+                with self.assertRaises(ValueError):
+                    evaluate_transition(value)
 
     def assert_denial(self, value, reason, action):
         first = evaluate_transition(value)
@@ -336,7 +436,7 @@ class SniperbotFsmTransitionContractTests(unittest.TestCase):
 
     def test_manual_arming(self):
         ok = evaluate_transition(request(State.READY, State.ARMED_MANUAL, TransitionRequestName.READY_TO_ARMED_MANUAL))
-        denied = evaluate_transition(TransitionRequest(State.READY, State.ARMED_MANUAL, TransitionRequestName.READY_TO_ARMED_MANUAL, "corr-1", facts(), None))
+        denied = evaluate_transition(TransitionRequest(State.READY, State.ARMED_MANUAL, TransitionRequestName.READY_TO_ARMED_MANUAL, "corr-1", facts(), authority(presence="ABSENT")))
         self.assertTrue(ok.allowed)
         self.assertEqual(denied.reason_code, ReasonCode.AUTHORITY_MISSING)
 
@@ -372,7 +472,7 @@ class SniperbotFsmTransitionContractTests(unittest.TestCase):
 
     def test_reset(self):
         ok = evaluate_transition(request(State.LOCKOUT, State.PAUSE, TransitionRequestName.LOCKOUT_TO_PAUSE, reset_facts_explicit=True))
-        no = evaluate_transition(TransitionRequest(State.LOCKOUT, State.PAUSE, TransitionRequestName.LOCKOUT_TO_PAUSE, "corr-1", facts(reset_facts_explicit=True), None))
+        no = evaluate_transition(TransitionRequest(State.LOCKOUT, State.PAUSE, TransitionRequestName.LOCKOUT_TO_PAUSE, "corr-1", facts(reset_facts_explicit=True), authority(presence="ABSENT")))
         self.assertTrue(ok.allowed)
         self.assertEqual(no.reason_code, ReasonCode.RESET_EVIDENCE_MISSING)
 
