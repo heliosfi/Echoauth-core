@@ -1,4 +1,5 @@
 import inspect
+import itertools
 import json
 import unittest
 from dataclasses import FrozenInstanceError, replace
@@ -291,6 +292,150 @@ class SniperbotFsmTransitionContractTests(unittest.TestCase):
                 self.assert_denial(arming, arming_reason, arming_action)
             with self.subTest(context="reset", overrides=overrides):
                 self.assert_denial(reset, reset_reason, RequiredAction.RESET_REQUIRED)
+
+    def test_all_25_authority_collisions_for_arming_and_reset(self):
+        collisions = []
+        group_counts = {"absent": 0, "stale": 0, "revoked": 0}
+        for presence, currentness, revocation, validity_outcome in itertools.product(
+            ("PRESENT", "ABSENT"),
+            ("CURRENT", "STALE"),
+            ("NON_REVOKED", "REVOKED"),
+            ("VALID", "INVALID", "AMBIGUOUS", "OUT_OF_SCOPE"),
+        ):
+            failure_count = sum(
+                (
+                    presence == "ABSENT",
+                    currentness == "STALE",
+                    revocation == "REVOKED",
+                    validity_outcome != "VALID",
+                )
+            )
+            if failure_count < 2:
+                continue
+
+            values = {
+                "presence": presence,
+                "subject_scope": "sniperbot-fsm",
+                "currentness": currentness,
+                "revocation": revocation,
+                "validity_outcome": validity_outcome,
+                "authority_reference": "collision-auth-ref",
+            }
+            collisions.append(values)
+
+            if presence == "ABSENT":
+                group_counts["absent"] += 1
+                arming_reason = ReasonCode.AUTHORITY_MISSING
+                reset_reason = ReasonCode.RESET_EVIDENCE_MISSING
+                arming_action = RequiredAction.FOUNDER_AUTHORITY_REQUIRED
+            elif currentness == "STALE":
+                group_counts["stale"] += 1
+                arming_reason = reset_reason = ReasonCode.AUTHORITY_STALE
+                arming_action = RequiredAction.FOUNDER_AUTHORITY_REQUIRED
+            elif revocation == "REVOKED":
+                group_counts["revoked"] += 1
+                arming_reason = reset_reason = ReasonCode.AUTHORITY_REVOKED
+                arming_action = RequiredAction.FOUNDER_AUTHORITY_REQUIRED
+            elif validity_outcome == "OUT_OF_SCOPE":
+                arming_reason = reset_reason = ReasonCode.AUTHORITY_OUT_OF_SCOPE
+                arming_action = RequiredAction.GOVERNANCE_REVIEW
+            else:
+                arming_reason = reset_reason = ReasonCode.AUTHORITY_INVALID
+                arming_action = RequiredAction.FOUNDER_AUTHORITY_REQUIRED
+
+            forward_evidence = AuthorityEvidence(**values)
+            reverse_evidence = AuthorityEvidence(
+                **dict(reversed(tuple(values.items())))
+            )
+            arming = TransitionRequest(
+                State.READY,
+                State.ARMED_MANUAL,
+                TransitionRequestName.READY_TO_ARMED_MANUAL,
+                "arming-collision-ref",
+                facts(),
+                forward_evidence,
+            )
+            arming_reordered = replace(arming, authority_evidence=reverse_evidence)
+            reset = TransitionRequest(
+                State.LOCKOUT,
+                State.PAUSE,
+                TransitionRequestName.LOCKOUT_TO_PAUSE,
+                "reset-collision-ref",
+                facts(reset_facts_explicit=False),
+                forward_evidence,
+            )
+            reset_reordered = replace(reset, authority_evidence=reverse_evidence)
+
+            with self.subTest(context="arming", values=values):
+                first = evaluate_transition(arming)
+                second = evaluate_transition(arming)
+                reordered = evaluate_transition(arming_reordered)
+                self.assertFalse(first.allowed)
+                self.assertEqual(first.resulting_state, State.READY)
+                self.assertEqual(first.reason_code, arming_reason)
+                self.assertEqual(
+                    first.required_next_human_or_governance_action,
+                    arming_action,
+                )
+                self.assertEqual(first.correlation_reference, "arming-collision-ref")
+                self.assertEqual(first, second)
+                self.assertIsNot(first, second)
+                self.assertEqual(first, reordered)
+                self.assertEqual(arming.authority_evidence, forward_evidence)
+
+            with self.subTest(context="reset", values=values):
+                first = evaluate_transition(reset)
+                second = evaluate_transition(reset)
+                reordered = evaluate_transition(reset_reordered)
+                self.assertFalse(first.allowed)
+                self.assertEqual(first.resulting_state, State.LOCKOUT)
+                self.assertEqual(first.reason_code, reset_reason)
+                self.assertEqual(
+                    first.required_next_human_or_governance_action,
+                    RequiredAction.RESET_REQUIRED,
+                )
+                self.assertEqual(first.correlation_reference, "reset-collision-ref")
+                self.assertEqual(first, second)
+                self.assertIsNot(first, second)
+                self.assertEqual(first, reordered)
+                self.assertEqual(reset.authority_evidence, forward_evidence)
+
+        self.assertEqual(len(collisions), 25)
+        self.assertEqual(group_counts, {"absent": 15, "stale": 7, "revoked": 3})
+
+    def test_authority_collision_outer_precedence_is_preserved(self):
+        collision = authority(presence="ABSENT", currentness="STALE")
+        lockout = evaluate_transition(
+            TransitionRequest(
+                State.READY,
+                State.ARMED_MANUAL,
+                TransitionRequestName.READY_TO_ARMED_MANUAL,
+                "lockout-collision-ref",
+                facts(lockout_required=True),
+                collision,
+            )
+        )
+        contradiction = evaluate_transition(
+            TransitionRequest(
+                State.READY,
+                State.ARMED_MANUAL,
+                TransitionRequestName.READY_TO_ARMED_MANUAL,
+                "contradiction-collision-ref",
+                facts(confirmed_position_exists=True, position_closed=True),
+                collision,
+            )
+        )
+
+        self.assertEqual(lockout.resulting_state, State.LOCKOUT)
+        self.assertEqual(lockout.reason_code, ReasonCode.LOCKOUT_REQUIRED)
+        self.assertEqual(
+            contradiction.reason_code,
+            ReasonCode.AMBIGUOUS_OR_CONTRADICTORY_INPUT,
+        )
+        self.assertEqual(
+            contradiction.required_next_human_or_governance_action,
+            RequiredAction.HUMAN_REVIEW,
+        )
 
     def test_wrong_runtime_types_and_unsupported_shapes_are_rejected(self):
         valid = request(
