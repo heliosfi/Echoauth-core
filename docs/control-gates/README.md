@@ -402,13 +402,82 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   Stage 2 remains HOLD with ESCALATE elements and Stage 3 remains unentered and
   unauthorized.
 * `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-fsm-implementation-evidence-decision-record.md`
-  - SniperBot Live-Money Readiness Ladder Stage 2 FSM Implementation-Evidence
-  Decision Record. Records an ACCEPT outcome limited to the pure, isolated,
-  non-executing evaluator at commit `bd57d6b`; local implementation and test
-  evidence passed, while unavailable remote CI is explicitly not treated as
-  proof. Acceptance does not advance Stage 2, enter Stage 3, or authorize
-  runtime integration, trading, broker access, execution, or any additional
+  - Historical SniperBot Live-Money Readiness Ladder Stage 2 FSM
+  Implementation-Evidence Decision Record. Records an ACCEPT outcome limited
+  to the original pure, isolated, non-executing evaluator at commit `bd57d6b`;
+  local implementation and test evidence passed, while unavailable remote CI
+  is explicitly not treated as proof. This historical acceptance is preserved
+  and is superseded for current repaired-chain conformance by the Canonical FSM
+  semantic-repair implementation-evidence acceptance. It does not advance
+  Stage 2, enter Stage 3, or authorize runtime integration, deployment,
+  trading, broker access, execution, live-money behavior, or any additional
   capability.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-post-construction-cross-file-semantic-consistency-review.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Post-Construction Cross-File
+  Semantic-Consistency Review. Records the bounded historical cross-file audit
+  that identified Canonical FSM semantic discrepancies and required governed
+  repair sequencing. The review grants no repair, implementation, acceptance,
+  Stage 2 completion, Stage 3, runtime, deployment, execution, or live-money
+  authority.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-canonical-fsm-semantic-discrepancy-repair-scope-determination.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Canonical FSM Semantic-
+  Discrepancy Repair-Scope Determination. Records the bounded dependency order
+  for founder-semantic decisions, schema and evaluator repairs, direct evidence,
+  independent revalidation, acceptance, and indexing. It preserves the
+  historical acceptance while requiring a new repaired-chain acceptance and
+  grants no broader implementation, runtime, deployment, execution, live-money,
+  Stage 2 completion, or Stage 3 authority.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-canonical-fsm-denial-input-classification-founder-decision-record.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Canonical FSM Denial-Input
+  Classification Founder Decision Record. Closes the governed denial-input
+  domain while keeping malformed, unsupported, and wrong-type inputs at the
+  boundary. Documentation-only founder semantics; no schema, implementation,
+  test, runtime, deployment, execution, live-money, Stage 2 completion, or
+  Stage 3 authority.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-canonical-fsm-null-authority-enforcement-founder-decision-record.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Canonical FSM Null-Authority
+  Enforcement Founder Decision Record. Distinguishes required-property
+  omission, applicable and inapplicable null authority, and Python boundary
+  behavior without treating null as a governed denial. Documentation-only
+  founder semantics; no repair, runtime, deployment, execution, live-money,
+  Stage 2 completion, or Stage 3 authority.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-canonical-fsm-authority-collision-subprecedence-founder-decision-record.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Canonical FSM Authority-
+  Collision Subprecedence Founder Decision Record. Records deterministic first-
+  applicable-failure ordering without composite reasons or actions and without
+  changing prerequisite or lockout precedence. Documentation-only founder
+  semantics; no repair, runtime, deployment, execution, live-money, Stage 2
+  completion, or Stage 3 authority.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-canonical-fsm-lockout-semantics-founder-decision-record.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Canonical FSM Lockout
+  Semantics Founder Decision Record. Records lockout as a hard fail-closed
+  safety state with `LOCKOUT_TO_PAUSE` as its sole governed exit candidate.
+  Documentation-only founder semantics; no repair, runtime, deployment,
+  execution, live-money, Stage 2 completion, or Stage 3 authority.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-canonical-fsm-transition-request-coherence-founder-decision-record.md`
+  - SniperBot Live-Money Readiness Ladder Stage 2 Canonical FSM Transition-
+  Request Coherence Founder Decision Record. Records the canonical state-pair
+  relationship for each closed transition identifier and the governed handling
+  of closed mismatches. Documentation-only founder semantics; no repair,
+  runtime, deployment, execution, live-money, Stage 2 completion, or Stage 3
+  authority.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-canonical-fsm-transition-request-coherence-implementation-evidence-acceptance.md`
+  - Bounded Canonical FSM Transition-Request Coherence Implementation-Evidence
+  Acceptance. Accepts only the coherence repair and its independent evidence;
+  it remains supplementary to the current full semantic-repair acceptance and
+  does not represent full Canonical FSM or Stage 2 completion. It grants no
+  Stage 3, integration, runtime, deployment, execution, or live-money authority.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-canonical-fsm-semantic-repair-implementation-evidence-acceptance.md`
+  - Current superseding Canonical FSM Semantic-Repair Implementation-Evidence
+  Acceptance, published at commit
+  `ffc737d3162d18e703d9a9e1fd9ada6b7726ba5c`. Accepts the independently
+  revalidated full semantic-repair evidence chain while preserving the
+  historical acceptance as history and the coherence acceptance as bounded
+  supplementary evidence. This evidence acceptance does not declare
+  implementation, Stage 2, live-money, or deployment readiness and grants no
+  integration, orchestration, runtime, execution, Stage 2 completion, or Stage
+  3 authority. Stage 2 remains HOLD with ESCALATE elements; Stage 3 remains
+  unentered and unauthorized.
 * `docs/control-gates/echoauth-safety-before-identity-alignment-review.md` -
   EchoAuth Safety-Before-Identity Alignment Review. Records the core rule
   "Safety first, identity after safety is confirmed." as docs-only governance
