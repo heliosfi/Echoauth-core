@@ -248,7 +248,7 @@
         "correlation_reference": { "type": "string", "minLength": 1, "description": "Mandatory opaque caller reference; it is not generated, interpreted, persisted, or audited by the FSM." },
         "external_facts": { "$ref": "#/$defs/ExternalFacts" },
         "authority_evidence": {
-          "description": "Required as bounded input for arming and reset decisions; null represents absent evidence and never grants permission.",
+          "description": "Required as bounded input for arming and reset decisions; null means authority evidence is not applicable in the current context, does not represent absent or failed authority evidence, and never grants permission.",
           "oneOf": [{ "$ref": "#/$defs/AuthorityEvidence" }, { "type": "null" }]
         }
       }
