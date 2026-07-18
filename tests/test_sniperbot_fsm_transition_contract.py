@@ -2,7 +2,8 @@ import inspect
 import itertools
 import json
 import unittest
-from dataclasses import FrozenInstanceError, replace
+from dataclasses import FrozenInstanceError, fields, is_dataclass, replace
+from enum import Enum
 from pathlib import Path
 
 from sniperbot.fsm.transition_contract import (
@@ -30,6 +31,141 @@ def authority(**overrides):
 
 def request(current, requested, name, **kwargs):
     return TransitionRequest(current, requested, name, "corr-1", facts(**kwargs), authority())
+
+
+def _load_transition_schema():
+    schema_path = (
+        Path(__file__).resolve().parents[1]
+        / "schemas"
+        / "sniperbot-fsm-transition-decision.schema.json"
+    )
+    return json.loads(schema_path.read_text(encoding="utf-8"))
+
+
+def _json_value(value):
+    if isinstance(value, Enum):
+        return value.value
+    if is_dataclass(value):
+        return {
+            field.name: _json_value(getattr(value, field.name))
+            for field in fields(value)
+        }
+    if isinstance(value, tuple):
+        return [_json_value(item) for item in value]
+    if isinstance(value, list):
+        return [_json_value(item) for item in value]
+    if isinstance(value, dict):
+        return {key: _json_value(item) for key, item in value.items()}
+    return value
+
+
+def _resolve_local_reference(root_schema, reference):
+    if not reference.startswith("#/"):
+        raise AssertionError(f"unsupported non-local schema reference: {reference}")
+    target = root_schema
+    for token in reference[2:].split("/"):
+        target = target[token.replace("~1", "/").replace("~0", "~")]
+    return target
+
+
+def _matches_json_type(instance, expected):
+    matches = {
+        "array": lambda value: type(value) is list,
+        "boolean": lambda value: type(value) is bool,
+        "integer": lambda value: type(value) is int,
+        "null": lambda value: value is None,
+        "number": lambda value: type(value) in (int, float),
+        "object": lambda value: type(value) is dict,
+        "string": lambda value: type(value) is str,
+    }
+    if isinstance(expected, list):
+        return any(_matches_json_type(instance, item) for item in expected)
+    return matches[expected](instance)
+
+
+def _schema_accepts(instance, schema, root_schema):
+    """Evaluate the Draft 2020-12 keywords used by the FSM schema."""
+    if schema is True:
+        return True
+    if schema is False:
+        return False
+
+    if "$ref" in schema and not _schema_accepts(
+        instance,
+        _resolve_local_reference(root_schema, schema["$ref"]),
+        root_schema,
+    ):
+        return False
+    if "type" in schema and not _matches_json_type(instance, schema["type"]):
+        return False
+    if "const" in schema and not (
+        type(instance) is type(schema["const"]) and instance == schema["const"]
+    ):
+        return False
+    if "enum" in schema and not any(
+        type(instance) is type(candidate) and instance == candidate
+        for candidate in schema["enum"]
+    ):
+        return False
+    if "minLength" in schema and len(instance) < schema["minLength"]:
+        return False
+
+    if type(instance) is dict:
+        if any(field not in instance for field in schema.get("required", [])):
+            return False
+        properties = schema.get("properties", {})
+        if any(
+            field in instance
+            and not _schema_accepts(instance[field], property_schema, root_schema)
+            for field, property_schema in properties.items()
+        ):
+            return False
+        extras = set(instance) - set(properties)
+        additional = schema.get("additionalProperties", True)
+        if additional is False and extras:
+            return False
+        if isinstance(additional, dict) and any(
+            not _schema_accepts(instance[field], additional, root_schema)
+            for field in extras
+        ):
+            return False
+
+    if "allOf" in schema and not all(
+        _schema_accepts(instance, item, root_schema) for item in schema["allOf"]
+    ):
+        return False
+    if "oneOf" in schema and sum(
+        _schema_accepts(instance, item, root_schema) for item in schema["oneOf"]
+    ) != 1:
+        return False
+    if "not" in schema and _schema_accepts(instance, schema["not"], root_schema):
+        return False
+    if "if" in schema:
+        condition_matches = _schema_accepts(instance, schema["if"], root_schema)
+        if condition_matches and "then" in schema and not _schema_accepts(
+            instance, schema["then"], root_schema
+        ):
+            return False
+        if not condition_matches and "else" in schema and not _schema_accepts(
+            instance, schema["else"], root_schema
+        ):
+            return False
+    return True
+
+
+def _decision_envelope(value, allowed, resulting_state, reason_code, action):
+    return {
+        "request": _json_value(value),
+        "decision": {
+            "current_state": value.current_state.value,
+            "requested_state": value.requested_state.value,
+            "allowed": allowed,
+            "resulting_state": resulting_state.value,
+            "reason_code": reason_code.value,
+            "required_next_human_or_governance_action": action.value,
+            "correlation_reference": value.correlation_reference,
+        },
+    }
 
 
 class SniperbotFsmTransitionContractTests(unittest.TestCase):
@@ -238,12 +374,19 @@ class SniperbotFsmTransitionContractTests(unittest.TestCase):
             [rule.get("then", {}) for rule in schema["allOf"]],
             sort_keys=True,
         )
-        for affirmative_input_constraint in (
-            '"readiness_preconditions_satisfied": {"const": true}',
-            '"confirmed_position_exists": {"const": true}',
-            '"cooldown_complete": {"const": true}',
+        for governed_fact in (
+            "readiness_preconditions_satisfied",
+            "confirmed_position_exists",
+            "cooldown_complete",
         ):
-            self.assertNotIn(affirmative_input_constraint, conditional_effects)
+            self.assertIn(
+                f'"{governed_fact}": {{"const": false}}',
+                conditional_effects,
+            )
+            self.assertIn(
+                f'"{governed_fact}": {{"const": true}}',
+                conditional_effects,
+            )
 
     def test_null_authority_schema_parity(self):
         schema_path = (
@@ -265,6 +408,614 @@ class SniperbotFsmTransitionContractTests(unittest.TestCase):
         )
         conditional_text = json.dumps(schema["allOf"], sort_keys=True)
         self.assertEqual(conditional_text.count("#/$defs/AuthorityEvidence"), 2)
+
+    def test_schema_rejects_all_15_incorrect_decision_envelopes(self):
+        schema = _load_transition_schema()
+        absent = authority(presence="ABSENT")
+        cases = (
+            (
+                "readiness false reported as allowed",
+                request(
+                    State.PAUSE,
+                    State.READY,
+                    TransitionRequestName.PAUSE_TO_READY,
+                    readiness_preconditions_satisfied=False,
+                ),
+                (False, State.PAUSE, ReasonCode.READINESS_FACTS_MISSING,
+                 RequiredAction.GOVERNANCE_REVIEW),
+                (True, State.READY, ReasonCode.ALLOWED, RequiredAction.NONE),
+            ),
+            (
+                "confirmed position false reported as allowed",
+                request(
+                    State.ARMED_AUTO,
+                    State.IN_TRADE,
+                    TransitionRequestName.ARMED_AUTO_TO_IN_TRADE,
+                    confirmed_position_exists=False,
+                ),
+                (False, State.ARMED_AUTO,
+                 ReasonCode.CONFIRMED_POSITION_FACT_MISSING,
+                 RequiredAction.GOVERNANCE_REVIEW),
+                (True, State.IN_TRADE, ReasonCode.ALLOWED, RequiredAction.NONE),
+            ),
+            (
+                "open position reported as allowed",
+                request(
+                    State.IN_TRADE,
+                    State.PAUSE,
+                    TransitionRequestName.IN_TRADE_TO_PAUSE,
+                    position_closed=False,
+                    cooldown_complete=True,
+                ),
+                (False, State.IN_TRADE, ReasonCode.POSITION_CLOSED_FACT_MISSING,
+                 RequiredAction.GOVERNANCE_REVIEW),
+                (True, State.PAUSE, ReasonCode.ALLOWED, RequiredAction.NONE),
+            ),
+            (
+                "incomplete cooldown reported as allowed",
+                request(
+                    State.IN_TRADE,
+                    State.PAUSE,
+                    TransitionRequestName.IN_TRADE_TO_PAUSE,
+                    position_closed=True,
+                    cooldown_complete=False,
+                ),
+                (False, State.IN_TRADE, ReasonCode.COOLDOWN_FACT_MISSING,
+                 RequiredAction.GOVERNANCE_REVIEW),
+                (True, State.PAUSE, ReasonCode.ALLOWED, RequiredAction.NONE),
+            ),
+            (
+                "absent arming authority reported as allowed",
+                TransitionRequest(
+                    State.READY,
+                    State.ARMED_MANUAL,
+                    TransitionRequestName.READY_TO_ARMED_MANUAL,
+                    "arming-absent",
+                    facts(),
+                    absent,
+                ),
+                (False, State.READY, ReasonCode.AUTHORITY_MISSING,
+                 RequiredAction.FOUNDER_AUTHORITY_REQUIRED),
+                (True, State.ARMED_MANUAL, ReasonCode.ALLOWED,
+                 RequiredAction.NONE),
+            ),
+            (
+                "absent reset authority reported as allowed",
+                TransitionRequest(
+                    State.LOCKOUT,
+                    State.PAUSE,
+                    TransitionRequestName.LOCKOUT_TO_PAUSE,
+                    "reset-absent",
+                    facts(reset_facts_explicit=True),
+                    absent,
+                ),
+                (False, State.LOCKOUT, ReasonCode.RESET_EVIDENCE_MISSING,
+                 RequiredAction.RESET_REQUIRED),
+                (True, State.PAUSE, ReasonCode.ALLOWED, RequiredAction.NONE),
+            ),
+            (
+                "missing reset facts reported as allowed",
+                TransitionRequest(
+                    State.LOCKOUT,
+                    State.PAUSE,
+                    TransitionRequestName.LOCKOUT_TO_PAUSE,
+                    "reset-facts-missing",
+                    facts(reset_facts_explicit=False),
+                    authority(),
+                ),
+                (False, State.LOCKOUT, ReasonCode.RESET_FACTS_MISSING,
+                 RequiredAction.RESET_REQUIRED),
+                (True, State.PAUSE, ReasonCode.ALLOWED, RequiredAction.NONE),
+            ),
+            (
+                "contradictory facts reported as allowed",
+                request(
+                    State.PAUSE,
+                    State.READY,
+                    TransitionRequestName.PAUSE_TO_READY,
+                    readiness_preconditions_satisfied=True,
+                    confirmed_position_exists=True,
+                    position_closed=True,
+                ),
+                (False, State.PAUSE,
+                 ReasonCode.AMBIGUOUS_OR_CONTRADICTORY_INPUT,
+                 RequiredAction.HUMAN_REVIEW),
+                (True, State.READY, ReasonCode.ALLOWED, RequiredAction.NONE),
+            ),
+            (
+                "founder denial with incorrect action",
+                request(
+                    State.READY,
+                    State.ARMED_AUTO,
+                    TransitionRequestName.READY_TO_ARMED_AUTO,
+                ),
+                (False, State.READY, ReasonCode.TRANSITION_FOUNDER_DENIED,
+                 RequiredAction.FOUNDER_AUTHORITY_REQUIRED),
+                (False, State.READY, ReasonCode.TRANSITION_FOUNDER_DENIED,
+                 RequiredAction.NONE),
+            ),
+            (
+                "undefined transition with incorrect action",
+                request(
+                    State.ARMED_MANUAL,
+                    State.IN_TRADE,
+                    TransitionRequestName.ARMED_MANUAL_TO_IN_TRADE,
+                ),
+                (False, State.ARMED_MANUAL, ReasonCode.UNDEFINED_TRANSITION,
+                 RequiredAction.GOVERNANCE_REVIEW),
+                (False, State.ARMED_MANUAL, ReasonCode.UNDEFINED_TRANSITION,
+                 RequiredAction.NONE),
+            ),
+            (
+                "valid readiness transition reported as denied",
+                request(
+                    State.PAUSE,
+                    State.READY,
+                    TransitionRequestName.PAUSE_TO_READY,
+                    readiness_preconditions_satisfied=True,
+                ),
+                (True, State.READY, ReasonCode.ALLOWED, RequiredAction.NONE),
+                (False, State.PAUSE, ReasonCode.UNDEFINED_TRANSITION,
+                 RequiredAction.GOVERNANCE_REVIEW),
+            ),
+            (
+                "valid manual arming reported as denied",
+                request(
+                    State.READY,
+                    State.ARMED_MANUAL,
+                    TransitionRequestName.READY_TO_ARMED_MANUAL,
+                ),
+                (True, State.ARMED_MANUAL, ReasonCode.ALLOWED,
+                 RequiredAction.NONE),
+                (False, State.READY, ReasonCode.AUTHORITY_INVALID,
+                 RequiredAction.FOUNDER_AUTHORITY_REQUIRED),
+            ),
+            (
+                "confirmed automatic position reported as denied",
+                request(
+                    State.ARMED_AUTO,
+                    State.IN_TRADE,
+                    TransitionRequestName.ARMED_AUTO_TO_IN_TRADE,
+                    confirmed_position_exists=True,
+                ),
+                (True, State.IN_TRADE, ReasonCode.ALLOWED, RequiredAction.NONE),
+                (False, State.ARMED_AUTO,
+                 ReasonCode.CONFIRMED_POSITION_FACT_MISSING,
+                 RequiredAction.GOVERNANCE_REVIEW),
+            ),
+            (
+                "valid close and cooldown reported as denied",
+                request(
+                    State.IN_TRADE,
+                    State.PAUSE,
+                    TransitionRequestName.IN_TRADE_TO_PAUSE,
+                    position_closed=True,
+                    cooldown_complete=True,
+                ),
+                (True, State.PAUSE, ReasonCode.ALLOWED, RequiredAction.NONE),
+                (False, State.IN_TRADE, ReasonCode.COOLDOWN_FACT_MISSING,
+                 RequiredAction.GOVERNANCE_REVIEW),
+            ),
+            (
+                "valid lockout reset reported as denied",
+                TransitionRequest(
+                    State.LOCKOUT,
+                    State.PAUSE,
+                    TransitionRequestName.LOCKOUT_TO_PAUSE,
+                    "reset-valid",
+                    facts(reset_facts_explicit=True),
+                    authority(),
+                ),
+                (True, State.PAUSE, ReasonCode.ALLOWED, RequiredAction.NONE),
+                (False, State.LOCKOUT, ReasonCode.RESET_FACTS_MISSING,
+                 RequiredAction.RESET_REQUIRED),
+            ),
+        )
+
+        self.assertEqual(len(cases), 15)
+        for label, value, correct, incorrect in cases:
+            with self.subTest(label=label, envelope="correct"):
+                self.assertTrue(
+                    _schema_accepts(
+                        _decision_envelope(value, *correct), schema, schema
+                    )
+                )
+            with self.subTest(label=label, envelope="incorrect"):
+                self.assertFalse(
+                    _schema_accepts(
+                        _decision_envelope(value, *incorrect), schema, schema
+                    )
+                )
+
+    def test_schema_enforces_all_64_authority_winner_envelopes(self):
+        schema = _load_transition_schema()
+        checked = 0
+        for presence, currentness, revocation, validity_outcome in itertools.product(
+            ("PRESENT", "ABSENT"),
+            ("CURRENT", "STALE"),
+            ("NON_REVOKED", "REVOKED"),
+            ("VALID", "INVALID", "AMBIGUOUS", "OUT_OF_SCOPE"),
+        ):
+            evidence = authority(
+                presence=presence,
+                currentness=currentness,
+                revocation=revocation,
+                validity_outcome=validity_outcome,
+            )
+            if presence == "ABSENT":
+                arming_reason = ReasonCode.AUTHORITY_MISSING
+                reset_reason = ReasonCode.RESET_EVIDENCE_MISSING
+                arming_action = RequiredAction.FOUNDER_AUTHORITY_REQUIRED
+            elif currentness == "STALE":
+                arming_reason = reset_reason = ReasonCode.AUTHORITY_STALE
+                arming_action = RequiredAction.FOUNDER_AUTHORITY_REQUIRED
+            elif revocation == "REVOKED":
+                arming_reason = reset_reason = ReasonCode.AUTHORITY_REVOKED
+                arming_action = RequiredAction.FOUNDER_AUTHORITY_REQUIRED
+            elif validity_outcome == "OUT_OF_SCOPE":
+                arming_reason = reset_reason = ReasonCode.AUTHORITY_OUT_OF_SCOPE
+                arming_action = RequiredAction.GOVERNANCE_REVIEW
+            elif validity_outcome in ("INVALID", "AMBIGUOUS"):
+                arming_reason = reset_reason = ReasonCode.AUTHORITY_INVALID
+                arming_action = RequiredAction.FOUNDER_AUTHORITY_REQUIRED
+            else:
+                arming_reason = reset_reason = ReasonCode.ALLOWED
+                arming_action = RequiredAction.NONE
+
+            arming = TransitionRequest(
+                State.READY,
+                State.ARMED_MANUAL,
+                TransitionRequestName.READY_TO_ARMED_MANUAL,
+                f"arming-schema-{checked}",
+                facts(),
+                evidence,
+            )
+            reset = TransitionRequest(
+                State.LOCKOUT,
+                State.PAUSE,
+                TransitionRequestName.LOCKOUT_TO_PAUSE,
+                f"reset-schema-{checked}",
+                facts(reset_facts_explicit=True),
+                evidence,
+            )
+            arming_allowed = arming_reason is ReasonCode.ALLOWED
+            reset_allowed = reset_reason is ReasonCode.ALLOWED
+            cases = (
+                (
+                    arming,
+                    (
+                        arming_allowed,
+                        State.ARMED_MANUAL if arming_allowed else State.READY,
+                        arming_reason,
+                        arming_action,
+                    ),
+                    (
+                        not arming_allowed,
+                        State.READY if arming_allowed else State.ARMED_MANUAL,
+                        ReasonCode.AUTHORITY_INVALID
+                        if arming_allowed else ReasonCode.ALLOWED,
+                        RequiredAction.FOUNDER_AUTHORITY_REQUIRED
+                        if arming_allowed else RequiredAction.NONE,
+                    ),
+                ),
+                (
+                    reset,
+                    (
+                        reset_allowed,
+                        State.PAUSE if reset_allowed else State.LOCKOUT,
+                        reset_reason,
+                        RequiredAction.NONE
+                        if reset_allowed else RequiredAction.RESET_REQUIRED,
+                    ),
+                    (
+                        not reset_allowed,
+                        State.LOCKOUT if reset_allowed else State.PAUSE,
+                        ReasonCode.RESET_FACTS_MISSING
+                        if reset_allowed else ReasonCode.ALLOWED,
+                        RequiredAction.RESET_REQUIRED
+                        if reset_allowed else RequiredAction.NONE,
+                    ),
+                ),
+            )
+            for value, correct, incorrect in cases:
+                with self.subTest(value=value, envelope="correct"):
+                    self.assertTrue(
+                        _schema_accepts(
+                            _decision_envelope(value, *correct), schema, schema
+                        )
+                    )
+                with self.subTest(value=value, envelope="incorrect"):
+                    self.assertFalse(
+                        _schema_accepts(
+                            _decision_envelope(value, *incorrect), schema, schema
+                        )
+                    )
+                checked += 1
+
+        self.assertEqual(checked, 64)
+
+    def test_schema_boundaries_and_null_authority_remain_enforced(self):
+        schema = _load_transition_schema()
+        valid_request = TransitionRequest(
+            State.PAUSE,
+            State.READY,
+            TransitionRequestName.PAUSE_TO_READY,
+            "schema-boundary",
+            facts(readiness_preconditions_satisfied=True),
+            None,
+        )
+        valid_envelope = _decision_envelope(
+            valid_request,
+            True,
+            State.READY,
+            ReasonCode.ALLOWED,
+            RequiredAction.NONE,
+        )
+        self.assertTrue(_schema_accepts(valid_envelope, schema, schema))
+
+        malformed = []
+        for field, replacement in (
+            ("current_state", "UNKNOWN"),
+            ("correlation_reference", ""),
+        ):
+            candidate = json.loads(json.dumps(valid_envelope))
+            candidate["request"][field] = replacement
+            malformed.append(candidate)
+
+        wrong_boolean = json.loads(json.dumps(valid_envelope))
+        wrong_boolean["request"]["external_facts"][
+            "readiness_preconditions_satisfied"
+        ] = 1
+        malformed.append(wrong_boolean)
+
+        missing_authority = json.loads(json.dumps(valid_envelope))
+        del missing_authority["request"]["authority_evidence"]
+        malformed.append(missing_authority)
+
+        prohibited_field = json.loads(json.dumps(valid_envelope))
+        prohibited_field["request"]["unexpected"] = True
+        malformed.append(prohibited_field)
+
+        arming = request(
+            State.READY,
+            State.ARMED_MANUAL,
+            TransitionRequestName.READY_TO_ARMED_MANUAL,
+        )
+        null_arming = _decision_envelope(
+            arming,
+            True,
+            State.ARMED_MANUAL,
+            ReasonCode.ALLOWED,
+            RequiredAction.NONE,
+        )
+        null_arming["request"]["authority_evidence"] = None
+        malformed.append(null_arming)
+
+        for index, envelope in enumerate(malformed):
+            with self.subTest(index=index):
+                self.assertFalse(_schema_accepts(envelope, schema, schema))
+
+    def test_schema_preserves_forced_lockout_and_coherence_precedence(self):
+        schema = _load_transition_schema()
+        cases = (
+            (
+                TransitionRequest(
+                    State.PAUSE,
+                    State.READY,
+                    TransitionRequestName.PAUSE_TO_READY,
+                    "forced-lockout-schema",
+                    facts(
+                        readiness_preconditions_satisfied=True,
+                        lockout_required=True,
+                    ),
+                    None,
+                ),
+                (False, State.LOCKOUT, ReasonCode.LOCKOUT_REQUIRED,
+                 RequiredAction.RESET_REQUIRED),
+                (True, State.READY, ReasonCode.ALLOWED, RequiredAction.NONE),
+            ),
+            (
+                TransitionRequest(
+                    State.PAUSE,
+                    State.ARMED_AUTO,
+                    TransitionRequestName.PAUSE_TO_READY,
+                    "coherence-mismatch-schema",
+                    facts(readiness_preconditions_satisfied=True),
+                    None,
+                ),
+                (False, State.PAUSE, ReasonCode.UNDEFINED_TRANSITION,
+                 RequiredAction.GOVERNANCE_REVIEW),
+                (True, State.ARMED_AUTO, ReasonCode.ALLOWED,
+                 RequiredAction.NONE),
+            ),
+            (
+                TransitionRequest(
+                    State.LOCKOUT,
+                    State.READY,
+                    TransitionRequestName.PAUSE_TO_READY,
+                    "locked-alternative-schema",
+                    facts(),
+                    authority(),
+                ),
+                (False, State.LOCKOUT, ReasonCode.LOCKOUT_REQUIRED,
+                 RequiredAction.RESET_REQUIRED),
+                (True, State.READY, ReasonCode.ALLOWED, RequiredAction.NONE),
+            ),
+        )
+        for value, correct, incorrect in cases:
+            with self.subTest(value=value, envelope="correct"):
+                self.assertTrue(
+                    _schema_accepts(
+                        _decision_envelope(value, *correct), schema, schema
+                    )
+                )
+            with self.subTest(value=value, envelope="incorrect"):
+                self.assertFalse(
+                    _schema_accepts(
+                        _decision_envelope(value, *incorrect), schema, schema
+                    )
+                )
+
+    def test_all_evaluator_outputs_remain_schema_valid(self):
+        schema = _load_transition_schema()
+        checked = 0
+
+        fact_matrix = (
+            facts(
+                readiness_preconditions_satisfied=True,
+                confirmed_position_exists=True,
+                position_closed=False,
+                cooldown_complete=True,
+                reset_facts_explicit=True,
+            ),
+            facts(
+                readiness_preconditions_satisfied=True,
+                confirmed_position_exists=True,
+                position_closed=False,
+                cooldown_complete=True,
+                lockout_required=True,
+                reset_facts_explicit=True,
+            ),
+            facts(
+                readiness_preconditions_satisfied=True,
+                confirmed_position_exists=True,
+                position_closed=True,
+                cooldown_complete=True,
+                reset_facts_explicit=True,
+            ),
+        )
+        for current, requested, name, external_facts in itertools.product(
+            State, State, TransitionRequestName, fact_matrix
+        ):
+            value = TransitionRequest(
+                current,
+                requested,
+                name,
+                f"matrix-{checked}",
+                external_facts,
+                authority(),
+            )
+            decision = evaluate_transition(value)
+            envelope = {
+                "request": _json_value(value),
+                "decision": _json_value(decision),
+            }
+            self.assertTrue(
+                _schema_accepts(envelope, schema, schema),
+                (current, requested, name, external_facts, decision),
+            )
+            checked += 1
+
+        for presence, currentness, revocation, validity_outcome in itertools.product(
+            ("PRESENT", "ABSENT"),
+            ("CURRENT", "STALE"),
+            ("NON_REVOKED", "REVOKED"),
+            ("VALID", "INVALID", "AMBIGUOUS", "OUT_OF_SCOPE"),
+        ):
+            evidence = authority(
+                presence=presence,
+                currentness=currentness,
+                revocation=revocation,
+                validity_outcome=validity_outcome,
+            )
+            for value in (
+                TransitionRequest(
+                    State.READY,
+                    State.ARMED_MANUAL,
+                    TransitionRequestName.READY_TO_ARMED_MANUAL,
+                    f"arming-authority-{checked}",
+                    facts(),
+                    evidence,
+                ),
+                TransitionRequest(
+                    State.LOCKOUT,
+                    State.PAUSE,
+                    TransitionRequestName.LOCKOUT_TO_PAUSE,
+                    f"reset-authority-{checked}",
+                    facts(reset_facts_explicit=False),
+                    evidence,
+                ),
+            ):
+                decision = evaluate_transition(value)
+                self.assertTrue(
+                    _schema_accepts(
+                        {
+                            "request": _json_value(value),
+                            "decision": _json_value(decision),
+                        },
+                        schema,
+                        schema,
+                    ),
+                    (value, decision),
+                )
+                checked += 1
+
+        null_authority_paths = (
+            (State.PAUSE, State.READY, TransitionRequestName.PAUSE_TO_READY),
+            (State.READY, State.ARMED_AUTO,
+             TransitionRequestName.READY_TO_ARMED_AUTO),
+            (State.ARMED_AUTO, State.IN_TRADE,
+             TransitionRequestName.ARMED_AUTO_TO_IN_TRADE),
+            (State.ARMED_MANUAL, State.IN_TRADE,
+             TransitionRequestName.ARMED_MANUAL_TO_IN_TRADE),
+            (State.IN_TRADE, State.READY,
+             TransitionRequestName.IN_TRADE_TO_READY),
+            (State.IN_TRADE, State.PAUSE,
+             TransitionRequestName.IN_TRADE_TO_PAUSE),
+            (State.PAUSE, State.LOCKOUT,
+             TransitionRequestName.ANY_TO_LOCKOUT),
+        )
+        for current, requested, name in null_authority_paths:
+            value = TransitionRequest(
+                current,
+                requested,
+                name,
+                f"null-authority-{checked}",
+                facts(
+                    readiness_preconditions_satisfied=True,
+                    confirmed_position_exists=True,
+                    position_closed=False,
+                    cooldown_complete=True,
+                    reset_facts_explicit=True,
+                ),
+                None,
+            )
+            decision = evaluate_transition(value)
+            self.assertTrue(
+                _schema_accepts(
+                    {
+                        "request": _json_value(value),
+                        "decision": _json_value(decision),
+                    },
+                    schema,
+                    schema,
+                ),
+                (value, decision),
+            )
+            checked += 1
+
+        close_and_cooldown = TransitionRequest(
+            State.IN_TRADE,
+            State.PAUSE,
+            TransitionRequestName.IN_TRADE_TO_PAUSE,
+            f"close-and-cooldown-{checked}",
+            facts(position_closed=True, cooldown_complete=True),
+            None,
+        )
+        close_decision = evaluate_transition(close_and_cooldown)
+        self.assertTrue(
+            _schema_accepts(
+                {
+                    "request": _json_value(close_and_cooldown),
+                    "decision": _json_value(close_decision),
+                },
+                schema,
+                schema,
+            )
+        )
+        checked += 1
+
+        self.assertEqual(checked, 1044)
 
     def test_authority_omission_and_explicit_none_are_distinct(self):
         parameter = inspect.signature(TransitionRequest).parameters[

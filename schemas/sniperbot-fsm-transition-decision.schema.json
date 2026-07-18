@@ -154,6 +154,89 @@
         }
       ]
     },
+    "OrdinaryEvaluationFacts": {
+      "allOf": [
+        { "$ref": "#/$defs/ExternalFacts" },
+        {
+          "properties": { "lockout_required": { "const": false } },
+          "not": {
+            "required": ["confirmed_position_exists", "position_closed"],
+            "properties": {
+              "confirmed_position_exists": { "const": true },
+              "position_closed": { "const": true }
+            }
+          }
+        }
+      ]
+    },
+    "AuthorityAbsentWinner": {
+      "allOf": [
+        { "$ref": "#/$defs/AuthorityEvidence" },
+        { "properties": { "presence": { "const": "ABSENT" } } }
+      ]
+    },
+    "AuthorityStaleWinner": {
+      "allOf": [
+        { "$ref": "#/$defs/AuthorityEvidence" },
+        {
+          "properties": {
+            "presence": { "const": "PRESENT" },
+            "currentness": { "const": "STALE" }
+          }
+        }
+      ]
+    },
+    "AuthorityRevokedWinner": {
+      "allOf": [
+        { "$ref": "#/$defs/AuthorityEvidence" },
+        {
+          "properties": {
+            "presence": { "const": "PRESENT" },
+            "currentness": { "const": "CURRENT" },
+            "revocation": { "const": "REVOKED" }
+          }
+        }
+      ]
+    },
+    "AuthorityOutOfScopeWinner": {
+      "allOf": [
+        { "$ref": "#/$defs/AuthorityEvidence" },
+        {
+          "properties": {
+            "presence": { "const": "PRESENT" },
+            "currentness": { "const": "CURRENT" },
+            "revocation": { "const": "NON_REVOKED" },
+            "validity_outcome": { "const": "OUT_OF_SCOPE" }
+          }
+        }
+      ]
+    },
+    "AuthorityInvalidWinner": {
+      "allOf": [
+        { "$ref": "#/$defs/AuthorityEvidence" },
+        {
+          "properties": {
+            "presence": { "const": "PRESENT" },
+            "currentness": { "const": "CURRENT" },
+            "revocation": { "const": "NON_REVOKED" },
+            "validity_outcome": { "enum": ["INVALID", "AMBIGUOUS"] }
+          }
+        }
+      ]
+    },
+    "AuthorityValidWinner": {
+      "allOf": [
+        { "$ref": "#/$defs/AuthorityEvidence" },
+        {
+          "properties": {
+            "presence": { "const": "PRESENT" },
+            "currentness": { "const": "CURRENT" },
+            "revocation": { "const": "NON_REVOKED" },
+            "validity_outcome": { "const": "VALID" }
+          }
+        }
+      ]
+    },
     "TransitionRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -377,7 +460,8 @@
             "properties": {
               "allowed": { "const": false },
               "resulting_state": { "const": "READY" },
-              "reason_code": { "const": "TRANSITION_FOUNDER_DENIED" }
+              "reason_code": { "const": "TRANSITION_FOUNDER_DENIED" },
+              "required_next_human_or_governance_action": { "const": "FOUNDER_AUTHORITY_REQUIRED" }
             }
           }
         }
@@ -455,7 +539,8 @@
             "properties": {
               "allowed": { "const": false },
               "resulting_state": { "const": "ARMED_MANUAL" },
-              "reason_code": { "const": "UNDEFINED_TRANSITION" }
+              "reason_code": { "const": "UNDEFINED_TRANSITION" },
+              "required_next_human_or_governance_action": { "const": "GOVERNANCE_REVIEW" }
             }
           }
         }
@@ -491,10 +576,470 @@
             "properties": {
               "allowed": { "const": false },
               "resulting_state": { "const": "IN_TRADE" },
-              "reason_code": { "const": "UNDEFINED_TRANSITION" }
+              "reason_code": { "const": "UNDEFINED_TRANSITION" },
+              "required_next_human_or_governance_action": { "const": "GOVERNANCE_REVIEW" }
             }
           }
         }
+      }
+    },
+    {
+      "description": "Contradictory position facts produce the governed human-review denial after forced-lockout handling.",
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["external_facts"],
+            "properties": {
+              "external_facts": {
+                "required": ["confirmed_position_exists", "position_closed", "lockout_required"],
+                "properties": {
+                  "confirmed_position_exists": { "const": true },
+                  "position_closed": { "const": true },
+                  "lockout_required": { "const": false }
+                }
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "decision": {
+            "properties": {
+              "allowed": { "const": false },
+              "reason_code": { "const": "AMBIGUOUS_OR_CONTRADICTORY_INPUT" },
+              "required_next_human_or_governance_action": { "const": "HUMAN_REVIEW" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "PAUSE_TO_READY decision parity after higher-priority branches.",
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["current_state", "requested_state", "transition_request", "external_facts"],
+            "properties": {
+              "current_state": { "const": "PAUSE" },
+              "requested_state": { "const": "READY" },
+              "transition_request": { "const": "PAUSE_TO_READY" },
+              "external_facts": { "$ref": "#/$defs/OrdinaryEvaluationFacts" }
+            }
+          }
+        }
+      },
+      "then": {
+        "oneOf": [
+          {
+            "properties": {
+              "request": {
+                "properties": {
+                  "external_facts": {
+                    "properties": { "readiness_preconditions_satisfied": { "const": false } }
+                  }
+                }
+              },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": false },
+                  "resulting_state": { "const": "PAUSE" },
+                  "reason_code": { "const": "READINESS_FACTS_MISSING" },
+                  "required_next_human_or_governance_action": { "const": "GOVERNANCE_REVIEW" }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "request": {
+                "properties": {
+                  "external_facts": {
+                    "properties": { "readiness_preconditions_satisfied": { "const": true } }
+                  }
+                }
+              },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": true },
+                  "resulting_state": { "const": "READY" },
+                  "reason_code": { "const": "ALLOWED" },
+                  "required_next_human_or_governance_action": { "const": "NONE" }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "ARMED_AUTO_TO_IN_TRADE decision parity after higher-priority branches.",
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["current_state", "requested_state", "transition_request", "external_facts"],
+            "properties": {
+              "current_state": { "const": "ARMED_AUTO" },
+              "requested_state": { "const": "IN_TRADE" },
+              "transition_request": { "const": "ARMED_AUTO_TO_IN_TRADE" },
+              "external_facts": { "$ref": "#/$defs/OrdinaryEvaluationFacts" }
+            }
+          }
+        }
+      },
+      "then": {
+        "oneOf": [
+          {
+            "properties": {
+              "request": {
+                "properties": {
+                  "external_facts": {
+                    "properties": { "confirmed_position_exists": { "const": false } }
+                  }
+                }
+              },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": false },
+                  "resulting_state": { "const": "ARMED_AUTO" },
+                  "reason_code": { "const": "CONFIRMED_POSITION_FACT_MISSING" },
+                  "required_next_human_or_governance_action": { "const": "GOVERNANCE_REVIEW" }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "request": {
+                "properties": {
+                  "external_facts": {
+                    "properties": { "confirmed_position_exists": { "const": true } }
+                  }
+                }
+              },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": true },
+                  "resulting_state": { "const": "IN_TRADE" },
+                  "reason_code": { "const": "ALLOWED" },
+                  "required_next_human_or_governance_action": { "const": "NONE" }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "IN_TRADE_TO_PAUSE decision parity after higher-priority branches.",
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["current_state", "requested_state", "transition_request", "external_facts"],
+            "properties": {
+              "current_state": { "const": "IN_TRADE" },
+              "requested_state": { "const": "PAUSE" },
+              "transition_request": { "const": "IN_TRADE_TO_PAUSE" },
+              "external_facts": { "$ref": "#/$defs/OrdinaryEvaluationFacts" }
+            }
+          }
+        }
+      },
+      "then": {
+        "oneOf": [
+          {
+            "properties": {
+              "request": {
+                "properties": {
+                  "external_facts": {
+                    "properties": { "position_closed": { "const": false } }
+                  }
+                }
+              },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": false },
+                  "resulting_state": { "const": "IN_TRADE" },
+                  "reason_code": { "const": "POSITION_CLOSED_FACT_MISSING" },
+                  "required_next_human_or_governance_action": { "const": "GOVERNANCE_REVIEW" }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "request": {
+                "properties": {
+                  "external_facts": {
+                    "properties": {
+                      "position_closed": { "const": true },
+                      "cooldown_complete": { "const": false }
+                    }
+                  }
+                }
+              },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": false },
+                  "resulting_state": { "const": "IN_TRADE" },
+                  "reason_code": { "const": "COOLDOWN_FACT_MISSING" },
+                  "required_next_human_or_governance_action": { "const": "GOVERNANCE_REVIEW" }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "request": {
+                "properties": {
+                  "external_facts": {
+                    "properties": {
+                      "position_closed": { "const": true },
+                      "cooldown_complete": { "const": true }
+                    }
+                  }
+                }
+              },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": true },
+                  "resulting_state": { "const": "PAUSE" },
+                  "reason_code": { "const": "ALLOWED" },
+                  "required_next_human_or_governance_action": { "const": "NONE" }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "READY_TO_ARMED_MANUAL authority winner and decision parity after higher-priority branches.",
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["current_state", "requested_state", "transition_request", "external_facts", "authority_evidence"],
+            "properties": {
+              "current_state": { "const": "READY" },
+              "requested_state": { "const": "ARMED_MANUAL" },
+              "transition_request": { "const": "READY_TO_ARMED_MANUAL" },
+              "external_facts": { "$ref": "#/$defs/OrdinaryEvaluationFacts" }
+            }
+          }
+        }
+      },
+      "then": {
+        "oneOf": [
+          {
+            "properties": {
+              "request": { "properties": { "authority_evidence": { "$ref": "#/$defs/AuthorityAbsentWinner" } } },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": false },
+                  "resulting_state": { "const": "READY" },
+                  "reason_code": { "const": "AUTHORITY_MISSING" },
+                  "required_next_human_or_governance_action": { "const": "FOUNDER_AUTHORITY_REQUIRED" }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "request": { "properties": { "authority_evidence": { "$ref": "#/$defs/AuthorityStaleWinner" } } },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": false },
+                  "resulting_state": { "const": "READY" },
+                  "reason_code": { "const": "AUTHORITY_STALE" },
+                  "required_next_human_or_governance_action": { "const": "FOUNDER_AUTHORITY_REQUIRED" }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "request": { "properties": { "authority_evidence": { "$ref": "#/$defs/AuthorityRevokedWinner" } } },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": false },
+                  "resulting_state": { "const": "READY" },
+                  "reason_code": { "const": "AUTHORITY_REVOKED" },
+                  "required_next_human_or_governance_action": { "const": "FOUNDER_AUTHORITY_REQUIRED" }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "request": { "properties": { "authority_evidence": { "$ref": "#/$defs/AuthorityOutOfScopeWinner" } } },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": false },
+                  "resulting_state": { "const": "READY" },
+                  "reason_code": { "const": "AUTHORITY_OUT_OF_SCOPE" },
+                  "required_next_human_or_governance_action": { "const": "GOVERNANCE_REVIEW" }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "request": { "properties": { "authority_evidence": { "$ref": "#/$defs/AuthorityInvalidWinner" } } },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": false },
+                  "resulting_state": { "const": "READY" },
+                  "reason_code": { "const": "AUTHORITY_INVALID" },
+                  "required_next_human_or_governance_action": { "const": "FOUNDER_AUTHORITY_REQUIRED" }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "request": { "properties": { "authority_evidence": { "$ref": "#/$defs/AuthorityValidWinner" } } },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": true },
+                  "resulting_state": { "const": "ARMED_MANUAL" },
+                  "reason_code": { "const": "ALLOWED" },
+                  "required_next_human_or_governance_action": { "const": "NONE" }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "LOCKOUT_TO_PAUSE authority winner, reset facts, and decision parity after higher-priority branches.",
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["current_state", "requested_state", "transition_request", "external_facts", "authority_evidence"],
+            "properties": {
+              "current_state": { "const": "LOCKOUT" },
+              "requested_state": { "const": "PAUSE" },
+              "transition_request": { "const": "LOCKOUT_TO_PAUSE" },
+              "external_facts": { "$ref": "#/$defs/OrdinaryEvaluationFacts" }
+            }
+          }
+        }
+      },
+      "then": {
+        "oneOf": [
+          {
+            "properties": {
+              "request": { "properties": { "authority_evidence": { "$ref": "#/$defs/AuthorityAbsentWinner" } } },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": false },
+                  "resulting_state": { "const": "LOCKOUT" },
+                  "reason_code": { "const": "RESET_EVIDENCE_MISSING" },
+                  "required_next_human_or_governance_action": { "const": "RESET_REQUIRED" }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "request": { "properties": { "authority_evidence": { "$ref": "#/$defs/AuthorityStaleWinner" } } },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": false },
+                  "resulting_state": { "const": "LOCKOUT" },
+                  "reason_code": { "const": "AUTHORITY_STALE" },
+                  "required_next_human_or_governance_action": { "const": "RESET_REQUIRED" }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "request": { "properties": { "authority_evidence": { "$ref": "#/$defs/AuthorityRevokedWinner" } } },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": false },
+                  "resulting_state": { "const": "LOCKOUT" },
+                  "reason_code": { "const": "AUTHORITY_REVOKED" },
+                  "required_next_human_or_governance_action": { "const": "RESET_REQUIRED" }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "request": { "properties": { "authority_evidence": { "$ref": "#/$defs/AuthorityOutOfScopeWinner" } } },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": false },
+                  "resulting_state": { "const": "LOCKOUT" },
+                  "reason_code": { "const": "AUTHORITY_OUT_OF_SCOPE" },
+                  "required_next_human_or_governance_action": { "const": "RESET_REQUIRED" }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "request": { "properties": { "authority_evidence": { "$ref": "#/$defs/AuthorityInvalidWinner" } } },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": false },
+                  "resulting_state": { "const": "LOCKOUT" },
+                  "reason_code": { "const": "AUTHORITY_INVALID" },
+                  "required_next_human_or_governance_action": { "const": "RESET_REQUIRED" }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "request": {
+                "properties": {
+                  "authority_evidence": { "$ref": "#/$defs/AuthorityValidWinner" },
+                  "external_facts": {
+                    "properties": { "reset_facts_explicit": { "const": false } }
+                  }
+                }
+              },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": false },
+                  "resulting_state": { "const": "LOCKOUT" },
+                  "reason_code": { "const": "RESET_FACTS_MISSING" },
+                  "required_next_human_or_governance_action": { "const": "RESET_REQUIRED" }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "request": {
+                "properties": {
+                  "authority_evidence": { "$ref": "#/$defs/AuthorityValidWinner" },
+                  "external_facts": {
+                    "properties": { "reset_facts_explicit": { "const": true } }
+                  }
+                }
+              },
+              "decision": {
+                "properties": {
+                  "allowed": { "const": true },
+                  "resulting_state": { "const": "PAUSE" },
+                  "reason_code": { "const": "ALLOWED" },
+                  "required_next_human_or_governance_action": { "const": "NONE" }
+                }
+              }
+            }
+          }
+        ]
       }
     }
   ]
