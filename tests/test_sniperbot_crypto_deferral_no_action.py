@@ -70,6 +70,30 @@ def mapping(request):
     return decision.outcome, decision.reason_code, decision.required_action
 
 
+def invalid_reference_values():
+    return (
+        None,
+        False,
+        True,
+        0,
+        1,
+        0.0,
+        1.5,
+        [],
+        ["reference"],
+        (),
+        ("reference",),
+        {},
+        {"reference": "value"},
+        set(),
+        {"reference"},
+        b"",
+        b"reference",
+        object(),
+        "",
+    )
+
+
 class CryptoDeferralNoActionTests(unittest.TestCase):
     def test_package_public_api_is_exactly_the_approved_twelve_symbols(self):
         expected = {
@@ -304,31 +328,13 @@ class CryptoDeferralNoActionTests(unittest.TestCase):
                             factory(**{field: value})
 
     def test_all_six_opaque_reference_surfaces_reject_invalid_runtime_values(self):
-        invalid_values = (
-            None,
-            False,
-            True,
-            0,
-            1,
-            0.0,
-            1.5,
-            b"reference",
-            [],
-            ["reference"],
-            (),
-            ("reference",),
-            {},
-            {"reference": "value"},
-            set(),
-            {"reference"},
-            object(),
-            "",
-        )
-        for value in invalid_values:
+        for value in invalid_reference_values():
             for field in ("crypto_reference", "correlation_reference"):
                 with self.subTest(surface=f"CryptoRequest.{field}", value=value):
+                    constructed_requests = []
                     with self.assertRaises(ValueError):
-                        evaluate(make(**{field: value}))
+                        constructed_requests.append(make(**{field: value}))
+                    self.assertEqual(constructed_requests, [])
 
             with self.subTest(
                 surface="GenericAssetClassContext.context_reference", value=value
@@ -363,6 +369,22 @@ class CryptoDeferralNoActionTests(unittest.TestCase):
                 with self.subTest(surface=f"Decision.{field}", value=value):
                     with self.assertRaises(ValueError):
                         Decision(*decision_values)
+
+    def test_malformed_request_references_never_enter_evaluator(self):
+        evaluator_entries = []
+
+        def evaluate_spy(request):
+            evaluator_entries.append(request)
+            return evaluate(request)
+
+        for value in invalid_reference_values():
+            for field in ("crypto_reference", "correlation_reference"):
+                with self.subTest(surface=f"CryptoRequest.{field}", value=value):
+                    evaluator_entries.clear()
+                    with self.assertRaises(ValueError):
+                        request = make(**{field: value})
+                        evaluate_spy(request)
+                    self.assertEqual(evaluator_entries, [])
 
     def test_non_empty_references_match_schema_and_are_preserved_exactly(self):
         schema = json.loads(
