@@ -29,6 +29,81 @@
         "LOCKOUT_TO_PAUSE"
       ]
     },
+    "CanonicalTransitionSubject": {
+      "oneOf": [
+        {
+          "required": ["current_state", "requested_state", "transition_request"],
+          "properties": {
+            "current_state": { "const": "PAUSE" },
+            "requested_state": { "const": "READY" },
+            "transition_request": { "const": "PAUSE_TO_READY" }
+          }
+        },
+        {
+          "required": ["current_state", "requested_state", "transition_request"],
+          "properties": {
+            "current_state": { "const": "READY" },
+            "requested_state": { "const": "ARMED_MANUAL" },
+            "transition_request": { "const": "READY_TO_ARMED_MANUAL" }
+          }
+        },
+        {
+          "required": ["current_state", "requested_state", "transition_request"],
+          "properties": {
+            "current_state": { "const": "READY" },
+            "requested_state": { "const": "ARMED_AUTO" },
+            "transition_request": { "const": "READY_TO_ARMED_AUTO" }
+          }
+        },
+        {
+          "required": ["current_state", "requested_state", "transition_request"],
+          "properties": {
+            "current_state": { "const": "ARMED_AUTO" },
+            "requested_state": { "const": "IN_TRADE" },
+            "transition_request": { "const": "ARMED_AUTO_TO_IN_TRADE" }
+          }
+        },
+        {
+          "required": ["current_state", "requested_state", "transition_request"],
+          "properties": {
+            "current_state": { "const": "ARMED_MANUAL" },
+            "requested_state": { "const": "IN_TRADE" },
+            "transition_request": { "const": "ARMED_MANUAL_TO_IN_TRADE" }
+          }
+        },
+        {
+          "required": ["current_state", "requested_state", "transition_request"],
+          "properties": {
+            "current_state": { "const": "IN_TRADE" },
+            "requested_state": { "const": "READY" },
+            "transition_request": { "const": "IN_TRADE_TO_READY" }
+          }
+        },
+        {
+          "required": ["current_state", "requested_state", "transition_request"],
+          "properties": {
+            "current_state": { "const": "IN_TRADE" },
+            "requested_state": { "const": "PAUSE" },
+            "transition_request": { "const": "IN_TRADE_TO_PAUSE" }
+          }
+        },
+        {
+          "required": ["requested_state", "transition_request"],
+          "properties": {
+            "requested_state": { "const": "LOCKOUT" },
+            "transition_request": { "const": "ANY_TO_LOCKOUT" }
+          }
+        },
+        {
+          "required": ["current_state", "requested_state", "transition_request"],
+          "properties": {
+            "current_state": { "const": "LOCKOUT" },
+            "requested_state": { "const": "PAUSE" },
+            "transition_request": { "const": "LOCKOUT_TO_PAUSE" }
+          }
+        }
+      ]
+    },
     "ExternalFacts": {
       "type": "object",
       "description": "Immutable facts already determined by an external authority. The FSM does not calculate, discover, verify through calls, refresh, mutate, or persist them.",
@@ -203,14 +278,94 @@
       }
     },
     {
+      "description": "Closed transition request identifiers with non-canonical state pairs are governed undefined transitions after higher-priority branches.",
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["current_state", "requested_state", "transition_request", "external_facts"],
+            "properties": {
+              "current_state": { "not": { "const": "LOCKOUT" } },
+              "external_facts": {
+                "properties": { "lockout_required": { "const": false } },
+                "not": {
+                  "required": ["confirmed_position_exists", "position_closed"],
+                  "properties": {
+                    "confirmed_position_exists": { "const": true },
+                    "position_closed": { "const": true }
+                  }
+                }
+              }
+            },
+            "not": { "$ref": "#/$defs/CanonicalTransitionSubject" }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "decision": {
+            "properties": {
+              "allowed": { "const": false },
+              "reason_code": { "const": "UNDEFINED_TRANSITION" },
+              "required_next_human_or_governance_action": { "const": "GOVERNANCE_REVIEW" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "ANY_TO_LOCKOUT without an active lockout fact is a governed undefined transition outside the current lockout gate.",
+      "if": {
+        "required": ["request"],
+        "properties": {
+          "request": {
+            "required": ["current_state", "transition_request", "external_facts"],
+            "properties": {
+              "current_state": { "not": { "const": "LOCKOUT" } },
+              "transition_request": { "const": "ANY_TO_LOCKOUT" },
+              "external_facts": {
+                "properties": { "lockout_required": { "const": false } },
+                "not": {
+                  "required": ["confirmed_position_exists", "position_closed"],
+                  "properties": {
+                    "confirmed_position_exists": { "const": true },
+                    "position_closed": { "const": true }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "decision": {
+            "properties": {
+              "allowed": { "const": false },
+              "reason_code": { "const": "UNDEFINED_TRANSITION" },
+              "required_next_human_or_governance_action": { "const": "GOVERNANCE_REVIEW" }
+            }
+          }
+        }
+      }
+    },
+    {
       "if": {
         "properties": {
           "request": {
             "properties": {
               "current_state": { "const": "READY" },
               "requested_state": { "const": "ARMED_AUTO" },
+              "transition_request": { "const": "READY_TO_ARMED_AUTO" },
               "external_facts": {
-                "properties": { "lockout_required": { "const": false } }
+                "properties": { "lockout_required": { "const": false } },
+                "not": {
+                  "required": ["confirmed_position_exists", "position_closed"],
+                  "properties": {
+                    "confirmed_position_exists": { "const": true },
+                    "position_closed": { "const": true }
+                  }
+                }
               }
             }
           }
@@ -275,12 +430,20 @@
         "required": ["request"],
         "properties": {
           "request": {
-            "required": ["current_state", "requested_state"],
+            "required": ["current_state", "requested_state", "transition_request"],
             "properties": {
               "current_state": { "const": "ARMED_MANUAL" },
               "requested_state": { "const": "IN_TRADE" },
+              "transition_request": { "const": "ARMED_MANUAL_TO_IN_TRADE" },
               "external_facts": {
-                "properties": { "lockout_required": { "const": false } }
+                "properties": { "lockout_required": { "const": false } },
+                "not": {
+                  "required": ["confirmed_position_exists", "position_closed"],
+                  "properties": {
+                    "confirmed_position_exists": { "const": true },
+                    "position_closed": { "const": true }
+                  }
+                }
               }
             }
           }
@@ -303,12 +466,20 @@
         "required": ["request"],
         "properties": {
           "request": {
-            "required": ["current_state", "requested_state"],
+            "required": ["current_state", "requested_state", "transition_request"],
             "properties": {
               "current_state": { "const": "IN_TRADE" },
               "requested_state": { "const": "READY" },
+              "transition_request": { "const": "IN_TRADE_TO_READY" },
               "external_facts": {
-                "properties": { "lockout_required": { "const": false } }
+                "properties": { "lockout_required": { "const": false } },
+                "not": {
+                  "required": ["confirmed_position_exists", "position_closed"],
+                  "properties": {
+                    "confirmed_position_exists": { "const": true },
+                    "position_closed": { "const": true }
+                  }
+                }
               }
             }
           }

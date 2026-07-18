@@ -97,6 +97,36 @@ class TransitionDecision:
     correlation_reference: str
 
 
+_CANONICAL_TRANSITION_PAIRS = {
+    TransitionRequestName.PAUSE_TO_READY: (State.PAUSE, State.READY),
+    TransitionRequestName.READY_TO_ARMED_MANUAL: (
+        State.READY,
+        State.ARMED_MANUAL,
+    ),
+    TransitionRequestName.READY_TO_ARMED_AUTO: (State.READY, State.ARMED_AUTO),
+    TransitionRequestName.ARMED_AUTO_TO_IN_TRADE: (
+        State.ARMED_AUTO,
+        State.IN_TRADE,
+    ),
+    TransitionRequestName.ARMED_MANUAL_TO_IN_TRADE: (
+        State.ARMED_MANUAL,
+        State.IN_TRADE,
+    ),
+    TransitionRequestName.IN_TRADE_TO_READY: (State.IN_TRADE, State.READY),
+    TransitionRequestName.IN_TRADE_TO_PAUSE: (State.IN_TRADE, State.PAUSE),
+    TransitionRequestName.LOCKOUT_TO_PAUSE: (State.LOCKOUT, State.PAUSE),
+}
+
+
+def _has_canonical_transition_subject(request: TransitionRequest) -> bool:
+    if request.transition_request is TransitionRequestName.ANY_TO_LOCKOUT:
+        return request.requested_state is State.LOCKOUT
+    return _CANONICAL_TRANSITION_PAIRS[request.transition_request] == (
+        request.current_state,
+        request.requested_state,
+    )
+
+
 def _require_exact_type(value: object, expected_type: type, field_name: str) -> None:
     if type(value) is not expected_type:
         raise TypeError(f"{field_name} must be a {expected_type.__name__}")
@@ -225,6 +255,20 @@ def evaluate_transition(request: TransitionRequest) -> TransitionDecision:
     current, requested = request.current_state, request.requested_state
     if not isinstance(current, State) or not isinstance(requested, State):
         return _decision(request, False, current if isinstance(current, State) else State.PAUSE, ReasonCode.UNKNOWN_STATE, RequiredAction.GOVERNANCE_REVIEW)
+    if current is State.LOCKOUT:
+        if (
+            requested is State.PAUSE
+            and request.transition_request is TransitionRequestName.LOCKOUT_TO_PAUSE
+        ):
+            reason = _authority_reason(request.authority_evidence)
+            if reason:
+                return _decision(request, False, current, ReasonCode.RESET_EVIDENCE_MISSING if reason is ReasonCode.AUTHORITY_MISSING else reason, RequiredAction.RESET_REQUIRED)
+            if not facts.reset_facts_explicit:
+                return _decision(request, False, current, ReasonCode.RESET_FACTS_MISSING, RequiredAction.RESET_REQUIRED)
+            return _decision(request, True, requested, ReasonCode.ALLOWED, RequiredAction.NONE)
+        return _decision(request, False, current, ReasonCode.LOCKOUT_REQUIRED, RequiredAction.RESET_REQUIRED)
+    if not _has_canonical_transition_subject(request):
+        return _decision(request, False, current, ReasonCode.UNDEFINED_TRANSITION, RequiredAction.GOVERNANCE_REVIEW)
     if current is State.PAUSE and requested is State.READY:
         if not facts.readiness_preconditions_satisfied:
             return _decision(request, False, current, ReasonCode.READINESS_FACTS_MISSING, RequiredAction.GOVERNANCE_REVIEW)
@@ -251,18 +295,6 @@ def evaluate_transition(request: TransitionRequest) -> TransitionDecision:
         if not facts.cooldown_complete:
             return _decision(request, False, current, ReasonCode.COOLDOWN_FACT_MISSING, RequiredAction.GOVERNANCE_REVIEW)
         return _decision(request, True, requested, ReasonCode.ALLOWED, RequiredAction.NONE)
-    if current is State.LOCKOUT:
-        if (
-            requested is State.PAUSE
-            and request.transition_request is TransitionRequestName.LOCKOUT_TO_PAUSE
-        ):
-            reason = _authority_reason(request.authority_evidence)
-            if reason:
-                return _decision(request, False, current, ReasonCode.RESET_EVIDENCE_MISSING if reason is ReasonCode.AUTHORITY_MISSING else reason, RequiredAction.RESET_REQUIRED)
-            if not facts.reset_facts_explicit:
-                return _decision(request, False, current, ReasonCode.RESET_FACTS_MISSING, RequiredAction.RESET_REQUIRED)
-            return _decision(request, True, requested, ReasonCode.ALLOWED, RequiredAction.NONE)
-        return _decision(request, False, current, ReasonCode.LOCKOUT_REQUIRED, RequiredAction.RESET_REQUIRED)
     if request.transition_request is TransitionRequestName.ANY_TO_LOCKOUT:
         return _decision(request, False, current, ReasonCode.UNDEFINED_TRANSITION, RequiredAction.GOVERNANCE_REVIEW)
     return _decision(request, False, current, ReasonCode.UNDEFINED_TRANSITION, RequiredAction.GOVERNANCE_REVIEW)

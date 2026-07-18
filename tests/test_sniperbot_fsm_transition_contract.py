@@ -118,7 +118,87 @@ class SniperbotFsmTransitionContractTests(unittest.TestCase):
                 ],
                 {"const": False},
             )
-        self.assertEqual(guarded_lower_rules, 3)
+        self.assertEqual(guarded_lower_rules, 5)
+
+    def test_transition_request_coherence_schema_parity(self):
+        schema_path = (
+            Path(__file__).resolve().parents[1]
+            / "schemas"
+            / "sniperbot-fsm-transition-decision.schema.json"
+        )
+        schema = json.loads(schema_path.read_text(encoding="utf-8"))
+        subject_rules = schema["$defs"]["CanonicalTransitionSubject"]["oneOf"]
+        actual = {}
+        for rule in subject_rules:
+            properties = rule["properties"]
+            name = properties["transition_request"]["const"]
+            current = properties.get("current_state", {}).get("const")
+            requested = properties["requested_state"]["const"]
+            actual[name] = (current, requested)
+
+        self.assertEqual(
+            actual,
+            {
+                "PAUSE_TO_READY": ("PAUSE", "READY"),
+                "READY_TO_ARMED_MANUAL": ("READY", "ARMED_MANUAL"),
+                "READY_TO_ARMED_AUTO": ("READY", "ARMED_AUTO"),
+                "ARMED_AUTO_TO_IN_TRADE": ("ARMED_AUTO", "IN_TRADE"),
+                "ARMED_MANUAL_TO_IN_TRADE": ("ARMED_MANUAL", "IN_TRADE"),
+                "IN_TRADE_TO_READY": ("IN_TRADE", "READY"),
+                "IN_TRADE_TO_PAUSE": ("IN_TRADE", "PAUSE"),
+                "ANY_TO_LOCKOUT": (None, "LOCKOUT"),
+                "LOCKOUT_TO_PAUSE": ("LOCKOUT", "PAUSE"),
+            },
+        )
+
+        rules_by_description = {
+            rule.get("description"): rule for rule in schema["allOf"]
+        }
+        mismatch = rules_by_description[
+            "Closed transition request identifiers with non-canonical state "
+            "pairs are governed undefined transitions after higher-priority "
+            "branches."
+        ]
+        mismatch_request = mismatch["if"]["properties"]["request"]
+        self.assertEqual(
+            mismatch_request["not"],
+            {"$ref": "#/$defs/CanonicalTransitionSubject"},
+        )
+        self.assertEqual(
+            mismatch_request["properties"]["current_state"],
+            {"not": {"const": "LOCKOUT"}},
+        )
+        self.assertEqual(
+            mismatch_request["properties"]["external_facts"]["properties"][
+                "lockout_required"
+            ],
+            {"const": False},
+        )
+        expected_decision = {
+            "allowed": {"const": False},
+            "reason_code": {"const": "UNDEFINED_TRANSITION"},
+            "required_next_human_or_governance_action": {
+                "const": "GOVERNANCE_REVIEW"
+            },
+        }
+        self.assertEqual(
+            mismatch["then"]["properties"]["decision"]["properties"],
+            expected_decision,
+        )
+
+        any_without_lockout = rules_by_description[
+            "ANY_TO_LOCKOUT without an active lockout fact is a governed "
+            "undefined transition outside the current lockout gate."
+        ]
+        any_request = any_without_lockout["if"]["properties"]["request"]
+        self.assertEqual(
+            any_request["properties"]["transition_request"],
+            {"const": "ANY_TO_LOCKOUT"},
+        )
+        self.assertEqual(
+            any_without_lockout["then"]["properties"]["decision"]["properties"],
+            expected_decision,
+        )
 
     def test_denial_input_schema_boundary_parity(self):
         schema_path = (
@@ -506,6 +586,318 @@ class SniperbotFsmTransitionContractTests(unittest.TestCase):
             contradiction.required_next_human_or_governance_action,
             RequiredAction.HUMAN_REVIEW,
         )
+
+    def test_all_closed_transition_request_state_pair_combinations(self):
+        canonical_pairs = {
+            TransitionRequestName.PAUSE_TO_READY: {(State.PAUSE, State.READY)},
+            TransitionRequestName.READY_TO_ARMED_MANUAL: {
+                (State.READY, State.ARMED_MANUAL)
+            },
+            TransitionRequestName.READY_TO_ARMED_AUTO: {
+                (State.READY, State.ARMED_AUTO)
+            },
+            TransitionRequestName.ARMED_AUTO_TO_IN_TRADE: {
+                (State.ARMED_AUTO, State.IN_TRADE)
+            },
+            TransitionRequestName.ARMED_MANUAL_TO_IN_TRADE: {
+                (State.ARMED_MANUAL, State.IN_TRADE)
+            },
+            TransitionRequestName.IN_TRADE_TO_READY: {
+                (State.IN_TRADE, State.READY)
+            },
+            TransitionRequestName.IN_TRADE_TO_PAUSE: {
+                (State.IN_TRADE, State.PAUSE)
+            },
+            TransitionRequestName.ANY_TO_LOCKOUT: {
+                (state, State.LOCKOUT) for state in State
+            },
+            TransitionRequestName.LOCKOUT_TO_PAUSE: {
+                (State.LOCKOUT, State.PAUSE)
+            },
+        }
+        exact_outcomes = {
+            TransitionRequestName.PAUSE_TO_READY: (
+                True,
+                State.READY,
+                ReasonCode.ALLOWED,
+                RequiredAction.NONE,
+            ),
+            TransitionRequestName.READY_TO_ARMED_MANUAL: (
+                True,
+                State.ARMED_MANUAL,
+                ReasonCode.ALLOWED,
+                RequiredAction.NONE,
+            ),
+            TransitionRequestName.READY_TO_ARMED_AUTO: (
+                False,
+                State.READY,
+                ReasonCode.TRANSITION_FOUNDER_DENIED,
+                RequiredAction.FOUNDER_AUTHORITY_REQUIRED,
+            ),
+            TransitionRequestName.ARMED_AUTO_TO_IN_TRADE: (
+                True,
+                State.IN_TRADE,
+                ReasonCode.ALLOWED,
+                RequiredAction.NONE,
+            ),
+            TransitionRequestName.ARMED_MANUAL_TO_IN_TRADE: (
+                False,
+                State.ARMED_MANUAL,
+                ReasonCode.UNDEFINED_TRANSITION,
+                RequiredAction.GOVERNANCE_REVIEW,
+            ),
+            TransitionRequestName.IN_TRADE_TO_READY: (
+                False,
+                State.IN_TRADE,
+                ReasonCode.UNDEFINED_TRANSITION,
+                RequiredAction.GOVERNANCE_REVIEW,
+            ),
+            TransitionRequestName.IN_TRADE_TO_PAUSE: (
+                True,
+                State.PAUSE,
+                ReasonCode.ALLOWED,
+                RequiredAction.NONE,
+            ),
+            TransitionRequestName.LOCKOUT_TO_PAUSE: (
+                True,
+                State.PAUSE,
+                ReasonCode.ALLOWED,
+                RequiredAction.NONE,
+            ),
+        }
+        exact_fact_overrides = {
+            TransitionRequestName.PAUSE_TO_READY: {
+                "readiness_preconditions_satisfied": True
+            },
+            TransitionRequestName.ARMED_AUTO_TO_IN_TRADE: {
+                "confirmed_position_exists": True
+            },
+            TransitionRequestName.IN_TRADE_TO_PAUSE: {
+                "position_closed": True,
+                "cooldown_complete": True,
+            },
+            TransitionRequestName.LOCKOUT_TO_PAUSE: {
+                "reset_facts_explicit": True
+            },
+        }
+        counts = {
+            "canonical": 0,
+            "mismatched": 0,
+            "undefined_mismatch": 0,
+            "locked_mismatch": 0,
+        }
+
+        for current, requested, transition_name in itertools.product(
+            tuple(State), tuple(State), tuple(TransitionRequestName)
+        ):
+            canonical = (current, requested) in canonical_pairs[transition_name]
+            counts["canonical" if canonical else "mismatched"] += 1
+            evidence = (
+                authority()
+                if canonical
+                else authority(presence="ABSENT", currentness="STALE")
+            )
+            value = TransitionRequest(
+                current,
+                requested,
+                transition_name,
+                "coherence-matrix-ref",
+                facts(**(exact_fact_overrides.get(transition_name, {}) if canonical else {})),
+                evidence,
+            )
+            facts_before = value.external_facts
+            evidence_before = value.authority_evidence
+            first = evaluate_transition(value)
+            second = evaluate_transition(value)
+
+            if current is State.LOCKOUT:
+                if (
+                    requested is State.PAUSE
+                    and transition_name is TransitionRequestName.LOCKOUT_TO_PAUSE
+                ):
+                    expected = exact_outcomes[transition_name]
+                else:
+                    expected = (
+                        False,
+                        State.LOCKOUT,
+                        ReasonCode.LOCKOUT_REQUIRED,
+                        RequiredAction.RESET_REQUIRED,
+                    )
+                    if not canonical:
+                        counts["locked_mismatch"] += 1
+            elif not canonical:
+                expected = (
+                    False,
+                    current,
+                    ReasonCode.UNDEFINED_TRANSITION,
+                    RequiredAction.GOVERNANCE_REVIEW,
+                )
+                counts["undefined_mismatch"] += 1
+            elif transition_name is TransitionRequestName.ANY_TO_LOCKOUT:
+                expected = (
+                    False,
+                    current,
+                    ReasonCode.UNDEFINED_TRANSITION,
+                    RequiredAction.GOVERNANCE_REVIEW,
+                )
+            else:
+                expected = exact_outcomes[transition_name]
+
+            with self.subTest(
+                current=current,
+                requested=requested,
+                transition_name=transition_name,
+            ):
+                self.assertEqual(
+                    (
+                        first.allowed,
+                        first.resulting_state,
+                        first.reason_code,
+                        first.required_next_human_or_governance_action,
+                    ),
+                    expected,
+                )
+                self.assertEqual(first.current_state, current)
+                self.assertEqual(first.requested_state, requested)
+                self.assertEqual(
+                    first.correlation_reference,
+                    "coherence-matrix-ref",
+                )
+                self.assertEqual(first, second)
+                self.assertIsNot(first, second)
+                self.assertIs(value.external_facts, facts_before)
+                self.assertIs(value.authority_evidence, evidence_before)
+
+        self.assertEqual(
+            counts,
+            {
+                "canonical": 14,
+                "mismatched": 310,
+                "undefined_mismatch": 258,
+                "locked_mismatch": 52,
+            },
+        )
+
+    def test_all_32_formerly_allowed_mismatches_are_governed_denials(self):
+        formerly_allowed = (
+            (
+                State.PAUSE,
+                State.READY,
+                TransitionRequestName.PAUSE_TO_READY,
+                {"readiness_preconditions_satisfied": True},
+            ),
+            (
+                State.READY,
+                State.ARMED_MANUAL,
+                TransitionRequestName.READY_TO_ARMED_MANUAL,
+                {},
+            ),
+            (
+                State.ARMED_AUTO,
+                State.IN_TRADE,
+                TransitionRequestName.ARMED_AUTO_TO_IN_TRADE,
+                {"confirmed_position_exists": True},
+            ),
+            (
+                State.IN_TRADE,
+                State.PAUSE,
+                TransitionRequestName.IN_TRADE_TO_PAUSE,
+                {"position_closed": True, "cooldown_complete": True},
+            ),
+        )
+        checked = 0
+        for current, requested, canonical_name, fact_values in formerly_allowed:
+            for supplied_name in TransitionRequestName:
+                if supplied_name is canonical_name:
+                    continue
+                value = TransitionRequest(
+                    current,
+                    requested,
+                    supplied_name,
+                    "formerly-allowed-ref",
+                    facts(**fact_values),
+                    authority(),
+                )
+                decision = evaluate_transition(value)
+                with self.subTest(
+                    current=current,
+                    requested=requested,
+                    supplied_name=supplied_name,
+                ):
+                    self.assertFalse(decision.allowed)
+                    self.assertEqual(decision.resulting_state, current)
+                    self.assertEqual(
+                        decision.reason_code,
+                        ReasonCode.UNDEFINED_TRANSITION,
+                    )
+                    self.assertEqual(
+                        decision.required_next_human_or_governance_action,
+                        RequiredAction.GOVERNANCE_REVIEW,
+                    )
+                    self.assertEqual(
+                        decision.correlation_reference,
+                        "formerly-allowed-ref",
+                    )
+                checked += 1
+        self.assertEqual(checked, 32)
+
+    def test_transition_request_coherence_precedence(self):
+        mismatch_with_failed_prerequisite = TransitionRequest(
+            State.PAUSE,
+            State.READY,
+            TransitionRequestName.READY_TO_ARMED_MANUAL,
+            "prerequisite-ref",
+            facts(readiness_preconditions_satisfied=False),
+            authority(),
+        )
+        mismatch_with_authority_collision = TransitionRequest(
+            State.READY,
+            State.ARMED_MANUAL,
+            TransitionRequestName.PAUSE_TO_READY,
+            "authority-ref",
+            facts(),
+            authority(presence="ABSENT", currentness="STALE"),
+        )
+        mismatch_with_contradiction = replace(
+            mismatch_with_failed_prerequisite,
+            correlation_reference="contradiction-ref",
+            external_facts=facts(
+                confirmed_position_exists=True,
+                position_closed=True,
+            ),
+        )
+        mismatch_with_forced_lockout = replace(
+            mismatch_with_failed_prerequisite,
+            correlation_reference="forced-ref",
+            external_facts=facts(lockout_required=True),
+        )
+
+        for value in (
+            mismatch_with_failed_prerequisite,
+            mismatch_with_authority_collision,
+        ):
+            decision = evaluate_transition(value)
+            self.assertEqual(decision.reason_code, ReasonCode.UNDEFINED_TRANSITION)
+            self.assertEqual(
+                decision.required_next_human_or_governance_action,
+                RequiredAction.GOVERNANCE_REVIEW,
+            )
+        contradiction = evaluate_transition(mismatch_with_contradiction)
+        self.assertEqual(
+            contradiction.reason_code,
+            ReasonCode.AMBIGUOUS_OR_CONTRADICTORY_INPUT,
+        )
+        forced = evaluate_transition(mismatch_with_forced_lockout)
+        self.assertEqual(forced.reason_code, ReasonCode.LOCKOUT_REQUIRED)
+        self.assertEqual(forced.resulting_state, State.LOCKOUT)
+
+        with self.assertRaises(TypeError):
+            evaluate_transition(
+                replace(
+                    mismatch_with_forced_lockout,
+                    transition_request="READY_TO_ARMED_MANUAL",
+                )
+            )
 
     def test_forced_lockout_is_absolute_across_closed_request_identifiers(self):
         for current, requested, transition_name in itertools.product(
