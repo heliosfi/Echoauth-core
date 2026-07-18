@@ -468,16 +468,28 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   does not represent full Canonical FSM or Stage 2 completion. It grants no
   Stage 3, integration, runtime, deployment, execution, or live-money authority.
 * `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-canonical-fsm-semantic-repair-implementation-evidence-acceptance.md`
-  - Current superseding Canonical FSM Semantic-Repair Implementation-Evidence
+  - Prior superseding Canonical FSM Semantic-Repair Implementation-Evidence
   Acceptance, published at commit
   `ffc737d3162d18e703d9a9e1fd9ada6b7726ba5c`. Accepts the independently
   revalidated full semantic-repair evidence chain while preserving the
   historical acceptance as history and the coherence acceptance as bounded
-  supplementary evidence. This evidence acceptance does not declare
-  implementation, Stage 2, live-money, or deployment readiness and grants no
+  supplementary evidence. It is preserved as lineage and superseded for
+  current repaired-chain conformance by the post-repair independent
+  implementation-evidence acceptance. This evidence acceptance grants no
   integration, orchestration, runtime, execution, Stage 2 completion, or Stage
-  3 authority. Stage 2 remains HOLD with ESCALATE elements; Stage 3 remains
-  unentered and unauthorized.
+  3 authority.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-canonical-fsm-post-repair-implementation-evidence-acceptance.md`
+  - Current superseding Canonical FSM Post-Repair Independent Implementation-
+  Evidence Acceptance, published at authoritative checkpoint
+  `ac1cb28b656f2bcef415025f416bfaeee80dfeff`. Records closure of the null-
+  authority discrepancy and accepts the repaired Canonical FSM with `0`
+  remaining substantive discrepancies while preserving every historical
+  checkpoint and acceptance as lineage. Stage 2 remains HOLD pending a
+  separate founder-authorized read-only Advancement Gate evaluation. Stage 3
+  remains unentered and unauthorized. The exact next dependency is that
+  separate read-only Advancement Gate evaluation. This indexing grants no
+  integration, orchestration, deployment, execution, live-money, Stage 2
+  completion, or Stage 3 authority.
 * `docs/control-gates/echoauth-safety-before-identity-alignment-review.md` -
   EchoAuth Safety-Before-Identity Alignment Review. Records the core rule
   "Safety first, identity after safety is confirmed." as docs-only governance
