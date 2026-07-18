@@ -6105,8 +6105,9 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   founder-decision-record-only / non-runtime / non-execution; Stage 2 remains
   HOLD and Stage 3 remains unentered and unauthorized.
 * `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-crypto-deferral-no-action-implementation-evidence-acceptance.md` -
-  SniperBot Stage 2 Crypto Deferral / No-Action Implementation-Evidence
-  Acceptance. Accepts evidence at `93bd254ab695a3de0b7994fca78a62d5662757e0`
+  Historical SniperBot Stage 2 Crypto Deferral / No-Action
+  Implementation-Evidence Acceptance. Preserves the evidence accepted at
+  `93bd254ab695a3de0b7994fca78a62d5662757e0`
   and `8250816dac7bdf7786e039a4a1a1a4d52cf79ea9` only for the pure evaluator,
   exact 12-symbol API, frozen structures, closed vocabularies, strict typed
   boundaries, deterministic 20-step behavior, three governed undefined
@@ -6116,7 +6117,26 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   market-data, trading, execution, runtime, neighboring-subject, or Stage 3
   authority. Documentation-only / governance-only / acceptance-record-only /
   non-runtime / non-execution; Stage 2 remains HOLD and Stage 3 remains
-  unentered and unauthorized.
+  unentered and unauthorized. Its implementation-evidence conclusion is
+  superseded only for the repaired strict-reference issue by the current
+  post-repair acceptance below; the historical artifact remains audit lineage.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-crypto-deferral-no-action-post-repair-implementation-evidence-acceptance.md` -
+  Current authoritative SniperBot Stage 2 Crypto Deferral / No-Action
+  Post-Repair Implementation-Evidence Acceptance. The rolling checkpoint is
+  `7e814861b252449866046e7598af490e831a4698`, with lineage from the pre-repair
+  checkpoint `0f461bf1d2c326629578dcb98eed6689efe59f68`, implementation repair
+  `3519a9fa4db3abe21b3f2e0b9d412a1adad8328b`, direct-evidence completion
+  `ee2d2384d3aba02072a7d43df4e6b7946332e101`, and post-repair acceptance
+  `7e814861b252449866046e7598af490e831a4698`.
+
+  Status: `CDEF-REF-01`: CLOSED; `CDEF-REF-02`: CLOSED; `CDEF-REF-03`: CLOSED;
+  `CDEF-REF-04`: CLOSED; `CDEF-REF-05`: CLOSED; `CDEF-REF-06`: CLOSED; and
+  `CDEF-REF-07`: CLOSED BY THIS DOCUMENTATION SYNCHRONIZATION.
+
+  Stage 2 remains HOLD, and the Advancement Gate has not been satisfied.
+  Stage 3 remains unentered and UNAUTHORIZED. This current evidence record
+  creates no integration, orchestration, runtime, deployment, execution,
+  production, or live-money authority and does not modify the Advancement Gate.
 * `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-asset-class-eligibility-exclusion-contract-definition-review.md` -
   SniperBot Stage 2 Asset-Class Eligibility / Exclusion Contract Definition
   Review. Defines the bounded descriptive classifier subject, its separation
