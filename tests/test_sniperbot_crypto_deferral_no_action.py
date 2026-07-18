@@ -303,6 +303,114 @@ class CryptoDeferralNoActionTests(unittest.TestCase):
                         with self.assertRaises(ValueError):
                             factory(**{field: value})
 
+    def test_all_six_opaque_reference_surfaces_reject_invalid_runtime_values(self):
+        invalid_values = (
+            None,
+            False,
+            True,
+            0,
+            1,
+            0.0,
+            1.5,
+            b"reference",
+            [],
+            ["reference"],
+            (),
+            ("reference",),
+            {},
+            {"reference": "value"},
+            set(),
+            {"reference"},
+            object(),
+            "",
+        )
+        for value in invalid_values:
+            for field in ("crypto_reference", "correlation_reference"):
+                with self.subTest(surface=f"CryptoRequest.{field}", value=value):
+                    with self.assertRaises(ValueError):
+                        evaluate(make(**{field: value}))
+
+            with self.subTest(
+                surface="GenericAssetClassContext.context_reference", value=value
+            ):
+                with self.assertRaises(ValueError):
+                    evaluate(
+                        make(
+                            generic_asset_class_context=generic(
+                                context_reference=value
+                            )
+                        )
+                    )
+
+            with self.subTest(surface="AuthorityEvidence.evidence_reference", value=value):
+                with self.assertRaises(ValueError):
+                    evaluate(
+                        make(authority_evidence=authority(evidence_reference=value))
+                    )
+
+            for field_index, field in (
+                (0, "crypto_reference"),
+                (4, "correlation_reference"),
+            ):
+                decision_values = [
+                    "crypto-ref",
+                    Outcome.NO_ACTION,
+                    ReasonCode.NO_ACTION_REQUIRED,
+                    RequiredAction.NONE,
+                    "correlation-ref",
+                ]
+                decision_values[field_index] = value
+                with self.subTest(surface=f"Decision.{field}", value=value):
+                    with self.assertRaises(ValueError):
+                        Decision(*decision_values)
+
+    def test_non_empty_references_match_schema_and_are_preserved_exactly(self):
+        schema = json.loads(
+            Path("schemas/sniperbot-crypto-deferral-no-action-decision.schema.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        definitions = schema["$defs"]
+        reference_schemas = (
+            definitions["Request"]["properties"]["crypto_reference"],
+            definitions["Request"]["properties"]["correlation_reference"],
+            definitions["GenericAssetClassContext"]["properties"]["context_reference"],
+            definitions["AuthorityEvidence"]["properties"]["evidence_reference"],
+            definitions["Decision"]["properties"]["crypto_reference"],
+            definitions["Decision"]["properties"]["correlation_reference"],
+        )
+        for reference_schema in reference_schemas:
+            self.assertEqual(reference_schema["type"], "string")
+            self.assertEqual(reference_schema["minLength"], 1)
+
+        for value in ("opaque-reference", "   ", "\t"):
+            with self.subTest(value=value):
+                context = generic(context_reference=value)
+                evidence = authority(evidence_reference=value)
+                request = make(
+                    crypto_reference=value,
+                    correlation_reference=value,
+                    generic_asset_class_context=context,
+                    authority_evidence=evidence,
+                )
+                decision = evaluate(request)
+                direct_decision = Decision(
+                    value,
+                    Outcome.NO_ACTION,
+                    ReasonCode.NO_ACTION_REQUIRED,
+                    RequiredAction.NONE,
+                    value,
+                )
+
+                self.assertEqual(context.context_reference, value)
+                self.assertEqual(evidence.evidence_reference, value)
+                self.assertEqual(request.crypto_reference, value)
+                self.assertEqual(request.correlation_reference, value)
+                self.assertEqual(decision.crypto_reference, value)
+                self.assertEqual(decision.correlation_reference, value)
+                self.assertEqual(direct_decision.crypto_reference, value)
+                self.assertEqual(direct_decision.correlation_reference, value)
+
     def test_raw_enum_and_typed_decision_rejection(self):
         with self.assertRaises(ValueError):
             generic(asset_class="CRYPTO")

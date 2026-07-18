@@ -86,7 +86,9 @@ class GenericAssetClassContext:
         for name in ("current", "contradictory", "in_scope"):
             if not isinstance(getattr(self, name), bool):
                 raise ValueError(f"{name} must be a boolean")
-        if not self.context_reference:
+        if not (
+            isinstance(self.context_reference, str) and len(self.context_reference) > 0
+        ):
             raise ValueError("context_reference is required")
 
 
@@ -105,7 +107,9 @@ class AuthorityEvidence:
         for name in ("current", "revoked", "contradictory", "in_scope"):
             if not isinstance(getattr(self, name), bool):
                 raise ValueError(f"{name} must be a boolean")
-        if not self.evidence_reference:
+        if not (
+            isinstance(self.evidence_reference, str) and len(self.evidence_reference) > 0
+        ):
             raise ValueError("evidence_reference is required")
 
 
@@ -126,7 +130,12 @@ class CryptoRequest:
     authority_evidence: AuthorityEvidence | None = None
 
     def __post_init__(self) -> None:
-        if not self.crypto_reference or not self.correlation_reference:
+        if not (
+            isinstance(self.crypto_reference, str)
+            and len(self.crypto_reference) > 0
+            and isinstance(self.correlation_reference, str)
+            and len(self.correlation_reference) > 0
+        ):
             raise ValueError("opaque references are required")
         for name in (
             "crypto_evidence_present",
@@ -172,7 +181,12 @@ class Decision:
             or self.required_action not in _EMITTABLE_ACTIONS
         ):
             raise ValueError("required action is not emittable by this subject")
-        if not self.crypto_reference or not self.correlation_reference:
+        if not (
+            isinstance(self.crypto_reference, str)
+            and len(self.crypto_reference) > 0
+            and isinstance(self.correlation_reference, str)
+            and len(self.correlation_reference) > 0
+        ):
             raise ValueError("opaque references are required")
 
 
