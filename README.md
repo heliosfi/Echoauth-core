@@ -12,19 +12,18 @@ Nicholas B. Carty
 
 ## SniperBot Stage 2 Status
 
-The current authoritative Crypto Deferral / No-Action implementation-evidence
-record is
-`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-crypto-deferral-no-action-post-repair-implementation-evidence-acceptance.md`
-at checkpoint `7e814861b252449866046e7598af490e831a4698`.
+Bounded Stage 2 construction is formally certified complete by:
 
-That post-repair acceptance supersedes the implementation-evidence conclusion
-of the historical Crypto Deferral / No-Action implementation-evidence
-acceptance only for the repaired strict-reference issue. The historical
-acceptance remains preserved as audit lineage.
+`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-completion-certification.md`
 
-CDEF-REF-01 through CDEF-REF-06 are closed. CDEF-REF-07 is closed by this
-documentation synchronization.
+The completion certification was published at checkpoint:
 
-Stage 2 remains **HOLD**. The Advancement Gate has not been satisfied. Stage 3
-remains unentered and unauthorized. No integration, orchestration, deployment,
-execution, runtime-expansion, or live-money authority exists.
+`3be40c9835372ee1afd1e9c878c2be774f7f4e58`
+
+The certification records that all ten Stage 2 evaluator lanes have current formal evidence acceptance, all sixteen historical substantive findings and both repair-sequence findings are resolved, no substantive cross-lane discrepancy remains, and the canonical validation suite records 566 tests passing.
+
+This is construction-completion certification only. It is not formal Stage 2 closure, an Advancement Gate pass, Stage 3 entry, repository-separation authority, implementation authority, runtime authority, deployment authority, trading authority, or live-money readiness certification.
+
+Stage 2 remains **HOLD** pending the separate closure-governance sequence. The Advancement Gate remains **FAIL**. Stage 3 remains **UNENTERED AND UNAUTHORIZED**. No integration, orchestration, deployment, execution, runtime expansion, broker access, market-data access, credential use, paper trading, simulation, live trading, funding movement, or autonomous action is authorized.
+
+The next eligible governed action after this synchronization is a separate closure-authority review and decision.
