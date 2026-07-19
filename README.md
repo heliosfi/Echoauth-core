@@ -12,18 +12,18 @@ Nicholas B. Carty
 
 ## SniperBot Stage 2 Status
 
-Bounded Stage 2 construction is formally certified complete by:
+SniperBot Live-Money Readiness Ladder Stage 2 is formally closed by:
 
-`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-completion-certification.md`
+`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-formal-closure-record.md`
 
-The completion certification was published at checkpoint:
+The formal closure record was published at checkpoint:
 
-`3be40c9835372ee1afd1e9c878c2be774f7f4e58`
+`08042c5215309dc1f207997617bcfadef0850532`
 
-The certification records that all ten Stage 2 evaluator lanes have current formal evidence acceptance, all sixteen historical substantive findings and both repair-sequence findings are resolved, no substantive cross-lane discrepancy remains, and the canonical validation suite records 566 tests passing.
+The closure rests on the previously accepted Stage 2 evidence, completion certification, synchronization record, and closure-authority decision. It records that all ten Stage 2 evaluator lanes have current formal evidence acceptance, all sixteen historical substantive findings and both repair-sequence findings are resolved, no substantive cross-lane discrepancy remains, and the canonical validation suite records 566 tests passing.
 
-This is construction-completion certification only. It is not formal Stage 2 closure, an Advancement Gate pass, Stage 3 entry, repository-separation authority, implementation authority, runtime authority, deployment authority, trading authority, or live-money readiness certification.
+Formal Stage 2 closure is a documentation-only governance state. It is not an Advancement Gate pass, Stage 3 entry, repository-separation authority, implementation authority, runtime authority, deployment authority, trading authority, or live-money readiness certification.
 
-Stage 2 remains **HOLD** pending the separate closure-governance sequence. The Advancement Gate remains **FAIL**. Stage 3 remains **UNENTERED AND UNAUTHORIZED**. No integration, orchestration, deployment, execution, runtime expansion, broker access, market-data access, credential use, paper trading, simulation, live trading, funding movement, or autonomous action is authorized.
+Stage 2 is **FORMALLY CLOSED**. The Advancement Gate remains **FAIL**. Stage 3 remains **UNENTERED AND UNAUTHORIZED**. No integration, orchestration, deployment, execution, runtime expansion, broker access, market-data access, credential use, paper trading, simulation, live trading, funding movement, repository separation, or autonomous action is authorized.
 
-The next eligible governed action after this synchronization is a separate closure-authority review and decision.
+Any post-closure movement requires a separate explicit governed lane and authority record. Silence, closure, repository cleanliness, or documentation completion does not authorize Stage 3 or capability expansion.
