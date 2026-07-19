@@ -27,3 +27,7 @@ Formal Stage 2 closure is a documentation-only governance state. It is not an Ad
 Stage 2 is **FORMALLY CLOSED**. The Advancement Gate remains **FAIL**. Stage 3 remains **UNENTERED AND UNAUTHORIZED**. No integration, orchestration, deployment, execution, runtime expansion, broker access, market-data access, credential use, paper trading, simulation, live trading, funding movement, repository separation, or autonomous action is authorized.
 
 Any post-closure movement requires a separate explicit governed lane and authority record. Silence, closure, repository cleanliness, or documentation completion does not authorize Stage 3 or capability expansion.
+
+## Conceptual Architecture
+
+* [SniperBot Market Intelligence, Governance, Execution, and Learning Relationship](docs/architecture/sniperbot-market-intelligence-governance-execution-learning-relationship.md) -- canonical conceptual relationship only; documentation-only and non-authorizing.
