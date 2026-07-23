@@ -26,6 +26,21 @@ Formal Stage 2 closure is a documentation-only governance state. It is not an Ad
 
 Stage 2 is **FORMALLY CLOSED**. The Advancement Gate remains **FAIL**. Stage 3 remains **UNENTERED AND UNAUTHORIZED**. No integration, orchestration, deployment, execution, runtime expansion, broker access, market-data access, credential use, paper trading, simulation, live trading, funding movement, repository separation, or autonomous action is authorized.
 
+The original single-use Stage 2 Advancement Gate re-evaluation task order,
+`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-task-order.md`
+(`SNIPERBOT-STAGE2-ADVANCEMENT-GATE-REEVALUATION-TASK-ORDER-E96DCBB`),
+was consumed by a substantive `FAIL`. Because that order authorized reported
+output rather than a standalone result artifact, its durable disposition is
+`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-repository-boundary-and-disposition-decision.md`.
+That result was not a procedural `BLOCKED` determination. The later fresh-
+reentry task order also completed substantively with `FAIL`; its disposition
+is
+`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-fresh-reentry-fail-disposition-record.md`.
+The canonical-index dependency identified by that latest re-evaluation is
+repaired by the publication that adds these references. This repair does not
+re-evaluate or pass the Advancement Gate and creates no Stage 3,
+implementation, runtime, deployment, trading, or live-execution authority.
+
 Any post-closure movement requires a separate explicit governed lane and authority record. Silence, closure, repository cleanliness, or documentation completion does not authorize Stage 3 or capability expansion.
 
 ## Conceptual Architecture

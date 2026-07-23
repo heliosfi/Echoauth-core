@@ -299,6 +299,30 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   permission, and any HOLD-trigger resolution work, ESCALATE-element
   resolution work, Stage 3 entry, or downstream capability movement
   requires a separate explicit founder-selected bounded task order.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-task-order.md`
+  - Original single-use SniperBot Stage 2 Advancement Gate read-only
+  re-evaluation task order, identity
+  `SNIPERBOT-STAGE2-ADVANCEMENT-GATE-REEVALUATION-TASK-ORDER-E96DCBB`.
+  The order was validly consumed by one substantive `FAIL`, not by a
+  procedural `BLOCKED` result. It authorized reported output rather than a
+  standalone gate-result artifact and remains expired and non-replayable.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-repository-boundary-and-disposition-decision.md`
+  - Durable repository disposition for the original consumed substantive
+  `FAIL`. Records the relationship between the original task order, its
+  reported result, the failed findings, and the governed disposition sequence.
+  It is the authoritative original `FAIL` disposition path because the
+  consumed order did not authorize a separate result artifact.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-fresh-reentry-fail-disposition-record.md`
+  - Formal disposition of the consumed fresh-reentry task order
+  `SNIPERBOT-STAGE2-ADVANCEMENT-GATE-REEVALUATION-FRESH-REENTRY-TASK-ORDER-21B6D57`.
+  Records its substantive `FAIL` at checkpoint
+  `a298dd1bbbd0f12b3033898e173989e037f7ff0d`, the sole unresolved canonical-
+  index dependency, and repair of that dependency through the publication
+  adding these canonical references. Stage 2 remains formally closed; the
+  Advancement Gate remains `FAIL` unless a later separately authorized
+  re-evaluation determines otherwise; Stage 3 remains unentered and
+  unauthorized; and implementation, runtime, deployment, trading, and live-
+  execution authority remain none.
 * `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-founder-approval-artifact-requirements-currentness-validation-review.md`
   - SniperBot Live-Money Readiness Ladder Stage 2 Founder Approval
   Artifact Requirements Currentness-Validation Review. Addresses only
