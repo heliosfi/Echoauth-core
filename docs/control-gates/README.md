@@ -323,6 +323,33 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   re-evaluation determines otherwise; Stage 3 remains unentered and
   unauthorized; and implementation, runtime, deployment, trading, and live-
   execution authority remain none.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-post-index-repair-reentry-blocked-disposition-record.md`
+  - Formal disposition of the consumed post-index-repair re-entry task order
+  `SNIPERBOT-STAGE2-ADVANCEMENT-GATE-POST-INDEX-REPAIR-REENTRY-TASK-ORDER-c65571f0a834519be63d391e492d464f903d2f3c`.
+  Records its procedural `BLOCKED` result caused by the attempted evaluator
+  being the same construction/publication context and therefore unable to
+  affirm fresh-session independence. No substantive Advancement Gate
+  re-evaluation occurred, no `PASS` or substantive `FAIL` was reached, and the
+  consumed order remains expired and non-replayable.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-post-blocked-replacement-founder-authorization-record.md`
+  - Founder authorization record for exactly one replacement single-use
+  read-only Advancement Gate re-evaluation task order after the procedural
+  `BLOCKED` disposition. Preserves Stage 2 formal closure, the prior
+  substantive `FAIL`, canonical-index repair, and the absence of Stage 3,
+  implementation, source-code, schema, test, CI, validator, LocalOps, Event
+  Bus, runtime, deployment, broker, Robinhood, market-data, paper-trading,
+  live-trading, funding, capital-movement, autonomous-action, and
+  command-execution authority.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-post-blocked-replacement-task-order.md`
+  - Replacement single-use read-only Advancement Gate re-evaluation task
+  order, identity
+  `SNIPERBOT-STAGE2-ADVANCEMENT-GATE-POST-BLOCKED-REPLACEMENT-TASK-ORDER-68fab5ec492443edcc97e074552b075f05ea9443`.
+  Bound to the commit that first publishes the three replacement recovery
+  records, requires clean synchronized execution-time verification across
+  local `HEAD`, `origin/main`, and live remote `main`, preserves the closed
+  `PASS` / `FAIL` / `BLOCKED` vocabulary, prohibits repository mutation during
+  evaluation, disqualifies the publishing task from execution, and remains
+  issued but unexecuted.
 * `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-founder-approval-artifact-requirements-currentness-validation-review.md`
   - SniperBot Live-Money Readiness Ladder Stage 2 Founder Approval
   Artifact Requirements Currentness-Validation Review. Addresses only

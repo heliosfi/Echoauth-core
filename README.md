@@ -41,6 +41,21 @@ repaired by the publication that adds these references. This repair does not
 re-evaluate or pass the Advancement Gate and creates no Stage 3,
 implementation, runtime, deployment, trading, or live-execution authority.
 
+The post-index-repair re-entry task order,
+`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-post-index-repair-reentry-task-order.md`
+(`SNIPERBOT-STAGE2-ADVANCEMENT-GATE-POST-INDEX-REPAIR-REENTRY-TASK-ORDER-c65571f0a834519be63d391e492d464f903d2f3c`),
+was consumed by a procedural `BLOCKED` result because the attempted evaluator
+was the same construction/publication context and could not affirm
+fresh-session independence. Its disposition is
+`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-post-index-repair-reentry-blocked-disposition-record.md`.
+No substantive Advancement Gate re-evaluation occurred, and no `PASS` or
+substantive `FAIL` was reached under that order. A replacement read-only task
+order is issued at
+`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-post-blocked-replacement-task-order.md`
+and remains unexecuted. The replacement order creates no Stage 3,
+implementation, runtime, deployment, broker, trading, funding,
+live-execution, autonomous-action, or command-execution authority.
+
 Any post-closure movement requires a separate explicit governed lane and authority record. Silence, closure, repository cleanliness, or documentation completion does not authorize Stage 3 or capability expansion.
 
 ## Conceptual Architecture
