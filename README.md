@@ -24,7 +24,12 @@ The closure rests on the previously accepted Stage 2 evidence, completion certif
 
 Formal Stage 2 closure is a documentation-only governance state. It is not an Advancement Gate pass, Stage 3 entry, repository-separation authority, implementation authority, runtime authority, deployment authority, trading authority, or live-money readiness certification.
 
-Stage 2 is **FORMALLY CLOSED**. The Advancement Gate remains **FAIL**. Stage 3 remains **UNENTERED AND UNAUTHORIZED**. No integration, orchestration, deployment, execution, runtime expansion, broker access, market-data access, credential use, paper trading, simulation, live trading, funding movement, repository separation, or autonomous action is authorized.
+Stage 2 is **FORMALLY CLOSED**. The Advancement Gate is **PASSED** by the
+successful independent read-only re-evaluation recorded below. Stage 3 remains
+**UNENTERED AND UNAUTHORIZED**. No integration, orchestration, deployment,
+execution, runtime expansion, broker access, market-data access, credential
+use, paper trading, simulation, live trading, funding movement, repository
+separation, or autonomous action is authorized.
 
 The original single-use Stage 2 Advancement Gate re-evaluation task order,
 `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-task-order.md`
@@ -52,9 +57,15 @@ No substantive Advancement Gate re-evaluation occurred, and no `PASS` or
 substantive `FAIL` was reached under that order. A replacement read-only task
 order is issued at
 `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-post-blocked-replacement-task-order.md`
-and remains unexecuted. The replacement order creates no Stage 3,
-implementation, runtime, deployment, broker, trading, funding,
-live-execution, autonomous-action, or command-execution authority.
+and was consumed by a successful independent read-only re-evaluation. The
+`PASS` disposition is permanently recorded at
+`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-pass-disposition-record.md`,
+and completion is recorded at
+`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-pass-completion-record.md`.
+The Advancement Gate is passed, the replacement order is exhausted, and Stage
+2 governance is complete. No Stage 3, implementation, runtime, deployment,
+broker, trading, funding, live-execution, autonomous-action, or
+command-execution authority is created or implied.
 
 Any post-closure movement requires a separate explicit governed lane and authority record. Silence, closure, repository cleanliness, or documentation completion does not authorize Stage 3 or capability expansion.
 

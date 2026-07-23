@@ -348,8 +348,24 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   records, requires clean synchronized execution-time verification across
   local `HEAD`, `origin/main`, and live remote `main`, preserves the closed
   `PASS` / `FAIL` / `BLOCKED` vocabulary, prohibits repository mutation during
-  evaluation, disqualifies the publishing task from execution, and remains
-  issued but unexecuted.
+  evaluation, and disqualifies the publishing task from execution. The order
+  was consumed and exhausted by the successful independent read-only
+  re-evaluation recorded by the PASS disposition and completion records below.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-pass-disposition-record.md`
+  - Permanent disposition of the successful independent read-only Advancement
+  Gate re-evaluation performed under the post-`BLOCKED` replacement task
+  order. Records the `PASS`, confirms all execution-time preconditions and
+  independence requirements were satisfied, preserves the prior substantive
+  `FAIL` and procedural `BLOCKED` as historical lineage, records consumption
+  of the replacement order, and preserves the absence of all Stage 3,
+  implementation, runtime, deployment, broker, trading, funding, autonomous,
+  and command-execution authority.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-pass-completion-record.md`
+  - Records completion of the successful evaluation, acceptance of the `PASS`,
+  exhaustion of the replacement task order, and completion of Stage 2
+  governance. Future movement requires separate explicit founder authority;
+  no authority is inferred from the gate result, completion, publication,
+  indexing, synchronization, or repository cleanliness.
 * `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-founder-approval-artifact-requirements-currentness-validation-review.md`
   - SniperBot Live-Money Readiness Ladder Stage 2 Founder Approval
   Artifact Requirements Currentness-Validation Review. Addresses only
