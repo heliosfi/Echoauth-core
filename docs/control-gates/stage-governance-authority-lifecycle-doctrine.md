@@ -2,9 +2,9 @@
 
 ## Status and Effect
 
-**CANONICAL AUTHORITY LIFECYCLE DEFINED -- DOCUMENTATION ONLY -- GOVERNANCE
-ONLY -- NO IMPLEMENTATION, TRANSFER, RUNTIME, DEPLOYMENT, OPERATIONAL, OR
-STAGE 4 AUTHORITY**
+**CANONICAL AUTHORITY LIFECYCLE HIERARCHY CORRECTED -- DOCUMENTATION ONLY --
+GOVERNANCE ONLY -- NO IMPLEMENTATION, TRANSFER, RUNTIME, DEPLOYMENT,
+OPERATIONAL, OR STAGE 4 AUTHORITY**
 
 This doctrine consolidates the repository-established lifecycle of governing
 authority for all future stages within the governed architecture.
@@ -15,28 +15,42 @@ single-use authority exhaustion. Before this record, those rules were
 distributed across stage-specific records and task-order contracts. No one
 current doctrine named and defined the complete lifecycle.
 
+Founder Order 9B corrects only the doctrine's hierarchy. The canonical
+top-level stage lifecycle is exactly `ENTRY`, `IMPORTANT ACTS`, and `EXIT`.
+Operation within a stage and independent acceptance are governed functions
+inside that hierarchy. Authority consumption and exhaustion are cross-cutting
+authority controls, not additional stage-lifecycle phases.
+
 This record makes that existing pattern canonical. It does not revise,
-invalidate, reopen, supersede, or redesign any existing governing decision.
-When an applicable stage, authority, task-order, acceptance, or closure
-contract is more specific, that contract continues to control its exact lane.
+invalidate, reopen, supersede, or redesign any prior stage decision. When an
+applicable stage, authority, task-order, acceptance, or closure contract is
+more specific, that contract continues to control its exact lane.
 
 ## Record Identity and Authority
 
 - Founder: Nicholas Carty
-- Authorized lane: Founder Order 9A, Stage Governance Lifecycle Doctrine
-  Definition Review
+- Foundational publication authority: Founder Order 9A, Stage Governance
+  Lifecycle Doctrine Definition Review
+- Hierarchy-correction authority: Founder Order 9B, Stage Governance
+  Authority Lifecycle Doctrine Hierarchy Correction
 - Repository: `heliosfi/Echoauth-core`
 - Branch: `main`
-- Exact starting checkpoint:
+- Order 9A starting checkpoint:
   `0d3b48e7090401fbb6953efab9c600ee8e61a9d9`
+- Order 9B exact starting checkpoint:
+  `2c90a317c4729d006855a644cd4fe027fa9c5308`
+- Order 9B source-doctrine blob:
+  `71d4a286e87095edb3558d49f6c90e604aa6b4d8`
 - Related governed repository: `heliosfi/SniperBot`
 - Exact reviewed SniperBot checkpoint:
   `0e3676d0ba12b3d16e2661d9658df02d3b1f8348`
 - Exact authorized output:
   `docs/control-gates/stage-governance-authority-lifecycle-doctrine.md`
-- Output operation: create one documentation-only governance file
-- Authority status: single-use, non-transferable, non-expandable, and
-  exhausted after publication and verification
+- Output operation: modify only the existing doctrine to correct its
+  hierarchy; create no second doctrine
+- Order 9A authority status: consumed and exhausted
+- Order 9B authority status: single-use, non-transferable, non-expandable,
+  and exhausted after publication and verification
 
 ## Repository-Grounded Basis
 
@@ -104,20 +118,29 @@ The lifecycle is governed by these repository-established rules:
 
 The canonical stage-governance lifecycle is:
 
-1. **ENTER STAGE**
-2. **OPERATE WITHIN STAGE**
-3. **IMPORTANT GOVERNANCE ACT**
-4. **ACCEPTANCE**
-5. **EXIT STAGE**
-6. **AUTHORITY EXHAUSTION**
+```text
+ENTRY
+↓
+IMPORTANT ACTS
+↓
+EXIT
+```
 
-These are governance lifecycle functions, not runtime modes. A stage may
-contain multiple separately authorized operations and important governance
-acts, each with its own acceptance and exhaustion boundary. The sequence does
-not create standing authority and does not require every ordinary repository
-step to become a separate stage.
+These are the only top-level stage-lifecycle phases. They are governance
+functions, not runtime modes.
 
-## 1. ENTER STAGE
+`OPERATE WITHIN STAGE` describes bounded activity inside `IMPORTANT ACTS`.
+`INDEPENDENT ACCEPTANCE` is an important governance act when the controlling
+sequence requires it. `AUTHORITY CONSUMPTION AND EXHAUSTION` applies across
+entry, every important act, and exit; it terminates individual authorities
+and does not add a fourth stage-lifecycle phase.
+
+A stage may contain multiple separately authorized important acts, each with
+its own operation, validation, acceptance, consumption, and exhaustion
+boundary. The hierarchy creates no standing authority and does not require
+every ordinary repository step to become a separate stage.
+
+## 1. ENTRY
 
 ### Purpose
 
@@ -156,7 +179,7 @@ functions validly complete.
 
 ### Completion Condition
 
-ENTER STAGE completes when:
+ENTRY completes when:
 
 - the permitted entry result is validly determined;
 - any required durable entry record is published;
@@ -168,14 +191,25 @@ ENTER STAGE completes when:
 If the result is `FAIL` or `BLOCKED`, the entry lane completes without entry
 and without repair or retry authority.
 
-## 2. OPERATE WITHIN STAGE
+## 2. IMPORTANT ACTS
 
-### Purpose
+IMPORTANT ACTS are the separately authorized bounded governance lanes between
+entry and exit. They include ordinary operation within the entered stage and
+formal acts that create or change a governing fact. Independent acceptance is
+one formal important act when required.
+
+Stage entry supplies no blanket authority for important acts. Each important
+act requires its own exact applicable authority and ends at its own
+consumption and exhaustion boundary.
+
+### 2.1 OPERATE WITHIN STAGE
+
+#### Purpose
 
 Perform one exact, bounded act that belongs to the entered stage's defined
 subject and preserves the stage's governing habitat.
 
-### Governing Effect
+#### Governing Effect
 
 An operation may produce only the exact artifact, review, evaluation, or
 bounded result named by its current authority. It advances no other subject
@@ -185,7 +219,7 @@ An entered stage is a governed container, not a blanket permission. Every
 separately bounded lane within the stage requires its own applicable
 authority.
 
-### Authority Boundary
+#### Authority Boundary
 
 Authority to operate within a stage must identify, as applicable:
 
@@ -205,7 +239,7 @@ Stage entry, prior acceptance, repository presence, capability, or incomplete
 work does not supply operating authority. Discovery of an adjacent need
 requires halt and report, not scope expansion.
 
-### Completion Condition
+#### Completion Condition
 
 OPERATE WITHIN STAGE completes when the one authorized act reaches its defined
 `PASS`, `FAIL`, `BLOCKED`, publication, reporting, or other exact completion
@@ -216,15 +250,15 @@ Operation completion does not constitute acceptance unless the governing
 contract explicitly combines them and validly preserves required
 independence. It never authorizes the next operation.
 
-## 3. IMPORTANT GOVERNANCE ACT
+### 2.2 FORMAL IMPORTANT GOVERNANCE ACT
 
-### Purpose
+#### Purpose
 
 Create, change, resolve, or durably record a fact that controls authority,
 stage status, governing precedence, eligibility, task scope, acceptance,
 closure, or future permitted movement.
 
-### Governing Effect
+#### Governing Effect
 
 An important governance act can change the architecture's governing state
 only for its exact question. Examples include:
@@ -244,7 +278,7 @@ only for its exact question. Examples include:
 An important governance act does not inherit adjacent operative effect from
 the importance of its subject.
 
-### Authority Boundary
+#### Authority Boundary
 
 An important governance act requires a formal authority block before the act
 or its repository mutation begins.
@@ -269,7 +303,7 @@ requires separation between founder authority and execution. This doctrine
 does not convert every governance document into a task order and does not
 waive a task-order requirement that already applies.
 
-### Completion Condition
+#### Completion Condition
 
 IMPORTANT GOVERNANCE ACT completes when the exact authorized governing record
 or result is published and verified, its stated effect is durably
@@ -278,15 +312,15 @@ identifiable, and the authority stops at its named boundary.
 The act is not independently accepted merely because it was published,
 validated, committed, pushed, indexed, or synchronized.
 
-## 4. ACCEPTANCE
+### 2.3 INDEPENDENT ACCEPTANCE
 
-### Purpose
+#### Purpose
 
 Independently determine whether one completed artifact, evidence package,
 governance act, implementation result, transfer result, or stage result
 conforms to its exact governing contract.
 
-### Governing Effect
+#### Governing Effect
 
 Acceptance changes only the acceptance status of the named subject. It may
 record `ACCEPTED`, `REJECTED`, `FAIL`, `BLOCKED`, or another closed result
@@ -295,7 +329,7 @@ defined by the controlling contract.
 Acceptance does not create the accepted artifact, rewrite its history, cure a
 defect, perform repair, authorize operation, or permit follow-on movement.
 
-### Authority Boundary
+#### Authority Boundary
 
 Acceptance requires:
 
@@ -312,17 +346,17 @@ The creator, performer, publisher, or validator must not accept its own work
 when the applicable contract requires independent acceptance. Validation
 success is evidence only. `PASS` is not permission.
 
-### Completion Condition
+#### Completion Condition
 
-ACCEPTANCE completes when the authorized reviewer determines one permitted
-result, publishes or reports it as required, verifies synchronization and
-evidence preservation, and stops. Acceptance authority is then consumed and
-exhausted under its exact lifecycle rule.
+INDEPENDENT ACCEPTANCE completes when the authorized reviewer determines one
+permitted result, publishes or reports it as required, verifies
+synchronization and evidence preservation, and stops. Acceptance authority is
+then consumed and exhausted under its exact lifecycle rule.
 
 An accepted result permits only a later founder decision when a governing
 sequence expressly says so. It does not supply that decision.
 
-## 5. EXIT STAGE
+## 3. EXIT
 
 ### Purpose
 
@@ -358,7 +392,7 @@ cannot be inferred as closure.
 
 ### Completion Condition
 
-EXIT STAGE completes when the permitted closure result is validly determined,
+EXIT completes when the permitted closure result is validly determined,
 the durable closure record is published if authorized, the repository is
 verified, the closure authority and any closure order are exhausted, and work
 stops in a closed posture.
@@ -367,7 +401,11 @@ If closure returns `FAIL` or `BLOCKED`, the stage remains in its prior posture.
 No repair, reopening, retry, or next-stage movement is authorized by the
 result.
 
-## 6. AUTHORITY EXHAUSTION
+## Cross-Cutting Authority Consumption and Exhaustion
+
+Authority consumption and exhaustion apply to every bounded authority used
+for entry, an important act, or exit. They are not a stage-lifecycle phase and
+do not change the canonical three-part hierarchy.
 
 ### Purpose
 
@@ -413,7 +451,7 @@ restore authority.
 
 ### Completion Condition
 
-AUTHORITY EXHAUSTION completes when:
+AUTHORITY EXHAUSTION completes for an individual authority when:
 
 - the defined consumption or terminal event has occurred;
 - required evidence and reporting are preserved;
@@ -529,8 +567,9 @@ Before publication, this lane must verify:
 
 - exactly this one documentation file changed;
 - the resulting commit has
-  `0d3b48e7090401fbb6953efab9c600ee8e61a9d9` as its exact parent;
-- no existing governing decision was modified;
+  `2c90a317c4729d006855a644cd4fe027fa9c5308` as its exact parent;
+- only the hierarchy of this existing doctrine was corrected;
+- no prior stage decision or other governing document was modified;
 - no implementation or transfer artifact was created;
 - no source, schema, test, runtime, deployment, configuration, credential, or
   operational path changed;
@@ -553,7 +592,8 @@ This doctrine does not:
   order;
 - create, draft, issue, approve, accept, or execute a transfer task order;
 - authorize transfer of any completed artifact;
-- modify any existing governing decision;
+- modify any prior stage decision or any governing document other than this
+  doctrine's exact hierarchy;
 - authorize source, schema, test, CI, workflow, package, dependency,
   configuration, LocalOps, or Event Bus work;
 - authorize runtime, deployment, production, infrastructure, credentials,
@@ -565,7 +605,9 @@ This doctrine does not:
 ## Closed Posture
 
 - Authority lifecycle doctrine: **DEFINED**
-- Existing governing decisions: **UNCHANGED**
+- Canonical top-level hierarchy: **ENTRY → IMPORTANT ACTS → EXIT**
+- Prior stage decisions: **UNCHANGED**
+- Second doctrine: **NOT CREATED**
 - Stage 3: **CURRENT POSTURE UNCHANGED**
 - Implementation task order: **NONE CREATED**
 - Transfer task order: **NONE CREATED**
@@ -574,8 +616,10 @@ This doctrine does not:
 - Runtime and operational authority: **NONE**
 - Deployment authority: **NONE**
 - Stage 4 authority: **NONE**
-- Founder Order 9A after publication and verification:
+- Founder Order 9A: **CONSUMED AND EXHAUSTED**
+- Founder Order 9B after publication and verification:
   **CONSUMED AND EXHAUSTED**
 - Repository posture after publication and verification: **WAIT**
 
-Stop after publication and independent verification of this doctrine.
+Stop after publication and independent verification of this hierarchy
+correction.
