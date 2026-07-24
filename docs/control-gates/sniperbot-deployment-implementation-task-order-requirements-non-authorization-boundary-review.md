@@ -186,6 +186,440 @@ must not create deployment readiness, runtime readiness, trading readiness,
 broker readiness, command-execution readiness, capital readiness, or
 execution capability.
 
+## Mandatory Complete Fail-Closed Task-Order Specification
+
+This section corrects the completeness defects identified by the published
+SniperBot Stage 3 implementation-task-order-requirements governance review at
+SniperBot commit
+`d7f81464629a06e3140ef03d54392d23f83afae8`, review blob
+`d7dc128f858b3972ab63303f7c0c6b172b27ae63`.
+
+The requirements in this section are mandatory for every possible future
+SniperBot implementation task order. They control over any shorter, optional,
+or less specific formulation elsewhere in this review. No field may be
+omitted, inferred, supplied by conversation, or replaced by a broad phrase.
+When a field permits an applicability determination, the task order must
+record the determination and its repository-grounded reason.
+
+Missing, ambiguous, stale, conflicting, inapplicable, unverified, or
+internally inconsistent information requires refusal before implementation.
+Satisfying these requirements does not create a task order or authorize
+implementation. A future task order would still require separate explicit
+founder authority and every applicable later governance gate.
+
+### 1. Repository and Task Identity
+
+Every future implementation task order must explicitly identify:
+
+- exact repository owner and name;
+- exact branch;
+- exact locked starting checkpoint;
+- required parent or ancestry relationship to that checkpoint;
+- exact immutable task-order identity;
+- exact task title;
+- exact implementation subject;
+- exact task/session identity assigned to the authorized execution;
+- exact issue, order, or governing lane identity when one exists; and
+- the rule for resolving any mismatch among these identities.
+
+The task title, implementation subject, repository, branch, checkpoint, and
+task/session identity must describe one bounded task. They may not use
+wildcards, aliases, conversational references, or phrases such as "current
+state," "latest commit," "this task," or "the implementation" without the
+corresponding exact immutable identity.
+
+The required parent or ancestry relationship must state whether the resulting
+commit must have the locked checkpoint as its exact parent or whether a
+different explicitly bounded ancestry rule applies. If exact-parent
+publication is required, any intervening commit requires refusal.
+
+### 2. Founder Authority Lifecycle
+
+Every future implementation task order must bind itself to one exact
+founder-authority record and state:
+
+- founder identity;
+- exact authority-record identity, repository, branch, path, publication
+  commit, and current blob;
+- issuance point;
+- currentness rule;
+- effective time or effective event;
+- expiry time or expiry event;
+- single-use status;
+- permitted delegation, including the exact delegate when delegation is
+  permitted;
+- transfer prohibition or the exact permitted transfer rule;
+- suspension conditions and current suspension status;
+- revocation conditions and current revocation status;
+- supersession conditions and current supersession status;
+- conflict-priority rule;
+- the event that consumes the authority;
+- the event that consumes the task order; and
+- post-completion exhaustion.
+
+Permitted delegation must be explicit. Silence means delegation is
+prohibited. A delegate may not redelegate unless the authority record names
+the next delegate and exact redelegation scope.
+
+Authority must fail closed if it is not yet effective, stale, expired,
+consumed, suspended, revoked, superseded, transferred outside its rule,
+conflicting, or unverifiable. Later or more specific applicable founder
+governance controls only when its precedence and effect are explicit and
+repository-grounded. Chronology alone does not resolve authority conflict.
+
+Initiation, successful completion, failed completion, or blocked completion
+must not renew, replay, broaden, or transfer the authority. The task order and
+its authority are exhausted after the one authorized task and required
+verification, regardless of outcome, unless the governing authority defines
+a narrower earlier consumption event.
+
+### 3. Executor and Independence
+
+Every future implementation task order must state:
+
+- exact executor identity;
+- exact executor task/session identity;
+- whether delegation is permitted;
+- exact permitted delegate and delegated scope when delegation is permitted;
+- exact executor actions allowed;
+- exact executor actions prohibited;
+- separation between implementation performance and evidence review;
+- separation between implementation performance and acceptance;
+- separation between implementation performance and completion
+  verification; and
+- the required independent reviewer or verifier identity rule.
+
+The implementation performer must not independently accept its own evidence
+or serve as the sole completion verifier. A separately identified independent
+context must perform any required evidence acceptance and completion review.
+If required independence cannot be established, the task must be refused.
+
+The executor may not infer, enlarge, repair, renew, transfer, or self-assign
+authority. Discovery of a needed action, file, dependency, test, correction,
+or adjacent change outside the exact order requires halt and report, not
+self-expansion.
+
+### 4. Source and Output Identity
+
+Every allowed path must be recorded separately with all of the following:
+
+- repository owner and name;
+- branch;
+- locked checkpoint;
+- exact path;
+- current blob when the path exists;
+- an explicit nonexistence assertion when the path is a new output;
+- path role, such as source, modified output, new output, evidence, or
+  governance reference;
+- exact permitted operation;
+- expected output path;
+- expected resulting state;
+- expected resulting blob rule when determinable before execution; and
+- reason the path is necessary for the exact implementation subject.
+
+For an existing path, the current blob is mandatory. For a new path, the task
+order must prove nonexistence at the locked checkpoint and identify the exact
+new path. A rename or move must identify both exact source and output paths.
+A deletion must identify the exact deleted path and locked source blob.
+
+Path identity in one repository does not authorize a path in another
+repository. Directory names, globs, extensions, package names, module names,
+and broad categories are not exact path authority.
+
+Broad phrases remain prohibited, including:
+
+- "related files";
+- "supporting files";
+- "runtime files";
+- "deployment files";
+- "any needed files";
+- "necessary changes";
+- "adjacent tests"; and
+- "corresponding documentation."
+
+### 5. Exact Change Inventory
+
+Every future implementation task order must contain:
+
+- the complete exact allowed-path inventory;
+- the complete exact prohibited-path inventory or an explicit rule that all
+  unlisted paths are prohibited;
+- exact permitted operations for each allowed path;
+- exact prohibited operations;
+- expected changed-file inventory;
+- expected add, modify, rename, move, or delete status for every changed
+  path;
+- explicit refusal on any unexpected path, status, or diff;
+- explicit refusal on generated, formatted, vendored, lock, cache, or
+  metadata changes not separately listed; and
+- prohibition on adjacent work.
+
+All unlisted paths and operations are prohibited. A tool-generated or
+formatting-generated change is still a change and requires exact authority.
+An unexpected diff requires halt before commit or publication. The executor
+may not silently discard, repair, amend, absorb, or add an unexpected change.
+
+The resulting commit must contain exactly the authorized changed-file
+inventory. A future order must state whether one commit is required and must
+prohibit history rewriting, force-push, and unrelated commit inclusion unless
+separately and explicitly authorized.
+
+### 6. Governing Prerequisites
+
+Every relied-on governance record must be listed separately with:
+
+- repository owner and name;
+- branch or exact locked checkpoint;
+- exact path;
+- publication commit;
+- current blob;
+- applicability to the exact task;
+- precedence relative to other relied-on records;
+- currentness;
+- revocation status;
+- suspension status;
+- supersession status; and
+- conflict status.
+
+The task order must explicitly determine applicability for every candidate
+prerequisite named by the controlling governance. A prerequisite may be
+marked not applicable only with an exact repository-grounded reason.
+Phrases such as "where applicable," "if required," "as needed," or
+"relevant governance" may not replace the explicit determination.
+
+The task order must verify that every prerequisite path and blob resolves at
+the locked governing checkpoint, that every publication commit is in the
+required lineage, and that no later applicable record revokes, suspends,
+supersedes, narrows, contradicts, or invalidates it.
+
+Missing precedence, unresolved conflict, uncertain applicability, or an
+unverifiable currentness or revocation state requires refusal.
+
+### 7. Validation and Acceptance
+
+Every future implementation task order must define:
+
+- exact validation commands or exact non-command validation procedures;
+- exact execution environment, tool version, configuration, and working
+  directory where relevant;
+- exact expected result for every validation;
+- exact validation order when order matters;
+- complete evidence inventory;
+- evidence-preservation location;
+- evidence identity or hash requirement where applicable;
+- failure behavior for every validation;
+- closed result vocabulary;
+- task-specific acceptance criteria;
+- independent completion-review requirements; and
+- the non-authorization effect of successful validation.
+
+Unless a stricter applicable contract defines another closed set, the
+completion validation result vocabulary is exactly:
+
+- `PASS`: every authorized change and required validation conforms to the
+  exact task order;
+- `FAIL`: validation validly completes and one or more substantive
+  requirements are not satisfied; or
+- `BLOCKED`: authority, identity, environment, independence, evidence,
+  synchronization, cleanliness, currentness, provenance, applicability, or
+  another required condition cannot be conclusively verified.
+
+No partial, provisional, default, inferred, or fourth result is permitted.
+Each command or procedure must have an expected result precise enough for an
+independent reviewer to reproduce and evaluate.
+
+Validation failure requires halt. The task order must state whether evidence
+is preserved without further mutation and must prohibit unauthorized repair,
+rerun, retry, amendment, or scope expansion.
+
+Successful validation is evidence only. It is not evidence acceptance unless
+a separately authorized independent acceptance process says so. It creates no
+runtime, deployment, broker, market-data, trading, funding, autonomous-action,
+command-execution, operational, or later-stage authority.
+
+### 8. Mandatory Refusal and Halt Conditions
+
+Every future implementation task order must refuse or halt on:
+
+- repository mismatch;
+- branch mismatch;
+- checkpoint mismatch;
+- ancestry mismatch;
+- task-order identity mismatch;
+- task/session identity mismatch;
+- stale authority;
+- authority that is not yet effective;
+- expired authority;
+- consumed authority or task order;
+- suspended authority;
+- revoked authority;
+- superseded authority;
+- transferred authority outside the exact transfer rule;
+- unresolved authority conflict;
+- executor mismatch;
+- unauthorized delegation or redelegation;
+- divergence other than `0/0`;
+- dirty index;
+- dirty worktree;
+- any untracked file;
+- any Git lock file;
+- an unlisted path;
+- an unexpected path status or diff;
+- a prohibited operation;
+- scope expansion or adjacent work;
+- validation failure;
+- missing or unpreservable evidence;
+- missing prerequisite;
+- stale, altered, missing, or untraceable path, commit, or blob;
+- ambiguity;
+- contradiction;
+- unresolved conflict;
+- inability to establish required independence; or
+- inability to independently verify any required condition.
+
+Refusal and halt are non-mutation outcomes. They do not authorize cleanup,
+repair, rollback, retry, file restoration, conflict resolution, checkpoint
+updates, authority replacement, or evidence reconstruction. Any such action
+requires separate exact authority.
+
+### 9. Repository Execution Preconditions
+
+Immediately before the first mutation, immediately before commit, immediately
+before publication, and after publication, the future task order must require
+verification that:
+
+- local `HEAD` equals the exact expected checkpoint for that boundary;
+- tracked remote equals the exact expected checkpoint for that boundary;
+- live remote equals the exact expected checkpoint for that boundary;
+- local `HEAD`, tracked remote, and live remote agree;
+- divergence is exactly `0/0`, except for the explicitly expected local
+  ahead-only state after the authorized commit and before publication;
+- the index is clean before mutation and clean after publication;
+- the worktree is clean before mutation and clean after publication;
+- untracked-file count is zero before mutation and after publication;
+- Git-lock-file count is zero;
+- every locked governing reference remains current; and
+- no intervening applicable governance or repository commit changes the
+  order's prerequisites.
+
+The task order must define the exact expected synchronization state at each
+boundary. After an authorized local commit and before publication, only the
+exact expected ahead count created by that commit is permitted; behind count
+must remain zero. Any other divergence requires refusal.
+
+Fetching, synchronization checks, and remote inspection create no authority
+to merge, rebase, cherry-pick, reset, amend, rewrite, force-push, resolve
+conflicts, or change checkpoints.
+
+### 10. Rollback or Reversal Treatment
+
+Every future implementation task order must make an explicit
+rollback-applicability determination.
+
+If rollback or reversal is applicable, the task order must identify:
+
+- exact reversal trigger;
+- exact reversal scope;
+- exact files, paths, commits, or state affected;
+- exact allowed reversal operations;
+- exact prohibited reversal operations;
+- evidence to preserve before reversal;
+- evidence-preservation location;
+- reversal validation;
+- refusal and halt conditions;
+- prohibition on runtime activation; and
+- prohibition on using rollback as authority for adjacent changes.
+
+Rollback authority must be separately explicit when reversal would mutate
+repository or runtime state. A task order may require stopping and preserving
+evidence without authorizing reversal.
+
+If rollback or reversal is not applicable, the task order must state
+`NOT APPLICABLE` and give an exact task-specific reason. Silence, convenience,
+assumed Git reversibility, or apparent safety is not a determination.
+
+Rollback or reversal language creates no runtime, deployment, monitoring,
+incident-response, broker, trading, funding, command, or operational
+authority.
+
+### 11. Traceability
+
+Every source and every output must have a complete provenance tuple:
+
+- repository owner and name;
+- branch;
+- checkpoint;
+- path;
+- source blob or explicit pre-creation nonexistence;
+- resulting blob or exact resulting-blob evidence;
+- purpose;
+- authority identity;
+- executor identity and task/session identity;
+- validation evidence;
+- resulting commit; and
+- publication and synchronization evidence.
+
+The task order must define where the complete tuple is recorded and how an
+independent reviewer can reproduce it. For a new output, the tuple must bind
+the proof of pre-creation nonexistence and the resulting blob. For a modified
+output, it must bind both source and resulting blobs. For a deletion, it must
+bind the deleted source blob and resulting commit.
+
+Evidence, logs, reports, commit messages, or conversational output may support
+traceability only when the task order identifies them exactly. They do not
+replace repository-grounded path, commit, and blob identities.
+
+### 12. Exhaustion and Non-Authorization
+
+Every future implementation task order must state that:
+
+- it authorizes only the one exact bounded task;
+- it authorizes only the listed paths and operations;
+- it creates no adjacent authority;
+- it creates no authority to repair or expand the task;
+- it creates no runtime authority;
+- it creates no deployment authority;
+- it creates no broker or market-data authority;
+- it creates no trading or funding authority;
+- it creates no autonomous-action authority;
+- it creates no command-execution authority;
+- it creates no operational authority;
+- it creates no Stage 4 or later-stage authority;
+- validation success is not evidence acceptance or operational authority;
+- completion does not authorize a follow-on task; and
+- it is exhausted after the one authorized task and required verification,
+  regardless of `PASS`, `FAIL`, or `BLOCKED`.
+
+The task order must require the executor to stop after the authorized
+publication and verification boundary. Readiness, capability, completeness,
+validation, acceptance, publication, synchronization, founder intent, or an
+obvious next action is not permission for later movement.
+
+## Corrected Completeness Posture
+
+The controlling requirements now explicitly define the complete minimum
+fail-closed fields identified by the Stage 3 governance review:
+
+- repository and task identity;
+- founder-authority lifecycle;
+- executor identity and independence;
+- source and output identity;
+- exact change inventory;
+- governing prerequisites;
+- validation and acceptance;
+- mandatory refusal and halt conditions;
+- repository execution preconditions;
+- rollback or reversal treatment;
+- complete traceability; and
+- exhaustion and non-authorization.
+
+This correction addresses requirements completeness only. It has not been
+independently accepted. It does not create, authorize, validate, or accept an
+implementation task order. It does not select an implementation subject or
+path. It creates no implementation, runtime, deployment, operational, broker,
+market-data, trading, funding, autonomous-action, command-execution, or Stage
+4 authority.
+
 ## Implementation Task Order Cannot Be Inferred
 
 An implementation task order cannot be inferred from:
