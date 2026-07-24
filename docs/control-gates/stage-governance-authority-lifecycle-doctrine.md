@@ -2,9 +2,10 @@
 
 ## Status and Effect
 
-**CANONICAL AUTHORITY LIFECYCLE HIERARCHY CORRECTED -- DOCUMENTATION ONLY --
-GOVERNANCE ONLY -- NO IMPLEMENTATION, TRANSFER, RUNTIME, DEPLOYMENT,
-OPERATIONAL, OR STAGE 4 AUTHORITY**
+**CANONICAL AUTHORITY LIFECYCLE HIERARCHY PRESERVED -- ORDINARY ACTIVITY
+CLASSIFICATION CORRECTED -- DOCUMENTATION ONLY -- GOVERNANCE ONLY -- NO
+IMPLEMENTATION, TRANSFER, RUNTIME, DEPLOYMENT, OPERATIONAL, OR STAGE 4
+AUTHORITY**
 
 This doctrine consolidates the repository-established lifecycle of governing
 authority for all future stages within the governed architecture.
@@ -15,11 +16,16 @@ single-use authority exhaustion. Before this record, those rules were
 distributed across stage-specific records and task-order contracts. No one
 current doctrine named and defined the complete lifecycle.
 
-Founder Order 9B corrects only the doctrine's hierarchy. The canonical
+Founder Order 9B corrected only the doctrine's hierarchy. The canonical
 top-level stage lifecycle is exactly `ENTRY`, `IMPORTANT ACTS`, and `EXIT`.
-Operation within a stage and independent acceptance are governed functions
-inside that hierarchy. Authority consumption and exhaustion are cross-cutting
-authority controls, not additional stage-lifecycle phases.
+
+Founder Order 9C corrects only the classification of activity within an
+entered stage. Ordinary bounded activity may occur within an entered stage
+under exact applicable authority, but it is not an `IMPORTANT ACT` and does
+not durably change governance. `IMPORTANT ACTS` are limited to acts that
+durably create, change, resolve, or record governing state. Authority
+consumption and exhaustion remain cross-cutting authority controls, not
+additional stage-lifecycle phases.
 
 This record makes that existing pattern canonical. It does not revise,
 invalidate, reopen, supersede, or redesign any prior stage decision. When an
@@ -33,6 +39,8 @@ more specific, that contract continues to control its exact lane.
   Lifecycle Doctrine Definition Review
 - Hierarchy-correction authority: Founder Order 9B, Stage Governance
   Authority Lifecycle Doctrine Hierarchy Correction
+- Activity-classification correction authority: Founder Order 9C, Stage
+  Governance Doctrine Ordinary Activity Classification Correction
 - Repository: `heliosfi/Echoauth-core`
 - Branch: `main`
 - Order 9A starting checkpoint:
@@ -41,15 +49,20 @@ more specific, that contract continues to control its exact lane.
   `2c90a317c4729d006855a644cd4fe027fa9c5308`
 - Order 9B source-doctrine blob:
   `71d4a286e87095edb3558d49f6c90e604aa6b4d8`
+- Order 9C exact starting checkpoint:
+  `2d281d8c9cc705f81e26e698cf7e05904e6c9940`
+- Order 9C source-doctrine blob:
+  `9ec292b135dceb3c632ef2badc8ea6c6bb111e54`
 - Related governed repository: `heliosfi/SniperBot`
 - Exact reviewed SniperBot checkpoint:
   `0e3676d0ba12b3d16e2661d9658df02d3b1f8348`
 - Exact authorized output:
   `docs/control-gates/stage-governance-authority-lifecycle-doctrine.md`
-- Output operation: modify only the existing doctrine to correct its
-  hierarchy; create no second doctrine
+- Output operation: modify only the existing doctrine to correct its ordinary
+  activity classification; create no second doctrine
 - Order 9A authority status: consumed and exhausted
-- Order 9B authority status: single-use, non-transferable, non-expandable,
+- Order 9B authority status: consumed and exhausted
+- Order 9C authority status: single-use, non-transferable, non-expandable,
   and exhausted after publication and verification
 
 ## Repository-Grounded Basis
@@ -129,16 +142,22 @@ EXIT
 These are the only top-level stage-lifecycle phases. They are governance
 functions, not runtime modes.
 
-`OPERATE WITHIN STAGE` describes bounded activity inside `IMPORTANT ACTS`.
-`INDEPENDENT ACCEPTANCE` is an important governance act when the controlling
-sequence requires it. `AUTHORITY CONSUMPTION AND EXHAUSTION` applies across
-entry, every important act, and exit; it terminates individual authorities
-and does not add a fourth stage-lifecycle phase.
+Ordinary bounded activity may occur after `ENTRY` and before `EXIT`, but it is
+not a top-level lifecycle phase and is not an `IMPORTANT ACT`. It operates
+within the already entered stage under exact applicable authority and leaves
+governing state unchanged.
 
-A stage may contain multiple separately authorized important acts, each with
-its own operation, validation, acceptance, consumption, and exhaustion
-boundary. The hierarchy creates no standing authority and does not require
-every ordinary repository step to become a separate stage.
+`INDEPENDENT ACCEPTANCE` is an `IMPORTANT ACT` when the controlling sequence
+requires it because it durably records the governing acceptance status of its
+exact subject. `AUTHORITY CONSUMPTION AND EXHAUSTION` applies across entry,
+ordinary bounded activity, every important act, and exit; it terminates
+individual authorities and does not add a fourth stage-lifecycle phase.
+
+A stage may contain ordinary bounded activity and multiple separately
+authorized Important Acts, each with its own validation, evidence,
+consumption, exhaustion, and any applicable acceptance boundary. The hierarchy
+creates no standing authority and does not require ordinary repository
+activity to become a lifecycle phase or Important Act.
 
 ## 1. ENTRY
 
@@ -191,35 +210,29 @@ ENTRY completes when:
 If the result is `FAIL` or `BLOCKED`, the entry lane completes without entry
 and without repair or retry authority.
 
-## 2. IMPORTANT ACTS
+## Ordinary Bounded Activity Within an Entered Stage
 
-IMPORTANT ACTS are the separately authorized bounded governance lanes between
-entry and exit. They include ordinary operation within the entered stage and
-formal acts that create or change a governing fact. Independent acceptance is
-one formal important act when required.
+This section classifies activity that may occur during an entered stage but
+does not form part of the canonical top-level governance lifecycle.
 
-Stage entry supplies no blanket authority for important acts. Each important
-act requires its own exact applicable authority and ends at its own
-consumption and exhaustion boundary.
-
-### 2.1 OPERATE WITHIN STAGE
-
-#### Purpose
+### Purpose
 
 Perform one exact, bounded act that belongs to the entered stage's defined
-subject and preserves the stage's governing habitat.
+subject, preserves the stage's governing habitat, and does not durably create,
+change, resolve, or record governing state.
 
-#### Governing Effect
+### Governing Effect
 
-An operation may produce only the exact artifact, review, evaluation, or
-bounded result named by its current authority. It advances no other subject
-and changes no other stage.
+Ordinary bounded activity may perform only the exact inspection, validation,
+evidence preservation, mechanical publication substep, or other
+non-governance-changing work named by its current authority. It advances no
+other subject, changes no stage or governing status, and creates no authority.
 
 An entered stage is a governed container, not a blanket permission. Every
 separately bounded lane within the stage requires its own applicable
 authority.
 
-#### Authority Boundary
+### Authority Boundary
 
 Authority to operate within a stage must identify, as applicable:
 
@@ -239,28 +252,34 @@ Stage entry, prior acceptance, repository presence, capability, or incomplete
 work does not supply operating authority. Discovery of an adjacent need
 requires halt and report, not scope expansion.
 
-#### Completion Condition
+An ordinary mechanical substep already exact, necessary, and explicitly
+included in an active authority does not require a second formal authority
+block solely because that substep is performed. Any activity not already
+covered by the active authority requires separate applicable authority before
+it begins.
 
-OPERATE WITHIN STAGE completes when the one authorized act reaches its defined
-`PASS`, `FAIL`, `BLOCKED`, publication, reporting, or other exact completion
-boundary; required verification is complete; evidence is preserved; and the
-lane stops.
+### Completion Condition
 
-Operation completion does not constitute acceptance unless the governing
-contract explicitly combines them and validly preserves required
-independence. It never authorizes the next operation.
+Ordinary bounded activity completes when the one authorized activity reaches
+its defined `PASS`, `FAIL`, `BLOCKED`, publication, reporting, or other exact
+completion boundary; required verification is complete; evidence is
+preserved; and the lane stops.
 
-### 2.2 FORMAL IMPORTANT GOVERNANCE ACT
+Completion of ordinary bounded activity does not constitute an Important Act
+or acceptance, does not change governing state, and never authorizes the next
+activity.
 
-#### Purpose
+## 2. IMPORTANT ACTS
+
+### Purpose
 
 Create, change, resolve, or durably record a fact that controls authority,
 stage status, governing precedence, eligibility, task scope, acceptance,
 closure, or future permitted movement.
 
-#### Governing Effect
+### Governing Effect
 
-An important governance act can change the architecture's governing state
+An Important Act changes the architecture's governing state
 only for its exact question. Examples include:
 
 - issuing, narrowing, suspending, revoking, or explicitly superseding
@@ -275,12 +294,18 @@ only for its exact question. Examples include:
 - changing a canonical status determination; or
 - closing a governed phase.
 
-An important governance act does not inherit adjacent operative effect from
+An Important Act does not inherit adjacent operative effect from
 the importance of its subject.
 
-#### Authority Boundary
+Ordinary bounded activity is excluded from `IMPORTANT ACTS`, even when it is a
+necessary mechanical substep within the execution or publication of an
+authorized Important Act. Classification follows the durable governing effect
+of the act, not the importance of its subject or the mechanics used to
+complete it.
 
-An important governance act requires a formal authority block before the act
+### Authority Boundary
+
+An Important Act requires a formal authority block before the act
 or its repository mutation begins.
 
 The formal authority block must identify:
@@ -303,16 +328,16 @@ requires separation between founder authority and execution. This doctrine
 does not convert every governance document into a task order and does not
 waive a task-order requirement that already applies.
 
-#### Completion Condition
+### Completion Condition
 
-IMPORTANT GOVERNANCE ACT completes when the exact authorized governing record
+An IMPORTANT ACT completes when the exact authorized governing record
 or result is published and verified, its stated effect is durably
 identifiable, and the authority stops at its named boundary.
 
 The act is not independently accepted merely because it was published,
 validated, committed, pushed, indexed, or synchronized.
 
-### 2.3 INDEPENDENT ACCEPTANCE
+### Independent Acceptance as an Important Act
 
 #### Purpose
 
@@ -490,10 +515,9 @@ mechanical it appears.
 | Activity | Classification | Authority treatment |
 | --- | --- | --- |
 | Reading files, inspecting history, checking status, comparing blobs, or examining a live remote without mutation | Ordinary read-only activity | May occur only within the current review lane and creates no authority or governance effect. |
-| Running an exact validation or preserving evidence already named by an active order | Ordinary execution inside a bounded lane | Covered only by that lane; it cannot expand scope or become acceptance. |
-| Staging, committing, and publishing the one exact artifact named by an active order | Ordinary publication execution inside a bounded lane | Requires the existing explicit mutation authority; no second authority block is required solely because the authorized publication is mechanical. |
-| Mechanical index or synchronization update that changes no substantive decision | Traceability activity | Requires explicit bounded mutation authority, but does not itself change stage status or create acceptance or follow-on authority. |
-| Creating or changing authority, a governing contract, task order, acceptance, eligibility disposition, stage entry, stage exit, conflict resolution, transfer decision, or implementation decision | Important governance act | Requires a formal authority block and all applicable separation and independence controls. |
+| Running an exact validation or preserving evidence already named by an active order | Ordinary bounded activity | Covered only by that lane; it cannot expand scope, become acceptance, or change governing state. |
+| Performing a mechanical staging, commit, push, indexing, or synchronization substep already named by an active order | Ordinary bounded activity within the authorized lane | Requires the existing explicit mutation authority; no second authority block is required solely for the mechanical substep, and the substep itself has no governance effect. |
+| Creating, changing, resolving, or durably recording authority, a governing contract, task order, acceptance, eligibility disposition, stage entry, stage exit, conflict resolution, transfer decision, implementation decision, or another fact that controls future permitted movement | Important Act | Requires a formal authority block and all applicable separation and independence controls. |
 | Any discovered action, file, decision, repair, retry, or next step not named by the active authority | Outside the lane | Stop and report. A new founder order is required. |
 
 Repository cleanliness, a fast-forward push, a one-line edit, an index entry,
@@ -520,7 +544,9 @@ A formal authority block is required before:
 A new formal authority block is not required for each mechanical substep
 already exact, necessary, and explicitly included in one active authority.
 Mechanical substeps do not acquire independent scope and must stop with their
-parent lane.
+parent lane. This rule classifies the substep as ordinary bounded activity; it
+does not reclassify the durable governance-changing act that the authority
+permits.
 
 If it is uncertain whether an activity changes governance, authority,
 acceptance, stage status, or future movement, treat it as governance-changing
@@ -567,8 +593,11 @@ Before publication, this lane must verify:
 
 - exactly this one documentation file changed;
 - the resulting commit has
-  `2c90a317c4729d006855a644cd4fe027fa9c5308` as its exact parent;
-- only the hierarchy of this existing doctrine was corrected;
+  `2d281d8c9cc705f81e26e698cf7e05904e6c9940` as its exact parent;
+- only the ordinary-activity classification in this existing doctrine was
+  corrected;
+- the canonical hierarchy remains exactly
+  `ENTRY` → `IMPORTANT ACTS` → `EXIT`;
 - no prior stage decision or other governing document was modified;
 - no implementation or transfer artifact was created;
 - no source, schema, test, runtime, deployment, configuration, credential, or
@@ -593,7 +622,8 @@ This doctrine does not:
 - create, draft, issue, approve, accept, or execute a transfer task order;
 - authorize transfer of any completed artifact;
 - modify any prior stage decision or any governing document other than this
-  doctrine's exact hierarchy;
+  doctrine's exact ordinary-activity classification;
+- expand the canonical lifecycle beyond `ENTRY`, `IMPORTANT ACTS`, and `EXIT`;
 - authorize source, schema, test, CI, workflow, package, dependency,
   configuration, LocalOps, or Event Bus work;
 - authorize runtime, deployment, production, infrastructure, credentials,
@@ -619,7 +649,9 @@ This doctrine does not:
 - Founder Order 9A: **CONSUMED AND EXHAUSTED**
 - Founder Order 9B after publication and verification:
   **CONSUMED AND EXHAUSTED**
+- Founder Order 9C after publication and verification:
+  **CONSUMED AND EXHAUSTED**
 - Repository posture after publication and verification: **WAIT**
 
-Stop after publication and independent verification of this hierarchy
-correction.
+Stop after publication and independent verification of this
+ordinary-activity classification correction.
