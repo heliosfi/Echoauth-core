@@ -67,6 +67,15 @@ The Advancement Gate is passed, the replacement order is exhausted, and Stage
 broker, trading, funding, live-execution, autonomous-action, or
 command-execution authority is created or implied.
 
+Stage 3 entry requirements are defined at
+`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-3-entry-requirements-definition-review.md`.
+The review identifies Ladder Stage 3 as implementation task order
+requirements, defines the future repository, evidence, readiness, founder
+authority, task-order, validation, independence, synchronization, and stop
+conditions required before entry may be considered, and records the
+outstanding prerequisites. It does not enter or authorize Stage 3. All
+implementation and operational authority remains absent.
+
 Any post-closure movement requires a separate explicit governed lane and authority record. Silence, closure, repository cleanliness, or documentation completion does not authorize Stage 3 or capability expansion.
 
 ## Conceptual Architecture

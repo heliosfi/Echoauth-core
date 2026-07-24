@@ -366,6 +366,18 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   governance. Future movement requires separate explicit founder authority;
   no authority is inferred from the gate result, completion, publication,
   indexing, synchronization, or repository cleanliness.
+* `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-3-entry-requirements-definition-review.md`
+  - Defines the repository-grounded requirements that must be satisfied before
+  entry into Ladder Stage 3, Implementation task order requirements, may be
+  considered. Requires the dedicated-repository separation and lineage
+  sequence, current accepted evidence, independent readiness evaluation,
+  explicit founder entry authority, a single-use entry task order, independent
+  entry validation, canonical synchronization, and preserved separation of
+  definition, readiness, authority, task orders, validation, acceptance,
+  synchronization, and closure. Records the closed `PASS` / `FAIL` / `BLOCKED`
+  entry-gate vocabulary and current outstanding prerequisites. Stage 3 remains
+  unentered and unauthorized; no implementation or operational authority is
+  created.
 * `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-founder-approval-artifact-requirements-currentness-validation-review.md`
   - SniperBot Live-Money Readiness Ladder Stage 2 Founder Approval
   Artifact Requirements Currentness-Validation Review. Addresses only
