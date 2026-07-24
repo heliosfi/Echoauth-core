@@ -399,9 +399,24 @@ unverifiable currentness or revocation state requires refusal.
 
 Every future implementation task order must define:
 
-- exact validation commands or exact non-command validation procedures;
-- exact execution environment, tool version, configuration, and working
-  directory where relevant;
+- exact validation commands or exact non-command validation procedures; where
+  a validation requires Python, the command may use the logical invocation
+  token `<PYTHON3>`;
+- a complete, closed, ordered list of authorized interpreter invocations for
+  resolving `<PYTHON3>`; only invocations explicitly listed in the applicable
+  task order are authorized;
+- the exact required Python version constraint and a read-only version probe
+  for determining whether each listed candidate qualifies;
+- the rule that candidates are evaluated in the stated order before
+  repository mutation, the first qualifying candidate is selected, and that
+  same invocation is used for every Python command in the authorized task;
+- the requirement to record the selected invocation, resolved executable
+  identity where available, and reported Python version as validation
+  evidence;
+- the rule that no qualifying candidate, interpreter drift, or version
+  mismatch produces `BLOCKED` and requires halt without implementation
+  mutation;
+- exact configuration and working directory where relevant;
 - exact expected result for every validation;
 - exact validation order when order matters;
 - complete evidence inventory;
