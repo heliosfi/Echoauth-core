@@ -76,6 +76,17 @@ conditions required before entry may be considered, and records the
 outstanding prerequisites. It does not enter or authorize Stage 3. All
 implementation and operational authority remains absent.
 
+Order 1 of the dedicated-repository sequence, the documentation-only
+repository-separation plan, is defined at
+`docs/control-gates/sniperbot-dedicated-repository-separation-plan.md`.
+The plan preserves Echoauth-core as the canonical Stage 2 historical and
+governance authority, defines a provenance/governance-only initialization
+boundary and the six-order sequence, and leaves repository owner, exact name,
+visibility, default branch, and administration as explicit founder-selection
+requirements. No repository was created, Order 2 is not authorized, Stage 3
+remains unentered and unauthorized, and all implementation and operational
+authority remains absent.
+
 Any post-closure movement requires a separate explicit governed lane and authority record. Silence, closure, repository cleanliness, or documentation completion does not authorize Stage 3 or capability expansion.
 
 ## Conceptual Architecture

@@ -378,6 +378,16 @@ behavior, broker/trading paths, service behavior, or agent behavior.
   entry-gate vocabulary and current outstanding prerequisites. Stage 3 remains
   unentered and unauthorized; no implementation or operational authority is
   created.
+* `docs/control-gates/sniperbot-dedicated-repository-separation-plan.md`
+  - Order 1 of 6 in the governed dedicated-repository sequence. Defines only
+  the documentation-only repository-separation plan: the preserved
+  EchoAuth-SniperBot architectural relationship, unresolved founder-selection
+  identity fields, provenance/governance-only initial file set, permanent
+  Echoauth-core lineage and history-preservation rules, future transfer
+  requirements, independent Order 3 verification, fail-closed rollback
+  boundaries, required Order 2 authority, and the six-order sequence. Creates
+  no repository, authorizes no later order, leaves Stage 3 unentered and
+  unauthorized, and creates no implementation or operational authority.
 * `docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-founder-approval-artifact-requirements-currentness-validation-review.md`
   - SniperBot Live-Money Readiness Ladder Stage 2 Founder Approval
   Artifact Requirements Currentness-Validation Review. Addresses only
