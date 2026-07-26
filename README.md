@@ -92,3 +92,4 @@ Any post-closure movement requires a separate explicit governed lane and authori
 ## Conceptual Architecture
 
 * [SniperBot Market Intelligence, Governance, Execution, and Learning Relationship](docs/architecture/sniperbot-market-intelligence-governance-execution-learning-relationship.md) -- canonical conceptual relationship only; documentation-only and non-authorizing.
+* [EchoAuth Assurance Perspectives and Evidence Crosswalk](docs/architecture/echoauth-assurance-perspectives-and-evidence-crosswalk.md) -- canonical mapping of AI assurance, SSP, data-and-authority flow, and privacy perspectives to current repository evidence; documentation-only, non-runtime, non-execution, and not a certification.
