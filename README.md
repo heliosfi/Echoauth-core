@@ -6,6 +6,32 @@ Deterministic governance and authorization framework.
 
 EchoAuth is a deterministic authorization layer designed to ensure that coordination proposes, governance permits.
 
+## NI AI Governing Identity
+
+NI AI is one intrinsically governed intelligence system operating within the EchoAuth governed environment.
+
+NI AI is not an AI system with governance added to it. Governance is not a wrapper, module, downstream control layer, or separate system beneath the product. NI AI is intrinsically governed: governance is an architectural property expressed through the way the system preserves meaning, requirements, evidence, responsibility, authority, continuity, and legitimate movement.
+
+NI AI preserves Natural Intellect through Applied Knowledge so that intelligence remains connected to reality as it becomes consequential.
+
+Its engineering responsibilities are distinct without becoming separate systems:
+
+- **Adumetric** is the upstream asymmetric stream. It preserves and develops governing meaning, narrows reality into the correct natural structure, increases specificity, and prepares legitimate bounded work.
+- **Hawk** controls workflow. It routes, dispatches, tracks, returns, and releases work without redefining meaning or performing another responsibility's work.
+- **Saloherm** is the downstream hermetic stream. It accepts only bounded work, preserves local identity and integrity, completes its explicit responsibility, reports completion, and stops.
+
+The operating rhythm is:
+
+**Fast forward:** Adumetric specifies -> Hawk controls workflow -> Saloherm completes.
+
+**Reverse:** Saloherm reports -> Hawk returns -> Adumetric assesses, reconnects, and finalizes the next legitimate transition.
+
+No stream is governance. Each stream operates within the same intrinsically governed system by remaining inside its legitimate responsibility.
+
+The governing interpretation is therefore:
+
+> NI AI is one intrinsically governed intelligence system. Engineering responsibilities may become more precise without multiplying the architecture.
+
 ## Founder
 
 Nicholas B. Carty
