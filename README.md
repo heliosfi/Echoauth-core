@@ -16,15 +16,15 @@ NI AI preserves Natural Intellect through Applied Knowledge so that intelligence
 
 Its engineering responsibilities are distinct without becoming separate systems:
 
-- **Adumetric** is the upstream asymmetric stream. It preserves and develops governing meaning, narrows reality into the correct natural structure, increases specificity, and prepares legitimate bounded work.
+- **Adumetic** is the upstream asymmetric stream. It preserves and develops governing meaning, narrows reality into the correct natural structure, increases specificity, and prepares legitimate bounded work.
 - **Hawk** controls workflow. It routes, dispatches, tracks, returns, and releases work without redefining meaning or performing another responsibility's work.
 - **Saloherm** is the downstream hermetic stream. It accepts only bounded work, preserves local identity and integrity, completes its explicit responsibility, reports completion, and stops.
 
 The operating rhythm is:
 
-**Fast forward:** Adumetric specifies -> Hawk controls workflow -> Saloherm completes.
+**Fast forward:** Adumetic specifies -> Hawk controls workflow -> Saloherm completes.
 
-**Reverse:** Saloherm reports -> Hawk returns -> Adumetric assesses, reconnects, and finalizes the next legitimate transition.
+**Reverse:** Saloherm reports -> Hawk returns -> Adumetic assesses, reconnects, and finalizes the next legitimate transition.
 
 No stream is governance. Each stream operates within the same intrinsically governed system by remaining inside its legitimate responsibility.
 
