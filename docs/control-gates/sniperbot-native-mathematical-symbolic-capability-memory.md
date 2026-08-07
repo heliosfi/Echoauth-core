@@ -6,7 +6,9 @@ OWNER-AUTHORIZED -- NATIVE CAPABILITY MEMORY -- DOCUMENTATION ONLY -- NON-RUNTIM
 
 ## Purpose
 
-Preserve inside SniperBot's native repository the demonstrated capability direction recovered through N.B.C. correspondence assessment, without treating that direction as an implemented contract, strategy, signal, or trading authority.
+Preserve in `heliosfi/Echoauth-core` the demonstrated SniperBot capability direction recovered through N.B.C. correspondence assessment, without treating this governance-adjacent record as ownership of SniperBot-native market meaning or as an implemented contract, strategy, signal, or trading authority.
+
+This record remains in EchoAuth's repository habitat because it preserves the relationship between SniperBot knowledge and EchoAuth authority boundaries. SniperBot-native market meaning, evidence, implementation, lifecycle, and consequence remain in SniperBot's own rightful habitat.
 
 ## Native memory
 
