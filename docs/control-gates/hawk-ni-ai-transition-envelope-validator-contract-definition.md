@@ -12,6 +12,7 @@ This contract definition is anchored to:
 
 - `heliosfi/Echoauth-core` canonical checkpoint `d2307b3de7282de4da0eb5fdc34372f68876e6ef`;
 - `heliosfi/heliosfi-ni-ai-spine` canonical checkpoint `6fe29594b4b5c7e4ceea1907c87cc7049e9a0e80`;
+- canonical schema blob `acfe2dc5c4bd722163b123545fbf41a09fa2509d` at `schemas/ni-ai-transition-envelope.schema.json`;
 - `docs/assessments/ni-ai-spine-api-boundary-contract-assessment.md`;
 - `schemas/ni-ai-transition-envelope.schema.json`;
 - `docs/assessments/hawk-ni-ai-connection-correspondence-assessment.md`;
@@ -96,7 +97,9 @@ The input may be represented by an immutable mapping-compatible value. Mutable, 
 5. `schema_blob` — immutable Git blob identity of the supplied schema document;
 6. `trusted_evaluation_time_utc` — explicit UTC evaluation time supplied from outside the validator;
 7. `validation_id` — an opaque immutable identifier supplied by the caller; the validator must not generate randomness;
-8. `resolved_facts` — the complete closed fact set defined below.
+8. `passage_consumption_reference` — a non-empty opaque immutable reference supplied by the caller and preserved without interpretation or update;
+9. `passage_exhaustion_reference` — a non-empty opaque immutable reference supplied by the caller and preserved without interpretation or update;
+10. `resolved_facts` — the complete closed fact set defined below.
 
 Unknown context fields are rejected. Missing context fields fail closed. The validator must not obtain or refresh any context value itself.
 
@@ -104,7 +107,7 @@ Unknown context fields are rejected. Missing context fields fail closed. The val
 
 The caller owns retrieval and integrity verification of the canonical schema document.
 
-The validator receives the schema document and its repository, path, checkpoint, and blob identities. It verifies their exact contract binding and validates the envelope against the supplied document. It does not:
+The validator receives the schema document and its repository, path, checkpoint, and blob identities. It binds contract version `1.0.0` to repository `heliosfi/heliosfi-ni-ai-spine`, path `schemas/ni-ai-transition-envelope.schema.json`, checkpoint `6fe29594b4b5c7e4ceea1907c87cc7049e9a0e80`, and canonical Git blob `acfe2dc5c4bd722163b123545fbf41a09fa2509d`. It verifies those exact values and validates the envelope against the supplied document. It does not:
 
 - fetch a schema;
 - read a repository or filesystem;
@@ -126,25 +129,26 @@ The required closed fact set is:
 1. `schema_integrity`;
 2. `issuer_identity`;
 3. `receiver_identity`;
-4. `authority_currentness`;
-5. `authority_attribution`;
-6. `authority_scope`;
-7. `authority_revocation`;
-8. `authority_consistency`;
-9. `authority_evidence_verifiability`;
-10. `governing_source_verifiability`;
-11. `semantic_correspondence`;
-12. `policy_reference_verifiability`;
-13. `evidence_reference_verifiability`;
-14. `trusted_time_verifiability`;
-15. `consequence_reference_verifiability`;
-16. `confidentiality_verifiability`;
-17. `integrity_proof_verifiability`;
-18. `idempotency_replay_retry_ordering`;
-19. `lifecycle_separation`;
-20. `return_path_verifiability`.
+4. `lineage_verifiability`;
+5. `authority_currentness`;
+6. `authority_attribution`;
+7. `authority_scope`;
+8. `authority_revocation`;
+9. `authority_consistency`;
+10. `authority_evidence_verifiability`;
+11. `governing_source_verifiability`;
+12. `semantic_correspondence`;
+13. `policy_reference_verifiability`;
+14. `evidence_reference_verifiability`;
+15. `trusted_time_verifiability`;
+16. `consequence_reference_verifiability`;
+17. `confidentiality_verifiability`;
+18. `integrity_proof_verifiability`;
+19. `idempotency_replay_retry_ordering`;
+20. `lifecycle_separation`;
+21. `return_path_verifiability`.
 
-All twenty facts are required. The fact values report externally established evidence only. They do not authorize action and do not replace the exact evidence references carried by the envelope.
+All twenty-one facts are required. The fact values report externally established evidence only. They do not authorize action and do not replace the exact evidence references carried by the envelope.
 
 `authority_revocation = CONFIRMED` means revocation is confirmed and therefore authority is unavailable. For all other facts, `CONFIRMED` means the named condition is satisfied.
 
@@ -218,7 +222,7 @@ The future validator evaluates in this exact order and stops disposition selecti
 3. **Schema binding:** wrong repository, path, checkpoint, blob binding, schema identity, or contract-version binding → `NONCONFORMANT / STOP / SCHEMA_BINDING_INVALID`.
 4. **Schema integrity/document:** refuted schema integrity or invalid Draft 2020-12 schema document → `NONCONFORMANT / STOP / SCHEMA_INTEGRITY_INVALID` or `SCHEMA_DOCUMENT_INVALID`.
 5. **Envelope structure:** schema nonconformance or unknown field/value → `NONCONFORMANT / RETURN / ENVELOPE_SCHEMA_NONCONFORMANT`.
-6. **Contract, participant, and lineage identity:** definite identity or lineage contradiction → `NONCONFORMANT / STOP` with the applicable identity or lineage reason.
+6. **Contract, participant, and lineage identity:** definite contract or participant identity contradiction → `NONCONFORMANT / STOP` with the applicable identity reason. For `lineage_verifiability`: `REFUTED` → `NONCONFORMANT / STOP / LINEAGE_INVALID`; `CONTRADICTORY` → `INDETERMINATE / ESCALATE / LINEAGE_INVALID`; `UNAVAILABLE`, `STALE`, or `UNVERIFIABLE` → `INDETERMINATE / WAIT / LINEAGE_INVALID`; only `CONFIRMED` passes this step.
 7. **Revocation:** confirmed authority revocation → `NONCONFORMANT / STOP / AUTHORITY_REVOKED`.
 8. **Authority contradiction:** contradictory authority state, attribution, scope, governing source, permitted transition, or evidence → `INDETERMINATE / ESCALATE / AUTHORITY_CONTRADICTORY`.
 9. **Authority invalidity:** refuted authority currentness, attribution, scope, or evidence → `NONCONFORMANT / STOP / AUTHORITY_INVALID`.
@@ -284,23 +288,51 @@ Nicholas B. Carty remains acceptance authority. Validation evidence may be prese
 5. `correlation_id`;
 6. `schema_checkpoint`;
 7. `schema_blob`;
-8. `evaluated_at_utc`;
-9. `validation_state`;
-10. `disposition`;
-11. `reason_codes`;
-12. `evaluated_checks`;
-13. `evidence_references`;
-14. `unresolved_conditions`;
-15. `authority_exercised`;
-16. `authority_excluded`;
-17. `source_provenance`;
-18. `continuation_posture`.
+8. `passage_consumption_reference`;
+9. `passage_exhaustion_reference`;
+10. `evaluated_at_utc`;
+11. `validation_state`;
+12. `disposition`;
+13. `reason_codes`;
+14. `evaluated_checks`;
+15. `evidence_references`;
+16. `unresolved_conditions`;
+17. `authority_exercised`;
+18. `authority_excluded`;
+19. `source_provenance`;
+20. `continuation_posture`.
 
 The result is frozen and deeply immutable. `validation_id` is supplied through the validation context and preserved exactly. The validator must not generate randomness or derive a replacement identity.
+
+`passage_consumption_reference` and `passage_exhaustion_reference` are non-empty opaque strings. Each result value must equal its corresponding validation-context value exactly. The validator does not interpret, create, consume, exhaust, advance, or update either referenced passage state.
 
 The validator preserves all input identifiers exactly. `reason_codes`, checks, references, conditions, authority fields, and provenance use immutable tuples in deterministic order.
 
 `continuation_posture` is always `WAIT_FOR_SEPARATE_AUTHORITY` or `STOP`. It is never automatic continuation.
+
+### Exact types and cardinalities for compound result fields
+
+`reason_codes` is a non-empty tuple of unique members of the closed twenty-eight-code vocabulary in precedence order. `VALIDATION_PASSED` must appear alone.
+
+`evaluated_checks` is a non-empty tuple of frozen `EvaluatedCheck` records in strictly increasing precedence-step order. A record contains exactly:
+
+1. `precedence_step` — an integer from 1 through 19;
+2. `check_name` — exactly one of `PUBLIC_BOUNDARY`, `CONTEXT_COMPLETENESS`, `SCHEMA_BINDING`, `SCHEMA_INTEGRITY_DOCUMENT`, `ENVELOPE_STRUCTURE`, `CONTRACT_PARTICIPANT_LINEAGE_IDENTITY`, `REVOCATION`, `AUTHORITY_CONTRADICTION`, `AUTHORITY_INVALIDITY`, `AUTHORITY_UNAVAILABLE`, `GOVERNING_SOURCE`, `SEMANTIC_CORRESPONDENCE`, `POLICY_EVIDENCE`, `TIME_CONSEQUENCE`, `CONFIDENTIALITY_INTEGRITY`, `IDEMPOTENCY_ORDERING`, `LIFECYCLE_RETURN`, `OTHER_MATERIAL_CONDITION`, or `SUCCESS`;
+3. `outcome` — exactly `PASSED`, `FAILED`, or `INDETERMINATE`;
+4. `reason_codes` — an immutable tuple of unique closed reason codes, empty only for a passed non-terminal step;
+5. `evidence_references` — an immutable tuple of unique non-empty opaque strings, which may be empty only when no evidence reference can safely be preserved.
+
+The tuple ends at the first disposition-selecting step and includes no later step. A conformant result contains all nineteen steps with `SUCCESS` last.
+
+`evidence_references` is an immutable tuple of unique non-empty opaque strings. It is non-empty for `CONFORMANT`; for `NONCONFORMANT` or `INDETERMINATE`, it may be empty only when the selected reason proves that no valid evidence reference was available. Ordering is stable first occurrence from the envelope followed by validation context; lexical sorting and source rewriting are prohibited.
+
+`unresolved_conditions` is an immutable tuple of unique non-empty opaque strings in stable first-occurrence order. It must be empty for `CONFORMANT`, non-empty for `INDETERMINATE`, and may be empty or non-empty for `NONCONFORMANT` according to the returned evidence.
+
+`authority_exercised` is always the empty immutable tuple `()`. Validation exercises no authority.
+
+`authority_excluded` is exactly the immutable tuple `("DISPATCH", "PERMISSION_ENFORCEMENT", "EXECUTION", "ACCEPTANCE", "CONTINUATION")` in that order.
+
+`source_provenance` is a non-empty immutable tuple of unique non-empty opaque strings in stable first-occurrence order. It begins with the schema repository, path, checkpoint, and blob references, then preserves the envelope governing-source and evidence-source references without rewriting them.
 
 ## Evidence-return requirements
 
@@ -308,6 +340,7 @@ The result must make it possible to reconstruct:
 
 - the exact envelope identity evaluated;
 - the exact schema repository, path, checkpoint, and blob;
+- the passage consumption and exhaustion references exactly as supplied, without any claim that their state changed;
 - the trusted supplied evaluation time;
 - every precedence step evaluated before the selected disposition;
 - the supplied fact state supporting every material check;
@@ -386,10 +419,10 @@ Future package: src/hawk/
 Future module: src/hawk/transition_envelope.py
 Public function: LOCKED
 Inputs: 2 LOCKED
-Validation-context fields: 8 LOCKED
-Result: 1 IMMUTABLE RESULT LOCKED
+Validation-context fields: 10 LOCKED
+Result: 1 IMMUTABLE RESULT WITH 20 FIELDS LOCKED
 Resolved fact states: 6 CLOSED VALUES
-Required resolved facts: 20
+Required resolved facts: 21
 Validation states: 3 CLOSED VALUES
 Workflow dispositions: 5 CLOSED VALUES
 Reason codes: 28 CLOSED VALUES
