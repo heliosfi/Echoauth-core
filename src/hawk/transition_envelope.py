@@ -132,6 +132,14 @@ _CHECK_NAMES = (
 )
 _EXCLUDED = ("DISPATCH", "PERMISSION_ENFORCEMENT", "EXECUTION", "ACCEPTANCE", "CONTINUATION")
 _UNAVAILABLE = {ResolvedFactState.UNAVAILABLE, ResolvedFactState.STALE, ResolvedFactState.UNVERIFIABLE}
+_SCHEMA_TYPES = frozenset({"array", "boolean", "integer", "object", "string"})
+_SCHEMA_FORMATS = frozenset({"date-time", "uuid"})
+_SCHEMA_KEYWORDS = frozenset({
+    "$defs", "$id", "$ref", "$schema", "additionalProperties", "allOf", "const",
+    "description", "else", "enum", "format", "if", "items", "minItems",
+    "minLength", "not", "pattern", "properties", "required", "then", "title",
+    "type", "uniqueItems",
+})
 
 
 def _is_deeply_immutable_json(value: object, active: set[int] | None = None) -> bool:
@@ -270,6 +278,98 @@ def _schema_valid(instance: Any, schema: Mapping[str, Any], root: Mapping[str, A
     return True
 
 
+def _schema_document_valid(schema: object) -> bool:
+    """Fail closed unless the document is a valid supported Draft 2020-12 schema."""
+    if not isinstance(schema, Mapping):
+        return False
+    root = schema
+    active: set[int] = set()
+
+    def unique(values: tuple[Any, ...]) -> bool:
+        return all(not any(value == prior for prior in values[:index])
+                   for index, value in enumerate(values))
+
+    def local_reference_exists(reference: object) -> bool:
+        if not isinstance(reference, str) or not reference.startswith("#/"):
+            return False
+        target: object = root
+        for encoded in reference[2:].split("/"):
+            part = encoded.replace("~1", "/").replace("~0", "~")
+            if not isinstance(target, Mapping) or part not in target:
+                return False
+            target = target[part]
+        return isinstance(target, Mapping)
+
+    def valid(candidate: object) -> bool:
+        if not isinstance(candidate, Mapping):
+            return False
+        identity = id(candidate)
+        if identity in active:
+            return False
+        active.add(identity)
+        try:
+            if any(key not in _SCHEMA_KEYWORDS and not key.startswith("x-")
+                   for key in candidate):
+                return False
+            for key in ("$schema", "$id", "title", "description"):
+                if key in candidate and not isinstance(candidate[key], str):
+                    return False
+            if "$ref" in candidate and not local_reference_exists(candidate["$ref"]):
+                return False
+            if "type" in candidate and candidate["type"] not in _SCHEMA_TYPES:
+                return False
+            if "format" in candidate and candidate["format"] not in _SCHEMA_FORMATS:
+                return False
+            if "pattern" in candidate:
+                if not isinstance(candidate["pattern"], str):
+                    return False
+                try:
+                    re.compile(candidate["pattern"])
+                except re.error:
+                    return False
+            for key in ("minLength", "minItems"):
+                value = candidate.get(key)
+                if key in candidate and (not isinstance(value, int)
+                                         or isinstance(value, bool) or value < 0):
+                    return False
+            for key in ("uniqueItems",):
+                if key in candidate and not isinstance(candidate[key], bool):
+                    return False
+            if "additionalProperties" in candidate:
+                additional = candidate["additionalProperties"]
+                if not isinstance(additional, bool) and not valid(additional):
+                    return False
+            if "required" in candidate:
+                required = candidate["required"]
+                if (not isinstance(required, tuple) or not required
+                        or not all(isinstance(item, str) and item for item in required)
+                        or len(required) != len(set(required))):
+                    return False
+            for key in ("properties", "$defs"):
+                if key in candidate:
+                    members = candidate[key]
+                    if (not isinstance(members, Mapping)
+                            or not all(isinstance(name, str) and name and valid(member)
+                                       for name, member in members.items())):
+                        return False
+            for key in ("if", "then", "else", "not", "items"):
+                if key in candidate and not valid(candidate[key]):
+                    return False
+            if "allOf" in candidate:
+                clauses = candidate["allOf"]
+                if not isinstance(clauses, tuple) or not clauses or not all(valid(item) for item in clauses):
+                    return False
+            if "enum" in candidate:
+                values = candidate["enum"]
+                if not isinstance(values, tuple) or not values or not unique(values):
+                    return False
+            return True
+        finally:
+            active.remove(identity)
+
+    return valid(schema)
+
+
 def _result(
     envelope: Mapping[str, Any], context: Mapping[str, Any], checks: list[EvaluatedCheck],
     state: ValidationState, disposition: Disposition, reason: ReasonCode,
@@ -300,7 +400,15 @@ def validate_transition_envelope(
     checks: list[EvaluatedCheck] = []
 
     def passed(step: int) -> None:
-        checks.append(EvaluatedCheck(step, _CHECK_NAMES[step - 1], "PASSED", (), ()))
+        references: tuple[str, ...] = ()
+        if step >= 3:
+            context_references = _unique_strings((
+                safe_context.get("schema_repository", ""), safe_context.get("schema_path", ""),
+                safe_context.get("schema_checkpoint", ""), safe_context.get("schema_blob", ""),
+            ))
+            references = (_unique_strings((*_evidence(safe_envelope), *context_references))
+                          if step >= 5 else context_references)
+        checks.append(EvaluatedCheck(step, _CHECK_NAMES[step - 1], "PASSED", (), references))
 
     def finish(step: int, state: ValidationState, disposition: Disposition,
                reason: ReasonCode, unresolved: tuple[str, ...] = ()) -> TransitionEnvelopeValidationResult:
@@ -336,7 +444,8 @@ def validate_transition_envelope(
     if (not isinstance(schema, Mapping)
             or schema.get("$schema") != "https://json-schema.org/draft/2020-12/schema"
             or schema.get("title") != _CONTRACT_NAME
-            or not isinstance(schema.get("$defs"), Mapping)):
+            or not isinstance(schema.get("$defs"), Mapping)
+            or not _schema_document_valid(schema)):
         return finish(4, ValidationState.NONCONFORMANT, Disposition.STOP, ReasonCode.SCHEMA_DOCUMENT_INVALID)
     passed(4)
     if not _schema_valid(safe_envelope, schema, schema):
@@ -369,8 +478,12 @@ def validate_transition_envelope(
     passed(7)
     authority = ("authority_currentness", "authority_attribution", "authority_scope",
                  "authority_consistency", "authority_evidence_verifiability")
-    if any(facts[name] is ResolvedFactState.CONTRADICTORY for name in authority):
-        return finish(8, ValidationState.INDETERMINATE, Disposition.ESCALATE, ReasonCode.AUTHORITY_CONTRADICTORY, tuple(name for name in authority if facts[name] is ResolvedFactState.CONTRADICTORY))
+    contradictory_authority = (*authority, "governing_source_verifiability")
+    if any(facts[name] is ResolvedFactState.CONTRADICTORY for name in contradictory_authority):
+        return finish(8, ValidationState.INDETERMINATE, Disposition.ESCALATE,
+                      ReasonCode.AUTHORITY_CONTRADICTORY,
+                      tuple(name for name in contradictory_authority
+                            if facts[name] is ResolvedFactState.CONTRADICTORY))
     passed(8)
     if any(facts[name] is ResolvedFactState.REFUTED for name in authority):
         return finish(9, ValidationState.NONCONFORMANT, Disposition.STOP, ReasonCode.AUTHORITY_INVALID)
@@ -382,8 +495,6 @@ def validate_transition_envelope(
         return finish(10, ValidationState.INDETERMINATE, Disposition.WAIT, ReasonCode.AUTHORITY_UNVERIFIABLE, unavailable_authority)
     passed(10)
     governing = facts["governing_source_verifiability"]
-    if governing is ResolvedFactState.CONTRADICTORY:
-        return finish(11, ValidationState.INDETERMINATE, Disposition.ESCALATE, ReasonCode.AUTHORITY_CONTRADICTORY, ("governing_source_verifiability",))
     if governing is ResolvedFactState.REFUTED:
         return finish(11, ValidationState.NONCONFORMANT, Disposition.RETURN, ReasonCode.GOVERNING_SOURCE_UNVERIFIABLE)
     if governing in _UNAVAILABLE:
@@ -455,6 +566,12 @@ def validate_transition_envelope(
     if remaining:
         return finish(18, ValidationState.INDETERMINATE, Disposition.WAIT, ReasonCode.MATERIAL_CONDITION_UNDEFINED, remaining)
     passed(18)
-    checks.append(EvaluatedCheck(19, _CHECK_NAMES[18], "PASSED", (ReasonCode.VALIDATION_PASSED,), _evidence(safe_envelope)))
+    success_evidence = _unique_strings((
+        *_evidence(safe_envelope), safe_context["schema_repository"],
+        safe_context["schema_path"], safe_context["schema_checkpoint"],
+        safe_context["schema_blob"],
+    ))
+    checks.append(EvaluatedCheck(19, _CHECK_NAMES[18], "PASSED",
+                                 (ReasonCode.VALIDATION_PASSED,), success_evidence))
     return _result(safe_envelope, safe_context, checks, ValidationState.CONFORMANT,
                    Disposition.PROCEED, ReasonCode.VALIDATION_PASSED)

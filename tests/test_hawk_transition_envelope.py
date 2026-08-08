@@ -148,6 +148,19 @@ class HawkTransitionEnvelopeTests(unittest.TestCase):
         self.assertEqual(result.reason_codes, (ReasonCode.SCHEMA_INTEGRITY_INVALID,))
         result = validate_transition_envelope(envelope(), context(schema_document=freeze({"$defs": {}})))
         self.assertEqual(result.reason_codes, (ReasonCode.SCHEMA_DOCUMENT_INVALID,))
+        malformed = dict(schema())
+        malformed["type"] = "unsupported"
+        result = validate_transition_envelope(
+            envelope(), context(schema_document=freeze(malformed)))
+        self.assertEqual(
+            (result.disposition, result.reason_codes, len(result.evaluated_checks)),
+            (Disposition.STOP, (ReasonCode.SCHEMA_DOCUMENT_INVALID,), 4),
+        )
+        malformed = dict(schema())
+        malformed["properties"] = {"contractName": {"pattern": "["}}
+        result = validate_transition_envelope(
+            envelope(), context(schema_document=freeze(malformed)))
+        self.assertEqual(result.reason_codes, (ReasonCode.SCHEMA_DOCUMENT_INVALID,))
         result = validate_transition_envelope(envelope(extra="unknown"), context())
         self.assertEqual((result.disposition, result.reason_codes),
                          (Disposition.RETURN, (ReasonCode.ENVELOPE_SCHEMA_NONCONFORMANT,)))
@@ -180,6 +193,34 @@ class HawkTransitionEnvelopeTests(unittest.TestCase):
                 result = validate_transition_envelope(envelope(), with_fact(name, value))
                 self.assertEqual((result.disposition, result.reason_codes, len(result.evaluated_checks)),
                                  (disposition, (reason,), step))
+
+        facts = {name: "CONFIRMED" for name in module._FACT_NAMES}
+        facts["authority_revocation"] = "REFUTED"
+        facts["governing_source_verifiability"] = "CONTRADICTORY"
+        facts["authority_currentness"] = "STALE"
+        result = validate_transition_envelope(
+            envelope(), context(resolved_facts=facts))
+        self.assertEqual(
+            (result.disposition, result.reason_codes, len(result.evaluated_checks),
+             result.unresolved_conditions),
+            (Disposition.ESCALATE, (ReasonCode.AUTHORITY_CONTRADICTORY,), 8,
+             ("governing_source_verifiability",)),
+        )
+
+    def test_passed_checks_preserve_safe_evidence_references(self):
+        result = validate_transition_envelope(envelope(), context())
+        self.assertEqual(result.evaluated_checks[0].evidence_references, ())
+        self.assertEqual(result.evaluated_checks[1].evidence_references, ())
+        bound = (
+            "heliosfi/heliosfi-ni-ai-spine",
+            "schemas/ni-ai-transition-envelope.schema.json",
+            "6fe29594b4b5c7e4ceea1907c87cc7049e9a0e80",
+            "acfe2dc5c4bd722163b123545fbf41a09fa2509d",
+        )
+        self.assertEqual(result.evaluated_checks[2].evidence_references, bound)
+        self.assertEqual(result.evaluated_checks[3].evidence_references, bound)
+        for check in result.evaluated_checks[4:]:
+            self.assertEqual(check.evidence_references, bound)
 
     def test_semantic_policy_evidence_time_and_consequence_mappings(self):
         result = validate_transition_envelope(envelope(semanticCorrespondence={"ambiguityState": "DETECTED"}), context())
