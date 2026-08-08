@@ -165,6 +165,36 @@ class HawkTransitionEnvelopeTests(unittest.TestCase):
         self.assertEqual((result.disposition, result.reason_codes),
                          (Disposition.RETURN, (ReasonCode.ENVELOPE_SCHEMA_NONCONFORMANT,)))
 
+    def test_json_semantic_unique_items_and_uuid_boundaries(self):
+        item_schema = freeze({
+            "type": "array",
+            "uniqueItems": True,
+            "items": {"type": "object"},
+        })
+        first = freeze({"reference": "evidence-1", "nested": {"a": 1, "b": 2}})
+        reordered = freeze({"nested": {"b": 2, "a": 1}, "reference": "evidence-1"})
+        different = freeze({"nested": {"b": 3, "a": 1}, "reference": "evidence-1"})
+        self.assertFalse(module._schema_valid((first, reordered), item_schema, item_schema))
+        self.assertTrue(module._schema_valid((first, different), item_schema, item_schema))
+
+        array_schema = freeze({"type": "array", "uniqueItems": True})
+        self.assertTrue(module._schema_valid(((1, 2), (2, 1)), array_schema, array_schema))
+        self.assertTrue(module._schema_valid((True, 1), array_schema, array_schema))
+        self.assertFalse(module._schema_valid((1, 1.0), array_schema, array_schema))
+
+        uuid_schema = freeze({"type": "string", "format": "uuid"})
+        valid = "ABCDEF12-3456-4789-ABCD-EF1234567890"
+        self.assertTrue(module._schema_valid(valid, uuid_schema, uuid_schema))
+        for invalid in (
+            "abcdef1234564789abcdef1234567890",
+            "{abcdef12-3456-4789-abcd-ef1234567890}",
+            "abcdef12-3456-4789-abcd-ef123456789",
+            "abcdef12-3456-4789-abcd-ef12345678900",
+            "not-a-uuid",
+        ):
+            with self.subTest(uuid=invalid):
+                self.assertFalse(module._schema_valid(invalid, uuid_schema, uuid_schema))
+
     def test_contract_participant_and_lineage_mappings(self):
         result = validate_transition_envelope(envelope(contractVersion="2.0.0"), context())
         self.assertEqual(result.reason_codes, (ReasonCode.CONTRACT_IDENTITY_INVALID,))

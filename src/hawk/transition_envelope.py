@@ -9,7 +9,6 @@ from enum import Enum
 import re
 from types import MappingProxyType
 from typing import Any
-from uuid import UUID
 
 
 class ResolvedFactState(str, Enum):
@@ -134,6 +133,10 @@ _EXCLUDED = ("DISPATCH", "PERMISSION_ENFORCEMENT", "EXECUTION", "ACCEPTANCE", "C
 _UNAVAILABLE = {ResolvedFactState.UNAVAILABLE, ResolvedFactState.STALE, ResolvedFactState.UNVERIFIABLE}
 _SCHEMA_TYPES = frozenset({"array", "boolean", "integer", "object", "string"})
 _SCHEMA_FORMATS = frozenset({"date-time", "uuid"})
+_UUID_PATTERN = re.compile(
+    r"^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-"
+    r"[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$"
+)
 _SCHEMA_KEYWORDS = frozenset({
     "$defs", "$id", "$ref", "$schema", "additionalProperties", "allOf", "const",
     "description", "else", "enum", "format", "if", "items", "minItems",
@@ -210,6 +213,29 @@ def _provenance(envelope: Mapping[str, Any]) -> tuple[str, ...]:
     return _unique_strings(values)
 
 
+def _json_equal(left: object, right: object) -> bool:
+    """Compare immutable JSON values without representation or ordering assumptions."""
+    if isinstance(left, bool) or isinstance(right, bool):
+        return isinstance(left, bool) and isinstance(right, bool) and left == right
+    if isinstance(left, (int, float)) or isinstance(right, (int, float)):
+        return (isinstance(left, (int, float)) and not isinstance(left, bool)
+                and isinstance(right, (int, float)) and not isinstance(right, bool)
+                and left == right)
+    if isinstance(left, Mapping) or isinstance(right, Mapping):
+        if not isinstance(left, Mapping) or not isinstance(right, Mapping):
+            return False
+        return (set(left) == set(right)
+                and all(_json_equal(left[key], right[key]) for key in left))
+    if isinstance(left, (tuple, list)) or isinstance(right, (tuple, list)):
+        if not isinstance(left, (tuple, list)) or not isinstance(right, (tuple, list)):
+            return False
+        return len(left) == len(right) and all(
+            _json_equal(left_item, right_item)
+            for left_item, right_item in zip(left, right)
+        )
+    return type(left) is type(right) and left == right
+
+
 def _schema_valid(instance: Any, schema: Mapping[str, Any], root: Mapping[str, Any]) -> bool:
     if "$ref" in schema:
         reference = schema["$ref"]
@@ -249,11 +275,8 @@ def _schema_valid(instance: Any, schema: Mapping[str, Any], root: Mapping[str, A
             return False
         if "pattern" in schema and re.search(schema["pattern"], instance) is None:
             return False
-        if schema.get("format") == "uuid":
-            try:
-                UUID(instance)
-            except (ValueError, TypeError):
-                return False
+        if schema.get("format") == "uuid" and _UUID_PATTERN.fullmatch(instance) is None:
+            return False
         if schema.get("format") == "date-time" and _utc(instance) is None:
             return False
     if isinstance(instance, Mapping):
@@ -270,8 +293,9 @@ def _schema_valid(instance: Any, schema: Mapping[str, Any], root: Mapping[str, A
         if len(instance) < schema.get("minItems", 0):
             return False
         if schema.get("uniqueItems"):
-            rendered = [repr(value) for value in instance]
-            if len(rendered) != len(set(rendered)):
+            if any(_json_equal(value, prior)
+                   for index, value in enumerate(instance)
+                   for prior in instance[:index]):
                 return False
         if "items" in schema and any(not _schema_valid(value, schema["items"], root) for value in instance):
             return False
