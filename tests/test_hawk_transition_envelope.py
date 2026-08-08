@@ -195,6 +195,49 @@ class HawkTransitionEnvelopeTests(unittest.TestCase):
             with self.subTest(uuid=invalid):
                 self.assertFalse(module._schema_valid(invalid, uuid_schema, uuid_schema))
 
+    def test_json_semantic_const_enum_and_rfc3339_utc_boundaries(self):
+        true_schema = freeze({"const": True})
+        false_schema = freeze({"const": False})
+        self.assertTrue(module._schema_valid(True, true_schema, true_schema))
+        self.assertTrue(module._schema_valid(False, false_schema, false_schema))
+        self.assertFalse(module._schema_valid(1, true_schema, true_schema))
+        self.assertFalse(module._schema_valid(0, false_schema, false_schema))
+
+        distinct_enum = freeze({"enum": [True, 1, False, 0]})
+        self.assertTrue(module._schema_document_valid(freeze({
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$defs": {},
+            "enum": [True, 1, False, 0],
+        })))
+        for value in (True, 1, False, 0):
+            self.assertTrue(module._schema_valid(value, distinct_enum, distinct_enum))
+        equivalent_numbers = freeze({"enum": [1, 1.0]})
+        self.assertFalse(module._schema_document_valid(freeze({
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$defs": {},
+            "enum": [1, 1.0],
+        })))
+        self.assertTrue(module._schema_valid(1.0, freeze({"enum": [1]}), equivalent_numbers))
+
+        timestamp_schema = freeze({"type": "string", "format": "date-time"})
+        for valid in (
+            "2026-08-08T12:00:00Z",
+            "2026-08-08T12:00:00.123456Z",
+        ):
+            self.assertTrue(module._schema_valid(valid, timestamp_schema, timestamp_schema))
+        for invalid in (
+            "2026-08-08 12:00:00Z",
+            "20260808T120000Z",
+            "2026-08-08T12:00:00+00:00",
+            "2026-08-08T12:00:00z",
+            "2026-08-08T12:00Z",
+            "2026-02-30T12:00:00Z",
+            "2026-08-08T24:00:00Z",
+        ):
+            with self.subTest(timestamp=invalid):
+                self.assertFalse(module._schema_valid(
+                    invalid, timestamp_schema, timestamp_schema))
+
     def test_contract_participant_and_lineage_mappings(self):
         result = validate_transition_envelope(envelope(contractVersion="2.0.0"), context())
         self.assertEqual(result.reason_codes, (ReasonCode.CONTRACT_IDENTITY_INVALID,))

@@ -137,6 +137,10 @@ _UUID_PATTERN = re.compile(
     r"^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-"
     r"[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$"
 )
+_RFC3339_UTC_PATTERN = re.compile(
+    r"^[0-9]{4}-[0-9]{2}-[0-9]{2}T"
+    r"[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\.[0-9]+)?Z$"
+)
 _SCHEMA_KEYWORDS = frozenset({
     "$defs", "$id", "$ref", "$schema", "additionalProperties", "allOf", "const",
     "description", "else", "enum", "format", "if", "items", "minItems",
@@ -165,7 +169,7 @@ def _is_deeply_immutable_json(value: object, active: set[int] | None = None) -> 
 
 
 def _utc(value: object) -> datetime | None:
-    if not isinstance(value, str) or not value.endswith("Z"):
+    if not isinstance(value, str) or _RFC3339_UTC_PATTERN.fullmatch(value) is None:
         return None
     try:
         parsed = datetime.fromisoformat(value[:-1] + "+00:00")
@@ -255,9 +259,10 @@ def _schema_valid(instance: Any, schema: Mapping[str, Any], root: Mapping[str, A
             return False
     if "not" in schema and _schema_valid(instance, schema["not"], root):
         return False
-    if "const" in schema and instance != schema["const"]:
+    if "const" in schema and not _json_equal(instance, schema["const"]):
         return False
-    if "enum" in schema and instance not in schema["enum"]:
+    if "enum" in schema and not any(_json_equal(instance, value)
+                                    for value in schema["enum"]):
         return False
     expected = schema.get("type")
     if expected == "object" and not isinstance(instance, Mapping):
@@ -310,7 +315,7 @@ def _schema_document_valid(schema: object) -> bool:
     active: set[int] = set()
 
     def unique(values: tuple[Any, ...]) -> bool:
-        return all(not any(value == prior for prior in values[:index])
+        return all(not any(_json_equal(value, prior) for prior in values[:index])
                    for index, value in enumerate(values))
 
     def local_reference_exists(reference: object) -> bool:
