@@ -449,11 +449,41 @@ Challenge it.
 
 Let the evidence decide what deserves to continue.
 
+## Final owner-intent statement — Nicholas B. Carty
+
+The world-facing gift ends with a human-centered intent statement supplied by Nicholas B. Carty.
+
+> **AI is not intended here to replace the human. Its role is to help bring people, knowledge, evidence, and responsibilities into clearer relationship while human purpose remains primary.**
+
+Nicholas B. Carty preserves the accompanying personal formulation:
+
+> **“I’m not balanced. I’m from balance. I use balance to advance Applied Intelligence.”**
+
+Within this thesis, that statement is preserved as owner philosophy and intent. It is not an empirical prediction, a runtime requirement, or a claim that all future AI systems must share the same purpose.
+
+Its bounded architectural meaning is:
+
+```text
+HUMAN PURPOSE
+-> INTENT
+-> APPLIED INTELLIGENCE
+-> CONNECTION / CLARIFICATION
+-> EVIDENCE
+-> GOVERNED ACTION WHEN LEGITIMATE
+-> RETURN TO HUMAN / REALITY WHEN REQUIRED
+```
+
+The corresponding world-facing principle is:
+
+> **AI should extend human connection and applied understanding without erasing the human source of purpose, responsibility, relationship, and meaning.**
+
 ## Final posture
 
 `WORLD-FACING PREFACE — DEFINED`
 
 `INVESTOR / INVESTIGATOR / CRITIC DEFENSE INTERFACE — DEFINED`
+
+`HUMAN-CENTERED OWNER INTENT — PRESERVED`
 
 `PRIMARY EVIDENCE THESIS — UNCHANGED AND CONTROLLING`
 
