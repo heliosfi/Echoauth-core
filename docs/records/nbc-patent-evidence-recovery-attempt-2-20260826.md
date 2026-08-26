@@ -18,8 +18,9 @@ The bounded recovery attempt assessed:
 
 - the connected `kingcartybrand@gmail.com` mailbox using patent-specific search terms, including USPTO, Patent Center, MyUSPTO, filing receipt, application number, confirmation number, provisional application, nonprovisional application, and EFS-Web;
 - accessible repository evidence in `heliosfi/Echoauth-core`, `heliosfi/heliosfi-ni-ai-spine`, and `heliosfi/governed-agentic-engineering` for patent, filing, application, USPTO, inventorship, NI AI, and EchoAuth correspondence;
-- public web patent-index searches for Nicholas B. Carty / Nicholas Carty combined with NI AI and EchoAuth terms; and
-- the connected Gmail Wix subscription trail concerning `heilosfi.com` and related business-email/domain history.
+- public web patent-index searches for Nicholas B. Carty / Nicholas Carty combined with NI AI and EchoAuth terms;
+- the connected Gmail Wix subscription trail concerning `heilosfi.com` and related business-email/domain history; and
+- the connected Google Drive using USPTO, patent, EchoAuth, and NI AI search terms.
 
 ## Observed results
 
@@ -57,12 +58,19 @@ patent filing correspondence in that mailbox: UNRESOLVED
 
 The existence of the Wix subscription trail makes the historical business mailbox a legitimate candidate recovery source, but no patent filing identity is inferred from that fact alone.
 
+### Connected Google Drive
+
+The bounded Google Drive search did not surface a file under the terms USPTO, patent, EchoAuth, or NI AI.
+
+This result means only that no matching file was recovered through the connected Drive search under those terms. It does not establish that no relevant local, phone, other-account, differently titled, or inaccessible file exists.
+
 ## Current evidence posture
 
 ```text
 founder-reported prior patent filing: PRESERVED AS FOUNDER REPORT
 founder-reported patent/application number: PRESERVED AS FOUNDER REPORT
 connected Gmail recovery: NO AUTHORITATIVE FILING IDENTIFIER RECOVERED
+connected Google Drive recovery: NO MATCHING FILING ARTIFACT RECOVERED
 repository recovery: NO AUTHORITATIVE FILING IDENTIFIER RECOVERED
 public published-record recovery: NO MATCHING RECORD RECOVERED IN BOUNDED SEARCH
 heilosfi.com Wix business-email/domain trail: OBSERVED
@@ -96,7 +104,8 @@ Preserved:
 - timestamped repository evidence;
 - applied-intellect and continuity records;
 - the founder-reported existence of the prior filing and application number;
-- the observed Wix / `heilosfi.com` business-email trail.
+- the observed Wix / `heilosfi.com` business-email trail;
+- and the completed connected-Drive recovery check.
 
 No legal conclusion reached.
 No patent-office submission made.
