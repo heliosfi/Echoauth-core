@@ -178,6 +178,43 @@ The resulting thesis refinement is:
 
 This strengthens, rather than relaxes, the existing separation between capability, authority, permission, execution, return, and reassessment.
 
+## Receptive continuity — gratitude refinement, 2026-08-26
+
+Within the human-facing and relational layer of this thesis, gratitude is treated as a receptive-continuity principle rather than as authority, permission, or entitlement.
+
+The relevant distinction is not whether gratitude can compel access. It cannot. The distinction is whether a recipient can recognize value, access, assistance, trust, evidence, or opportunity as something received rather than something automatically owned.
+
+The principle is:
+
+```text
+ACCESS != ENTITLEMENT
+RECEIPT != OWNERSHIP
+ACKNOWLEDGEMENT != SUBMISSION
+GRATITUDE != AUTHORITY
+GRATITUDE != PERMISSION
+```
+
+Manners may satisfy a visible social interface. Gratitude addresses a deeper relational condition: the recipient recognizes that passage, assistance, knowledge, or opportunity may depend on relationships that cannot be reduced to possession or demand.
+
+In governance terms, this produces a disciplined receiving posture:
+
+```text
+RECEIVE
+-> ACKNOWLEDGE
+-> PRESERVE WHAT WAS GIVEN
+-> DO NOT OVERCLAIM IT
+-> RETURN VALUE OR EVIDENCE WHERE APPROPRIATE
+-> REASSESS THE RELATIONSHIP WITHOUT ENTITLEMENT
+```
+
+This does not assert that gratitude guarantees access, agreement, acceptance, reciprocity, or favorable outcomes. It preserves the narrower proposition that durable relational continuity is strengthened when receipt is distinguished from entitlement and acknowledgement is preserved without converting relationship into authority.
+
+The refinement can therefore be stated as:
+
+> **Some forms of passage depend not only on capability or compliance, but on the capacity to receive without converting receipt into entitlement; gratitude is one human expression of that receptive discipline.**
+
+This is a normative relational principle, not a runtime requirement and not an anthropomorphic claim about digital systems.
+
 ## Why this matters
 
 If the remaining boundaries can be implemented without collapsing their responsibilities, and if the resulting system survives independent and adversarial validation, the architecture could support governed consequential agency across increasingly capable agentic systems.
@@ -193,7 +230,8 @@ Potential properties include:
 - auditable decision, passage, permission, execution, and return lineage;
 - human / governance intervention without loss of continuity;
 - reassessment after execution instead of treating one authorization as continuing permission;
-- nonlinear return, recovery, WAIT, and STOP without requiring one centralized control path.
+- nonlinear return, recovery, WAIT, and STOP without requiring one centralized control path;
+- relational continuity that distinguishes receiving from entitlement and acknowledgement from authority.
 
 These are future capability propositions, not present production claims.
 
@@ -309,6 +347,18 @@ AGREEMENT != DEPLOYMENT AUTHORITY
 
 The handoff objective is not to control the evaluator's conclusion. It is to provide an evidence package sufficiently clear that an independent evaluator can determine what the evidence establishes, what remains unresolved, and what would need to be tested next.
 
+The receptive-continuity refinement adds a human-facing discipline to this handoff without changing its authority boundaries:
+
+```text
+PRESENT WITHOUT ENTITLEMENT
+-> RECEIVE THE RESPONSE AS EVIDENCE
+-> ACKNOWLEDGE WHAT WAS ACTUALLY GIVEN
+-> DO NOT CLAIM MORE THAN WAS RECEIVED
+-> RETURN TO THE NEXT VALID QUESTION
+```
+
+Gratitude may shape the quality of a relationship, but it does not substitute for evidence, acceptance, agreement, or authority.
+
 ## Governing future posture
 
 The evidence-supported future posture is:
@@ -337,26 +387,28 @@ ASSESS
 
 Applied to the refined lane:
 
-- ASSESS: current runtime, governance records, historical interfaces, Hawk/CEG correspondence, minimum SAI contract, NI AI transition-envelope boundaries, and the control-versus-agency boundary reviewed.
-- LEARN: the architecture is better represented as corresponding bounded responsibilities than as one mandatory linear authority path; meaningful agency does not require authority over every constraining layer.
-- INTERPRET: correspondence may cross boundaries while authority remains native to the responsibility that owns it; external constraints define the lawful action space rather than silently granting or removing authority.
-- DECIDE: strengthen the thesis at the relational and bounded-agency architecture level; do not infer runtime integration, external acceptance, or implementation authority.
-- CONCLUDE: end-to-end relational correspondence is supported at the architecture/documentation level; bounded agency is consistent with the governing invariants; an integrated runtime pipeline remains unproven.
+- ASSESS: current runtime, governance records, historical interfaces, Hawk/CEG correspondence, minimum SAI contract, NI AI transition-envelope boundaries, the control-versus-agency boundary, and the receiving-versus-entitlement relational boundary reviewed.
+- LEARN: the architecture is better represented as corresponding bounded responsibilities than as one mandatory linear authority path; meaningful agency does not require authority over every constraining layer; durable relational continuity benefits from distinguishing receipt from entitlement.
+- INTERPRET: correspondence may cross boundaries while authority remains native to the responsibility that owns it; external constraints define the lawful action space rather than silently granting or removing authority; acknowledgement can preserve relationship without manufacturing authority.
+- DECIDE: strengthen the thesis at the relational, bounded-agency, and receptive-continuity level; do not infer runtime integration, external acceptance, or implementation authority.
+- CONCLUDE: end-to-end relational correspondence is supported at the architecture/documentation level; bounded agency is consistent with the governing invariants; receptive continuity is preserved as a human-facing normative principle; an integrated runtime pipeline remains unproven.
 - PRESERVE: record the refined thesis and handoff limitations without modifying runtime behavior.
 
 ## Final conclusion
 
 The strongest evidence-supported future proposition is:
 
-> Advanced agentic intelligence may be governable through a network of separately bounded, evidence-linked responsibilities in which understanding, workflow passage, state governance, permission, execution, return, and reassessment correspond without automatically transferring authority from one responsibility to another; meaningful agency remains possible within constraint without implying authority over the constraining layer.
+> Advanced agentic intelligence may be governable through a network of separately bounded, evidence-linked responsibilities in which understanding, workflow passage, state governance, permission, execution, return, and reassessment correspond without automatically transferring authority from one responsibility to another; meaningful agency remains possible within constraint without implying authority over the constraining layer, while human-facing relational continuity is strengthened when receipt is distinguished from entitlement and acknowledgement does not become authority.
 
 The repository contains real executable foundations and documentation contracts consistent with that proposition, but the full end-to-end runtime remains unproven.
 
 ## Final status
 
-`FUTURE CAPABILITY THESIS — STRENGTHENED BY RELATIONAL-CORRESPONDENCE AND BOUNDED-AGENCY REFINEMENT`
+`FUTURE CAPABILITY THESIS — STRENGTHENED BY RELATIONAL-CORRESPONDENCE, BOUNDED-AGENCY, AND RECEPTIVE-CONTINUITY REFINEMENT`
 
 `END-TO-END RELATIONAL CORRESPONDENCE — ESTABLISHED AT ARCHITECTURE/DOCUMENTATION LEVEL`
+
+`RECEPTIVE CONTINUITY / GRATITUDE PRINCIPLE — PRESERVED AS HUMAN-FACING NORMATIVE REFINEMENT`
 
 `EVIDENCE HANDOFF DOCTRINE — PRESERVED`
 
