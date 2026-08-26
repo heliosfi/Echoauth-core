@@ -124,6 +124,31 @@ repeat processing != expansion  -> implemented through idempotence
 
 This alignment is evidence that the thesis is not merely diagrammatic. It does not establish the complete runtime chain.
 
+## Applied-intelligence identity and preserved illustration
+
+The bounded plain-language identity statement is:
+
+> **NI AI is my applied-intelligence architecture, designed to separate understanding from authority and execution.**
+
+This statement describes the architecture preserved in this repository. It does not assert that NI AI is the first use of the term "applied intelligence," establish technical novelty or uniqueness, or expand the accepted implementation and runtime boundaries of this thesis.
+
+The original illustrative comparison image is preserved unchanged at:
+
+`docs/assessments/evidence/ni-ai-applied-intelligence-illustrative-comparison-2026-08-06.png`
+
+![Illustrative comparison of typical AI-industry emphasis and the NI AI Spine](evidence/ni-ai-applied-intelligence-illustrative-comparison-2026-08-06.png)
+
+### Image provenance and timestamp limitations
+
+- Original-file SHA-256: `e75048cb2ee73a8770c89975a8365d328ff6725ee42e12a9873eb5069cd20009`.
+- Embedded `photoshop:DateCreated` and `xmp:ModifyDate`: `2026-08-06T12:56:43`; no timezone is encoded, so this is preserved as a source-file metadata claim rather than an independently verified UTC timestamp.
+- The visible device clock reads `12:56`; the image itself does not visibly establish a calendar date or timezone.
+- Workspace receipt/copy filesystem birth time: `2026-08-26T11:12:01.887051292Z` (equivalent to `2026-08-26 07:12:01.887051292 -0400`). This records receipt of the copied file in the working environment, not original image creation.
+- The Git commit containing this file supplies a separate repository-controlled preservation timestamp.
+- The percentages and bars in the image are explicitly illustrative architectural emphasis, not measured benchmarks, industry statistics, comparative performance results, or proof of superiority.
+
+This supplement preserves wording, image bytes, provenance observations, and limitations. It does not retroactively alter the thesis checkpoint accepted by PR #13.
+
 ## Unresolved center
 
 The current unresolved center is not an undefined architecture.
