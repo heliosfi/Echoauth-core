@@ -20,6 +20,10 @@ Relational-correspondence reassessment base:
 
 `7cf593b0e2c7aa8642f235fd26095c2a5ae63436`
 
+Bounded-agency thesis refinement base:
+
+`fbe50211f1456eae2af84e3a7fddd37d04d9c81d`
+
 Authority for this documentation lane: Nicholas B. Carty (N.B.C.).
 
 Authority is bounded to preservation of the evidence-supported thesis in this artifact. It does not convert this artifact into implementation or runtime authority.
@@ -126,6 +130,54 @@ The future capability proposition is therefore:
 
 Such an architecture could permit nonlinear workflow, cross-domain passage, feedback, return, recovery, and specialized control paths while preserving the invariant that no successful crossing automatically authorizes the next crossing.
 
+## Agency within constraint — 2026-08-26 refinement
+
+Agency in this thesis does not mean control over the outer layer that establishes the operating environment.
+
+A bounded actor may encounter inputs, events, capabilities, limitations, or permissions that it did not originate. The governable question is not whether the actor controls every condition affecting it. The governable question is what the actor may validly assess, interpret, decide, and do within the authority actually available at the present boundary.
+
+The principle is:
+
+```text
+EXTERNAL CONSTRAINT != LOSS OF ALL AGENCY
+AVAILABLE AGENCY != AUTHORITY OVER THE CONSTRAINT
+UNCONTROLLED INPUT != REQUIRED ACTION
+POSSIBILITY != PERMISSION
+PERMISSION != EXECUTION
+```
+
+At a general human-decision level, an event or thought may arise without deliberate selection; the consequential governing layer is the later sequence of attention, assessment, interpretation, decision, and action.
+
+```text
+ARISING INPUT
+-> ATTENTION
+-> ASSESSMENT
+-> INTERPRETATION
+-> DECISION
+-> ACTION
+```
+
+This is a structural analogy only. It does not assert equivalence between human cognition and digital systems.
+
+At the digital-system level, inputs, model capabilities, tool availability, system policy, interface permissions, and external access may be established by layers outside the acting component. Valid agency therefore remains bounded by what the system can actually observe, infer, decide, authorize, and execute.
+
+```text
+INPUT
+-> POSSIBLE INTERPRETATIONS
+-> STATE ASSESSMENT
+-> AUTHORITY CHECK
+-> PERMISSION CHECK
+-> BOUNDED ACTION
+-> EVIDENCE RETURN
+-> REASSESSMENT
+```
+
+The resulting thesis refinement is:
+
+> **Intelligence can retain meaningful bounded agency without possessing authority over the environment that constrains it.**
+
+This strengthens, rather than relaxes, the existing separation between capability, authority, permission, execution, return, and reassessment.
+
 ## Why this matters
 
 If the remaining boundaries can be implemented without collapsing their responsibilities, and if the resulting system survives independent and adversarial validation, the architecture could support governed consequential agency across increasingly capable agentic systems.
@@ -224,6 +276,39 @@ This thesis does not establish:
 - public API readiness;
 - external-system execution authority.
 
+## Evidence handoff doctrine — 2026-08-26 refinement
+
+The external handoff must follow the same boundary discipline as the architecture.
+
+The existence of preserved work establishes that material exists for examination. It does not establish external acceptance, organizational interest, an assigned reviewer, commercial commitment, production adoption, or authority by any outside party.
+
+The evidence-bounded handoff sequence is:
+
+```text
+PRESERVE
+-> IDENTIFY
+-> PRESENT
+-> VERIFY RECEIPT WHEN EVIDENCE EXISTS
+-> INDEPENDENT ASSESSMENT
+-> RECORD THE RESPONSE
+-> ADVANCE ONLY FROM ESTABLISHED EVIDENCE
+```
+
+The repository controls the clarity, provenance, scope, and limitations of what it presents. The external evaluator controls its own review, conclusions, acceptance, rejection, or request for additional material.
+
+Therefore:
+
+```text
+HANDOFF != ACCEPTANCE
+DELIVERY != REVIEW
+REVIEW != ENDORSEMENT
+CORRESPONDENCE != COMMITMENT
+INTEREST != AGREEMENT
+AGREEMENT != DEPLOYMENT AUTHORITY
+```
+
+The handoff objective is not to control the evaluator's conclusion. It is to provide an evidence package sufficiently clear that an independent evaluator can determine what the evidence establishes, what remains unresolved, and what would need to be tested next.
+
 ## Governing future posture
 
 The evidence-supported future posture is:
@@ -252,27 +337,29 @@ ASSESS
 
 Applied to the refined lane:
 
-- ASSESS: current runtime, governance records, historical interfaces, Hawk/CEG correspondence, minimum SAI contract, and NI AI transition-envelope boundaries reviewed.
-- LEARN: the architecture is better represented as corresponding bounded responsibilities than as one mandatory linear authority path.
-- INTERPRET: correspondence may cross boundaries while authority remains native to the responsibility that owns it.
-- DECIDE: strengthen the thesis at the relational architecture level; do not infer runtime integration or implementation authority.
-- CONCLUDE: end-to-end relational correspondence is supported; an integrated runtime pipeline remains unproven.
-- PRESERVE: record the refined thesis and limitations without modifying runtime behavior.
+- ASSESS: current runtime, governance records, historical interfaces, Hawk/CEG correspondence, minimum SAI contract, NI AI transition-envelope boundaries, and the control-versus-agency boundary reviewed.
+- LEARN: the architecture is better represented as corresponding bounded responsibilities than as one mandatory linear authority path; meaningful agency does not require authority over every constraining layer.
+- INTERPRET: correspondence may cross boundaries while authority remains native to the responsibility that owns it; external constraints define the lawful action space rather than silently granting or removing authority.
+- DECIDE: strengthen the thesis at the relational and bounded-agency architecture level; do not infer runtime integration, external acceptance, or implementation authority.
+- CONCLUDE: end-to-end relational correspondence is supported at the architecture/documentation level; bounded agency is consistent with the governing invariants; an integrated runtime pipeline remains unproven.
+- PRESERVE: record the refined thesis and handoff limitations without modifying runtime behavior.
 
 ## Final conclusion
 
 The strongest evidence-supported future proposition is:
 
-> Advanced agentic intelligence may be governable through a network of separately bounded, evidence-linked responsibilities in which understanding, workflow passage, state governance, permission, execution, return, and reassessment correspond without automatically transferring authority from one responsibility to another.
+> Advanced agentic intelligence may be governable through a network of separately bounded, evidence-linked responsibilities in which understanding, workflow passage, state governance, permission, execution, return, and reassessment correspond without automatically transferring authority from one responsibility to another; meaningful agency remains possible within constraint without implying authority over the constraining layer.
 
 The repository contains real executable foundations and documentation contracts consistent with that proposition, but the full end-to-end runtime remains unproven.
 
 ## Final status
 
-`FUTURE CAPABILITY THESIS — STRENGTHENED BY RELATIONAL-CORRESPONDENCE EVIDENCE`
+`FUTURE CAPABILITY THESIS — STRENGTHENED BY RELATIONAL-CORRESPONDENCE AND BOUNDED-AGENCY REFINEMENT`
 
 `END-TO-END RELATIONAL CORRESPONDENCE — ESTABLISHED AT ARCHITECTURE/DOCUMENTATION LEVEL`
 
+`EVIDENCE HANDOFF DOCTRINE — PRESERVED`
+
 `INTEGRATED RUNTIME PIPELINE — NOT ESTABLISHED`
 
-`IMPLEMENTATION AUTHORITY — NOT CREATED BY THIS ARTIFACT`
+`IMPLEMENTATION OR EXTERNAL ACCEPTANCE AUTHORITY — NOT CREATED BY THIS ARTIFACT`
