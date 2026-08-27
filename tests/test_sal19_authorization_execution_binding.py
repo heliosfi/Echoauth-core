@@ -1,4 +1,4 @@
-"""Focused SAL-19 authorization-to-execution binding adversarial tests."""
+"""Focused authorization/execution currentness adversarial tests."""
 
 from __future__ import annotations
 
@@ -51,6 +51,8 @@ from echoauth.policy import (
     build_policy_rule,
 )
 from echoauth.runtime import (
+    InMemoryRuntimeCurrentStateRepository,
+    RuntimeDecisionCurrentnessService,
     RuntimeState,
     RuntimeStateMachine,
     RuntimeTransition,
@@ -191,6 +193,23 @@ class AuthorizationExecutionBindingTests(unittest.TestCase):
             audit_chain_id="sal19-audit",
             clock=self.clock,
         )
+        self.state_repository = InMemoryRuntimeCurrentStateRepository(
+            self.audit,
+            audit_chain_id="sal19-audit",
+            clock=self.clock,
+        )
+        self.state_repository.register_initial(
+            request_id="request-1",
+            state=RuntimeState.AUTHORIZED,
+            actor_id="sal19-test",
+            occurred_at="2026-06-19T12:58:00Z",
+        )
+        self.currentness_service = RuntimeDecisionCurrentnessService(
+            self.state_repository,
+            self.audit,
+            audit_chain_id="sal19-audit",
+            clock=self.clock,
+        )
         self.constraint = ExecutionConstraint(
             constraint_id="sal19-execution-constraint",
             required_state=RuntimeState.READY,
@@ -201,6 +220,7 @@ class AuthorizationExecutionBindingTests(unittest.TestCase):
             audit_chain_id="sal19-audit",
             constraints=(self.constraint,),
             authorization_binder=self.binder,
+            runtime_currentness_service=self.currentness_service,
             clock=self.clock,
         )
 
@@ -247,20 +267,37 @@ class AuthorizationExecutionBindingTests(unittest.TestCase):
         values.update(overrides)
         return AuthorizationRequest(**values)
 
-    def _runtime_decision(self):
-        return self.state_machine.validate(
+    def _runtime_decision(
+        self,
+        *,
+        current=RuntimeState.AUTHORIZED,
+        transition=RuntimeTransition.MARK_READY,
+        target=RuntimeState.READY,
+        suffix="ready-1",
+        apply=True,
+    ):
+        decision = self.state_machine.validate(
             RuntimeTransitionRequest(
-                transition_request_id="sal19-runtime-transition",
+                transition_request_id=f"sal19-runtime-transition-{suffix}",
                 request_id="request-1",
-                current_state=RuntimeState.AUTHORIZED,
-                transition=RuntimeTransition.MARK_READY,
-                requested_state=RuntimeState.READY,
+                current_state=current,
+                transition=transition,
+                requested_state=target,
                 actor_id="sal19-test",
-                reason="sal19_execution_readiness",
-                evidence={"source": "sal19"},
+                reason=f"sal19_{suffix}",
+                evidence={"source": f"sal19-{suffix}"},
                 occurred_at="2026-06-19T12:59:00Z",
             )
         )
+        if apply:
+            current_record = self.state_repository.get("request-1")
+            self.state_repository.apply(
+                decision,
+                expected_revision=current_record.state_revision,
+                actor_id="sal19-test",
+                applied_at="2026-06-19T12:59:30Z",
+            )
+        return decision
 
     def _execution_request(self, runtime, *, authority_evidence=None, action="read"):
         return ExecutionRequest(
@@ -281,7 +318,7 @@ class AuthorizationExecutionBindingTests(unittest.TestCase):
             constraint=self.constraint,
         )
 
-    def test_fresh_authorization_binding_allows_eligibility_assessment(self) -> None:
+    def test_fresh_authorization_and_current_ready_allow_eligibility_assessment(self) -> None:
         self._register_policy()
         runtime = self._runtime_decision()
         decision = self.control.validate_authorized(
@@ -292,6 +329,8 @@ class AuthorizationExecutionBindingTests(unittest.TestCase):
         self.assertEqual(decision.outcome, ExecutionOutcome.ELIGIBLE)
         self.assertTrue(decision.eligible)
         self.assertIsNotNone(decision.evidence.authority_evidence_hash)
+        self.assertEqual(decision.evidence.runtime_state_revision, 1)
+        self.assertIsNotNone(decision.evidence.runtime_currentness_evidence_hash)
 
     def test_loose_placeholder_authority_evidence_cannot_be_eligible(self) -> None:
         self._register_policy()
@@ -399,6 +438,58 @@ class AuthorizationExecutionBindingTests(unittest.TestCase):
                 runtime,
                 self._authorization_request(),
             )
+
+    def test_old_ready_decision_stays_stale_after_block_and_return_to_ready(self) -> None:
+        self._register_policy()
+        authorization_request = self._authorization_request()
+        ready_one = self._runtime_decision(suffix="ready-1")
+        first = self.control.validate_authorized(
+            self._execution_request(ready_one), ready_one, authorization_request
+        )
+        self.assertEqual(first.outcome, ExecutionOutcome.ELIGIBLE)
+        self.assertEqual(first.evidence.runtime_state_revision, 1)
+
+        blocked = self._runtime_decision(
+            current=RuntimeState.READY,
+            transition=RuntimeTransition.BLOCK_EXECUTION,
+            target=RuntimeState.EXECUTION_BLOCKED,
+            suffix="blocked-2",
+        )
+        self.assertEqual(self.state_repository.get("request-1").state_revision, 2)
+        stale_after_block = self.control.validate_authorized(
+            self._execution_request(ready_one), ready_one, authorization_request
+        )
+        self.assertEqual(stale_after_block.outcome, ExecutionOutcome.INVALID_STATE)
+        self.assertFalse(stale_after_block.eligible)
+        self.assertEqual(
+            stale_after_block.reason,
+            "runtime_currentness_transition_decision_superseded",
+        )
+
+        ready_two = self._runtime_decision(
+            current=RuntimeState.EXECUTION_BLOCKED,
+            transition=RuntimeTransition.RELEASE_BLOCK,
+            target=RuntimeState.READY,
+            suffix="ready-3",
+        )
+        self.assertEqual(self.state_repository.get("request-1").state_revision, 3)
+        stale_after_return = self.control.validate_authorized(
+            self._execution_request(ready_one), ready_one, authorization_request
+        )
+        self.assertEqual(stale_after_return.outcome, ExecutionOutcome.INVALID_STATE)
+        self.assertFalse(stale_after_return.eligible)
+
+        current_ready = self.control.validate_authorized(
+            self._execution_request(ready_two), ready_two, authorization_request
+        )
+        self.assertEqual(current_ready.outcome, ExecutionOutcome.ELIGIBLE)
+        self.assertTrue(current_ready.eligible)
+        self.assertEqual(current_ready.evidence.runtime_state_revision, 3)
+        self.assertNotEqual(
+            ready_one.transition_decision_id,
+            ready_two.transition_decision_id,
+        )
+        self.assertEqual(blocked.next_state, RuntimeState.EXECUTION_BLOCKED)
 
 
 if __name__ == "__main__":
