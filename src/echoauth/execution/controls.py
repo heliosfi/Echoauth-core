@@ -9,6 +9,13 @@ State machine: specs/runtime-state-machine.md
 
 from echoauth.interfaces import ExecutionClaimService, TokenService
 from echoauth.models import ExecutionToken
+from echoauth.execution.authorization_handoff import (
+    HANDOFF_VERSION,
+    AuthorizationExecutionHandoffAuditError,
+    AuthorizationExecutionHandoffDecision,
+    AuthorizationExecutionHandoffValidationError,
+    AuthorizationExecutionHandoffValidator,
+)
 from echoauth.execution.models import (
     ExecutionConstraint,
     ExecutionDecision,
