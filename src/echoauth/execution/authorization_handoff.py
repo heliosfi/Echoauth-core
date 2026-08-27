@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime, timezone
+from threading import RLock
 
 from echoauth.audit import InMemoryAuditLogRepository
 from echoauth.auth.authorization_gate import AuthorizationGateService
@@ -80,6 +81,8 @@ class AuthorizationExecutionHandoffValidator:
         self._audit_chain_id = audit_chain_id
         self._component_id = component_id
         self._clock = clock or (lambda: datetime.now(timezone.utc))
+        self._replay_cache: dict[str, AuthorizationExecutionHandoffDecision] = {}
+        self._lock = RLock()
 
     def validate(
         self,
@@ -143,7 +146,9 @@ class AuthorizationExecutionHandoffValidator:
                 now=now,
             )
 
-        # Currentness is established by a fresh gate invocation at consumption time.
+        # Currentness is always established before replay suppression. A changed
+        # authority/policy/identity/delegation state produces a different fresh
+        # authorization decision and therefore a different replay identity.
         fresh_decision = self._authorization_gate.authorize(authorization_request)
         if not self._authorization_audit_matches(fresh_decision):
             return self._complete(
@@ -206,8 +211,12 @@ class AuthorizationExecutionHandoffValidator:
     ) -> AuthorizationExecutionHandoffDecision:
         payload_hash = canonical_sha256(authorization_request.payload)
         context_hash = canonical_sha256(authorization_request.context)
-        evidence_package = {
+        replay_package = {
             "handoff_version": HANDOFF_VERSION,
+            "execution_request_id": execution_request.execution_request_id,
+            "runtime_transition_decision_id": (
+                execution_request.runtime_transition_decision_id
+            ),
             "request_id": authorization_request.request_id,
             "requester_id": authorization_request.requester_id,
             "subject_id": authorization_request.subject_id,
@@ -230,81 +239,94 @@ class AuthorizationExecutionHandoffValidator:
             ),
             "accepted": accepted,
             "reason": reason,
-            "validated_at": _timestamp(now),
         }
-        evidence_hash = canonical_sha256(evidence_package)
-        handoff_validation_id = f"aeh_{canonical_sha256(evidence_package)}"
-        audit_event_id = f"audit_{handoff_validation_id}"
-        audit = self._audit_repository.append(
-            AuditRecord(
-                event_type="authorization.execution_handoff.validation",
-                actor_id=self._component_id,
+        replay_key = canonical_sha256(replay_package)
+
+        with self._lock:
+            cached = self._replay_cache.get(replay_key)
+            if cached is not None:
+                return cached
+
+            evidence_package = {
+                **replay_package,
+                "validated_at": _timestamp(now),
+            }
+            evidence_hash = canonical_sha256(evidence_package)
+            handoff_validation_id = f"aeh_{canonical_sha256(evidence_package)}"
+            audit_event_id = f"audit_{handoff_validation_id}"
+            audit = self._audit_repository.append(
+                AuditRecord(
+                    event_type="authorization.execution_handoff.validation",
+                    actor_id=self._component_id,
+                    request_id=authorization_request.request_id,
+                    authority_verdict_id=(
+                        fresh_decision.authority_resolution_id if fresh_decision else None
+                    ),
+                    reason=reason,
+                    details={
+                        "accepted": accepted,
+                        "evidence_hash": evidence_hash,
+                        "fresh_authorization_decision_id": (
+                            fresh_decision.authorization_decision_id
+                            if fresh_decision
+                            else None
+                        ),
+                        "handoff_validation_id": handoff_validation_id,
+                        "prior_authorization_decision_id": (
+                            prior_decision.authorization_decision_id
+                        ),
+                        "replay_key": replay_key,
+                    },
+                    occurred_at=_timestamp(now),
+                ),
+                audit_event_id=audit_event_id,
+                chain_id=self._audit_chain_id,
+            )
+            if audit.append_state is not AuditAppendState.ACCEPTED:
+                raise AuthorizationExecutionHandoffAuditError(
+                    f"authorization execution handoff audit failed: {audit.reason}"
+                )
+            decision = AuthorizationExecutionHandoffDecision(
+                handoff_validation_id=handoff_validation_id,
                 request_id=authorization_request.request_id,
-                authority_verdict_id=(
+                requester_id=authorization_request.requester_id,
+                subject_id=authorization_request.subject_id,
+                action=authorization_request.action,
+                resource=authorization_request.resource,
+                payload_hash=payload_hash,
+                context_hash=context_hash,
+                policy_version=authorization_request.policy_version,
+                delegation_id=authorization_request.delegation_id,
+                prior_authorization_decision_id=prior_decision.authorization_decision_id,
+                fresh_authorization_decision_id=(
+                    fresh_decision.authorization_decision_id if fresh_decision else None
+                ),
+                fresh_authorization_evidence_hash=(
+                    fresh_decision.evidence_hash if fresh_decision else None
+                ),
+                fresh_authorization_audit_event_id=(
+                    fresh_decision.audit_event_id if fresh_decision else None
+                ),
+                identity_verdict_id=(
+                    fresh_decision.identity_verdict_id if fresh_decision else None
+                ),
+                authority_resolution_id=(
                     fresh_decision.authority_resolution_id if fresh_decision else None
                 ),
+                delegation_validation_id=(
+                    fresh_decision.delegation_validation_id if fresh_decision else None
+                ),
+                policy_decision_id=(
+                    fresh_decision.policy_decision_id if fresh_decision else None
+                ),
+                accepted=accepted,
                 reason=reason,
-                details={
-                    "accepted": accepted,
-                    "evidence_hash": evidence_hash,
-                    "fresh_authorization_decision_id": (
-                        fresh_decision.authorization_decision_id
-                        if fresh_decision
-                        else None
-                    ),
-                    "handoff_validation_id": handoff_validation_id,
-                    "prior_authorization_decision_id": (
-                        prior_decision.authorization_decision_id
-                    ),
-                },
-                occurred_at=_timestamp(now),
-            ),
-            audit_event_id=audit_event_id,
-            chain_id=self._audit_chain_id,
-        )
-        if audit.append_state is not AuditAppendState.ACCEPTED:
-            raise AuthorizationExecutionHandoffAuditError(
-                f"authorization execution handoff audit failed: {audit.reason}"
+                validated_at=_timestamp(now),
+                evidence_hash=evidence_hash,
+                audit_event_id=audit_event_id,
             )
-        return AuthorizationExecutionHandoffDecision(
-            handoff_validation_id=handoff_validation_id,
-            request_id=authorization_request.request_id,
-            requester_id=authorization_request.requester_id,
-            subject_id=authorization_request.subject_id,
-            action=authorization_request.action,
-            resource=authorization_request.resource,
-            payload_hash=payload_hash,
-            context_hash=context_hash,
-            policy_version=authorization_request.policy_version,
-            delegation_id=authorization_request.delegation_id,
-            prior_authorization_decision_id=prior_decision.authorization_decision_id,
-            fresh_authorization_decision_id=(
-                fresh_decision.authorization_decision_id if fresh_decision else None
-            ),
-            fresh_authorization_evidence_hash=(
-                fresh_decision.evidence_hash if fresh_decision else None
-            ),
-            fresh_authorization_audit_event_id=(
-                fresh_decision.audit_event_id if fresh_decision else None
-            ),
-            identity_verdict_id=(
-                fresh_decision.identity_verdict_id if fresh_decision else None
-            ),
-            authority_resolution_id=(
-                fresh_decision.authority_resolution_id if fresh_decision else None
-            ),
-            delegation_validation_id=(
-                fresh_decision.delegation_validation_id if fresh_decision else None
-            ),
-            policy_decision_id=(
-                fresh_decision.policy_decision_id if fresh_decision else None
-            ),
-            accepted=accepted,
-            reason=reason,
-            validated_at=_timestamp(now),
-            evidence_hash=evidence_hash,
-            audit_event_id=audit_event_id,
-        )
+            self._replay_cache[replay_key] = decision
+            return decision
 
     def _utc_now(self) -> datetime:
         now = self._clock()

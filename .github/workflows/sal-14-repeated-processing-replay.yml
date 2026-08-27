@@ -1,0 +1,38 @@
+name: SAL-14 Repeated Processing Replay
+
+on:
+  pull_request:
+    paths:
+      - "src/echoauth/auth/**"
+      - "src/echoauth/execution/**"
+      - "src/echoauth/runtime/**"
+      - "tests/test_authorization_gate.py"
+      - "tests/test_execution_control.py"
+      - "tests/test_sal24_authorization_execution_handoff.py"
+      - "tests/test_sal14_repeated_processing_replay.py"
+      - ".github/workflows/sal-14-repeated-processing-replay.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  sal-14-repeated-processing-replay:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run SAL-14 focused replay tests
+        env:
+          PYTHONPATH: src
+        run: >-
+          python -m unittest
+          tests.test_authorization_gate
+          tests.test_execution_control
+          tests.test_sal24_authorization_execution_handoff
+          tests.test_sal14_repeated_processing_replay
