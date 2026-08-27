@@ -1,4 +1,4 @@
-"""Canonical execution eligibility models for Sprint 2M."""
+"""Canonical execution eligibility models for Sprint 2M and SAL-24."""
 
 from __future__ import annotations
 
@@ -37,8 +37,13 @@ class ExecutionRequest:
     request_id: str
     runtime_transition_decision_id: str
     actor_id: str
+    subject_id: str
     action: str
     resource: str
+    payload_hash: str
+    context_hash: str
+    policy_version: str
+    delegation_id: str | None
     authority_evidence: Mapping[str, Any]
     refusal_evidence: Mapping[str, Any]
     escalation_evidence: Mapping[str, Any]
@@ -55,12 +60,20 @@ class ExecutionEvidence:
     control_version: str
     request_id: str
     actor_id: str
+    subject_id: str
     action: str
     resource: str
+    payload_hash: str
+    context_hash: str
+    policy_version: str
+    delegation_id: str | None
     requested_at: str
     runtime_transition_decision_id: str
     runtime_transition_evidence_hash: str
     runtime_state: RuntimeState
+    authorization_handoff_validation_id: str | None
+    authorization_decision_id: str | None
+    authorization_evidence_hash: str | None
     constraint_hash: str
     authority_evidence_hash: str | None
     refusal_evidence_hash: str | None
