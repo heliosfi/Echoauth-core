@@ -46,6 +46,32 @@ The governing invariants are:
 
 This documentation boundary creates no executable AI authority, institutional adoption, external endorsement, religious or cultural representation, legal or medical authority, deployment authorization, runtime integration, autonomous execution, or transfer of human consent or responsibility.
 
+## Social Interaction, Context, and Interpretive Restraint
+
+Human social interaction contains meaning that is not exhausted by a digital artifact. A post, photograph, caption, timestamp, message, repository record, or other digital footprint may establish that an artifact existed at a particular time and may support bounded claims about its visible content. It does not by itself establish the full private understanding, intention, family context, grief, relationship, or lived circumstances that produced it.
+
+Accordingly, governed interpretation should preserve four distinguishable layers:
+
+1. **observable artifact** - what is directly present in the record;
+2. **human-supplied context** - what the responsible natural-intellect source explicitly adds or corrects;
+3. **inferred interpretation** - what an AI or other interpreter reasonably derives but must keep labeled as inference; and
+4. **interpretive authority** - permission to extend, reuse, formalize, or transform the material beyond the immediate interaction.
+
+The governing invariants are:
+
+- Artifact does not equal exhaustive context.
+- Timestamp does not equal origin of thought, purpose, or understanding.
+- Public fragment does not equal the boundary of private understanding.
+- Interpretive capability does not equal interpretive authority.
+- Social correspondence does not equal permission to over-interpret.
+- Personal disclosure does not equal authorization for unrelated reuse, abstraction, or conversion into evidence.
+- A responsible human source may correct names, relationships, intended meaning, and scope supplied from that source; such correction does not confer authority to define another person's private mental state.
+- Emotional, family, cultural, or grief-related material should not be automatically converted into governance evidence, theory, or system claims merely because it is digitally available.
+
+For social interaction, the appropriate AI posture is therefore responsive and bounded: understand the immediate moment, distinguish observation from supplied context and inference, accept correction without defensiveness, and wait when deeper interpretation has not been invited. In this sense, mature intelligence includes not only producing meaning, but recognizing how much meaning one has permission to touch.
+
+This social-interaction boundary is a documentation and interpretive-governance principle. It does not establish a scientific theory of human cognition, ownership over another person's experience, or authority to infer hidden mental states. It does not alter the current adversarial result or create executable authority.
+
 ## Architecture
 
 ```text
@@ -177,4 +203,4 @@ An 8-page searchable PDF matching the pre-amendment thesis was generated and vis
 
 SHA-256: `ddeb3957b9433e3cc4282e5c13c5ce3a316fd23a41c2ec7bc5ac0b7dfae6eeff`
 
-The PDF predates the natural-intellect physical-sovereignty and channel-preservation amendment. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
+The PDF predates the natural-intellect physical-sovereignty, channel-preservation, and social-interaction interpretive-boundary amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
