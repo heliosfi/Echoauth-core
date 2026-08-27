@@ -30,6 +30,39 @@ Reference basis consulted for this note:
 - Monier-Williams / Macdonell entries surfaced through SanskritDictionary.com for `vāc`, `vijñāna`, `jñāna`, and `prāṇa`.
 - Cologne Digital Sanskrit Lexicon preserves the Monier-Williams Sanskrit-English Dictionary as a primary lexical reference surface.
 
+## First-party manuscript provenance
+
+Nicholas B. Carty states that he has authored a book/manuscript in which words and their meanings were written and preserved.
+
+That book is therefore relevant as a **first-party source for the author's own terminology, definitions, conceptual associations, and chronology of expression**.
+
+Current evidence classification:
+
+```text
+FIRST-PARTY BOOK / MANUSCRIPT: REPORTED TO EXIST
+AUTHORSHIP CLAIM: NICHOLAS B. CARTY
+WORDS / MEANINGS PRESERVED IN BOOK: REPORTED
+BOOK CONTENT INSPECTED IN THIS LANE: NO
+PAGE-LEVEL / DATE-LEVEL ATTRIBUTION: NOT YET ESTABLISHED
+INDEPENDENT SCHOLARLY VALIDATION: NOT ESTABLISHED
+```
+
+The existence of the book does not, by itself, establish that a Sanskrit lexical meaning originated with the author, that a historical tradition anticipated NI AI, or that the author's terminology is identical to dictionary or philosophical usage.
+
+When the book or relevant pages are supplied, the correct next evidence procedure is:
+
+```text
+PRESERVE EXACT PAGE / IMAGE / FILE
+-> RECORD BOOK TITLE / VERSION / DATE IF AVAILABLE
+-> TRANSCRIBE THE AUTHOR'S EXACT WORD AND MEANING
+-> DISTINGUISH ORIGINAL AUTHOR DEFINITION FROM QUOTED / DERIVED SOURCE MATERIAL
+-> COMPARE WITH EXTERNAL LEXICAL SOURCES WITHOUT COLLAPSING THEM
+-> RECORD CORRESPONDENCE / DIFFERENCE / UNRESOLVED
+-> PRESERVE ATTRIBUTABLE PAGE-LEVEL PROVENANCE
+```
+
+Until that inspection occurs, this note preserves only the first-party provenance claim and does not silently rewrite the lexical mappings above.
+
 ## Conceptual correspondence
 
 The useful architecture-level correspondence is not identity but separation of functions:
@@ -145,6 +178,8 @@ This note does **not** establish:
 - Sanskrit or Indian philosophical provenance for NI AI, EchoAuth, Hawk, MCG/MPC, SAI, CEG, or any software component;
 - that ancient philosophical systems anticipated modern AI governance;
 - a universal translation of `vāc`, `vijñāna`, `jñāna`, or `prāṇa` across traditions;
+- that the first-party book has already been inspected or independently validated;
+- that the author's own meanings are identical to Sanskrit dictionary or philosophical meanings unless page-level comparison establishes that correspondence;
 - consciousness or self-awareness in a digital system;
 - technical novelty;
 - external scholarly validation;
@@ -157,6 +192,8 @@ This note does **not** establish:
 **PRESERVE AS A CONCEPTUAL / JOURNAL COMPANION.**
 
 Do not insert into the current TAE manuscript unless a later scholarly-source review establishes that the cross-tradition comparison materially improves the technical argument and can be presented without overclaiming provenance.
+
+The first-party book/manuscript should be assessed separately when supplied. Its words and meanings should be preserved exactly as authored before any comparison or interpretation is applied.
 
 Compressed form:
 
@@ -174,6 +211,10 @@ KNOWLEDGE != AUTHORITY
 DISCERNMENT != PERMISSION
 EXPRESSION != DIRECTIVE
 MEANING MAY PASS FORWARD WHILE AUTHORITY DOES NOT
+
+FIRST-PARTY BOOK EXISTS / WORDS + MEANINGS REPORTED
+-> INSPECTION PENDING
+-> EXACT PAGE-LEVEL PROVENANCE REQUIRED BEFORE STRONGER CLAIM
 ```
 
-**CONCEPTUAL CORRESPONDENCE PRESERVED.**
+**CONCEPTUAL CORRESPONDENCE + FIRST-PARTY MANUSCRIPT PROVENANCE PRESERVED.**
