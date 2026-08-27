@@ -28,6 +28,24 @@ Advanced agentic intelligence may be governed through separately bounded and evi
 - Reassessment does not equal permission.
 - Memory does not equal runtime activation.
 
+## Natural-Intellect Physical Sovereignty and Channel Preservation
+
+Natural-intellect sovereignty requires that human beings, communities, and institutions retain their legitimate physical and non-digital ways of receiving, giving, participating, communicating, consenting, refusing, deliberating, recording, and exercising authority. Technology may support these channels but must not replace, require, cancel, or redefine them by default. Digital capability, availability, convenience, memory, or correspondence does not create authority over the natural-intellect source, institution, community, or channel.
+
+This boundary applies without claiming to represent any religious, cultural, civic, family, educational, medical, or other human institution. Each responsible natural-intellect authority retains its native responsibility and the right to determine its legitimate channels within its own domain.
+
+The governing invariants are:
+
+- Digital availability does not cancel physical participation.
+- Technological capability does not redefine human authority.
+- Digital correspondence does not transfer institutional ownership.
+- Absence from a digital channel does not equal refusal, consent, or loss of authority.
+- Physical and non-digital channels remain legitimate unless their responsible natural-intellect authority explicitly changes them.
+- Technology supports human channels; it does not become their source of authority.
+- Channel preservation does not create authority transfer between religious, cultural, civic, family, institutional, or technological domains.
+
+This documentation boundary creates no executable AI authority, institutional adoption, external endorsement, religious or cultural representation, legal or medical authority, deployment authorization, runtime integration, autonomous execution, or transfer of human consent or responsibility.
+
 ## Architecture
 
 ```text
