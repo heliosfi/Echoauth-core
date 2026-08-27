@@ -1,0 +1,38 @@
+name: SAL-22 Runtime State Currentness
+
+on:
+  pull_request:
+    paths:
+      - "src/echoauth/runtime/**"
+      - "src/echoauth/execution/**"
+      - "src/echoauth/auth/**"
+      - "tests/test_sal22_runtime_state_currentness.py"
+      - "tests/test_sal19_authorization_execution_binding.py"
+      - "tests/test_execution_control.py"
+      - ".github/workflows/sal-22-runtime-state-currentness.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  sal-22-runtime-state-currentness:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run focused SAL-22 currentness tests
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests.test_sal22_runtime_state_currentness tests.test_sal19_authorization_execution_binding tests.test_execution_control
+
+      - name: Run full repository test suite
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests
