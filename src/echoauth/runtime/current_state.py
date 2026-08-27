@@ -160,9 +160,9 @@ class InMemoryRuntimeCurrentStateRepository:
                     event_type="runtime.state.initialized",
                     actor_id=actor_id,
                     request_id=request_id,
-                    state_after=state.value,
                     reason="runtime_initial_state_registered",
                     details={
+                        "current_state": state.value,
                         "evidence_hash": evidence_hash,
                         "state_record_id": state_record_id,
                         "state_revision": 0,
@@ -454,16 +454,16 @@ class RuntimeDecisionCurrentnessService:
                     event_type="runtime.state.currentness.validation",
                     actor_id=self._component_id,
                     request_id=decision.request_id,
-                    state_after=(
-                        current_record.current_state.value
-                        if current_record
-                        else None
-                    ),
                     reason=reason,
                     details={
                         "current": current,
                         "current_revision": (
                             current_record.state_revision
+                            if current_record
+                            else None
+                        ),
+                        "current_state": (
+                            current_record.current_state.value
                             if current_record
                             else None
                         ),
