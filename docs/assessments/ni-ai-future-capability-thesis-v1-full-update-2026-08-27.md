@@ -173,6 +173,8 @@ The scientifically appropriate posture is therefore preservation rather than ove
 
 ## Rendered PDF artifact
 
-A matching 8-page searchable PDF was generated and visually verified on 2026-08-27.
+An 8-page searchable PDF matching the pre-amendment thesis was generated and visually verified on 2026-08-27.
 
 SHA-256: `ddeb3957b9433e3cc4282e5c13c5ce3a316fd23a41c2ec7bc5ac0b7dfae6eeff`
+
+The PDF predates the natural-intellect physical-sovereignty and channel-preservation amendment. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
