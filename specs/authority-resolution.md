@@ -8,6 +8,34 @@ authority before authorization or execution.
 Applies to parent, legal caregiver, institutional, delegated, emergency, and
 runtime-service authority checks.
 
+# Natural/Digital Channel Boundary
+
+Authority resolution governs whether the requested digital movement has valid, current, attributable, and scoped authority. It does not make EchoAuth the source of the originating natural act or of legitimacy assigned by the originating natural domain.
+
+The resolver must preserve:
+
+```text
+natural act
+!=
+digital representation of natural act
+```
+
+and:
+
+```text
+authority(digital representation)
+<=
+authority(originating source) intersect delegated digital scope
+```
+
+A digital record may evidence, carry, or bind authority for a digital consequence only within demonstrated delegation. Digitization, technical availability, automation, or prior successful processing do not enlarge authority.
+
+Missing, unreachable, unverifiable, stale, revoked, replayed, conflicting, or out-of-scope digital evidence must prevent a `valid` digital authority verdict. The appropriate digital result is `refused`, `hold`, `conflict`, or `escalate` according to the governing policy and evidence state.
+
+Such a digital failure result is limited to the requested digital movement. It does not by itself establish that an underlying natural, physical, or otherwise non-digital act did not occur or is invalid within its originating domain.
+
+Where channel-specific authority is present, the verdict must remain bound to the exact channel, action, resource, context, delegation, evidence, validity interval, and governing source demonstrated by the record. EchoAuth must not replace the originating channel, infer broader natural authority, or normalize different source-domain channels into a technology-defined source of legitimacy.
+
 # Inputs
 
 | Field | Type | Required | Description |
