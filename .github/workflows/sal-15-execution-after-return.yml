@@ -1,0 +1,37 @@
+name: SAL-15 Execution After Return
+
+on:
+  pull_request:
+    paths:
+      - "src/echoauth/execution/**"
+      - "src/echoauth/runtime/**"
+      - "tests/test_recovery_eligibility.py"
+      - "tests/test_sal24_authorization_execution_handoff.py"
+      - "tests/test_sal14_repeated_processing_replay.py"
+      - "tests/test_sal15_execution_after_return.py"
+      - ".github/workflows/sal-15-execution-after-return.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  sal-15-execution-after-return:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run SAL-15 focused return/reassessment tests
+        env:
+          PYTHONPATH: src
+        run: >-
+          python -m unittest
+          tests.test_recovery_eligibility
+          tests.test_sal24_authorization_execution_handoff
+          tests.test_sal14_repeated_processing_replay
+          tests.test_sal15_execution_after_return
