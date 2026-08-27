@@ -168,6 +168,27 @@ class TransitionAssessmentTests(unittest.TestCase):
 
         self.assertEqual(len(self.audit.chain("transition-assessment-audit")), 0)
 
+    def test_non_canonical_current_state_is_rejected_before_audit(self) -> None:
+        request = RuntimeTransitionRequest(
+            transition_request_id="assessment-fabricated-current-state",
+            request_id="request-1",
+            current_state="fabricated",  # type: ignore[arg-type]
+            transition=RuntimeTransition.AUTHORIZE,
+            requested_state=RuntimeState.AUTHORIZED,
+            actor_id="transition-assessment-test",
+            reason="fabricated_current_state",
+            evidence={"source": "fabricated-current-state"},
+            occurred_at="2026-08-25T11:59:00Z",
+        )
+
+        with self.assertRaisesRegex(
+            RuntimeTransitionValidationError,
+            "current_state must be canonical",
+        ):
+            assess_transition(self.machine, request)
+
+        self.assertEqual(len(self.audit.chain("transition-assessment-audit")), 0)
+
     def test_adapter_does_not_apply_state_and_preserves_audit_and_hash(self) -> None:
         request = self._request(
             RuntimeState.AUTHORIZED,
