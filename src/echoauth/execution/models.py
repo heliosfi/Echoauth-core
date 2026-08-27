@@ -1,4 +1,4 @@
-"""Canonical execution eligibility models for Sprint 2M."""
+"""Canonical execution eligibility models for Sprint 2M/SAL-22."""
 
 from __future__ import annotations
 
@@ -61,6 +61,9 @@ class ExecutionEvidence:
     runtime_transition_decision_id: str
     runtime_transition_evidence_hash: str
     runtime_state: RuntimeState
+    runtime_state_revision: int | None
+    runtime_currentness_result_id: str | None
+    runtime_currentness_evidence_hash: str | None
     constraint_hash: str
     authority_evidence_hash: str | None
     refusal_evidence_hash: str | None

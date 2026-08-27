@@ -1,4 +1,4 @@
-"""Deterministic, side-effect-free Execution Control for Sprint 2M/SAL-19."""
+"""Deterministic, side-effect-free Execution Control for Sprint 2M/SAL-22."""
 
 from __future__ import annotations
 
@@ -25,7 +25,12 @@ from echoauth.execution.models import (
     ExecutionRequest,
 )
 from echoauth.models import AuditAppendState, AuditRecord
-from echoauth.runtime import RuntimeState, RuntimeTransitionDecision
+from echoauth.runtime import (
+    RuntimeDecisionCurrentnessResult,
+    RuntimeDecisionCurrentnessService,
+    RuntimeState,
+    RuntimeTransitionDecision,
+)
 
 EXECUTION_CONTROL_VERSION = "echoauth.execution-control.v1"
 
@@ -48,6 +53,7 @@ class ExecutionControl:
         audit_chain_id: str,
         constraints: Sequence[ExecutionConstraint],
         authorization_binder: AuthorizationExecutionBinder | None = None,
+        runtime_currentness_service: RuntimeDecisionCurrentnessService | None = None,
         component_id: str = "execution_control",
         clock: Callable[[], datetime] | None = None,
     ) -> None:
@@ -55,6 +61,7 @@ class ExecutionControl:
             raise ValueError("audit_chain_id must not be empty")
         self._constraints = _validate_constraints(constraints)
         self._authorization_binder = authorization_binder
+        self._runtime_currentness_service = runtime_currentness_service
         self._audit_repository = audit_repository
         self._audit_chain_id = audit_chain_id
         self._component_id = component_id
@@ -67,13 +74,14 @@ class ExecutionControl:
         request: ExecutionRequest,
         runtime_decision: RuntimeTransitionDecision,
     ) -> ExecutionDecision:
-        """Validate without trusting caller-supplied authority evidence.
+        """Validate without trusting caller-supplied authority or state currentness."""
 
-        Positive eligibility requires ``validate_authorized`` so the authority
-        evidence is produced from a fresh canonical authorization evaluation.
-        """
-
-        return self._validate(request, runtime_decision, authorization_binding=None)
+        return self._validate(
+            request,
+            runtime_decision,
+            authorization_binding=None,
+            runtime_currentness=None,
+        )
 
     def validate_authorized(
         self,
@@ -81,7 +89,7 @@ class ExecutionControl:
         runtime_decision: RuntimeTransitionDecision,
         authorization_request: AuthorizationRequest,
     ) -> ExecutionDecision:
-        """Freshly authorize and then perform execution-eligibility validation."""
+        """Freshly authorize, verify current applied state, then assess eligibility."""
 
         if self._authorization_binder is None:
             raise ExecutionControlValidationError(
@@ -106,10 +114,16 @@ class ExecutionControl:
         except AuthorizationExecutionBindingError as exc:
             raise ExecutionControlValidationError(str(exc)) from exc
 
+        currentness = (
+            self._runtime_currentness_service.validate(runtime_decision)
+            if self._runtime_currentness_service is not None
+            else None
+        )
         references = list(request.audit_references)
         for reference in (
             binding.authorization_audit_event_id,
             binding.binding_audit_event_id,
+            currentness.audit_event_id if currentness is not None else None,
         ):
             if reference and reference not in references:
                 references.append(reference)
@@ -118,13 +132,20 @@ class ExecutionControl:
             authority_evidence=authorization_execution_evidence_mapping(binding),
             audit_references=tuple(references),
         )
-        return self._validate(bound_request, runtime_decision, binding)
+        return self._validate(
+            bound_request,
+            runtime_decision,
+            authorization_binding=binding,
+            runtime_currentness=currentness,
+        )
 
     def _validate(
         self,
         request: ExecutionRequest,
         runtime_decision: RuntimeTransitionDecision,
+        *,
         authorization_binding: AuthorizationExecutionEvidence | None,
+        runtime_currentness: RuntimeDecisionCurrentnessResult | None,
     ) -> ExecutionDecision:
         validate_execution_request(request)
         if self._constraints.get(request.constraint.constraint_id) != request.constraint:
@@ -138,6 +159,7 @@ class ExecutionControl:
             runtime_decision,
             now,
             authorization_binding=authorization_binding,
+            runtime_currentness=runtime_currentness,
         )
         evidence = ExecutionEvidence(
             control_version=EXECUTION_CONTROL_VERSION,
@@ -149,6 +171,21 @@ class ExecutionControl:
             runtime_transition_decision_id=runtime_decision.transition_decision_id,
             runtime_transition_evidence_hash=runtime_decision.evidence_hash,
             runtime_state=runtime_decision.next_state,
+            runtime_state_revision=(
+                runtime_currentness.current_revision
+                if runtime_currentness is not None
+                else None
+            ),
+            runtime_currentness_result_id=(
+                runtime_currentness.currentness_result_id
+                if runtime_currentness is not None
+                else None
+            ),
+            runtime_currentness_evidence_hash=(
+                runtime_currentness.evidence_hash
+                if runtime_currentness is not None
+                else None
+            ),
             constraint_hash=canonical_sha256(asdict(request.constraint)),
             authority_evidence_hash=_optional_hash(request.authority_evidence),
             refusal_evidence_hash=_optional_hash(request.refusal_evidence),
@@ -193,7 +230,17 @@ class ExecutionControl:
                         "execution_request_id": request.execution_request_id,
                         "outcome": outcome.value,
                         "resource": request.resource,
+                        "runtime_currentness_result_id": (
+                            runtime_currentness.currentness_result_id
+                            if runtime_currentness is not None
+                            else None
+                        ),
                         "runtime_state": runtime_decision.next_state.value,
+                        "runtime_state_revision": (
+                            runtime_currentness.current_revision
+                            if runtime_currentness is not None
+                            else None
+                        ),
                         "runtime_transition_decision_id": (
                             runtime_decision.transition_decision_id
                         ),
@@ -340,6 +387,7 @@ def _classify(
     now: datetime,
     *,
     authorization_binding: AuthorizationExecutionEvidence | None,
+    runtime_currentness: RuntimeDecisionCurrentnessResult | None,
 ) -> tuple[ExecutionOutcome, str]:
     if not decision.allowed:
         return ExecutionOutcome.BLOCKED, "runtime_transition_rejected"
@@ -371,6 +419,21 @@ def _classify(
         )
     except AuthorizationExecutionBindingError:
         return ExecutionOutcome.MISSING_AUTHORITY, "authorization_binding_invalid"
+    if runtime_currentness is None:
+        return ExecutionOutcome.MISSING_EVIDENCE, "runtime_currentness_required"
+    if (
+        runtime_currentness.transition_decision_id
+        != decision.transition_decision_id
+        or runtime_currentness.request_id != decision.request_id
+    ):
+        return ExecutionOutcome.INVALID_STATE, "runtime_currentness_mismatch"
+    if not runtime_currentness.current:
+        return (
+            ExecutionOutcome.INVALID_STATE,
+            f"runtime_currentness_{runtime_currentness.reason}",
+        )
+    if runtime_currentness.current_state is not RuntimeState.READY:
+        return ExecutionOutcome.INVALID_STATE, "runtime_current_state_not_ready"
     required_evidence = (
         (
             request.constraint.require_refusal_evidence,
