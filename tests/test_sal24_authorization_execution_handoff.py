@@ -403,7 +403,7 @@ class Sal24AuthorizationExecutionHandoffTests(unittest.TestCase):
         handoff = self.handoff_validator.validate(request, auth_request, prior)
         decision = self.execution_control.validate(request, runtime, handoff)
         self.assertEqual(decision.outcome, ExecutionOutcome.MISSING_AUTHORITY)
-        self.assertEqual(decision.reason, "authorization_evidence_binding_mismatch")
+        self.assertEqual(decision.reason, "authorization_handoff_audit_reference_missing")
 
     def test_non_authorized_prior_decision_fails_closed(self):
         auth_request = self._authorization_request()
@@ -452,7 +452,6 @@ class Sal24AuthorizationExecutionHandoffTests(unittest.TestCase):
         self.assertEqual(handoff.reason, "fresh_authorization_not_authorized")
 
     def test_stale_prior_authorization_after_policy_expiry_fails_closed(self):
-        # A dedicated short-lived policy is used while authority remains current.
         self.policy_repository = InMemoryPolicyRepository(
             self.audit, audit_chain_id="sal24-policy-expiry"
         )
