@@ -9,7 +9,7 @@ production persistence adapter or execution runtime.
 from __future__ import annotations
 
 from collections.abc import Callable
-from dataclasses import asdict, dataclass
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from threading import RLock
 
@@ -19,7 +19,9 @@ from echoauth.models import AuditAppendState, AuditRecord
 from echoauth.runtime.state_machine import RUNTIME_STATE_GRAPH_VERSION
 from echoauth.runtime.state_models import RuntimeState, RuntimeTransitionDecision
 
-RUNTIME_CURRENT_STATE_VERSION = "echoauth.runtime-current-state.v1"
+# The current-state foundation preserves the exact Sprint 2L state namespace.
+# A separate repository-format namespace is intentionally not invented here.
+RUNTIME_CURRENT_STATE_VERSION = RUNTIME_STATE_GRAPH_VERSION
 
 
 class RuntimeStateCurrentnessError(ValueError):
