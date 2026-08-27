@@ -1,5 +1,16 @@
-"""Runtime State Machine foundation exports for Sprint 2L."""
+"""Runtime State Machine and currentness foundation exports."""
 
+from echoauth.runtime.current_state import (
+    RUNTIME_CURRENT_STATE_VERSION,
+    InMemoryRuntimeCurrentStateRepository,
+    RuntimeCurrentStateNotFoundError,
+    RuntimeCurrentStateRecord,
+    RuntimeDecisionCurrentnessResult,
+    RuntimeDecisionCurrentnessService,
+    RuntimeStateApplicationResult,
+    RuntimeStateCurrentnessAuditError,
+    RuntimeStateCurrentnessError,
+)
 from echoauth.runtime.halt import *
 from echoauth.runtime.recovery import *
 from echoauth.runtime.state_machine import (
