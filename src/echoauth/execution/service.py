@@ -74,6 +74,11 @@ class ExecutionControl:
         outcome, reason = self._classify(
             request, runtime_decision, authorization_handoff, now
         )
+        canonical_handoff = (
+            authorization_handoff
+            if isinstance(authorization_handoff, AuthorizationExecutionHandoffDecision)
+            else None
+        )
         evidence = ExecutionEvidence(
             control_version=EXECUTION_CONTROL_VERSION,
             request_id=request.request_id,
@@ -90,18 +95,18 @@ class ExecutionControl:
             runtime_transition_evidence_hash=runtime_decision.evidence_hash,
             runtime_state=runtime_decision.next_state,
             authorization_handoff_validation_id=(
-                authorization_handoff.handoff_validation_id
-                if authorization_handoff is not None
+                canonical_handoff.handoff_validation_id
+                if canonical_handoff is not None
                 else None
             ),
             authorization_decision_id=(
-                authorization_handoff.fresh_authorization_decision_id
-                if authorization_handoff is not None
+                canonical_handoff.fresh_authorization_decision_id
+                if canonical_handoff is not None
                 else None
             ),
             authorization_evidence_hash=(
-                authorization_handoff.fresh_authorization_evidence_hash
-                if authorization_handoff is not None
+                canonical_handoff.fresh_authorization_evidence_hash
+                if canonical_handoff is not None
                 else None
             ),
             constraint_hash=canonical_sha256(asdict(request.constraint)),
@@ -134,16 +139,16 @@ class ExecutionControl:
                     actor_id=self._component_id,
                     request_id=request.request_id,
                     authority_verdict_id=(
-                        authorization_handoff.authority_resolution_id
-                        if authorization_handoff is not None
+                        canonical_handoff.authority_resolution_id
+                        if canonical_handoff is not None
                         else None
                     ),
                     reason=reason,
                     details={
                         "action": request.action,
                         "authorization_handoff_validation_id": (
-                            authorization_handoff.handoff_validation_id
-                            if authorization_handoff is not None
+                            canonical_handoff.handoff_validation_id
+                            if canonical_handoff is not None
                             else None
                         ),
                         "control_version": EXECUTION_CONTROL_VERSION,
