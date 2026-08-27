@@ -1,0 +1,37 @@
+name: SAL-19 Authorization Execution Binding
+
+on:
+  pull_request:
+    paths:
+      - "src/echoauth/auth/**"
+      - "src/echoauth/execution/**"
+      - "src/echoauth/runtime/**"
+      - "tests/test_execution_control.py"
+      - "tests/test_sal19_authorization_execution_binding.py"
+      - ".github/workflows/sal-19-authorization-execution-binding.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  sal-19-authorization-execution-binding:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run focused SAL-19 tests
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests.test_sal19_authorization_execution_binding tests.test_execution_control
+
+      - name: Run full repository test suite
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests
