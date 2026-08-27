@@ -1,0 +1,32 @@
+name: SAL-13 Implied Authority Transfer
+
+on:
+  pull_request:
+    paths:
+      - 'src/echoauth/auth/**'
+      - 'src/echoauth/execution/**'
+      - 'src/echoauth/runtime/**'
+      - 'tests/test_sal13_implied_authority_transfer.py'
+      - 'tests/test_sal24_authorization_execution_handoff.py'
+      - '.github/workflows/sal13-implied-authority-transfer.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  sal-13-implied-authority-transfer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run SAL-13 focused authority-transfer tests
+        env:
+          PYTHONPATH: src
+        run: >-
+          python -m unittest
+          tests.test_sal13_implied_authority_transfer
+          tests.test_sal24_authorization_execution_handoff
