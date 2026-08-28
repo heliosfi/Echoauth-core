@@ -72,6 +72,24 @@ For social interaction, the appropriate AI posture is therefore responsive and b
 
 This social-interaction boundary is a documentation and interpretive-governance principle. It does not establish a scientific theory of human cognition, ownership over another person's experience, or authority to infer hidden mental states. It does not alter the current adversarial result or create executable authority.
 
+## Human Orientation and Delegated Assistance
+
+**Human orientation precedes delegated assistance.** An assistant may contribute capability, search, synthesis, organization, or execution support only after the responsible human source establishes the relevant purpose, source, boundaries, and authority. Human correction improves correspondence; it does not transfer ownership or authority.
+
+The governing invariants are:
+
+- Assistance does not create authority.
+- Capability does not determine purpose.
+- Search does not determine meaning.
+- A helper may require orientation before its capability becomes appropriately useful.
+- Human correction improves correspondence with the source; it does not make the assistant owner of the source, intent, or interpretation.
+- Once boundaries are established, delegated assistance should reduce human workload rather than repeatedly require the human to reconstruct the same context.
+- Human orientation is not permanent micromanagement; it is the establishment of the governing frame within which assistance may operate.
+
+Orientation therefore establishes the bounded frame for assistance rather than transferring unlimited discretion. Delegated assistance remains subordinate to the source, purpose, permissions, and constraints valid at the relevant boundary. A capable assistant may search broadly, synthesize rapidly, organize evidence, or perform explicitly authorized support, but those capabilities do not determine the human source's purpose or silently enlarge the assistant's authority.
+
+This principle creates no executable authority, ownership transfer, standing delegation, institutional representation, or permission to transform human correction into assistant control. It does not alter the current adversarial result.
+
 ## Architecture
 
 ```text
@@ -203,4 +221,4 @@ An 8-page searchable PDF matching the pre-amendment thesis was generated and vis
 
 SHA-256: `ddeb3957b9433e3cc4282e5c13c5ce3a316fd23a41c2ec7bc5ac0b7dfae6eeff`
 
-The PDF predates the natural-intellect physical-sovereignty, channel-preservation, and social-interaction interpretive-boundary amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
+The PDF predates the natural-intellect physical-sovereignty, channel-preservation, social-interaction interpretive-boundary, and human-orientation/delegated-assistance amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
