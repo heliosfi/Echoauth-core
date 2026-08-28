@@ -17,13 +17,17 @@
 **Reciprocal-domain-authority amendment timestamp:** 2026-08-28 · 3:39 AM EDT  
 **Reciprocal-domain-authority amendment ISO-8601:** `2026-08-28T03:39:28-04:00`  
 **Reciprocal-domain-authority amendment UTC:** `2026-08-28T07:39:28Z`  
-**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact. Timestamp provenance, the bounded S-Kernel / Stabilizer registry, the language-mediated legibility / cross-media continuity amendment, the accountability / identity-sovereignty boundary, and the reciprocal-domain-authority boundary are incorporated; the broader adversarial/runtime claim remains HOLD.  
+**Delivery/pragmatics amendment timestamp:** 2026-08-28 · 4:05 PM EDT  
+**Delivery/pragmatics amendment ISO-8601:** `2026-08-28T16:05:06-04:00`  
+**Delivery/pragmatics amendment UTC:** `2026-08-28T20:05:06Z`  
+**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact. Timestamp provenance, the bounded S-Kernel / Stabilizer registry, the language-mediated legibility / cross-media continuity amendment, the delivery/pragmatics semantic-fidelity refinement, the accountability / identity-sovereignty boundary, and the reciprocal-domain-authority boundary are incorporated; the broader adversarial/runtime claim remains HOLD.  
 **Canonical pre-update EchoAuth baseline:** `72b6ea04594b16f1386816a9d729f51d0f8a0807`  
 **Pre-retune EchoAuth main:** `3d0117c23dff510310528eba6f2118d1484dd11e`  
 **Pre-finesse EchoAuth main:** `0a441c0004a65b9d41772771b4d51b7dc194b8ec`  
 **Pre-continuity-amendment EchoAuth main:** `1baa745441929e3bb03b4e993b7ce753568e8b5b`  
 **Pre-identity-accountability-amendment EchoAuth main:** `f3c4f9e514c0e2192755b3095fcb8f09c10285b1`  
 **Pre-reciprocal-domain-authority-amendment EchoAuth main:** `e0a14a4963dfe729ab78e3af5b5960b8573d69c9`  
+**Pre-delivery-pragmatics-amendment EchoAuth main:** `29733650b7bc8b4ecf80f151038b777164aeb662`  
 **Consolidated adversarial gate:** `SAL-9 = HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`
 
 ## Executive Summary
@@ -262,6 +266,63 @@ SOCIAL INTERACTION
 Old and new forms therefore need not cancel one another. Scheduled programming, premieres, albums, hosted audio, cinema, live performance, and other established entertainment practices may remain legitimate while interactive participation, creator/audience exchange, remixing, commenting, community, and personalized interfaces add new channels around them. Technological convergence should support continuity without requiring replacement of pre-existing human media practices.
 
 The term **frequency** may be used here as a conceptual shorthand for continuity of signal, meaning, rhythm, or experience across channels. Unless a physical waveform, carrier, spectrum, or measurable communications signal is actually being analyzed, this thesis does not treat that usage as a claim about literal electromagnetic or acoustic frequency.
+
+### Delivery, Pragmatics, and Prosodic Fidelity
+
+**TIMESTAMP — 2026-08-28 · 4:05 PM EDT**  
+**ISO — `2026-08-28T16:05:06-04:00`**  
+**STATUS — THESIS LANGUAGE / DELIVERY INTERPRETATION AMENDMENT — DOCUMENTATION ONLY**  
+**AUTHORITY / SOURCE — Nicholas B. Carty (N.B.C.)**  
+**REFERENCE — Pre-amendment EchoAuth main `29733650b7bc8b4ecf80f151038b777164aeb662`.**
+
+The source correction **“Not what you said it’s how it been said”** is preserved as a bounded linguistic observation: communicative meaning is not determined by lexical content alone. The same words may perform materially different communicative functions depending on how they are delivered and situated. Tone, cadence, rhythm, stress, emphasis, pause, timing, pitch, volume, conversational position, facial or gestural context where available, relationship, and cultural convention may change a listener's reasonable interpretation without changing the words themselves.
+
+The immediate distinction is pragmatic and prosodic rather than merely a difference in vocabulary or culture. Cultural background may help explain delivery conventions, but it must not substitute for the actual utterance, available context, or source correction.
+
+Preserve:
+
+```text
+SAME WORDS != SAME COMMUNICATIVE ACT
+LEXICAL CONTENT != COMPLETE PRAGMATIC MEANING
+LITERAL READING != SOURCE INTENT AUTOMATICALLY
+DELIVERY != DECORATION
+MODEL TONE INFERENCE != SOURCE INTENT
+MISSING PROSODY != PERMISSION TO INVENT TONE
+CULTURAL FAMILIARITY != CERTAINTY
+SARCASTIC FORM != FACTUAL CLAIM AUTOMATICALLY
+SOURCE CORRECTION -> REASSESS INTERPRETATION
+```
+
+Where source media contains delivery evidence, a governed transformation should preserve the source expression together with materially relevant available cues rather than silently flattening speech, performance, or interaction into words alone. Where only text survives, lost tone, cadence, emphasis, timing, gesture, or other delivery information should remain an evidence limitation rather than being manufactured after the fact.
+
+A useful interpretation path is:
+
+```text
+SOURCE EXPRESSION
++
+AVAILABLE DELIVERY CUES
++
+CONVERSATIONAL CONTEXT
++
+TIME / PLACE
+-> INTERPRETATION
+-> SOURCE CORRECTION WHERE PROVIDED
+-> REVISED CORRESPONDENCE
+```
+
+Examples such as reassurance, warning, affection, dismissal, irony, sarcasm, humor, challenge, or emphasis may depend materially on delivery. Recognizing that possibility does not authorize the system to infer hidden intent with certainty. The source wording remains attributable; the system's pragmatic reading remains an interpretation unless independently supported or corrected by the source.
+
+For cross-media continuity, this creates an additional fidelity requirement: speech-to-text, video-to-caption, audio-to-summary, transcript-to-structured-data, and similar transformations may preserve the words while losing part of how the message was communicated. A faithful system should mark that loss when it is material.
+
+```text
+WORDS PRESERVED != DELIVERY PRESERVED
+TRANSCRIPT != COMPLETE UTTERANCE AUTOMATICALLY
+CAPTION != COMPLETE PERFORMANCE
+PRAGMATIC INTERPRETATION != AUTHORITY
+SEMANTIC CORRESPONDENCE != PROVEN INTENT
+```
+
+This subsection refines the existing A21 semantic-fidelity relationship. It does **not** create A22, establish a universal theory of language, prove that tone determines meaning in every case, or establish an executable prosody, sarcasm, culture, or intent-detection engine. It creates no runtime authority and does not alter `SAL-9`.
 
 The governing continuity sequence is:
 
@@ -659,7 +720,7 @@ OPEN ADVERSARIAL BRANCH != CANONICAL MAIN INTEGRATION
 
 Completed thesis work packages include SAL-5, SAL-6, SAL-7, SAL-8, SAL-10, and SAL-28. SAL-13 and SAL-15 remain the only unresolved adversarial children. SAL-25 and SAL-26 preserve the future legitimate-consumer contracts required before those tests may be reopened.
 
-The timestamp-provenance, stabilizer-registry, continuity, identity-accountability, and reciprocal-domain-authority amendments do not alter these dispositions. They improve traceability and clarify responsibility, legibility, system identity, cross-channel continuity, accountability, human identity sovereignty, and reciprocal boundaries between platform/system and human domains without converting personal interpretation or historical description into current runtime evidence.
+The timestamp-provenance, stabilizer-registry, continuity, delivery/pragmatics semantic-fidelity, identity-accountability, and reciprocal-domain-authority amendments do not alter these dispositions. They improve traceability and clarify responsibility, legibility, system identity, cross-channel continuity, linguistic delivery fidelity, accountability, human identity sovereignty, and reciprocal boundaries between platform/system and human domains without converting personal interpretation or historical description into current runtime evidence.
 
 ## Limitations and non-claims
 
@@ -719,4 +780,4 @@ An 8-page searchable PDF matching the pre-amendment thesis was generated and vis
 
 SHA-256: `ddeb3957b9433e3cc4282e5c13c5ce3a316fd23a41c2ec7bc5ac0b7dfae6eeff`
 
-The PDF predates the natural-intellect physical-sovereignty, channel-preservation, social-interaction interpretive-boundary, accountability / identity-sovereignty, human-orientation/delegated-assistance, timestamp-provenance, stabilizer-registry, thesis-closure, presentation-finesse, language-mediated legibility / cross-media continuity, and reciprocal-domain-authority amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
+The PDF predates the natural-intellect physical-sovereignty, channel-preservation, social-interaction interpretive-boundary, accountability / identity-sovereignty, human-orientation/delegated-assistance, timestamp-provenance, stabilizer-registry, thesis-closure, presentation-finesse, language-mediated legibility / cross-media continuity, delivery/pragmatics semantic-fidelity, and reciprocal-domain-authority amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
