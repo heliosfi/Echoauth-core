@@ -74,7 +74,8 @@ def hawk(**changes):
     value = dict(
         validation_id="validation-1", contract_name="NI AI Transition Envelope",
         contract_version="1.0.0", transition_id="transition-1", correlation_id="correlation-1",
-        schema_checkpoint="schema-checkpoint", schema_blob="schema-blob",
+        schema_checkpoint="schema-checkpoint",
+        schema_blob="acfe2dc5c4bd722163b123545fbf41a09fa2509d",
         passage_consumption_reference="consumption-1", passage_exhaustion_reference="exhaustion-1",
         evaluated_at_utc="2026-08-28T10:10:00Z", validation_state=ValidationState.CONFORMANT,
         disposition=Disposition.PROCEED, reason_codes=(ReasonCode.VALIDATION_PASSED,), evaluated_checks=(),
@@ -91,7 +92,8 @@ def configuration(**changes):
         contract_name="echoauth-sai-binding-record", contract_version="1.0.0",
         upstream_repository="heliosfi/heliosfi-ni-ai-spine",
         upstream_checkpoint="f050dc82f20a0866e477cba0e4e74806454f8940",
-        schema_path="schemas/ni-ai-transition-envelope.schema.json", schema_blob="acfe2dc",
+        schema_path="schemas/ni-ai-transition-envelope.schema.json",
+        schema_blob="acfe2dc5c4bd722163b123545fbf41a09fa2509d",
         forming_component_id="echoauth_sai_binding_record_former", forming_component_version="1.0.0",
         accepted_state_vocabularies=(("ni-ai.state", "1.0.0", "state-observe"),),
     )
@@ -173,12 +175,29 @@ class SaiBindingTests(unittest.TestCase):
             ({"hawk_result": hawk(validation_state=ValidationState.NONCONFORMANT)}, SaiReason.HAWK_NOT_CONFORMANT),
             ({"hawk_result": hawk(disposition=Disposition.WAIT)}, SaiReason.HAWK_DISPOSITION_NOT_PROCEED),
             ({"hawk_result": hawk(continuation_posture="CONTINUE")}, SaiReason.HAWK_BINDING_INVALID),
+            ({"hawk_result": hawk(contract_version="2.0.0")}, SaiReason.HAWK_BINDING_INVALID),
+            ({"hawk_result": hawk(schema_blob="other")}, SaiReason.HAWK_BINDING_INVALID),
             ({"hawk_result": hawk(authority_excluded=("EXECUTION",))}, SaiReason.HAWK_AUTHORITY_EXCLUSION_INVALID),
         ]
         for kwargs, reason in cases:
             with self.subTest(reason=reason), self.assertRaises(SaiBindingError) as caught:
                 form(**kwargs)
             self.assertEqual(caught.exception.reason, reason)
+
+    def test_exact_authorized_upstream_configuration_is_locked(self):
+        for changes in (
+            {"upstream_checkpoint": "other"},
+            {"schema_blob": "other"},
+            {"accepted_state_vocabularies": ()},
+        ):
+            with self.subTest(changes=changes), self.assertRaises(SaiBindingError) as caught:
+                form(configuration=configuration(**changes))
+            self.assertEqual(caught.exception.reason, SaiReason.CONTRACT_INVALID)
+
+    def test_non_finite_json_inputs_fail_closed(self):
+        with self.assertRaises(SaiBindingError) as caught:
+            form(request=request(payload=freeze({"value": float("nan")})))
+        self.assertEqual(caught.exception.reason, SaiReason.REQUEST_BINDING_INVALID)
 
     def test_unknown_or_translated_state_fails_closed(self):
         with self.assertRaises(SaiBindingError) as caught:

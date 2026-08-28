@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from dataclasses import asdict
 from datetime import datetime, timezone
+import math
 from types import MappingProxyType
 from typing import Any
 
@@ -28,13 +29,15 @@ _REQUIRED_EXCLUSIONS = frozenset(
 _CONTRACT_NAME = "echoauth-sai-binding-record"
 _CONTRACT_VERSION = "1.0.0"
 _UPSTREAM_REPOSITORY = "heliosfi/heliosfi-ni-ai-spine"
+_UPSTREAM_CHECKPOINT = "f050dc82f20a0866e477cba0e4e74806454f8940"
 _SCHEMA_PATH = "schemas/ni-ai-transition-envelope.schema.json"
+_SCHEMA_BLOB = "acfe2dc5c4bd722163b123545fbf41a09fa2509d"
 _FORMER_ID = "echoauth_sai_binding_record_former"
 
 
 def _deeply_immutable(value: Any) -> bool:
     if value is None or isinstance(value, (str, int, float, bool)):
-        return True
+        return not isinstance(value, float) or math.isfinite(value)
     if isinstance(value, MappingProxyType):
         return all(isinstance(key, str) and _deeply_immutable(item)
                    for key, item in value.items())
@@ -151,11 +154,13 @@ def form_sai_binding_record(
         configuration.contract_name != _CONTRACT_NAME
         or configuration.contract_version != _CONTRACT_VERSION
         or configuration.upstream_repository != _UPSTREAM_REPOSITORY
+        or configuration.upstream_checkpoint != _UPSTREAM_CHECKPOINT
         or configuration.schema_path != _SCHEMA_PATH
+        or configuration.schema_blob != _SCHEMA_BLOB
         or configuration.forming_component_id != _FORMER_ID
-        or not configuration.upstream_checkpoint
-        or not configuration.schema_blob
         or not configuration.forming_component_version
+        or not _deeply_immutable(configuration.accepted_state_vocabularies)
+        or not configuration.accepted_state_vocabularies
     ):
         raise SaiBindingError(SaiReason.CONTRACT_INVALID)
     if not source_currentness.reference or not source_currentness.replay_state_reference:
@@ -176,6 +181,13 @@ def form_sai_binding_record(
     if request.correlation_id != correlation_id:
         raise SaiBindingError(SaiReason.CORRELATION_MISMATCH)
     if hawk_result.transition_id != transition_id or hawk_result.correlation_id != correlation_id:
+        raise SaiBindingError(SaiReason.HAWK_BINDING_INVALID)
+    if (
+        hawk_result.contract_name != envelope.get("contractName")
+        or hawk_result.contract_version != envelope.get("contractVersion")
+        or not hawk_result.schema_checkpoint
+        or hawk_result.schema_blob != configuration.schema_blob
+    ):
         raise SaiBindingError(SaiReason.HAWK_BINDING_INVALID)
     if hawk_result.validation_state is not ValidationState.CONFORMANT:
         raise SaiBindingError(SaiReason.HAWK_NOT_CONFORMANT)

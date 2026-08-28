@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import replace
 from datetime import datetime, timezone
+from typing import cast
 
 from echoauth.auth.authorization_models import AuthorizationRequest
 from echoauth.canonical import canonical_sha256
@@ -57,10 +58,17 @@ def validate_sai_intake(
             configuration.schema_path, configuration.schema_blob,
         ):
             return _reject(SaiReason.UPSTREAM_BINDING_INVALID)
+        if (
+            record.forming_component_id != configuration.forming_component_id
+            or record.forming_component_version != configuration.forming_component_version
+        ):
+            return _reject(SaiReason.PRODUCER_UNVERIFIABLE)
         expected_hash = canonical_sha256(_record_document(replace(record, binding_record_hash=""), include_hash=False))
         if record.binding_record_hash != expected_hash:
             return _reject(SaiReason.UPSTREAM_BINDING_INVALID)
         if record.hawk_transition_id != record.transition_id or record.hawk_correlation_id != record.correlation_id:
+            return _reject(SaiReason.HAWK_BINDING_INVALID)
+        if not record.hawk_schema_checkpoint or record.hawk_schema_blob != record.schema_blob:
             return _reject(SaiReason.HAWK_BINDING_INVALID)
         if record.hawk_validation_state != "CONFORMANT":
             return _reject(SaiReason.HAWK_NOT_CONFORMANT)
@@ -93,6 +101,11 @@ def validate_sai_intake(
             return _reject(SaiReason.STATE_VOCABULARY_UNKNOWN)
         if not evidence.currentness_verified:
             return _reject(SaiReason.CURRENTNESS_UNVERIFIABLE)
+        if (
+            evidence.source_currentness_reference != record.source_currentness_reference
+            or evidence.replay_state_reference != record.replay_state_reference
+        ):
+            return _reject(SaiReason.CURRENTNESS_UNVERIFIABLE)
         if evidence.revoked:
             return _reject(SaiReason.REVOKED)
         if evidence.superseded:
@@ -101,12 +114,21 @@ def validate_sai_intake(
             return _reject(SaiReason.REPLAYED)
         now = _utc(evidence.evaluated_at)
         start = _utc(record.valid_from)
+        source_end = _utc(record.valid_until)
+        formed = _utc(record.formed_at)
         end = _utc(record.expires_at)
-        if now is None or start is None or end is None:
+        if any(value is None for value in (now, start, source_end, formed, end)):
             return _reject(SaiReason.CURRENTNESS_UNVERIFIABLE)
-        if now < start:
+        now = cast(datetime, now)
+        start = cast(datetime, start)
+        source_end = cast(datetime, source_end)
+        formed = cast(datetime, formed)
+        end = cast(datetime, end)
+        if not start < source_end or not start <= formed < end <= source_end:
+            return _reject(SaiReason.CURRENTNESS_UNVERIFIABLE)
+        if now < start or now < formed:
             return _reject(SaiReason.NOT_YET_EFFECTIVE)
-        if now >= end:
+        if now >= end or now >= source_end:
             return _reject(SaiReason.EXPIRED)
         if not evidence.audit_available or not record.audit_event_reference or not record.upstream_audit_references:
             return _reject(SaiReason.AUDIT_INVALID)

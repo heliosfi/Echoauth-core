@@ -10,7 +10,9 @@ from tests.test_sai_binding import configuration, form, request
 
 
 def evidence(**changes):
-    values = dict(evaluated_at="2026-08-28T10:30:00Z", currentness_verified=True,
+    values = dict(evaluated_at="2026-08-28T10:30:00Z",
+                  source_currentness_reference="currentness-1",
+                  replay_state_reference="replay-state-1", currentness_verified=True,
                   revoked=False, superseded=False, replayed_nonces=(), audit_available=True)
     values.update(changes)
     return SaiIntakeEvidence(**values)
@@ -41,6 +43,10 @@ class SaiIntakeTests(unittest.TestCase):
         self.assert_reason(SaiReason.CONTRACT_INVALID, record=replace(form(), contract_version="2.0.0"))
         self.assert_reason(SaiReason.UPSTREAM_BINDING_INVALID, record=replace(form(), upstream_checkpoint="other"))
         self.assert_reason(SaiReason.UPSTREAM_BINDING_INVALID, record=replace(form(), binding_record_hash="0" * 64))
+        self.assert_reason(SaiReason.PRODUCER_UNVERIFIABLE,
+                           record=rehash(form(), forming_component_version="2.0.0"))
+        self.assert_reason(SaiReason.HAWK_BINDING_INVALID,
+                           record=rehash(form(), hawk_schema_blob="other"))
 
     def test_request_action_resource_and_correlation_substitution_fail(self):
         cases = [
@@ -69,6 +75,8 @@ class SaiIntakeTests(unittest.TestCase):
     def test_currentness_revocation_supersession_replay_and_time_fail(self):
         cases = [
             (evidence(currentness_verified=False), SaiReason.CURRENTNESS_UNVERIFIABLE),
+            (evidence(source_currentness_reference="other"), SaiReason.CURRENTNESS_UNVERIFIABLE),
+            (evidence(replay_state_reference="other"), SaiReason.CURRENTNESS_UNVERIFIABLE),
             (evidence(revoked=True), SaiReason.REVOKED),
             (evidence(superseded=True), SaiReason.SUPERSEDED),
             (evidence(replayed_nonces=("nonce-1",)), SaiReason.REPLAYED),
@@ -78,6 +86,16 @@ class SaiIntakeTests(unittest.TestCase):
         for changed, reason in cases:
             with self.subTest(reason=reason):
                 self.assert_reason(reason, intake_evidence=changed)
+
+    def test_full_source_and_formation_validity_boundaries_fail_closed(self):
+        cases = [
+            (rehash(form(), formed_at="2026-08-28T11:30:00Z"), SaiReason.CURRENTNESS_UNVERIFIABLE),
+            (rehash(form(), valid_until="2026-08-28T10:45:00Z"), SaiReason.CURRENTNESS_UNVERIFIABLE),
+            (rehash(form(), expires_at="2026-08-28T12:30:00Z"), SaiReason.CURRENTNESS_UNVERIFIABLE),
+        ]
+        for changed, reason in cases:
+            with self.subTest(reason=reason):
+                self.assert_reason(reason, record=changed)
 
     def test_audit_evidence_vocabulary_and_hawk_exclusions_fail(self):
         self.assert_reason(SaiReason.AUDIT_INVALID, intake_evidence=evidence(audit_available=False))

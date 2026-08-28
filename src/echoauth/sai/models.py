@@ -137,6 +137,8 @@ class SaiBindingRecord:
 @dataclass(frozen=True)
 class SaiIntakeEvidence:
     evaluated_at: str
+    source_currentness_reference: str
+    replay_state_reference: str
     currentness_verified: bool
     revoked: bool
     superseded: bool

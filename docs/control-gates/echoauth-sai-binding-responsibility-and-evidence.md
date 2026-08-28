@@ -89,6 +89,11 @@ No Hawk source or contract was modified in this lane.
 | Credentials and raw payload/context | `AuthorizationRequest` | Never copy into the SAI record |
 | Formation/replay/audit evidence | Explicit binder inputs | Bind exact references; never infer first use |
 
+For contract version `1.0.0`, the accepted configuration is locked to upstream
+checkpoint `f050dc82f20a0866e477cba0e4e74806454f8940` and transition-envelope
+schema blob `acfe2dc5c4bd722163b123545fbf41a09fa2509d`. The Hawk result must bind
+that same schema blob while preserving its own historical schema checkpoint.
+
 The upstream envelope has no field named `limits`. The binder does not invent
 one. It preserves the upstream `governingConditions.permittedScope` opaque
 reference as the restrictive limits reference. Native resolution and meaning
@@ -105,6 +110,11 @@ unknown state vocabularies, attempted state translation, mismatched Hawk or
 request identities, action/resource substitution, payload/context/hash
 substitution, scope or limits absence, stale timing, revocation, supersession,
 replay, missing evidence, and missing audit availability.
+
+Intake also revalidates the forming-component identity and version, exact
+currentness and replay references, Hawk schema binding, the full upstream
+validity interval, the formation time, and the shorter SAI expiry. Recomputing a
+record hash cannot bypass those independent correspondence checks.
 
 Record integrity is checked before field-specific intake checks. A party that
 alters a record without recomputing its canonical record hash receives an
