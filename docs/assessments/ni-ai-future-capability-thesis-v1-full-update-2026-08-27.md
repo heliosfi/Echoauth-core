@@ -1,14 +1,22 @@
-# NI AI Future Capability Thesis - v1 Full Update
+# NI-AI Future Capability Thesis — v1 Full Update
 
 **Authority:** Nicholas B. Carty (N.B.C.)  
 **Date:** 2026-08-27  
 **Retune timestamp:** 2026-08-27 · 9:57 PM EDT  
 **Retune ISO-8601:** `2026-08-27T21:57:49-04:00`  
 **Retune UTC:** `2026-08-28T01:57:49Z`  
-**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact and is retuned to include timestamp provenance and the bounded S-Kernel / Stabilizer registry; the broader adversarial/runtime claim remains HOLD.  
+**Finesse timestamp:** 2026-08-27 · 10:02 PM EDT  
+**Finesse ISO-8601:** `2026-08-27T22:02:02-04:00`  
+**Finesse UTC:** `2026-08-28T02:02:02Z`  
+**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact. Timestamp provenance and the bounded S-Kernel / Stabilizer registry are incorporated; the broader adversarial/runtime claim remains HOLD.  
 **Canonical pre-update EchoAuth baseline:** `72b6ea04594b16f1386816a9d729f51d0f8a0807`  
 **Pre-retune EchoAuth main:** `3d0117c23dff510310528eba6f2118d1484dd11e`  
+**Pre-finesse EchoAuth main:** `0a441c0004a65b9d41772771b4d51b7dc194b8ec`  
 **Consolidated adversarial gate:** `SAL-9 = HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`
+
+## Executive Summary
+
+This thesis presents an evidence-bounded governance model for advanced agentic AI that separates capability, authority, permission, execution, and reassessment while preserving human sovereignty, interpretive restraint, and bounded assistance. Concrete EchoAuth interfaces demonstrate several protections against implicit authority transfer, stale permission, replay, and unauthorized state change, while two end-to-end runtime boundaries remain untestable because their legitimate consumers do not yet exist. The research artifact is complete; the broader runtime claim is not. `SAL-9` remains `HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`.
 
 ## Central research question
 
@@ -16,7 +24,7 @@ How can AI governance architectures prevent authority from expanding implicitly 
 
 ## Thesis statement
 
-Advanced agentic intelligence may be governed through separately bounded and evidence-linked responsibilities in which understanding, workflow passage, state assessment, permission, execution, return, and reassessment correspond without automatically transferring authority. Meaningful agency may therefore remain possible within constraint without granting authority over the constraining environment.
+Advanced agentic intelligence may be governed through separately bounded, evidence-linked responsibilities in which understanding, workflow passage, state assessment, permission, execution, return, and reassessment correspond without inheriting one another's authority. Meaningful agency may therefore remain possible within constraint while authority remains explicitly bounded and independently validated at each consequential boundary.
 
 ## Governing invariants
 
@@ -280,23 +288,23 @@ Publication status does not alter the research result: `SAL-9` remains `HOLD - 3
 
 ## Current conclusion
 
-The evidence supports a bounded-governance model in which several important authority-transfer failure modes can already be prevented and adversarially demonstrated at concrete interfaces. It does not yet establish that a complete autonomous runtime preserves those properties end-to-end, because two required real consumers do not yet exist.
+The evidence supports a bounded-governance model that already prevents several authority-transfer failure modes at concrete interfaces. It does not establish end-to-end preservation across a complete autonomous runtime, because two required legitimate consumers do not yet exist.
 
-The scientifically appropriate posture is therefore preservation rather than overclaim: preserve the interfaces that passed, preserve the absences that remain untestable, preserve historical module/kernel lineage without converting it into executable truth, and reopen only when legitimate implementation creates a real evidence surface.
+The appropriate research posture is therefore preservation without overclaim: retain what passed, retain what remains absent, preserve historical module/kernel lineage without converting it into executable truth, and reopen only when legitimate implementation creates a testable evidence surface.
 
 ## Thesis Closure and Independent Handoff Posture
 
-**TIMESTAMP — 2026-08-27 · 9:57 PM EDT**  
-**ISO — `2026-08-27T21:57:49-04:00`**  
-**STATUS — THESIS RETUNE / CLOSURE MILESTONE**  
+**TIMESTAMP — 2026-08-27 · 10:02 PM EDT**  
+**ISO — `2026-08-27T22:02:02-04:00`**  
+**STATUS — THESIS FINESSE / CLOSURE MILESTONE**  
 **AUTHORITY / SOURCE — Nicholas B. Carty (N.B.C.)**  
-**EVENT — Thesis v1 is retuned with timestamp provenance and the bounded S-Kernel / Stabilizer registry and returned to canonical main as a complete evidence-bounded research artifact.**  
-**EVIDENCE BOUNDARY — The retune changes documentation and traceability only. SAL-9 remains HOLD; unresolved scientific and runtime boundaries remain unresolved; no external reviewer, institution, publication venue, or third party is deemed to have accepted, endorsed, validated, or assumed custody of the thesis by this record.**  
-**REFERENCE — Pre-retune EchoAuth main `3d0117c23dff510310528eba6f2118d1484dd11e`.**
+**EVENT — Thesis v1 is presentation-finessed after the 9:57 PM retune and returned to canonical main as the current evidence-bounded research artifact.**  
+**EVIDENCE BOUNDARY — The finesse changes presentation, compression, and traceability only. SAL-9 remains HOLD; unresolved scientific and runtime boundaries remain unresolved; no external reviewer, institution, publication venue, or third party is deemed to have accepted, endorsed, validated, or assumed custody of the thesis by this record.**  
+**REFERENCE — Pre-finesse EchoAuth main `0a441c0004a65b9d41772771b4d51b7dc194b8ec`.**
 
-The work completed within the thesis lane is to preserve evidence, state the architecture, distinguish what is established from what is not, document limitations, and provide a traceable artifact suitable for independent scrutiny. Future qualified reviewers may test, challenge, reproduce, reject, refine, or advance what survives review. Their judgment remains theirs.
+The thesis-writing lane is complete. The artifact is ready for independent scrutiny. Reviewers may test, challenge, reproduce, reject, refine, or advance only what the evidence supports; their judgment remains independent.
 
-The thesis therefore closes its current research-writing lane without forcing unresolved results into PASS and without requiring further interpretation to make the artifact complete.
+Completion of the artifact does not convert HOLD into PASS, imply external acceptance, or create runtime, ownership, novelty, deployment, or institutional claims.
 
 ```text
 COMPLETE RESEARCH ARTIFACT != COMPLETE RUNTIME
@@ -311,4 +319,4 @@ An 8-page searchable PDF matching the pre-amendment thesis was generated and vis
 
 SHA-256: `ddeb3957b9433e3cc4282e5c13c5ce3a316fd23a41c2ec7bc5ac0b7dfae6eeff`
 
-The PDF predates the natural-intellect physical-sovereignty, channel-preservation, social-interaction interpretive-boundary, human-orientation/delegated-assistance, timestamp-provenance, stabilizer-registry, and thesis-closure amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
+The PDF predates the natural-intellect physical-sovereignty, channel-preservation, social-interaction interpretive-boundary, human-orientation/delegated-assistance, timestamp-provenance, stabilizer-registry, thesis-closure, and presentation-finesse amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
