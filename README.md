@@ -78,7 +78,7 @@ The post-index-repair re-entry task order,
 was consumed by a procedural `BLOCKED` result because the attempted evaluator
 was the same construction/publication context and could not affirm
 fresh-session independence. Its disposition is
-`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-post-index-repair-blocked-disposition-record.md`.
+`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-post-index-repair-reentry-blocked-disposition-record.md`.
 No substantive Advancement Gate re-evaluation occurred, and no `PASS` or
 substantive `FAIL` was reached under that order. A replacement read-only task
 order is issued at
