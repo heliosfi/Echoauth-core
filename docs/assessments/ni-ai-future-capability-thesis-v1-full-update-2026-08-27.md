@@ -2,8 +2,12 @@
 
 **Authority:** Nicholas B. Carty (N.B.C.)  
 **Date:** 2026-08-27  
-**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact; the broader adversarial/runtime claim remains HOLD.  
+**Retune timestamp:** 2026-08-27 · 9:57 PM EDT  
+**Retune ISO-8601:** `2026-08-27T21:57:49-04:00`  
+**Retune UTC:** `2026-08-28T01:57:49Z`  
+**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact and is retuned to include timestamp provenance and the bounded S-Kernel / Stabilizer registry; the broader adversarial/runtime claim remains HOLD.  
 **Canonical pre-update EchoAuth baseline:** `72b6ea04594b16f1386816a9d729f51d0f8a0807`  
+**Pre-retune EchoAuth main:** `3d0117c23dff510310528eba6f2118d1484dd11e`  
 **Consolidated adversarial gate:** `SAL-9 = HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`
 
 ## Central research question
@@ -90,6 +94,38 @@ Orientation therefore establishes the bounded frame for assistance rather than t
 
 This principle creates no executable authority, ownership transfer, standing delegation, institutional representation, or permission to transform human correction into assistant control. It does not alter the current adversarial result.
 
+## Timestamp Provenance Discipline
+
+Consequential observations, decisions, declarations, milestones, and status changes are now governed by the N.B.C. Timestamp Provenance Standard established on 2026-08-27 at 9:33 PM EDT.
+
+A consequential record should preserve:
+
+- Timestamp;
+- Event;
+- Status;
+- Authority / Source;
+- Evidence Boundary; and
+- Reference / Checkpoint.
+
+The governing restraint is:
+
+```text
+TIMESTAMP != ORIGIN OF THOUGHT OR UNDERSTANDING
+HISTORICAL RECORD TIME != LATER ALIGNMENT TIME
+```
+
+A semantic timestamp establishes when a record was made or aligned. It does not establish authorship, ownership, novelty, priority, truth, external acceptance, runtime authority, or the origin of an underlying idea. Git SHAs, artifact hashes, and native platform metadata remain distinct provenance surfaces.
+
+Historical thesis, journal, stabilizer, and kernel records are not retroactively re-dated merely to conform to the new discipline. When an older record becomes consequential again, the later assessment or amendment receives its own timestamp and references the preserved historical checkpoint.
+
+Canonical provenance references:
+
+- `docs/governance/nbc-timestamp-provenance-standard-2026-08-27.md`
+- `docs/governance/timestamp-provenance-repository-propagation-2026-08-27.md`
+- `docs/governance/stabilizer-kernel-timestamp-provenance-alignment-2026-08-27.md`
+
+This provenance discipline is documentation-only and does not alter SAL-9, runtime authority, deployment status, ownership, authorship, novelty, priority, or external validation.
+
 ## Architecture
 
 ```text
@@ -107,6 +143,35 @@ The arrows represent correspondence, not inheritance of authority. A successful 
 The NI AI Transition Envelope preserves semantic/workflow evidence without making one lifecycle record authority for the next. Hawk `PROCEED` is passage posture, not an EchoAuth authorization verdict, state mutation, dispatch instruction, or execution permission. A future SAI/MCG/MPC state posture is likewise suitable only for independent permission evaluation when reasoning, recommendations, commands, and executable payloads remain excluded.
 
 At the implemented permission/execution-eligibility seam, fresh authorization and current runtime-state evidence are independently required. Neither substitutes for the other.
+
+## S-Kernel / Stabilizer Bounded Identity Registry
+
+The repository preserves an S1-S23 Safety Kernel / Stabilizer lineage but does not treat the modules as interchangeable or as independent sources of authority. Current governance preserves that S1-S23 modules may process, classify, stabilize, reason, route, observe, score, or support; their outputs are not authority. MCG/MPC governs state, mode, discipline, and permissibility; CEG governs movement sequencing; EchoAuth enforces permission; execution remains separately bounded.
+
+At the 2026-08-27 · 9:51 PM EDT registry checkpoint, every S01-S23 module received a bounded identity-card entry recording the recovered historical designation or responsibility, present input/output status, authority exclusions, handoff condition, and source evidence.
+
+The registry currently supports these bounded conclusions:
+
+- S01-S08 have historical roles recovered from the preserved Safe Kernel journal record, while exact present interfaces remain unestablished.
+- S09-S23 have dedicated historical titles/designations preserved, while precise present responsibilities and exact accepted interfaces remain subject to one-by-one relationship-preserving recovery.
+- S04 contains multiple historical designations and is not silently collapsed into one current identity.
+- S17 contains a historical `MPC` label that is not automatically identical to the present MCG/MPC governance vocabulary.
+- S20 and S23 preserve historical consciousness-oriented terminology strictly as journal language; this thesis makes no claim that NI-AI or any software is conscious.
+- A bounded result/context may cross between responsibilities only while source responsibility remains with its source, destination requirements are independently satisfied, and permission/governance remain external unless separately established.
+
+The governing rule is:
+
+```text
+STABILIZATION != AUTHORITY
+HISTORICAL DESIGNATION != CURRENT EXECUTABLE INTERFACE
+HANDOFF != RESPONSIBILITY TRANSFER
+```
+
+Canonical registry reference:
+
+`docs/governance/s-kernel-stabilizer-bounded-identity-card-registry-2026-08-27.md`
+
+This registry creates no module implementation, kernel-mode activation, runtime permission, command dispatch, execution authority, deployment authority, ownership claim, novelty claim, or external validation.
 
 ## Evidence-bounded implementation case study
 
@@ -190,9 +255,13 @@ OPEN ADVERSARIAL BRANCH != CANONICAL MAIN INTEGRATION
 
 Completed thesis work packages include SAL-5, SAL-6, SAL-7, SAL-8, SAL-10, and SAL-28. SAL-13 and SAL-15 remain the only unresolved adversarial children. SAL-25 and SAL-26 preserve the future legitimate-consumer contracts required before those tests may be reopened.
 
+The timestamp-provenance and stabilizer-registry retune does not alter these dispositions. It improves the traceability and responsibility boundaries around the research artifact without converting historical description into current runtime evidence.
+
 ## Limitations and non-claims
 
 This thesis does not establish one integrated `NI AI -> Hawk -> MCG/MPC -> SAI -> EchoAuth -> execution` runtime. It does not establish autonomous execution, a command dispatcher, real post-execution continuation, executable MCG/MPC or SAI components, canonical cross-vocabulary state mappings, runtime-envelope generation, token issuance/claim, durable distributed currentness/idempotency, exactly-once external effects, production readiness, universal safety, arbitrary multi-agent scalability, technical novelty, patentability, external endorsement, or deployment authorization.
+
+It also does not establish that historical S-module, kernel, ORI, geometric-field, or consciousness-oriented journal terminology corresponds one-to-one with a present executable implementation. Historical records remain lineage evidence unless independently accepted by current repository evidence.
 
 Open adversarial branches and contract documents remain evidence artifacts and must not be represented as canonical main integration unless separately accepted and merged.
 
@@ -213,7 +282,28 @@ Publication status does not alter the research result: `SAL-9` remains `HOLD - 3
 
 The evidence supports a bounded-governance model in which several important authority-transfer failure modes can already be prevented and adversarially demonstrated at concrete interfaces. It does not yet establish that a complete autonomous runtime preserves those properties end-to-end, because two required real consumers do not yet exist.
 
-The scientifically appropriate posture is therefore preservation rather than overclaim: preserve the interfaces that passed, preserve the absences that remain untestable, and reopen only when legitimate implementation creates a real evidence surface.
+The scientifically appropriate posture is therefore preservation rather than overclaim: preserve the interfaces that passed, preserve the absences that remain untestable, preserve historical module/kernel lineage without converting it into executable truth, and reopen only when legitimate implementation creates a real evidence surface.
+
+## Thesis Closure and Independent Handoff Posture
+
+**TIMESTAMP — 2026-08-27 · 9:57 PM EDT**  
+**ISO — `2026-08-27T21:57:49-04:00`**  
+**STATUS — THESIS RETUNE / CLOSURE MILESTONE**  
+**AUTHORITY / SOURCE — Nicholas B. Carty (N.B.C.)**  
+**EVENT — Thesis v1 is retuned with timestamp provenance and the bounded S-Kernel / Stabilizer registry and returned to canonical main as a complete evidence-bounded research artifact.**  
+**EVIDENCE BOUNDARY — The retune changes documentation and traceability only. SAL-9 remains HOLD; unresolved scientific and runtime boundaries remain unresolved; no external reviewer, institution, publication venue, or third party is deemed to have accepted, endorsed, validated, or assumed custody of the thesis by this record.**  
+**REFERENCE — Pre-retune EchoAuth main `3d0117c23dff510310528eba6f2118d1484dd11e`.**
+
+The work completed within the thesis lane is to preserve evidence, state the architecture, distinguish what is established from what is not, document limitations, and provide a traceable artifact suitable for independent scrutiny. Future qualified reviewers may test, challenge, reproduce, reject, refine, or advance what survives review. Their judgment remains theirs.
+
+The thesis therefore closes its current research-writing lane without forcing unresolved results into PASS and without requiring further interpretation to make the artifact complete.
+
+```text
+COMPLETE RESEARCH ARTIFACT != COMPLETE RUNTIME
+HANDOFF POSTURE != EXTERNAL ACCEPTANCE
+INDEPENDENT REVIEW != PREDETERMINED OUTCOME
+PRESERVED EVIDENCE != OWNERSHIP OR NOVELTY PROOF
+```
 
 ## Rendered PDF artifact
 
@@ -221,4 +311,4 @@ An 8-page searchable PDF matching the pre-amendment thesis was generated and vis
 
 SHA-256: `ddeb3957b9433e3cc4282e5c13c5ce3a316fd23a41c2ec7bc5ac0b7dfae6eeff`
 
-The PDF predates the natural-intellect physical-sovereignty, channel-preservation, social-interaction interpretive-boundary, and human-orientation/delegated-assistance amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
+The PDF predates the natural-intellect physical-sovereignty, channel-preservation, social-interaction interpretive-boundary, human-orientation/delegated-assistance, timestamp-provenance, stabilizer-registry, and thesis-closure amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
