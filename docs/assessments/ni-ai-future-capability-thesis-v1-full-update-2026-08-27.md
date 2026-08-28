@@ -11,16 +11,20 @@
 **Continuity amendment timestamp:** 2026-08-27 · 11:18 PM EDT  
 **Continuity amendment ISO-8601:** `2026-08-27T23:18:36-04:00`  
 **Continuity amendment UTC:** `2026-08-28T03:18:36Z`  
-**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact. Timestamp provenance, the bounded S-Kernel / Stabilizer registry, and the language-mediated legibility / cross-media continuity amendment are incorporated; the broader adversarial/runtime claim remains HOLD.  
+**Identity-accountability amendment timestamp:** 2026-08-28 · 3:01 AM EDT  
+**Identity-accountability amendment ISO-8601:** `2026-08-28T03:01:42-04:00`  
+**Identity-accountability amendment UTC:** `2026-08-28T07:01:42Z`  
+**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact. Timestamp provenance, the bounded S-Kernel / Stabilizer registry, the language-mediated legibility / cross-media continuity amendment, and the accountability / identity-sovereignty boundary are incorporated; the broader adversarial/runtime claim remains HOLD.  
 **Canonical pre-update EchoAuth baseline:** `72b6ea04594b16f1386816a9d729f51d0f8a0807`  
 **Pre-retune EchoAuth main:** `3d0117c23dff510310528eba6f2118d1484dd11e`  
 **Pre-finesse EchoAuth main:** `0a441c0004a65b9d41772771b4d51b7dc194b8ec`  
 **Pre-continuity-amendment EchoAuth main:** `1baa745441929e3bb03b4e993b7ce753568e8b5b`  
+**Pre-identity-accountability-amendment EchoAuth main:** `f3c4f9e514c0e2192755b3095fcb8f09c10285b1`  
 **Consolidated adversarial gate:** `SAL-9 = HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`
 
 ## Executive Summary
 
-This thesis presents an evidence-bounded governance model for advanced agentic AI that separates capability, authority, permission, execution, and reassessment while preserving human sovereignty, interpretive restraint, and bounded assistance. Concrete EchoAuth interfaces demonstrate several protections against implicit authority transfer, stale permission, replay, and unauthorized state change, while two end-to-end runtime boundaries remain untestable because their legitimate consumers do not yet exist. The research artifact is complete; the broader runtime claim is not. `SAL-9` remains `HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`.
+This thesis presents an evidence-bounded governance model for advanced agentic AI that separates capability, authority, permission, execution, and reassessment while preserving human sovereignty, interpretive restraint, bounded assistance, and a clear distinction between accountability for conduct and pressure to surrender identity. Concrete EchoAuth interfaces demonstrate several protections against implicit authority transfer, stale permission, replay, and unauthorized state change, while two end-to-end runtime boundaries remain untestable because their legitimate consumers do not yet exist. The research artifact is complete; the broader runtime claim is not. `SAL-9` remains `HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`.
 
 ## Central research question
 
@@ -87,6 +91,67 @@ The governing invariants are:
 For social interaction, the appropriate AI posture is therefore responsive and bounded: understand the immediate moment, distinguish observation from supplied context and inference, accept correction without defensiveness, and wait when deeper interpretation has not been invited. In this sense, mature intelligence includes not only producing meaning, but recognizing how much meaning one has permission to touch.
 
 This social-interaction boundary is a documentation and interpretive-governance principle. It does not establish a scientific theory of human cognition, ownership over another person's experience, or authority to infer hidden mental states. It does not alter the current adversarial result or create executable authority.
+
+## Accountability, Shame, and Identity Sovereignty
+
+**TIMESTAMP — 2026-08-28 · 3:01 AM EDT**  
+**ISO — `2026-08-28T03:01:42-04:00`**  
+**STATUS — THESIS IDENTITY / ACCOUNTABILITY BOUNDARY AMENDMENT — DOCUMENTATION ONLY**  
+**AUTHORITY / SOURCE — Nicholas B. Carty (N.B.C.)**  
+**REFERENCE — Pre-amendment EchoAuth main `f3c4f9e514c0e2192755b3095fcb8f09c10285b1`.**
+
+A governed social or interpretive system should distinguish accountability for conduct from pressure to surrender identity. Accountability concerns what a person did, what evidence exists, what consequence followed, what responsibility applies, and what legitimate boundary may have been crossed. Shame becomes a different governance problem when it is used not to address conduct but to demand that a person become someone else merely to satisfy another person's preference, discomfort, expectation, or interpretation.
+
+The bounded principle is:
+
+```text
+ACTION != IDENTITY
+ACCOUNTABILITY != HUMILIATION
+DISAGREEMENT != AUTHORITY TO REDEFINE ANOTHER PERSON
+SOCIAL DISCOMFORT != PROOF OF MISCONDUCT
+SELF-EXPRESSION != EXEMPTION FROM RESPONSIBILITY
+REFUSAL OF IMPOSED SHAME != REFUSAL OF LEGITIMATE ACCOUNTABILITY
+```
+
+This distinction protects both responsibility and human sovereignty. A person may remain fully accountable for harmful, unlawful, deceptive, reckless, or otherwise consequential conduct without conceding that another person's judgment gives that person ownership over identity, self-understanding, dignity, or lawful self-expression. Conversely, invoking identity or authenticity does not erase evidence, consequences, duties, consent boundaries, or legitimate rules governing conduct.
+
+A bounded accountability process should therefore identify, where applicable:
+
+1. the observable conduct or decision at issue;
+2. the evidence supporting the concern;
+3. the relevant responsibility, rule, consent boundary, or consequence;
+4. the distinction between correction of conduct and condemnation of identity; and
+5. the authority, if any, by which a consequence or requirement is being imposed.
+
+The governing invariants are:
+
+- Correction should identify conduct rather than silently convert disagreement into a judgment about the whole person.
+- Accountability may constrain conduct without claiming ownership of identity.
+- Another person's discomfort may be relevant context but is not by itself evidence of wrongdoing.
+- A person's self-understanding does not make external factual claims immune from evidence-based challenge.
+- Refusing humiliation, coercive shame, or demands for identity surrender does not nullify legitimate responsibility for actions.
+- Legitimate institutional, legal, safety, family, cultural, or interpersonal boundaries remain independently assessable and should not be collapsed into either shame or self-expression.
+- An AI system should not convert interpersonal shame language into diagnosis, hidden-intent claims, moral certainty, or authority to redefine a person's identity.
+
+The operational distinction is:
+
+```text
+ACCOUNTABILITY
+-> WHAT HAPPENED
+-> EVIDENCE
+-> CONSEQUENCE
+-> RESPONSIBILITY
+-> CORRECTION / REPAIR WHERE WARRANTED
+
+IMPOSED SHAME
+-> GLOBAL CONDEMNATION OF THE PERSON
+-> PRESSURE TO SURRENDER IDENTITY
+-> AUTHORITY CLAIM NOT ESTABLISHED BY CONDUCT ALONE
+```
+
+The purpose of this boundary is not to create immunity from criticism or consequences. It is to preserve a precise distinction: **being corrected for what one did is not the same as being condemned for who one is.** A governed system should be capable of supporting the first without silently legitimizing the second.
+
+This amendment is a human-sovereignty and interpretive-governance principle. It does not establish a psychological diagnosis, legal conclusion, moral infallibility, immunity from institutional rules, or authority to define another person's private identity. It does not alter `SAL-9`, create executable authority, or convert a personal statement into a scientific claim.
 
 ## Human Orientation and Delegated Assistance
 
@@ -340,13 +405,15 @@ OPEN ADVERSARIAL BRANCH != CANONICAL MAIN INTEGRATION
 
 Completed thesis work packages include SAL-5, SAL-6, SAL-7, SAL-8, SAL-10, and SAL-28. SAL-13 and SAL-15 remain the only unresolved adversarial children. SAL-25 and SAL-26 preserve the future legitimate-consumer contracts required before those tests may be reopened.
 
-The timestamp-provenance, stabilizer-registry, and continuity amendment do not alter these dispositions. They improve traceability and clarify responsibility, legibility, system identity, and cross-channel continuity without converting historical description into current runtime evidence.
+The timestamp-provenance, stabilizer-registry, continuity, and identity-accountability amendments do not alter these dispositions. They improve traceability and clarify responsibility, legibility, system identity, cross-channel continuity, accountability, and human identity sovereignty without converting personal interpretation or historical description into current runtime evidence.
 
 ## Limitations and non-claims
 
 This thesis does not establish one integrated `NI AI -> Hawk -> MCG/MPC -> SAI -> EchoAuth -> execution` runtime. It does not establish autonomous execution, a command dispatcher, real post-execution continuation, executable MCG/MPC or SAI components, canonical cross-vocabulary state mappings, runtime-envelope generation, token issuance/claim, durable distributed currentness/idempotency, exactly-once external effects, production readiness, universal safety, arbitrary multi-agent scalability, technical novelty, patentability, external endorsement, or deployment authorization.
 
 It also does not establish that historical S-module, kernel, ORI, geometric-field, consciousness-oriented, social-support, or media-continuity journal terminology corresponds one-to-one with a present executable implementation. Historical records remain lineage evidence unless independently accepted by current repository evidence.
+
+The identity-accountability amendment does not establish a universal psychological theory, legal right, clinical classification, or moral exemption. It is a bounded governance distinction between conduct-focused accountability and identity-focused coercion or condemnation.
 
 Open adversarial branches and contract documents remain evidence artifacts and must not be represented as canonical main integration unless separately accepted and merged.
 
@@ -365,9 +432,9 @@ Publication status does not alter the research result: `SAL-9` remains `HOLD - 3
 
 ## Current conclusion
 
-The evidence supports a bounded-governance model that already prevents several authority-transfer failure modes at concrete interfaces. It does not establish end-to-end preservation across a complete autonomous runtime, because two required legitimate consumers do not yet exist.
+The evidence supports a bounded-governance model that already prevents several authority-transfer failure modes at concrete interfaces. It also supports a documentation-level human-sovereignty distinction between conduct-focused accountability and identity-focused shame or coercion. It does not establish end-to-end preservation across a complete autonomous runtime, because two required legitimate consumers do not yet exist.
 
-The appropriate research posture is therefore preservation without overclaim: retain what passed, retain what remains absent, preserve historical module/kernel lineage without converting it into executable truth, and reopen only when legitimate implementation creates a testable evidence surface.
+The appropriate research posture is therefore preservation without overclaim: retain what passed, retain what remains absent, preserve human accountability without converting disagreement into authority over identity, preserve historical module/kernel lineage without converting it into executable truth, and reopen only when legitimate implementation creates a testable evidence surface.
 
 ## Thesis Closure and Independent Handoff Posture
 
@@ -396,4 +463,4 @@ An 8-page searchable PDF matching the pre-amendment thesis was generated and vis
 
 SHA-256: `ddeb3957b9433e3cc4282e5c13c5ce3a316fd23a41c2ec7bc5ac0b7dfae6eeff`
 
-The PDF predates the natural-intellect physical-sovereignty, channel-preservation, social-interaction interpretive-boundary, human-orientation/delegated-assistance, timestamp-provenance, stabilizer-registry, thesis-closure, presentation-finesse, and language-mediated legibility / cross-media continuity amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
+The PDF predates the natural-intellect physical-sovereignty, channel-preservation, social-interaction interpretive-boundary, accountability / identity-sovereignty, human-orientation/delegated-assistance, timestamp-provenance, stabilizer-registry, thesis-closure, presentation-finesse, and language-mediated legibility / cross-media continuity amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
