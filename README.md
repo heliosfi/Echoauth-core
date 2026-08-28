@@ -78,7 +78,7 @@ The post-index-repair re-entry task order,
 was consumed by a procedural `BLOCKED` result because the attempted evaluator
 was the same construction/publication context and could not affirm
 fresh-session independence. Its disposition is
-`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-post-index-repair-reentry-blocked-disposition-record.md`.
+`docs/control-gates/sniperbot-live-money-readiness-ladder-stage-2-advancement-gate-reevaluation-post-index-repair-blocked-disposition-record.md`.
 No substantive Advancement Gate re-evaluation occurred, and no `PASS` or
 substantive `FAIL` was reached under that order. A replacement read-only task
 order is issued at
@@ -119,3 +119,23 @@ Any post-closure movement requires a separate explicit governed lane and authori
 
 * [SniperBot Market Intelligence, Governance, Execution, and Learning Relationship](docs/architecture/sniperbot-market-intelligence-governance-execution-learning-relationship.md) -- canonical conceptual relationship only; documentation-only and non-authorizing.
 * [EchoAuth Assurance Perspectives and Evidence Crosswalk](docs/architecture/echoauth-assurance-perspectives-and-evidence-crosswalk.md) -- canonical mapping of AI assurance, SSP, data-and-authority flow, and privacy perspectives to current repository evidence; documentation-only, non-runtime, non-execution, and not a certification.
+
+## Governance Provenance
+
+Consequential EchoAuth governance records follow the repository-level timestamp provenance discipline defined at:
+
+`docs/governance/nbc-timestamp-provenance-standard-2026-08-27.md`
+
+Repository-wide propagation and the historical-preservation rule are recorded at:
+
+`docs/governance/timestamp-provenance-repository-propagation-2026-08-27.md`
+
+The governance index is:
+
+`docs/governance/README.md`
+
+Pre-standard records are not mass-rewritten solely to add timestamps. New amendments, corrections, reissues, and consequential decisions attach current provenance while preserving historical checkpoints.
+
+`TIMESTAMP != ORIGIN OF THOUGHT OR UNDERSTANDING`
+
+Timestamping supplements Git SHAs and artifact hashes; it does not create authority or alter existing governance dispositions.
