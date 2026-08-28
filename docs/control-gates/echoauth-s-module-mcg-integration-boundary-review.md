@@ -101,6 +101,21 @@ MCG / MPC governance output must remain inside the current authorization
 level and must not be treated as task approval, capability approval, or
 execution approval.
 
+MCG / MPC state, hold, refusal, downshift, or containment applies only to the
+evidenced request, crossing, and scope under review. It does not by itself
+create an actor-wide identity judgment or extend prohibition to unrelated
+future crossings.
+
+```text
+STATE / DOWNSHIFT != IDENTITY JUDGMENT
+BOUNDED CONTAINMENT != ACTOR-WIDE PROHIBITION
+```
+
+Any broader restriction requires separately attributable evidence, governing
+authority, and scope. This preserves accountability and legitimate protective
+containment without allowing one bounded governance result to silently
+generalize beyond its evidence.
+
 ## 5. CEG Movement Boundary
 
 CEG may sequence execution-order movement only within authorized governance
