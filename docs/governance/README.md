@@ -7,6 +7,7 @@ This directory is the canonical entry point for repository-level governance prov
 - `nbc-timestamp-provenance-standard-2026-08-27.md` — canonical timestamp formats, required fields, evidence boundaries, correction rules, and cross-platform application.
 - `timestamp-provenance-repository-propagation-2026-08-27.md` — repository-wide propagation record establishing prospective application to consequential EchoAuth governance records while preserving historical records unchanged.
 - `stabilizer-kernel-timestamp-provenance-alignment-2026-08-27.md` — explicit timestamp-provenance alignment for the S-Kernel / Stabilizer / S1-S23 lineage while preserving historical journal and assessment timing.
+- `s-kernel-stabilizer-bounded-identity-card-registry-2026-08-27.md` — bounded S01-S23 identity-card registry preserving historical designations, unresolved current interfaces, authority exclusions, and handoff conditions without flattening distinct responsibilities.
 
 ## Effective rule
 
@@ -21,6 +22,10 @@ Repository-wide propagation was recorded at:
 Stabilizer / kernel lineage alignment was recorded at:
 
 `2026-08-27 · 9:46 PM EDT`
+
+The S01-S23 bounded identity-card registry was recorded at:
+
+`2026-08-27 · 9:51 PM EDT`
 
 For consequential records created, amended, corrected, reissued, or used to establish a new governed decision after the standard became effective, preserve:
 
