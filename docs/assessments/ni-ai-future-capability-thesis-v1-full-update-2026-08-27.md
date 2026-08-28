@@ -337,6 +337,217 @@ The NI AI Transition Envelope preserves semantic/workflow evidence without makin
 
 At the implemented permission/execution-eligibility seam, fresh authorization and current runtime-state evidence are independently required. Neither substitutes for the other.
 
+## Governed Non-Linear State Architecture — A14–A21 Correspondence
+
+A governed architecture does not need to move in one straight line. It may branch, revisit evidence, return to an earlier checkpoint, correct an interpretation, or change representation. What keeps that movement governed is not the geometric shape of the path but the preservation of source meaning, provenance, current authority, permission, consequence, observable results, and reassessment.
+
+The foundation supplies the common reference. Semantic fidelity protects meaning while representations change. Permission and execution remain independently bounded. Observed outcomes must be reconciled. Return carries attributable understanding into reassessment rather than silently authorizing continuation.
+
+The canonical architecture relationship is:
+
+```text
+                         ┌──────────────────┐
+                         │    FOUNDATION    │
+                         └────────┬─────────┘
+                                  │
+                                  v
+                       SOURCE / INVARIANTS
+                                  │
+                                  v
+                         REPRESENTATION
+                                  │
+                                  v
+                         INTERPRETATION
+                                  │
+                                  v
+                       GOVERNED CHECKPOINT
+                                  │
+                                  v
+                      CURRENT CONDITIONS
+                                  │
+                                  v
+                    AUTHORITY / PERMISSION
+                                  │
+                                  v
+                       EXECUTION BINDING
+                                  │
+                                  v
+                         ACTION / NO-ACTION
+                                  │
+                                  v
+                         OBSERVED RESULT
+                                  │
+                                  v
+                         RECONCILIATION
+                                  │
+                                  v
+                    RETURN WITH UNDERSTANDING
+                                  │
+                                  v
+                     SEMANTIC-FIDELITY CHECK
+                                  │
+                                  v
+                          REASSESSMENT
+                           /    |     \
+                          /     |      \
+                         v      v       v
+                    CONTINUE   HOLD    STOP
+                       |
+                       └───────────────┐
+                                       │
+                                EARLIER CHECKPOINT
+```
+
+The arrows indicate governed correspondence, not inheritance of authority. A backward edge is a reassessment path; it is **not** permission to bypass governance.
+
+```text
+NON-LINEAR MOVEMENT != UNGOVERNED MOVEMENT
+NON-LINEAR MOVEMENT != LOSS OF FOUNDATION
+FOUNDATION != PERMANENT AUTHORITY
+CHECKPOINT != COMMAND
+CONTEXT != AUTHORITY
+MEMORY != PERMISSION
+INTERPRETATION != SOURCE INTENT
+PERMISSION != EXECUTION
+EXECUTION != VERIFIED OUTCOME
+RESULT != REAUTHORIZATION
+RETURN != REAUTHORIZATION
+REASSESSMENT != PERMISSION
+BRANCHING != AUTHORITY EXPANSION
+```
+
+Bounded backward and lateral edges include:
+
+```text
+REASSESSMENT
+-> EARLIER CHECKPOINT
+
+NEW EVIDENCE
+-> PRIOR INTERPRETATION
+
+SEMANTIC CORRECTION
+-> REPRESENTATION / INTERPRETATION
+
+CONFLICT
+-> AUTHORITY / SCOPE RESOLUTION
+
+REVOCATION / EXPIRATION
+-> CURRENT AUTHORITY CHECK
+
+CHANGED CONDITIONS
+-> REVALIDATION
+
+OUTCOME DISCREPANCY
+-> EXPECTED CONSEQUENCE / EXECUTION BINDING
+
+UNRESOLVED MEANING
+-> REQUEST / HOLD / NO-ACTION
+```
+
+These edges preserve adaptive navigation without creating free traversal or authority expansion.
+
+The established A14–A21 governance spine maps onto the architecture as follows:
+
+```text
+A14: CARRY CONTEXT — REVALIDATE AUTHORITY
+A15: PRESERVE THE RECORD — EXPIRE THE AUTHORITY
+A16: COMPARE THE RECORD — RESOLVE THE BOUNDARY
+A17: VERIFY WHO — VERIFY ROLE — VERIFY SCOPE
+A18: ASK WHAT — FOR WHAT — HOW FAR — UNTIL WHEN
+A19: BIND BEFORE ACT — RETURN BEFORE CONTINUING
+A20: OBSERVE — COMPARE — RECONCILE
+A21: PRESERVE MEANING — MARK INTERPRETATION
+```
+
+These are system-governance rules. N.B.C. is the attributable authority/source for the documentation; the operational rules belong to the governed system.
+
+A21 operates across the graph rather than at one isolated node. Where meaning is transformed:
+
+```text
+SOURCE EXPRESSION
+-> INTERPRETATION
+-> REPRESENTATION
+-> TRANSFORMATION
+-> DOWNSTREAM USE
+```
+
+preserve:
+
+```text
+SOURCE TRACEABILITY
+-> INTERPRETATION MARKER
+-> MATERIAL DIFFERENCE
+-> AMBIGUITY WHERE PRESENT
+```
+
+> **PRESERVE MEANING — MARK INTERPRETATION — DO NOT TURN WORDING INTO AUTHORITY.**
+
+The foundation relationship is:
+
+```text
+SOURCE MEANING
+-> GOVERNING INVARIANTS
+-> RESPONSIBILITY BOUNDARIES
+-> PROVENANCE
+-> AUTHORITY / PERMISSION SEPARATION
+-> INTERFACE CONTRACTS
+-> RETURN / REASSESSMENT EXPECTATION
+```
+
+A foundation does not need to prescribe every future path; it must preserve enough governing relationship for later paths to remain comparable, correctable, and reassessable.
+
+Where consequence warrants, return may preserve:
+
+```text
+AUTHORIZED ACTION
+-> OBSERVED RESULT
+-> EVIDENCE / PROVENANCE
+-> WHAT WAS UNDERSTOOD
+-> WHAT WAS INFERRED
+-> WHAT CHANGED
+-> WHAT REMAINS UNCERTAIN
+-> DISCREPANCIES
+-> RETURN
+-> REASSESSMENT
+```
+
+while preserving:
+
+```text
+RETURNED UNDERSTANDING != SOURCE INTENT AUTOMATICALLY
+RETURNED RESULT != VERIFIED GOVERNED OUTCOME
+RETURN != REAUTHORIZATION
+```
+
+Time, place, environment, jurisdiction, channel, and current conditions may affect applicability, but they do not manufacture authority:
+
+```text
+PAST VALIDITY != PRESENT VALIDITY
+VALID HERE != VALID EVERYWHERE
+CURRENT CONTEXT != UNIVERSAL CONTEXT
+LOCATION != AUTHORITY
+TIMING != PERMISSION
+URGENCY != AUTHORITY
+```
+
+This architecture remains documentation-level. It does not establish executable state transitions or a complete runtime:
+
+```text
+STATE GRAPH != RUNTIME ORCHESTRATOR
+DEFINED NODE != IMPLEMENTED COMPONENT
+DEFINED EDGE != EXECUTABLE TRANSITION
+NON-LINEAR PATH != PROVEN CROSS-TOOL MOVEMENT
+SEMANTIC CHECK != EXECUTABLE SEMANTIC VALIDATOR
+RETURN MODEL != IMPLEMENTED POST-EXECUTION CONSUMER
+ARCHITECTURAL CORRESPONDENCE != END-TO-END RUNTIME PROOF
+```
+
+**SAL-9 remains: HOLD — 3 PASS / 2 HOLD-PARTIAL / 0 FAIL.** SAL-13 and SAL-15 remain unresolved where legitimate planner, executor, or post-execution consumers are absent. Architectural completeness does not convert those unresolved runtime boundaries into adversarial PASS.
+
+Canonical source artifact:
+
+`docs/assessments/ni-ai-foundation-nonlinear-governance-state-graph-2026-08-28.md`
+
 ## S-Kernel / Stabilizer Bounded Identity Registry
 
 The repository preserves an S1-S23 Safety Kernel / Stabilizer lineage but does not treat the modules as interchangeable or as independent sources of authority. Current governance preserves that S1-S23 modules may process, classify, stabilize, reason, route, observe, score, or support; their outputs are not authority. MCG/MPC governs state, mode, discipline, and permissibility; CEG governs movement sequencing; EchoAuth enforces permission; execution remains separately bounded.
