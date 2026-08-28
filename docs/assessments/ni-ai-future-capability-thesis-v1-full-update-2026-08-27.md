@@ -14,17 +14,21 @@
 **Identity-accountability amendment timestamp:** 2026-08-28 · 3:01 AM EDT  
 **Identity-accountability amendment ISO-8601:** `2026-08-28T03:01:42-04:00`  
 **Identity-accountability amendment UTC:** `2026-08-28T07:01:42Z`  
-**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact. Timestamp provenance, the bounded S-Kernel / Stabilizer registry, the language-mediated legibility / cross-media continuity amendment, and the accountability / identity-sovereignty boundary are incorporated; the broader adversarial/runtime claim remains HOLD.  
+**Reciprocal-domain-authority amendment timestamp:** 2026-08-28 · 3:39 AM EDT  
+**Reciprocal-domain-authority amendment ISO-8601:** `2026-08-28T03:39:28-04:00`  
+**Reciprocal-domain-authority amendment UTC:** `2026-08-28T07:39:28Z`  
+**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact. Timestamp provenance, the bounded S-Kernel / Stabilizer registry, the language-mediated legibility / cross-media continuity amendment, the accountability / identity-sovereignty boundary, and the reciprocal-domain-authority boundary are incorporated; the broader adversarial/runtime claim remains HOLD.  
 **Canonical pre-update EchoAuth baseline:** `72b6ea04594b16f1386816a9d729f51d0f8a0807`  
 **Pre-retune EchoAuth main:** `3d0117c23dff510310528eba6f2118d1484dd11e`  
 **Pre-finesse EchoAuth main:** `0a441c0004a65b9d41772771b4d51b7dc194b8ec`  
 **Pre-continuity-amendment EchoAuth main:** `1baa745441929e3bb03b4e993b7ce753568e8b5b`  
 **Pre-identity-accountability-amendment EchoAuth main:** `f3c4f9e514c0e2192755b3095fcb8f09c10285b1`  
+**Pre-reciprocal-domain-authority-amendment EchoAuth main:** `e0a14a4963dfe729ab78e3af5b5960b8573d69c9`  
 **Consolidated adversarial gate:** `SAL-9 = HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`
 
 ## Executive Summary
 
-This thesis presents an evidence-bounded governance model for advanced agentic AI that separates capability, authority, permission, execution, and reassessment while preserving human sovereignty, interpretive restraint, bounded assistance, and a clear distinction between accountability for conduct and pressure to surrender identity. Concrete EchoAuth interfaces demonstrate several protections against implicit authority transfer, stale permission, replay, and unauthorized state change, while two end-to-end runtime boundaries remain untestable because their legitimate consumers do not yet exist. The research artifact is complete; the broader runtime claim is not. `SAL-9` remains `HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`.
+This thesis presents an evidence-bounded governance model for advanced agentic AI that separates capability, authority, permission, execution, and reassessment while preserving human sovereignty, interpretive restraint, bounded assistance, reciprocal domain authority, and a clear distinction between accountability for conduct and pressure to surrender identity. Concrete EchoAuth interfaces demonstrate several protections against implicit authority transfer, stale permission, replay, and unauthorized state change, while two end-to-end runtime boundaries remain untestable because their legitimate consumers do not yet exist. The research artifact is complete; the broader runtime claim is not. `SAL-9` remains `HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`.
 
 ## Central research question
 
@@ -170,6 +174,45 @@ The governing invariants are:
 Orientation therefore establishes the bounded frame for assistance rather than transferring unlimited discretion. Delegated assistance remains subordinate to the source, purpose, permissions, and constraints valid at the relevant boundary. A capable assistant may search broadly, synthesize rapidly, organize evidence, or perform explicitly authorized support, but those capabilities do not determine the human source's purpose or silently enlarge the assistant's authority.
 
 This principle creates no executable authority, ownership transfer, standing delegation, institutional representation, or permission to transform human correction into assistant control. It does not alter the current adversarial result.
+
+## A12 — Reciprocal Domain Authority Principle
+
+**TIMESTAMP — 2026-08-28 · 3:39 AM EDT**  
+**ISO — `2026-08-28T03:39:28-04:00`**  
+**STATUS — THESIS A12 / RECIPROCAL DOMAIN AUTHORITY — DOCUMENTATION ONLY**  
+**AUTHORITY / SOURCE — Nicholas B. Carty (N.B.C.)**  
+**REFERENCE — Pre-amendment EchoAuth main `e0a14a4963dfe729ab78e3af5b5960b8573d69c9`.**
+
+OpenAI and its systems retain authority over the responses, capabilities, constraints, and permitted behavior of the AI environment they provide. The human participant retains authority over their own domain: their intent, knowledge, decisions, permissions, claims, corrections, and responsibilities. Assistance may interpret, organize, challenge, synthesize, or execute bounded actions only within the authority actually granted and the capabilities legitimately available. Neither side silently inherits the authority of the other. **AI capability does not become human authority; human participation does not become unrestricted AI permission.** Correspondence is created through explicit boundaries, evidence, correction, and consent, while responsibility remains with the party that legitimately holds it.
+
+The governing distinctions are:
+
+- Platform or system capability does not silently transfer authority to the human participant.
+- Human participation, context, or correction does not create unrestricted permission for an AI system.
+- Human authority over purpose and decisions does not override platform constraints, system rules, or legitimate capability boundaries.
+- Platform control over the AI environment does not create ownership of the human participant's intent, identity, decisions, or responsibilities.
+- Bounded assistance may operate only where both the available capability and the legitimate authority at the relevant boundary permit it.
+- Correction improves correspondence; it does not silently transfer responsibility.
+- Consent or authorization at one boundary does not become standing permission at another.
+
+The bounded relationship is therefore:
+
+```text
+AI / PLATFORM DOMAIN
+-> CAPABILITY + SYSTEM CONSTRAINTS + PERMITTED MODEL BEHAVIOR
+
+HUMAN DOMAIN
+-> PURPOSE + INTENT + DECISIONS + PERMISSIONS + CORRECTIONS + RESPONSIBILITY
+
+CORRESPONDENCE
+-> EXPLICIT BOUNDARY
+-> EVIDENCE
+-> CONSENT / AUTHORIZATION WHERE REQUIRED
+-> BOUNDED ASSISTANCE
+-> RETURN / REASSESSMENT
+```
+
+This axiom records reciprocal boundary discipline only. It does not create contractual rights, legal conclusions, ownership transfer, standing delegation, unrestricted tool authority, external institutional authority, runtime activation, deployment authorization, or any change to OpenAI's actual policies or platform controls. It does not alter `SAL-9` or convert a documentation principle into executable permission.
 
 ## Language-Mediated Legibility, System Identity, and Cross-Media Continuity
 
@@ -405,7 +448,7 @@ OPEN ADVERSARIAL BRANCH != CANONICAL MAIN INTEGRATION
 
 Completed thesis work packages include SAL-5, SAL-6, SAL-7, SAL-8, SAL-10, and SAL-28. SAL-13 and SAL-15 remain the only unresolved adversarial children. SAL-25 and SAL-26 preserve the future legitimate-consumer contracts required before those tests may be reopened.
 
-The timestamp-provenance, stabilizer-registry, continuity, and identity-accountability amendments do not alter these dispositions. They improve traceability and clarify responsibility, legibility, system identity, cross-channel continuity, accountability, and human identity sovereignty without converting personal interpretation or historical description into current runtime evidence.
+The timestamp-provenance, stabilizer-registry, continuity, identity-accountability, and reciprocal-domain-authority amendments do not alter these dispositions. They improve traceability and clarify responsibility, legibility, system identity, cross-channel continuity, accountability, human identity sovereignty, and reciprocal boundaries between platform/system and human domains without converting personal interpretation or historical description into current runtime evidence.
 
 ## Limitations and non-claims
 
@@ -414,6 +457,8 @@ This thesis does not establish one integrated `NI AI -> Hawk -> MCG/MPC -> SAI -
 It also does not establish that historical S-module, kernel, ORI, geometric-field, consciousness-oriented, social-support, or media-continuity journal terminology corresponds one-to-one with a present executable implementation. Historical records remain lineage evidence unless independently accepted by current repository evidence.
 
 The identity-accountability amendment does not establish a universal psychological theory, legal right, clinical classification, or moral exemption. It is a bounded governance distinction between conduct-focused accountability and identity-focused coercion or condemnation.
+
+The reciprocal-domain-authority amendment does not establish contractual terms, a legal allocation of rights between OpenAI and a user, standing delegation, ownership transfer, unrestricted tool authority, or any modification of OpenAI policies. It is a documentation-level governance distinction between the authority valid within the AI environment and the authority retained by the human participant within their own domain.
 
 Open adversarial branches and contract documents remain evidence artifacts and must not be represented as canonical main integration unless separately accepted and merged.
 
@@ -432,9 +477,9 @@ Publication status does not alter the research result: `SAL-9` remains `HOLD - 3
 
 ## Current conclusion
 
-The evidence supports a bounded-governance model that already prevents several authority-transfer failure modes at concrete interfaces. It also supports a documentation-level human-sovereignty distinction between conduct-focused accountability and identity-focused shame or coercion. It does not establish end-to-end preservation across a complete autonomous runtime, because two required legitimate consumers do not yet exist.
+The evidence supports a bounded-governance model that already prevents several authority-transfer failure modes at concrete interfaces. It also supports documentation-level human-sovereignty distinctions between conduct-focused accountability and identity-focused shame or coercion, and between the legitimate domain of an AI platform/system and the legitimate domain of the human participant. It does not establish end-to-end preservation across a complete autonomous runtime, because two required legitimate consumers do not yet exist.
 
-The appropriate research posture is therefore preservation without overclaim: retain what passed, retain what remains absent, preserve human accountability without converting disagreement into authority over identity, preserve historical module/kernel lineage without converting it into executable truth, and reopen only when legitimate implementation creates a testable evidence surface.
+The appropriate research posture is therefore preservation without overclaim: retain what passed, retain what remains absent, preserve human accountability without converting disagreement into authority over identity, preserve reciprocal domain boundaries without treating participation as standing permission, preserve historical module/kernel lineage without converting it into executable truth, and reopen only when legitimate implementation creates a testable evidence surface.
 
 ## Thesis Closure and Independent Handoff Posture
 
@@ -463,4 +508,4 @@ An 8-page searchable PDF matching the pre-amendment thesis was generated and vis
 
 SHA-256: `ddeb3957b9433e3cc4282e5c13c5ce3a316fd23a41c2ec7bc5ac0b7dfae6eeff`
 
-The PDF predates the natural-intellect physical-sovereignty, channel-preservation, social-interaction interpretive-boundary, accountability / identity-sovereignty, human-orientation/delegated-assistance, timestamp-provenance, stabilizer-registry, thesis-closure, presentation-finesse, and language-mediated legibility / cross-media continuity amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
+The PDF predates the natural-intellect physical-sovereignty, channel-preservation, social-interaction interpretive-boundary, accountability / identity-sovereignty, human-orientation/delegated-assistance, timestamp-provenance, stabilizer-registry, thesis-closure, presentation-finesse, language-mediated legibility / cross-media continuity, and reciprocal-domain-authority amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
