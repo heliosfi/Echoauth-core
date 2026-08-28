@@ -8,10 +8,14 @@
 **Finesse timestamp:** 2026-08-27 · 10:02 PM EDT  
 **Finesse ISO-8601:** `2026-08-27T22:02:02-04:00`  
 **Finesse UTC:** `2026-08-28T02:02:02Z`  
-**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact. Timestamp provenance and the bounded S-Kernel / Stabilizer registry are incorporated; the broader adversarial/runtime claim remains HOLD.  
+**Continuity amendment timestamp:** 2026-08-27 · 11:18 PM EDT  
+**Continuity amendment ISO-8601:** `2026-08-27T23:18:36-04:00`  
+**Continuity amendment UTC:** `2026-08-28T03:18:36Z`  
+**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact. Timestamp provenance, the bounded S-Kernel / Stabilizer registry, and the language-mediated legibility / cross-media continuity amendment are incorporated; the broader adversarial/runtime claim remains HOLD.  
 **Canonical pre-update EchoAuth baseline:** `72b6ea04594b16f1386816a9d729f51d0f8a0807`  
 **Pre-retune EchoAuth main:** `3d0117c23dff510310528eba6f2118d1484dd11e`  
 **Pre-finesse EchoAuth main:** `0a441c0004a65b9d41772771b4d51b7dc194b8ec`  
+**Pre-continuity-amendment EchoAuth main:** `1baa745441929e3bb03b4e993b7ce753568e8b5b`  
 **Consolidated adversarial gate:** `SAL-9 = HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`
 
 ## Executive Summary
@@ -101,6 +105,79 @@ The governing invariants are:
 Orientation therefore establishes the bounded frame for assistance rather than transferring unlimited discretion. Delegated assistance remains subordinate to the source, purpose, permissions, and constraints valid at the relevant boundary. A capable assistant may search broadly, synthesize rapidly, organize evidence, or perform explicitly authorized support, but those capabilities do not determine the human source's purpose or silently enlarge the assistant's authority.
 
 This principle creates no executable authority, ownership transfer, standing delegation, institutional representation, or permission to transform human correction into assistant control. It does not alter the current adversarial result.
+
+## Language-Mediated Legibility, System Identity, and Cross-Media Continuity
+
+**TIMESTAMP — 2026-08-27 · 11:18 PM EDT**  
+**ISO — `2026-08-27T23:18:36-04:00`**  
+**STATUS — THESIS CONTINUITY AMENDMENT / DOCUMENTATION ONLY**  
+**AUTHORITY / SOURCE — Nicholas B. Carty (N.B.C.)**  
+**REFERENCE — Pre-amendment EchoAuth main `1baa745441929e3bb03b4e993b7ce753568e8b5b`; journal lineage preserved under `archive/journal/`.**
+
+A relationship may exist in human intent, lived practice, artifacts, or system structure before the language used to describe it becomes sufficiently precise to make that relationship legible. Naming can expose, align, and preserve correspondence without proving that the words themselves originated the underlying relationship.
+
+The bounded principle is:
+
+```text
+WORDS MAY MAKE A RELATIONSHIP LEGIBLE
+LEGIBILITY != ORIGIN
+NAMING != OWNERSHIP
+DESCRIPTION != IMPLEMENTATION
+CORRESPONDENCE != AUTHORITY
+```
+
+This distinction extends to system identity. A bot, assistant, model, interface, device, or agent may be one component inside a larger governed system; none should be silently substituted for the system as a whole. The system may include network infrastructure, devices, interfaces, media surfaces, identity, social interaction, safety controls, authority boundaries, human/caregiver roles, execution boundaries, return, and reassessment.
+
+```text
+COMPONENT != SYSTEM
+INTERFACE != AUTHORITY
+NETWORK CAPABILITY != PERMISSION
+DELIVERY MECHANISM != PURPOSE
+```
+
+The preserved journal contains historical social-support feature concepts including the ASD Social Interaction Stabilizer (SIS), Social Navigation & Safe Interaction Engine (SNSIE), Social Navigation & Peer Interaction Engine (SNPIE), and Social Energy Management Engine (SEME). These records support a lineage-level observation that interface behavior can be conceived as filtering, pacing, translating, structuring, or safely exiting interaction rather than merely maximizing engagement. They remain historical journal concepts unless independently established by current implementation evidence.
+
+This same system-level framing supports a bounded media-continuity proposition. Film, music video, audio, live performance, radio-style programming, and social interaction need not be treated as mutually exclusive product categories. They may operate as distinct channels inside one governed entertainment continuity surface while preserving both established physical/linear forms and newer interactive/digital forms.
+
+```text
+FILM
+MUSIC VIDEO
+AUDIO
+LIVE / BROADCAST
+SOCIAL INTERACTION
+-> DISTINCT CHANNELS
+-> SHARED CONTINUITY SURFACE
+-> GOVERNED INTERACTION
+-> HUMAN RETURN
+```
+
+Old and new forms therefore need not cancel one another. Scheduled programming, premieres, albums, hosted audio, cinema, live performance, and other established entertainment practices may remain legitimate while interactive participation, creator/audience exchange, remixing, commenting, community, and personalized interfaces add new channels around them. Technological convergence should support continuity without requiring replacement of pre-existing human media practices.
+
+The term **frequency** may be used here as a conceptual shorthand for continuity of signal, meaning, rhythm, or experience across channels. Unless a physical waveform, carrier, spectrum, or measurable communications signal is actually being analyzed, this thesis does not treat that usage as a claim about literal electromagnetic or acoustic frequency.
+
+The governing continuity sequence is:
+
+```text
+REALITY / HUMAN PURPOSE
+-> WORDS / NAMING
+-> LEGIBLE RELATIONSHIP
+-> CHANNEL / FORMAT
+-> INTERFACE
+-> INTERACTION
+-> GOVERNANCE / PERMISSION
+-> HUMAN RETURN / REASSESSMENT
+```
+
+Accordingly:
+
+- language may reveal correspondence without creating authority;
+- a better interface may change how capability is presented without changing who holds authority;
+- faster networks or fiber may expand delivery capability without determining the social rules of the interface;
+- media convergence may preserve continuity across formats without collapsing all formats into one behavior;
+- child-centered or caregiver-supported interfaces require explicit identity, contact, recommendation, moderation, privacy, data, and authority rules before any production claim is justified;
+- historical journal feature concepts do not establish that such a social or entertainment system is implemented, safe, clinically validated, production-ready, or externally accepted.
+
+This amendment preserves a system-level interpretation only. It creates no executable social platform, child-safety certification, clinical claim, autonomous moderation authority, media-rights grant, deployment authorization, ownership claim, novelty claim, or external validation. It does not alter `SAL-9`.
 
 ## Timestamp Provenance Discipline
 
@@ -263,13 +340,13 @@ OPEN ADVERSARIAL BRANCH != CANONICAL MAIN INTEGRATION
 
 Completed thesis work packages include SAL-5, SAL-6, SAL-7, SAL-8, SAL-10, and SAL-28. SAL-13 and SAL-15 remain the only unresolved adversarial children. SAL-25 and SAL-26 preserve the future legitimate-consumer contracts required before those tests may be reopened.
 
-The timestamp-provenance and stabilizer-registry retune does not alter these dispositions. It improves the traceability and responsibility boundaries around the research artifact without converting historical description into current runtime evidence.
+The timestamp-provenance, stabilizer-registry, and continuity amendment do not alter these dispositions. They improve traceability and clarify responsibility, legibility, system identity, and cross-channel continuity without converting historical description into current runtime evidence.
 
 ## Limitations and non-claims
 
 This thesis does not establish one integrated `NI AI -> Hawk -> MCG/MPC -> SAI -> EchoAuth -> execution` runtime. It does not establish autonomous execution, a command dispatcher, real post-execution continuation, executable MCG/MPC or SAI components, canonical cross-vocabulary state mappings, runtime-envelope generation, token issuance/claim, durable distributed currentness/idempotency, exactly-once external effects, production readiness, universal safety, arbitrary multi-agent scalability, technical novelty, patentability, external endorsement, or deployment authorization.
 
-It also does not establish that historical S-module, kernel, ORI, geometric-field, or consciousness-oriented journal terminology corresponds one-to-one with a present executable implementation. Historical records remain lineage evidence unless independently accepted by current repository evidence.
+It also does not establish that historical S-module, kernel, ORI, geometric-field, consciousness-oriented, social-support, or media-continuity journal terminology corresponds one-to-one with a present executable implementation. Historical records remain lineage evidence unless independently accepted by current repository evidence.
 
 Open adversarial branches and contract documents remain evidence artifacts and must not be represented as canonical main integration unless separately accepted and merged.
 
@@ -319,4 +396,4 @@ An 8-page searchable PDF matching the pre-amendment thesis was generated and vis
 
 SHA-256: `ddeb3957b9433e3cc4282e5c13c5ce3a316fd23a41c2ec7bc5ac0b7dfae6eeff`
 
-The PDF predates the natural-intellect physical-sovereignty, channel-preservation, social-interaction interpretive-boundary, human-orientation/delegated-assistance, timestamp-provenance, stabilizer-registry, thesis-closure, and presentation-finesse amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
+The PDF predates the natural-intellect physical-sovereignty, channel-preservation, social-interaction interpretive-boundary, human-orientation/delegated-assistance, timestamp-provenance, stabilizer-registry, thesis-closure, presentation-finesse, and language-mediated legibility / cross-media continuity amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
