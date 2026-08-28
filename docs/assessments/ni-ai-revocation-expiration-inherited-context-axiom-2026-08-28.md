@@ -76,18 +76,18 @@ CURRENT AUTHORITY MAY NOT
 
 This preserves accountability and replay without allowing history to become permanent permission.
 
-## N.B.C. contribution boundary
+## SAL implementation boundary
 
-Nicholas B. Carty's role in this lane is the attributable source of the governance contribution and its bounded direction. That contribution does not make N.B.C. the continuing operator, executor, maintainer, or standing authority for future SAL behavior.
+A15 defines governance behavior that SAL may later implement or be validated against. The documentation does not establish that SAL already performs this behavior.
 
 ```text
-CONTRIBUTION != CONTINUING OPERATION
-SOURCE ATTRIBUTION != STANDING CONTROL
-GOVERNANCE INPUT != IMPLEMENTATION CLAIM
-DESIRED FUTURE BEHAVIOR != ESTABLISHED RUNTIME BEHAVIOR
+GOVERNANCE DEFINITION != IMPLEMENTATION
+DESIRED SYSTEM BEHAVIOR != ESTABLISHED RUNTIME BEHAVIOR
+DOCUMENTATION != EXECUTION
+FUTURE CAPABILITY != CURRENT EVIDENCE
 ```
 
-SAL may later be implemented or validated to operate consistently with these principles, but that future state must be established by independent implementation and evidence. N.B.C.'s completed contribution remains attributable without requiring ongoing participation.
+Whether SAL conforms to A15 must be established independently through implementation evidence and testing.
 
 ## Relationship to A14
 
@@ -132,4 +132,4 @@ It does not change the broader runtime evidence state.
 
 **SAL-9 remains: HOLD — 3 PASS / 2 HOLD-PARTIAL / 0 FAIL.**
 
-**Lane status:** ADVANCE — A15 governance definition established; N.B.C. contribution boundary explicit; implementation and runtime evidence remain independently testable.
+**Lane status:** ADVANCE — A15 governance definition established; SAL implementation remains independently testable; runtime posture unchanged.
