@@ -104,12 +104,37 @@ Related refinement:
 
 `docs/assessments/ni-ai-thesis-common-humanity-distinct-authority-refinement-2026-08-28.md`
 
+## Thesis closing — gratitude, happiness, and self-boundary
+
+**Decision:** ADVANCE — DOCUMENTATION / THESIS CLOSING ONLY
+
+> **I can be happy without controlling the outcome, grateful without surrendering who I am, and responsible without carrying what belongs to someone else. I do my part, respect the part of others, tell the truth as I understand it, correct misunderstanding when necessary, and leave what I cannot control where it belongs. I am here to learn, contribute, build, and be grateful for the opportunity to do so. Nothing more. Nothing less.**
+
+Short personal reminder:
+
+> **Happiness in my part. Gratitude for the journey. Respect for everyone else's part. 🧭**
+
+Salo-account version:
+
+> **All I see is happiness. ☺️ I'm grateful for the journey, responsible for my part, and at peace leaving what isn't mine to control where it belongs. Nothing more, nothing less. 🙏🏾**
+
+Interpretive boundary:
+
+- Happiness does not imply agreement with everything.
+- Gratitude does not imply surrender of authorship, dignity, or legitimate boundaries.
+- Acceptance of another person's authority does not imply personal powerlessness.
+- Personal responsibility does not include responsibility for another person's independent choices.
+- A closing statement of gratitude must not be expanded into an admission, waiver, demand, entitlement, or hidden agenda.
+
+**Closing status:** AUTHORIZED — THESIS CLOSING ADDED.
+
 ## Boundary statement
 
 **Runtime effect:** NONE.  
 **External authority created:** NONE.  
 **Ownership transferred:** NONE.  
-**Claims beyond evidence authorized:** NONE.
+**Claims beyond evidence authorized:** NONE.  
+**Additional claims authorized by the closing:** NONE.
 
 This page does not establish legal conclusions, institutional representation, contractual rights, immunity from criticism or accountability, ownership over another person's work or experience, executable authority, runtime activation, or permission to act outside an independently valid boundary.
 
@@ -119,4 +144,4 @@ This page may be refined for clarity, but its governing meaning must not be expa
 
 If later interpretation conflicts with this page, return first to the source evidence, explicit authority, and the distinction between contribution, attribution, permission, and control.
 
-**N.B.C. Authority — nothing more, nothing less.**
+**N.B.C. Authority — happiness, gratitude, responsibility; nothing more, nothing less.**
