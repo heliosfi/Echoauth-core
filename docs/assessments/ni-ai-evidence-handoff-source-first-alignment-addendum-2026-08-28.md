@@ -5,6 +5,14 @@
 **Decision:** ADVANCE — DOCUMENTATION / HANDOFF ALIGNMENT ONLY  
 **Classification:** Independent-review handoff / source-first reasoning / evidence boundary  
 
+## Reviewer entry point
+
+Begin independent review with:
+
+`docs/assessments/ni-ai-reviewer-one-page-orientation-2026-08-28.md`
+
+That orientation is the concise front door to the current review package. It points onward to the canonical thesis, source-first introduction, reviewer alignment, this addendum, and the preserved historical handoff. It does not replace any source artifact, predetermine reviewer judgment, or change the runtime/adversarial disposition.
+
 ## Purpose
 
 Align the existing 2026-08-26 NI-AI evidence handoff brief with the current source-first, domain-bounded reasoning discipline without rewriting the historical handoff record, altering implementation evidence, changing runtime disposition, or implying external acceptance.
