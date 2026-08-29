@@ -20,7 +20,7 @@
 **Delivery/pragmatics amendment timestamp:** 2026-08-28 · 4:05 PM EDT  
 **Delivery/pragmatics amendment ISO-8601:** `2026-08-28T16:05:06-04:00`  
 **Delivery/pragmatics amendment UTC:** `2026-08-28T20:05:06Z`  
-**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact. Timestamp provenance, the bounded S-Kernel / Stabilizer registry, the language-mediated legibility / cross-media continuity amendment, the delivery/pragmatics semantic-fidelity refinement, the accountability / identity-sovereignty boundary, and the reciprocal-domain-authority boundary are incorporated; the broader adversarial/runtime claim remains HOLD.  
+**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact. Timestamp provenance, the bounded S-Kernel / Stabilizer registry, the language-mediated legibility / cross-media continuity amendment, the delivery/pragmatics semantic-fidelity refinement, the accountability / identity-sovereignty boundary, the reciprocal-domain-authority boundary, and the source-first / domain-bounded reasoning alignment are incorporated; the broader adversarial/runtime claim remains HOLD.  
 **Canonical pre-update EchoAuth baseline:** `72b6ea04594b16f1386816a9d729f51d0f8a0807`  
 **Pre-retune EchoAuth main:** `3d0117c23dff510310528eba6f2118d1484dd11e`  
 **Pre-finesse EchoAuth main:** `0a441c0004a65b9d41772771b4d51b7dc194b8ec`  
@@ -32,7 +32,7 @@
 
 ## Executive Summary
 
-This thesis presents an evidence-bounded governance model for advanced agentic AI that separates capability, authority, permission, execution, and reassessment while preserving human sovereignty, interpretive restraint, bounded assistance, reciprocal domain authority, and a clear distinction between accountability for conduct and pressure to surrender identity. Concrete EchoAuth interfaces demonstrate several protections against implicit authority transfer, stale permission, replay, and unauthorized state change, while two end-to-end runtime boundaries remain untestable because their legitimate consumers do not yet exist. The research artifact is complete; the broader runtime claim is not. `SAL-9` remains `HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`.
+This thesis presents an evidence-bounded governance model for advanced agentic AI that begins with source-first, domain-bounded interpretation and then separates capability, authority, permission, execution, and reassessment. Reasoning is treated as bounded assistance: it may clarify what is known, identify uncertainty, test relationships, and support inference, but it does not become truth, evidence, source intent, identity, or authority. When meaning is uncertain, clarification should precede expansion, time/place/context should be preserved, fact should remain distinct from inference, and correction should return the interpretation toward correspondence rather than be treated as an admission. The model preserves human sovereignty, interpretive restraint, bounded assistance, reciprocal domain authority, and a clear distinction between accountability for conduct and pressure to surrender identity. Concrete EchoAuth interfaces demonstrate several protections against implicit authority transfer, stale permission, replay, and unauthorized state change, while two end-to-end runtime boundaries remain untestable because their legitimate consumers do not yet exist. The research artifact is complete; the broader runtime claim is not. `SAL-9` remains `HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`.
 
 ## Central research question
 
