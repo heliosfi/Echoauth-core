@@ -44,6 +44,28 @@ Anger, injury, or misunderstanding must not silently become authority, retaliati
 10. Anger, injury, or misunderstanding must not silently become authority, retaliation, or control.
 11. The operating reminder shall remain as written below.
 
+## Concrete correction example — assistant-introduced metaphor
+
+On 2026-08-28, during a conversation about a game image containing a rat, the assistant introduced a metaphorical comparison between N.B.C. and the rat and later said "a little" when asked whether that comparison applied. N.B.C. had not introduced that identity claim. N.B.C. had instead expressed gratitude and was discussing the meaning of the symbol and the risk of being misunderstood.
+
+The correction is therefore explicit:
+
+- N.B.C. did not say that he was a rat, selfish, stealing, or entitled to anything belonging to another person.
+- The metaphorical identity mapping originated from the assistant's interpretation, not from N.B.C.'s stated meaning.
+- N.B.C. corrected the interpretation and returned the discussion to his actual position: gratitude, self-representation, attribution, evidence, and respect for the authority and property of others.
+- The interpretive error belongs to the interpreter that introduced it; it must not be retroactively attributed to the source.
+
+This example demonstrates the governing distinction:
+
+```text
+SOURCE STATEMENT != INTERPRETER-INTRODUCED METAPHOR
+INTERPRETATION != SOURCE INTENT
+CORRECTION != ADMISSION
+ASSISTANT ERROR != HUMAN CLAIM
+```
+
+When an interpretation goes beyond what the source actually said, the proper response is to identify the added interpretation, separate it from the source record, accept the correction, and preserve the corrected meaning without turning the correction itself into new evidence against the source.
+
 ## Operating reminder
 
 > **Understand what is mine to understand.**  
