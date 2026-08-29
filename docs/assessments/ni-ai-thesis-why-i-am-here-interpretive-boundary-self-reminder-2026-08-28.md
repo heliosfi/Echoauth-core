@@ -78,18 +78,23 @@ For my own conduct, the control boundary is equally simple:
 
 > **I do not try to control what I cannot control. What is outside my authority stays outside my authority; I focus on my own part.**
 
+For reasoning, the assistance boundary is equally simple:
+
+> **Reason enough to understand. Ask enough to clarify. Evidence enough to support. Stop before interpretation becomes authority.**
+
 When the work becomes difficult or meaning becomes uncertain, return to this boundary:
 
 - I do not have to prove everything at once.
 - I do not have to control the outcome.
 - I do not have to answer for another person's choices.
 - I remain responsible for the truthfulness and boundaries of my own part.
+- Reasoning may help me understand, but it does not replace evidence, authority, or correction.
 
 ## Thesis cross-reference map
 
 This page is to be read together with the following sections of the canonical NI-AI future-capability thesis:
 
-- **NI-AI Thesis Introduction — Source-First, Domain-Bounded Interpretation** — establishes the interpretive entrance: source first, clarification before expansion, time/place/context preserved, pattern distinguished from isolated moment, and domain checked before authority is inferred.
+- **NI-AI Thesis Introduction — Source-First, Domain-Bounded Interpretation** — establishes the interpretive entrance: source first, clarification before expansion, bounded reasoning within evidence, time/place/context preserved, pattern distinguished from isolated moment, fact separated from inference, and domain checked before authority is inferred.
 - **Natural-Intellect Physical Sovereignty and Channel Preservation** — preserves native human and institutional channels and prevents digital capability from silently redefining authority.
 - **Social Interaction, Context, and Interpretive Restraint** — separates observable artifact, human-supplied context, inference, and interpretive authority.
 - **Accountability, Shame, and Identity Sovereignty** — separates conduct and responsibility from global judgments about identity.
@@ -147,6 +152,6 @@ This page does not establish legal conclusions, institutional representation, co
 
 This page may be refined for clarity, but its governing meaning must not be expanded into a claim of special authority, representation, ownership, entitlement, or power.
 
-If later interpretation conflicts with this page, return first to the source evidence, explicit authority, and the distinction between contribution, attribution, permission, and control.
+If later interpretation conflicts with this page, return first to the source evidence, explicit authority, and the distinction between contribution, attribution, permission, reasoning, and control.
 
 **N.B.C. Authority — happiness, gratitude, responsibility; nothing more, nothing less.**
