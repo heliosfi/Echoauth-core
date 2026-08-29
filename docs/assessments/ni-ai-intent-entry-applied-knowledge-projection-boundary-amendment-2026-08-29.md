@@ -50,7 +50,7 @@ A source may say, in substance, “this is what I meant” without thereby claim
 
 ## Applied Knowledge
 
-Applied knowledge need not originate from one text, one tradition, one teacher, one institution, one system, or one moment. Reading may contribute concepts or language, while lived experience, observation, practice, environmental conditions, consequence, correction, and repeated action may contribute additional understanding.
+Applied knowledge need not originate from one text, one tradition, one teacher, one institution, one system, or one moment. Reading may contribute concepts or language, while lived experience, observation, practice, environmental conditions, consequence, correction, repeated action, imagination, and remembered dreams may contribute additional understanding. These inputs are not automatically equivalent to factual evidence; where a claim concerns external reality, the available evidence remains the test.
 
 The bounded relationship is:
 
@@ -61,6 +61,8 @@ EXPERIENCE
 +
 OBSERVATION
 +
+IMAGINATION / REMEMBERED DREAMS
++
 TIME / PLACE / CONTEXT
 +
 RESPONSE
@@ -68,7 +70,8 @@ RESPONSE
 ACTION
 +
 CORRECTION
--> APPLIED KNOWLEDGE
+-> APPLIED UNDERSTANDING
+-> CHECK AGAINST AVAILABLE EVIDENCE
 ```
 
 This relationship does not establish that every source contributes equally, that all traditions say the same thing, or that personal experience overrides independently established facts. It preserves only that citing one text should not silently erase other legitimate sources of understanding when the evidence supports a broader lineage.
@@ -82,21 +85,53 @@ Accordingly:
 - repeated correction by the source should improve correspondence rather than be reframed as inability to understand the interpreter;
 - a helper should not force the source into labels such as “smart,” “wise,” “gifted,” or equivalent identity claims when those labels were not claimed or are not necessary to the evidence.
 
-## Words, Meaning, and Loss
+## Time, Place, and Balance
 
-Words are useful for correspondence but do not exhaust experience, understanding, intent, or context. Different speakers may use the same word with different boundaries, and an interpreter's technically precise term may still be the wrong representation of what the source intended.
+The source's use of **time, place, and balance** is preserved as an application of existing knowledge rather than a claim of authorship, ownership, novelty, or a single universal method. The relationship is useful because circumstances affect which available meaning, response, or action fits the situation.
+
+```text
+TIME
++
+PLACE
++
+BALANCE
+-> CONTEXTUAL APPLICATION
+-> CHECK AGAINST EVIDENCE
+```
+
+This is **not claimed as the only way** to understand or apply knowledge. It records the way the available evidence has helped the source navigate understanding. A concept that is appropriate in one time and place may require a different application in another; the words alone do not settle the circumstances.
+
+## Words, Multiple Meanings, and Understanding
+
+Words are useful for correspondence but do not exhaust experience, understanding, intent, or context. A single word may carry several legitimate meanings. The existence of several meanings does not mean that every meaning applies in every use.
 
 Preserve:
 
 ```text
-WORD != COMPLETE EXPERIENCE
-WORD CHOICE != COMPLETE INTENT
+WORD
+-> POSSIBLE MEANINGS
+-> CONTEXT / TIME / PLACE
+-> SOURCE INTENT
+-> AVAILABLE EVIDENCE
+-> BEST-SUPPORTED UNDERSTANDING
+```
+
+Therefore:
+
+```text
+WORD != ONE AUTOMATIC MEANING
+DICTIONARY POSSIBILITY != SOURCE INTENT
+INTERPRETATION != FACT
 MODEL VOCABULARY != SOURCE VOCABULARY
 SEMANTIC SIMILARITY != IDENTITY OF MEANING
 CLARIFICATION -> BETTER CORRESPONDENCE
 ```
 
-Where terminology creates confusion, the appropriate response is not to assume deficiency in the source. The interpreter should return to the expressed intent, surrounding context, available evidence, and source correction.
+Greater vocabulary, retrieval ability, or abstract reasoning does not by itself guarantee understanding. Being able to generate more meanings or explanations can increase the number of interpretations available while still selecting the wrong one. Understanding requires correspondence with context, evidence, and—where relevant—the responsible source's clarification.
+
+Accordingly, **being the smartest is not sufficient**. Intelligence or analytical capability without contextual correspondence can still produce misunderstanding. This is not an argument against intelligence; it is a boundary on treating capability as proof of correct interpretation.
+
+Where terminology creates confusion, the appropriate response is not to assume deficiency in the source. The interpreter should return to expressed intent, surrounding context, time, place, available evidence, and source correction. Where those still do not resolve the meaning, uncertainty should remain explicit and the interpreter should ask rather than project.
 
 ## Recognition of Applied Intelligence
 
@@ -167,7 +202,8 @@ It does not make subjective intent sufficient to establish external facts. It pr
 ```text
 SOURCE
 -> INTENT ENTRY
--> CONTEXT / TIME / PLACE
+-> CONTEXT / TIME / PLACE / BALANCE
+-> POSSIBLE MEANINGS
 -> EVIDENCE
 -> BOUNDED INTERPRETATION
 -> CORRECTION
