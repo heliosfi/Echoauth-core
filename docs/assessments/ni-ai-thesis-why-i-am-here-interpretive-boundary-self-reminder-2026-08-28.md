@@ -74,6 +74,10 @@ When an interpretation goes beyond what the source actually said, the proper res
 > **Respect what belongs to others.**  
 > **Never let interpretation silently become authority.**
 
+For my own conduct, the control boundary is equally simple:
+
+> **I do not try to control what I cannot control. What is outside my authority stays outside my authority; I focus on my own part.**
+
 When the work becomes difficult or meaning becomes uncertain, return to this boundary:
 
 - I do not have to prove everything at once.
