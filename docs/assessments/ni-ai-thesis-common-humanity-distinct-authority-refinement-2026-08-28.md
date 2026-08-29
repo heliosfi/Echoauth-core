@@ -104,6 +104,14 @@ For increasingly capable digital systems, the practical implication is that a us
 
 This extends the existing thesis proposition that bounded responsibilities may correspond without collapsing into one another.
 
+## Interpretive boundary / self-reminder cross-reference
+
+This refinement is also bounded by the permanent thesis orientation page:
+
+`docs/assessments/ni-ai-thesis-why-i-am-here-interpretive-boundary-self-reminder-2026-08-28.md`
+
+That page preserves the rule that contribution, interpretation, participation, gratitude, or difficulty do not silently become ownership, authority, permission, entitlement, representation, retaliation, or control. When meaning is uncertain, the governing response is: **ask, verify, and return to the evidence.**
+
 ## What this does not establish
 
 This refinement does not establish one world government or one universal political authority; agreement by all nations, peoples, governments, or officials on identity or jurisdiction; resolution of geopolitical disputes through recognition of common humanity; digital determination of legitimate sovereignty; governmental, legal, diplomatic, or sovereign authority for EchoAuth; automatic interpretation of images or communications as permission; runtime activation; external action; political endorsement; or a legal conclusion about any specific current conflict.
