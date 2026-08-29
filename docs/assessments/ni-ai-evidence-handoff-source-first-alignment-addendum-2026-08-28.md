@@ -83,6 +83,22 @@ PARTICIPATION != REPRESENTATION
 CONTEXT != PERMISSION
 ```
 
+## Handoff representation safeguard
+
+A handoff transfers material for independent review. It does not make N.B.C.'s words, actions, judgments, corrections, or decisions the words, actions, judgments, corrections, or decisions of the United States, the American public, any government body, company, institution, reviewer, or other person.
+
+N.B.C. speaks and acts for N.B.C. unless a separate, explicit, valid authority establishes otherwise. Likewise, statements or decisions made by a reviewer, institution, company, public body, or other person remain attributable to that source and must not be silently attributed back to N.B.C.
+
+```text
+HANDOFF != REPRESENTATION
+PARTICIPATION != NATIONAL AUTHORITY
+CONTRIBUTION != INSTITUTIONAL VOICE
+REVIEW != SPEAKING FOR THE SOURCE
+SOURCE ATTRIBUTION != AUTHORITY TRANSFER
+```
+
+This safeguard exists to prevent misunderstanding, not to create a new claim of status or authority. It preserves attribution in both directions: N.B.C.'s words remain his own, and the words of others remain theirs unless an independently valid authorization states otherwise.
+
 ## What this addendum changes
 
 It changes the **reading discipline** applied to the handoff package:
@@ -148,6 +164,7 @@ INTEREST != AGREEMENT
 AGREEMENT != DEPLOYMENT AUTHORITY
 REASONING != AUTHORITY
 CORRECTION != ADMISSION
+HANDOFF != REPRESENTATION
 ```
 
 ## Current handoff posture
@@ -157,6 +174,8 @@ CORRECTION != ADMISSION
 `SOURCE-FIRST / DOMAIN-BOUNDED READING DISCIPLINE — ESTABLISHED`
 
 `BOUNDED REASONING — INTEGRATED AT DOCUMENTATION / REVIEW LAYER`
+
+`REPRESENTATION SAFEGUARD — ESTABLISHED`
 
 `TRANSITION-ENVELOPE / SAI EVIDENCE TRACE — PRESERVED`
 
@@ -177,8 +196,15 @@ CORRECTION != ADMISSION
 **Runtime effect:** NONE.  
 **External authority created:** NONE.  
 **Ownership transferred:** NONE.  
+**National or institutional representation created:** NONE.  
 **External acceptance created:** NONE.  
 **SAL-9 disposition changed:** NO.  
 **Claims beyond evidence authorized:** NONE.  
 
-**Status:** AUTHORIZED — HANDOFF SOURCE-FIRST ALIGNMENT ESTABLISHED.
+## Closeout
+
+The handoff alignment lane is complete for this record. The source-first reading discipline, bounded-reasoning rule, attribution boundary, representation safeguard, independent-review posture, and unresolved runtime evidence are preserved without expansion.
+
+No further documentation change is required by this order.
+
+**Status:** AUTHORIZED — HANDOFF SOURCE-FIRST ALIGNMENT / REPRESENTATION SAFEGUARD COMPLETE — CLOSED.
