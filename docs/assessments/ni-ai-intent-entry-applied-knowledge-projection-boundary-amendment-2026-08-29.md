@@ -50,7 +50,7 @@ A source may say, in substance, “this is what I meant” without thereby claim
 
 ## Applied Knowledge
 
-Applied knowledge need not originate from one text, one tradition, one teacher, one institution, one system, or one moment. Reading may contribute concepts or language, while lived experience, observation, practice, environmental conditions, consequence, correction, repeated action, imagination, and remembered dreams may contribute additional understanding. These inputs are not automatically equivalent to factual evidence; where a claim concerns external reality, the available evidence remains the test.
+Applied knowledge need not originate from one text, one tradition, one teacher, one institution, one system, or one moment. Reading may contribute concepts or language, while lived experience, observation, practice, environmental conditions, consequence, correction, repeated action, and internal understanding may contribute additional understanding. These inputs are not automatically equivalent to factual evidence; where a claim concerns external reality, the available evidence remains the test.
 
 The bounded relationship is:
 
@@ -61,7 +61,7 @@ EXPERIENCE
 +
 OBSERVATION
 +
-IMAGINATION / REMEMBERED DREAMS
+INTERNAL UNDERSTANDING
 +
 TIME / PLACE / CONTEXT
 +
@@ -95,6 +95,7 @@ TIME
 PLACE
 +
 BALANCE
+-> INTERNAL UNDERSTANDING
 -> CONTEXTUAL APPLICATION
 -> CHECK AGAINST EVIDENCE
 ```
