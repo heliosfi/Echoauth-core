@@ -30,6 +30,14 @@
 **Pre-delivery-pragmatics-amendment EchoAuth main:** `29733650b7bc8b4ecf80f151038b777164aeb662`  
 **Consolidated adversarial gate:** `SAL-9 = HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`
 
+## Reviewer entry point
+
+Independent technical review should begin with the concise orientation record:
+
+`docs/assessments/ni-ai-reviewer-one-page-orientation-2026-08-28.md`
+
+That page is a navigational and interpretive entry point only. It does not replace this canonical thesis, alter implementation evidence, predetermine reviewer judgment, or change the `SAL-9` disposition.
+
 ## Executive Summary
 
 This thesis presents an evidence-bounded governance model for advanced agentic AI that begins with source-first, domain-bounded interpretation and then separates capability, authority, permission, execution, and reassessment. Reasoning is treated as bounded assistance: it may clarify what is known, identify uncertainty, test relationships, and support inference, but it does not become truth, evidence, source intent, identity, or authority. When meaning is uncertain, clarification should precede expansion, time/place/context should be preserved, fact should remain distinct from inference, and correction should return the interpretation toward correspondence rather than be treated as an admission. The model preserves human sovereignty, interpretive restraint, bounded assistance, reciprocal domain authority, and a clear distinction between accountability for conduct and pressure to surrender identity. Concrete EchoAuth interfaces demonstrate several protections against implicit authority transfer, stale permission, replay, and unauthorized state change, while two end-to-end runtime boundaries remain untestable because their legitimate consumers do not yet exist. The research artifact is complete; the broader runtime claim is not. `SAL-9` remains `HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`.
