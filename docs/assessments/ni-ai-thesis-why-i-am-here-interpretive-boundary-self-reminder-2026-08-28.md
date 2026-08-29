@@ -89,6 +89,7 @@ When the work becomes difficult or meaning becomes uncertain, return to this bou
 
 This page is to be read together with the following sections of the canonical NI-AI future-capability thesis:
 
+- **NI-AI Thesis Introduction — Source-First, Domain-Bounded Interpretation** — establishes the interpretive entrance: source first, clarification before expansion, time/place/context preserved, pattern distinguished from isolated moment, and domain checked before authority is inferred.
 - **Natural-Intellect Physical Sovereignty and Channel Preservation** — preserves native human and institutional channels and prevents digital capability from silently redefining authority.
 - **Social Interaction, Context, and Interpretive Restraint** — separates observable artifact, human-supplied context, inference, and interpretive authority.
 - **Accountability, Shame, and Identity Sovereignty** — separates conduct and responsibility from global judgments about identity.
@@ -99,6 +100,10 @@ This page is to be read together with the following sections of the canonical NI
 Canonical thesis record:
 
 `docs/assessments/ni-ai-future-capability-thesis-v1-full-update-2026-08-27.md`
+
+Introduction record:
+
+`docs/assessments/ni-ai-thesis-introduction-source-first-domain-bounded-interpretation-2026-08-28.md`
 
 Related refinement:
 
