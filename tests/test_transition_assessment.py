@@ -6,7 +6,11 @@ import unittest
 from datetime import datetime, timezone
 
 from echoauth.audit import InMemoryAuditLogRepository
-from echoauth.runtime.state_machine import RUNTIME_STATE_GRAPH, RuntimeStateMachine
+from echoauth.runtime.state_machine import (
+    RUNTIME_STATE_GRAPH,
+    RuntimeStateMachine,
+    RuntimeTransitionValidationError,
+)
 from echoauth.runtime.state_models import RuntimeState, RuntimeTransition, RuntimeTransitionRequest
 from echoauth.runtime.transition_assessment import assess_transition
 
@@ -63,9 +67,15 @@ class TransitionAssessmentTests(unittest.TestCase):
                 RuntimeState.AUTHORIZED,
             ),
         )
+        event = self.audit.chain("transition-assessment-audit")[-1]
+
         self.assertFalse(decision.allowed)
+        self.assertEqual(decision.current_state, RuntimeState.READY)
         self.assertEqual(decision.next_state, RuntimeState.READY)
         self.assertEqual(decision.reason, "undefined_transition")
+        self.assertEqual(event.record["state_before"], "ready")
+        self.assertEqual(event.record["state_after"], "ready")
+        self.assertEqual(event.record["reason"], "undefined_transition")
 
     def test_requested_state_mismatch_remains_fail_closed(self) -> None:
         decision = assess_transition(
@@ -76,9 +86,108 @@ class TransitionAssessmentTests(unittest.TestCase):
                 RuntimeState.READY,
             ),
         )
+        event = self.audit.chain("transition-assessment-audit")[-1]
+
         self.assertFalse(decision.allowed)
+        self.assertEqual(decision.current_state, RuntimeState.REQUESTED)
         self.assertEqual(decision.next_state, RuntimeState.REQUESTED)
         self.assertEqual(decision.reason, "requested_state_mismatch")
+        self.assertEqual(event.record["state_before"], "requested")
+        self.assertEqual(event.record["state_after"], "requested")
+        self.assertEqual(event.record["reason"], "requested_state_mismatch")
+
+    def test_empty_transition_evidence_is_rejected_before_audit(self) -> None:
+        request = RuntimeTransitionRequest(
+            transition_request_id="assessment-empty-evidence",
+            request_id="request-1",
+            current_state=RuntimeState.REQUESTED,
+            transition=RuntimeTransition.AUTHORIZE,
+            requested_state=RuntimeState.AUTHORIZED,
+            actor_id="transition-assessment-test",
+            reason="empty_evidence",
+            evidence={},
+            occurred_at="2026-08-25T11:59:00Z",
+        )
+
+        with self.assertRaisesRegex(
+            RuntimeTransitionValidationError,
+            "evidence must be a non-empty canonical JSON object",
+        ):
+            assess_transition(self.machine, request)
+
+        self.assertEqual(len(self.audit.chain("transition-assessment-audit")), 0)
+
+    def test_non_mapping_transition_evidence_is_rejected_before_audit(self) -> None:
+        request = RuntimeTransitionRequest(
+            transition_request_id="assessment-non-mapping-evidence",
+            request_id="request-1",
+            current_state=RuntimeState.REQUESTED,
+            transition=RuntimeTransition.AUTHORIZE,
+            requested_state=RuntimeState.AUTHORIZED,
+            actor_id="transition-assessment-test",
+            reason="non_mapping_evidence",
+            evidence=[],  # type: ignore[arg-type]
+            occurred_at="2026-08-25T11:59:00Z",
+        )
+
+        with self.assertRaisesRegex(
+            RuntimeTransitionValidationError,
+            "evidence must be a non-empty canonical JSON object",
+        ):
+            assess_transition(self.machine, request)
+
+        self.assertEqual(len(self.audit.chain("transition-assessment-audit")), 0)
+
+    def test_non_canonical_transition_evidence_is_rejected_before_audit(self) -> None:
+        request = RuntimeTransitionRequest(
+            transition_request_id="assessment-non-canonical-evidence",
+            request_id="request-1",
+            current_state=RuntimeState.REQUESTED,
+            transition=RuntimeTransition.AUTHORIZE,
+            requested_state=RuntimeState.AUTHORIZED,
+            actor_id="transition-assessment-test",
+            reason="non_canonical_evidence",
+            evidence={"unsupported": object()},
+            occurred_at="2026-08-25T11:59:00Z",
+        )
+
+        with self.assertRaisesRegex(
+            RuntimeTransitionValidationError,
+            "evidence is not canonical JSON",
+        ):
+            assess_transition(self.machine, request)
+
+        self.assertEqual(len(self.audit.chain("transition-assessment-audit")), 0)
+
+    def test_malformed_transition_request_type_is_rejected_before_audit(self) -> None:
+        with self.assertRaisesRegex(
+            RuntimeTransitionValidationError,
+            "request must be a RuntimeTransitionRequest",
+        ):
+            assess_transition(self.machine, object())  # type: ignore[arg-type]
+
+        self.assertEqual(len(self.audit.chain("transition-assessment-audit")), 0)
+
+    def test_non_canonical_current_state_is_rejected_before_audit(self) -> None:
+        request = RuntimeTransitionRequest(
+            transition_request_id="assessment-fabricated-current-state",
+            request_id="request-1",
+            current_state="fabricated",  # type: ignore[arg-type]
+            transition=RuntimeTransition.AUTHORIZE,
+            requested_state=RuntimeState.AUTHORIZED,
+            actor_id="transition-assessment-test",
+            reason="fabricated_current_state",
+            evidence={"source": "fabricated-current-state"},
+            occurred_at="2026-08-25T11:59:00Z",
+        )
+
+        with self.assertRaisesRegex(
+            RuntimeTransitionValidationError,
+            "current_state must be canonical",
+        ):
+            assess_transition(self.machine, request)
+
+        self.assertEqual(len(self.audit.chain("transition-assessment-audit")), 0)
 
     def test_adapter_does_not_apply_state_and_preserves_audit_and_hash(self) -> None:
         request = self._request(
