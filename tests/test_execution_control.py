@@ -137,14 +137,15 @@ class ExecutionControlTests(unittest.TestCase):
             RuntimeState.READY,
         )
 
-    def test_execution_is_eligible_from_ready_state(self) -> None:
+    def test_ready_state_with_loose_authority_evidence_fails_closed(self) -> None:
         runtime = self._ready_decision()
         decision = self.control.validate(self._request(runtime), runtime)
 
-        self.assertEqual(decision.outcome, ExecutionOutcome.ELIGIBLE)
-        self.assertTrue(decision.eligible)
+        self.assertEqual(decision.outcome, ExecutionOutcome.MISSING_AUTHORITY)
+        self.assertFalse(decision.eligible)
+        self.assertEqual(decision.reason, "authorization_binding_required")
 
-    def test_complete_override_path_evidence_is_validated(self) -> None:
+    def test_complete_override_path_without_fresh_binding_fails_closed(self) -> None:
         runtime = self._runtime_decision(
             RuntimeState.OVERRIDDEN,
             RuntimeTransition.MARK_READY,
@@ -172,7 +173,8 @@ class ExecutionControlTests(unittest.TestCase):
         )
         decision = self.control.validate(request, runtime)
 
-        self.assertEqual(decision.outcome, ExecutionOutcome.ELIGIBLE)
+        self.assertEqual(decision.outcome, ExecutionOutcome.MISSING_AUTHORITY)
+        self.assertFalse(decision.eligible)
         self.assertIsNotNone(decision.evidence.override_evidence_hash)
 
     def test_rejected_runtime_transition_blocks_execution(self) -> None:
@@ -228,11 +230,11 @@ class ExecutionControlTests(unittest.TestCase):
         decision = self.control.validate(request, runtime)
         self.assertEqual(decision.outcome, ExecutionOutcome.MISSING_AUTHORITY)
 
-    def test_missing_required_path_evidence_fails_closed(self) -> None:
+    def test_missing_required_path_evidence_without_binding_fails_closed(self) -> None:
         runtime = self._ready_decision()
         request = self._request(runtime, require_all_path_evidence=True)
         decision = self.control.validate(request, runtime)
-        self.assertEqual(decision.outcome, ExecutionOutcome.MISSING_EVIDENCE)
+        self.assertEqual(decision.outcome, ExecutionOutcome.MISSING_AUTHORITY)
 
     def test_expired_constraint_fails_closed(self) -> None:
         runtime = self._ready_decision()
