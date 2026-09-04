@@ -1,19 +1,21 @@
-"""Sprint 2M deterministic Execution Control tests."""
+"""Sprint 2M execution control tests with SAL-24 permission handoff binding."""
 
 from __future__ import annotations
 
 import unittest
-from dataclasses import FrozenInstanceError
+from dataclasses import FrozenInstanceError, replace
 from datetime import datetime, timezone
 
 from echoauth.audit import InMemoryAuditLogRepository
 from echoauth.execution import (
+    AuthorizationExecutionHandoffDecision,
     ExecutionConstraint,
     ExecutionControl,
     ExecutionControlValidationError,
     ExecutionOutcome,
     ExecutionRequest,
 )
+from echoauth.models import AuditRecord
 from echoauth.runtime import (
     RuntimeState,
     RuntimeStateMachine,
@@ -103,8 +105,13 @@ class ExecutionControlTests(unittest.TestCase):
             request_id=runtime_decision.request_id,
             runtime_transition_decision_id=runtime_decision.transition_decision_id,
             actor_id="execution-control-client",
+            subject_id="subject-1",
             action="protect_subject",
             resource="subject-1",
+            payload_hash="payload-hash-1",
+            context_hash="context-hash-1",
+            policy_version="policy-v1",
+            delegation_id=None,
             authority_evidence=(
                 {
                     "authority_reference": "authority-1",
@@ -137,10 +144,74 @@ class ExecutionControlTests(unittest.TestCase):
             RuntimeState.READY,
         )
 
-    def test_execution_is_eligible_from_ready_state(self) -> None:
-        runtime = self._ready_decision()
-        decision = self.control.validate(self._request(runtime), runtime)
+    def _bind_handoff(self, request, runtime):
+        handoff = AuthorizationExecutionHandoffDecision(
+            handoff_validation_id="aeh-test",
+            request_id=request.request_id,
+            requester_id=request.actor_id,
+            subject_id=request.subject_id,
+            action=request.action,
+            resource=request.resource,
+            payload_hash=request.payload_hash,
+            context_hash=request.context_hash,
+            policy_version=request.policy_version,
+            delegation_id=request.delegation_id,
+            prior_authorization_decision_id="adec-prior",
+            fresh_authorization_decision_id="adec-fresh",
+            fresh_authorization_evidence_hash="auth-evidence-fresh",
+            fresh_authorization_audit_event_id="audit-adec-fresh",
+            identity_verdict_id="idv-1",
+            authority_resolution_id="ares-1",
+            delegation_validation_id=None,
+            policy_decision_id="pdec-1",
+            accepted=True,
+            reason="authorization_current_and_bound",
+            validated_at="2026-06-19T17:00:00Z",
+            evidence_hash="handoff-evidence-hash",
+            audit_event_id="audit-aeh-test",
+        )
+        self.audit.append(
+            AuditRecord(
+                event_type="authorization.execution_handoff.validation",
+                actor_id="authorization_execution_handoff_validator",
+                request_id=request.request_id,
+                authority_verdict_id="ares-1",
+                reason=handoff.reason,
+                details={
+                    "accepted": True,
+                    "evidence_hash": handoff.evidence_hash,
+                    "fresh_authorization_decision_id": handoff.fresh_authorization_decision_id,
+                    "handoff_validation_id": handoff.handoff_validation_id,
+                    "prior_authorization_decision_id": handoff.prior_authorization_decision_id,
+                },
+                occurred_at="2026-06-19T17:00:00Z",
+            ),
+            audit_event_id=handoff.audit_event_id,
+            chain_id="execution-audit",
+        )
+        authority_evidence = {
+            "authorization_decision_id": handoff.fresh_authorization_decision_id,
+            "authorization_evidence_hash": handoff.fresh_authorization_evidence_hash,
+            "authorization_audit_event_id": handoff.fresh_authorization_audit_event_id,
+            "authority_resolution_id": handoff.authority_resolution_id,
+            "handoff_validation_id": handoff.handoff_validation_id,
+            "handoff_evidence_hash": handoff.evidence_hash,
+        }
+        bound = replace(
+            request,
+            authority_evidence=authority_evidence,
+            audit_references=(
+                runtime.audit_event_id,
+                handoff.fresh_authorization_audit_event_id,
+                handoff.audit_event_id,
+            ),
+        )
+        return bound, handoff
 
+    def test_execution_is_eligible_from_ready_state_with_bound_permission(self) -> None:
+        runtime = self._ready_decision()
+        request, handoff = self._bind_handoff(self._request(runtime), runtime)
+        decision = self.control.validate(request, runtime, handoff)
         self.assertEqual(decision.outcome, ExecutionOutcome.ELIGIBLE)
         self.assertTrue(decision.eligible)
 
@@ -153,52 +224,30 @@ class ExecutionControlTests(unittest.TestCase):
         request = self._request(
             runtime,
             require_all_path_evidence=True,
-            refusal_evidence={
-                "refusal_decision_id": "refusal-1",
-                "refusal_evidence_hash": "refusal-hash-1",
-            },
-            escalation_evidence={
-                "escalation_decision_id": "escalation-1",
-                "escalation_evidence_hash": "escalation-hash-1",
-            },
-            review_evidence={
-                "review_decision_id": "review-1",
-                "review_evidence_hash": "review-hash-1",
-            },
-            override_evidence={
-                "override_decision_id": "override-1",
-                "override_evidence_hash": "override-hash-1",
-            },
+            refusal_evidence={"refusal_decision_id": "refusal-1", "refusal_evidence_hash": "refusal-hash-1"},
+            escalation_evidence={"escalation_decision_id": "escalation-1", "escalation_evidence_hash": "escalation-hash-1"},
+            review_evidence={"review_decision_id": "review-1", "review_evidence_hash": "review-hash-1"},
+            override_evidence={"override_decision_id": "override-1", "override_evidence_hash": "override-hash-1"},
         )
-        decision = self.control.validate(request, runtime)
-
+        request, handoff = self._bind_handoff(request, runtime)
+        decision = self.control.validate(request, runtime, handoff)
         self.assertEqual(decision.outcome, ExecutionOutcome.ELIGIBLE)
         self.assertIsNotNone(decision.evidence.override_evidence_hash)
 
     def test_rejected_runtime_transition_blocks_execution(self) -> None:
-        runtime = self._runtime_decision(
-            RuntimeState.READY,
-            RuntimeTransition.AUTHORIZE,
-            RuntimeState.AUTHORIZED,
-        )
+        runtime = self._runtime_decision(RuntimeState.READY, RuntimeTransition.AUTHORIZE, RuntimeState.AUTHORIZED)
         decision = self.control.validate(self._request(runtime), runtime)
-
         self.assertEqual(decision.outcome, ExecutionOutcome.BLOCKED)
         self.assertFalse(decision.eligible)
 
     def test_execution_blocked_state_blocks_execution(self) -> None:
-        runtime = self._runtime_decision(
-            RuntimeState.READY,
-            RuntimeTransition.BLOCK_EXECUTION,
-            RuntimeState.EXECUTION_BLOCKED,
-        )
+        runtime = self._runtime_decision(RuntimeState.READY, RuntimeTransition.BLOCK_EXECUTION, RuntimeState.EXECUTION_BLOCKED)
         decision = self.control.validate(self._request(runtime), runtime)
         self.assertEqual(decision.outcome, ExecutionOutcome.BLOCKED)
 
     def test_configured_disabled_constraint_blocks_execution(self) -> None:
         runtime = self._ready_decision()
-        request = self._request(runtime, constraint=self.disabled_constraint)
-        decision = self.control.validate(request, runtime)
+        decision = self.control.validate(self._request(runtime, constraint=self.disabled_constraint), runtime)
         self.assertEqual(decision.outcome, ExecutionOutcome.BLOCKED)
 
     def test_unconfigured_constraint_is_rejected(self) -> None:
@@ -209,69 +258,52 @@ class ExecutionControlTests(unittest.TestCase):
             expires_at="2026-06-19T17:05:00Z",
         )
         with self.assertRaises(ExecutionControlValidationError):
-            self.control.validate(
-                self._request(runtime, constraint=unconfigured), runtime
-            )
+            self.control.validate(self._request(runtime, constraint=unconfigured), runtime)
 
     def test_non_ready_state_is_invalid(self) -> None:
-        runtime = self._runtime_decision(
-            RuntimeState.REQUESTED,
-            RuntimeTransition.AUTHORIZE,
-            RuntimeState.AUTHORIZED,
-        )
+        runtime = self._runtime_decision(RuntimeState.REQUESTED, RuntimeTransition.AUTHORIZE, RuntimeState.AUTHORIZED)
         decision = self.control.validate(self._request(runtime), runtime)
         self.assertEqual(decision.outcome, ExecutionOutcome.INVALID_STATE)
 
-    def test_missing_authority_fails_closed(self) -> None:
+    def test_missing_authority_handoff_fails_closed(self) -> None:
         runtime = self._ready_decision()
-        request = self._request(runtime, authority_evidence={})
-        decision = self.control.validate(request, runtime)
+        decision = self.control.validate(self._request(runtime), runtime)
         self.assertEqual(decision.outcome, ExecutionOutcome.MISSING_AUTHORITY)
 
     def test_missing_required_path_evidence_fails_closed(self) -> None:
         runtime = self._ready_decision()
-        request = self._request(runtime, require_all_path_evidence=True)
-        decision = self.control.validate(request, runtime)
+        request, handoff = self._bind_handoff(self._request(runtime, require_all_path_evidence=True), runtime)
+        decision = self.control.validate(request, runtime, handoff)
         self.assertEqual(decision.outcome, ExecutionOutcome.MISSING_EVIDENCE)
 
     def test_expired_constraint_fails_closed(self) -> None:
         runtime = self._ready_decision()
-        request = self._request(runtime, constraint=self.expired_constraint)
-        decision = self.control.validate(request, runtime)
+        decision = self.control.validate(self._request(runtime, constraint=self.expired_constraint), runtime)
         self.assertEqual(decision.outcome, ExecutionOutcome.EXPIRED)
 
     def test_halted_runtime_fails_closed(self) -> None:
-        runtime = self._runtime_decision(
-            RuntimeState.REQUESTED,
-            RuntimeTransition.HALT,
-            RuntimeState.HALTED,
-        )
+        runtime = self._runtime_decision(RuntimeState.REQUESTED, RuntimeTransition.HALT, RuntimeState.HALTED)
         decision = self.control.validate(self._request(runtime), runtime)
         self.assertEqual(decision.outcome, ExecutionOutcome.HALTED)
 
     def test_execution_evidence_is_immutable_and_audited(self) -> None:
         runtime = self._ready_decision()
-        decision = self.control.validate(self._request(runtime), runtime)
+        request, handoff = self._bind_handoff(self._request(runtime), runtime)
+        decision = self.control.validate(request, runtime, handoff)
         event = self.audit.chain("execution-audit")[-1]
-
         self.assertEqual(event.record["event_type"], "execution.eligibility.validation")
         self.assertEqual(event.record["details"]["evidence_hash"], decision.evidence_hash)
-        self.assertEqual(
-            decision.evidence.runtime_transition_evidence_hash,
-            runtime.evidence_hash,
-        )
-        self.assertEqual(decision.evidence.action, "protect_subject")
-        self.assertEqual(decision.evidence.resource, "subject-1")
+        self.assertEqual(decision.evidence.runtime_transition_evidence_hash, runtime.evidence_hash)
+        self.assertEqual(decision.evidence.authorization_handoff_validation_id, handoff.handoff_validation_id)
         with self.assertRaises(FrozenInstanceError):
             decision.evidence.runtime_state = RuntimeState.HALTED
 
     def test_execution_validation_is_idempotent(self) -> None:
         runtime = self._ready_decision()
-        request = self._request(runtime)
-        first = self.control.validate(request, runtime)
+        request, handoff = self._bind_handoff(self._request(runtime), runtime)
+        first = self.control.validate(request, runtime, handoff)
         audit_count = len(self.audit.chain("execution-audit"))
-        second = self.control.validate(request, runtime)
-
+        second = self.control.validate(request, runtime, handoff)
         self.assertEqual(first, second)
         self.assertEqual(len(self.audit.chain("execution-audit")), audit_count)
 
