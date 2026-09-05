@@ -38,6 +38,12 @@ REASSESSMENT != PERMISSION
 
 This is not a claim that the current repositories implement a complete safe autonomous runtime. It is a narrower claim about authority non-inheritance at tested boundaries and the minimum contracts required at boundaries that do not yet have real consumers.
 
+## N.B.C. interpretation discipline — teach, not preach
+
+Within this thesis, **teach, not preach** describes a human-guided review method: multiple bounded checks may be compared so valid paths, refusal paths, mismatches, and boundary violations become evidence of what to do and what not to do. The phrase does **not** claim autonomous self-training, model-weight updates, automatic policy change, permission, or execution authority.
+
+A discovered error does not authorize its correction. Observation, interpretation, authority, execution, return, and reassessment remain separately bounded. Repeated checks may strengthen understanding of a boundary without converting that understanding into permission for the next action.
+
 ## Architecture under review
 
 ```text
