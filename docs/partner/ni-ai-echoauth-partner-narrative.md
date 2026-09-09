@@ -1,8 +1,8 @@
 # Why NI-AI / EchoAuth Exists, How It Works, and Why a Partner Should Care
 
-**Authority:** Nicholas B. Carty (N.B.C.)  
-**Status:** PARTNER ORIENTATION / DOCUMENTATION ONLY  
-**Repository:** `heliosfi/Echoauth-core`  
+**Authority:** Nicholas B. Carty (N.B.C.)
+**Status:** PARTNER ORIENTATION / DOCUMENTATION ONLY
+**Repository:** `heliosfi/Echoauth-core`
 
 ## Purpose
 
@@ -193,12 +193,12 @@ These sources remain authoritative within their own evidence boundaries. This pa
 
 ## Final Boundary
 
-**Runtime effect:** NONE.  
-**External authority created:** NONE.  
-**Deployment authorization created:** NONE.  
-**Partner or pilot created:** NONE.  
-**External acceptance created:** NONE.  
-**Canonical technical record replaced:** NO.  
+**Runtime effect:** NONE.
+**External authority created:** NONE.
+**Deployment authorization created:** NONE.
+**Partner or pilot created:** NONE.
+**External acceptance created:** NONE.
+**Canonical technical record replaced:** NO.
 **Claims beyond evidence authorized:** NONE.
 
 **Disposition:** `PARTNER ORIENTATION ESTABLISHED -> PRESERVE -> STOP`
