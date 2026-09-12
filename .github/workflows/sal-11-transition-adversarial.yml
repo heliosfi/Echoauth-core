@@ -1,0 +1,31 @@
+name: SAL-11 Transition Adversarial
+
+on:
+  pull_request:
+    paths:
+      - "src/echoauth/runtime/state_machine.py"
+      - "src/echoauth/runtime/state_models.py"
+      - "src/echoauth/runtime/transition_assessment.py"
+      - "tests/test_transition_assessment.py"
+      - ".github/workflows/sal-11-transition-adversarial.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  sal-11-transition-adversarial:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run SAL-11 transition adversarial tests
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests.test_transition_assessment
