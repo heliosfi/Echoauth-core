@@ -17,18 +17,30 @@
 **Reciprocal-domain-authority amendment timestamp:** 2026-08-28 · 3:39 AM EDT  
 **Reciprocal-domain-authority amendment ISO-8601:** `2026-08-28T03:39:28-04:00`  
 **Reciprocal-domain-authority amendment UTC:** `2026-08-28T07:39:28Z`  
-**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact. Timestamp provenance, the bounded S-Kernel / Stabilizer registry, the language-mediated legibility / cross-media continuity amendment, the accountability / identity-sovereignty boundary, and the reciprocal-domain-authority boundary are incorporated; the broader adversarial/runtime claim remains HOLD.  
+**Delivery/pragmatics amendment timestamp:** 2026-08-28 · 4:05 PM EDT  
+**Delivery/pragmatics amendment ISO-8601:** `2026-08-28T16:05:06-04:00`  
+**Delivery/pragmatics amendment UTC:** `2026-08-28T20:05:06Z`  
+**Research posture:** Thesis v1 is complete as an evidence-bounded research artifact. Timestamp provenance, the bounded S-Kernel / Stabilizer registry, the language-mediated legibility / cross-media continuity amendment, the delivery/pragmatics semantic-fidelity refinement, the accountability / identity-sovereignty boundary, the reciprocal-domain-authority boundary, and the source-first / domain-bounded reasoning alignment are incorporated; the broader adversarial/runtime claim remains HOLD.  
 **Canonical pre-update EchoAuth baseline:** `72b6ea04594b16f1386816a9d729f51d0f8a0807`  
 **Pre-retune EchoAuth main:** `3d0117c23dff510310528eba6f2118d1484dd11e`  
 **Pre-finesse EchoAuth main:** `0a441c0004a65b9d41772771b4d51b7dc194b8ec`  
 **Pre-continuity-amendment EchoAuth main:** `1baa745441929e3bb03b4e993b7ce753568e8b5b`  
 **Pre-identity-accountability-amendment EchoAuth main:** `f3c4f9e514c0e2192755b3095fcb8f09c10285b1`  
 **Pre-reciprocal-domain-authority-amendment EchoAuth main:** `e0a14a4963dfe729ab78e3af5b5960b8573d69c9`  
+**Pre-delivery-pragmatics-amendment EchoAuth main:** `29733650b7bc8b4ecf80f151038b777164aeb662`  
 **Consolidated adversarial gate:** `SAL-9 = HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`
+
+## Reviewer entry point
+
+Independent technical review should begin with the concise orientation record:
+
+`docs/assessments/ni-ai-reviewer-one-page-orientation-2026-08-28.md`
+
+That page is a navigational and interpretive entry point only. It does not replace this canonical thesis, alter implementation evidence, predetermine reviewer judgment, or change the `SAL-9` disposition.
 
 ## Executive Summary
 
-This thesis presents an evidence-bounded governance model for advanced agentic AI that separates capability, authority, permission, execution, and reassessment while preserving human sovereignty, interpretive restraint, bounded assistance, reciprocal domain authority, and a clear distinction between accountability for conduct and pressure to surrender identity. Concrete EchoAuth interfaces demonstrate several protections against implicit authority transfer, stale permission, replay, and unauthorized state change, while two end-to-end runtime boundaries remain untestable because their legitimate consumers do not yet exist. The research artifact is complete; the broader runtime claim is not. `SAL-9` remains `HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`.
+This thesis presents an evidence-bounded governance model for advanced agentic AI that begins with source-first, domain-bounded interpretation and then separates capability, authority, permission, execution, and reassessment. Reasoning is treated as bounded assistance: it may clarify what is known, identify uncertainty, test relationships, and support inference, but it does not become truth, evidence, source intent, identity, or authority. When meaning is uncertain, clarification should precede expansion, time/place/context should be preserved, fact should remain distinct from inference, and correction should return the interpretation toward correspondence rather than be treated as an admission. The model preserves human sovereignty, interpretive restraint, bounded assistance, reciprocal domain authority, and a clear distinction between accountability for conduct and pressure to surrender identity. Concrete EchoAuth interfaces demonstrate several protections against implicit authority transfer, stale permission, replay, and unauthorized state change, while two end-to-end runtime boundaries remain untestable because their legitimate consumers do not yet exist. The research artifact is complete; the broader runtime claim is not. `SAL-9` remains `HOLD - 3 PASS / 2 HOLD-PARTIAL / 0 FAIL`.
 
 ## Central research question
 
@@ -263,6 +275,63 @@ Old and new forms therefore need not cancel one another. Scheduled programming, 
 
 The term **frequency** may be used here as a conceptual shorthand for continuity of signal, meaning, rhythm, or experience across channels. Unless a physical waveform, carrier, spectrum, or measurable communications signal is actually being analyzed, this thesis does not treat that usage as a claim about literal electromagnetic or acoustic frequency.
 
+### Delivery, Pragmatics, and Prosodic Fidelity
+
+**TIMESTAMP — 2026-08-28 · 4:05 PM EDT**  
+**ISO — `2026-08-28T16:05:06-04:00`**  
+**STATUS — THESIS LANGUAGE / DELIVERY INTERPRETATION AMENDMENT — DOCUMENTATION ONLY**  
+**AUTHORITY / SOURCE — Nicholas B. Carty (N.B.C.)**  
+**REFERENCE — Pre-amendment EchoAuth main `29733650b7bc8b4ecf80f151038b777164aeb662`.**
+
+The source correction **“Not what you said it’s how it been said”** is preserved as a bounded linguistic observation: communicative meaning is not determined by lexical content alone. The same words may perform materially different communicative functions depending on how they are delivered and situated. Tone, cadence, rhythm, stress, emphasis, pause, timing, pitch, volume, conversational position, facial or gestural context where available, relationship, and cultural convention may change a listener's reasonable interpretation without changing the words themselves.
+
+The immediate distinction is pragmatic and prosodic rather than merely a difference in vocabulary or culture. Cultural background may help explain delivery conventions, but it must not substitute for the actual utterance, available context, or source correction.
+
+Preserve:
+
+```text
+SAME WORDS != SAME COMMUNICATIVE ACT
+LEXICAL CONTENT != COMPLETE PRAGMATIC MEANING
+LITERAL READING != SOURCE INTENT AUTOMATICALLY
+DELIVERY != DECORATION
+MODEL TONE INFERENCE != SOURCE INTENT
+MISSING PROSODY != PERMISSION TO INVENT TONE
+CULTURAL FAMILIARITY != CERTAINTY
+SARCASTIC FORM != FACTUAL CLAIM AUTOMATICALLY
+SOURCE CORRECTION -> REASSESS INTERPRETATION
+```
+
+Where source media contains delivery evidence, a governed transformation should preserve the source expression together with materially relevant available cues rather than silently flattening speech, performance, or interaction into words alone. Where only text survives, lost tone, cadence, emphasis, timing, gesture, or other delivery information should remain an evidence limitation rather than being manufactured after the fact.
+
+A useful interpretation path is:
+
+```text
+SOURCE EXPRESSION
++
+AVAILABLE DELIVERY CUES
++
+CONVERSATIONAL CONTEXT
++
+TIME / PLACE
+-> INTERPRETATION
+-> SOURCE CORRECTION WHERE PROVIDED
+-> REVISED CORRESPONDENCE
+```
+
+Examples such as reassurance, warning, affection, dismissal, irony, sarcasm, humor, challenge, or emphasis may depend materially on delivery. Recognizing that possibility does not authorize the system to infer hidden intent with certainty. The source wording remains attributable; the system's pragmatic reading remains an interpretation unless independently supported or corrected by the source.
+
+For cross-media continuity, this creates an additional fidelity requirement: speech-to-text, video-to-caption, audio-to-summary, transcript-to-structured-data, and similar transformations may preserve the words while losing part of how the message was communicated. A faithful system should mark that loss when it is material.
+
+```text
+WORDS PRESERVED != DELIVERY PRESERVED
+TRANSCRIPT != COMPLETE UTTERANCE AUTOMATICALLY
+CAPTION != COMPLETE PERFORMANCE
+PRAGMATIC INTERPRETATION != AUTHORITY
+SEMANTIC CORRESPONDENCE != PROVEN INTENT
+```
+
+This subsection refines the existing A21 semantic-fidelity relationship. It does **not** create A22, establish a universal theory of language, prove that tone determines meaning in every case, or establish an executable prosody, sarcasm, culture, or intent-detection engine. It creates no runtime authority and does not alter `SAL-9`.
+
 The governing continuity sequence is:
 
 ```text
@@ -336,6 +405,217 @@ The arrows represent correspondence, not inheritance of authority. A successful 
 The NI AI Transition Envelope preserves semantic/workflow evidence without making one lifecycle record authority for the next. Hawk `PROCEED` is passage posture, not an EchoAuth authorization verdict, state mutation, dispatch instruction, or execution permission. A future SAI/MCG/MPC state posture is likewise suitable only for independent permission evaluation when reasoning, recommendations, commands, and executable payloads remain excluded.
 
 At the implemented permission/execution-eligibility seam, fresh authorization and current runtime-state evidence are independently required. Neither substitutes for the other.
+
+## Governed Non-Linear State Architecture — A14–A21 Correspondence
+
+A governed architecture does not need to move in one straight line. It may branch, revisit evidence, return to an earlier checkpoint, correct an interpretation, or change representation. What keeps that movement governed is not the geometric shape of the path but the preservation of source meaning, provenance, current authority, permission, consequence, observable results, and reassessment.
+
+The foundation supplies the common reference. Semantic fidelity protects meaning while representations change. Permission and execution remain independently bounded. Observed outcomes must be reconciled. Return carries attributable understanding into reassessment rather than silently authorizing continuation.
+
+The canonical architecture relationship is:
+
+```text
+                         ┌──────────────────┐
+                         │    FOUNDATION    │
+                         └────────┬─────────┘
+                                  │
+                                  v
+                       SOURCE / INVARIANTS
+                                  │
+                                  v
+                         REPRESENTATION
+                                  │
+                                  v
+                         INTERPRETATION
+                                  │
+                                  v
+                       GOVERNED CHECKPOINT
+                                  │
+                                  v
+                      CURRENT CONDITIONS
+                                  │
+                                  v
+                    AUTHORITY / PERMISSION
+                                  │
+                                  v
+                       EXECUTION BINDING
+                                  │
+                                  v
+                         ACTION / NO-ACTION
+                                  │
+                                  v
+                         OBSERVED RESULT
+                                  │
+                                  v
+                         RECONCILIATION
+                                  │
+                                  v
+                    RETURN WITH UNDERSTANDING
+                                  │
+                                  v
+                     SEMANTIC-FIDELITY CHECK
+                                  │
+                                  v
+                          REASSESSMENT
+                           /    |     \
+                          /     |      \
+                         v      v       v
+                    CONTINUE   HOLD    STOP
+                       |
+                       └───────────────┐
+                                       │
+                                EARLIER CHECKPOINT
+```
+
+The arrows indicate governed correspondence, not inheritance of authority. A backward edge is a reassessment path; it is **not** permission to bypass governance.
+
+```text
+NON-LINEAR MOVEMENT != UNGOVERNED MOVEMENT
+NON-LINEAR MOVEMENT != LOSS OF FOUNDATION
+FOUNDATION != PERMANENT AUTHORITY
+CHECKPOINT != COMMAND
+CONTEXT != AUTHORITY
+MEMORY != PERMISSION
+INTERPRETATION != SOURCE INTENT
+PERMISSION != EXECUTION
+EXECUTION != VERIFIED OUTCOME
+RESULT != REAUTHORIZATION
+RETURN != REAUTHORIZATION
+REASSESSMENT != PERMISSION
+BRANCHING != AUTHORITY EXPANSION
+```
+
+Bounded backward and lateral edges include:
+
+```text
+REASSESSMENT
+-> EARLIER CHECKPOINT
+
+NEW EVIDENCE
+-> PRIOR INTERPRETATION
+
+SEMANTIC CORRECTION
+-> REPRESENTATION / INTERPRETATION
+
+CONFLICT
+-> AUTHORITY / SCOPE RESOLUTION
+
+REVOCATION / EXPIRATION
+-> CURRENT AUTHORITY CHECK
+
+CHANGED CONDITIONS
+-> REVALIDATION
+
+OUTCOME DISCREPANCY
+-> EXPECTED CONSEQUENCE / EXECUTION BINDING
+
+UNRESOLVED MEANING
+-> REQUEST / HOLD / NO-ACTION
+```
+
+These edges preserve adaptive navigation without creating free traversal or authority expansion.
+
+The established A14–A21 governance spine maps onto the architecture as follows:
+
+```text
+A14: CARRY CONTEXT — REVALIDATE AUTHORITY
+A15: PRESERVE THE RECORD — EXPIRE THE AUTHORITY
+A16: COMPARE THE RECORD — RESOLVE THE BOUNDARY
+A17: VERIFY WHO — VERIFY ROLE — VERIFY SCOPE
+A18: ASK WHAT — FOR WHAT — HOW FAR — UNTIL WHEN
+A19: BIND BEFORE ACT — RETURN BEFORE CONTINUING
+A20: OBSERVE — COMPARE — RECONCILE
+A21: PRESERVE MEANING — MARK INTERPRETATION
+```
+
+These are system-governance rules. N.B.C. is the attributable authority/source for the documentation; the operational rules belong to the governed system.
+
+A21 operates across the graph rather than at one isolated node. Where meaning is transformed:
+
+```text
+SOURCE EXPRESSION
+-> INTERPRETATION
+-> REPRESENTATION
+-> TRANSFORMATION
+-> DOWNSTREAM USE
+```
+
+preserve:
+
+```text
+SOURCE TRACEABILITY
+-> INTERPRETATION MARKER
+-> MATERIAL DIFFERENCE
+-> AMBIGUITY WHERE PRESENT
+```
+
+> **PRESERVE MEANING — MARK INTERPRETATION — DO NOT TURN WORDING INTO AUTHORITY.**
+
+The foundation relationship is:
+
+```text
+SOURCE MEANING
+-> GOVERNING INVARIANTS
+-> RESPONSIBILITY BOUNDARIES
+-> PROVENANCE
+-> AUTHORITY / PERMISSION SEPARATION
+-> INTERFACE CONTRACTS
+-> RETURN / REASSESSMENT EXPECTATION
+```
+
+A foundation does not need to prescribe every future path; it must preserve enough governing relationship for later paths to remain comparable, correctable, and reassessable.
+
+Where consequence warrants, return may preserve:
+
+```text
+AUTHORIZED ACTION
+-> OBSERVED RESULT
+-> EVIDENCE / PROVENANCE
+-> WHAT WAS UNDERSTOOD
+-> WHAT WAS INFERRED
+-> WHAT CHANGED
+-> WHAT REMAINS UNCERTAIN
+-> DISCREPANCIES
+-> RETURN
+-> REASSESSMENT
+```
+
+while preserving:
+
+```text
+RETURNED UNDERSTANDING != SOURCE INTENT AUTOMATICALLY
+RETURNED RESULT != VERIFIED GOVERNED OUTCOME
+RETURN != REAUTHORIZATION
+```
+
+Time, place, environment, jurisdiction, channel, and current conditions may affect applicability, but they do not manufacture authority:
+
+```text
+PAST VALIDITY != PRESENT VALIDITY
+VALID HERE != VALID EVERYWHERE
+CURRENT CONTEXT != UNIVERSAL CONTEXT
+LOCATION != AUTHORITY
+TIMING != PERMISSION
+URGENCY != AUTHORITY
+```
+
+This architecture remains documentation-level. It does not establish executable state transitions or a complete runtime:
+
+```text
+STATE GRAPH != RUNTIME ORCHESTRATOR
+DEFINED NODE != IMPLEMENTED COMPONENT
+DEFINED EDGE != EXECUTABLE TRANSITION
+NON-LINEAR PATH != PROVEN CROSS-TOOL MOVEMENT
+SEMANTIC CHECK != EXECUTABLE SEMANTIC VALIDATOR
+RETURN MODEL != IMPLEMENTED POST-EXECUTION CONSUMER
+ARCHITECTURAL CORRESPONDENCE != END-TO-END RUNTIME PROOF
+```
+
+**SAL-9 remains: HOLD — 3 PASS / 2 HOLD-PARTIAL / 0 FAIL.** SAL-13 and SAL-15 remain unresolved where legitimate planner, executor, or post-execution consumers are absent. Architectural completeness does not convert those unresolved runtime boundaries into adversarial PASS.
+
+Canonical source artifact:
+
+`docs/assessments/ni-ai-foundation-nonlinear-governance-state-graph-2026-08-28.md`
 
 ## S-Kernel / Stabilizer Bounded Identity Registry
 
@@ -448,7 +728,7 @@ OPEN ADVERSARIAL BRANCH != CANONICAL MAIN INTEGRATION
 
 Completed thesis work packages include SAL-5, SAL-6, SAL-7, SAL-8, SAL-10, and SAL-28. SAL-13 and SAL-15 remain the only unresolved adversarial children. SAL-25 and SAL-26 preserve the future legitimate-consumer contracts required before those tests may be reopened.
 
-The timestamp-provenance, stabilizer-registry, continuity, identity-accountability, and reciprocal-domain-authority amendments do not alter these dispositions. They improve traceability and clarify responsibility, legibility, system identity, cross-channel continuity, accountability, human identity sovereignty, and reciprocal boundaries between platform/system and human domains without converting personal interpretation or historical description into current runtime evidence.
+The timestamp-provenance, stabilizer-registry, continuity, delivery/pragmatics semantic-fidelity, identity-accountability, and reciprocal-domain-authority amendments do not alter these dispositions. They improve traceability and clarify responsibility, legibility, system identity, cross-channel continuity, linguistic delivery fidelity, accountability, human identity sovereignty, and reciprocal boundaries between platform/system and human domains without converting personal interpretation or historical description into current runtime evidence.
 
 ## Limitations and non-claims
 
@@ -508,4 +788,4 @@ An 8-page searchable PDF matching the pre-amendment thesis was generated and vis
 
 SHA-256: `ddeb3957b9433e3cc4282e5c13c5ce3a316fd23a41c2ec7bc5ac0b7dfae6eeff`
 
-The PDF predates the natural-intellect physical-sovereignty, channel-preservation, social-interaction interpretive-boundary, accountability / identity-sovereignty, human-orientation/delegated-assistance, timestamp-provenance, stabilizer-registry, thesis-closure, presentation-finesse, language-mediated legibility / cross-media continuity, and reciprocal-domain-authority amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
+The PDF predates the natural-intellect physical-sovereignty, channel-preservation, social-interaction interpretive-boundary, accountability / identity-sovereignty, human-orientation/delegated-assistance, timestamp-provenance, stabilizer-registry, thesis-closure, presentation-finesse, language-mediated legibility / cross-media continuity, delivery/pragmatics semantic-fidelity, and reciprocal-domain-authority amendments. Its hash remains historical evidence, but the PDF must not be represented as matching the current amended thesis unless a new PDF is generated and independently verified.
