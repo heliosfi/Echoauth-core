@@ -1,0 +1,36 @@
+name: SAL-24 Authorization Execution Handoff
+
+on:
+  pull_request:
+    paths:
+      - "src/echoauth/auth/**"
+      - "src/echoauth/execution/**"
+      - "src/echoauth/runtime/**"
+      - "tests/test_authorization_gate.py"
+      - "tests/test_execution_control.py"
+      - "tests/test_sal24_authorization_execution_handoff.py"
+      - ".github/workflows/sal-24-authorization-execution-handoff.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  sal-24-authorization-execution-handoff:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run SAL-24 focused authorization/execution tests
+        env:
+          PYTHONPATH: src
+        run: >-
+          python -m unittest
+          tests.test_authorization_gate
+          tests.test_execution_control
+          tests.test_sal24_authorization_execution_handoff

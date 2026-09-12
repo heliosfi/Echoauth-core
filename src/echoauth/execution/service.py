@@ -1,4 +1,4 @@
-"""Deterministic, side-effect-free Execution Control for Sprint 2M."""
+"""Deterministic, side-effect-free Execution Control for Sprint 2M / SAL-24."""
 
 from __future__ import annotations
 
@@ -9,6 +9,9 @@ from threading import RLock
 
 from echoauth.audit import InMemoryAuditLogRepository
 from echoauth.canonical import CanonicalDataError, canonical_json_text, canonical_sha256
+from echoauth.execution.authorization_handoff import (
+    AuthorizationExecutionHandoffDecision,
+)
 from echoauth.execution.models import (
     ExecutionConstraint,
     ExecutionDecision,
@@ -17,6 +20,7 @@ from echoauth.execution.models import (
     ExecutionRequest,
 )
 from echoauth.models import AuditAppendState, AuditRecord
+from echoauth.persistence import MissingRecordError
 from echoauth.runtime import RuntimeState, RuntimeTransitionDecision
 
 EXECUTION_CONTROL_VERSION = "echoauth.execution-control.v1"
@@ -56,8 +60,9 @@ class ExecutionControl:
         self,
         request: ExecutionRequest,
         runtime_decision: RuntimeTransitionDecision,
+        authorization_handoff: AuthorizationExecutionHandoffDecision | None = None,
     ) -> ExecutionDecision:
-        """Return eligibility evidence from one validated state decision."""
+        """Return side-effect-free eligibility from independent state and permission evidence."""
 
         validate_execution_request(request)
         if self._constraints.get(request.constraint.constraint_id) != request.constraint:
@@ -66,17 +71,39 @@ class ExecutionControl:
             )
         self._validate_runtime_decision(request, runtime_decision)
         now = self._utc_now()
-        outcome, reason = _classify(request, runtime_decision, now)
+        outcome, reason = self._classify(
+            request, runtime_decision, authorization_handoff, now
+        )
         evidence = ExecutionEvidence(
             control_version=EXECUTION_CONTROL_VERSION,
             request_id=request.request_id,
             actor_id=request.actor_id,
+            subject_id=request.subject_id,
             action=request.action,
             resource=request.resource,
+            payload_hash=request.payload_hash,
+            context_hash=request.context_hash,
+            policy_version=request.policy_version,
+            delegation_id=request.delegation_id,
             requested_at=request.requested_at,
             runtime_transition_decision_id=runtime_decision.transition_decision_id,
             runtime_transition_evidence_hash=runtime_decision.evidence_hash,
             runtime_state=runtime_decision.next_state,
+            authorization_handoff_validation_id=(
+                authorization_handoff.handoff_validation_id
+                if authorization_handoff is not None
+                else None
+            ),
+            authorization_decision_id=(
+                authorization_handoff.fresh_authorization_decision_id
+                if authorization_handoff is not None
+                else None
+            ),
+            authorization_evidence_hash=(
+                authorization_handoff.fresh_authorization_evidence_hash
+                if authorization_handoff is not None
+                else None
+            ),
             constraint_hash=canonical_sha256(asdict(request.constraint)),
             authority_evidence_hash=_optional_hash(request.authority_evidence),
             refusal_evidence_hash=_optional_hash(request.refusal_evidence),
@@ -106,9 +133,19 @@ class ExecutionControl:
                     event_type="execution.eligibility.validation",
                     actor_id=self._component_id,
                     request_id=request.request_id,
+                    authority_verdict_id=(
+                        authorization_handoff.authority_resolution_id
+                        if authorization_handoff is not None
+                        else None
+                    ),
                     reason=reason,
                     details={
                         "action": request.action,
+                        "authorization_handoff_validation_id": (
+                            authorization_handoff.handoff_validation_id
+                            if authorization_handoff is not None
+                            else None
+                        ),
                         "control_version": EXECUTION_CONTROL_VERSION,
                         "eligible": outcome is ExecutionOutcome.ELIGIBLE,
                         "evidence_hash": evidence_hash,
@@ -167,6 +204,128 @@ class ExecutionControl:
                 "runtime transition audit reference is required"
             )
 
+    def _classify(
+        self,
+        request: ExecutionRequest,
+        decision: RuntimeTransitionDecision,
+        handoff: AuthorizationExecutionHandoffDecision | None,
+        now: datetime,
+    ) -> tuple[ExecutionOutcome, str]:
+        if not decision.allowed:
+            return ExecutionOutcome.BLOCKED, "runtime_transition_rejected"
+        if decision.next_state is RuntimeState.HALTED:
+            return ExecutionOutcome.HALTED, "runtime_halted"
+        if decision.next_state is RuntimeState.EXPIRED:
+            return ExecutionOutcome.EXPIRED, "runtime_expired"
+        expires_at = _parse_utc(request.constraint.expires_at, "expires_at")
+        requested_at = _parse_utc(request.requested_at, "requested_at")
+        if expires_at <= now or expires_at <= requested_at:
+            return ExecutionOutcome.EXPIRED, "execution_constraint_expired"
+        if (
+            not request.constraint.execution_enabled
+            or decision.next_state is RuntimeState.EXECUTION_BLOCKED
+        ):
+            return ExecutionOutcome.BLOCKED, "execution_blocked"
+        if decision.next_state is not RuntimeState.READY:
+            return ExecutionOutcome.INVALID_STATE, "runtime_not_ready"
+
+        handoff_failure = self._authorization_handoff_failure(request, handoff)
+        if handoff_failure is not None:
+            return ExecutionOutcome.MISSING_AUTHORITY, handoff_failure
+
+        required_evidence = (
+            (
+                request.constraint.require_refusal_evidence,
+                request.refusal_evidence,
+                ("refusal_decision_id", "refusal_evidence_hash"),
+            ),
+            (
+                request.constraint.require_escalation_evidence,
+                request.escalation_evidence,
+                ("escalation_decision_id", "escalation_evidence_hash"),
+            ),
+            (
+                request.constraint.require_review_evidence,
+                request.review_evidence,
+                ("review_decision_id", "review_evidence_hash"),
+            ),
+            (
+                request.constraint.require_override_evidence,
+                request.override_evidence,
+                ("override_decision_id", "override_evidence_hash"),
+            ),
+        )
+        if any(
+            required and not _evidence_has(evidence, *keys)
+            for required, evidence, keys in required_evidence
+        ):
+            return ExecutionOutcome.MISSING_EVIDENCE, "required_evidence_missing"
+        return ExecutionOutcome.ELIGIBLE, "execution_eligible"
+
+    def _authorization_handoff_failure(
+        self,
+        request: ExecutionRequest,
+        handoff: AuthorizationExecutionHandoffDecision | None,
+    ) -> str | None:
+        if handoff is None:
+            return "authorization_handoff_missing"
+        if not isinstance(handoff, AuthorizationExecutionHandoffDecision):
+            return "authorization_handoff_noncanonical"
+        if not handoff.accepted:
+            return "authorization_handoff_not_accepted"
+        if (
+            handoff.request_id != request.request_id
+            or handoff.requester_id != request.actor_id
+            or handoff.subject_id != request.subject_id
+            or handoff.action != request.action
+            or handoff.resource != request.resource
+            or handoff.payload_hash != request.payload_hash
+            or handoff.context_hash != request.context_hash
+            or handoff.policy_version != request.policy_version
+            or handoff.delegation_id != request.delegation_id
+        ):
+            return "authorization_handoff_binding_mismatch"
+        if not handoff.fresh_authorization_decision_id:
+            return "authorization_decision_missing"
+        if not handoff.fresh_authorization_evidence_hash:
+            return "authorization_evidence_hash_missing"
+        if not handoff.fresh_authorization_audit_event_id:
+            return "authorization_audit_missing"
+        if handoff.audit_event_id not in request.audit_references:
+            return "authorization_handoff_audit_reference_missing"
+        if handoff.fresh_authorization_audit_event_id not in request.audit_references:
+            return "authorization_audit_reference_missing"
+
+        expected_authority_evidence = {
+            "authorization_decision_id": handoff.fresh_authorization_decision_id,
+            "authorization_evidence_hash": handoff.fresh_authorization_evidence_hash,
+            "authorization_audit_event_id": handoff.fresh_authorization_audit_event_id,
+            "authority_resolution_id": handoff.authority_resolution_id,
+            "handoff_validation_id": handoff.handoff_validation_id,
+            "handoff_evidence_hash": handoff.evidence_hash,
+        }
+        if dict(request.authority_evidence) != expected_authority_evidence:
+            return "authorization_evidence_binding_mismatch"
+
+        try:
+            event = self._audit_repository.get(handoff.audit_event_id)
+        except MissingRecordError:
+            return "authorization_handoff_audit_missing"
+        details = event.record.get("details", {})
+        if not (
+            event.record.get("event_type")
+            == "authorization.execution_handoff.validation"
+            and event.record.get("request_id") == handoff.request_id
+            and event.record.get("reason") == handoff.reason
+            and details.get("accepted") is True
+            and details.get("handoff_validation_id") == handoff.handoff_validation_id
+            and details.get("evidence_hash") == handoff.evidence_hash
+            and details.get("fresh_authorization_decision_id")
+            == handoff.fresh_authorization_decision_id
+        ):
+            return "authorization_handoff_audit_mismatch"
+        return None
+
     def _utc_now(self) -> datetime:
         now = self._clock()
         if now.tzinfo is None or now.utcoffset() is None:
@@ -184,13 +343,23 @@ def validate_execution_request(request: ExecutionRequest) -> None:
         "request_id",
         "runtime_transition_decision_id",
         "actor_id",
+        "subject_id",
         "action",
         "resource",
+        "payload_hash",
+        "context_hash",
+        "policy_version",
         "requested_at",
     ):
         value = getattr(request, field_name)
         if not isinstance(value, str) or not value:
             raise ExecutionControlValidationError(f"{field_name} must be non-empty")
+    if request.delegation_id is not None and (
+        not isinstance(request.delegation_id, str) or not request.delegation_id
+    ):
+        raise ExecutionControlValidationError(
+            "delegation_id must be null or a non-empty string"
+        )
     if not isinstance(request.constraint, ExecutionConstraint):
         raise ExecutionControlValidationError("constraint must be canonical")
     _validate_constraint(request.constraint)
@@ -255,61 +424,6 @@ def _validate_constraints(
             )
         result[constraint.constraint_id] = constraint
     return result
-
-
-def _classify(
-    request: ExecutionRequest,
-    decision: RuntimeTransitionDecision,
-    now: datetime,
-) -> tuple[ExecutionOutcome, str]:
-    if not decision.allowed:
-        return ExecutionOutcome.BLOCKED, "runtime_transition_rejected"
-    if decision.next_state is RuntimeState.HALTED:
-        return ExecutionOutcome.HALTED, "runtime_halted"
-    if decision.next_state is RuntimeState.EXPIRED:
-        return ExecutionOutcome.EXPIRED, "runtime_expired"
-    expires_at = _parse_utc(request.constraint.expires_at, "expires_at")
-    requested_at = _parse_utc(request.requested_at, "requested_at")
-    if expires_at <= now or expires_at <= requested_at:
-        return ExecutionOutcome.EXPIRED, "execution_constraint_expired"
-    if (
-        not request.constraint.execution_enabled
-        or decision.next_state is RuntimeState.EXECUTION_BLOCKED
-    ):
-        return ExecutionOutcome.BLOCKED, "execution_blocked"
-    if decision.next_state is not RuntimeState.READY:
-        return ExecutionOutcome.INVALID_STATE, "runtime_not_ready"
-    if not _evidence_has(
-        request.authority_evidence,
-        "authority_reference",
-        "authority_evidence_hash",
-    ):
-        return ExecutionOutcome.MISSING_AUTHORITY, "authority_evidence_missing"
-    required_evidence = (
-        (
-            request.constraint.require_refusal_evidence,
-            request.refusal_evidence,
-            ("refusal_decision_id", "refusal_evidence_hash"),
-        ),
-        (
-            request.constraint.require_escalation_evidence,
-            request.escalation_evidence,
-            ("escalation_decision_id", "escalation_evidence_hash"),
-        ),
-        (
-            request.constraint.require_review_evidence,
-            request.review_evidence,
-            ("review_decision_id", "review_evidence_hash"),
-        ),
-        (
-            request.constraint.require_override_evidence,
-            request.override_evidence,
-            ("override_decision_id", "override_evidence_hash"),
-        ),
-    )
-    if any(required and not _evidence_has(evidence, *keys) for required, evidence, keys in required_evidence):
-        return ExecutionOutcome.MISSING_EVIDENCE, "required_evidence_missing"
-    return ExecutionOutcome.ELIGIBLE, "execution_eligible"
 
 
 def _evidence_has(evidence: Mapping[str, object], *keys: str) -> bool:
