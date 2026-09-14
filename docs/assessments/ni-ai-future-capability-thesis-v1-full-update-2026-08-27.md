@@ -198,7 +198,6 @@ This principle creates no executable authority, ownership transfer, standing del
 OpenAI and its systems retain authority over the responses, capabilities, constraints, and permitted behavior of the AI environment they provide. The human participant retains authority over their own domain: their intent, knowledge, decisions, permissions, claims, corrections, and responsibilities. Assistance may interpret, organize, challenge, synthesize, or execute bounded actions only within the authority actually granted and the capabilities legitimately available. Neither side silently inherits the authority of the other. **AI capability does not become human authority; human participation does not become unrestricted AI permission.** Correspondence is created through explicit boundaries, evidence, correction, and consent, while responsibility remains with the party that legitimately holds it.
 
 The governing distinctions are:
-
 - Platform or system capability does not silently transfer authority to the human participant.
 - Human participation, context, or correction does not create unrestricted permission for an AI system.
 - Human authority over purpose and decisions does not override platform constraints, system rules, or legitimate capability boundaries.
@@ -921,3 +920,83 @@ REASSESSMENT != PERMISSION
 ```
 
 The September 14 institutional reconciliation does not enlarge EchoAuth's authority. It improves correspondence between historical design material, present repository evidence, and current claims. Where implementation or verification exists, the thesis may now point to it precisely. Where integration, deployment, consumers, compliance, certification, or external authority remain absent, the thesis continues to say so.
+
+## September 14, 2026 — OpenReview External-Routing Status Supersession Note
+
+**Authority / Source:** Nicholas B. Carty (N.B.C.)  
+**Status:** DOCUMENTATION-ONLY EXTERNAL-ROUTING STATUS SUPERSESSION  
+**Canonical EchoAuth source checkpoint:** `main@c5821ab8c2e2549923ddb0dbdebccf83ebc368ac`
+
+The earlier thesis statement describing OpenReview profile `~Nicholas_b_carty1` as being in the moderation queue and waiting for activation was accurate for its earlier recorded checkpoint but is no longer the current external-routing status. That earlier paragraph remains preserved unchanged as historical chronology.
+
+Current bounded profile status:
+
+```text
+PROFILE ACTIVATED — 2026-09-09
+FORMER PROFILE-MODERATION / ACTIVATION BLOCKER — CLOSED
+```
+
+This correction is supported by:
+
+`docs/assessments/ni-ai-openreview-profile-activation-status-2026-09-12.md`
+
+The synchronized September 12 thesis checkpoint independently preserves:
+
+```text
+OpenReview profile ~Nicholas_b_carty1 — ACTIVATED 2026-09-09
+former profile-moderation blocker — CLOSED
+paper submission — NOT YET ESTABLISHED
+external-review handoff / SAL-57 — NOT YET ESTABLISHED
+```
+
+The activation-dependent condition watched by the earlier approval watch has been satisfied and the moderation/profile-activation blocker is closed. This note does not establish that the watch itself was technically deleted or disabled.
+
+Preserve:
+
+```text
+EARLIER STATUS WAS TRUE AT ITS RECORDED CHECKPOINT != CURRENT STATUS
+STATUS CORRECTION != HISTORICAL REWRITE
+PROFILE ACTIVATION != PAPER SUBMISSION
+PAPER SUBMISSION != REVIEW
+REVIEW != ACCEPTANCE
+ACCEPTANCE != PUBLICATION
+EXTERNAL PLATFORM STATUS != RESEARCH VALIDATION
+```
+
+Current repository evidence does **not** establish:
+
+- paper submission;
+- OpenReview paper/forum ID;
+- external review;
+- acceptance;
+- publication;
+- endorsement by OpenReview;
+- endorsement by NeurIPS;
+- endorsement by any workshop organizer;
+- institutional validation;
+- scientific validation beyond the evidence already recorded in the repository.
+
+The current external-routing status therefore remains evidence-bounded:
+
+```text
+PAPER SUBMISSION — NOT YET ESTABLISHED
+OPENREVIEW PAPER/FORUM ID — NOT YET ESTABLISHED
+RUNTIME EFFECT = NONE
+AUTHORITY EFFECT = NONE
+SAL EFFECT = NONE
+```
+
+The adversarial posture remains exactly:
+
+```text
+SAL-11 = PASS
+SAL-12 = PASS
+SAL-13 = HOLD / PARTIAL
+SAL-14 = PASS
+SAL-15 = HOLD / PARTIAL
+SAL-9 = HOLD — 3 PASS / 2 HOLD-PARTIAL / 0 FAIL
+```
+
+**Absence is not PASS.**
+
+The OpenReview profile-activation correction updates only the present external-routing status. It does not rewrite the earlier thesis checkpoint, establish paper submission, review, acceptance, publication, endorsement, research validation, runtime capability, or new authority.
