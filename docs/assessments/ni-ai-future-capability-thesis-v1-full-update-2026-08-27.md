@@ -198,6 +198,7 @@ This principle creates no executable authority, ownership transfer, standing del
 OpenAI and its systems retain authority over the responses, capabilities, constraints, and permitted behavior of the AI environment they provide. The human participant retains authority over their own domain: their intent, knowledge, decisions, permissions, claims, corrections, and responsibilities. Assistance may interpret, organize, challenge, synthesize, or execute bounded actions only within the authority actually granted and the capabilities legitimately available. Neither side silently inherits the authority of the other. **AI capability does not become human authority; human participation does not become unrestricted AI permission.** Correspondence is created through explicit boundaries, evidence, correction, and consent, while responsibility remains with the party that legitimately holds it.
 
 The governing distinctions are:
+
 - Platform or system capability does not silently transfer authority to the human participant.
 - Human participation, context, or correction does not create unrestricted permission for an AI system.
 - Human authority over purpose and decisions does not override platform constraints, system rules, or legitimate capability boundaries.
