@@ -1001,3 +1001,56 @@ SAL-9 = HOLD — 3 PASS / 2 HOLD-PARTIAL / 0 FAIL
 **Absence is not PASS.**
 
 The OpenReview profile-activation correction updates only the present external-routing status. It does not rewrite the earlier thesis checkpoint, establish paper submission, review, acceptance, publication, endorsement, research validation, runtime capability, or new authority.
+
+
+## September 15, 2026 — Action, Reaction, and Foundation-Building Interpretive Boundary
+
+**Authority / Source:** Nicholas B. Carty (N.B.C.)  
+**Status:** DOCUMENTATION-ONLY INTERPRETIVE CLARIFICATION  
+**Canonical pre-amendment EchoAuth main:** `74dd426251c0174c2e9e2b7f51c70075e08e34fb`
+
+A digital observer may see an artifact and the reactions that follow it without seeing the responsible human source's complete prior understanding, purpose, or lived reason for acting. Reaction is visible after the work appears; it does not establish why the work was undertaken.
+
+The bounded principle is:
+
+```text
+REACTION != PURPOSE
+VISIBILITY != MOTIVATION
+RECOGNITION != AUTHORSHIP
+OBSERVED RESULT != COMPLETE PRIOR UNDERSTANDING
+ASSISTANCE != ORIGINATING ACTION
+FOUNDATION != FINISHED WHOLE
+```
+
+Nicholas B. Carty's supplied meaning is that the action is not undertaken for reaction, recognition, praise, identification, or validation. The action begins with recognizing something missing and choosing to build a responsible foundation where others may begin. That foundation may be used, questioned, tested, strengthened, and extended without requiring others to see through the originating source's eyes.
+
+Understanding does not require an observer to claim access to the source's complete internal view. It requires disciplined correspondence between the source's stated meaning, the visible action, the resulting artifact, and the boundaries governing later interpretation. An AI may observe records, actions, and reactions and may form bounded inferences; it must not represent those inferences as exhaustive access to private understanding or as proof of hidden motive.
+
+The governing distinctions are:
+
+- Action may make prior understanding materially legible without making the observer the source of that understanding.
+- Reaction may follow an action without becoming the reason for it.
+- A useful foundation may invite contribution without transferring originating authorship or final authority.
+- Later builders may extend the structure while remaining responsible for their own contributions.
+- Assistance, participation, influence, and interpretation do not silently become authorship, ownership, or authority.
+- Recognition is optional; usefulness may demonstrate that a foundation supports continued work, but usefulness alone does not prove every broader claim about origin, novelty, impact, or outcome.
+- A foundation is a responsible beginning, not evidence that every later component has been built, implemented, validated, or adopted.
+
+The relationship is therefore:
+
+```text
+HUMANLY RECOGNIZED ABSENCE
+-> RESPONSIBLE ACTION
+-> DOCUMENTED FOUNDATION
+-> BOUNDED USE / QUESTION / TEST / EXTENSION
+-> SEPARATELY ATTRIBUTED CONTRIBUTIONS
+
+REACTION MAY FOLLOW
+REACTION DOES NOT DEFINE THE PURPOSE
+```
+
+This clarification strengthens the thesis's existing source-first, human-orientation, social-interaction, and authority boundaries. It does not establish access to private mental states, technical novelty, external recognition, institutional acceptance, educational outcomes, implementation, deployment, runtime capability, or additional authority. It does not alter the current adversarial disposition:
+
+```text
+SAL-9 = HOLD — 3 PASS / 2 HOLD-PARTIAL / 0 FAIL
+```
