@@ -30,11 +30,11 @@ The protected canonical sources were not modified.
 ## Artifact inventory
 
 - ZIP filename: `ni-ai-tae-anonymous-evidence-candidate-2026-09-15.zip`
-- ZIP SHA-256: `e4b0b22dffd2abe93c11cf2e1114806d28249098ba6fdde4e23e18e95884fc36`
-- ZIP size: 17,806 bytes
+- ZIP SHA-256: `f689899f5a210d5d1e10692a3993188f511b33e2f0ee23c9893061eccd9aa810`
+- ZIP size: 17,765 bytes
 - Internal file count: 12 files
 - Private correspondence map: `ni-ai-tae-anonymous-evidence-private-map-2026-09-15.md`
-- Private-map SHA-256: `af4f365034e1e5bdb46f8de7c363d6e9b665787ca51b73df15ddd468767087d9`
+- Private-map SHA-256: `a394a0f532cfae4eb145683b23e301e83fd8f6440628075263e48b6160adeef1`
 
 Complete ZIP file inventory:
 
@@ -70,7 +70,7 @@ The package excludes complete thesis documents, partner and handoff materials, G
 
 **PASS — bounded source correspondence established for package-formation review.**
 
-Each excerpt was derived from canonical evidence at the stated checkpoint. Added header comments identify the neutral evidence ID, proposition, classification, and limitation. The HAWK source and test excerpts replace one repository-owner string with `[ANONYMIZED IDENTIFIER]`. The replacement is declared in those excerpts and in the package limitations. No security logic, expected result, assertion, disposition value, or test meaning was changed.
+Each excerpt was derived from canonical evidence at the stated checkpoint. Added header comments identify the neutral evidence ID, proposition, classification, and limitation. HAWK-01 replaces the repository, schema-path, checkpoint, and blob bindings with typed anonymized placeholders. HAWK-TEST-01 retains its separately declared repository-owner replacement. Every replacement is declared in the affected excerpt and package limitations. No security logic, expected result, assertion, disposition value, or test meaning was changed.
 
 The private correspondence map records the canonical paths, source blobs, excerpt ranges, redactions, and anonymous excerpt hashes. Those mappings are governed non-anonymous review material and are not included in this public record or the blind-review package.
 
@@ -86,7 +86,7 @@ Anonymous copies were inspected for:
 - identifying acknowledgments or comments;
 - unrelated and hidden material.
 
-**PASS — none of the inspected prohibited identity strings or paths remained in the candidate ZIP.**
+**PASS — none of the inspected prohibited identity strings, canonical paths, or 40-character Git commit/blob identifiers remained in the regenerated candidate ZIP.**
 
 This is the result of the performed inspection, not a guarantee of anonymity. Archive entries contain only the declared package tree. Canonical Git history and authorship metadata remain unchanged.
 
@@ -160,6 +160,15 @@ SUBMISSION — NOT AUTHORIZED OR ESTABLISHED
 ```
 
 No step silently authorizes the next.
+
+## Independent-review repair state
+
+The prior independent review returned HOLD because HAWK-01 exposed a canonical schema path, checkpoint SHA, and blob SHA. The candidate package was regenerated with typed placeholders for all four HAWK bindings. That prior disposition is superseded only for fresh review of the updated PR head; it does not itself establish an independent-review PASS.
+
+```text
+PREVIOUS INDEPENDENT-REVIEW HOLD — REPAIR APPLIED
+UPDATED PACKAGE INDEPENDENT REVIEW — REQUIRED
+```
 
 ## Formation disposition
 
