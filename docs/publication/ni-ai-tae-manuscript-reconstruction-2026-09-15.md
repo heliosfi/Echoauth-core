@@ -254,24 +254,70 @@ Current evidence does not establish:
 
 The repository previously recorded a historical baseline of 194 passing tests across specified Sprint 1 and Sprint 2 foundation scope. This reconstruction does not independently rerun or reproduce that baseline and therefore does not present it as a new experimental result.
 
-## 10. Related Work — Verification Required
+## 10. Related Work
 
-External related-work citations were not verified during this bounded reconstruction. Before submission, a separately authorized research lane should identify current primary sources concerning:
+The sources in this section establish precedent, terminology, contrasts, and evaluation cautions. They are not prior implementations of this architecture, evidence of derivation, or endorsements of this work.
 
-- authorization and least-privilege design;
-- reference monitors and policy enforcement points;
-- capability-based security;
-- agentic AI tool-use governance;
-- runtime assurance and safety envelopes;
-- provenance, auditability, and accountable AI;
-- replay resistance and distributed idempotency;
-- human oversight and meaningful control.
+### 10.1 Foundational security and authority controls
 
-No bibliographic placeholder in this section should be converted into a citation without confirming authorship, title, venue, year, identifier, and direct relevance from an authoritative source.
+Least privilege and complete mediation provide established security principles for limiting authority and checking consequential access [1]. The confused-deputy problem demonstrates how a component holding ambient authority can exercise that authority for the wrong principal when designation and authority are not bound correctly [2]. These principles historically motivate explicit authority boundaries, but they do not establish the planning-to-reassessment structure evaluated here.
 
-## 11. Conclusion
+Attribute-based access control determines authorization by evaluating relevant subject, object, operation, environmental, policy, rule, and relationship information [3]. Zero trust architecture likewise rejects implicit trust based solely on network location or ownership and treats authentication and authorization as discrete functions preceding resource access [4]. The present work does not claim to implement either ABAC or zero trust completely; these sources supply bounded authorization context.
 
-The evidence supports a bounded governance proposition: several implemented interfaces prevent specific forms of authority inheritance, stale permission reuse, unauthorized state substitution, replay-based amplification, and returned-evidence reuse at the seams tested. The evidence does not support a claim of complete end-to-end autonomous safety because two legitimate consumer chains are absent.
+### 10.2 Agentic AI and tool-use governance
+
+ToolEmu uses a language-model-emulated tool environment to identify potentially consequential failures without instantiating every real external tool [5]. The Instruction Hierarchy instead trains a model to prioritize privileged instructions over conflicting lower-trust input [6]. AgentDojo evaluates agents executing tools over untrusted data and shows that prompt injection through returned tool content remains a material problem for both attacks and defenses [7]. These approaches concern related risk surfaces and defenses. None is treated as architecturally equivalent to the responsibility-separated governance method in this paper.
+
+### 10.3 Runtime assurance, provenance, and accountability
+
+The Simplex architecture separates advanced control from a safety controller able to preserve bounded operation or initiate fallback [8]. It supplies historical precedent for runtime safety separation, not evidence that this repository implements Simplex or inherits its safety properties.
+
+PROV-O defines interoperable concepts for entities, activities, agents, attribution, derivation, plans, roles, and delegation [9]. Such representation can improve traceability, but recorded provenance alone does not prove that evidence is complete, correct, immutable, or authorized. The NIST AI Risk Management Framework provides broader lifecycle context through its GOVERN, MAP, MEASURE, and MANAGE functions and recognizes separation between building or using models and verification or validation as a best practice [10]. It is voluntary guidance rather than certification, compliance evidence, endorsement, or validation of this architecture.
+
+### 10.4 Replay resistance and idempotency
+
+The current TLS 1.3 specification, RFC 9846, obsoletes RFC 8446 and documents weaker security properties and replay exposure for 0-RTT data [11]. HTTP semantics separately defines idempotency in terms of the intended effect of repeated identical requests [12]. These protocol concepts constrain interpretation of SAL-14:
+
+```text
+REPLAY REJECTION != EXACTLY-ONCE EFFECT
+IDEMPOTENCY != SINGLE EXECUTION
+DUPLICATE SUPPRESSION != CURRENT AUTHORIZATION
+LOCAL RECORD != EXTERNAL EFFECT
+```
+
+The tested result therefore concerns rejection of the assessed replay condition and preservation of an inert local effect. It does not establish exactly-once external effects or distributed transactional guarantees.
+
+### 10.5 Human oversight and meaningful control
+
+Meaningful human control has been framed through conditions that connect system behavior to relevant human reasons and make responsible human agents traceable [13]. A confirmation interface or nominal human presence alone does not establish informed, effective, accountable, or current authorization. The present method accordingly treats human-supplied meaning as relevant source evidence while preserving independent checks on external factual and technical claims.
+
+### 10.6 Critical and contrasting work
+
+End-to-end arguments show why functions implemented at lower layers can remain incomplete unless the consequential property is checked at the appropriate endpoints [14]. This cautions against generalizing a passing local seam into complete system safety and supports retaining SAL-13 and SAL-15 as HOLD/PARTIAL while their legitimate consumers are absent.
+
+Recent work on indirect prompt-injection benchmarks reports that apparently saturated benchmarks can conceal weak attacks, implementation defects, or inadequate success metrics [15]. That result concerns prompt-injection defenses rather than this SAL harness, but it supports benchmark humility, explicit success criteria, and later testing with stronger adaptive attacks. External literature contextualizes the repository evidence; it does not modify or supersede any SAL result.
+
+## 11. References
+
+1. J. H. Saltzer and M. D. Schroeder, “The Protection of Information in Computer Systems,” *Proceedings of the IEEE*, vol. 63, no. 9, pp. 1278–1308, 1975. doi: [10.1109/PROC.1975.9939](https://doi.org/10.1109/PROC.1975.9939).
+2. N. Hardy, “The Confused Deputy: (or why capabilities might have been invented),” *ACM SIGOPS Operating Systems Review*, vol. 22, no. 4, pp. 36–38, 1988. doi: [10.1145/54289.871709](https://doi.org/10.1145/54289.871709).
+3. V. C. Hu, D. Ferraiolo, D. R. Kuhn, A. R. Schnitzer, K. Sandlin, R. Miller, and K. Scarfone, *Guide to Attribute Based Access Control (ABAC) Definition and Considerations*, NIST SP 800-162, 2014, updated 2019. doi: [10.6028/NIST.SP.800-162](https://doi.org/10.6028/NIST.SP.800-162).
+4. S. Rose, O. Borchert, S. Mitchell, and S. Connelly, *Zero Trust Architecture*, NIST SP 800-207, 2020. doi: [10.6028/NIST.SP.800-207](https://doi.org/10.6028/NIST.SP.800-207).
+5. Y. Ruan, H. Dong, A. Wang, S. Pitis, Y. Zhou, J. Ba, Y. Dubois, C. J. Maddison, and T. Hashimoto, “Identifying the Risks of LM Agents with an LM-Emulated Sandbox,” arXiv:2309.15817, 2023, revised 2024. doi: [10.48550/arXiv.2309.15817](https://doi.org/10.48550/arXiv.2309.15817).
+6. E. Wallace, K. Xiao, R. Leike, L. Weng, J. Heidecke, and A. Beutel, “The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions,” arXiv:2404.13208, 2024. doi: [10.48550/arXiv.2404.13208](https://doi.org/10.48550/arXiv.2404.13208).
+7. E. Debenedetti, J. Zhang, M. Balunović, L. Beurer-Kellner, M. Fischer, and F. Tramèr, “AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents,” arXiv:2406.13352, 2024. doi: [10.48550/arXiv.2406.13352](https://doi.org/10.48550/arXiv.2406.13352).
+8. D. Seto, B. Krogh, L. Sha, and A. Chutinan, “The Simplex Architecture for Safe On-Line Control System Upgrades,” in *Proceedings of the 1998 American Control Conference*, vol. 6, pp. 3504–3508, 1998. doi: [10.1109/ACC.1998.703255](https://doi.org/10.1109/ACC.1998.703255).
+9. T. Lebo, S. Sahoo, and D. McGuinness, eds., *PROV-O: The PROV Ontology*, W3C Recommendation, 2013. [https://www.w3.org/TR/prov-o/](https://www.w3.org/TR/prov-o/).
+10. National Institute of Standards and Technology, *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1, 2023. doi: [10.6028/NIST.AI.100-1](https://doi.org/10.6028/NIST.AI.100-1).
+11. E. Rescorla, *The Transport Layer Security (TLS) Protocol Version 1.3*, RFC 9846, Internet Engineering Task Force, 2026. doi: [10.17487/RFC9846](https://doi.org/10.17487/RFC9846).
+12. R. Fielding, M. Nottingham, and J. Reschke, eds., *HTTP Semantics*, STD 97, RFC 9110, Internet Engineering Task Force, 2022. doi: [10.17487/RFC9110](https://doi.org/10.17487/RFC9110).
+13. F. Santoni de Sio and J. van den Hoven, “Meaningful Human Control over Autonomous Systems: A Philosophical Account,” *Frontiers in Robotics and AI*, vol. 5, art. 15, 2018. doi: [10.3389/frobt.2018.00015](https://doi.org/10.3389/frobt.2018.00015).
+14. J. H. Saltzer, D. P. Reed, and D. D. Clark, “End-to-End Arguments in System Design,” *ACM Transactions on Computer Systems*, vol. 2, no. 4, pp. 277–288, 1984. doi: [10.1145/357401.357402](https://doi.org/10.1145/357401.357402).
+15. R. Bhagwatkar, K. Kasa, A. Puri, G. Huang, I. Rish, G. W. Taylor, K. D. Dvijotham, and A. Lacoste, “Indirect Prompt Injections: Are Firewalls All You Need, or Stronger Benchmarks?” arXiv:2510.05244, 2025, revised 2026. doi: [10.48550/arXiv.2510.05244](https://doi.org/10.48550/arXiv.2510.05244).
+
+## 12. Conclusion
+
+The evidence supports a bounded governance proposition: several implemented interfaces constrain specific forms of authority inheritance, stale permission reuse, unauthorized state substitution, replay-based amplification, and returned-evidence reuse at the seams tested. The evidence does not support a claim of complete end-to-end autonomous safety because two legitimate consumer chains are absent.
 
 The defensible posture is therefore:
 
@@ -312,13 +358,15 @@ All paths below are relative to the canonical evidence checkpoint identified at 
 
 ```text
 ORIGINAL MANUSCRIPT SOURCE — NOT RECOVERED
-CURRENT DOCUMENT — NEW RECONSTRUCTION
+CURRENT MANUSCRIPT — RECONSTRUCTION ON CANONICAL MAIN
 OPENREVIEW PROFILE — ACTIVATED 2026-09-09
 PAPER SUBMISSION — NOT ESTABLISHED
 OPENREVIEW PAPER OR FORUM ID — NOT ESTABLISHED
 EXTERNAL REVIEW — NOT ESTABLISHED
 ACCEPTANCE — NOT ESTABLISHED
 PUBLICATION — NOT ESTABLISHED
+NOVELTY — NOT ESTABLISHED
+PATENTABILITY — NOT ESTABLISHED
 EXTERNAL ENDORSEMENT — NOT ESTABLISHED
 COMPLETE INTEGRATED RUNTIME — NOT ESTABLISHED
 PRODUCTION READINESS — NOT ESTABLISHED
