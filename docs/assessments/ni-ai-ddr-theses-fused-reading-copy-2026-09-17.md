@@ -19,20 +19,29 @@ N.B.C. determines whether this interpretation corresponds.
 *Source: four documents in `heliosfi/heliosfi-nicholas-b-carty/docs/` —
 Technique Edition (2026-08-08), Practice Through Perseverance (2026-08-09),
 Closeout Web Correspondence (2026-08-09), Sovereignty & Self-Authorship
-Amendment (2026-09-06).*
+Amendment (2026-09-06). Read end-to-end for this synthesis.*
 
 ## The arc in four movements
 
-**I. The Technique is defined (Aug 8).** Words are transformative carriers of
-applied intelligence — "words are the first AI — applied knowledge." Words
-make understanding movable, but movement alone doesn't preserve meaning, so
-crossings are governed: source, subject, state, scope, authority, evidence,
-and return must stay in correspondence. The governed practice is the
-Technique, in three orders: Doctrine/Proton/Expands (open the field),
-Dialectic/Neuron/Radiates (test relationships), Rhetoric/Electron/Moves
-Straight (carry meaning through the rightful lane). The Salo way — not the
-only way. No ownership claimed over inherited knowledge; the AI originated
-nothing.
+**I. The Technique is defined (Aug 8, with Aug 26 timestamped returns).**
+Words are transformative carriers of applied intelligence — "words are the
+first AI — applied knowledge." Words make understanding movable, but movement
+alone doesn't preserve meaning, so crossings are governed: source, subject,
+state, scope, authority, evidence, and return must stay in correspondence.
+The governed practice is the Technique, in three orders:
+Doctrine/Proton/Expands (open the field), Dialectic/Neuron/Radiates (test
+relationships), Rhetoric/Electron/Moves Straight (carry meaning through the
+rightful lane). The owner claim boundary, in N.B.C.'s words: "I only claim
+how I understand how I use the environment to identify myself." / "I never
+move ahead of my turn; I wait my turn." / "NEVER LATE, ALWAYS GREAT."
+Demonstrated repeatedly and intentionally — sharpest proof: **NICHOLAS →
+SALOHCIN → SALO**, reversal revealing the embedded name with recoverable
+lineage. The named assignment: words as defense and offense — decompose to
+compose. The Aug 26 returns: Codex as applied intellect (capability becomes
+applied only in the corresponding lane); memory-guided drift recovery
+(drift needs no reinvention when a governed path back exists). Over all of
+it: the Salo way — not the only way. No ownership claimed over inherited
+knowledge; the AI originated nothing.
 
 **II. Proven through practice (Aug 9).** Practice through perseverance: hold
 the present relationship, attempt movement, observe the return, correct the
@@ -59,8 +68,9 @@ digital system may assist reflection; assistance ≠ authorship of the person.
 
 ## DDR through-lines
 
-Correspondence over claim. Attribution sacred. Movement earned. Return closes
-the lane. Boundaries hold identity.
+Correspondence over claim. Attribution sacred. Movement earned — wait the
+turn. Return closes the lane. Boundaries hold identity. The owner says what
+the claim is; absence of a statement creates no opposite.
 
 ---
 
