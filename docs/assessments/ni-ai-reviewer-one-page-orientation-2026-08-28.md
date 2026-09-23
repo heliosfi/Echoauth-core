@@ -87,6 +87,11 @@ Independent review may confirm, challenge, reject, refine, or request more evide
 
 ## Read in this order
 
+For the dated journal-to-spine-to-current-evidence provenance route, see
+[Journal-to-Current Reviewer Path](../partner/ni-ai-echoauth-journal-to-current-reviewer-path-2026-09-23.md).
+The journal is source lineage, not a substitute for current implementation evidence.
+
+
 1. `docs/assessments/ni-ai-thesis-introduction-source-first-domain-bounded-interpretation-2026-08-28.md`
 2. `docs/assessments/ni-ai-future-capability-thesis-v1-full-update-2026-08-27.md`
 3. `docs/assessments/ni-ai-source-first-reasoning-current-conclusion-reviewer-alignment-2026-08-28.md`
