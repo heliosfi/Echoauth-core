@@ -120,6 +120,14 @@ Any post-closure movement requires a separate explicit governed lane and authori
 * [SniperBot Market Intelligence, Governance, Execution, and Learning Relationship](docs/architecture/sniperbot-market-intelligence-governance-execution-learning-relationship.md) -- canonical conceptual relationship only; documentation-only and non-authorizing.
 * [EchoAuth Assurance Perspectives and Evidence Crosswalk](docs/architecture/echoauth-assurance-perspectives-and-evidence-crosswalk.md) -- canonical mapping of AI assurance, SSP, data-and-authority flow, and privacy perspectives to current repository evidence; documentation-only, non-runtime, non-execution, and not a certification.
 
+## Reviewer path to journal and current evidence
+
+For readers tracing N.B.C.'s dated NI-AI / EchoAuth engineering handoff through
+the assessed spine to current repository evidence and unresolved boundaries:
+[Journal-to-Current Reviewer Path](docs/partner/ni-ai-echoauth-journal-to-current-reviewer-path-2026-09-23.md).
+The historical journal remains source lineage; current implementation and
+authority claims require current evidence.
+
 ## Governance Provenance
 
 Consequential EchoAuth governance records follow the repository-level timestamp provenance discipline defined at:

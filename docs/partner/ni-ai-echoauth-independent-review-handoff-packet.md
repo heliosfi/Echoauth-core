@@ -62,7 +62,7 @@ If the reviewer confirms scope fit, the evidence package should open in this ord
 6. `runtime/deferred-capabilities-register.md`
 7. Exact source files, tests, contracts, schemas, and historical provenance requested by the reviewer
 
-Historical journal, whitepaper, engineering-handoff, portal, caregiver, safety, funding, investor, government, and patent records remain available as provenance evidence. Historical wording must not be silently promoted into current implementation claims.
+Historical journal, whitepaper, engineering-handoff, portal, caregiver, safety, funding, investor, government, and patent records remain available as provenance evidence. The exact dated path from the December 2025 handoff entry to the assessed spine and current evidence is [Journal-to-Current Reviewer Path](ni-ai-echoauth-journal-to-current-reviewer-path-2026-09-23.md). Historical wording must not be silently promoted into current implementation claims.
 
 ## 4. Current Evidence Baseline
 
@@ -226,6 +226,7 @@ This packet does not authorize:
 ## Source Anchors
 
 - `docs/partner/ni-ai-echoauth-partner-narrative.md`
+- `docs/partner/ni-ai-echoauth-journal-to-current-reviewer-path-2026-09-23.md` — deeper dated provenance route, not a required first-contact attachment
 - `docs/assessments/ni-ai-reviewer-one-page-orientation-2026-08-28.md`
 - `docs/architecture/echoauth-assurance-perspectives-and-evidence-crosswalk.md`
 - `runtime/sprint-2a-2p-consolidated-status-report.md`
