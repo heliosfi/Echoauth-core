@@ -1,0 +1,98 @@
+name: EchoAuth OIDC read-only verification
+'on':
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: echoauth-oidc-readonly
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: >-
+      github.repository == 'heliosfi/Echoauth-core' &&
+      github.event_name == 'workflow_dispatch' &&
+      github.ref == 'refs/heads/demo/bounded-echoauth-azure-20261020'
+    environment: echoauth-azure-verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      EXPECTED_SHA: ${{ vars.ECHOAUTH_VERIFICATION_SHA }}
+      CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
+      TENANT_ID: '134573e7-3bc7-44bb-9cc5-1092f76d5573'
+      SUBSCRIPTION_ID: '981ad91c-4948-4573-926d-ddfeca224b84'
+    steps:
+      - name: Verify exact target with OIDC and GET only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import base64, json, os, re, sys, urllib.parse, urllib.request
+          from urllib.error import HTTPError, URLError
+
+          def require(condition):
+              if not condition:
+                  raise ValueError("verification requirement failed")
+
+          def request_json(url, headers=None, data=None):
+              request = urllib.request.Request(url, headers=headers or {}, data=data)
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  return json.load(response)
+
+          def verify():
+              env = os.environ
+              repo = "heliosfi/Echoauth-core"
+              ref = "refs/heads/demo/bounded-echoauth-azure-20261020"
+              subject = "repo:" + repo + ":environment:echoauth-azure-verification"
+              audience = "api://AzureADTokenExchange"
+              tenant = env["TENANT_ID"]
+              subscription = env["SUBSCRIPTION_ID"]
+              target = "/subscriptions/" + subscription + "/resourceGroups/echoauth-core-rg/providers/Microsoft.Web/sites/echoauth-core-rg"
+              sha = env.get("EXPECTED_SHA", "")
+              client = env.get("CLIENT_ID", "")
+              require(bool(re.fullmatch(r"[0-9a-f]{40}", sha)))
+              require(bool(re.fullmatch(r"[0-9a-fA-F-]{36}", client)))
+              require(env.get("GITHUB_SHA") == sha)
+              require(env.get("GITHUB_REPOSITORY") == repo)
+              require(env.get("GITHUB_REF") == ref)
+              require(env.get("GITHUB_EVENT_NAME") == "workflow_dispatch")
+              require(env.get("GITHUB_WORKFLOW_REF") == repo + "/.github/workflows/echoauth-oidc-readonly.yml@" + ref)
+              # No checkout, untrusted repository scripts, third-party actions, or deployment commands.
+              oidc_url = env["ACTIONS_ID_TOKEN_REQUEST_URL"]
+              parsed = urllib.parse.urlsplit(oidc_url)
+              require(parsed.scheme == "https" and parsed.hostname and
+                      parsed.hostname.endswith(".actions.githubusercontent.com"))
+              separator = "&" if parsed.query else "?"
+              oidc = request_json(oidc_url + separator + urllib.parse.urlencode({"audience": audience}),
+                                  {"Authorization": "Bearer " + env["ACTIONS_ID_TOKEN_REQUEST_TOKEN"]})["value"]
+              claims = json.loads(base64.urlsafe_b64decode(oidc.split(".")[1] + "==="))
+              require(claims.get("iss") == "https://token.actions.githubusercontent.com")
+              require(claims.get("sub") == subject and claims.get("aud") == audience)
+              require(claims.get("repository") == repo and claims.get("ref") == ref and claims.get("sha") == sha)
+              form = urllib.parse.urlencode({
+                  "client_id": client,
+                  "scope": "https://management.azure.com/.default",
+                  "grant_type": "client_credentials",
+                  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+                  "client_assertion": oidc
+              }).encode()
+              token = request_json("https://login.microsoftonline.com/" + tenant + "/oauth2/v2.0/token",
+                                   {"Content-Type": "application/x-www-form-urlencoded"}, form)["access_token"]
+              resource = request_json("https://management.azure.com" + target + "?api-version=2023-12-01",
+                                      {"Authorization": "Bearer " + token})
+              require(resource.get("id", "").lower() == target.lower())
+              require(resource.get("type", "").lower() == "microsoft.web/sites")
+              require(resource.get("name") == "echoauth-core-rg")
+              print(json.dumps({"result": "READ_ONLY_VERIFIED", "resource_id": target,
+                                "source_sha": sha, "deployment_authorized": False}))
+              # Tokens remain in process memory only; no Azure CLI session or token cache is created.
+
+          try:
+              verify()
+          except Exception:
+              # Never print OAuth responses, credentials, request headers, or token-bearing exception details.
+              print("HOLD: OIDC verification failed; no deployment authorized.", file=sys.stderr)
+              sys.exit(1)
+          PY
