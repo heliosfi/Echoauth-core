@@ -297,7 +297,22 @@ End-to-end arguments show why functions implemented at lower layers can remain i
 
 Recent work on indirect prompt-injection benchmarks reports that apparently saturated benchmarks can conceal weak attacks, implementation defects, or inadequate success metrics [15]. That result concerns prompt-injection defenses rather than this SAL harness, but it supports benchmark humility, explicit success criteria, and later testing with stronger adaptive attacks. External literature contextualizes the repository evidence; it does not modify or supersede any SAL result.
 
-## 11. References
+## 11. Conclusion
+
+The evidence supports a bounded governance proposition: several implemented interfaces constrain specific forms of authority inheritance, stale permission reuse, unauthorized state substitution, replay-based amplification, and returned-evidence reuse at the seams tested. The evidence does not support a claim of complete end-to-end autonomous safety because two legitimate consumer chains are absent.
+
+The defensible posture is therefore:
+
+```text
+PRESERVE WHAT PASSED
+PRESERVE WHAT IS ABSENT
+DO NOT BUILD SOLELY TO SATISFY THE TEST
+REOPEN WHEN LEGITIMATE DEVELOPMENT CREATES A REAL EVIDENCE SURFACE
+```
+
+This posture treats uncertainty as governed state rather than a narrative problem to be hidden. Capability may increase while authority remains explicit, local, current, attributable, and independently reassessed.
+
+## References
 
 1. J. H. Saltzer and M. D. Schroeder, “The Protection of Information in Computer Systems,” *Proceedings of the IEEE*, vol. 63, no. 9, pp. 1278–1308, 1975. doi: [10.1109/PROC.1975.9939](https://doi.org/10.1109/PROC.1975.9939).
 2. N. Hardy, “The Confused Deputy: (or why capabilities might have been invented),” *ACM SIGOPS Operating Systems Review*, vol. 22, no. 4, pp. 36–38, 1988. doi: [10.1145/54289.871709](https://doi.org/10.1145/54289.871709).
@@ -314,21 +329,6 @@ Recent work on indirect prompt-injection benchmarks reports that apparently satu
 13. F. Santoni de Sio and J. van den Hoven, “Meaningful Human Control over Autonomous Systems: A Philosophical Account,” *Frontiers in Robotics and AI*, vol. 5, art. 15, 2018. doi: [10.3389/frobt.2018.00015](https://doi.org/10.3389/frobt.2018.00015).
 14. J. H. Saltzer, D. P. Reed, and D. D. Clark, “End-to-End Arguments in System Design,” *ACM Transactions on Computer Systems*, vol. 2, no. 4, pp. 277–288, 1984. doi: [10.1145/357401.357402](https://doi.org/10.1145/357401.357402).
 15. R. Bhagwatkar, K. Kasa, A. Puri, G. Huang, I. Rish, G. W. Taylor, K. D. Dvijotham, and A. Lacoste, “Indirect Prompt Injections: Are Firewalls All You Need, or Stronger Benchmarks?” arXiv:2510.05244, 2025, revised 2026. doi: [10.48550/arXiv.2510.05244](https://doi.org/10.48550/arXiv.2510.05244).
-
-## 12. Conclusion
-
-The evidence supports a bounded governance proposition: several implemented interfaces constrain specific forms of authority inheritance, stale permission reuse, unauthorized state substitution, replay-based amplification, and returned-evidence reuse at the seams tested. The evidence does not support a claim of complete end-to-end autonomous safety because two legitimate consumer chains are absent.
-
-The defensible posture is therefore:
-
-```text
-PRESERVE WHAT PASSED
-PRESERVE WHAT IS ABSENT
-DO NOT BUILD SOLELY TO SATISFY THE TEST
-REOPEN WHEN LEGITIMATE DEVELOPMENT CREATES A REAL EVIDENCE SURFACE
-```
-
-This posture treats uncertainty as governed state rather than a narrative problem to be hidden. Capability may increase while authority remains explicit, local, current, attributable, and independently reassessed.
 
 ## Appendix A — Canonical Repository Evidence
 
