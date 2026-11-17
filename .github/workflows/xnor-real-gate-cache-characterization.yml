@@ -1,0 +1,25 @@
+name: XNOR Actual Gate Cache Characterization
+
+on:
+  pull_request:
+    paths:
+      - 'tests/test_xnor_real_gate_cache_characterization.py'
+      - '.github/workflows/xnor-real-gate-cache-characterization.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  characterize-cache:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test real authorization gate cache behavior (review only)
+        env:
+          PYTHONPATH: src:.
+        run: python -m unittest discover -s tests -p 'test_xnor_real_gate_cache_characterization.py' -v
