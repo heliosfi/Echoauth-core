@@ -1,0 +1,26 @@
+name: XNOR Signed Envelope Negative Fixtures
+
+on:
+  pull_request:
+    paths:
+      - 'review_candidates/xnor_signed_envelope_fixture_review.py'
+      - 'tests/test_xnor_signed_envelope_negative_fixtures.py'
+      - '.github/workflows/xnor-signed-envelope-negative-fixtures.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  negative-fixtures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run negative fixture checks (not signature verification)
+        env:
+          PYTHONPATH: src:.
+        run: python -m unittest discover -s tests -p 'test_xnor_signed_envelope_negative_fixtures.py' -v
