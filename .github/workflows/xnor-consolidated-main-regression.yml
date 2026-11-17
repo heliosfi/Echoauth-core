@@ -1,0 +1,33 @@
+name: XNOR Consolidated Main Regression
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/xnor-consolidated-main-regression.yml'
+      - 'tests/test_xnor_*.py'
+      - 'review_candidates/xnor_*.py'
+      - 'src/echoauth/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  consolidated:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install isolated test dependency
+        run: python -m pip install 'cryptography==44.0.2'
+      - name: Run all XNOR review tests on the integrated branch
+        env:
+          PYTHONPATH: src:.
+        run: python -m unittest discover -s tests -p 'test_xnor_*.py' -v
+      - name: Run authorization gate baseline tests
+        env:
+          PYTHONPATH: src:.
+        run: python -m unittest discover -s tests -p 'test_authorization_gate.py' -v
