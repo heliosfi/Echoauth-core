@@ -1,0 +1,24 @@
+name: XNOR Interoperability Contract Review
+
+on:
+  pull_request:
+    paths:
+      - 'review_candidates/xnor_interoperability_contract_v01.py'
+      - 'tests/test_xnor_interoperability_contract.py'
+      - '.github/workflows/xnor-interoperability-contract-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  synthetic-interoperability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run synthetic interoperability contract tests
+        run: python -m unittest discover -s tests -p 'test_xnor_interoperability_contract.py' -v
