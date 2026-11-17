@@ -20,4 +20,6 @@ jobs:
         with:
           python-version: '3.11'
       - name: Run synthetic gate demonstration
+        env:
+          PYTHONPATH: src
         run: python -m unittest discover -s tests -p 'test_xnor_synthetic_gate_demonstration.py' -v
