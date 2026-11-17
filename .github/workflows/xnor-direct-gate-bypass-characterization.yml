@@ -1,0 +1,25 @@
+name: XNOR Direct Gate Bypass Characterization
+
+on:
+  pull_request:
+    paths:
+      - 'tests/test_xnor_direct_gate_bypass_characterization.py'
+      - '.github/workflows/xnor-direct-gate-bypass-characterization.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bypass:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Characterize direct gate bypass
+        env:
+          PYTHONPATH: src:.
+        run: python -m unittest discover -s tests -p 'test_xnor_direct_gate_bypass_characterization.py' -v
