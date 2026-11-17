@@ -1,0 +1,26 @@
+name: XNOR Synthetic Cache Replay Review
+
+on:
+  pull_request:
+    paths:
+      - 'review_candidates/xnor_synthetic_cache_replay.py'
+      - 'tests/test_xnor_synthetic_cache_replay.py'
+      - '.github/workflows/xnor-synthetic-cache-replay.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cache-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run synthetic cache replay tests
+        env:
+          PYTHONPATH: src:.
+        run: python -m unittest discover -s tests -p 'test_xnor_synthetic_cache_replay.py' -v
