@@ -1,0 +1,26 @@
+name: XNOR Transactional Snapshot Harness Review
+
+on:
+  pull_request:
+    paths:
+      - 'review_candidates/xnor_transactional_snapshot_harness.py'
+      - 'tests/test_xnor_transactional_snapshot_harness.py'
+      - '.github/workflows/xnor-transactional-snapshot-harness.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  transactional-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run synthetic transactional snapshot tests
+        env:
+          PYTHONPATH: src:.
+        run: python -m unittest discover -s tests -p 'test_xnor_transactional_snapshot_harness.py' -v
