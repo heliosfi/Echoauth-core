@@ -32,6 +32,17 @@ The governing interpretation is therefore:
 
 > NI AI is one intrinsically governed intelligence system. Engineering responsibilities may become more precise without multiplying the architecture.
 
+## Methodology Reference — DDR and Three Orders
+
+EchoAuth remains the authorization and governance boundary: methodological understanding or assessment does not confer permission.
+
+- **DDR (Doctrine → Dialectic → Rhetoric)** is the source/relationship/return discipline: preserve originating doctrine, authorship, and native meaning; examine relations, differences, contradictions, and evidence; return only a supported interpretation with uncertainty explicit.
+- **Three Orders (Alignment → Inconsistency → Consistency)** is a distinct evidence/control assessment: compare actual work with authoritative source and scope; identify demonstrated inconsistencies and bounded repairs; verify the resulting state and stop conditions.
+
+**These orders are not interchangeable.** DDR Dialectic is not Three Orders Inconsistency; DDR Rhetoric is not Three Orders Consistency. Neither constitutes authorization, acceptance, execution, deployment, publication, or continuation. In EchoAuth, **CAPABILITY != AUTHORITY; PLANNING != PERMISSION; PERMISSION != EXECUTION; RETURN != REAUTHORIZATION**. Preserve all existing gates and repository-specific decisions.
+
+The owner-authoritative DDR thesis remains in [N.B.C.](https://github.com/heliosfi/heliosfi-nicholas-b-carty). The domain-independent engineering method belongs to [Governed Agentic Engineering](https://github.com/heliosfi/governed-agentic-engineering) ([draft clarification PR #19](https://github.com/heliosfi/governed-agentic-engineering/pull/19)). The [author's framework-boundary correction](https://github.com/heliosfi/stillness-within-the-flames-/blob/main/editorial/FRAMEWORK-BOUNDARY-DDR-VS-THREE-ORDERS-2026-11-22.md) explicitly separates the orders. These references transfer no authority.
+
 ## Founder
 
 Nicholas B. Carty
